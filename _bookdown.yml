@@ -1,0 +1,12 @@
+book_filename: "CSU-R"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+    before_chapter_script: "rscripts/before_chapter.r"
+rmd_files:
+  - "index.Rmd"
+  - "src/01-intro.Rmd"
+  - "src/02-literature.Rmd"
+  - "src/03-method.Rmd"
+#rmd_subdir: ["src"]

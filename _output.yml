@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: src/style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Intro to R!</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf", "epub"]   
+    toolbar:
+      position: static
+  split_by: section
+bookdown::pdf_book:
+  includes:
+    in_header: src/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+bookdown::epub_book: default
