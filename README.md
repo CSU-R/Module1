@@ -1,4 +1,3 @@
-# test
-Just a test of how this might all fit together
+# Repo for the CSU R Module 1 Course
 
-Here is the [book](/_book/index.html)
+Here is the [book](https://csu-r.github.io/Module1/)

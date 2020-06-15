@@ -1,15 +1,14 @@
 --- 
-title: "New Title"
+title: "R Module 1"
 author: 
-  - "Test Author 1^[CSU, email@example.com]"
-  - "Test Author 2^[CSU, email@example.com]"
+  - "Alex Fout^[CSU, fout@colostate.edu]"
+  - "Kathleen Wendt^[CSU, email@example.com]"
 date: "`r Sys.Date()`"
 output:
   html_document:
     df_print: paged
   pdf_document: default
-description: This is a minimal example of using the bookdown package to write a book.
-  The output format for this example is bookdown::gitbook.
+description: This is the book for the R Intro Course at CSU.
 documentclass: book
 link-citations: yes
 bibliography:
@@ -21,5 +20,5 @@ biblio-style: apalike
 
 # Welcome!
 
-Hi, and welcome to the Intro to R course at CSU!
+Hi, and welcome to the R Module 1 course at CSU!
 
