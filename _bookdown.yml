@@ -6,7 +6,8 @@ language:
     before_chapter_script: "rscripts/before_chapter.r"
 rmd_files:
   - "index.Rmd"
-  - "src/01-intro.Rmd"
-  - "src/02-literature.Rmd"
-  - "src/03-method.Rmd"
-#rmd_subdir: ["src"]
+  - "src/01-CoursePreliminaries.Rmd"
+  - "src/02-InstallingR.Rmd"
+  - "src/03-TheREcosystem.Rmd"
+  - "src/04-RProgrammingFundamentals.Rmd"
+#rmd_subdir: ["src"]  # misses index.Rmd if we use this
