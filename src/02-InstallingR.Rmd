@@ -1,0 +1,11 @@
+# Installing R {#installingr}
+
+## Computer Basics
+
+## Install R \& R Studio
+
+## Successfull Installation
+
+## Running Code in RStudio Console
+
+## Creating, Running, and Saving R Scripts

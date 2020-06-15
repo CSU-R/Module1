@@ -1,0 +1,9 @@
+# Course Preliminaries {#prelim}
+
+## Syllabus \& Grading
+
+
+## Running your first R Code
+
+
+## What do you hope to get out of this course?

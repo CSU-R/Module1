@@ -1,0 +1,11 @@
+# The R Ecosystem  {#recosystem}
+
+## The R Programming Language
+
+## The R Ecosystem
+
+## R Modes and Interfaces
+
+## Console vs. Scripts vs. RMarkdown
+
+## The R Community
