@@ -24,7 +24,7 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-06-15" />
+<meta name="date" content="2020-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -210,11 +210,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Enough of the boring stuff, let’s run some R code!
 Normally you will run R on your computer, but since you may not have R installed yet, let’s run some R code using a website first.
 As you run code, you’ll see some of the things R can do.
-In a browser, navigate to <a href="rdrr.io/snippets">rdrr.io/snippets</a>, where you’ll see a box that looks like this:</p>
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+In a browser, navigate to <a href="https://rdrr.io/snippets/">rdrr.io/snippets</a>, where you’ll see a box that looks like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="src/images/rdrr.png" alt="rdrr code entry box"  />
 <p class="caption">
-Figure 2.2: rdrr code entry box
+Figure 2.3: rdrr code entry box
 </p>
 </div>
 <p>The box comes with some code entered already, but we want to use our own code instead, so delete all the text, starting with <code>library(ggplot2)</code> and ending with <code>factor(cyl))</code>.
@@ -223,22 +223,22 @@ You should see the <code>[1] 2</code> displayed below.
 So if you give R a math expression, it will evaluate it and give the result.
 Note: the “correct answer” to <span class="math inline">\(1+1\)</span> is <code>2</code>, but the output also displays <code>[1]</code>, which we won’t explain until later(TODO), so you can ignore that for now.</p>
 <p>Next, delete the code you just wrote and type (or copy/paste) the following, and run it:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">factorial</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">factorial</span>(<span class="dv">10</span>)</a></code></pre></div>
 <p>The result should be a very large number, which is equivalent to <span class="math inline">\(10!\)</span>, that is, <span class="math inline">\(10\times9\times8\times7\times6\times5\times4\times3\times2\times1\)</span>.
 This is an example of an R <em>function</em>, which we will discuss more in Section (TODO: insert ref).</p>
 <p>Aside from math, R can produce plots. Try copy/pasting the following code into the website:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">x &lt;-<span class="st"> </span><span class="dv">-10</span><span class="op">:</span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="kw">plot</span>(x, x<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">x &lt;-<span class="st"> </span><span class="dv">-10</span><span class="op">:</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">plot</span>(x, x<span class="op">^</span><span class="dv">2</span>)</a></code></pre></div>
 <p>You should see points in a scatter plot which follow a parabola.
 Here’s a more complicated example, which you should copy/paste into the website and run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">y=</span>mpg, <span class="dt">fill=</span><span class="kw">as.factor</span>(cyl))) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>, <span class="dt">y=</span><span class="st">&quot;MPG&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;Cylinders&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>, </a>
-<a class="sourceLine" id="cb5-7" title="7">        <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb5-8" title="8">        <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">y=</span>mpg, <span class="dt">fill=</span><span class="kw">as.factor</span>(cyl))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>, <span class="dt">y=</span><span class="st">&quot;MPG&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;Cylinders&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>, </a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb6-8" title="8">        <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
 <p>R can be used to make many types of visualizations, which you will do more of in Section (TODO: insert ref).</p>
 </div>
             </section>
