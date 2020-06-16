@@ -1,0 +1,101 @@
+/* svg images should be 24x24 pixels */
+
+div.bonus{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #f5f5f5;
+  position:relative;
+}
+div.bonus:before {
+    content: url(images/sun-fill.svg) " Bonus";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+ 
+ 
+div.reflect{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #ffcc4a;
+  position:relative;
+}
+div.reflect:before {
+    content: url(images/lightbulb-fill.svg) " Reflect";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+
+div.assessment{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #7ea8ed;
+  position:relative;
+}
+div.assessment:before {
+    content: url(images/pencil-fill.svg) " Assessment";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+ 
+ 
+div.progress{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #a772cc;
+  position:relative;
+}
+div.progress:before {
+    content: url(images/pulse-line.svg) " Progress Check";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+
+
+div.video{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #d66056;
+  position:relative;
+}
+div.video:before {
+    content: url(images/vidicon-fill.svg) " Video";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+
+
+div.feedback{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #56cc96;
+  position:relative;
+}
+div.feedback:before {
+    content: url(images/chat-1-fill.svg) " Feedback";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
