@@ -7,8 +7,12 @@ Each week, you'll be expected to read through the chapter and complete any assoc
 
 To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
 The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the bottom of each page allow you to step to the next/previous section.
+The faint left and right arrows at the sides of each page (or bottom of the page if it's narrow enough) allow you to step to the next/previous section.
 Here's what they look like:
+```{r, echo=F, fig.cap="Left and right navigation arrows", fig.show="hold"}
+knitr::include_graphics("src/images/left_arrow.png")
+knitr::include_graphics("src/images/right_arrow.png")
+```
 
 
 
