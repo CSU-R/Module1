@@ -16,11 +16,12 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 ---
 
-```{r, knitr_options}
-```
-
 
 # Welcome!
+
+```{r, knitr_options}
+knitr::opts_chunk$set(fig.align="center")
+```
 
 Hi, and welcome to the R Module 1 course at Colorado State University!
 
