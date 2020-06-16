@@ -1,11 +1,21 @@
 % png images should be 72x72 pixels
 
+\usepackage{xcolor}
+\usepackage{colortbl}
+
+\definecolor{bonus}{HTML}{000000}
+\definecolor{reflect}{HTML}{ffcc4a}
+\definecolor{assessment}{HTML}{7ea8ed}
+\definecolor{progress}{HTML}{a772cc}
+\definecolor{video}{HTML}{d66056}
+\definecolor{feedback}{HTML}{56cc96}
+
 \newenvironment{bonus}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/sun-fill.png}
+  \begin{tabular}{|>{\columncolor{bonus}\color{white}}p{0.9\textwidth}|}\hline\\
+  \includegraphics[scale=0.1]{src/images/sun-fill-invert.png}
+  \textbf{Bonus:}
 }
 {\\\\\hline
   \end{tabular}
@@ -16,7 +26,7 @@
 \newenvironment{reflect}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
+  \begin{tabular}{|>{\columncolor{reflect}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/lightbulb-fill.png}
   \textbf{Reflect:}
@@ -29,7 +39,7 @@
 \newenvironment{assessment}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
+  \begin{tabular}{|>{\columncolor{assessment}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/pencil-fill.png}
 }
@@ -42,7 +52,7 @@
 \newenvironment{progress}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
+  \begin{tabular}{|>{\columncolor{progress}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/pulse-line.png}
 }
@@ -55,7 +65,7 @@
 \newenvironment{video}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
+  \begin{tabular}{|>{\columncolor{video}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/vidicon-fill.png}
 }
@@ -68,7 +78,7 @@
 \newenvironment{feedback}
 {
   \begin{center}
-  \begin{tabular}{|p{0.9\textwidth}|}
+  \begin{tabular}{|>{\columncolor{feedback}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/chat-1-fill.png}
 }
