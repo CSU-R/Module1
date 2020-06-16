@@ -9,7 +9,7 @@ The project is still under construction, and we welcome any feedback or contribu
 Feel free to open an issue, create a pull request, or just directly contact one of the contributors below:
 
 The following individuals have or are currently contributing to the project
-* [Alex Fout](github.com/fouticus)
+* [Alex Fout](https://github.com/fouticus)
 * Matt Ross
 * Ben Prytherch
 
