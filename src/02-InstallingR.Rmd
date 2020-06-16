@@ -2,6 +2,16 @@
 
 ## Computer Basics
 
+### Operating Systems
+
+
+
+
+### Directory Structure
+
+### Downloads and Installations
+
+
 ## Install R \& R Studio
 
 ## Successfull Installation

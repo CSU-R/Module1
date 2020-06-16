@@ -1,9 +1,145 @@
 # Course Preliminaries {#prelim}
 
-## Syllabus \& Grading
+This course is presented as a [bookdown](bookdown.org) document, and is divided into chapters and sections
+Each week, you'll be expected to read through the chapter and complete any associated exercises, quizzes, or assignments.
+
+### How To Navigate This Book
+
+To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
+The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
+The faint left and right arrows at the bottom of each page allow you to step to the next/previous section.
+Here's what they look like:
+
+
+
+### Special Boxes
+
+Throughout the book, you'll encounter special boxes, each with a special meaning.
+Here is an example of each type of box:
+
+
+```{block, type='reflect'}
+This box will prompt you to pause and reflect on your experience and/or learning. No feedback will be given, but this may be graded on completion.
+```
+
+```{block, type='assessment'}
+This box will signify a quiz or assignment which you will turn in for grading, on which the instructor will provide feedback.
+```
+
+```{block, type='progress'}
+This box is for checking your understanding, to make sure you are ready for what follows.
+```
+
+```{block, type='video'}
+This box is for displaying/linking to videos in order to help illustrate or communicate concepts.
+```
+
+```{block, type='bonus'}
+This box is to provide material going beyond the main course content, or material which will be revisited later in more depth.
+```
+
+```{block, type='feedback'}
+This box will prompt for your feedback on the organization of the course, so we can improve the material for everyone!
+```
+
+### How This Book Displays Code
+
+In addition, you may see R code either as part of a sentence like this: `1+1`, or as a separate block like so:
+```{r, example_codeblock}
+1+1
+```
+
+Sometimes (as in this example) we will also show the __output__ , that is, the result of running the R code. In this case the code `1+1` produced the output `2`.
+If you hover over a code block with your mouse, you will see the option to copy the code to your clipboard, like this:
+```{r, fig.cap="copying code from this book", echo=F}
+knitr::include_graphics("src/images/copy_code.png")
+```
+This will be useful when you are asked to run code on your computer.
+
+### Next Steps
+
+When you're ready, go to the next section to learn about the course syllabus and grading policies.
+
+
+
+## Course Topics \& Syllabus
+
+TODO: coming soon!
+
+
+### List of Topics
+
+### Syllabus
+
+### Approach To Learning
+
+* growth mindset
+* do-first
+
+### Grading
 
 
 ## Running your first R Code
 
+Enough of the boring stuff, let's run some R code!
+Normally you will run R on your computer, but since you may not have R installed yet, let's run some R code using a website first.
+As you run code, you'll see some of the things R can do.
+In a browser, navigate to [rdrr.io/snippets](rdrr.io/snippets), where you'll see a box that looks like this:
 
-## What do you hope to get out of this course?
+```{r, fig.cap="rdrr code entry box", echo=F}
+knitr::include_graphics("src/images/rdrr.png")
+```
+
+The box comes with some code entered already, but we want to use our own code instead, so delete all the text, starting with `library(ggplot2)` and ending with `factor(cyl))`.
+In it's place, type `1+1`, then click the big green "Run" button.
+You should see the `[1] 2` displayed below.
+So if you give R a math expression, it will evaluate it and give the result.
+Note: the "correct answer" to $1+1$ is `2`, but the output also displays `[1]`, which we won't explain until later(TODO), so you can ignore that for now.
+
+Next, delete the code you just wrote and type (or copy/paste) the following, and run it:
+```{r, eval=F}
+factorial(10)
+```
+The result should be a very large number, which is equivalent to $10!$, that is, $10\times9\times8\times7\times6\times5\times4\times3\times2\times1$.
+This is an example of an R _function_, which we will discuss more in Section (TODO: insert ref).
+
+Aside from math, R can produce plots. Try copy/pasting the following code into the website:
+```{r, eval=F}
+x <- -10:10
+plot(x, x^2)
+```
+You should see points in a scatter plot which follow a parabola.
+Here's a more complicated example, which you should copy/paste into the website and run:
+```{r, eval=F}
+library(ggplot2)
+theme_set(theme_bw())
+ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) + 
+  geom_boxplot() + 
+  labs(title="Engine Fuel Efficiency vs. Number of Cylinders", y="MPG", fill="Cylinders") + 
+  theme(legend.position="bottom", 
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+```
+R can be used to make many types of visualizations, which you will do more of in Section (TODO: insert ref).
+
+
+
+## What do you hope to get out of this course?  {#getoutoftheclass}
+
+To close out this chapter, it would be healthy for you to reflect on what you'd like to get from this course. 
+Take some time to think through each question below, and write down your answers.
+It is fine if your honest answer is _I don't know_. 
+In that case, try to come up with some possible answers that _might_ be true.
+
+```{block, type="reflect"}
+1. Why are you taking this course?
+1. If this course is required for your major, how do you think it is supposed to benefit you in your studes?
+1. What types of data sets related to your field of study may require data analysis?
+1. What skills do you hope to develop in this course, and how might they be applied in your major and career?
+```
+TODO: canvas assignment?
+
+Store your answers in a safe place, and refer to them periodically as you progress through the course.
+You may find that you aren't achieving your goals and that some adjustment to how you are approaching the course may be necessary.
+Or you may find that your goals have changed, which is fine!
+Just update your goals so that you have something to refer back to.
