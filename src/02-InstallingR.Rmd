@@ -1,51 +1,71 @@
 # Installing R {#installingr}
 
+In the previous chapter, you ran R code on a website.
+The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
+
 ## Computer Basics
 
-
-If you're new to computers, this section will be important for you to get set up
+If you're new to computers, this section will be important for you to get set up.
+If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can safely skip to the next section.
 
 ### Operating Systems
 
-
-https://en.wikibooks.org/wiki/Computers_for_Beginners/The_Basics
-TODO: Fill in
-
-
-### Directory Structure
-
-
-TODO: Fill in
-
+R works on Windows, Mac OS X, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R. 
+At least, this is mostly true. 
+```{block, type="caution"}
+Some versions of Windows that run on ARM processors cannot install R, and installing R on a Chromebook will likely be more complicated (see [here](https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/){target="_blank"}).
+```
 
 ### Downloads and Installations
 
-TODO: Fill in
+To install R, you'll have to download a file from the internet which performs the installation.
+After you install R, you shouldn't have to download anything to run R.
+
+TODO: take out?
 
 
 ## Install R \& R Studio
 
+You'll actually be installing _two_ separate programs, both of which are free to use.
+The _first_ is the R programming language.
+The _second_ is a separate program called R Studio.
+R Studio will be the primary way in which you interact with R in this class, we will say more about this later.
+
+
+### Installing R
+
+Installation will look slightly different depending on the operating system, but the major steps are the same. 
+
+- First, navigate to the [CRAN Mirrors Site](https://cran.r-project.org/mirrors.html), which lists several locations from which R can be downloaded. 
+- Find a location near you (or not, this isn't critical) and click on the link to be brought to the mirror site.
+
+From this point, this will change depending on your operating system.
+
+#### Windows
+
+- Click "Download R for Windows", then click "base". 
+- Finally, Click "Download R X.Y.Z for Windows", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
+- any other settings. Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your Downloads folder or the Desktop) and select "save".
+- When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.
+- Follow the on screen prompts. For the most part you can click "continue", "agree", "install" as appropriate, and you don't have to worry about changing any installation settings.
 
 ```{block, type="video"}
-embed Matt's install video
+Create windows R install Video
 ```
 
-```{block, type="caution"}
-You may run into problems if you are running chrome-os or an "arm" processor. This will make the installation process more complicated
+#### Mac OS X
 
-These resources may help:
-[https://blog.sellorm.com/2018/12/20/installing-r-and-rstudio-on-a-chromebook/](https://blog.sellorm.com/2018/12/20/installing-r-and-rstudio-on-a-chromebook/){target="_blank"}
+- Click "Download R for (Mac) OS X"
+- Click "R-X.Y.Z.pkg", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
+- Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select "save".
+- When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process. 
+- Follow the on screen prompts. For the most part you can click "continue", "agree", "install" as appropriate, and you don't have to worry about changing any installation settings.
 
-TODO: finish
+```{block, type="video"}
+?Ben? install from Mac OS X?
 ```
 
-### Install R
-
-https://cran.r-project.org/mirrors.html
-
-### Install R Studio
-
-https://rstudio.com/products/rstudio/download/
+### Installing R Studio
 
 ## Successfull Installation
 
