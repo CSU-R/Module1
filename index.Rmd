@@ -19,8 +19,14 @@ biblio-style: apalike
 
 # Welcome!
 
-```{r, knitr_options}
+```{r, knitr_options, echo=FALSE, results='hide', message=FALSE}
 knitr::opts_chunk$set(fig.align="center")
+
+library(kableExtra)
+library(lubridate)
+start_date <- ymd("2020/07/13")
+# designed as a four week course that "meets" 3 times per week.
+course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "+")))
 ```
 
 Hi, and welcome to the R Module 1 course at Colorado State University!
