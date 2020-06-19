@@ -26,6 +26,10 @@ This box is for checking your understanding, to make sure you are ready for what
 This box is for displaying/linking to videos in order to help illustrate or communicate concepts.
 ```
 
+```{block, type='caution'}
+This box will warn you of possible problems or pitfalls you may encounter! 
+```
+
 ```{block, type='bonus'}
 This box is to provide material going beyond the main course content, or material which will be revisited later in more depth.
 ```
@@ -59,9 +63,21 @@ When you're ready, go to the next section to learn about the course syllabus and
 TODO: coming soon!
 
 
-### List of Topics
+### Schedule
+
+```{r, schedule, echo=F}
+sched <- data.frame(
+  Week = 1 + isoweek(course_dates) - isoweek(start_date),
+  Weekday = wday(course_dates, label=T, abbr=F),
+  Date = format(course_dates, "%B %d"),
+  Reading = rep("", 12),
+  Assignments = rep("", 12)
+)
+knitr::kable(sched) %>% kable_styling()
+```
 
 ### Syllabus
+
 
 ### Approach To Learning
 
@@ -76,7 +92,7 @@ TODO: coming soon!
 Enough of the boring stuff, let's run some R code!
 Normally you will run R on your computer, but since you may not have R installed yet, let's run some R code using a website first.
 As you run code, you'll see some of the things R can do.
-In a browser, navigate to [rdrr.io/snippets](https://rdrr.io/snippets/), where you'll see a box that looks like this:
+In a browser, navigate to [rdrr.io/snippets](https://rdrr.io/snippets/){target="_blank"}, where you'll see a box that looks like this:
 
 ```{r, fig.cap="rdrr code entry box", echo=F}
 knitr::include_graphics("src/images/rdrr.png")
@@ -113,6 +129,15 @@ ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) +
         axis.text.x = element_blank())
 ```
 R can be used to make many types of visualizations, which you will do more of in Section (TODO: insert ref).
+
+
+```{block, type="bonus"}
+This may be the first time you've seen R, so it's okay if you don't understand how to read this code. We'll talk more later about what each statement is doing, but for now, here is a brief description of some of the code above:
+
+- `-10:10` This creates a sequence of numbers starting from -10 and ending at 10. That is, $-10, -9, -8, \ldots, 8, 9, 10$.
+- `library` This is a function which loads an R _package_. R packages provide extra abilities to R
+
+```
 
 
 

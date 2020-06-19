@@ -2,10 +2,67 @@
 
 ## The R Programming Language
 
+There are many important qualities to R, here are some of the most important
+
+### R is a Programming Language
+
+
+```{block, type="bonus"}
+
+```
+
+### R is Free
+
+### R is Open Source
+
 ## The R Ecosystem
 
-## R Modes and Interfaces
+### R Packages
 
-## Console vs. Scripts vs. RMarkdown
+
+```{block, type="bonus"}
+Other notable packages
+```
+
+## R Interfaces
+
+### Where can R be run?
+
+```{block, type="video"}
+Video comparing the three, perhaps showing the difference between the three.
+```
+
+## Assignment
+
+```{block, type="assessment"}
+
+```
+
+### R Interfaces
+
+- RStudio
+- RGui
+- Terminal/Command line
 
 ## The R Community
+
+- Users
+- Package developers
+
+Popular "places" that R users hang out:
+
+Interact 
+
+TODO: need more ideas here.
+
+Helping each other out
+
+Where you can get help:
+
+
+- Stack Overflow 
+- Google!
+
+```{block, type="bonus"}
+link to some cool visualizations, communities, etc.
+```

@@ -2,20 +2,106 @@
 
 ## Computer Basics
 
+
+If you're new to computers, this section will be important for you to get set up
+
 ### Operating Systems
 
 
+https://en.wikibooks.org/wiki/Computers_for_Beginners/The_Basics
+TODO: Fill in
 
 
 ### Directory Structure
 
+
+TODO: Fill in
+
+
 ### Downloads and Installations
+
+TODO: Fill in
 
 
 ## Install R \& R Studio
 
+
+```{block, type="video"}
+embed Matt's install video
+```
+
+```{block, type="caution"}
+You may run into problems if you are running chrome-os or an "arm" processor. This will make the installation process more complicated
+
+These resources may help:
+[https://blog.sellorm.com/2018/12/20/installing-r-and-rstudio-on-a-chromebook/](https://blog.sellorm.com/2018/12/20/installing-r-and-rstudio-on-a-chromebook/){target="_blank"}
+
+TODO: finish
+```
+
+### Install R
+
+https://cran.r-project.org/mirrors.html
+
+### Install R Studio
+
+https://rstudio.com/products/rstudio/download/
+
 ## Successfull Installation
+
+TODO: add some basic tasks here to make sure R and RStudio work. (screenshots?)
+
+```{block, type="video"}
+todo: video orienting to R Studio (Matt video?)
+```
+
+
+```{block, type="assessment"}
+todo: create assessment
+```
+
 
 ## Running Code in RStudio Console
 
-## Creating, Running, and Saving R Scripts
+TODO: repeat online examples + Pull from here: https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html
+
+```{block, type="progress"}
+todo: create assessment
+```
+
+## Workspace setup
+
+### Recommended Settings
+
+- don't save/load workspace
+- how to adjust font size (in options and with ctrl +/-)
+- dark mode!
+
+### Setting working directory
+
+- 
+
+### Create R Studio Project and directories for class
+
+TODO: pull from: https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#r-scripts
+
+Note: This will automatically set your working directory
+
+Folder structure:
+
+- Raw Data
+- Assignments
+- 
+
+
+## Reflection \& Assignment
+
+```{block, type="reflect"}
+Before moving on to the next section
+```
+
+TODO: Kathleen thought this could be a progress check, I think we can have it be the first homework. 
+```{block, type="assessment"}
+todo: create R script to do some math, then turn in.
+provide template with comment block at the top
+```

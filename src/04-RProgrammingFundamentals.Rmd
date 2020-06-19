@@ -1,35 +1,159 @@
 # R Programming Fundamentals
 
 
-## Cheat Sheet
 
 ## Programming Preliminaries
 
-## Data Types
+```{block, type="reflect"}
+1. Look at a sentence in a language you don't know, look carefully at the symbols, spacing and characters. 
+1. Recall learning a foreign language, how you had to learn the syntax and grammar rules.
+1. Now think about English (or another language you know well) and think about the syntax and grammar rules that you take for granted. 
+```
+
+TODO: talk about syntax and grammar
+
+Specific R things:
+- semicolon
+- line continuation
+- ?
+
+```{block, type="caution"}
+R code is not English prose, i.e. symbols and characters have specific meanings. you must be careful not to ignore things like semicolons, curly braces, parentheses, when reading R code.
+```
+
+
+```{block, type="bonus"}
+https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf
+```
+
+
+## (Atomic) Data Types
+
+R can store and manipulate different pieces of information ("data").
+
+Give some examples.
+
+what is a data type?
+
+https://www.tutorialspoint.com/r/r_data_types.htm
+
+https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/#:~:text=R's%20basic%20data%20types%20are,%2C%20data%20frame%2C%20and%20factors.
+
 
 ## Data Structures
 
+These are just other types of data
+
+https://adv-r.hadley.nz/vectors-chap.html
+
+
 ## Practice
+
+```{progress}
+
+```
 
 ## R Objects
 
+### _Everything_ is an object in R
+
+### Assigning Objects
+
+
+```{block, type="bonus"}
+
+```
+
+
+### Inspecting objects
+
+str, names, dim
+
+
+### Null Objects
+
+
+
 ## Quiz
+```{block, type="assessment"}
+
+```
+
 
 ## Loading / Saving Data
 
+### "Taster"(?) list of file forms and sources
+
+### reading/writing csv
+
+### Best practices
+
+principles of Tidy Data (wickham 2014)
+
+raw data as read only
+
 ## Downloading and Saving
+
+```{block, type="video"}
+downloading and saving example csv from canvas or website
+```
 
 ## Working With Data
 
+### Summarizing vectors
+
+Mean, std, etc.
+
+### Summarizing matrices
+
+### Summarizing vectors
+
+### Basic Plotting
+
+```{block, type="bonus"}
+ggplot example
+```
+
+### Basic indexing
+
+### Advanced indexing
+
+```{block, type="bonus"}
+dplyr example
+```
+
 ## Practice
+
+```{block, type="progress"}
+
+```
 
 ## Basic Control Flow
 
+If/else
+
+loops (for, while)
+
+switch
+
 ## Advanced Control Flow
+
+*apply family
 
 ## Writing FUnctions
 
+Function scope
+
+```{block, type="bonus"}
+- Pass by value, contrast with other languages
+```
+
 ## Working With Popular Packages
+
+
 
 ## Assignment
 
+```{block, type="Assessment"}
+Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
+```
