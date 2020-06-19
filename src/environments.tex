@@ -8,6 +8,7 @@
 \definecolor{assessment}{HTML}{7ea8ed}
 \definecolor{progress}{HTML}{a772cc}
 \definecolor{video}{HTML}{d66056}
+\definecolor{caution}{HTML}{ff6700}
 \definecolor{feedback}{HTML}{56cc96}
 
 \newenvironment{bonus}
@@ -68,6 +69,18 @@
   \begin{tabular}{|>{\columncolor{video}}p{0.9\textwidth}|}
   \hline\\
   \includegraphics[scale=0.1]{src/images/vidicon-fill.png}
+}
+{\\\\\hline
+  \end{tabular}
+  \end{center}
+}
+
+\newenvironment{caution}
+{
+  \begin{center}
+  \begin{tabular}{|>{\columncolor{caution}}p{0.9\textwidth}|}
+  \hline\\
+  \includegraphics[scale=0.1]{src/images/alarm-warning-fill.png}
 }
 {\\\\\hline
   \end{tabular}

@@ -87,6 +87,22 @@ div.video:before {
     font-size: 1.5em;
 }
 
+div.caution{
+  padding: 4em 1em 1em 2em;
+  margin-bottom: 1em;
+  background: #ff6700;
+  position:relative;
+}
+div.caution:before {
+    content: url(images/alarm-warning-fill.svg) " Caution";
+    left:1em;
+    position:absolute;
+    top:1em;
+    font-weight:bold;
+    font-style:italic;
+    font-size: 1.5em;
+}
+
 
 div.feedback{
   padding: 4em 1em 1em 2em;
