@@ -3,9 +3,11 @@
 ## Computer Basics
 
 ### Operating Systems
+An operating system is software that you use every day but may not even be aware of. Maybe the most familiar operating systems are Microsoft Windows and macOS, but others exist such as Linux and Ubuntu. These operating systems control the storage, processing, and IO (input/output) of you computer. The operating system typically comes already loaded onto your computer.
 
-
-
+{{% alert note %}}
+Chromebooks use a basic operating system that acts like a browser. This is great for many operations, but you may run into some problems getting started with R
+{{% /alert %}}
 
 ### Directory Structure
 
