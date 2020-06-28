@@ -7,6 +7,7 @@ output:
   html_document:
     df_print: paged
   pdf_document: default
+#always_allow_html: true # warning, this may be risky. If you use, you need to verify that pdf isn't missing anything important.
 description: This is the book for the R Intro Course at CSU.
 documentclass: book
 link-citations: yes
@@ -20,7 +21,12 @@ biblio-style: apalike
 # Welcome!
 
 ```{r, knitr_options, echo=FALSE, results='hide', message=FALSE}
-knitr::opts_chunk$set(fig.align="center")
+# fig.align="center"  centers figures
+# comment=NA          remove "##" from R output
+# results="hold"      don't interleave chunk code and output, but hold all output until end of chunk.
+# class.source="chunk-style"     Use the CSS style "chunk-style" to style code chunks
+# class.output="output-style"    Use the CSS style "output-style" to style output of code chunks
+knitr::opts_chunk$set(fig.align="center", comment=NA, results="hold", class.source="chunk-style", class.output="output-style")
 
 library(kableExtra)
 library(lubridate)
@@ -57,7 +63,7 @@ To move quickly to different portions of the book, click on the appropriate chap
 The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
 The faint left and right arrows at the sides of each page (or bottom of the page if it's narrow enough) allow you to step to the next/previous section.
 Here's what they look like:
-```{r, echo=F, fig.cap="Left and right navigation arrows", fig.show="hold"}
+```{r, echo=F, fig.cap="Left and right navigation arrows", fig.show="hold", results='asis'}
 knitr::include_graphics("src/images/left_arrow.png")
 knitr::include_graphics("src/images/right_arrow.png")
 ```

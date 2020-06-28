@@ -1,0 +1,77 @@
+\contentsline {chapter}{\numberline {1}Welcome!}{5}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}How To Navigate This Book}{5}{subsection.1.0.1}%
+\contentsline {section}{\numberline {1.1}Associated CSU Course}{6}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Course Preliminaries}{7}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Special Boxes}{7}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}How This Book Displays Code}{8}{subsection.2.0.2}%
+\contentsline {subsection}{\numberline {2.0.3}Next Steps}{8}{subsection.2.0.3}%
+\contentsline {section}{\numberline {2.1}Course Topics \& Syllabus}{8}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Schedule}{9}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Syllabus}{9}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Approach To Learning}{9}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Grading}{9}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Running your first R Code}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}What do you hope to get out of this course?}{11}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Installing R}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Computer Basics}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Operating Systems}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Downloads and Installations}{13}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Install R \& R Studio}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Installing R}{14}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Windows}{14}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}Mac OS X}{14}{subsubsection.3.2.1.2}%
+\contentsline {subsection}{\numberline {3.2.2}Installing R Studio}{15}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Successfull Installation}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Running Code in RStudio Console}{15}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Workspace setup}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Recommended Settings}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Setting working directory}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Create R Studio Project and directories for class}{16}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Reflection \& Assignment}{16}{section.3.6}%
+\contentsline {chapter}{\numberline {4}The R Ecosystem}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The R Programming Language}{17}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}R is a Programming Language}{17}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}R is Free}{17}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}R is Open Source}{17}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}The R Ecosystem}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}R Packages}{17}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}R Interfaces}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Where can R be run?}{18}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Assignment}{18}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}R Interfaces}{18}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}The R Community}{18}{section.4.5}%
+\contentsline {chapter}{\numberline {5}R Programming Fundamentals}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Programming Preliminaries}{19}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}R Commands}{20}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Comments}{22}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Blank Lines}{23}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}CaSe SeNsItIvItY}{23}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}?}{23}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}??}{24}{subsection.5.1.6}%
+\contentsline {section}{\numberline {5.2}(Atomic) Data Types}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Data Structures}{25}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Practice}{25}{section.5.4}%
+\contentsline {section}{\numberline {5.5}R Objects}{25}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}\emph {Everything} is an object in R}{25}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Assigning Objects}{25}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Inspecting objects}{25}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Null Objects}{26}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Quiz}{26}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Loading / Saving Data}{26}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}``Taster''(?) list of file forms and sources}{26}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}reading/writing csv}{26}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}Best practices}{26}{subsection.5.7.3}%
+\contentsline {section}{\numberline {5.8}Downloading and Saving}{26}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Working With Data}{26}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Summarizing vectors}{26}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}Summarizing matrices}{26}{subsection.5.9.2}%
+\contentsline {subsection}{\numberline {5.9.3}Summarizing vectors}{26}{subsection.5.9.3}%
+\contentsline {subsection}{\numberline {5.9.4}Basic Plotting}{26}{subsection.5.9.4}%
+\contentsline {subsection}{\numberline {5.9.5}Basic indexing}{27}{subsection.5.9.5}%
+\contentsline {subsection}{\numberline {5.9.6}Advanced indexing}{27}{subsection.5.9.6}%
+\contentsline {section}{\numberline {5.10}Practice}{27}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Basic Control Flow}{27}{section.5.11}%
+\contentsline {section}{\numberline {5.12}Advanced Control Flow}{27}{section.5.12}%
+\contentsline {section}{\numberline {5.13}Writing FUnctions}{27}{section.5.13}%
+\contentsline {section}{\numberline {5.14}Working With Popular Packages}{28}{section.5.14}%
+\contentsline {section}{\numberline {5.15}Assignment}{28}{section.5.15}%
