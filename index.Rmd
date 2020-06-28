@@ -20,7 +20,12 @@ biblio-style: apalike
 # Welcome!
 
 ```{r, knitr_options, echo=FALSE, results='hide', message=FALSE}
-knitr::opts_chunk$set(fig.align="center")
+# fig.align="center"  centers figures
+# comment=NA          remove "##" from R output
+# results="hold"      don't interleave chunk code and output, but hold all output until end of chunk.
+# class.source="chunk-style"     Use the CSS style "chunk-style" to style code chunks
+# class.output="output-style"    Use the CSS style "output-style" to style output of code chunks
+knitr::opts_chunk$set(fig.align="center", comment=NA, results="hold", class.source="chunk-style", class.output="output-style")
 
 library(kableExtra)
 library(lubridate)
