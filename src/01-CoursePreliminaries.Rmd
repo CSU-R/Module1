@@ -48,7 +48,7 @@ In addition, you may see R code either as part of a sentence like this: `1+1`, o
 Sometimes (as in this example) we will also show the __output__ , that is, the result of running the R code. In this case the code `1+1` produced the output `2`.
 If you hover over a code block with your mouse, you will see the option to copy the code to your clipboard, like this:
 ```{r, fig.cap="copying code from this book", echo=F}
-#knitr::include_graphics("src/images/copy_code.png")
+knitr::include_graphics("src/images/copy_code.png")
 ```
 This will be useful when you are asked to run code on your computer.
 
