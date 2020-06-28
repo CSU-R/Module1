@@ -1,0 +1,174 @@
+--- 
+title: "R Module 1"
+author: 
+  - "Alex Fout^[Department of Statistics, Colorado State University, fout@colostate.edu]"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+description: This is the book for the R Intro Course at CSU.
+documentclass: book
+link-citations: yes
+bibliography:
+- src/book.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+
+# Welcome!
+
+```{r, knitr_options, echo=FALSE, results='hide', message=FALSE}
+knitr::opts_chunk$set(fig.align="center")
+
+library(kableExtra)
+library(lubridate)
+start_date <- ymd("2020/07/13")
+# designed as a four week course that "meets" 3 times per week.
+course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "+")))
+
+r_version <- "4.0.1"
+```
+
+Hi, and welcome to the R Module 1 course at Colorado State University!
+
+This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.
+
+Through these Modules (courses), we'll explore how R can be used to do the following:
+
+1. Perform basic computations and logic, just like any other programming language
+1. Load, clean, analyze, and visualise data
+1. Run scripts
+1. Create reproducible reports so you can explain your work in a narrative form
+
+In addition, you'll also be exposed to some aspects of the broader R community, including:
+
+1. R as free, open source software
+1. The RStudio free software
+1. Publicly available packages which extend the capability of R
+1. Events and community groups which advocate for the use of R and the support of R users
+
+More detail will be provided in the Course Topics laid out in the next chapter.
+
+### How To Navigate This Book
+
+To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
+The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
+The faint left and right arrows at the sides of each page (or bottom of the page if it's narrow enough) allow you to step to the next/previous section.
+Here's what they look like:
+```{r, echo=F, fig.cap="Left and right navigation arrows", fig.show="hold"}
+knitr::include_graphics("src/images/left_arrow.png")
+knitr::include_graphics("src/images/right_arrow.png")
+```
+
+
+
+## Associated CSU Course
+
+This bookdown book is intended to accompany the associated course at Colorado State University, but the curriculum is free for anyone to access and use.
+If you're reading the PDF or EPUB version of this book, you can find the "live" version at [https://csu-r.github.io/Module1/](https://csu-r.github.io/Module1/), and all of the source files for this book can be found at [https://github.com/CSU-R/Module1](https://github.com/CSU-R/Module1).
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Course Preliminaries {#prelim}
+
+Placeholder
+
+
+### Special Boxes
+### How This Book Displays Code
+### Next Steps
+## Course Topics \& Syllabus
+### Schedule
+### Syllabus
+### Approach To Learning
+### Grading
+## Running your first R Code
+## What do you hope to get out of this course?  {#getoutoftheclass}
+
+<!--chapter:end:src/01-CoursePreliminaries.Rmd-->
+
+
+# Installing R {#installingr}
+
+Placeholder
+
+
+## Computer Basics
+### Operating Systems
+### Downloads and Installations
+## Install R \& R Studio
+### Installing R
+#### Windows
+#### Mac OS X
+### Installing R Studio
+## Successfull Installation
+## Running Code in RStudio Console
+## Workspace setup
+### Recommended Settings
+### Setting working directory
+### Create R Studio Project and directories for class
+## Reflection \& Assignment
+
+<!--chapter:end:src/02-InstallingR.Rmd-->
+
+
+# The R Ecosystem  {#recosystem}
+
+Placeholder
+
+
+## The R Programming Language
+### R is a Programming Language
+### R is Free
+### R is Open Source
+## The R Ecosystem
+### R Packages
+## R Interfaces
+### Where can R be run?
+## Assignment
+### R Interfaces
+## The R Community
+
+<!--chapter:end:src/03-TheREcosystem.Rmd-->
+
+
+# R Programming Fundamentals
+
+Placeholder
+
+
+## Programming Preliminaries
+## (Atomic) Data Types
+## Data Structures
+## Practice
+## R Objects
+### _Everything_ is an object in R
+### Assigning Objects
+### Inspecting objects
+### Null Objects
+## Quiz
+## Loading / Saving Data
+### "Taster"(?) list of file forms and sources
+### reading/writing csv
+### Best practices
+## Downloading and Saving
+## Working With Data
+### Summarizing vectors
+### Summarizing matrices
+### Summarizing vectors
+### Basic Plotting
+### Basic indexing
+### Advanced indexing
+## Practice
+## Basic Control Flow
+## Advanced Control Flow
+## Writing FUnctions
+## Working With Popular Packages
+## Assignment
+
+<!--chapter:end:src/04-RProgrammingFundamentals.Rmd-->
+
