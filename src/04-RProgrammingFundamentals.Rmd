@@ -22,6 +22,8 @@ Therefore it is up to you to learn the rules in order to make the computer do ex
 Therefore it's important to cover some of the basic rules of the R programming language before you can learn all of the things R can do. 
 So here they are:
 
+### R Commands
+
 Like most programming languages, R consists of a set of _commands_ which form the sequence of instructions which the computer completes. Here is an example of a command, followed by the result.
 
 ```{r}
@@ -50,17 +52,22 @@ In this example, three commands are given on one line.
 The first command creates a new _variable_ called `x`, the second command prints the value of `x`, and the third command prints the value of `x` _squared_.
 We see that the semicolon, `;`, serves as the command _termination_, because it tells R where one command ends and another begins.
 When a line contains a single command, no semicolon in necessary at the end, but including a semicolon doesn't have any effect either.
-```{r}
+```{r, class.source="chunk-style"}
 print("This line doesn't have a semicolon")
-print("this line does have a semicolon");
+print("This line does have a semicolon");
+```
+```{block, type="caution"}
+Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```
 
+
+TODO: make these code blocks display on multiple lines:
 ```{block, type="bonus"}
 So far, we've seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
 The answer is _sometimes_, depending on the command.
 Generally, if R is expecting the end of a command but doesn't see one by the time it gets to the end of a line, it will continue looking on the next line. 
 Here are some examples:
-`1 + 
+`1 + \
 1`
 
 `
@@ -74,29 +81,138 @@ multiple lines")
 At this point, we've introduced several new types of R commands (assigning a variable, squaring a number, etc.), and we will talk more specifically about these later. The important part of this section is how R code is arranged into different _commands_
 ```
 
+Lastly, commands can be "grouped together" using left and right curly braces: `{` and `}`.
+Here's an example:
+
+```{r}
+{
+  print("here's some code that's all grouped together")
+  print(2^3 - 7)
+  w <- "hello"
+  print(w)
+}
+```
+
+The above grouped code is indented so that it looks nice, but it doesn't have to be:
+
+```{r}
+{
+print("here's some code that's all grouped together")
+print(2^3 - 7)
+w <- "hello"
+print(w)
+}
+```
+
+```{block, type="bonus"}
+Indenting is an example of coding _style_, which are formatting decisions which don't affect the results of the code, but are meant to enhance readability.
+We'll talk more about coding style later.
+TODO: talk about style later.
+In some programming languages, Python for example, white space matters. That is, code indents and other spaces change the way the code runs. In R, white space _does not_ matter, so things like indents are used purely for readability.
+```
+
+What does it mean to "group" code?
+At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
+However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
+
 ```{block, type="progress"}
-In RStudio, open a new R script and type in the above commands, to verify that you get the same result.
+In RStudio, open a new R script and type in all the R commands from this section, to verify that you get the same result. It's good practice!
 ```
 
 
-Specific R things:
-- semicolon
-- line continuation
-- ?
-- Case sensitive
+### Comments
 
+When writing R code, you may wish to include notes which explain the code to your future self or to other humans.
+This can be done with _comments_, which are ignored by R when it is running the code. 
+The "#" comment
+Here's an example of some comments:
+
+```{r}
+# Let's define y and z
+y <- 8
+z <- y + 5 # adding 5 to y and assigning the result to z
+## This is still a comment, even though we're using two #'s
+```
+
+TODO: add note in strings section about special characters and blocks
+
+Notice that a line can contain only a comment 
+
+### Blank Lines
+
+Blank lines in R are ignored, but they can be used to organize code and enhance readability:
+
+```{r}
+print("The sky is blue")
+# the blank line below here is ignored
+
+print("The grass is green")
+```
+
+### CaSe SeNsItIvItY
+
+In R, variables, functions, and other objects (which we'll talk about later), have names.
+These names are case sensitive, so you must be careful when referencing an object by name.
+Here we create two variables and give them different values, notice how they are different from each other:
+
+```{r}
+A <- 4
+a <- 5
+
+print(a)
+print(A)
+```
+This may seem obvious, but case sensitivity applies to functions (which we'll talk about later) too. 
+We've been using the `print` function a lot in the above examples, which begins with a lower case p. 
+There is no `Print` function:
+
+```{r, error=TRUE}
+Print("testing")
+```
+
+### ?
+One _very_ nice thing in R is the documentation that accompanies it.
+Every function included in R (like `print`) has documentation that explains how that function works.
+To access the documentation, use a `?` followed by the name of the function, like so:
+
+```{r, eval=FALSE}
+?print
+```
+
+```{block, type="progress"}
+The output of the above code chunk is not shown, because the result of this code is best viewed in RStudio. Go to R Studio and type in `?print` and observe what happens!
+```
+
+### ??
+
+If you don't remember the exact name of a function, or would like to search for general matches to a topic, then you can use `??`.
+For example, trying `?Print` produces an error, because there is not `Print` function (remember, R is case sensitive), so there's no documentation to go with it.
+However, the following should still work:
+
+```{r, eval=FALSE}
+??Print
+```
+
+```{block, type="bonus"}
+Programmers have a sense of humor, too! Try running `????print` to see a small joke. Remember, comedic taste varies!
+```
+
+
+TODO: put these bonus blocks in more appropriate places:
+```{block, type="bonus"}
+https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf
+```
 ```{block, type="bonus"}
 Want to know more about R syntax? Try typing `?Syntax` in the R console (then press `Enter`).
 ```
 
+
 ```{block, type="caution"}
-R code is not English prose, i.e. symbols and characters have specific meanings. you must be careful not to ignore things like semicolons, curly braces, parentheses, when reading R code.
+As we've seen, symbols and characters have specific meaning in R. You must be careful not to ignore things like semicolons, curly braces, parentheses, when reading R code. This takes practice!
 ```
 
-
-```{block, type="bonus"}
-https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf
-```
+Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
+The next few sections will describe the different types of data that R can handle.
 
 
 ## (Atomic) Data Types
