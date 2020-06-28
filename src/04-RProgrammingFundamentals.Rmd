@@ -237,7 +237,7 @@ https://adv-r.hadley.nz/vectors-chap.html
 
 ## Practice
 
-```{progress}
+```{block, type="progress"}
 
 ```
 
