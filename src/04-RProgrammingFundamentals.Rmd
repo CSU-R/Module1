@@ -62,6 +62,12 @@ print("This line does have a semicolon");
 Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```
 
+```{block, type="bonus"}
+You've just seen your first example of _assignment_.
+That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
+Formally `x` is called an object, but we'll talk about that more objects and assignments later.
+```
+
 
 TODO: make these code blocks display on multiple lines:
 ```{block, type="bonus"}
@@ -138,7 +144,17 @@ z <- y + 5 # adding 5 to y and assigning the result to z
 
 TODO: add note in strings section about special characters and blocks
 
-Notice that a line can contain only a comment 
+Notice that it's possible for a line to contain only a comment, or for part of a line to be a comment. 
+R decides which part of a line is a comment by looking for the first "#", and everything after that will be treated as a comment and ignored.
+
+
+
+```{block, type="caution"}
+R ignores comments, but you should _not_! If you're reading code that someone else has written, it's likely that also paying attention to their comments will greatly help you to understand what their code is doing. 
+It's also courteous to make good comments in your own code, if only because you may have to return to your _own_ code in the future and re-learn what it is doing!
+In this book, we will use comments to help explain the R code that you will see.
+```
+
 
 ### Blank Lines
 
@@ -153,7 +169,7 @@ print("The grass is green")
 
 ### CaSe SeNsItIvItY
 
-In R, variables, functions, and other objects (which we'll talk about later), have names.
+In R, variables, functions, and other objects (all of which we'll talk about later), have names.
 These names are case sensitive, so you must be careful when referencing an object by name.
 Here we create two variables and give them different values, notice how they are different from each other:
 
@@ -216,12 +232,190 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
 
+## Data Types
 
-## (Atomic) Data Types
+```{block, type="reflection"}
+TODO: what should this be?
+```
 
-R can store and manipulate different pieces of information ("data").
 
-Give some examples.
+R can store and manipulate different pieces of information, called data, and these data can be of several different types.
+Here are some examples of different types of data:
+
+```{r}
+a <- 12.34      # a is a number
+b <- "Hello"    # b is a string of characters
+c <- TRUE       # c is a special type of data that is either true or false
+```
+
+R has special names for these examples, and there are other types of data as well.
+Below, we'll talk about each data type, one at a time.
+
+```{block, type="bonus"}
+The term "data" is actually plural! A single piece of data is called a "datum". So to refer to a set of data, you would say "these data", and to refer to a single piece of data, you would say "this datum".
+```
+
+### Numeric
+
+Many data exist as numbers, and R has a specific data type for storing those numbers, called the _numeric_ data type. 
+Here are some examples:
+
+```{r}
+a <- -11
+b <- 13.37
+c <- 1/137
+```
+
+Note that integers, decimals, and fractions are all examples of numeric data in R.
+We can prove that these are all the same data type using the `class` function:
+
+```{r}
+class(a)
+```
+```{r}
+class(b)
+```
+```{r}
+class(c)
+```
+
+When you have numeric data, you may want to perform math operations on them.
+R has a number of built in functions to deal with numeric data, here are some examples:
+
+```{r}
+print(a + b)  # Add two numeric values
+print(b - c)  # subtract two numeric values 
+print(a * b)  # multiply two numeric values
+print(a^3)    # take the cube of a numeric value
+```
+
+When performing math on numeric data, R will obey [order of operations](https://en.wikipedia.org/wiki/Order_of_operations), so the following two examples will give different results:
+
+```{r}
+a + b * c    # R will perform the multiplication before the addition
+```
+```{r}
+(a + b) * c  # R will perform the addition first, then the multiplication 
+```
+
+Notice that we've added extra spaces in the code to help you understand what's going on.
+This is another example of code _style_, which we'll talk more about later.
+
+Notice all the decimal points?
+R can be very precise when performing computations.
+However, viewing all of the digits stored by R can be distracting and hard to read.
+You can show just some of the digits by using the `round` function:
+
+```{r}
+a
+```
+
+```{r}
+round(a, 3)
+```
+It also turns out that R stores _more_ digits than what it shows when it prints, though we won't go into detail on that now.
+
+```{block, type="bonus"}
+In other programming languages, a distinction is made between _different types of numeric data_.
+For example, integer, floating point, and double precision numbers.
+_R also makes this distinction_, and you _can_ be this specific if you like, but if you don't specify what type of numeric data you have, R will "make the appropriate decisions" for you behind the scenes.
+R also has the capacity to handle complex numbers, but we will not describe that in detail here.
+```
+
+### Character
+
+Not all data are numbers! 
+R also has the capability to store strings of characters, and this is the aptly named _character_ type (or sometimes called a _character string_ or just _string_).
+Here are some examples:
+```{r}
+d <- "Hello"         # This string is defined with   *double*   quotes 
+e <- 'how are you?'  # This string is defined with   *single*   quotes!
+print(d)
+print(e)
+```
+
+Notice how we can define character strings using single quotes or double quotes, as long as we are consistent. 
+So this is not valid:
+
+```{r, error=TRUE}
+# Note the mismatched single/double quotes:
+f <- "this does not work' 
+```
+So, make sure you are consistent. 
+However, you may see another problem with this: some strings contain quotes _in them_, like this:
+
+```{r, error=TRUE}
+g <- 'This won't work'
+```
+Since single quotes are being used to define the string, they can't be used in the string itself, because R will "think" the string is ending at the second `'`.
+One option is to change the defining quotes to be double quotes, then the single quote will be safely included in the string:
+
+```{r}
+g <- "I'm happy that this works!"
+print(g)
+```
+Another option is to use a backslash when using quotes inside the string, so that R "knows" the quote is part of the string and not ending the definition of the string:
+
+```{r}
+g <- 'I\'ve found another way that works!'
+print(g)
+```
+
+Notice that when we define `g` we place a `\'` anywhere in the string where we want a `'` to be, but when printed out, we see that R has interpreted it as just a `'`. 
+Notice also that we didn't have to change the defining quotes to be double quotes in this case.
+The backslash is called the _escape character_, and it signifies that what follows it should be interpreted _literally_ by R, and any special meaning should be ignored. 
+
+```{block, type="bonus"}
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+```
+
+Here is a special string:
+
+```{r}
+h <- ""              # This string is empty!
+```
+
+`h` is a character string with no characters, called an _empty string_.
+
+You can perform math on numeric data, so what can you do with strings?
+The answer is, quite alot, using some functions that R provides.
+Here are some of them:
+
+```{r}
+nchar(g)   # This prints out the number of characters in a string
+```
+
+```{r}
+substr(g, 6, 10)   # This extracts just part of a string, using the start and stop positions you provide
+```
+
+```{r}
+strsplit(g, " ")   # This splits the string up using a specified "delimiter" string, a single space in this case. 
+```
+```{block, type="bonus"}
+When you split a string, this produces a _list_ containing a _vector_ of character strings. This is an example of how data can be organized in a structured way. 
+We'll talk more about so called _data structures_ in the next section.
+```
+
+```{r}
+paste("hello", "world")   # This combines multiple strings together into one string!
+```
+
+```{block, type="reflect"}
+Remember that you can learn more about a function using `?`. Type `?paste` into R and read the documentation carefully. Can you determine what the "sep" argument does? What do you think would happen if we ran the code `print("hello", "world", sep="-")`?
+```
+
+```{r}
+grep("a", g)   # This combines multiple strings together into one string!
+```
+
+
+
+### Factor
+
+### Logical
+
+
 
 what is a data type?
 
@@ -231,6 +425,10 @@ https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/#:~:
 
 
 ## Data Structures
+
+```{block, type="reflection"}
+Imagine a grocery list, shopping list, or to-do list. That list consists of a set of items in a specified order, and the list also has a length. Why do you think it's useful to organize these items into a list, rather than in some other fashion? Can you think of why it might be useful to store data in a list?
+```
 
 These are just other types of data
 
