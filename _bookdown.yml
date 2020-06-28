@@ -11,5 +11,5 @@ rmd_files:
   - "src/03-TheREcosystem.Rmd"
   - "src/04-RProgrammingFundamentals.Rmd"
 output_dir: "docs"
-#rmd_subdir: ["src"]  # misses index.Rmd if we use this
-clean: ["src/book.bib"]
+# rmd_subdir: ["src"]  # misses index.Rmd if we use this
+# clean: ["src/book.bib"] # removes book.bib file when cleaned
