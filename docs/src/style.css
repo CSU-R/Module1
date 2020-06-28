@@ -12,3 +12,9 @@ pre {
 pre code {
   white-space: inherit;
 }
+.chunk-style {
+  background-color: Lightpink;
+}
+.output-style {
+  background-color: yellow;
+}
