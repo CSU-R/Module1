@@ -4,10 +4,12 @@
 
 ## Programming Preliminaries
 
-```{block, type="reflect"}
+```{block2, type="reflect"}
+
 1. Look at a sentence in a language you don't know, look carefully at the symbols, spacing and characters. 
 1. Recall learning a foreign language, how you had to learn the syntax and grammar rules.
 1. Now think about English (or another language you know well) and think about the syntax and grammar rules that you take for granted. 
+
 ```
 
 TODO: talk about syntax and grammar
@@ -238,7 +240,7 @@ https://adv-r.hadley.nz/vectors-chap.html
 ## Practice
 
 ```{block, type="progress"}
-
+asdf
 ```
 
 ## R Objects
@@ -249,7 +251,7 @@ https://adv-r.hadley.nz/vectors-chap.html
 
 
 ```{block, type="bonus"}
-
+asdf
 ```
 
 
@@ -264,7 +266,7 @@ str, names, dim
 
 ## Quiz
 ```{block, type="assessment"}
-
+asdf
 ```
 
 
@@ -313,7 +315,7 @@ dplyr example
 ## Practice
 
 ```{block, type="progress"}
-
+asdf
 ```
 
 ## Basic Control Flow
@@ -342,6 +344,6 @@ Function scope
 
 ## Assignment
 
-```{block, type="Assessment"}
+```{block, type="assessment"}
 Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
 ```
