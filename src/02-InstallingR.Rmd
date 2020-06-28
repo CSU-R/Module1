@@ -65,6 +65,7 @@ Create windows R install Video
 ?Ben? install from Mac OS X?
 ```
 
+
 ### Installing R Studio
 
 ## Successfull Installation
@@ -86,7 +87,9 @@ todo: create assessment
 TODO: repeat online examples + Pull from here: https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html
 
 ```{block, type="progress"}
-todo: create assessment
+R comes pre-loaded with several datasets that are used in many examples. One is a set of 150 measurements of irises from 3 species. 
+
+Use `mean(iris$Petal.Length)` to find out what the mean petal length is. 
 ```
 
 ## Workspace setup
@@ -117,7 +120,13 @@ Folder structure:
 ## Reflection \& Assignment
 
 ```{block, type="reflect"}
-Before moving on to the next section
+Before moving on to the next section, take a note of all you've done so far. 
+
+1. Did your R installation go smoothly? If not, could you troubleshoot the errors or find help online?
+
+2. Does using R remind you of other programs you have experience with? 
+
+3. What could be some reasons that using R code written by someone else might not work on your computer?
 ```
 
 TODO: Kathleen thought this could be a progress check, I think we can have it be the first homework. 
