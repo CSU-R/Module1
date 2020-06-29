@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="atomic-data-types.html"/>
+<link rel="prev" href="data-types.html"/>
 <link rel="next" href="practice.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -196,8 +196,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>5.1.5</b> ?</a></li>
 <li class="chapter" data-level="5.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>5.1.6</b> ??</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="atomic-data-types.html"><a href="atomic-data-types.html"><i class="fa fa-check"></i><b>5.2</b> (Atomic) Data Types</a></li>
-<li class="chapter" data-level="5.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>5.3</b> Data Structures</a></li>
+<li class="chapter" data-level="5.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>5.2</b> Data Types</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>5.2.1</b> Numeric</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>5.2.2</b> Integer</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>5.2.3</b> Character</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>5.2.4</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>5.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>5.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-structures.html"><a href="data-structures.html#another-data-type-factors"><i class="fa fa-check"></i><b>5.3.2</b> Another Data Type? Factors</a></li>
+</ul></li>
 <li class="chapter" data-level="5.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>5.4</b> Practice</a></li>
 <li class="chapter" data-level="5.5" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>5.5</b> R Objects</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>5.5.1</b> <em>Everything</em> is an object in R</a></li>
@@ -249,15 +257,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-structures" class="section level2">
 <h2><span class="header-section-number">5.3</span> Data Structures</h2>
-<p>These are just other types of data</p>
-<p><a href="https://adv-r.hadley.nz/vectors-chap.html" class="uri">https://adv-r.hadley.nz/vectors-chap.html</a></p>
+<div class="reflection">
+<p>
+Imagine a grocery list, shopping list, or to-do list. That list consists of a set of items in a specified order, and the list also has a length. Why do you think it’s useful to organize these items into a list, rather than in some other fashion? Can you think of why it might be useful to store data in a list?
+</p>
+</div>
+<p>Often, you will need to work with many data of the same type, for example:
+- A sequence of measurements through time
+- A grid of values
+- A set of phone numbers</p>
+<p>In these circumstances, it would make sense to organize the data into a data structure.
+R provides multiple data structures, each of which are appropriate in various situations</p>
+<div id="vectors" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Vectors</h3>
+<p>A vector is just an ordered set of elements (in other words, <em>data</em>), all of which have the same data type.
+Vectors can be created for the logical, numeric (double or integer), or character data types.
+Here’s an example of a vector:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb98-1"><a href="data-structures.html#cb98-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># this is a vector of numeric types</span></span>
+<span id="cb98-2"><a href="data-structures.html#cb98-2"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<pre class="output-style"><code>[1] 1 2 3</code></pre>
+<p>Note that to create a vector, we use the <code>c</code> function, where c stands for <em>combine</em>.
+This makes sense, because we are combining three numeric objects into a numeric vector.
+We may determine the length of any atomic vector like so:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb100-1"><a href="data-structures.html#cb100-1"></a><span class="kw">length</span>(x)</span></code></pre></div>
+<pre class="output-style"><code>[1] 3</code></pre>
+<p>The <code>class</code> function will tell us what type of data is stored in a vector (which makes sense, because all elements of the vector have the same data type).</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb102-1"><a href="data-structures.html#cb102-1"></a><span class="kw">class</span>(x)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<p>Here’s how to create logical or numeric vectors:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb104-1"><a href="data-structures.html#cb104-1"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)</span>
+<span id="cb104-2"><a href="data-structures.html#cb104-2"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;to&quot;</span>, <span class="st">&quot;be&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;not&quot;</span>, <span class="st">&quot;to&quot;</span>, <span class="st">&quot;be&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb105-1"><a href="data-structures.html#cb105-1"></a><span class="kw">class</span>(y)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb107-1"><a href="data-structures.html#cb107-1"></a><span class="kw">length</span>(y)</span></code></pre></div>
+<pre class="output-style"><code>[1] 4</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb109-1"><a href="data-structures.html#cb109-1"></a><span class="kw">class</span>(z)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb111-1"><a href="data-structures.html#cb111-1"></a><span class="kw">length</span>(z)</span></code></pre></div>
+<pre class="output-style"><code>[1] 6</code></pre>
+
+<div class="reflect">
+<p>The above statement states that all elements of a vector must have the same data type, so what do you think will happen if you try to create a vector using elements from different data types?
+Here are some possibilities, can you think of another one?</p>
+<ul>
+<li>R will produce an error</li>
+<li>R will combine the elements somehow, but the result won’t be a vector</li>
+<li>Something else?</li>
+</ul>
+<p>Whatever happens, humans were behind the decision of how R should behave in this situation.
+If you were in charge of making this decision, what would make the most sense?</p>
+</div>
+
+<div class="progress">
+<p>
+Let’s try to create a vector of mixed type and see what happens. Run the following commands in R and think about the output:
+</p>
+<p>
+<code>m &lt;- c(TRUE, “Hello”, 5)</code>
+</p>
+<p>
+<code>class(m)</code>
+</p>
+<p>
+<code>print(m)</code>
+</p>
+<p>
+What changes did R make when creating the vector?
+</p>
+</div>
+<p>```</p>
+</div>
+<div id="another-data-type-factors" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Another Data Type? Factors</h3>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="atomic-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="practice.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
