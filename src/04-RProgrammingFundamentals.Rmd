@@ -279,7 +279,15 @@ class(b)
 class(c)
 ```
 
-When you have numeric data, you may want to perform math operations on them.
+```{block, type="caution"}
+So far, we've defined the `a` object a few different times, which is allowed!
+Every time we define `a`, R _forgets_ the old value.
+Therefore we should reuse object names with caution, because it can become difficult to remember what the _latest_ value is!
+When we discuss _loops_ later, however, we will use code to automatically change the value of an object several times in order to do useful things!
+```
+
+
+When you have numeric objects, you may want to perform math operations on them.
 R has a number of built in functions to deal with numeric data, here are some examples:
 
 ```{r}
@@ -289,7 +297,7 @@ print(a * b)  # multiply two numeric values
 print(a^3)    # take the cube of a numeric value
 ```
 
-When performing math on numeric data, R will obey [order of operations](https://en.wikipedia.org/wiki/Order_of_operations), so the following two examples will give different results:
+When performing math on numeric objects, R will obey [order of operations](https://en.wikipedia.org/wiki/Order_of_operations), so the following two examples will give different results:
 
 ```{r}
 a + b * c    # R will perform the multiplication before the addition
@@ -300,6 +308,14 @@ a + b * c    # R will perform the multiplication before the addition
 
 Notice that we've added extra spaces in the code to help you understand what's going on.
 This is another example of code _style_, which we'll talk more about later.
+
+```{block, type="caution"}
+Wait a second, we didn't use the the `print` function just now, but R still displayed the results of the calculations! 
+What is going on?
+This behavior is peculiar to something called R Markdown, which is what we used to create this book (yes, this book was creating using R! Pretty cool, huh?).
+If the _last_ command given in a code block produces a result, and you don't assign that result to anything (using `<-`), then R will print out that result.
+This means we don't always have to use the print function when we want to display R output.
+```
 
 Notice all the decimal points?
 R can be very precise when performing computations.
@@ -319,11 +335,11 @@ TODO: talk about Inf, -Inf, and NaN?
 
 ### Integer
 
-In general, numeric data in R are treated as if they can be any decimal number (technically, they are a _double precision_ number, if you know what that means).
-However, there is a way to specify that a specific numeric type is an integer, by placing an "L" at the end of it, like so:
+In general, numeric data in R are treated as if they can be any decimal number (technically, they are a _double precision_ number, if you know what that means; if not, it's not important right now).
+However, there is a way to specify that a specific numeric object is an integer, by placing an "L" at the end of it, like so:
 ```{r}
-x <- 20   # x will be a numeric type
-y <- 20L  # y will be an integer type
+x <- 20   # x will be a numeric object
+y <- 20L  # y will be an integer object
 ```
 ```{r}
 class(x)
@@ -425,9 +441,9 @@ There are other ways of manipulating strings, but we'll return to this later.
 
 ### Logical
 
-Numeric data can be any number, character types can be any string of characters, but logical data types can only be two different values: True or False
+Numeric objects can be any number, character objects can be any string of characters, but logical objects can only be two different values: True or False
 Logical data types are also known as ["boolean" data types](https://en.wikipedia.org/wiki/Boolean_data_type).
-Here we define some Logical types:
+Here we define some Logical objects:
 ```{r}
 a <- TRUE
 b <- FALSE
@@ -447,7 +463,12 @@ print(c)
 print(d)
 ```
 
-So you can see that we can define a logical type using the full name or just the first letter. 
+So you can see that we can define a logical object using the full name or just the first letter. 
+Here's how to get the "opposite" of a logical object
+```{r}
+!a
+```
+
 Logical data are the simplest type, but there are actually some clever things you can do with them.
 You can test whether simple mathematical expressions are true or false. 
 ```{r}
@@ -491,6 +512,7 @@ Of course any object (like `x`) will be equal to itself:
 x == x
 ```
 
+
 Surprisingly, logicals can be treated as numerics, where `TRUE` is treated as `1` and `FALSE` is treated as `0`.
 Here are some examples:
 
@@ -529,7 +551,7 @@ In the R console, type the following R commands and observe the result
 
 `z <- (x == y)`
 
-1. What data type is x?
+1. What data type is x?  (check with R using the `class` function)
 1. What data type is y?
 1. What data type is z?
 1. What is the value of z, and why does this make sense?
@@ -614,22 +636,311 @@ Run the following commands in R and think about the output:
 `print(m)`
 
 What changes did R make when creating the vector?
+```
+What's happening in the above code is an example of _type conversion_, which we will talk more about later.
+For now, remember that every element in an R vector is the same type.
 
+You can create _empty_ vectors as placeholders, by indicating the data type and how many elements there are:
+
+```{r}
+empty <- numeric(10)   # this creates a numeric vector of length 10
+```
+
+```{block, type="reflect"}
+This is the first instance of us using a name which is longer than a single character! This new vector is called _empty_.
+```
+
+Let's print the contents of the vector:
+
+```{r}
+print(empty)
+```
+Even though we didn't tell R what data to put in the vector, it put a `0` in each element.
+This is the _default_ value for a new vector.
+
+Here's how you can create new vectors of other types:
+
+```{r}
+empty_int <- integer(45)   # create integer vector with 45 elements
+empty_cha <- character(2)  # create character vector with 2 elements
+empty_log <- logical(1000)    # create logical vector with 1000 elements!!
+```
+
+```{block, type="progress"}
+We saw that the default value for a numeric vector is 0. Use the code above to create empty integer, character, and logical vectors, then print them out to see what default values R has given to each element. Do these make sense?
+```
+
+What happens if we create a vector of length 1?
+It turns out this is the same as just creating a single instance of that data type.
+Observe how the following are the same.
+
+```{r}
+a <- numeric(1)  # create vector of length 1 (default value is 0, right?)
+b <- 0           # create single numeric with value 0
+a == b           # compare a and b to see if they are the same.
+```
+```{block, type="bonus"}
+It turns out, you _can_ create a vector of length 0, which contains 0 elements. This may sound odd, but can happen sometimes!
+However, you _cannot_ create a vector of negative length (e.g. `logical(-1)` won't work), or a fractional length (e.g. `character(12.7)` won't work).
+```
+
+#### Accessing and Changing Elements
+
+After you've created a vector, how do you put your data in them?
+Here's how you can change the value of a specific element:
+
+```{r}
+a <- c(1, 2, 3)  # create numeric vector of length 3
+a[2] <- 4        # change the value of the second element of a to 4
+a                # print the result
+```
+
+See how the second element of `a` has changed?
+So you can access a specific element using square brackets: `[` and `]`.
+In fact, if you want to know the value of the third element (without changing anything), just use:
+
+```{r}
+a[3]    # access the third element
+```
+
+```{block, type="progress"}
+What do you think will be the result of the following code (hint: the result will either be `TRUE` or `FALSE`)?
+
+`vec <- c(4, 5, 6)  # create a vector`
+
+`vec[3] == 6   # Remember what == does?`
+
+Once you make a guess, try it in R and see if you were correct.
+```
+
+#### Working with vectors
+
+You can do many things with vectors that you can with single instances of each data type. 
+Recall, you can add a number to a numeric object:
+
+```{r}
+a <- 3   # create a numeric object
+a + 4    # add a number to the object.
+```
+
+The same thing is possible with numeric vectors:
+
+```{r}
+a <- c(1, 2, 3)   # create a numeric vector
+a + 4             # add a number to EACH ELEMENT of the vector!
+```
+
+This type of behavior is called _elementwise_ behavior. That is, the operation is performed on each element separately.
+Here are some other elementwise operations:
+
+```{r}
+a - 3
+```
+```{r}
+a * 1.5
+```
+```{r}
+a ^ 2
+```
+```{r}
+a == 2
+```
+
+R has some functions which _summarize_ the values in a vector.
+One such function is the `sum` function, which adds the values of each element in the vector:
+```{r}
+print(a)  # print the elements of a as a reminder
+sum(a)    # add all the elements of a together.
+```
+```{block, type="bonus"}
+Other examples of summary functions include `max`, `min`, `mean`, and `sd`. We'll talk about these and other summary functions later.
 ```
 
 
+Some operations work on _two vectors_, as long as they are the same length:
 
+```{r}
+b <- c(1, 0, 1)
+a + b
+```
+
+```{r}
+b * a
+```
+
+```{r}
+a ^ b
+```
+You can even compare two vectors, and the result will be a logical vector:
+
+```{r}
+z <- a > b   # compare a and b, element by element, assign the result to z
+z            # print the value of z
+```
+The first logical value is the result of `a[1] < b[1]`, the second logical value is the result of `a[2] < b[2]`, etc. 
+what operations can we perform on character vectors?
+Here are some examples:
+```{r}
+z == TRUE   # which elements are TRUE?
+```
+This just produces `z` again (Do you see why?).
+Here's how to get the logical "opposite" of `z`:
+
+```{r}
+z == FALSE
+```
+Or, as we saw before, we can use `!`, which operates on each element of `z`:
+```{r}
+!z
+```
+
+Remember how logical objects can be treated as numeric objects (either a 0 or 1)?
+If we use this with the `sum` function to determine how many elements are `TRUE`:
+
+```{r}
+sum(z)
+```
+Here's another example of using the sum function on a logical vector:
+```{r}
+sum(a == b)  # how many elements do a and b have in common?
+```
+So there are no elements where `a` and `b` are the same.
+
+```{block, type="bonus"}
+Logical vectors can also be used to access all elements of a vector for which a certain condition is true.
+We'll see how to do this later on.
+```
+
+Let's create some character vectors and explore a few things we can do with them:
+
+```{r}
+a <- c("I", "have", "to", "have", "a", "donkey")
+b <- c("You", "want", "to", "sell", "a", "donkey")
+```
+
+First, we can do elementwise comparison (assuming equal length), just as we did for numeric vectors:
+
+```{r}
+a == b
+```
+
+To search for specific character strings in a character vector, you can use the `grep` function:
+
+```{r}
+grep("have", a)   # search the vector a for the phrase "have"
+```
+This result shows that the phrase "have" occurs in elements 2 and 4 of `a`!
+What if we search for a phrase that doesn't occur?
+
+```{r}
+grep("raddish", a)
+```
+The result is an integer vector of length 0, meaning there are no elements that match the phrase!
+
+#### Vectors of different types
+
+What if we try to perform operations between vectors of different types?
+This will work in some cases, but not others. Here are a few examples:
+```{r}
+a <- c(1, 2, 3)
+b <- c("I", "am", "sam")
+c <- c(TRUE, TRUE, FALSE)
+```
+
+```{r, error=TRUE}
+a + b   # Can you add a numeric vector to a character vector? 
+```
+
+```{r, error=TRUE}
+a + c  # can you add a numeric vector to a logical vector?
+```
+```{block, type="reflect"}
+We see that you can't add a numeric vector to a character vector, but you _can_ add a numeric vector to a logical vector. 
+Why is this?
+```
+```{block2, type="progress"}
+Predict whether the following are possible:
+
+- Can you can multiply a character vector with a numeric vector?
+- Can you can multiply a logical vector with a numeric vector?
+  
+Check whether you are correct by creating some vectors in R and attempting to multiply them together. Can you make sense of the answer?
+  
+```
+
+### Special Numeric Vectors:
+
+There are a few special ways of creating a numeric vector which can be very useful, so we'll mention them here.
+The first way creates a sequence of all integers between a starting and ending point:
+```{r}
+d <- 1:5  # create sequence starting at 1 and ending at 5
+d
+```
+
+Here's a longer example:
+
+```{r}
+d <- 1:100  # create sequence starting at 1 and ending at 5
+d
+```
+```{block, type="caution"}
+In this example, the R output can't be shown on a single line, so it must be placed on multiple lines. 
+Notice that each line has a different number in brackets: `[1]`, `[19]`, `[37]` etc.
+This number indicates which element of the vector is the start of that line.
+So we finally have an explanation for the `[1]` which is displayed with all R output.
+It's simply indicating that this is the _first element_ of the output.
+This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
 ```
 
 
-### Another Data Type? Factors
+### Another Data Type: Factor
 
+In the previous section, we avoided talking about the _factor_ data type, because we need the concept of vectors to appreciate their purpose, but now we are equipped to talk about them.
+Consider the following example of a _character vector_:
+```{r}
+cha_vec <- c("cheese", "crackers", "cheese", "crackers", "cheese", "crackers", "cheese")
+```
+
+There are seven elements in this vector (`length(cha_vec)` is `7`), but there are only _two unique_ elements, "cheese" and "crackers".
+Imagine having two write down this vector on a piece of paper, and the space it would take.
+Now imagine writing down instead: 
+
+1, 2, 1, 2, 1, 2, 1
+
+1 = "cheese"
+
+2 = "crackers"
+
+This second method writes down numbers instead of character strings, but also keeps a record of which numbers correspond to which character strings.
+The total amount of space taken up on the piece of paper is smaller for the second method, and the amount of space saved would be even larger if the character vector were longer and had more repeated elements.
+
+This is the essence of what a _factor_ data type is. 
+For a factor vector, R stores an integer vector (which often takes less space than a character vector), and also maintains a "lookup table" which keeps track of which integers correspond with which character strings.
+
+TODO: show how to create factor vector
+
+TODO: show effect of adding integer to factor vector.
+
+
+```{block, type="bonus"}
+In newer versions of R, all strings are _treated like factors_ behind the scenes, meaning there's really no difference between factor and character types in terms of how much space they take up in the computer's memory.
+However, R still treats the two factors differently, so it's important to remember that they are different!
+```
+
+
+### Type conversion
+
+TODO: include conversion b/t character vec and factor vec.
+
+is.###
+as.###
 
 ## Practice
 
 ```{block, type="progress"}
 asdf
 ```
+
 
 ## R Objects
 
