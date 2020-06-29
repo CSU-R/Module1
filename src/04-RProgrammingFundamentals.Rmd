@@ -554,7 +554,7 @@ R provides multiple data structures, each of which are appropriate in various si
 
 ### Vectors
 
-A vector is just an ordered set of data, all of which have the same data type.
+A vector is just an ordered set of elements (in other words, _data_), all of which have the same data type.
 Vectors can be created for the logical, numeric (double or integer), or character data types.
 Here's an example of a vector:
 
@@ -591,6 +591,36 @@ class(z)
 ```{r}
 length(z)
 ```
+```{block2, type="reflect"}
+The above statement states that all elements of a vector must have the same data type, so what do you think will happen if you try to create a vector using elements from different data types?
+Here are some possibilities, can you think of another one?
+
+- R will produce an error
+- R will combine the elements somehow, but the result won't be a vector
+- Something else?
+
+Whatever happens, humans were behind the decision of how R should behave in this situation.
+If you were in charge of making this decision, what would make the most sense?
+
+```
+```{block, type="progress"}
+Let's try to create a vector of mixed type and see what happens.
+Run the following commands in R and think about the output:
+
+`m <- c(TRUE, "Hello", 5)`
+
+`class(m)`
+
+`print(m)`
+
+What changes did R make when creating the vector?
+
+```
+
+
+
+```
+
 
 ### Another Data Type? Factors
 
