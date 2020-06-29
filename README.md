@@ -10,11 +10,11 @@ Feel free to open an issue, create a pull request, or just directly contact one 
 
 The following individuals have or are currently contributing to the project
 * [Alex Fout](https://github.com/fouticus)
+* Kathleen Wendt
+* Liz McConnell
 * Matt Ross
 * Ben Prytherch
 
-Past contributors:
-* Kathleen Wendt
 
 With thanks to the following for blazing the _bookdown book for an R course_ trail:
 * Brook Anderson
