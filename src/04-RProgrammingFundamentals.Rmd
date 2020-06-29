@@ -315,12 +315,25 @@ round(a, 3)
 ```
 It also turns out that R stores _more_ digits than what it shows when it prints, though we won't go into detail on that now.
 
-```{block, type="bonus"}
-In other programming languages, a distinction is made between _different types of numeric data_.
-For example, integer, floating point, and double precision numbers.
-_R also makes this distinction_, and you _can_ be this specific if you like, but if you don't specify what type of numeric data you have, R will "make the appropriate decisions" for you behind the scenes.
-R also has the capacity to handle complex numbers, but we will not describe that in detail here.
+TODO: talk about Inf, -Inf, and NaN?
+
+### Integer
+
+In general, numeric data in R are treated as if they can be any decimal number (technically, they are a _double precision_ number, if you know what that means).
+However, there is a way to specify that a specific numeric type is an integer, by placing an "L" at the end of it, like so:
+```{r}
+x <- 20   # x will be a numeric type
+y <- 20L  # y will be an integer type
 ```
+```{r}
+class(x)
+```
+```{r}
+class(y)
+```
+Integers take half of the space in a computer's memory or hard drive, so if you are working with or storing a lot of numbers which are integers, it might make sense to declare them as integer type in R.
+This will make more sense when we discuss vectors later.
+
 
 ### Character
 
@@ -367,6 +380,8 @@ The backslash is called the _escape character_, and it signifies that what follo
 
 ```{block, type="bonus"}
 Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+
+To see a list of special characters, try typing `?Quotes` into the R console
 ```
 
 Here is a special string:
@@ -405,24 +420,123 @@ paste("hello", "world")   # This combines multiple strings together into one str
 Remember that you can learn more about a function using `?`. Type `?paste` into R and read the documentation carefully. Can you determine what the "sep" argument does? What do you think would happen if we ran the code `print("hello", "world", sep="-")`?
 ```
 
-```{r}
-grep("a", g)   # This combines multiple strings together into one string!
-```
 
-
-
-### Factor
+There are other ways of manipulating strings, but we'll return to this later.
 
 ### Logical
 
+Numeric data can be any number, character types can be any string of characters, but logical data types can only be two different values: True or False
+Logical data types are also known as ["boolean" data types](https://en.wikipedia.org/wiki/Boolean_data_type).
+Here we define some Logical types:
+```{r}
+a <- TRUE
+b <- FALSE
+c <- T
+d <- F
+```
+```{r}
+print(a)
+```
+```{r}
+print(b)
+```
+```{r}
+print(c)
+```
+```{r}
+print(d)
+```
 
+So you can see that we can define a logical type using the full name or just the first letter. 
+Logical data are the simplest type, but there are actually some clever things you can do with them.
+You can test whether simple mathematical expressions are true or false. 
+```{r}
+# create x and y
+x <- 3
+y <- 4
+# check: is x less than y? (should give TRUE)
+x < y
+```
+The third command is a way to check if the value of `x` is less than the value of `y`.
+The result of this comparison is a logical, in this case, `TRUE`.
+Here are other ways of making comparisons:
+```{r}
+x <= y  # check if x is less or equal to y
+```
 
-what is a data type?
+```{r}
+x == y  # check if x is equal to y (note how you need two equals signs)
+```
 
-https://www.tutorialspoint.com/r/r_data_types.htm
+```{r}
+x >= y  # check if x is greater or equal to y 
+```
 
-https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/#:~:text=R's%20basic%20data%20types%20are,%2C%20data%20frame%2C%20and%20factors.
+```{r}
+x >= y  # check if x is greater than y 
+```
+Comparisons can be made using strings as well:
 
+```{r}
+x <- "Hello"
+y <- "hello"
+x == y
+```
+```{block, type="caution"}
+Remember that R is case sensitive, and two strings must be _exactly_ the same to be considered equal.
+```
+
+Of course any object (like `x`) will be equal to itself:
+```{r}
+x == x
+```
+
+Surprisingly, logicals can be treated as numerics, where `TRUE` is treated as `1` and `FALSE` is treated as `0`.
+Here are some examples:
+
+```{r}
+TRUE + TRUE  # TRUE is treated as 1
+```
+
+```{r}
+FALSE * 7  # FALSE is treated as 0
+```
+
+```{r}
+(2 < 3) + (1 == 2)  # What's going on here? 
+```
+The last example deserves some thought. Start with each expression in parentheses, and decide whether it will evaluate to true or false.
+Then remember how logicals are treated as numbers, and determine what happens when you add them together.
+
+```{block2, type="bonus"}
+Numeric, integer, character, and logical data types are probably the most important data types to know in R, but there are others that were not covered here.
+These include:
+
+- complex
+- factor
+- raw
+
+At least one of these (factor) will be covered later, but you can find more information about the other types [here](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/)
+
+```
+
+```{block2, type="progress"}
+In the R console, type the following R commands and observe the result
+
+`x <- "5"`
+
+`y <- 5`
+
+`z <- (x == y)`
+
+1. What data type is x?
+1. What data type is y?
+1. What data type is z?
+1. What is the value of z, and why does this make sense?
+
+```
+
+Now that we've discussed different types of data, we'll now see how they can be structured together in meaningful ways. 
 
 ## Data Structures
 
@@ -430,9 +544,55 @@ https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/#:~:
 Imagine a grocery list, shopping list, or to-do list. That list consists of a set of items in a specified order, and the list also has a length. Why do you think it's useful to organize these items into a list, rather than in some other fashion? Can you think of why it might be useful to store data in a list?
 ```
 
-These are just other types of data
+Often, you will need to work with many data of the same type, for example:
+- A sequence of measurements through time
+- A grid of values
+- A set of phone numbers
 
-https://adv-r.hadley.nz/vectors-chap.html
+In these circumstances, it would make sense to organize the data into a data structure. 
+R provides multiple data structures, each of which are appropriate in various situations
+
+### Vectors
+
+A vector is just an ordered set of data, all of which have the same data type.
+Vectors can be created for the logical, numeric (double or integer), or character data types.
+Here's an example of a vector:
+
+```{r}
+x <- c(1, 2, 3)  # this is a vector of numeric types
+print(x)
+```
+
+Note that to create a vector, we use the `c` function, where c stands for _combine_.
+This makes sense, because we are combining three numeric objects into a numeric vector.
+We may determine the length of any atomic vector like so:
+
+```{r}
+length(x)
+```
+The `class` function will tell us what type of data is stored in a vector (which makes sense, because all elements of the vector have the same data type).
+```{r}
+class(x)
+```
+Here's how to create logical or numeric vectors:
+```{r}
+y <- c(TRUE, TRUE, FALSE, TRUE)
+z <- c("to", "be", "or", "not", "to", "be") 
+```
+```{r}
+class(y)
+```
+```{r}
+length(y)
+```
+```{r}
+class(z)
+```
+```{r}
+length(z)
+```
+
+### Another Data Type? Factors
 
 
 ## Practice
