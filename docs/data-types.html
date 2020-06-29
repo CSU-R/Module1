@@ -24,7 +24,7 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-06-28" />
+<meta name="date" content="2020-06-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -204,7 +204,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>5.3</b> Data Structures</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>5.3.1</b> Vectors</a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-structures.html"><a href="data-structures.html#another-data-type-factors"><i class="fa fa-check"></i><b>5.3.2</b> Another Data Type? Factors</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-structures.html"><a href="data-structures.html#special-numeric-vectors"><i class="fa fa-check"></i><b>5.3.2</b> Special Numeric Vectors:</a></li>
+<li class="chapter" data-level="5.3.3" data-path="data-structures.html"><a href="data-structures.html#another-data-type-factor"><i class="fa fa-check"></i><b>5.3.3</b> Another Data Type: Factor</a></li>
+<li class="chapter" data-level="5.3.4" data-path="data-structures.html"><a href="data-structures.html#type-conversion"><i class="fa fa-check"></i><b>5.3.4</b> Type conversion</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>5.4</b> Practice</a></li>
 <li class="chapter" data-level="5.5" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>5.5</b> R Objects</a><ul>
@@ -289,7 +291,12 @@ We can prove that these are all the same data type using the <code>class</code> 
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb33-1"><a href="data-types.html#cb33-1"></a><span class="kw">class</span>(c)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
-<p>When you have numeric data, you may want to perform math operations on them.
+<div class="caution">
+<p>
+So far, we’ve defined the <code>a</code> object a few different times, which is allowed! Every time we define <code>a</code>, R <em>forgets</em> the old value. Therefore we should reuse object names with caution, because it can become difficult to remember what the <em>latest</em> value is! When we discuss <em>loops</em> later, however, we will use code to automatically change the value of an object several times in order to do useful things!
+</p>
+</div>
+<p>When you have numeric objects, you may want to perform math operations on them.
 R has a number of built in functions to deal with numeric data, here are some examples:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb35-1"><a href="data-types.html#cb35-1"></a><span class="kw">print</span>(a <span class="op">+</span><span class="st"> </span>b)  <span class="co"># Add two numeric values</span></span>
 <span id="cb35-2"><a href="data-types.html#cb35-2"></a><span class="kw">print</span>(b <span class="op">-</span><span class="st"> </span>c)  <span class="co"># subtract two numeric values </span></span>
@@ -299,13 +306,18 @@ R has a number of built in functions to deal with numeric data, here are some ex
 [1] 13.3627
 [1] -147.07
 [1] -1331</code></pre>
-<p>When performing math on numeric data, R will obey <a href="https://en.wikipedia.org/wiki/Order_of_operations">order of operations</a>, so the following two examples will give different results:</p>
+<p>When performing math on numeric objects, R will obey <a href="https://en.wikipedia.org/wiki/Order_of_operations">order of operations</a>, so the following two examples will give different results:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb37-1"><a href="data-types.html#cb37-1"></a>a <span class="op">+</span><span class="st"> </span>b <span class="op">*</span><span class="st"> </span>c    <span class="co"># R will perform the multiplication before the addition</span></span></code></pre></div>
 <pre class="output-style"><code>[1] -10.90241</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb39-1"><a href="data-types.html#cb39-1"></a>(a <span class="op">+</span><span class="st"> </span>b) <span class="op">*</span><span class="st"> </span>c  <span class="co"># R will perform the addition first, then the multiplication </span></span></code></pre></div>
 <pre class="output-style"><code>[1] 0.01729927</code></pre>
 <p>Notice that we’ve added extra spaces in the code to help you understand what’s going on.
 This is another example of code <em>style</em>, which we’ll talk more about later.</p>
+<div class="caution">
+<p>
+Wait a second, we didn’t use the the <code>print</code> function just now, but R still displayed the results of the calculations! What is going on? This behavior is peculiar to something called R Markdown, which is what we used to create this book (yes, this book was creating using R! Pretty cool, huh?). If the <em>last</em> command given in a code block produces a result, and you don’t assign that result to anything (using <code>&lt;-</code>), then R will print out that result. This means we don’t always have to use the print function when we want to display R output.
+</p>
+</div>
 <p>Notice all the decimal points?
 R can be very precise when performing computations.
 However, viewing all of the digits stored by R can be distracting and hard to read.
@@ -319,10 +331,10 @@ You can show just some of the digits by using the <code>round</code> function:</
 </div>
 <div id="integer" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Integer</h3>
-<p>In general, numeric data in R are treated as if they can be any decimal number (technically, they are a <em>double precision</em> number, if you know what that means).
-However, there is a way to specify that a specific numeric type is an integer, by placing an “L” at the end of it, like so:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb45-1"><a href="data-types.html#cb45-1"></a>x &lt;-<span class="st"> </span><span class="dv">20</span>   <span class="co"># x will be a numeric type</span></span>
-<span id="cb45-2"><a href="data-types.html#cb45-2"></a>y &lt;-<span class="st"> </span>20L  <span class="co"># y will be an integer type</span></span></code></pre></div>
+<p>In general, numeric data in R are treated as if they can be any decimal number (technically, they are a <em>double precision</em> number, if you know what that means; if not, it’s not important right now).
+However, there is a way to specify that a specific numeric object is an integer, by placing an “L” at the end of it, like so:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb45-1"><a href="data-types.html#cb45-1"></a>x &lt;-<span class="st"> </span><span class="dv">20</span>   <span class="co"># x will be a numeric object</span></span>
+<span id="cb45-2"><a href="data-types.html#cb45-2"></a>y &lt;-<span class="st"> </span>20L  <span class="co"># y will be an integer object</span></span></code></pre></div>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb46-1"><a href="data-types.html#cb46-1"></a><span class="kw">class</span>(x)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1"></a><span class="kw">class</span>(y)</span></code></pre></div>
@@ -404,9 +416,9 @@ Remember that you can learn more about a function using <code>?</code>. Type <co
 </div>
 <div id="logical" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Logical</h3>
-<p>Numeric data can be any number, character types can be any string of characters, but logical data types can only be two different values: True or False
+<p>Numeric objects can be any number, character objects can be any string of characters, but logical objects can only be two different values: True or False
 Logical data types are also known as <a href="https://en.wikipedia.org/wiki/Boolean_data_type">“boolean” data types</a>.
-Here we define some Logical types:</p>
+Here we define some Logical objects:</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1"></a>a &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
 <span id="cb69-2"><a href="data-types.html#cb69-2"></a>b &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
 <span id="cb69-3"><a href="data-types.html#cb69-3"></a>c &lt;-<span class="st"> </span>T</span>
@@ -419,30 +431,33 @@ Here we define some Logical types:</p>
 <pre class="output-style"><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb76-1"><a href="data-types.html#cb76-1"></a><span class="kw">print</span>(d)</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<p>So you can see that we can define a logical type using the full name or just the first letter.
-Logical data are the simplest type, but there are actually some clever things you can do with them.
+<p>So you can see that we can define a logical object using the full name or just the first letter.
+Here’s how to get the “opposite” of a logical object</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb78-1"><a href="data-types.html#cb78-1"></a><span class="op">!</span>a</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<p>Logical data are the simplest type, but there are actually some clever things you can do with them.
 You can test whether simple mathematical expressions are true or false.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb78-1"><a href="data-types.html#cb78-1"></a><span class="co"># create x and y</span></span>
-<span id="cb78-2"><a href="data-types.html#cb78-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb78-3"><a href="data-types.html#cb78-3"></a>y &lt;-<span class="st"> </span><span class="dv">4</span></span>
-<span id="cb78-4"><a href="data-types.html#cb78-4"></a><span class="co"># check: is x less than y? (should give TRUE)</span></span>
-<span id="cb78-5"><a href="data-types.html#cb78-5"></a>x <span class="op">&lt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1"></a><span class="co"># create x and y</span></span>
+<span id="cb80-2"><a href="data-types.html#cb80-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb80-3"><a href="data-types.html#cb80-3"></a>y &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb80-4"><a href="data-types.html#cb80-4"></a><span class="co"># check: is x less than y? (should give TRUE)</span></span>
+<span id="cb80-5"><a href="data-types.html#cb80-5"></a>x <span class="op">&lt;</span><span class="st"> </span>y</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
 <p>The third command is a way to check if the value of <code>x</code> is less than the value of <code>y</code>.
 The result of this comparison is a logical, in this case, <code>TRUE</code>.
 Here are other ways of making comparisons:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1"></a>x <span class="op">&lt;=</span><span class="st"> </span>y  <span class="co"># check if x is less or equal to y</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb82-1"><a href="data-types.html#cb82-1"></a>x <span class="op">&lt;=</span><span class="st"> </span>y  <span class="co"># check if x is less or equal to y</span></span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb82-1"><a href="data-types.html#cb82-1"></a>x <span class="op">==</span><span class="st"> </span>y  <span class="co"># check if x is equal to y (note how you need two equals signs)</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb84-1"><a href="data-types.html#cb84-1"></a>x <span class="op">==</span><span class="st"> </span>y  <span class="co"># check if x is equal to y (note how you need two equals signs)</span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb84-1"><a href="data-types.html#cb84-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater or equal to y </span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb86-1"><a href="data-types.html#cb86-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater or equal to y </span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb86-1"><a href="data-types.html#cb86-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater than y </span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb88-1"><a href="data-types.html#cb88-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater than y </span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <p>Comparisons can be made using strings as well:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb88-1"><a href="data-types.html#cb88-1"></a>x &lt;-<span class="st"> &quot;Hello&quot;</span></span>
-<span id="cb88-2"><a href="data-types.html#cb88-2"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
-<span id="cb88-3"><a href="data-types.html#cb88-3"></a>x <span class="op">==</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb90-1"><a href="data-types.html#cb90-1"></a>x &lt;-<span class="st"> &quot;Hello&quot;</span></span>
+<span id="cb90-2"><a href="data-types.html#cb90-2"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb90-3"><a href="data-types.html#cb90-3"></a>x <span class="op">==</span><span class="st"> </span>y</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <div class="caution">
 <p>
@@ -450,15 +465,15 @@ Remember that R is case sensitive, and two strings must be <em>exactly</em> the 
 </p>
 </div>
 <p>Of course any object (like <code>x</code>) will be equal to itself:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb90-1"><a href="data-types.html#cb90-1"></a>x <span class="op">==</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb92-1"><a href="data-types.html#cb92-1"></a>x <span class="op">==</span><span class="st"> </span>x</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
 <p>Surprisingly, logicals can be treated as numerics, where <code>TRUE</code> is treated as <code>1</code> and <code>FALSE</code> is treated as <code>0</code>.
 Here are some examples:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb92-1"><a href="data-types.html#cb92-1"></a><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># TRUE is treated as 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb94-1"><a href="data-types.html#cb94-1"></a><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># TRUE is treated as 1</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb94-1"><a href="data-types.html#cb94-1"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">7</span>  <span class="co"># FALSE is treated as 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb96-1"><a href="data-types.html#cb96-1"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">7</span>  <span class="co"># FALSE is treated as 0</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 0</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb96-1"><a href="data-types.html#cb96-1"></a>(<span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)  <span class="co"># What&#39;s going on here? </span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb98-1"><a href="data-types.html#cb98-1"></a>(<span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)  <span class="co"># What&#39;s going on here? </span></span></code></pre></div>
 <pre class="output-style"><code>[1] 1</code></pre>
 <p>The last example deserves some thought. Start with each expression in parentheses, and decide whether it will evaluate to true or false.
 Then remember how logicals are treated as numbers, and determine what happens when you add them together.</p>
@@ -481,7 +496,7 @@ These include:</p>
 <p><code>y &lt;- 5</code></p>
 <p><code>z &lt;- (x == y)</code></p>
 <ol style="list-style-type: decimal">
-<li>What data type is x?</li>
+<li>What data type is x? (check with R using the <code>class</code> function)</li>
 <li>What data type is y?</li>
 <li>What data type is z?</li>
 <li>What is the value of z, and why does this make sense?</li>
