@@ -16,23 +16,29 @@ TODO: talk about syntax and grammar
 
 All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
 When two humans communicate with a language, they both must agree on the the rules of that language.
+
 R also has rules that must be followed in order for a human ( _you_ ) to communicate with a computer, in order to tell the computer what to do.
 In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
 With R, the fules are fixed, and the computer "knows" them perfectly.
-Therefore it is up to you to learn the rules in order to make the computer do exactly what you want it to do.
+It is up to you to learn the rules in order to make the computer do exactly what you want it to do.
 
-Therefore it's important to cover some of the basic rules of the R programming language before you can learn all of the things R can do. 
-So here they are:
+Since any computer programming language will do exactly what you tell it to do,
+it's important to cover some of the basic rules of the R programming language
+before you can learn what it can do. 
+
+So let's get started:
 
 ### R Commands
 
-Like most programming languages, R consists of a set of _commands_ which form the sequence of instructions which the computer completes. Here is an example of a command, followed by the result.
+Like most programming languages, R consists of a set of _commands_ which form the sequence of instructions which the computer completes. You can think of _commands_
+as the verbs of R, they are the actions the computer will take. 
+Here is an example of a command, followed by the result.
 
 ```{r}
 print("hello, world!")
 ```
 
-This command is telling R to print out a message.
+This command is telling R to `print` out a message.
 R code usually contains more than one command, and typically each command is put on a separate line.
 Here are multiple commands, each on a separate line:
 
@@ -54,10 +60,12 @@ In this example, three commands are given on one line.
 The first command creates a new _variable_ called `x`, the second command prints the value of `x`, and the third command prints the value of `x` _squared_.
 We see that the semicolon, `;`, serves as the command _termination_, because it tells R where one command ends and another begins.
 When a line contains a single command, no semicolon in necessary at the end, but including a semicolon doesn't have any effect either.
+
 ```{r, class.source="chunk-style"}
 print("This line doesn't have a semicolon")
 print("This line does have a semicolon");
 ```
+
 ```{block, type="caution"}
 Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```
@@ -70,6 +78,7 @@ Formally `x` is called an object, but we'll talk about that more objects and ass
 
 
 TODO: make these code blocks display on multiple lines:
+
 ```{block, type="bonus"}
 So far, we've seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
 The answer is _sometimes_, depending on the command.
@@ -126,6 +135,7 @@ However, code grouping will become very important later on, when we discuss _con
 ```{block, type="bonus"}
 There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. You can also use tab completion with functions and defined variables. This can save you a lot of time and reduce mistakes!
 ```
+
 ```{block, type="progress"}
 In RStudio, open a new R script and type in all the R commands from this section, to verify that you get the same result. It's good practice!
 ```
