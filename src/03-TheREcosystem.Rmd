@@ -8,12 +8,27 @@ There are many important qualities to R, here are some of the most important
 
 
 ```{block, type="bonus"}
+Many other programming languages use different syntax for the same functions. 
 
+`#` comments out a line in R and python
+
+`%` comments out a line in matlab
+
+`//` comments out a line in C++ and javascript
+
+Similar to learning a foreign language, learning your first programming language will make it easier to understand other similar ones.
 ```
 
 ### R is Free
 
 ### R is Open Source
+
+```{block, type="reflect"}
+What are the advantages of open-source software? What are some potential downsides?
+
+Why do you think the creators of R decided to make it open source?
+```
+
 
 ## The R Ecosystem
 
@@ -21,7 +36,7 @@ There are many important qualities to R, here are some of the most important
 
 
 ```{block, type="bonus"}
-Other notable packages
+[skimr](https://github.com/ropensci/skimr) provides a frictionless approach to summary statistics which conforms to the principle of least surprise, displaying summary statistics the user can skim quickly to understand their data.
 ```
 
 ## R Interfaces
@@ -64,5 +79,11 @@ Where you can get help:
 - Google!
 
 ```{block, type="bonus"}
-link to some cool visualizations, communities, etc.
+There are endless resources to learn and practice R. 
+
+[Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly online project that focuses on understanding how to summarize, arrange, and make meaningful charts with open source data. You can see the projects others have done by following #tidytuesday on twitter.
+
+[Stack Overflow](https://stackoverflow.com) is a message board where users can post questions about issues they're having. If you search for your error, there's likely already an answered question about it. If not, you can submit one with a [reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) that the active community can help you with.
+
+[R-Ladies](https://rladies.org/) is a global group dedicated to promoting gender equality in the R community. They have an elaborate list of resources for learning and host educational and networking events.
 ```
