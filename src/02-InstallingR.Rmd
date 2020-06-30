@@ -64,6 +64,10 @@ Create windows R install Video
 ```{block, type="video"}
 ?Ben? install from Mac OS X?
 ```
+```{block, type="bonus"}
+Rstudio also offers a [cloud service](https://rstudio.cloud/) that allows you to work with R in your browser. We'll use the desktop version but you can check out the [interactive primers](https://rstudio.cloud/learn/primers) on the cloud site.
+```
+
 
 
 ### Installing R Studio

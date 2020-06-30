@@ -133,7 +133,9 @@ At this point there is no practical difference, each command gets executed wheth
 However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
 
 ```{block, type="bonus"}
-There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. You can also use tab completion with functions and defined variables. This can save you a lot of time and reduce mistakes!
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
+
+You can also use tab completion with functions and defined variables. Tab completion allows you to use the same amount of time using a longer, descriptive variable name as a short, meaningless, and easily confused one. This can save you a lot of time and reduce mistakes! 
 ```
 
 ```{block, type="progress"}
@@ -1147,11 +1149,20 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 TODO: include conversion b/t character vec and factor vec.
 
 ### Lists
+```{block, type="bonus"}
+[purrr](https://purrr.tidyverse.org/) is a very useful library for working with lists. 
+```
+
 
 ### Matrices
 
 ### Arrays
 
+```{block, type="reflection"}
+So far we've seen vectors, lists, matrices, and arrays. 
+
+How are they different and how are they similar?
+```
 
 ## Practice
 
@@ -1255,6 +1266,9 @@ switch
 ## Writing FUnctions
 
 Function scope
+```{block, type ="caution"}
+When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
+```
 
 ```{block, type="bonus"}
 - Pass by value, contrast with other languages
