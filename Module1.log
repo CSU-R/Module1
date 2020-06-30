@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7440 64-bit) (preloaded format=xelatex 2020.6.8)  28 JUN 2020 22:06
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7440 64-bit) (preloaded format=xelatex 2020.6.8)  30 JUN 2020 10:15
 entering extended mode
 **./Module1.tex
 (Module1.tex
@@ -1019,30 +1019,29 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 ] [2
 
-] (Module1.toc
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 3.
-[3])
+] (Module1.toc)
 \tf@toc=\write4
 \openout4 = `Module1.toc'.
 
-[4]
-Chapter 1.
-[5
+[3] [4
 
 ]
+Chapter 1.
+[5]
 File: src/images/left_arrow.png Graphic file (type bmp)
 <src/images/left_arrow.png>
 File: src/images/right_arrow.png Graphic file (type bmp)
 <src/images/right_arrow.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 300.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 300.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 300.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 300.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 300.
 [6]
 Chapter 2.
 File: src/images/lightbulb-fill.png Graphic file (type bmp)
@@ -1109,10 +1108,10 @@ Type  H <return>  for immediate help.
 l.729   D
          id your R installation go smoothly? If not, could you troubleshoot 
 Here is how much of TeX's memory you used:
- 20465 strings out of 414083
- 352065 string characters out of 2894405
- 807331 words of memory out of 3000000
- 37793 multiletter control sequences out of 15000+200000
+ 20416 strings out of 414083
+ 351136 string characters out of 2894405
+ 804907 words of memory out of 3000000
+ 37744 multiletter control sequences out of 15000+200000
  539896 words of font info for 89 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,12n,118p,808b,497s stack positions out of 5000i,500n,10000p,200000b,50000s

@@ -24,7 +24,7 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-06-29" />
+<meta name="date" content="2020-06-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -204,9 +204,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>5.3</b> Data Structures</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>5.3.1</b> Vectors</a></li>
-<li class="chapter" data-level="5.3.2" data-path="data-structures.html"><a href="data-structures.html#special-numeric-vectors"><i class="fa fa-check"></i><b>5.3.2</b> Special Numeric Vectors:</a></li>
-<li class="chapter" data-level="5.3.3" data-path="data-structures.html"><a href="data-structures.html#another-data-type-factor"><i class="fa fa-check"></i><b>5.3.3</b> Another Data Type: Factor</a></li>
-<li class="chapter" data-level="5.3.4" data-path="data-structures.html"><a href="data-structures.html#type-conversion"><i class="fa fa-check"></i><b>5.3.4</b> Type conversion</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>5.3.2</b> Lists</a></li>
+<li class="chapter" data-level="5.3.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>5.3.3</b> Matrices</a></li>
+<li class="chapter" data-level="5.3.4" data-path="data-structures.html"><a href="data-structures.html#arrays"><i class="fa fa-check"></i><b>5.3.4</b> Arrays</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>5.4</b> Practice</a></li>
 <li class="chapter" data-level="5.5" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>5.5</b> R Objects</a><ul>
@@ -392,6 +392,7 @@ Once you make a guess, try it in R and see if you were correct.
 </div>
 <div id="working-with-vectors" class="section level4">
 <h4><span class="header-section-number">5.3.1.2</span> Working with vectors</h4>
+<p>TODO: add sort/order?</p>
 <p>You can do many things with vectors that you can with single instances of each data type.
 Recall, you can add a number to a numeric object:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb125-1"><a href="data-structures.html#cb125-1"></a>a &lt;-<span class="st"> </span><span class="dv">3</span>   <span class="co"># create a numeric object</span></span>
@@ -501,9 +502,8 @@ Check whether you are correct by creating some vectors in R and attempting to mu
 </div>
 
 </div>
-</div>
-<div id="special-numeric-vectors" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Special Numeric Vectors:</h3>
+<div id="special-numeric-vectors" class="section level4">
+<h4><span class="header-section-number">5.3.1.4</span> Special Numeric Vectors</h4>
 <p>There are a few special ways of creating a numeric vector which can be very useful, so we’ll mention them here.
 The first way creates a sequence of all integers between a starting and ending point:</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb169-1"><a href="data-structures.html#cb169-1"></a>d &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>  <span class="co"># create sequence starting at 1 and ending at 5</span></span>
@@ -523,12 +523,24 @@ The first way creates a sequence of all integers between a starting and ending p
 In this example, the R output can’t be shown on a single line, so it must be placed on multiple lines. Notice that each line has a different number in brackets: <code>[1]</code>, <code>[19]</code>, <code>[37]</code> etc. This number indicates which element of the vector is the start of that line. So we finally have an explanation for the <code>[1]</code> which is displayed with all R output. It’s simply indicating that this is the <em>first element</em> of the output. This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
 </p>
 </div>
+<p>Another way to create a numeric vector is using the <code>seq</code> function, which allows you to specify the <em>interval</em> between each vector element.
+For example:</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb173-1"><a href="data-structures.html#cb173-1"></a>e &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb173-2"><a href="data-structures.html#cb173-2"></a>e</span></code></pre></div>
+<pre class="output-style"><code> [1]   2   4   6   8  10  12  14  16  18  20  22  24  26  28  30  32  34  36  38
+[20]  40  42  44  46  48  50  52  54  56  58  60  62  64  66  68  70  72  74  76
+[39]  78  80  82  84  86  88  90  92  94  96  98 100</code></pre>
+<p>Or you can also specify how long you want the vector to be, and <code>seq</code> will determine the appropriate interval to make the elements evenly spaced.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb175-1"><a href="data-structures.html#cb175-1"></a><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">length.out=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1]  1.0  5.5 10.0</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb177-1"><a href="data-structures.html#cb177-1"></a><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">length.out=</span><span class="dv">5</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1]  1.00  3.25  5.50  7.75 10.00</code></pre>
 </div>
-<div id="another-data-type-factor" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Another Data Type: Factor</h3>
+<div id="another-data-type-factor" class="section level4">
+<h4><span class="header-section-number">5.3.1.5</span> Another Data Type: Factor</h4>
 <p>In the previous section, we avoided talking about the <em>factor</em> data type, because we need the concept of vectors to appreciate their purpose, but now we are equipped to talk about them.
 Consider the following example of a <em>character vector</em>:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb173-1"><a href="data-structures.html#cb173-1"></a>cha_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb179-1"><a href="data-structures.html#cb179-1"></a>cha_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;crackers&quot;</span>, <span class="st">&quot;cheese&quot;</span>)</span></code></pre></div>
 <p>There are seven elements in this vector (<code>length(cha_vec)</code> is <code>7</code>), but there are only <em>two unique</em> elements, “cheese” and “crackers”.
 Imagine having two write down this vector on a piece of paper, and the space it would take.
 Now imagine writing down instead:</p>
@@ -537,21 +549,187 @@ Now imagine writing down instead:</p>
 <p>2 = “crackers”</p>
 <p>This second method writes down numbers instead of character strings, but also keeps a record of which numbers correspond to which character strings.
 The total amount of space taken up on the piece of paper is smaller for the second method, and the amount of space saved would be even larger if the character vector were longer and had more repeated elements.</p>
-<p>This is the essence of what a <em>factor</em> data type is.
+<p>This is the essence of what a <em>factor</em> data type is: A character vector stored more efficiently on the computer.
 For a factor vector, R stores an integer vector (which often takes less space than a character vector), and also maintains a “lookup table” which keeps track of which integers correspond with which character strings.</p>
-<p>TODO: show how to create factor vector</p>
-<p>TODO: show effect of adding integer to factor vector.</p>
+<p>To illustrate, let’s create a factor variable:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb180-1"><a href="data-structures.html#cb180-1"></a><span class="co"># create a new factor variable from our existing character vector:</span></span>
+<span id="cb180-2"><a href="data-structures.html#cb180-2"></a>fac_vec &lt;-<span class="st"> </span><span class="kw">factor</span>(cha_vec)   </span></code></pre></div>
+<p>Notice how we started with a character vector and used the <code>factor</code> function to create a factor from it.
+If we print the new vector,</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb181-1"><a href="data-structures.html#cb181-1"></a>fac_vec</span></code></pre></div>
+<pre class="output-style"><code>[1] cheese   crackers cheese   crackers cheese   crackers cheese  
+Levels: cheese crackers</code></pre>
+<p>it displays the elements as we would expect, but also includes another line of output giving <code>Levels</code>.
+This shows that there are only two unique character strings, which are called <em>factor levels</em>.
+Since R is using integers “behind the scenes” to store the vector, we can see those integers by using the <code>as.integer</code> function:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb183-1"><a href="data-structures.html#cb183-1"></a><span class="kw">as.integer</span>(fac_vec)</span></code></pre></div>
+<pre class="output-style"><code>[1] 1 2 1 2 1 2 1</code></pre>
+<p>This is another example of <em>type conversion</em>, which we will discuss soon.</p>
+<div class="caution">
+<p>
+In some situations, numbers may get treated as characters, like so:
+</p>
+<p>
+<code>x &lt;- c(“4”, “5”, “6”)</code>
+</p>
+<p>
+This may pose an issue if this character vector gets converted to a factor, because the “behind the scenes” integers may not agree with the <code>Levels</code>, which represent the original data. This can easily happen when reading in data from a file on your computer, if you’re not careful. We’ll talk more about this later.
+</p>
+</div>
+<p>There are a few neat things you can do with factor vectors.
+By changing the levels, you can quickly change all occurrences of a string at once.
+For example:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb185-1"><a href="data-structures.html#cb185-1"></a><span class="kw">print</span>(fac_vec)</span>
+<span id="cb185-2"><a href="data-structures.html#cb185-2"></a><span class="kw">levels</span>(fac_vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;peas&quot;</span>, <span class="st">&quot;carrots&quot;</span>)   <span class="co"># change the levels of fac_vec</span></span>
+<span id="cb185-3"><a href="data-structures.html#cb185-3"></a>fac_vec</span></code></pre></div>
+<pre class="output-style"><code>[1] cheese   crackers cheese   crackers cheese   crackers cheese  
+Levels: cheese crackers
+[1] peas    carrots peas    carrots peas    carrots peas   
+Levels: peas carrots</code></pre>
+<p>There is more to be said about factors, but this is all we will explore at this point.</p>
 <div class="bonus">
 <p>
-In newer versions of R, all strings are <em>treated like factors</em> behind the scenes, meaning there’s really no difference between factor and character types in terms of how much space they take up in the computer’s memory. However, R still treats the two factors differently, so it’s important to remember that they are different!
+In newer versions of R, all strings are <em>treated like factors</em> behind the scenes, meaning there’s really no difference between factor and character types in terms of how much space they take up in the computer’s memory. However, R still treats the two types differently, so it’s important to remember that they are different!
 </p>
 </div>
 </div>
-<div id="type-conversion" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> Type conversion</h3>
+<div id="combining-vectors" class="section level4">
+<h4><span class="header-section-number">5.3.1.6</span> Combining Vectors</h4>
+<p>Given two vectors, it’s easy to combine them into one vector:</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb187-1"><a href="data-structures.html#cb187-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb187-2"><a href="data-structures.html#cb187-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb187-3"><a href="data-structures.html#cb187-3"></a><span class="kw">c</span>(a, b)   <span class="co"># combine vectors a and b</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 1 2 3 4 5 6 7</code></pre>
+<p>The combine function (<code>c</code>) is smart enough to recognize that <code>a</code> and <code>b</code> are vectors, and performs <em>concatenation</em> to create the resultant longer vector.
+You can also use the combine function to add a single element to the end of a vector:</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb189-1"><a href="data-structures.html#cb189-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;CEO&quot;</span>, <span class="st">&quot;CFO&quot;</span>)   <span class="co"># initialize </span></span>
+<span id="cb189-2"><a href="data-structures.html#cb189-2"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(a, <span class="st">&quot;CTO&quot;</span>)       <span class="co"># redefine a by combining a with a new element</span></span>
+<span id="cb189-3"><a href="data-structures.html#cb189-3"></a>a</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;CEO&quot; &quot;CFO&quot; &quot;CTO&quot;</code></pre>
+<div class="caution">
+<p>
+In R, there may sometimes be more than one way to do the same thing, and one of the ways might be much faster or take much less computer memory to do. In other words, two sets of R commands be <em>correct</em>, but one may <em>perform better</em> than the other. Writing “performant” (high performance) code is an advanced topic that we will not discuss much in this introductory course. You’ve just seen one way to add an element to the end of a vector, but if you do this <em>a lot</em> (perhaps in a for loop, which we’ll talk about later), it can be <em>very slow</em>. In this situation you’re better off creating the whole vector at once and updating each element as needed.
+</p>
+</div>
+<p>What if you try to combine vectors of different types?</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb191-1"><a href="data-structures.html#cb191-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb191-2"><a href="data-structures.html#cb191-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;four&quot;</span>, <span class="st">&quot;five&quot;</span>)</span>
+<span id="cb191-3"><a href="data-structures.html#cb191-3"></a><span class="kw">c</span>(a, b)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;1&quot;    &quot;2&quot;    &quot;3&quot;    &quot;four&quot; &quot;five&quot;</code></pre>
+<p>Again, we see that the <code>c</code> function has converted all elements to be character strings, and the resultant vector is a character vector.
+Since we’ve seen type conversion arise a few times now, it’s appropriate to talk more explicitly about how it works.
+We’ll do that in the next section.</p>
+</div>
+<div id="type-conversion" class="section level4">
+<h4><span class="header-section-number">5.3.1.7</span> Type conversion</h4>
+<p>There may be times when you’d like to convert from one type of data into another.
+An example would be the character string <code>"1"</code>, which R <em>does not</em> view as a number.
+Therefore, the following does not work:</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb193-1"><a href="data-structures.html#cb193-1"></a><span class="st">&quot;1&quot;</span> <span class="op">+</span><span class="st"> &quot;2&quot;</span>   <span class="co"># R can&#39;t add two character string</span></span></code></pre></div>
+<pre><code>Error in &quot;1&quot; + &quot;2&quot;: non-numeric argument to binary operator</code></pre>
+<p>To remedy issues like this, R provides functions in order to convert from one data type into another:
+- as.character: converts to character
+- as.numeric: converts to numeric
+- as.logical: converts to logical
+- as.factor: converts to factor</p>
+<p>Using these functions, R will “do its best” to convert whatever you start with into the desired data type, but it’s not always possible to make the conversion.
+Below are a few examples which do and don’t work well.</p>
+<p>Converting from a numeric to a character vector is always possible:</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb195-1"><a href="data-structures.html#cb195-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb196-1"><a href="data-structures.html#cb196-1"></a>y &lt;-<span class="st"> </span><span class="kw">as.character</span>(x)   <span class="co"># Here&#39;s how to convert to a character vector</span></span>
+<span id="cb196-2"><a href="data-structures.html#cb196-2"></a><span class="kw">print</span>(x)</span>
+<span id="cb196-3"><a href="data-structures.html#cb196-3"></a><span class="kw">print</span>(y)</span></code></pre></div>
+<pre class="output-style"><code>[1] 3 2 1
+[1] &quot;3&quot; &quot;2&quot; &quot;1&quot;</code></pre>
+<p>However, converting from a character vector to a numeric only works if the characters represent numbers.
+Any element that won’t convert will be given</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb198-1"><a href="data-structures.html#cb198-1"></a>w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;12.3&quot;</span>, <span class="st">&quot;-5&quot;</span>, <span class="st">&quot;22&quot;</span>)   <span class="co"># this character vector can be converted to numeric</span></span>
+<span id="cb198-2"><a href="data-structures.html#cb198-2"></a><span class="kw">as.numeric</span>(w)</span></code></pre></div>
+<pre class="output-style"><code>[1]  1.0 12.3 -5.0 22.0</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb200-1"><a href="data-structures.html#cb200-1"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;frank&quot;</span>, <span class="st">&quot;went&quot;</span>, <span class="st">&quot;to&quot;</span>, <span class="st">&quot;mars&quot;</span>)   <span class="co"># this character vector can&#39;t be converted to numeric</span></span>
+<span id="cb200-2"><a href="data-structures.html#cb200-2"></a><span class="kw">as.numeric</span>(v)</span></code></pre></div>
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+<pre class="output-style"><code>[1] NA NA NA NA</code></pre>
+<p>None of the elements can be converted into a number, so R prints a warning message, and the result is an <code>NA</code> in each element, which stands for “not available”.
+<code>NA</code> indicates that a value is missing, and can arise in many different ways, which we will not explain here.</p>
+<div class="bonus">
+<p>
+<code>NA</code> values have interesting behavior in R. Generally, anything that “touches” an <code>NA</code> becomes an <code>NA</code>. You can try out these commands for yourself to see what happens:
+</p>
+<p>
+<code>NA * 0</code>
+</p>
+<p>
+<code>NA - NA</code>
+</p>
+<p>
+<code>c(NA, 1, 2)</code>
+</p>
+</div>
+<p>If only part of a vector can be converted, then the result will contain some converted values and some <code>NA</code>’s:</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb203-1"><a href="data-structures.html#cb203-1"></a>u &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1.2&quot;</span>, <span class="st">&quot;chicken&quot;</span>, <span class="st">&quot;33&quot;</span>)</span>
+<span id="cb203-2"><a href="data-structures.html#cb203-2"></a><span class="kw">as.numeric</span>(u)</span></code></pre></div>
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+<pre class="output-style"><code>[1]  1.2   NA 33.0</code></pre>
+<p>What other conversions are possible?
+Character vectors can also be converted into logical:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb206-1"><a href="data-structures.html#cb206-1"></a>s &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;cat&quot;</span>)   <span class="co"># all but the last element can be converted to logical</span></span>
+<span id="cb206-2"><a href="data-structures.html#cb206-2"></a><span class="kw">as.logical</span>(s)</span></code></pre></div>
+<pre class="output-style"><code>[1]  TRUE FALSE  TRUE FALSE    NA</code></pre>
+<p>Based on the examples we’ve seen before, it should make sense that numeric vectors containing 0 or 1 can also be converted into a logical vector:</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb208-1"><a href="data-structures.html#cb208-1"></a><span class="kw">as.logical</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))  <span class="co"># here we create the vector and convert it in the same line</span></span></code></pre></div>
+<pre class="output-style"><code>[1]  TRUE FALSE  TRUE FALSE</code></pre>
+<div class="progress">
+<p>
+Logical vectors can also be converted into character or numeric vectors. Based on what you know, make a prediction about what the following commands will produce:
+</p>
+<p>
+<code>as.numeric(c(T, F, F, T))</code> <code>as.character(c(T, F, F, T))</code>
+</p>
+<p>
+Check your predictions by typing running the commands in R.
+</p>
+</div>
+<p>Remember that “solo” objects are just vectors of length 1, so any of these type conversions should work on a single object as well, like so:</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb210-1"><a href="data-structures.html#cb210-1"></a><span class="kw">as.numeric</span>(<span class="st">&quot;99&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 99</code></pre>
+<p>Along with the conversion functions <code>as....</code>, there are companion functions which simply check whether a vector is of a certain type:</p>
+<ul>
+<li>is.character: checks if character</li>
+<li>is.numeric: checks if numeric</li>
+<li>is.logical: checks if logical</li>
+<li>is.factor: checks if factor</li>
+</ul>
+<p>Here are some examples:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb212-1"><a href="data-structures.html#cb212-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>)</span>
+<span id="cb212-2"><a href="data-structures.html#cb212-2"></a><span class="kw">is.character</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb214-1"><a href="data-structures.html#cb214-1"></a><span class="kw">is.numeric</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb216-1"><a href="data-structures.html#cb216-1"></a>a &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(a)</span>
+<span id="cb216-2"><a href="data-structures.html#cb216-2"></a><span class="kw">is.character</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb218-1"><a href="data-structures.html#cb218-1"></a><span class="kw">is.numeric</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<div class="bonus">
+<p>
+As we’ve seen, type conversion is sometimes performed automatically, specifically when using the combine function (<code>c</code>).
+</p>
+<p>
+To understand more about this, try typing <code>?c</code> to bring up the documentation, and have a look at the “Details” section.
+</p>
+</div>
 <p>TODO: include conversion b/t character vec and factor vec.</p>
-<p>is.###
-as.###</p>
+</div>
+</div>
+<div id="lists" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Lists</h3>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Matrices</h3>
+</div>
+<div id="arrays" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Arrays</h3>
 </div>
 </div>
             </section>

@@ -228,7 +228,7 @@
 
 \title{R Module 1}
 \author{Alex Fout\footnote{Department of Statistics, Colorado State University, \href{mailto:fout@colostate.edu}{\nolinkurl{fout@colostate.edu}}}}
-\date{2020-06-28}
+\date{2020-06-30}
 
 \begin{document}
 \maketitle
@@ -1047,8 +1047,6 @@ Here's an example of some comments:
 \end{Highlighting}
 \end{Shaded}
 
-TODO: add note in strings section about special characters and blocks
-
 Notice that it's possible for a line to contain only a comment, or for part of a line to be a comment.
 R decides which part of a line is a comment by looking for the first ``\#'', and everything after that will be treated as a comment and ignored.
 
@@ -1247,7 +1245,17 @@ We can prove that these are all the same data type using the \texttt{class} func
 [1] "numeric"
 \end{verbatim}
 
-When you have numeric data, you may want to perform math operations on them.
+\begin{caution}
+So far, we've defined the \texttt{a} object a few different times, which
+is allowed! Every time we define \texttt{a}, R \emph{forgets} the old
+value. Therefore we should reuse object names with caution, because it
+can become difficult to remember what the \emph{latest} value is! When
+we discuss \emph{loops} later, however, we will use code to
+automatically change the value of an object several times in order to do
+useful things!
+\end{caution}
+
+When you have numeric objects, you may want to perform math operations on them.
 R has a number of built in functions to deal with numeric data, here are some examples:
 
 \begin{Shaded}
@@ -1266,7 +1274,7 @@ R has a number of built in functions to deal with numeric data, here are some ex
 [1] -1331
 \end{verbatim}
 
-When performing math on numeric data, R will obey \href{https://en.wikipedia.org/wiki/Order_of_operations}{order of operations}, so the following two examples will give different results:
+When performing math on numeric objects, R will obey \href{https://en.wikipedia.org/wiki/Order_of_operations}{order of operations}, so the following two examples will give different results:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1290,6 +1298,18 @@ When performing math on numeric data, R will obey \href{https://en.wikipedia.org
 
 Notice that we've added extra spaces in the code to help you understand what's going on.
 This is another example of code \emph{style}, which we'll talk more about later.
+
+\begin{caution}
+Wait a second, we didn't use the the \texttt{print} function just now,
+but R still displayed the results of the calculations! What is going on?
+This behavior is peculiar to something called R Markdown, which is what
+we used to create this book (yes, this book was creating using R! Pretty
+cool, huh?). If the \emph{last} command given in a code block produces a
+result, and you don't assign that result to anything (using
+\texttt{\textless{}-}), then R will print out that result. This means we
+don't always have to use the print function when we want to display R
+output.
+\end{caution}
 
 Notice all the decimal points?
 R can be very precise when performing computations.
@@ -1323,13 +1343,13 @@ TODO: talk about Inf, -Inf, and NaN?
 \hypertarget{integer}{%
 \subsection{Integer}\label{integer}}
 
-In general, numeric data in R are treated as if they can be any decimal number (technically, they are a \emph{double precision} number, if you know what that means).
-However, there is a way to specify that a specific numeric type is an integer, by placing an ``L'' at the end of it, like so:
+In general, numeric data in R are treated as if they can be any decimal number (technically, they are a \emph{double precision} number, if you know what that means; if not, it's not important right now).
+However, there is a way to specify that a specific numeric object is an integer, by placing an ``L'' at the end of it, like so:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\DecValTok{20}   \CommentTok{# x will be a numeric type}
-\NormalTok{y <-}\StringTok{ }\NormalTok{20L  }\CommentTok{# y will be an integer type}
+\NormalTok{x <-}\StringTok{ }\DecValTok{20}   \CommentTok{# x will be a numeric object}
+\NormalTok{y <-}\StringTok{ }\NormalTok{20L  }\CommentTok{# y will be an integer object}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1449,7 +1469,7 @@ To see a list of special characters, try typing \texttt{?Quotes} into
 the R console
 \end{bonus}
 
-Here is a special string:
+Here is an important string to know about:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1523,9 +1543,9 @@ There are other ways of manipulating strings, but we'll return to this later.
 \hypertarget{logical}{%
 \subsection{Logical}\label{logical}}
 
-Numeric data can be any number, character types can be any string of characters, but logical data types can only be two different values: True or False
+Numeric objects can be any number, character objects can be any string of characters, but logical objects can only be two different values: True or False
 Logical data types are also known as \href{https://en.wikipedia.org/wiki/Boolean_data_type}{``boolean'' data types}.
-Here we define some Logical types:
+Here we define some Logical objects:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1576,7 +1596,19 @@ Here we define some Logical types:
 [1] FALSE
 \end{verbatim}
 
-So you can see that we can define a logical type using the full name or just the first letter.
+So you can see that we can define a logical object using the full name or just the first letter.
+Here's how to get the ``opposite'' of a logical object
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{!}\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
 Logical data are the simplest type, but there are actually some clever things you can do with them.
 You can test whether simple mathematical expressions are true or false.
 
@@ -1741,7 +1773,7 @@ In the R console, type the following R commands and observe the result
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  What data type is x?
+  What data type is x? (check with R using the \texttt{class} function)
 \item
   What data type is y?
 \item
@@ -1901,10 +1933,928 @@ following commands in R and think about the output:
 What changes did R make when creating the vector?
 \end{progress}
 
-```
+What's happening in the above code is an example of \emph{type conversion}, which we will talk more about later.
+For now, remember that every element in an R vector is the same type.
 
-\hypertarget{another-data-type-factors}{%
-\subsection{Another Data Type? Factors}\label{another-data-type-factors}}
+You can create \emph{empty} vectors as placeholders, by indicating the data type and how many elements there are:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{empty <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{10}\NormalTok{)   }\CommentTok{# this creates a numeric vector of length 10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{reflect}
+This is the first instance of us using a name which is longer than a
+single character! This new vector is called \emph{empty}.
+\end{reflect}
+
+Let's print the contents of the vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(empty)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] 0 0 0 0 0 0 0 0 0 0
+\end{verbatim}
+
+Even though we didn't tell R what data to put in the vector, it put a \texttt{0} in each element.
+This is the \emph{default} value for a new vector.
+
+Here's how you can create new vectors of other types:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{empty_int <-}\StringTok{ }\KeywordTok{integer}\NormalTok{(}\DecValTok{45}\NormalTok{)   }\CommentTok{# create integer vector with 45 elements}
+\NormalTok{empty_cha <-}\StringTok{ }\KeywordTok{character}\NormalTok{(}\DecValTok{2}\NormalTok{)  }\CommentTok{# create character vector with 2 elements}
+\NormalTok{empty_log <-}\StringTok{ }\KeywordTok{logical}\NormalTok{(}\DecValTok{1000}\NormalTok{)    }\CommentTok{# create logical vector with 1000 elements!!}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{progress}
+We saw that the default value for a numeric vector is 0. Use the code
+above to create empty integer, character, and logical vectors, then
+print them out to see what default values R has given to each element.
+Do these make sense?
+\end{progress}
+
+What happens if we create a vector of length 1?
+It turns out this is the same as just creating a single instance of that data type.
+Observe how the following are the same.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{numeric}\NormalTok{(}\DecValTok{1}\NormalTok{)  }\CommentTok{# create vector of length 1 (default value is 0, right?)}
+\NormalTok{b <-}\StringTok{ }\DecValTok{0}           \CommentTok{# create single numeric with value 0}
+\NormalTok{a }\OperatorTok{==}\StringTok{ }\NormalTok{b           }\CommentTok{# compare a and b to see if they are the same.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{bonus}
+It turns out, you \emph{can} create a vector of length 0, which contains
+0 elements. This may sound odd, but can happen sometimes! However, you
+\emph{cannot} create a vector of negative length
+(e.g.~\texttt{logical(-1)} won't work), or a fractional length
+(e.g.~\texttt{character(12.7)} won't work).
+\end{bonus}
+
+\hypertarget{accessing-and-changing-elements}{%
+\subsubsection{Accessing and Changing Elements}\label{accessing-and-changing-elements}}
+
+After you've created a vector, how do you put your data in them?
+Here's how you can change the value of a specific element:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)  }\CommentTok{# create numeric vector of length 3}
+\NormalTok{a[}\DecValTok{2}\NormalTok{] <-}\StringTok{ }\DecValTok{4}        \CommentTok{# change the value of the second element of a to 4}
+\NormalTok{a                }\CommentTok{# print the result}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 4 3
+\end{verbatim}
+
+See how the second element of \texttt{a} has changed?
+So you can access a specific element using square brackets: \texttt{{[}} and \texttt{{]}}.
+In fact, if you want to know the value of the third element (without changing anything), just use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a[}\DecValTok{3}\NormalTok{]    }\CommentTok{# access the third element}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3
+\end{verbatim}
+
+\begin{progress}
+What do you think will be the result of the following code (hint: the
+result will either be \texttt{TRUE} or \texttt{FALSE})?
+
+\texttt{vec\ \textless{}-\ c(4,\ 5,\ 6)\ \ \#\ create\ a\ vector}
+
+\texttt{vec{[}3{]}\ ==\ 6\ \ \ \#\ Remember\ what\ ==\ does?}
+
+Once you make a guess, try it in R and see if you were correct.
+\end{progress}
+
+\hypertarget{working-with-vectors}{%
+\subsubsection{Working with vectors}\label{working-with-vectors}}
+
+TODO: add sort/order?
+
+You can do many things with vectors that you can with single instances of each data type.
+Recall, you can add a number to a numeric object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\DecValTok{3}   \CommentTok{# create a numeric object}
+\NormalTok{a }\OperatorTok{+}\StringTok{ }\DecValTok{4}    \CommentTok{# add a number to the object.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 7
+\end{verbatim}
+
+The same thing is possible with numeric vectors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)   }\CommentTok{# create a numeric vector}
+\NormalTok{a }\OperatorTok{+}\StringTok{ }\DecValTok{4}             \CommentTok{# add a number to EACH ELEMENT of the vector!}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5 6 7
+\end{verbatim}
+
+This type of behavior is called \emph{elementwise} behavior. That is, the operation is performed on each element separately.
+Here are some other elementwise operations:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{-}\StringTok{ }\DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -2 -1  0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{*}\StringTok{ }\FloatTok{1.5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1.5 3.0 4.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{^}\StringTok{ }\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 4 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{==}\StringTok{ }\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE  TRUE FALSE
+\end{verbatim}
+
+R has some functions which \emph{summarize} the values in a vector.
+One such function is the \texttt{sum} function, which adds the values of each element in the vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(a)  }\CommentTok{# print the elements of a as a reminder}
+\KeywordTok{sum}\NormalTok{(a)    }\CommentTok{# add all the elements of a together.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3
+[1] 6
+\end{verbatim}
+
+\begin{bonus}
+Other examples of summary functions include \texttt{max}, \texttt{min},
+\texttt{mean}, and \texttt{sd}. We'll talk about these and other summary
+functions later.
+\end{bonus}
+
+Some operations work on \emph{two vectors}, as long as they are the same length:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 2 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\OperatorTok{*}\StringTok{ }\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 0 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{^}\StringTok{ }\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 1 3
+\end{verbatim}
+
+You can even compare two vectors, and the result will be a logical vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z <-}\StringTok{ }\NormalTok{a }\OperatorTok{>}\StringTok{ }\NormalTok{b   }\CommentTok{# compare a and b, element by element, assign the result to z}
+\NormalTok{z            }\CommentTok{# print the value of z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE  TRUE  TRUE
+\end{verbatim}
+
+The first logical value is the result of \texttt{a{[}1{]}\ \textless{}\ b{[}1{]}}, the second logical value is the result of \texttt{a{[}2{]}\ \textless{}\ b{[}2{]}}, etc.
+what operations can we perform on character vectors?
+Here are some examples:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE}   \CommentTok{# which elements are TRUE?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE  TRUE  TRUE
+\end{verbatim}
+
+This just produces \texttt{z} again (Do you see why?).
+Here's how to get the logical ``opposite'' of \texttt{z}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\OperatorTok{==}\StringTok{ }\OtherTok{FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  TRUE FALSE FALSE
+\end{verbatim}
+
+Or, as we saw before, we can use \texttt{!}, which operates on each element of \texttt{z}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{!}\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  TRUE FALSE FALSE
+\end{verbatim}
+
+Remember how logical objects can be treated as numeric objects (either a 0 or 1)?
+If we use this with the \texttt{sum} function to determine how many elements are \texttt{TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+Here's another example of using the sum function on a logical vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(a }\OperatorTok{==}\StringTok{ }\NormalTok{b)  }\CommentTok{# how many elements do a and b have in common?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1
+\end{verbatim}
+
+So there are no elements where \texttt{a} and \texttt{b} are the same.
+
+\begin{bonus}
+Logical vectors can also be used to access all elements of a vector for
+which a certain condition is true. We'll see how to do this later on.
+\end{bonus}
+
+Let's create some character vectors and explore a few things we can do with them:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"I"}\NormalTok{, }\StringTok{"have"}\NormalTok{, }\StringTok{"to"}\NormalTok{, }\StringTok{"have"}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"donkey"}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"You"}\NormalTok{, }\StringTok{"want"}\NormalTok{, }\StringTok{"to"}\NormalTok{, }\StringTok{"sell"}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"donkey"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+First, we can do elementwise comparison (assuming equal length), just as we did for numeric vectors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{==}\StringTok{ }\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE FALSE  TRUE FALSE  TRUE  TRUE
+\end{verbatim}
+
+To search for specific character strings in a character vector, you can use the \texttt{grep} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grep}\NormalTok{(}\StringTok{"have"}\NormalTok{, a)   }\CommentTok{# search the vector a for the phrase "have"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 4
+\end{verbatim}
+
+This result shows that the phrase ``have'' occurs in elements 2 and 4 of \texttt{a}!
+What if we search for a phrase that doesn't occur?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grep}\NormalTok{(}\StringTok{"raddish"}\NormalTok{, a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+integer(0)
+\end{verbatim}
+
+The result is an integer vector of length 0, meaning there are no elements that match the phrase!
+
+\hypertarget{vectors-of-different-types}{%
+\subsubsection{Vectors of different types}\label{vectors-of-different-types}}
+
+What if we try to perform operations between vectors of different types?
+This will work in some cases, but not others. Here are a few examples:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"I"}\NormalTok{, }\StringTok{"am"}\NormalTok{, }\StringTok{"sam"}\NormalTok{)}
+\NormalTok{c <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{b   }\CommentTok{# Can you add a numeric vector to a character vector? }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error in a + b: non-numeric argument to binary operator
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{+}\StringTok{ }\NormalTok{c  }\CommentTok{# can you add a numeric vector to a logical vector?}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2 3 3
+\end{verbatim}
+
+\begin{reflect}
+We see that you can't add a numeric vector to a character vector, but
+you \emph{can} add a numeric vector to a logical vector. Why is this?
+\end{reflect}
+
+\begin{progress}
+\begin{progress}
+
+Predict whether the following are possible:
+
+\begin{itemize}
+\tightlist
+\item
+  Can you can multiply a character vector with a numeric vector?
+\item
+  Can you can multiply a logical vector with a numeric vector?
+\end{itemize}
+
+Check whether you are correct by creating some vectors in R and attempting to multiply them together. Can you make sense of the answer?
+
+\end{progress}
+\end{progress}
+
+\hypertarget{special-numeric-vectors}{%
+\subsubsection{Special Numeric Vectors}\label{special-numeric-vectors}}
+
+There are a few special ways of creating a numeric vector which can be very useful, so we'll mention them here.
+The first way creates a sequence of all integers between a starting and ending point:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{5}  \CommentTok{# create sequence starting at 1 and ending at 5}
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5
+\end{verbatim}
+
+Here's a longer example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{100}  \CommentTok{# create sequence starting at 1 and ending at 5}
+\NormalTok{d}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100
+\end{verbatim}
+
+\begin{caution}
+In this example, the R output can't be shown on a single line, so it
+must be placed on multiple lines. Notice that each line has a different
+number in brackets: \texttt{{[}1{]}}, \texttt{{[}19{]}},
+\texttt{{[}37{]}} etc. This number indicates which element of the vector
+is the start of that line. So we finally have an explanation for the
+\texttt{{[}1{]}} which is displayed with all R output. It's simply
+indicating that this is the \emph{first element} of the output. This
+also reflects the fact stated earlier that any R object can be
+considered a vector of length 1!
+\end{caution}
+
+Another way to create a numeric vector is using the \texttt{seq} function, which allows you to specify the \emph{interval} between each vector element.
+For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{e <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{e}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1]   2   4   6   8  10  12  14  16  18  20  22  24  26  28  30  32  34  36  38
+[20]  40  42  44  46  48  50  52  54  56  58  60  62  64  66  68  70  72  74  76
+[39]  78  80  82  84  86  88  90  92  94  96  98 100
+\end{verbatim}
+
+Or you can also specify how long you want the vector to be, and \texttt{seq} will determine the appropriate interval to make the elements evenly spaced.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1.0  5.5 10.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1.00  3.25  5.50  7.75 10.00
+\end{verbatim}
+
+\hypertarget{another-data-type-factor}{%
+\subsubsection{Another Data Type: Factor}\label{another-data-type-factor}}
+
+In the previous section, we avoided talking about the \emph{factor} data type, because we need the concept of vectors to appreciate their purpose, but now we are equipped to talk about them.
+Consider the following example of a \emph{character vector}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cha_vec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"cheese"}\NormalTok{, }\StringTok{"crackers"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"crackers"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"crackers"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+There are seven elements in this vector (\texttt{length(cha\_vec)} is \texttt{7}), but there are only \emph{two unique} elements, ``cheese'' and ``crackers''.
+Imagine having two write down this vector on a piece of paper, and the space it would take.
+Now imagine writing down instead:
+
+1, 2, 1, 2, 1, 2, 1
+
+1 = ``cheese''
+
+2 = ``crackers''
+
+This second method writes down numbers instead of character strings, but also keeps a record of which numbers correspond to which character strings.
+The total amount of space taken up on the piece of paper is smaller for the second method, and the amount of space saved would be even larger if the character vector were longer and had more repeated elements.
+
+This is the essence of what a \emph{factor} data type is: A character vector stored more efficiently on the computer.
+For a factor vector, R stores an integer vector (which often takes less space than a character vector), and also maintains a ``lookup table'' which keeps track of which integers correspond with which character strings.
+
+To illustrate, let's create a factor variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create a new factor variable from our existing character vector:}
+\NormalTok{fac_vec <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(cha_vec)   }
+\end{Highlighting}
+\end{Shaded}
+
+Notice how we started with a character vector and used the \texttt{factor} function to create a factor from it.
+If we print the new vector,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fac_vec}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] cheese   crackers cheese   crackers cheese   crackers cheese  
+Levels: cheese crackers
+\end{verbatim}
+
+it displays the elements as we would expect, but also includes another line of output giving \texttt{Levels}.
+This shows that there are only two unique character strings, which are called \emph{factor levels}.
+Since R is using integers ``behind the scenes'' to store the vector, we can see those integers by using the \texttt{as.integer} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.integer}\NormalTok{(fac_vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 1 2 1 2 1
+\end{verbatim}
+
+This is another example of \emph{type conversion}, which we will discuss soon.
+
+\begin{caution}
+In some situations, numbers may get treated as characters, like so:
+
+\texttt{x\ \textless{}-\ c("4",\ "5",\ "6")}
+
+This may pose an issue if this character vector gets converted to a
+factor, because the ``behind the scenes'' integers may not agree with
+the \texttt{Levels}, which represent the original data. This can easily
+happen when reading in data from a file on your computer, if you're not
+careful. We'll talk more about this later.
+\end{caution}
+
+There are a few neat things you can do with factor vectors.
+By changing the levels, you can quickly change all occurrences of a string at once.
+For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(fac_vec)}
+\KeywordTok{levels}\NormalTok{(fac_vec) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"peas"}\NormalTok{, }\StringTok{"carrots"}\NormalTok{)   }\CommentTok{# change the levels of fac_vec}
+\NormalTok{fac_vec}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] cheese   crackers cheese   crackers cheese   crackers cheese  
+Levels: cheese crackers
+[1] peas    carrots peas    carrots peas    carrots peas   
+Levels: peas carrots
+\end{verbatim}
+
+There is more to be said about factors, but this is all we will explore at this point.
+
+\begin{bonus}
+In newer versions of R, all strings are \emph{treated like factors}
+behind the scenes, meaning there's really no difference between factor
+and character types in terms of how much space they take up in the
+computer's memory. However, R still treats the two types differently, so
+it's important to remember that they are different!
+\end{bonus}
+
+\hypertarget{combining-vectors}{%
+\subsubsection{Combining Vectors}\label{combining-vectors}}
+
+Given two vectors, it's easy to combine them into one vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\KeywordTok{c}\NormalTok{(a, b)   }\CommentTok{# combine vectors a and b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1 2 3 4 5 6 7
+\end{verbatim}
+
+The combine function (\texttt{c}) is smart enough to recognize that \texttt{a} and \texttt{b} are vectors, and performs \emph{concatenation} to create the resultant longer vector.
+You can also use the combine function to add a single element to the end of a vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"CEO"}\NormalTok{, }\StringTok{"CFO"}\NormalTok{)   }\CommentTok{# initialize }
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(a, }\StringTok{"CTO"}\NormalTok{)       }\CommentTok{# redefine a by combining a with a new element}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "CEO" "CFO" "CTO"
+\end{verbatim}
+
+\begin{caution}
+In R, there may sometimes be more than one way to do the same thing, and
+one of the ways might be much faster or take much less computer memory
+to do. In other words, two sets of R commands be \emph{correct}, but one
+may \emph{perform better} than the other. Writing ``performant'' (high
+performance) code is an advanced topic that we will not discuss much in
+this introductory course. You've just seen one way to add an element to
+the end of a vector, but if you do this \emph{a lot} (perhaps in a for
+loop, which we'll talk about later), it can be \emph{very slow}. In this
+situation you're better off creating the whole vector at once and
+updating each element as needed.
+\end{caution}
+
+What if you try to combine vectors of different types?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{b <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"four"}\NormalTok{, }\StringTok{"five"}\NormalTok{)}
+\KeywordTok{c}\NormalTok{(a, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "1"    "2"    "3"    "four" "five"
+\end{verbatim}
+
+Again, we see that the \texttt{c} function has converted all elements to be character strings, and the resultant vector is a character vector.
+Since we've seen type conversion arise a few times now, it's appropriate to talk more explicitly about how it works.
+We'll do that in the next section.
+
+\hypertarget{type-conversion}{%
+\subsubsection{Type conversion}\label{type-conversion}}
+
+There may be times when you'd like to convert from one type of data into another.
+An example would be the character string \texttt{"1"}, which R \emph{does not} view as a number.
+Therefore, the following does not work:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"1"} \OperatorTok{+}\StringTok{ "2"}   \CommentTok{# R can't add two character string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error in "1" + "2": non-numeric argument to binary operator
+\end{verbatim}
+
+To remedy issues like this, R provides functions in order to convert from one data type into another:
+- as.character: converts to character
+- as.numeric: converts to numeric
+- as.logical: converts to logical
+- as.factor: converts to factor
+
+Using these functions, R will ``do its best'' to convert whatever you start with into the desired data type, but it's not always possible to make the conversion.
+Below are a few examples which do and don't work well.
+
+Converting from a numeric to a character vector is always possible:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(x)   }\CommentTok{# Here's how to convert to a character vector}
+\KeywordTok{print}\NormalTok{(x)}
+\KeywordTok{print}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 3 2 1
+[1] "3" "2" "1"
+\end{verbatim}
+
+However, converting from a character vector to a numeric only works if the characters represent numbers.
+Any element that won't convert will be given
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{w <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"12.3"}\NormalTok{, }\StringTok{"-5"}\NormalTok{, }\StringTok{"22"}\NormalTok{)   }\CommentTok{# this character vector can be converted to numeric}
+\KeywordTok{as.numeric}\NormalTok{(w)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  1.0 12.3 -5.0 22.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"frank"}\NormalTok{, }\StringTok{"went"}\NormalTok{, }\StringTok{"to"}\NormalTok{, }\StringTok{"mars"}\NormalTok{)   }\CommentTok{# this character vector can't be converted to numeric}
+\KeywordTok{as.numeric}\NormalTok{(v)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+[1] NA NA NA NA
+\end{verbatim}
+
+None of the elements can be converted into a number, so R prints a warning message, and the result is an \texttt{NA} in each element, which stands for ``not available''.
+\texttt{NA} indicates that a value is missing, and can arise in many different ways, which we will not explain here.
+
+\begin{bonus}
+\texttt{NA} values have interesting behavior in R. Generally, anything
+that ``touches'' an \texttt{NA} becomes an \texttt{NA}. You can try out
+these commands for yourself to see what happens:
+
+\texttt{NA\ *\ 0}
+
+\texttt{NA\ -\ NA}
+
+\texttt{c(NA,\ 1,\ 2)}
+\end{bonus}
+
+If only part of a vector can be converted, then the result will contain some converted values and some \texttt{NA}'s:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{u <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1.2"}\NormalTok{, }\StringTok{"chicken"}\NormalTok{, }\StringTok{"33"}\NormalTok{)}
+\KeywordTok{as.numeric}\NormalTok{(u)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: NAs introduced by coercion
+\end{verbatim}
+
+\begin{verbatim}
+[1]  1.2   NA 33.0
+\end{verbatim}
+
+What other conversions are possible?
+Character vectors can also be converted into logical:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"TRUE"}\NormalTok{, }\StringTok{"FALSE"}\NormalTok{, }\StringTok{"T"}\NormalTok{, }\StringTok{"F"}\NormalTok{, }\StringTok{"cat"}\NormalTok{)   }\CommentTok{# all but the last element can be converted to logical}
+\KeywordTok{as.logical}\NormalTok{(s)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  TRUE FALSE  TRUE FALSE    NA
+\end{verbatim}
+
+Based on the examples we've seen before, it should make sense that numeric vectors containing 0 or 1 can also be converted into a logical vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.logical}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))  }\CommentTok{# here we create the vector and convert it in the same line}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  TRUE FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{progress}
+Logical vectors can also be converted into character or numeric vectors.
+Based on what you know, make a prediction about what the following
+commands will produce:
+
+\texttt{as.numeric(c(T,\ F,\ F,\ T))}
+\texttt{as.character(c(T,\ F,\ F,\ T))}
+
+Check your predictions by typing running the commands in R.
+\end{progress}
+
+Remember that ``solo'' objects are just vectors of length 1, so any of these type conversions should work on a single object as well, like so:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{as.numeric}\NormalTok{(}\StringTok{"99"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 99
+\end{verbatim}
+
+Along with the conversion functions \texttt{as....}, there are companion functions which simply check whether a vector is of a certain type:
+
+\begin{itemize}
+\tightlist
+\item
+  is.character: checks if character
+\item
+  is.numeric: checks if numeric
+\item
+  is.logical: checks if logical
+\item
+  is.factor: checks if factor
+\end{itemize}
+
+Here are some examples:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1"}\NormalTok{, }\StringTok{"2"}\NormalTok{, }\StringTok{"3"}\NormalTok{)}
+\KeywordTok{is.character}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.numeric}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(a)}
+\KeywordTok{is.character}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{is.numeric}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] TRUE
+\end{verbatim}
+
+\begin{bonus}
+As we've seen, type conversion is sometimes performed automatically,
+specifically when using the combine function (\texttt{c}).
+
+To understand more about this, try typing \texttt{?c} to bring up the
+documentation, and have a look at the ``Details'' section.
+\end{bonus}
+
+TODO: include conversion b/t character vec and factor vec.
+
+\hypertarget{lists}{%
+\subsection{Lists}\label{lists}}
+
+\hypertarget{matrices}{%
+\subsection{Matrices}\label{matrices}}
+
+\hypertarget{arrays}{%
+\subsection{Arrays}\label{arrays}}
 
 \hypertarget{practice}{%
 \section{Practice}\label{practice}}
