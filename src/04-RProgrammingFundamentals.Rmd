@@ -133,7 +133,9 @@ At this point there is no practical difference, each command gets executed wheth
 However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
 
 ```{block, type="bonus"}
-There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. You can also use tab completion with functions and defined variables. This can save you a lot of time and reduce mistakes!
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
+
+You can also use tab completion with functions and defined variables. Tab completion allows you to use the same amount of time using a longer, descriptive variable name as a short, meaningless, and easily confused one. This can save you a lot of time and reduce mistakes! 
 ```
 
 ```{block, type="progress"}
@@ -242,6 +244,11 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 
 ## Data Types
 
@@ -574,7 +581,9 @@ Now that we've discussed different types of data, we'll now see how they can be 
 ```{block, type="caution"}
 What about dates? R actually has three built-in [date classes](https://www.r-bloggers.com/using-dates-and-times-in-r/). This can be confusing at first, but libraries like [lubridate](https://lubridate.tidyverse.org/) make it easy to work with dates in R. 
 ```
-
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Data Structures
 
@@ -1147,11 +1156,23 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 TODO: include conversion b/t character vec and factor vec.
 
 ### Lists
+```{block, type="bonus"}
+[purrr](https://purrr.tidyverse.org/) is a very useful library for working with lists. 
+```
+
 
 ### Matrices
 
 ### Arrays
 
+```{block, type="reflection"}
+So far we've seen vectors, lists, matrices, and arrays. 
+
+How are they different and how are they similar?
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Practice
 
@@ -1179,7 +1200,9 @@ str, names, dim
 
 ### Null Objects
 
-
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Quiz
 ```{block, type="assessment"}
@@ -1199,10 +1222,17 @@ principles of Tidy Data (wickham 2014)
 
 raw data as read only
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Downloading and Saving
 
 ```{block, type="video"}
 downloading and saving example csv from canvas or website
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 ## Working With Data
@@ -1233,6 +1263,9 @@ Adding structure to make your code more readable is like doing your future self 
 ```{block, type="bonus"}
 dplyr example
 ```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Practice
 
@@ -1248,24 +1281,41 @@ loops (for, while)
 
 switch
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Advanced Control Flow
 
 *apply family
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Writing FUnctions
 
 Function scope
+```{block, type ="caution"}
+When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
+```
 
 ```{block, type="bonus"}
 - Pass by value, contrast with other languages
 ```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Working With Popular Packages
 
-
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Assignment
 
 ```{block, type="assessment"}
 Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
 ```
+

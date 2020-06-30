@@ -79,7 +79,7 @@ Where you can get help:
 - Google!
 
 ```{block, type="bonus"}
-There are endless resources to learn and practice R. 
+There are _endless_ resources to learn and practice R. 
 
 [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly online project that focuses on understanding how to summarize, arrange, and make meaningful charts with open source data. You can see the projects others have done by following #tidytuesday on twitter.
 
