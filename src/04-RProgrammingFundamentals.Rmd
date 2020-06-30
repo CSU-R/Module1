@@ -123,6 +123,9 @@ What does it mean to "group" code?
 At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
 However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
 
+```{block, type="bonus"}
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. You can also use tab completion with functions and defined variables. This can save you a lot of time and reduce mistakes!
+```
 ```{block, type="progress"}
 In RStudio, open a new R script and type in all the R commands from this section, to verify that you get the same result. It's good practice!
 ```
@@ -216,7 +219,7 @@ Programmers have a sense of humor, too! Try running `????print` to see a small j
 
 TODO: put these bonus blocks in more appropriate places:
 ```{block, type="bonus"}
-https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf
+This is a lot to remember, but luckily you can use a [cheat sheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) while you're learning. As you get more familiar with R, you'll begin to memorize basic funtions - and google is always there for the rest. 
 ```
 ```{block, type="bonus"}
 Want to know more about R syntax? Try typing `?Syntax` in the R console (then press `Enter`).
@@ -558,6 +561,11 @@ In the R console, type the following R commands and observe the result
 
 Now that we've discussed different types of data, we'll now see how they can be structured together in meaningful ways. 
 
+```{block, type="caution"}
+What about dates? R actually has three built-in [date classes](https://www.r-bloggers.com/using-dates-and-times-in-r/). This can be confusing at first, but libraries like [lubridate](https://lubridate.tidyverse.org/) make it easy to work with dates in R. 
+```
+
+
 ## Data Structures
 
 ```{block, type="reflection"}
@@ -889,6 +897,9 @@ So we finally have an explanation for the `[1]` which is displayed with all R ou
 It's simply indicating that this is the _first element_ of the output.
 This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
 ```
+```{block, type = "bonus"}
+When you're working with large data sets, it's often helpful to see just the first few results instead of printing the entire thing. You can use `head()` to print the first six rows. 
+```
 
 Another way to create a numeric vector is using the `seq` function, which allows you to specify the _interval_ between each vector element. 
 For example:
@@ -1198,6 +1209,11 @@ Mean, std, etc.
 
 ```{block, type="bonus"}
 ggplot example
+```
+```{block, type="caution"}
+Remember to pay close attention to the syntax when using ggplot. R won't work if parenthesis or quotes are not paired. If you're adding multiple layers, put each on a new line.
+
+Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
 ```
 
 ### Basic indexing
