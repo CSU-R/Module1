@@ -142,8 +142,6 @@ z <- y + 5 # adding 5 to y and assigning the result to z
 ## This is still a comment, even though we're using two #'s
 ```
 
-TODO: add note in strings section about special characters and blocks
-
 Notice that it's possible for a line to contain only a comment, or for part of a line to be a comment. 
 R decides which part of a line is a comment by looking for the first "#", and everything after that will be treated as a comment and ignored.
 
@@ -400,7 +398,7 @@ Since backslash also has special meaning itself, if you want a backslash in your
 To see a list of special characters, try typing `?Quotes` into the R console
 ```
 
-Here is a special string:
+Here is an important string to know about:
 
 ```{r}
 h <- ""              # This string is empty!
@@ -714,6 +712,7 @@ Once you make a guess, try it in R and see if you were correct.
 ```
 
 #### Working with vectors
+TODO: add sort/order?
 
 You can do many things with vectors that you can with single instances of each data type. 
 Recall, you can add a number to a numeric object:
@@ -755,7 +754,6 @@ sum(a)    # add all the elements of a together.
 ```{block, type="bonus"}
 Other examples of summary functions include `max`, `min`, `mean`, and `sd`. We'll talk about these and other summary functions later.
 ```
-
 
 Some operations work on _two vectors_, as long as they are the same length:
 
@@ -868,7 +866,7 @@ Check whether you are correct by creating some vectors in R and attempting to mu
   
 ```
 
-### Special Numeric Vectors:
+#### Special Numeric Vectors
 
 There are a few special ways of creating a numeric vector which can be very useful, so we'll mention them here.
 The first way creates a sequence of all integers between a starting and ending point:
@@ -892,8 +890,25 @@ It's simply indicating that this is the _first element_ of the output.
 This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
 ```
 
+Another way to create a numeric vector is using the `seq` function, which allows you to specify the _interval_ between each vector element. 
+For example:
 
-### Another Data Type: Factor
+```{r}
+e <- seq(2, 100, 2)
+e
+```
+
+Or you can also specify how long you want the vector to be, and `seq` will determine the appropriate interval to make the elements evenly spaced.
+
+```{r}
+seq(1, 10, length.out=3)
+```
+```{r}
+seq(1, 10, length.out=5)
+```
+
+
+#### Another Data Type: Factor
 
 In the previous section, we avoided talking about the _factor_ data type, because we need the concept of vectors to appreciate their purpose, but now we are equipped to talk about them.
 Consider the following example of a _character vector_:
@@ -914,26 +929,208 @@ Now imagine writing down instead:
 This second method writes down numbers instead of character strings, but also keeps a record of which numbers correspond to which character strings.
 The total amount of space taken up on the piece of paper is smaller for the second method, and the amount of space saved would be even larger if the character vector were longer and had more repeated elements.
 
-This is the essence of what a _factor_ data type is. 
+This is the essence of what a _factor_ data type is: A character vector stored more efficiently on the computer.
 For a factor vector, R stores an integer vector (which often takes less space than a character vector), and also maintains a "lookup table" which keeps track of which integers correspond with which character strings.
 
-TODO: show how to create factor vector
+To illustrate, let's create a factor variable:
+```{r}
+# create a new factor variable from our existing character vector:
+fac_vec <- factor(cha_vec)   
+```
 
-TODO: show effect of adding integer to factor vector.
+Notice how we started with a character vector and used the `factor` function to create a factor from it.
+If we print the new vector,
+```{r}
+fac_vec
+```
+it displays the elements as we would expect, but also includes another line of output giving `Levels`.
+This shows that there are only two unique character strings, which are called _factor levels_.
+Since R is using integers "behind the scenes" to store the vector, we can see those integers by using the `as.integer` function:
+```{r}
+as.integer(fac_vec)
+```
+This is another example of _type conversion_, which we will discuss soon.
 
+```{block, type="caution"}
+In some situations, numbers may get treated as characters, like so:
+
+`x <- c("4", "5", "6")`
+
+This may pose an issue if this character vector gets converted to a factor, because the "behind the scenes" integers may not agree with the `Levels`, which represent the original data.
+This can easily happen when reading in data from a file on your computer, if you're not careful.
+We'll talk more about this later.
+```
+
+There are a few neat things you can do with factor vectors.
+By changing the levels, you can quickly change all occurrences of a string at once.
+For example:
+```{r}
+print(fac_vec)
+levels(fac_vec) <- c("peas", "carrots")   # change the levels of fac_vec
+fac_vec
+```
+There is more to be said about factors, but this is all we will explore at this point.
 
 ```{block, type="bonus"}
 In newer versions of R, all strings are _treated like factors_ behind the scenes, meaning there's really no difference between factor and character types in terms of how much space they take up in the computer's memory.
-However, R still treats the two factors differently, so it's important to remember that they are different!
+However, R still treats the two types differently, so it's important to remember that they are different!
 ```
 
+#### Combining Vectors
 
-### Type conversion
+Given two vectors, it's easy to combine them into one vector:
+```{r}
+a <- c(1, 2, 3)
+b <- c(4, 5, 6, 7)
+c(a, b)   # combine vectors a and b
+```
+The combine function (`c`) is smart enough to recognize that `a` and `b` are vectors, and performs _concatenation_ to create the resultant longer vector.
+You can also use the combine function to add a single element to the end of a vector:
+```{r}
+a <- c("CEO", "CFO")   # initialize 
+a <- c(a, "CTO")       # redefine a by combining a with a new element
+a
+```
+
+```{block, type="caution"}
+In R, there may sometimes be more than one way to do the same thing, and one of the ways might be much faster or take much less computer memory to do.
+In other words, two sets of R commands be _correct_, but one may _perform better_ than the other.
+Writing "performant" (high performance) code is an advanced topic that we will not discuss much in this introductory course.
+You've just seen one way to add an element to the end of a vector, but if you do this _a lot_ (perhaps in a for loop, which we'll talk about later), it can be _very slow_.
+In this situation you're better off creating the whole vector at once and updating each element as needed.
+```
+
+What if you try to combine vectors of different types?
+```{r}
+a <- c(1, 2, 3)
+b <- c("four", "five")
+c(a, b)
+```
+Again, we see that the `c` function has converted all elements to be character strings, and the resultant vector is a character vector.
+Since we've seen type conversion arise a few times now, it's appropriate to talk more explicitly about how it works.
+We'll do that in the next section.
+
+#### Type conversion
+
+There may be times when you'd like to convert from one type of data into another.
+An example would be the character string `"1"`, which R _does not_ view as a number.
+Therefore, the following does not work:
+```{r, error=TRUE}
+"1" + "2"   # R can't add two character string
+```
+To remedy issues like this, R provides functions in order to convert from one data type into another:
+- as.character: converts to character
+- as.numeric: converts to numeric
+- as.logical: converts to logical
+- as.factor: converts to factor
+
+Using these functions, R will "do its best" to convert whatever you start with into the desired data type, but it's not always possible to make the conversion.
+Below are a few examples which do and don't work well.
+
+Converting from a numeric to a character vector is always possible:
+```{r}
+x <- c(3, 2, 1)
+```
+```{r}
+y <- as.character(x)   # Here's how to convert to a character vector
+print(x)
+print(y)
+```
+
+However, converting from a character vector to a numeric only works if the characters represent numbers.
+Any element that won't convert will be given 
+
+```{r}
+w <- c("1", "12.3", "-5", "22")   # this character vector can be converted to numeric
+as.numeric(w)
+```
+```{r}
+v <- c("frank", "went", "to", "mars")   # this character vector can't be converted to numeric
+as.numeric(v)
+```
+None of the elements can be converted into a number, so R prints a warning message, and the result is an `NA` in each element, which stands for "not available".
+`NA` indicates that a value is missing, and can arise in many different ways, which we will not explain here.
+
+```{block, type="bonus"}
+`NA` values have interesting behavior in R.
+Generally, anything that "touches" an `NA` becomes an `NA`.
+You can try out these commands for yourself to see what happens:
+
+`NA * 0`
+
+`NA - NA`
+
+`c(NA, 1, 2)`
+
+```
+
+If only part of a vector can be converted, then the result will contain some converted values and some `NA`'s:
+```{r}
+u <- c("1.2", "chicken", "33")
+as.numeric(u)
+```
+What other conversions are possible?
+Character vectors can also be converted into logical:
+```{r}
+s <- c("TRUE", "FALSE", "T", "F", "cat")   # all but the last element can be converted to logical
+as.logical(s)
+```
+Based on the examples we've seen before, it should make sense that numeric vectors containing 0 or 1 can also be converted into a logical vector:
+```{r}
+as.logical(c(1, 0, 1, 0))  # here we create the vector and convert it in the same line
+```
+```{block, type="progress"}
+Logical vectors can also be converted into character or numeric vectors. 
+Based on what you know, make a prediction about what the following commands will produce:
+
+`as.numeric(c(T, F, F, T))`
+`as.character(c(T, F, F, T))`
+
+Check your predictions by typing running the commands in R.
+```
+
+Remember that "solo" objects are just vectors of length 1, so any of these type conversions should work on a single object as well, like so:
+```{r}
+as.numeric("99")
+```
+
+Along with the conversion functions `as....`, there are companion functions which simply check whether a vector is of a certain type:
+
+- is.character: checks if character
+- is.numeric: checks if numeric
+- is.logical: checks if logical
+- is.factor: checks if factor
+
+Here are some examples:
+```{r}
+a <- c("1", "2", "3")
+is.character(a)
+```
+```{r}
+is.numeric(a)
+```
+```{r}
+a <- as.numeric(a)
+is.character(a)
+```
+```{r}
+is.numeric(a)
+```
+
+```{block, type="bonus"}
+As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (`c`).
+
+To understand more about this, try typing `?c` to bring up the documentation, and have a look at the "Details" section.
+```
 
 TODO: include conversion b/t character vec and factor vec.
 
-is.###
-as.###
+### Lists
+
+### Matrices
+
+### Arrays
+
 
 ## Practice
 
