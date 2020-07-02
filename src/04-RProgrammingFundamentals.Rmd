@@ -72,8 +72,9 @@ Including multiple semicolons (e.g. `print("hello");;`) does not work!
 
 ```{block, type="bonus"}
 You've just seen your first example of _assignment_.
-That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
-Formally `x` is called an object, but we'll talk about that more objects and assignments later.
+That is, we created a thing called <span style="color:black">`x`</span> , and _assigned_ to it the value of <span style="color:black">`1+1`</span> using the _assignment operator_, <span style="color:black">`<-`</span>.
+Formally <span style="color:black">`x`</span> is called an object, but we'll talk about that more objects and assignments later.
+
 ```
 
 
@@ -84,13 +85,13 @@ So far, we've seen that you can place one command on one line, multiple commands
 The answer is _sometimes_, depending on the command.
 Generally, if R is expecting the end of a command but doesn't see one by the time it gets to the end of a line, it will continue looking on the next line. 
 Here are some examples:
-`1 + \
-1`
+<span style="color:black">`1 + \
+1`<span>
 
-`
+<span style="color:black">`
 print("This string is on 
 multiple lines")
-`
+`<span>
 
 ```
 
@@ -216,8 +217,8 @@ The output of the above code chunk is not shown, because the result of this code
 
 ### ??
 
-If you don't remember the exact name of a function, or would like to search for general matches to a topic, then you can use `??`.
-For example, trying `?Print` produces an error, because there is not `Print` function (remember, R is case sensitive), so there's no documentation to go with it.
+If you don't remember the exact name of a function, or would like to search for general matches to a topic, then you can use <span style="color:black">`??`<span>.
+For example, trying <span style="color:black">`?Print`<span> produces an error, because there is not <span style="color:black">`Print`<span> function (remember, R is case sensitive), so there's no documentation to go with it.
 However, the following should still work:
 
 ```{r, eval=FALSE}
@@ -225,7 +226,7 @@ However, the following should still work:
 ```
 
 ```{block, type="bonus"}
-Programmers have a sense of humor, too! Try running `????print` to see a small joke. Remember, comedic taste varies!
+Programmers have a sense of humor, too! Try running <span style="color:black">`????print`<span> to see a small joke. Remember, comedic taste varies!
 ```
 
 
@@ -234,7 +235,7 @@ TODO: put these bonus blocks in more appropriate places:
 This is a lot to remember, but luckily you can use a [cheat sheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) while you're learning. As you get more familiar with R, you'll begin to memorize basic funtions - and google is always there for the rest. 
 ```
 ```{block, type="bonus"}
-Want to know more about R syntax? Try typing `?Syntax` in the R console (then press `Enter`).
+Want to know more about R syntax? Try typing <span style="color:black">`?Syntax`<span> in the R console (then press `Enter`).
 ```
 
 
@@ -413,9 +414,9 @@ Notice also that we didn't have to change the defining quotes to be double quote
 The backslash is called the _escape character_, and it signifies that what follows it should be interpreted _literally_ by R, and any special meaning should be ignored. 
 
 ```{block, type="bonus"}
-Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: <span style="color:black">`g <- "here is a backslash: \\"`<span>
 
-To see a list of special characters, try typing `?Quotes` into the R console
+To see a list of special characters, try typing <span style="color:black">`?Quotes`<span> into the R console
 ```
 
 Here is an important string to know about:
@@ -706,7 +707,7 @@ a == b           # compare a and b to see if they are the same.
 ```
 ```{block, type="bonus"}
 It turns out, you _can_ create a vector of length 0, which contains 0 elements. This may sound odd, but can happen sometimes!
-However, you _cannot_ create a vector of negative length (e.g. `logical(-1)` won't work), or a fractional length (e.g. `character(12.7)` won't work).
+However, you _cannot_ create a vector of negative length (e.g. <span style="color:black">`logical(-1)`<span> won't work), or a fractional length (e.g. <span style="color:black">`character(12.7)`<span> won't work).
 ```
 
 #### Accessing and Changing Elements
@@ -779,7 +780,7 @@ print(a)  # print the elements of a as a reminder
 sum(a)    # add all the elements of a together.
 ```
 ```{block, type="bonus"}
-Other examples of summary functions include `max`, `min`, `mean`, and `sd`. We'll talk about these and other summary functions later.
+Other examples of summary functions include <span style="color:black">`max`<span>, <span style="color:black">`min`<span>, <span style="color:black">`mean`<span>, and <span style="color:black">`sd`<span>. We'll talk about these and other summary functions later.
 ```
 
 Some operations work on _two vectors_, as long as they are the same length:
@@ -917,7 +918,7 @@ It's simply indicating that this is the _first element_ of the output.
 This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
 ```
 ```{block, type = "bonus"}
-When you're working with large data sets, it's often helpful to see just the first few results instead of printing the entire thing. You can use `head()` to print the first six rows. 
+When you're working with large data sets, it's often helpful to see just the first few results instead of printing the entire thing. You can use <span style="color:black">`head()`<span> to print the first six rows. 
 ```
 
 Another way to create a numeric vector is using the `seq` function, which allows you to specify the _interval_ between each vector element. 
@@ -1082,15 +1083,15 @@ None of the elements can be converted into a number, so R prints a warning messa
 `NA` indicates that a value is missing, and can arise in many different ways, which we will not explain here.
 
 ```{block, type="bonus"}
-`NA` values have interesting behavior in R.
-Generally, anything that "touches" an `NA` becomes an `NA`.
+<span style="color:black">`NA`<span> values have interesting behavior in R.
+Generally, anything that "touches" an <span style="color:black">`NA`<span> becomes an <span style="color:black">`NA`<span>.
 You can try out these commands for yourself to see what happens:
 
-`NA * 0`
+<span style="color:black">`NA * 0`<span>
 
-`NA - NA`
+<span style="color:black">`NA - NA`<span>
 
-`c(NA, 1, 2)`
+<span style="color:black">`c(NA, 1, 2)`<span>
 
 ```
 
@@ -1148,9 +1149,9 @@ is.numeric(a)
 ```
 
 ```{block, type="bonus"}
-As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (`c`).
+As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (<span style="color:black">`c`<span>).
 
-To understand more about this, try typing `?c` to bring up the documentation, and have a look at the "Details" section.
+To understand more about this, try typing <span style="color:black">`?c`<span> to bring up the documentation, and have a look at the "Details" section.
 ```
 
 TODO: include conversion b/t character vec and factor vec.
