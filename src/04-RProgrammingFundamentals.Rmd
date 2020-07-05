@@ -16,23 +16,29 @@ TODO: talk about syntax and grammar
 
 All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
 When two humans communicate with a language, they both must agree on the the rules of that language.
+
 R also has rules that must be followed in order for a human ( _you_ ) to communicate with a computer, in order to tell the computer what to do.
 In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
 With R, the fules are fixed, and the computer "knows" them perfectly.
-Therefore it is up to you to learn the rules in order to make the computer do exactly what you want it to do.
+It is up to you to learn the rules in order to make the computer do exactly what you want it to do.
 
-Therefore it's important to cover some of the basic rules of the R programming language before you can learn all of the things R can do. 
-So here they are:
+Since any computer programming language will do exactly what you tell it to do,
+it's important to cover some of the basic rules of the R programming language
+before you can learn what it can do. 
+
+So let's get started:
 
 ### R Commands
 
-Like most programming languages, R consists of a set of _commands_ which form the sequence of instructions which the computer completes. Here is an example of a command, followed by the result.
+Like most programming languages, R consists of a set of _commands_ which form the sequence of instructions which the computer completes. You can think of _commands_
+as the verbs of R, they are the actions the computer will take. 
+Here is an example of a command, followed by the result.
 
 ```{r}
 print("hello, world!")
 ```
 
-This command is telling R to print out a message.
+This command is telling R to `print` out a message.
 R code usually contains more than one command, and typically each command is put on a separate line.
 Here are multiple commands, each on a separate line:
 
@@ -54,34 +60,38 @@ In this example, three commands are given on one line.
 The first command creates a new _variable_ called `x`, the second command prints the value of `x`, and the third command prints the value of `x` _squared_.
 We see that the semicolon, `;`, serves as the command _termination_, because it tells R where one command ends and another begins.
 When a line contains a single command, no semicolon in necessary at the end, but including a semicolon doesn't have any effect either.
+
 ```{r, class.source="chunk-style"}
 print("This line doesn't have a semicolon")
 print("This line does have a semicolon");
 ```
+
 ```{block, type="caution"}
 Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```
 
 ```{block, type="bonus"}
 You've just seen your first example of _assignment_.
-That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
-Formally `x` is called an object, but we'll talk about that more objects and assignments later.
+That is, we created a thing called <span style="color:black">`x`</span> , and _assigned_ to it the value of <span style="color:black">`1+1`</span> using the _assignment operator_, <span style="color:black">`<-`</span>.
+Formally <span style="color:black">`x`</span> is called an object, but we'll talk about that more objects and assignments later.
+
 ```
 
 
 TODO: make these code blocks display on multiple lines:
+
 ```{block, type="bonus"}
 So far, we've seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
 The answer is _sometimes_, depending on the command.
 Generally, if R is expecting the end of a command but doesn't see one by the time it gets to the end of a line, it will continue looking on the next line. 
 Here are some examples:
-`1 + \
-1`
+<span style="color:black">`1 + \
+1`<span>
 
-`
+<span style="color:black">`
 print("This string is on 
 multiple lines")
-`
+`<span>
 
 ```
 
@@ -122,6 +132,12 @@ In some programming languages, Python for example, white space matters. That is,
 What does it mean to "group" code?
 At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
 However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
+
+```{block, type="bonus"}
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
+
+You can also use tab completion with functions and defined variables. Tab completion allows you to use the same amount of time using a longer, descriptive variable name as a short, meaningless, and easily confused one. This can save you a lot of time and reduce mistakes! 
+```
 
 ```{block, type="progress"}
 In RStudio, open a new R script and type in all the R commands from this section, to verify that you get the same result. It's good practice!
@@ -201,8 +217,8 @@ The output of the above code chunk is not shown, because the result of this code
 
 ### ??
 
-If you don't remember the exact name of a function, or would like to search for general matches to a topic, then you can use `??`.
-For example, trying `?Print` produces an error, because there is not `Print` function (remember, R is case sensitive), so there's no documentation to go with it.
+If you don't remember the exact name of a function, or would like to search for general matches to a topic, then you can use <span style="color:black">`??`<span>.
+For example, trying <span style="color:black">`?Print`<span> produces an error, because there is not <span style="color:black">`Print`<span> function (remember, R is case sensitive), so there's no documentation to go with it.
 However, the following should still work:
 
 ```{r, eval=FALSE}
@@ -210,16 +226,16 @@ However, the following should still work:
 ```
 
 ```{block, type="bonus"}
-Programmers have a sense of humor, too! Try running `????print` to see a small joke. Remember, comedic taste varies!
+Programmers have a sense of humor, too! Try running <span style="color:black">`????print`<span> to see a small joke. Remember, comedic taste varies!
 ```
 
 
 TODO: put these bonus blocks in more appropriate places:
 ```{block, type="bonus"}
-https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf
+This is a lot to remember, but luckily you can use a [cheat sheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) while you're learning. As you get more familiar with R, you'll begin to memorize basic funtions - and google is always there for the rest. 
 ```
 ```{block, type="bonus"}
-Want to know more about R syntax? Try typing `?Syntax` in the R console (then press `Enter`).
+Want to know more about R syntax? Try typing <span style="color:black">`?Syntax`<span> in the R console (then press `Enter`).
 ```
 
 
@@ -229,6 +245,11 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 
 ## Data Types
 
@@ -393,9 +414,9 @@ Notice also that we didn't have to change the defining quotes to be double quote
 The backslash is called the _escape character_, and it signifies that what follows it should be interpreted _literally_ by R, and any special meaning should be ignored. 
 
 ```{block, type="bonus"}
-Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: <span style="color:black">`g <- "here is a backslash: \\"`<span>
 
-To see a list of special characters, try typing `?Quotes` into the R console
+To see a list of special characters, try typing <span style="color:black">`?Quotes`<span> into the R console
 ```
 
 Here is an important string to know about:
@@ -558,6 +579,13 @@ In the R console, type the following R commands and observe the result
 
 Now that we've discussed different types of data, we'll now see how they can be structured together in meaningful ways. 
 
+```{block, type="caution"}
+What about dates? R actually has three built-in [date classes](https://www.r-bloggers.com/using-dates-and-times-in-r/). This can be confusing at first, but libraries like [lubridate](https://lubridate.tidyverse.org/) make it easy to work with dates in R. 
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Data Structures
 
 ```{block, type="reflection"}
@@ -680,7 +708,7 @@ a == b           # compare a and b to see if they are the same.
 ```
 ```{block, type="bonus"}
 It turns out, you _can_ create a vector of length 0, which contains 0 elements. This may sound odd, but can happen sometimes!
-However, you _cannot_ create a vector of negative length (e.g. `logical(-1)` won't work), or a fractional length (e.g. `character(12.7)` won't work).
+However, you _cannot_ create a vector of negative length (e.g. <span style="color:black">`logical(-1)`<span> won't work), or a fractional length (e.g. <span style="color:black">`character(12.7)`<span> won't work).
 ```
 
 #### Accessing and Changing Elements
@@ -753,7 +781,7 @@ print(a)  # print the elements of a as a reminder
 sum(a)    # add all the elements of a together.
 ```
 ```{block, type="bonus"}
-Other examples of summary functions include `max`, `min`, `mean`, and `sd`. We'll talk about these and other summary functions later.
+Other examples of summary functions include <span style="color:black">`max`<span>, <span style="color:black">`min`<span>, <span style="color:black">`mean`<span>, and <span style="color:black">`sd`<span>. We'll talk about these and other summary functions later.
 ```
 
 Some operations work on _two vectors_, as long as they are the same length:
@@ -889,6 +917,9 @@ This number indicates which element of the vector is the start of that line.
 So we finally have an explanation for the `[1]` which is displayed with all R output.
 It's simply indicating that this is the _first element_ of the output.
 This also reflects the fact stated earlier that any R object can be considered a vector of length 1!
+```
+```{block, type = "bonus"}
+When you're working with large data sets, it's often helpful to see just the first few results instead of printing the entire thing. You can use <span style="color:black">`head()`<span> to print the first six rows. 
 ```
 
 Another way to create a numeric vector is using the `seq` function, which allows you to specify the _interval_ between each vector element. 
@@ -1053,15 +1084,15 @@ None of the elements can be converted into a number, so R prints a warning messa
 `NA` indicates that a value is missing, and can arise in many different ways, which we will not explain here.
 
 ```{block, type="bonus"}
-`NA` values have interesting behavior in R.
-Generally, anything that "touches" an `NA` becomes an `NA`.
+<span style="color:black">`NA`<span> values have interesting behavior in R.
+Generally, anything that "touches" an <span style="color:black">`NA`<span> becomes an <span style="color:black">`NA`<span>.
 You can try out these commands for yourself to see what happens:
 
-`NA * 0`
+<span style="color:black">`NA * 0`<span>
 
-`NA - NA`
+<span style="color:black">`NA - NA`<span>
 
-`c(NA, 1, 2)`
+<span style="color:black">`c(NA, 1, 2)`<span>
 
 ```
 
@@ -1119,9 +1150,9 @@ is.numeric(a)
 ```
 
 ```{block, type="bonus"}
-As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (`c`).
+As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (<span style="color:black">`c`<span>).
 
-To understand more about this, try typing `?c` to bring up the documentation, and have a look at the "Details" section.
+To understand more about this, try typing <span style="color:black">`?c`<span> to bring up the documentation, and have a look at the "Details" section.
 ```
 
 TODO: include conversion b/t character vec and factor vec.
@@ -1263,6 +1294,10 @@ Wouldn't it be nice if there were a way to store objects of different types (wit
 This is what lists can do!
 
 ### Lists
+```{block, type="bonus"}
+[purrr](https://purrr.tidyverse.org/) is a very useful library for working with lists. 
+```
+
 
 A List is an ordered set of _components_.
 This may sound similar to a vector, but the important difference is that with lists there is no requirement that the components have the same data type. 
@@ -1295,6 +1330,16 @@ Lists can even _contain_ other lists!
 ```{block, type="bonus"}
 If you try to assign a list to be one of its own components (e.g. `A[[5]] <- A`), then R will make a copy of `A` and assign the copy to be one of the components of `A`.
 Thus there is no "self reference", and no issue with [Russel's Paradox](https://en.wikipedia.org/wiki/Russell%27s_paradox).
+```
+
+```{block, type="reflection"}
+So far we've seen vectors, lists, matrices, and arrays. 
+
+How are they different and how are they similar?
+```
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 
@@ -1655,6 +1700,9 @@ a
 
 Or if a function is supposed to return but doesn't have an object to return (more on this later when we discuss functions).
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Quiz
 ```{block, type="assessment"}
@@ -1674,10 +1722,17 @@ principles of Tidy Data (wickham 2014)
 
 raw data as read only
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Downloading and Saving
 
 ```{block, type="video"}
 downloading and saving example csv from canvas or website
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 ## Working With Data
@@ -1695,6 +1750,11 @@ Mean, std, etc.
 ```{block, type="bonus"}
 ggplot example
 ```
+```{block, type="caution"}
+Remember to pay close attention to the syntax when using ggplot. R won't work if parenthesis or quotes are not paired. If you're adding multiple layers, put each on a new line.
+
+Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
+```
 
 ### Basic indexing
 
@@ -1706,6 +1766,9 @@ nested indexing: [[1]][3]
 
 ```{block, type="bonus"}
 dplyr example
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 ## Practice
@@ -1722,26 +1785,43 @@ loops (for, while)
 
 switch
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Advanced Control Flow
 
 *apply family
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
 ## Writing FUnctions
 
 Function scope
+```{block, type ="caution"}
+When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
+```
 
 ```{block, type="bonus"}
 - Pass by value, contrast with other languages
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 caution: use "=" when mapping named arguments, not `<-`.
 
 ## Working With Popular Packages
 
-
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Assignment
 
 ```{block, type="assessment"}
 Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
 ```
+

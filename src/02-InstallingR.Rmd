@@ -64,6 +64,10 @@ Create windows R install Video
 ```{block, type="video"}
 ?Ben? install from Mac OS X?
 ```
+```{block, type="bonus"}
+Rstudio also offers a [cloud service](https://rstudio.cloud/) that allows you to work with R in your browser. We'll use the desktop version but you can check out the [interactive primers](https://rstudio.cloud/learn/primers) on the cloud site.
+```
+
 
 
 ### Installing R Studio
@@ -116,6 +120,9 @@ Folder structure:
 - Assignments
 - 
 
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
 
 ## Reflection \& Assignment
 
@@ -134,3 +141,5 @@ TODO: Kathleen thought this could be a progress check, I think we can have it be
 todo: create R script to do some math, then turn in.
 provide template with comment block at the top
 ```
+
+

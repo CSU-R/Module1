@@ -10,11 +10,11 @@ There are many important qualities to R, here are some of the most important
 ```{block, type="bonus"}
 Many other programming languages use different syntax for the same functions. 
 
-`#` comments out a line in R and python
+<span style="color:black">`#`<span> comments out a line in R and python
 
-`%` comments out a line in matlab
+<span style="color:black">`%`<span> comments out a line in matlab
 
-`//` comments out a line in C++ and javascript
+<span style="color:black">`//`<span> comments out a line in C++ and javascript
 
 Similar to learning a foreign language, learning your first programming language will make it easier to understand other similar ones.
 ```
@@ -79,7 +79,7 @@ Where you can get help:
 - Google!
 
 ```{block, type="bonus"}
-There are endless resources to learn and practice R. 
+There are _endless_ resources to learn and practice R. 
 
 [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly online project that focuses on understanding how to summarize, arrange, and make meaningful charts with open source data. You can see the projects others have done by following #tidytuesday on twitter.
 
