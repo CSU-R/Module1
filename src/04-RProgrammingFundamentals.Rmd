@@ -564,13 +564,14 @@ Now that we've discussed different types of data, we'll now see how they can be 
 Imagine a grocery list, shopping list, or to-do list. That list consists of a set of items in a specified order, and the list also has a length. Why do you think it's useful to organize these items into a list, rather than in some other fashion? Can you think of why it might be useful to store data in a list?
 ```
 
-Often, you will need to work with many data of the same type, for example:
+Often, you will need to work with many related data, for example:
 - A sequence of measurements through time
 - A grid of values
 - A set of phone numbers
 
-In these circumstances, it would make sense to organize the data into a data structure. 
-R provides multiple data structures, each of which are appropriate in various situations
+In these circumstances, it would make sense to organize the data into a _data structure_. 
+R provides multiple data structures, each of which are appropriate in various situations.
+By far the most popular data structure in R is the _data frame_, but in order to talk about data frames, we must talk about some simpler data structures first.
 
 ### Vectors
 
@@ -1127,39 +1128,532 @@ TODO: include conversion b/t character vec and factor vec.
 
 ### Matrices
 
+Not all data can be arraned as an ordered set of elements, so R has other data structures besides vectors.
+Another data type is the _matrix_, which can be thought of as a _grid_ of numbers.
+Here's an example of creating a grid:
 
+```{r}
+data <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+A <- matrix(data, 3, 3)
+A
+```
+Here we've made a matrix with three rows and columns, by first creating a vector called ``data'', and using the `matrix` function and giving it the data, the number of rows, and the number of columns. 
 
-### Arrays
+```{block, type="caution"}
+Notice that R fills the matrix one _column_ at a time, from left to right.
+```
 
+Here's how you access the data within a matrix:
+
+```{r}
+A[1,1]  # Get the first element of the first row
+```
+
+```{r}
+A[2,3]  # Get the third element of the second row
+```
+
+```{r}
+A[1,]  # Get the entire first row 
+```
+
+```{r}
+A[,3]  # Get the entire third column
+```
+
+```{block, type="caution"}
+Just like with vectors, square brackets must be used to access the elements of a matrix. _Don't_ use parentheses like this: `A(1,2)`.
+```
+
+```{r}
+diag(A)  # get the diagonal elements of A
+```
+You can get the shape of a matrix with the `dim` function:
+```{r}
+dim(A)  # how many rows & columns does A have?
+```
+Which gives an integer vector tellins us `A` has three rows and three columns.
+
+```{block, type="progress"}
+In R, create the matrix `A` above, and write code to compute the first element of the second row times the third element of the third row.
+```
+
+You can do some simple math with matrices, like this:
+```{r}
+A + 1  # Add a number to each element of the matrix
+```
+
+```{r}
+A * 2  # Multiply each element by a number
+```
+
+```{r}
+A ^ 2  # Square each element 
+```
+
+If you've worked with matrices in a math class, you may have talked about some of the following operations:
+Here we can find the transpose of a matrix (the rows become columns and the columns become rows):
+```{r}
+t(A)  # find the transpose 
+```
+
+```{r}
+# Find the trace:
+sum(diag(A))  # get the diagonal elements of A, then sum them.
+```
+
+Here are some things you can do with two matrices:
+
+```{r}
+B <- matrix(1, 3, 3)   # create a 3x3 matrix of all 1's (notice how we only need one 1?)
+
+A + B  # Add two matrices together
+```
+
+```{r}
+A * B  # multiply the elements of A together
+```
+
+```{r}
+A %*% B  # Perform matrix multiplication between A and B 
+```
+Notice the difference between the last two examples?
+Just using `*` multiplies the matching elements of A and B together, while the new operator `%*%` performs _matrix multiplication_, like you may have seen in a linear algebra class.
+
+```{block, type="progress"}
+In R, perform matrix multiplication between A and the transpose of A.
+```
+
+If two matrices don't have the same shape, you won't be able to add their elements together:
+```{r, error=T}
+C <- matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), 3, 4)
+
+A * C
+```
+The error message: `non-conformable arrays` tells us that A and C have different shapes, so it's impossible to multiply their matching elements together.
+But you can still perform matrix multiplication between them:
+
+```{r}
+A %*% C
+```
+
+```{block, type="caution"}
+Any data type (numeric, character, etc.) can be represented as a _vector_, but matrices only work with numeric types.
+```
+
+```{block, type="bonus"}
+A matrix is just a special case of a data structure called an _array_. 
+Matrices have two dimensions (row and column), and arrays can have any number of dimensions (1, 2, 3, 4, 5, etc.). 
+We won't discuss arrays in this course much.
+```
+
+```{block, type="progress"}
+Try running the following code in R, which should produce an error message:
+  ```{r, eval=F}
+  data <- c(4.5, 6.1, 3.3, 2.0)
+  A <- matrix(data, 2, 3)
+  ```
+Read the error message and the code carefully, and see if you can figure out the problem.
+What change would you make to the above code so that it runs?
+```
+
+Remember everything inside a vector must have the _same data type_.
+Here we've seen that matrices _all have to be numeric data types_.
+Wouldn't it be nice if there were a way to store objects of different types (without doing type conversion)?
+This is what lists can do!
 
 ### Lists
 
-## Practice
+A List is an ordered set of _components_.
+This may sound similar to a vector, but the important difference is that with lists there is no requirement that the components have the same data type. 
+Here is an example of a list:
+
+```{r}
+A <- list(42, "chicken", TRUE)
+A
+```
+Here we see each component of the list printed in order, with `[[1]]`, `[[2]]`, and `[[3]]` indicating the first, second, and third components.
+To access just one of the components, use double square brackets (`[[` and `]]`):
+```{r}
+# Get the second component of A
+A[[2]]
+```
+Notice that each component of `A` is a different data type (numeric, character, boolean), which is not a problem for lists.
+Nothing was converted automatically, as we saw happen with vectors.
+Here's how to add a component to an existing list:
+```{r}
+A[[4]] <- matrix(c(1, 2, 3, 4, 5, 6), 2, 3)
+```
+Notice how we accessed component 4, which didn't exist yet, and assigned it a value.
+We actually added a _matrix_ as the fourth component, this is _not possible_ with vectors!
+Now A has four components:
+```{r}
+A
+```
+Lists can even _contain_ other lists!
+
+```{block, type="bonus"}
+If you try to assign a list to be one of its own components (e.g. `A[[5]] <- A`), then R will make a copy of `A` and assign the copy to be one of the components of `A`.
+Thus there is no "self reference", and no issue with [Russel's Paradox](https://en.wikipedia.org/wiki/Russell%27s_paradox).
+```
+
+
+List components can also have _names_.
+Here we add an component with a name:
+```{r}
+A[["color"]] <- "yellow"
+```
+Notice how this new component displays differently?
+Instead of showing `[[5]]`, the component is labeled with a dollar sign, then its name: `$color`.
+You can access components using their name in two ways:
+```{r}
+A[["color"]]  # use double square brackets to access a named element
+```
+
+```{r}
+A$color  # use dollar sign to access a named element
+```
+
+But the color component is also the fifth component of the list, so we can access it like this as well:
+
+```{r}
+A[[5]]
+```
+Here's a new list created by giving names to each element:
+
+```{r}
+person <- list(name = "Millard Fillmore", occupation = "President", birth_year=1800)
+person
+```
 
 ```{block, type="progress"}
-asdf
+Below is some R code:
+
+  ```{r, eval=F}
+    C$year <- A[2,2] + B[["age"]]
+  ```
+
+Assuming this code works, what are the data types are A, B, and C?
+```
+
+#### Lists and Vectors
+
+Lists and Vectors are different data types, but in some ways they behave the same:
+Find the length of a list:
+```{r}
+length(person)  # same for vectors and lists!
+```
+
+Combine two lists:
+```{r}
+c(A, person)  # same for vectors and lists!
+```
+```{r, error=T}
+A == "chicken"   # compare against a character
+```
+
+However, there are some things that vectors can do that lists _can't_:
+```{r, error=T}
+A + 1  # Add a number to each component (won't work)
+```
+
+```{r, error=T}
+A == T  # compare against a logical (won't work)
+```
+
+```{r, error=T}
+A == 12  # compare against a numeric (won't work)
+```
+
+So there are trade-offs when deciding whether a list or a vector is most appropriate.
+
+#### Lists of Vectors
+
+Certain types of lists show up _all the time_ in R, lists of vectors:
+```{r}
+vec_1 <- c("Alice", "Bob", "Charlie")
+vec_2 <- c(99.4, 87.6, 22.1)
+vec_3 <- c("F", "M", "M")
+special_list <- list(name=vec_1, grade=vec_2, sex=vec_3)
+special_list
+```
+Here, each list stores a different piece of information about several people.
+Here's another example:
+```{r}
+rocks <- list(specimen=c("A", "B", "C"),
+              type=c("igneous", "metamorphic", "sedimentary"),
+              weight=c(21.2, 56.7, 3.8),
+              age=c(120, 10000, 5000000)
+              )
+rocks
+```
+
+```{block, type="caution"}
+When defining the `rocks` list, we've spread the command accross multiple lines for clarity.
+The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `'`.
+```
+
+There are so many sets of data that fit into this pattern, that R has a special data type called a _data frame_, which we will discuss in the next section.
+
+
+```{block, type="progress"}
+Create a matrix, a character vector, and a boolean object, then place them all in a new list called "my_list", with the names "my_matrix", "my_vector", and "my_boolean".
+```
+
+
+### Data Frames
+
+At their core, data frames are just lists of vectors, but they also have some extra features as well.
+Here, we'll re-define the rocks list from the previous section, but this time we'll create it as a data frame:
+```{r}
+rocks <- data.frame(type=c("igneous", "metamorphic", "sedimentary"),
+                    weight=c(21.2, 56.7, 3.8),
+                    age=c(120, 10000, 5000000))
+rocks   # we'll add the specimen names later
+```
+
+
+Now when R display `rocks`, it arranges the data in rows and columns, similar to how it displays matrices.
+Unlike matrices, however, columns can have non-numeric data!
+
+```{block, type="caution"}
+Remember that a data frame is basically a list of vectors, so even though it can contain different types of data (because it is a list), each column is a vector, which means each column must have all elements of the same type.
+```
+
+The names of the columns are the names of the components of `rocks`, and the rows contain the data from each component vector.
+Remember that a data frame is basically a list of vectors, so we can access a component by its position or name:
+```{r}
+rocks[[1]]
+```
+
+```{r}
+rocks$weight
+```
+However, we can also access a data frame as if it were a matrix:
+```{r}
+rocks[1,3]  # get the datum from the first row, third column.
+```
+
+```{r}
+rocks[1,]  # get the first row, this gives another data frame with a single row.
+```
+
+```{r}
+rocks[,2]  # get the second column, this gives a vector.
+```
+Here's how to get the shape of a data frame (number of rows and columns):
+```{r}
+dim(rocks)  
+```
+
+If we start with a list of vectors, we can convert it to a data frame with `as.data.frame`:
+```{r}
+people <- list(name=c("Alice", "Bob", "Charlie"), 
+               grade=c(99.4, 87.6, 22.1), 
+               sex=c("F", "M", "M"))
+as.data.frame(people)
+```
+
+R comes with pre loaded with several data frames, such as `mtcars`, which contains data from the 1974 Motor Trend Magazine for 32 different automobiles:
+```{r}
+mtcars
+```
+
+```{block, type="bonus"}
+A list of included data sets in R can be found by running `data()`.
+```
+
+Look at the column of car names on the left side of the `mtcars` data frame.
+It doesn't have a column name (like `mpg`, `cyl`, etc.), because it's _not actually a column_.
+These are _row names_, and you can access them like this:
+```{r}
+row.names(mtcars)
+```
+You can also access the column names like this:
+```{r}
+names(mtcars)
+```
+These are two examples of _attributes_, which are like extra information which are attached to an object. 
+We'll discuss attributes more later when we discuss R objects.
+The column names and row names are just vectors, and you can access / modify them as such:
+```{r}
+row.names(rocks) <- c("A", "B", "C")
+rocks
+```
+
+```{r}
+names(rocks)[[1]] <- "rock type"
+rocks
+```
+
+```{block, type="caution"}
+Row and column names are allowed to have spaces in them, but you must be careful how you access them. 
+The following code will not work: `rocks$rock type` , because R will stop looking for the name you are referencing once it encounters a space. 
+To access this column, you must enclose the reference in "backticks" ( `` ` `` ) like so: ``rocks$`rock type` ``.
+
+```
+
+
+```{block2, type="progress"}
+Look at the set of available data sets in R, and pick 2 data sets.
+For each data set, answer the following questions:
+
+- What are the column names?
+- What are the row names?
+- What is the data type for each column?
+- How many rows are in the data frame?
+- How many columns are in the data frame?
+
 ```
 
 
 ## R Objects
 
+```{block, type="reflect"}
+Wherever you are right now, look around your environment.
+Pick an object and study its attributes. 
+It probably has a shape, a color, a weight, and many other ways of describing it.
+Now pick another object, and note how it is different than the first in terms of its attributes.
+What does the word "object" really mean?
+It's often easier to give examples than to give a precise definition, but generally objects are "things you can do things with".
+That is, you can usually look at them, touch them, smell them, and move them around (when appropriate/possible, of course!). 
+Another useful definition is that objects are _nouns_.
+Different objects have different purposes and attributes.
+Many of these ideas will be true for R objects as well.
+```
+
+We've already introduced the concepts of objects in R in passing, but here we briefly focus on what they are and how to work with them.
+
 ### _Everything_ is an object in R
 
-### Assigning Objects
+What exactly is an object in R?
+As in real life, it can be difficult to give a definition, but easier to give examples.
+Here are some examples of objects in R:
 
+1. A numeric variable
+2. A vector
+3. A matrix
+4. A list
+5. A data frame
+6. A _function_
+
+This list is not exhaustive, but most objects we deal with will look like one of these.
 
 ```{block, type="bonus"}
-asdf
+In many programming languages, functions are handled differently from other types of objects (i.e. they are not "first class" objects).
+In R, they are treated the same as any other type of object.
+You can assign them to variables, pass them to other functions, and can be returned from a function.
+This is similar to the behavior of Java and Python, but different from C.
 ```
 
 
-### Inspecting objects
+### Assigning Objects
 
-str, names, dim
+Any object can be assigned to a variable, as we've been doing already. 
+Here's an example:
 
+```{r}
+a <- "pink pineapple"
+```
+
+The `<-` is called an _assignment operator_.
+This is the most common way of assigning objects in R, but there are others.
+Sometimes you may see:
+
+```{r}
+a = "pink pineapple"
+```
+
+which in _most cases_, has the exact same effect as using the `<-`, but in a few instances, it has a different effect.
+Our recommendation is to always use `<-` when making object assignments.
+
+```{block, type="bonus"}
+There are other assignment operators as well, `<<-`, `->>`, and `<-`, but we will not discuss these. 
+You can find out more with the command `?assignOps`.
+```
+
+One neat thing you can do is assign multiple variables at the same time:
+```{r}
+a <- b <- "Hello"
+```
+
+```{r}
+a
+```
+
+```{r}
+b
+```
+
+
+```{block, type="caution"}
+Even though `a` and `b` were assigned at the same time, they are still different! So if you change `a` with `a <- "goodbye"`, then the value of `b` will still be `"Hello"`.
+```
+
+
+### Attributes 
+
+Every object in R has _attributes_, extra information that's "attached" to the object.
+_Every object_ has a length attribute:
+```{r}
+a <- c(1, 2, 3, 4)
+b <- c("bonjour", "au revoir")
+```
+```{r}
+length(a)
+```
+```{r}
+length(b)
+```
+
+```{block, type="progress"}
+_Every object_ has a length.
+Try creating an example of the following and examining the length:
+1. A boolean vector with 5 elements
+1. A matrix with two rows and two columns
+1. A list with two objects in it.
+```
+
+Every R object has a _mode_ as well, which tells you what _type_ of object you have.
+Here are some examples:
+
+```{r}
+mode(a)
+```
+
+```{r}
+mode(b)
+```
+
+```{block, type="progress"}
+_Every object_ has a length.
+Try creating an example of the following and examining the mode:
+1. A boolean vector with 5 elements
+1. A 2 x 2 matrix
+1. The `mtcars` dataframe 
+```
+
+Aside from these two attributes, you can list all attributes of an object like this:
+```{r}
+attributes(mtcars)
+```
+
+To access a specific attribute of an object, you can use the dollar sign (`$`):
+```{r}
+attr(mtcars, "class")  # get the class attribute for the mtcars dataframe
+```
 
 ### Null Objects
 
+There is a special object called the `NULL` object, which is really just represents "nothing".
+It's used mainly if you want to _remove_ an element from a list:
+```{r}
+a <- list(1, 2, 3)
+a[[2]] <- NULL   # replace component 2 with "nothing"
+a
+```
+
+Or if a function is supposed to return but doesn't have an object to return (more on this later when we discuss functions).
 
 
 ## Quiz
@@ -1204,6 +1698,10 @@ ggplot example
 
 ### Basic indexing
 
+matrices: can use single index
+
+nested indexing: [[1]][3]
+
 ### Advanced indexing
 
 ```{block, type="bonus"}
@@ -1235,6 +1733,8 @@ Function scope
 ```{block, type="bonus"}
 - Pass by value, contrast with other languages
 ```
+
+caution: use "=" when mapping named arguments, not `<-`.
 
 ## Working With Popular Packages
 
