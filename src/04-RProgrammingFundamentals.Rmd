@@ -1125,12 +1125,14 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 
 TODO: include conversion b/t character vec and factor vec.
 
-### Lists
-
 ### Matrices
+
+
 
 ### Arrays
 
+
+### Lists
 
 ## Practice
 
