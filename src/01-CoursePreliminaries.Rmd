@@ -134,8 +134,8 @@ R can be used to make many types of visualizations, which you will do more of in
 ```{block, type="bonus"}
 This may be the first time you've seen R, so it's okay if you don't understand how to read this code. We'll talk more later about what each statement is doing, but for now, here is a brief description of some of the code above:
 
-- `-10:10` This creates a sequence of numbers starting from -10 and ending at 10. That is, $-10, -9, -8, \ldots, 8, 9, 10$.
-- `library` This is a function which loads an R _package_. R packages provide extra abilities to R.
+- <span style="color:black">`-10:10`<span> This creates a sequence of numbers starting from -10 and ending at 10. That is, <span style="color:black">$-10, -9, -8, \ldots, 8, 9, 10$<span>.
+- <span style="color:black">`library`<span> This is a function which loads an R _package_. R packages provide extra abilities to R.
 
 ```
 
