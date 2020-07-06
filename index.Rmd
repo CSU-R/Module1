@@ -4,12 +4,12 @@ author:
   - "Alex Fout^[Department of Statistics, Colorado State University, fout@colostate.edu]"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  bookdown::gitbook:
     df_print: paged
-  pdf_document: default
+  bookdown::pdf_book: default
+  bookdown::epub_book: default
 #always_allow_html: true # warning, this may be risky. If you use, you need to verify that pdf isn't missing anything important.
 description: This is the book for the R Intro Course at CSU.
-documentclass: book
 link-citations: yes
 bibliography:
 - src/book.bib
@@ -68,10 +68,9 @@ knitr::include_graphics("src/images/left_arrow.png")
 knitr::include_graphics("src/images/right_arrow.png")
 ```
 
-
-
 ## Associated CSU Course
 
 This bookdown book is intended to accompany the associated course at Colorado State University, but the curriculum is free for anyone to access and use.
 If you're reading the PDF or EPUB version of this book, you can find the "live" version at [https://csu-r.github.io/Module1/](https://csu-r.github.io/Module1/), and all of the source files for this book can be found at [https://github.com/CSU-R/Module1](https://github.com/CSU-R/Module1).
+
 
