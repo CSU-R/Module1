@@ -160,3 +160,115 @@ Store your answers in a safe place, and refer to them periodically as you progre
 You may find that you aren't achieving your goals and that some adjustment to how you are approaching the course may be necessary.
 Or you may find that your goals have changed, which is fine!
 Just update your goals so that you have something to refer back to.
+
+
+## What is R? 
+
+What is R? This question can be answered several different ways.
+Here are a few of them:
+
+### R is a Programming Language
+
+A programming language is a way of providing instructions to a computer.
+Some popular languages (in no particular order) are C, C++, Java, Python, PHP, Visual Basic, and Swift.
+Much like other types of languages, programming languages combine text and punctuation (syntax) to create statements which provide meaningful instructions (semantics) to be performed by a computer.
+These instructions are called "code".
+R code can be used to do many things, but primarily R was designed to easily work with data and produce graphics. 
+The R language can be used to use a computer to do the following:
+- Read and process a set of data in a file or database
+- Use data to compute statistics and perform statistical tests
+- Produce nice looking visualizations of data
+- Save data for others to use.
+But this list is just the tip of the iceberg.
+As you will see, R can be used to do so much more!
+After the instructions are written, the R code is _run_, that is, the code is provided to the computer, and the computer performs the instructions to produce the desired results.
+
+```{block, type="bonus"}
+Many other programming languages use different syntax for the same purpose.
+
+<span style="color:black">`#`<span> comments out a line in R and python
+
+<span style="color:black">`%`<span> comments out a line in matlab
+
+<span style="color:black">`//`<span> comments out a line in C++ and javascript
+
+Similar to learning a foreign language, learning your first programming language will make it easier to understand other similar ones.
+```
+### R is software
+
+R can also be thought of as the software program which runs R code.
+In other words, if R code is the computer language, then the R software is what interprets the language and makes the computer follow the instructions laid out in the code.
+This is sometimes called "base R".
+
+### R is Free
+
+The R software is free, so anyone can download R, write R code, and run the R code in order to produce results on their computer.
+
+### R is Open Source
+
+The R software, which runs R code, is also made up of a bunch of code called _source code_.
+In addition to being free, R is also _open source_, meaning that anyone can look at the source code and understand the "deep-down nuts-and-bolts" of how R works.
+In addition, anyone is able to _contribute_ to R, in order to improve it and add new features to it. 
+
+```{block, type="reflect"}
+What are the advantages of open-source software? What are some potential downsides?
+
+Why do you think the creators of R decided to make it open source?
+```
+
+
+### R is an ecosystem
+
+Another way of thinking about R is to include not only the R language and the R software, but also the community of R users and programmers, and the various "add on" software they have created for R.
+These add on software are called "packages".
+
+### R Packages
+
+An R package is software written to extend the capabilities of base R.
+R packages are often written in R code, so anyone who knows how to write R code can also create R packages.
+The importance of packages cannot be understated.
+One of the reasons for the incredible popularity of R is the fact that members from the community can write new packages which enable R to do more.
+Sometimes packages are written to help folks in particular disciplines (e.g. psychology, geosciences, microbiology, education) do their jobs better.
+Other times, packages are written to extend the capability of R so that people from many disciplines can use them.
+R can be used to make web sites, interactive applications, dynamic reproducible reports, and even textbooks (like this one!).
+
+The inclusion of R packages, combined with the free and open source nature of R software, has led to the development of a active, diverse, and supportive community of R users who can easily share their code, data, and results with one another.
+
+
+```{block, type="bonus"}
+[skimr](https://github.com/ropensci/skimr) provides a frictionless approach to summary statistics which conforms to the principle of least surprise, displaying summary statistics the user can skim quickly to understand their data.
+```
+
+### R Interfaces
+
+The R software can be run in many different places, including personal computers, remote servers, and websites (as you have seen!).
+R works on Windows, MAC OSX, and Linux, and 
+R can be run using a terminal or command line (if you know what those are), or using a graphical user interface (with buttons you can click and such).
+By far one of the most popular ways of using R is with RStudio, which is _also_ open free and open source software.
+For this course, you'll be using RStudio.
+
+## The R Community
+
+We already mentioned that there is active community of R users around the world, ranging from novice to expert level.
+Here is a partial list of venues where R users interact (aside from the official websites, none of these links should be considered an official endorsement):
+
+1. [R Project](r-project.org): The official website for R
+1. [R Project Mailing Lists](https://www.r-project.org/mail.html): Various email lists to stay informed on R related activities. The R-announce list is a good starting point, which will keep you updated on the latest releases of the R software
+1. [Twitter #rstats](https://twitter.com/hashtag/rstats?lang=en): Many R Users are active on Twitter and you can find them
+1. [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly online project that focuses on understanding how to summarize, arrange, and make meaningful charts with open source data. You can see the projects others have done by following #tidytuesday on twitter.
+1. [R-Ladies](https://rladies.org/) is a global group dedicated to promoting gender equality in the R community. They have an elaborate list of resources for learning and host educational and networking events.
+1. [R-Podcast](https://r-podcast.org/): A periodic podcast with practical advice for using R, and the latest R news.
+1. [R-Bloggers](r-bloggers.com): A blog website where authors can post examples of code, data analysis, and visualization.
+
+
+### Places to Get Help (If you're taking this class for credit)
+
+TBD.
+
+### Places to Get Help (If you're just looking at this material but aren't taking the class)
+
+If you find yourself stuck, there are many options available to you, here are a few:
+
+1. [Stack Overflow](https://stackoverflow.com) is a message board where users can post questions about issues they're having. If you search for your error, there's likely already an answered question about it. If not, you can submit one with a [reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) that the active community can help you with.
+1. [R Manuals](https://cran.r-project.org/manuals.html): With so many R resources available on the internet, sometimes information get's "boiled down" or simplified for ease of communication. If you need the "official answer" to a question, these manuals are the place to go. Check out "An Introduction to R" for a good reference.
+

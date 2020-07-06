@@ -8,7 +8,6 @@ rmd_files:
   - "index.Rmd"
   - "src/01-CoursePreliminaries.Rmd"
   - "src/02-InstallingR.Rmd"
-  - "src/03-TheREcosystem.Rmd"
   - "src/04-RProgrammingFundamentals.Rmd"
 output_dir: "docs"
 # rmd_subdir: ["src"]  # misses index.Rmd if we use this
