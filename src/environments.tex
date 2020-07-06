@@ -1,22 +1,31 @@
 % png images should be 72x72 pixels
 
 \usepackage{xcolor}
-\usepackage{colortbl}
+%\usepackage{colortbl}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!red,
+  urlcolor=red!70!black
+}
+  
 
-\definecolor{bonus}{HTML}{000000}
-\definecolor{reflect}{HTML}{ffcc4a}
-\definecolor{assessment}{HTML}{7ea8ed}
-\definecolor{progress}{HTML}{a772cc}
-\definecolor{video}{HTML}{d66056}
+\definecolor{bonus}{HTML}{81c9a8}
+\definecolor{reflect}{HTML}{ffdb80}
+\definecolor{assessment}{HTML}{93b6ed}
+\definecolor{progress}{HTML}{bba3cc}
+\definecolor{video}{HTML}{d98780}
 \definecolor{caution}{HTML}{ff6700}
-\definecolor{feedback}{HTML}{56cc96}
+\definecolor{feedback}{HTML}{cccccc}
 
-\newenvironment{bonus}
+% template block for all environments 
+\newenvironment{specialblock}[3]
 {
   \begin{center}
-  \begin{tabular}{|>{\columncolor{bonus}\color{white}}p{0.9\textwidth}|}\hline\\
-  \includegraphics[scale=0.1]{src/images/sun-fill-invert.png}
-  \textbf{Bonus:}
+  \begin{tabular}
+  {|>{\columncolor{#1}}p{0.9\textwidth}|}\hline\\
+  \includegraphics[scale=0.1]{src/images/#2}
+  \textbf{#3}
 }
 {\\\\\hline
   \end{tabular}
@@ -24,79 +33,31 @@
 }
 
 
-\newenvironment{reflect}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{reflect}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/lightbulb-fill.png}
-  \textbf{Reflect:}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
+% styling for all special blocks
+\newenvironment{bonus}{
+  \specialblock{bonus}{sun-fill.png}{Bonus}
+}{\endspecialblock}
 
-\newenvironment{assessment}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{assessment}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/pencil-fill.png}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
+\newenvironment{reflect}{
+  \specialblock{reflect}{lightbulb-fill.png}{Reflect}
+}{\endspecialblock}
 
+\newenvironment{assessment}{
+  \specialblock{assessment}{pencil-fill.png}{Assessment}
+}{\endspecialblock}
 
-\newenvironment{progress}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{progress}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/pulse-line.png}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
+\newenvironment{progress}{
+  \specialblock{progress}{pulse-line.png}{Progress Check}
+}{\endspecialblock}
 
+\newenvironment{video}{
+  \specialblock{video}{vidicon-fill.png}{Video}
+}{\endspecialblock}
 
-\newenvironment{video}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{video}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/vidicon-fill.png}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
+\newenvironment{caution}{
+  \specialblock{caution}{alarm-warning-fill.png}{Caution}
+}{\endspecialblock}
 
-\newenvironment{caution}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{caution}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/alarm-warning-fill.png}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
-
-
-\newenvironment{feedback}
-{
-  \begin{center}
-  \begin{tabular}{|>{\columncolor{feedback}}p{0.9\textwidth}|}
-  \hline\\
-  \includegraphics[scale=0.1]{src/images/chat-1-fill.png}
-}
-{\\\\\hline
-  \end{tabular}
-  \end{center}
-}
-
+\newenvironment{feedback}{
+  \specialblock{feedback}{chat-1-fill.png}{Feedback}
+}{\endspecialblock}
