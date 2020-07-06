@@ -24,7 +24,7 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-07-05" />
+<meta name="date" content="2020-07-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
@@ -310,16 +312,16 @@ Including multiple semicolons (e.g. <code>print(“hello”);;</code>) does not
 </div>
 <div class="bonus">
 <p>
-You’ve just seen your first example of <em>assignment</em>. That is, we created a thing called <span style="color:black"><code>x</code></span> , and <em>assigned</em> to it the value of <span style="color:black"><code>1+1</code></span> using the <em>assignment operator</em>, <span style="color:black"><code>&lt;-</code></span>. Formally <span style="color:black"><code>x</code></span> is called an object, but we’ll talk about that more objects and assignments later.
+You’ve just seen your first example of <em>assignment</em>. That is, we created a thing called <code>x</code> , and <em>assigned</em> to it the value of <code>1+1</code> using the <em>assignment operator</em>, <code>&lt;-</code>. Formally <code>x</code> is called an object, but we’ll talk about that more objects and assignments later.
 </p>
 </div>
 <p>TODO: make these code blocks display on multiple lines:</p>
 <div class="bonus">
 <p>
-So far, we’ve seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines? The answer is <em>sometimes</em>, depending on the command. Generally, if R is expecting the end of a command but doesn’t see one by the time it gets to the end of a line, it will continue looking on the next line. Here are some examples: <span style="color:black"><code>1 +  1</code><span>
+So far, we’ve seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines? The answer is <em>sometimes</em>, depending on the command. Generally, if R is expecting the end of a command but doesn’t see one by the time it gets to the end of a line, it will continue looking on the next line. Here are some examples: <code>1 +  1</code>
 </p>
 <p>
-<span style="color:black"><code>print(“This string is on multiple lines”)</code><span>
+<code>print(“This string is on multiple lines”)</code>
 </p>
 </div>
 <div class="caution">
@@ -430,13 +432,13 @@ The output of the above code chunk is not shown, because the result of this code
 </div>
 <div id="section-1" class="section level3">
 <h3><span class="header-section-number">4.1.6</span> ??</h3>
-<p>If you don’t remember the exact name of a function, or would like to search for general matches to a topic, then you can use <span style="color:black"><code>??</code><span>.
-For example, trying <span style="color:black"><code>?Print</code><span> produces an error, because there is not <span style="color:black"><code>Print</code><span> function (remember, R is case sensitive), so there’s no documentation to go with it.
+<p>If you don’t remember the exact name of a function, or would like to search for general matches to a topic, then you can use <code>??</code>.
+For example, trying <code>?Print</code> produces an error, because there is not <code>Print</code> function (remember, R is case sensitive), so there’s no documentation to go with it.
 However, the following should still work:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb26-1"><a href="programming-preliminaries.html#cb26-1"></a>??Print</span></code></pre></div>
 <div class="bonus">
 <p>
-Programmers have a sense of humor, too! Try running <span style="color:black"><code>????print</code><span> to see a small joke. Remember, comedic taste varies!
+Programmers have a sense of humor, too! Try running <code>????print</code> to see a small joke. Remember, comedic taste varies!
 </p>
 </div>
 TODO: put these bonus blocks in more appropriate places:
@@ -447,7 +449,7 @@ This is a lot to remember, but luckily you can use a <a href="https://rstudio.co
 </div>
 <div class="bonus">
 <p>
-Want to know more about R syntax? Try typing <span style="color:black"><code>?Syntax</code><span> in the R console (then press <code>Enter</code>).
+Want to know more about R syntax? Try typing <code>?Syntax</code> in the R console (then press <code>Enter</code>).
 </p>
 </div>
 <div class="caution">

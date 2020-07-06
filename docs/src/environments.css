@@ -1,121 +1,63 @@
 /* svg images should be 24x24 pixels */
 /* icons from remixicon.com */
 
-div.bonus{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #000000;
+/* Styling for all custom environments: */
+div.bonus, div.reflect, div.assessment, div.progress, div.video, div.caution, div.feedback{
+  padding: 2.5em 0.5em 0.5em 1em;
+  margin-bottom: 0.5em;
   position:relative;
-  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 8px;
+  border-color: black;
+  color: black;
 }
-div.bonus:before {
-    content: url(images/sun-fill.svg) " Bonus";
-    filter: invert(100);
-    left:1em;
+
+div.bonus:before, 
+div.reflect:before, 
+div.assessment:before, 
+div.progress:before, 
+div.video:before, 
+div.caution:before, 
+div.feedback:before{
+    left:0.5em;
     position:absolute;
-    top:1em;
-    color: black;
+    top:0.2em;
     font-weight:bold;
     font-style:italic;
     font-size: 1.5em;
 }
+
+.book .book-body .page-wrapper .page-inner .normal div.bonus a:link,
+.book .book-body .page-wrapper .page-inner .normal div.reflect a:link,
+.book .book-body .page-wrapper .page-inner .normal div.assessment a:link,
+.book .book-body .page-wrapper .page-inner .normal div.progress a:link,
+.book .book-body .page-wrapper .page-inner .normal div.video a:link,
+.book .book-body .page-wrapper .page-inner .normal div.caution a:link,
+.book .book-body .page-wrapper .page-inner .normal div.feedback a:link{
+  text-decoration: underline;
+  font-weight: bold;
+  color: black;
+}
+
+/* Styling unique to each environment: */
+div.bonus{background: #81c9a8;}
+div.bonus:before {content: url(images/sun-fill.svg) " Bonus";}
  
+div.reflect{background: #ffdb80;}
+div.reflect:before {content: url(images/lightbulb-fill.svg) " Reflect";}
+
+div.assessment{background: #93b6ed;}
+div.assessment:before {content: url(images/pencil-fill.svg) " Assessment";}
  
-div.reflect{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #ffcc4a;
-  position:relative;
-}
-div.reflect:before {
-    content: url(images/lightbulb-fill.svg) " Reflect";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
+div.progress{background: #bba3cc;}
+div.progress:before {content: url(images/pulse-line.svg) " Progress Check";}
 
-div.assessment{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #7ea8ed;
-  position:relative;
-}
-div.assessment:before {
-    content: url(images/pencil-fill.svg) " Assessment";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
- 
- 
-div.progress{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #a772cc;
-  position:relative;
-}
-div.progress:before {
-    content: url(images/pulse-line.svg) " Progress Check";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
+div.video{background: #d98780;}
+div.video:before {content: url(images/vidicon-fill.svg) " Video";}
 
+div.caution{background: #ff6700;}
+div.caution:before {content: url(images/alarm-warning-fill.svg) " Caution";}
 
-div.video{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #d66056;
-  position:relative;
-}
-div.video:before {
-    content: url(images/vidicon-fill.svg) " Video";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
-
-div.caution{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #ff6700;
-  position:relative;
-}
-div.caution:before {
-    content: url(images/alarm-warning-fill.svg) " Caution";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
-
-
-div.feedback{
-  padding: 4em 1em 1em 2em;
-  margin-bottom: 1em;
-  background: #56cc96;
-  position:relative;
-}
-div.feedback:before {
-    content: url(images/chat-1-fill.svg) " Feedback";
-    left:1em;
-    position:absolute;
-    top:1em;
-    font-weight:bold;
-    font-style:italic;
-    font-size: 1.5em;
-}
+div.feedback{background: #cccccc;}
+div.feedback:before {content: url(images/chat-1-fill.svg) " Feedback";}

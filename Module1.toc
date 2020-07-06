@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Welcome!}{1}{section.1}%
+\contentsline {subsubsection}{\numberline {1.0.1}How To Navigate This Book}{1}{subsubsection.1.0.1}%
+\contentsline {subsection}{\numberline {1.1}Associated CSU Course}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Course Preliminaries}{2}{section.2}%
+\contentsline {subsubsection}{\numberline {2.0.1}Special Boxes}{2}{subsubsection.2.0.1}%
+\contentsline {subsubsection}{\numberline {2.0.2}How This Book Displays Code}{3}{subsubsection.2.0.2}%
+\contentsline {subsubsection}{\numberline {2.0.3}Next Steps}{3}{subsubsection.2.0.3}%
+\contentsline {subsection}{\numberline {2.1}Course Topics \& Syllabus}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Schedule}{3}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Syllabus}{3}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Approach To Learning}{3}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Grading}{4}{subsubsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.2}Running your first R Code}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}What do you hope to get out of this course?}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}What is R?}{5}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}R is a Programming Language}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}R is software}{6}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}R is Free}{6}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}R is Open Source}{6}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}R is an ecosystem}{6}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}R Packages}{6}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}R Interfaces}{7}{subsubsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.5}The R Community}{7}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Places to Get Help (If you're taking this class for credit)}{7}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Places to Get Help (If you're just looking at this material but aren't taking the class)}{7}{subsubsection.2.5.2}%
