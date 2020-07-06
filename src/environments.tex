@@ -1,7 +1,6 @@
 % png images should be 72x72 pixels
 
 \usepackage{xcolor}
-%\usepackage{colortbl}
 \usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -10,6 +9,7 @@
 }
   
 
+% define colors:
 \definecolor{bonus}{HTML}{81c9a8}
 \definecolor{reflect}{HTML}{ffdb80}
 \definecolor{assessment}{HTML}{93b6ed}
@@ -17,6 +17,7 @@
 \definecolor{video}{HTML}{d98780}
 \definecolor{caution}{HTML}{ff6700}
 \definecolor{feedback}{HTML}{cccccc}
+
 
 % template block for all environments 
 \newenvironment{specialblock}[3]
@@ -61,3 +62,4 @@
 \newenvironment{feedback}{
   \specialblock{feedback}{chat-1-fill.png}{Feedback}
 }{\endspecialblock}
+

@@ -1,1 +1,12 @@
 \usepackage{booktabs}
+
+
+\definecolor{output}{HTML}{fffbcf}
+
+
+% add a background color to the verbatim environment
+\let\oldv\verbatim
+\let\oldendv\endverbatim
+
+\def\verbatim{\par\setbox0\vbox\bgroup\oldv}
+\def\endverbatim{\oldendv\egroup\fboxsep0pt \noindent\colorbox{output}{\usebox0}}

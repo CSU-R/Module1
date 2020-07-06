@@ -6,8 +6,6 @@ date: "`r Sys.Date()`"
 output:
   bookdown::gitbook:
     df_print: paged
-  bookdown::pdf_book: default
-  bookdown::epub_book: default
 #always_allow_html: true # warning, this may be risky. If you use, you need to verify that pdf isn't missing anything important.
 description: This is the book for the R Intro Course at CSU.
 link-citations: yes
