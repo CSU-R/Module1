@@ -3,10 +3,6 @@ title: "R Module 1"
 author: 
   - "Alex Fout^[Department of Statistics, Colorado State University, fout@colostate.edu]"
 date: "`r Sys.Date()`"
-output:
-  bookdown::gitbook:
-    df_print: paged
-#always_allow_html: true # warning, this may be risky. If you use, you need to verify that pdf isn't missing anything important.
 description: This is the book for the R Intro Course at CSU.
 link-citations: yes
 bibliography:
@@ -70,5 +66,7 @@ knitr::include_graphics("src/images/right_arrow.png")
 
 This bookdown book is intended to accompany the associated course at Colorado State University, but the curriculum is free for anyone to access and use.
 If you're reading the PDF or EPUB version of this book, you can find the "live" version at [https://csu-r.github.io/Module1/](https://csu-r.github.io/Module1/), and all of the source files for this book can be found at [https://github.com/CSU-R/Module1](https://github.com/CSU-R/Module1).
+
+If you're not taking the CSU course, you will periodically encounter instructions and references which are not relevant to you. For example, we will make reference to the Canvas website, which only CSU students enrolled in the course have access to.
 
 
