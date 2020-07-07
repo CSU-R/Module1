@@ -1,0 +1,49 @@
+# Creating R Programs
+
+## Basic Control Flow
+
+If/else
+
+loops (for, while)
+
+switch
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+## Advanced Control Flow
+
+*apply family
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+## Writing FUnctions
+
+Function scope
+```{block, type ="caution"}
+When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
+```
+
+```{block, type="bonus"}
+- Pass by value, contrast with other languages
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+caution: use "=" when mapping named arguments, not `<-`.
+
+## Working With Popular Packages
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+## Assignment
+
+```{block, type="assessment"}
+Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
+```

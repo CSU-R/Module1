@@ -1,0 +1,69 @@
+# Working with Data
+
+## Loading / Saving Data
+
+### "Taster"(?) list of file forms and sources
+
+### reading/writing csv
+
+### Best practices
+
+principles of Tidy Data (wickham 2014)
+
+raw data as read only
+
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+## Downloading and Saving
+
+```{block, type="video"}
+downloading and saving example csv from canvas or website
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+## Working With Data
+
+### Basic indexing
+
+matrices: can use single index
+
+nested indexing: [[1]][3]
+
+### Advanced indexing
+
+```{block, type="bonus"}
+dplyr example
+```
+```{block, type="feedback"}
+Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```
+
+### Summarizing vectors
+
+Mean, std, etc.
+
+### Summarizing matrices
+
+### Summarizing vectors
+
+### Basic Plotting
+
+```{block, type="bonus"}
+ggplot example
+```
+```{block, type="caution"}
+Remember to pay close attention to the syntax when using ggplot. R won't work if parenthesis or quotes are not paired. If you're adding multiple layers, put each on a new line.
+
+Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
+```
+
+## Practice
+
+```{block, type="progress"}
+asdf
+```
+

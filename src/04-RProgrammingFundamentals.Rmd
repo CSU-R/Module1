@@ -12,7 +12,6 @@
 
 ```
 
-TODO: talk about syntax and grammar
 
 All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
 When two humans communicate with a language, they both must agree on the the rules of that language.
@@ -1374,9 +1373,7 @@ person
 ```{block, type="progress"}
 Below is some R code:
 
-  ```{r, eval=F}
-    C$year <- A[2,2] + B[["age"]]
-  ```
+  `C$year <- A[2,2] + B[["age"]]`
 
 Assuming this code works, what are the data types are A, B, and C?
 ```
@@ -1709,119 +1706,4 @@ Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content i
 asdf
 ```
 
-
-## Loading / Saving Data
-
-### "Taster"(?) list of file forms and sources
-
-### reading/writing csv
-
-### Best practices
-
-principles of Tidy Data (wickham 2014)
-
-raw data as read only
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Downloading and Saving
-
-```{block, type="video"}
-downloading and saving example csv from canvas or website
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Working With Data
-
-### Summarizing vectors
-
-Mean, std, etc.
-
-### Summarizing matrices
-
-### Summarizing vectors
-
-### Basic Plotting
-
-```{block, type="bonus"}
-ggplot example
-```
-```{block, type="caution"}
-Remember to pay close attention to the syntax when using ggplot. R won't work if parenthesis or quotes are not paired. If you're adding multiple layers, put each on a new line.
-
-Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
-```
-
-### Basic indexing
-
-matrices: can use single index
-
-nested indexing: [[1]][3]
-
-### Advanced indexing
-
-```{block, type="bonus"}
-dplyr example
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Practice
-
-```{block, type="progress"}
-asdf
-```
-
-## Basic Control Flow
-
-If/else
-
-loops (for, while)
-
-switch
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Advanced Control Flow
-
-*apply family
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Writing FUnctions
-
-Function scope
-```{block, type ="caution"}
-When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
-```
-
-```{block, type="bonus"}
-- Pass by value, contrast with other languages
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-caution: use "=" when mapping named arguments, not `<-`.
-
-## Working With Popular Packages
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Assignment
-
-```{block, type="assessment"}
-Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
-```
 
