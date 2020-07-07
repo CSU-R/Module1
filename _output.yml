@@ -9,6 +9,7 @@ bookdown::gitbook:
     download: ["pdf", "epub"]   
     toolbar:
       position: static
+  df_print: paged
   split_by: section
 bookdown::pdf_book:
   includes:
