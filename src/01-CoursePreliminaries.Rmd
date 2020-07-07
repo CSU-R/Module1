@@ -59,6 +59,10 @@ This will be useful when you are asked to run code on your computer.
 When you're ready, go to the next section to learn about the course syllabus and grading policies.
 
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Preliminaries)
+```
+
 ## Course Topics \& Syllabus
 
 Broadly speaking, the topics of this course are described by the Chapter Titles. Here's what each entails:
@@ -134,7 +138,9 @@ grading_scale <- data.frame(
 knitr::kable(grading_scale) %>% kable_styling()
 ```
 
-
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Topics%20%26%20Syllabus)
+```
 
 ## Running your first R Code
 
@@ -189,6 +195,9 @@ This may be the first time you've seen R, so it's okay if you don't understand h
 ```
 
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Your%20First%20R%20Code)
+```
 
 ## What do you hope to get out of this course?  {#getoutoftheclass}
 
@@ -213,11 +222,18 @@ You may find that you aren't achieving your goals and that some adjustment to ho
 Or you may find that your goals have changed, which is fine!
 Just update your goals so that you have something to refer back to.
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20Do%20You%20Hope%20To%20Get%20Out%20Of%20The%20Class)
+```
 
 ## What is R? 
 
 What is R? This question can be answered several different ways.
 Here are a few of them:
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20is%20R)
+``` 
 
 ### R is a Programming Language
 
@@ -299,6 +315,10 @@ R can be run using a terminal or command line (if you know what those are), or u
 By far one of the most popular ways of using R is with RStudio, which is _also_ open free and open source software.
 For this course, you'll be using RStudio.
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20Is%20R)
+```
+
 ## The R Community
 
 We already mentioned that there is active community of R users around the world, ranging from novice to expert level.
@@ -329,3 +349,6 @@ If you find yourself stuck, there are many options available to you, here are a 
 1. [Stack Overflow](https://stackoverflow.com) is a message board where users can post questions about issues they're having. If you search for your error, there's likely already an answered question about it. If not, you can submit one with a [reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) that the active community can help you with.
 1. [R Manuals](https://cran.r-project.org/manuals.html): With so many R resources available on the internet, sometimes information get's "boiled down" or simplified for ease of communication. If you need the "official answer" to a question, these manuals are the place to go. Check out "An Introduction to R" for a good reference.
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=The%20R%20Community)
+``` 

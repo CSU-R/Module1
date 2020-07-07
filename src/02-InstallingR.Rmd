@@ -8,6 +8,10 @@ The purpose of this chapter is to install R on your own computer, so that you ca
 If you're new to computers, this section will be important for you to get set up.
 If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can safely skip to the next section.
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer%20Basics)
+``` 
+
 ### Operating Systems
 
 R works on Windows, Mac OS X, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R. 
@@ -21,7 +25,10 @@ Some versions of Windows that run on ARM processors cannot install R, and instal
 To install R, you'll have to download a file from the internet which performs the installation.
 After you install R, you shouldn't have to download anything to run R.
 
-TODO: take out?
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer%20Basics)
+```
 
 
 ## Install R \& R Studio
@@ -30,6 +37,10 @@ You'll actually be installing _two_ separate programs, both of which are free to
 The _first_ is the R programming language.
 The _second_ is a separate program called R Studio.
 R Studio will be the primary way in which you interact with R in this class, we will say more about this later.
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20&%20RStudio)
+``` 
 
 
 ### Installing R
@@ -72,6 +83,12 @@ Rstudio also offers a [cloud service](https://rstudio.cloud/) that allows you to
 
 ### Installing R Studio
 
+
+```{block, type='feedback'}
+`r print("test")`
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20%26%20R%20Studio)
+```
+
 ## Successfull Installation
 
 TODO: add some basic tasks here to make sure R and RStudio work. (screenshots?)
@@ -85,6 +102,14 @@ todo: video orienting to R Studio (Matt video?)
 todo: create assessment
 ```
 
+```{block, type='feedback'}
+`r print("test")`
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Successful%20Installation)
+```
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Successfull%20Installation)
+``` 
 
 ## Running Code in RStudio Console
 
@@ -96,7 +121,20 @@ R comes pre-loaded with several datasets that are used in many examples. One is 
 Use `mean(iris$Petal.Length)` to find out what the mean petal length is. 
 ```
 
+```{block, type='feedback'}
+`r print("test")`
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20In%20R%20Studio%20Console)
+```
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio%20Console)
+``` 
+
 ## Workspace setup
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
+``` 
 
 ### Recommended Settings
 
@@ -124,7 +162,7 @@ Folder structure:
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
-## Reflection \& Assignment
+## Reflection
 
 ```{block, type="reflect"}
 Before moving on to the next section, take a note of all you've done so far. 
@@ -135,11 +173,4 @@ Before moving on to the next section, take a note of all you've done so far.
 
 3. What could be some reasons that using R code written by someone else might not work on your computer?
 ```
-
-TODO: Kathleen thought this could be a progress check, I think we can have it be the first homework. 
-```{block, type="assessment"}
-todo: create R script to do some math, then turn in.
-provide template with comment block at the top
-```
-
 

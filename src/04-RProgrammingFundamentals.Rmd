@@ -249,6 +249,9 @@ The next few sections will describe the different types of data that R can handl
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming%20Preliminaries)
+``` 
 
 ## Data Types
 
@@ -584,6 +587,10 @@ What about dates? R actually has three built-in [date classes](https://www.r-blo
 ```{block, type="feedback"}
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Types)
+``` 
 
 ## Data Structures
 
@@ -1548,6 +1555,9 @@ For each data set, answer the following questions:
 
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Structures)
+``` 
 
 ## R Objects
 
@@ -1701,9 +1711,6 @@ Or if a function is supposed to return but doesn't have an object to return (mor
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
-## Quiz
-```{block, type="assessment"}
-asdf
-```
-
-
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects)
+``` 
