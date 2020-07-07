@@ -31,7 +31,7 @@ course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "
 r_version <- "4.0.1"
 ```
 
-Hi, and welcome to the R Module 1 course at Colorado State University!
+Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!
 
 This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.
 
