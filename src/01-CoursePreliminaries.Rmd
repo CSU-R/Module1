@@ -37,7 +37,7 @@ This box is to provide material going beyond the main course content, or materia
 ```{block, type='feedback'}
 This box will prompt for your feedback on the organization of the course, so we can improve the material for everyone!
 
-Any of the boxes may include hyperlinks like this: [I am a link](https://www.r-graph-gallery.com/)
+Any of the boxes may include hyperlinks like this: [I am a link](https://www.r-graph-gallery.com/) or code like this `This is code`.
 ```
 
 ### How This Book Displays Code
@@ -59,11 +59,46 @@ This will be useful when you are asked to run code on your computer.
 When you're ready, go to the next section to learn about the course syllabus and grading policies.
 
 
-
 ## Course Topics \& Syllabus
 
-TODO: coming soon!
+Broadly speaking, the topics of this course are described by the Chapter Titles. Here's what each entails:
+- Course Preliminaries: Introduction to R and the world of R
+- Installing R: Like it sounds, setting up your computer so you can work with R.
+- R Programming Fundamentals: The basics of programming in R, the building blocks that you need in order to do anything more interesting.
+- Working with Data: How to do meaningful things with data sets. Probably the most useful Chapter of the book.
+- Creating R Programs: More programming concepts to increase your R Power!
 
+### Syllabus
+
+First, some important details:
+
+- __Instructor__: [Alex Fout](mailto:fout@colostate.edu)
+
+- __Office Hours__: TBD on Microsoft Teams
+
+- __Webpages__: [Canvas](https://canvas.colostate.edu), [this textbook](https://csu-r.github.io/Module1/)
+
+- __Course Credits__: 1. Because this is a summer course, you'll be expected to digest the 
+
+- __Textbook__: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way.
+
+- __Prerequisites__: None
+
+- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. You'll be provided a template RMarkdown Document to fill in as you complete the progress checks. About once per week, you'll compile the document and turn it in for grading via Canvas
+
+- __Homework__: About once per week, you'll complete an assignment using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due.
+
+- __Exams__: There will be no exams in this course
+
+- __Quizzes__: Once per week, there will be a 15 minute Canvas quiz. Quizzes must be completed by 11:59pm (Mountain) on the day they are due.
+
+- __Lectures__: Since we aren't having in-person lectures, we will hold short "Virtual Meetings" through MS Teams instead. These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics.
+
+- __Grading__: The grading for the course is apportioned like so:
+
+  - Progress Checks: 30%
+  - Homework: 40%
+  - Quizzes: 30%
 
 ### Schedule
 
@@ -72,21 +107,33 @@ sched <- data.frame(
   Week = 1 + isoweek(course_dates) - isoweek(start_date),
   Weekday = wday(course_dates, label=T, abbr=F),
   Date = format(course_dates, "%B %d"),
-  Reading = rep("", 12),
-  Assignments = rep("", 12)
+  Reading = c("Ch1, Ch2", "Ch3", "Ch4", "Ch4", "Ch4", "Ch5", "Ch5", "Ch5", "Ch5", "Ch6", "Ch6", "Ch6"),
+  Due= c("Progress Checks 1", "Quiz 1", "Assignment 1", "Progress Checks 2", "Quiz 1", "Assignment 2", "Progress Checks 3", "Quiz 1", "Assignment 3", "Progress Checks 4", "Quiz 4", "Assignment 4")
 )
 knitr::kable(sched) %>% kable_styling()
 ```
 
-### Syllabus
 
+### Course Policies 
 
-### Approach To Learning
+- Late Work: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50% credit.
+- Group Work: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You _are_ welcome to seek help 
+- Students with Disabilities: The university is committed to providing support for students with disabilities. If you have an accomodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.
+- Growth Mindset: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: "The view you adopt for yourself profoundly affects the way you lead your life... Believing that your qualities are carved in stone - _the fixed mindset_ - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character — well, then you’d better prove that you have a healthy dose of them. It simply wouldn’t do to look or feel deficient in these most basic characteristics... There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you’re secretly worried it’s a pair of tens. In this mindset, the hand you’re dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience." Programming may be a very new, intimidating thing for you. That's okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!
+- Learn by doing: [A wise statistics instructor](https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA&sq=t) once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won't get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good _start_, but you'll have to actually _program_ in order to get any better! This textbook was designed to be _interactive_, and I encourage you to "code along with the book" as you read.
 
-* growth mindset
-* do-first
+### Grading Scale
 
-### Grading
+Grades will be assigned according to the following scale:
+
+```{r, grading_scale, echo=F}
+grading_scale <- data.frame(
+  Class_Score = c("92%-100%", "90%-92%", "88%-90%", "82%-88%", "80%-82%", "78%-80%", "70%-78%", "60%-70%", "0%-60%"),
+  Letter_Grade = c("A", "A-", "B+", "B", "B-", "C+", "C", "D", "F")
+)
+knitr::kable(grading_scale) %>% kable_styling()
+```
+
 
 
 ## Running your first R Code
