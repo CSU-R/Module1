@@ -84,7 +84,7 @@ First, some important details:
 
 - __Prerequisites__: None
 
-- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. You'll be provided a template RMarkdown Document to fill in as you complete the progress checks. About once per week, you'll compile the document and turn it in for grading via Canvas
+- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For Week 1, you'll submit your responses directly to canvas. For weeks 2-4, you'll fill in a R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness.
 
 - __Homework__: About once per week, you'll complete an assignment using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due.
 

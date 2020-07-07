@@ -1,5 +1,5 @@
 ---
-title: "Progress Check 2"
+title: "Progress Check 3"
 author: "Your Name Here"
 date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
 output: html_document
