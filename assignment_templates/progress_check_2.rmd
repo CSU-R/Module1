@@ -1,0 +1,44 @@
+---
+title: "Progress Check 2"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Instructions:
+
+1. Update your name in the header block, example: "Alex Fout" 
+1. Each time you encounter a purple "Progress Check" block in the textbook, create a new code block with the same title 
+1. Be sure to run your code chunks when you make them, to make sure everything works!
+1. Your completed assignment should contain all progress checks from section XX through section XX
+1. When you've completed the assignment, **knit** the document and upload to Canvas.
+
+
+## Example:
+
+If you're in section 3.1, create a section 3.1 subheading with two #'s:
+
+## Section 3.1
+
+Each time you encounter a progress check block in this section, make a sub-subheading with three #'s, and __use the number in the lower right corner of the block__
+
+### 1
+
+For each progress check, you'll create a code chunk for any code you write:
+
+```{r}
+print("here's some code")
+```
+
+### 2
+
+This will
+
+
+## Progress Checks:
+
+You fill in this part!

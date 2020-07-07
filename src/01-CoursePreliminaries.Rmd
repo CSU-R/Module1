@@ -203,7 +203,10 @@ In that case, try to come up with some possible answers that _might_ be true.
 1. What types of data sets related to your field of study may require data analysis?
 1. What skills do you hope to develop in this course, and how might they be applied in your major and career?
 ```
-TODO: canvas assignment?
+
+```{block, type="progress"}
+Submit your answers to the above reflection to Canvas.
+```
 
 Store your answers in a safe place, and refer to them periodically as you progress through the course.
 You may find that you aren't achieving your goals and that some adjustment to how you are approaching the course may be necessary.

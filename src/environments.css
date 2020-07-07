@@ -13,16 +13,28 @@ div.bonus, div.reflect, div.assessment, div.progress, div.video, div.caution, di
   color: black;
 }
 
-/* Initialize Counter (For each chapter) */
+/* Initialize progress block counter (Starts over for each section) */
 body {
-  counter-reset: counter-blocks;
+  counter-reset: counter-progress-blocks;
+}
+/* Increment counter in progress blocks */
+div.progress:before{
+    counter-increment: counter-progress-blocks;
+}
+/* Print counter number in progress blocks */
+div.progress:after{
+    right:0.3em;
+    position:absolute;
+    bottom:0.1em;
+    font-size: 0.8em;
+    content:  counter(counter-progress-blocks) ;
 }
 
 
 div.bonus:before, 
 div.reflect:before, 
 div.assessment:before, 
-div.progress:before, 
+div.progress:before,
 div.video:before, 
 div.caution:before, 
 div.feedback:before{
@@ -32,11 +44,10 @@ div.feedback:before{
     font-weight:bold;
     font-style:italic;
     font-size: 1.5em;
-    counter-increment: counter-blocks;
 }
-/* Number each code chunk */
 
 
+/* Style hyperlinks */
 .book .book-body .page-wrapper .page-inner .normal div.bonus a:link,
 .book .book-body .page-wrapper .page-inner .normal div.reflect a:link,
 .book .book-body .page-wrapper .page-inner .normal div.assessment a:link,
@@ -49,19 +60,6 @@ div.feedback:before{
   color: black;
 }
 
-div.bonus:after, 
-div.reflect:after, 
-div.assessment:after, 
-div.progress:after, 
-div.video:after, 
-div.caution:after, 
-div.feedback:after{
-    right:0.3em;
-    position:absolute;
-    bottom:0.1em;
-    font-size: 0.8em;
-    content:  counter(counter-blocks) ;
-}
 
 /* Styling unique to each environment: */
 div.bonus{background: #81c9a8;}
