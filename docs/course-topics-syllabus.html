@@ -24,7 +24,7 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-07-06" />
+<meta name="date" content="2020-07-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,8 +163,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.4.7</b> R Interfaces</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.5</b> The R Community</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.5.1</b> Places to Get Help (If you’re taking this class for credit)</a></li>
-<li class="chapter" data-level="2.5.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-just-looking-at-this-material-but-arent-taking-the-class"><i class="fa fa-check"></i><b>2.5.2</b> Places to Get Help (If you’re just looking at this material but aren’t taking the class)</a></li>
+<li class="chapter" data-level="2.5.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.5.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.5.2</b> Places to Get Help (anyone)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="installingr.html"><a href="installingr.html"><i class="fa fa-check"></i><b>3</b> Installing R</a><ul>
@@ -272,10 +272,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Instructor</strong>: <a href="mailto:fout@colostate.edu">Alex Fout</a></p></li>
 <li><p><strong>Office Hours</strong>: TBD on Microsoft Teams</p></li>
 <li><p><strong>Webpages</strong>: <a href="https://canvas.colostate.edu">Canvas</a>, <a href="https://csu-r.github.io/Module1/">this textbook</a></p></li>
-<li><p><strong>Course Credits</strong>: 1. Because this is a summer course, you’ll be expected to digest the</p></li>
+<li><p><strong>Course Credits</strong>: 1. Because this week lasts four weeks, this course should “feel” like a 3 credit course for four weeks. Normally this means ~3 hours of lecture and 12 hours of work outside of lecture per week. Because this course is online, there will be 1 hour or less of “lecture” (see below), and about 14 hours of outside work per week.</p></li>
 <li><p><strong>Textbook</strong>: You’re reading it right now. The textbook will be your primary learning resource. You’ll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way.</p></li>
 <li><p><strong>Prerequisites</strong>: None</p></li>
-<li><p><strong>Progress Checks</strong>: As you work your way through the textbook, you’ll encounter purple “Progress Check” boxes. You’ll be provided a template RMarkdown Document to fill in as you complete the progress checks. About once per week, you’ll compile the document and turn it in for grading via Canvas</p></li>
+<li><p><strong>Progress Checks</strong>: As you work your way through the textbook, you’ll encounter purple “Progress Check” boxes. For Week 1, you’ll submit your responses directly to canvas. For weeks 2-4, you’ll fill in a R Markdown document and submit it to canvas. You’ll be provided a template to fill in as you complete the progress checks. To turn in the document, you’ll <strong>knit</strong> the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness.</p></li>
 <li><p><strong>Homework</strong>: About once per week, you’ll complete an assignment using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due.</p></li>
 <li><p><strong>Exams</strong>: There will be no exams in this course</p></li>
 <li><p><strong>Quizzes</strong>: Once per week, there will be a 15 minute Canvas quiz. Quizzes must be completed by 11:59pm (Mountain) on the day they are due.</p></li>
@@ -325,7 +325,7 @@ July 13
 Ch1, Ch2
 </td>
 <td style="text-align:left;">
-Progress Checks 1
+Progress Check 1
 </td>
 </tr>
 <tr>
@@ -376,7 +376,7 @@ July 20
 Ch4
 </td>
 <td style="text-align:left;">
-Progress Checks 2
+Progress Check 2
 </td>
 </tr>
 <tr>
@@ -427,7 +427,7 @@ July 27
 Ch5
 </td>
 <td style="text-align:left;">
-Progress Checks 3
+Progress Check 3
 </td>
 </tr>
 <tr>
@@ -478,7 +478,7 @@ August 03
 Ch6
 </td>
 <td style="text-align:left;">
-Progress Checks 4
+Progress Check 4
 </td>
 </tr>
 <tr>
@@ -521,11 +521,11 @@ Assignment 4
 <div id="course-policies" class="section level3">
 <h3><span class="header-section-number">2.1.3</span> Course Policies</h3>
 <ul>
-<li>Late Work: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50% credit.</li>
-<li>Group Work: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You <em>are</em> welcome to seek help</li>
-<li>Students with Disabilities: The university is committed to providing support for students with disabilities. If you have an accomodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.</li>
-<li>Growth Mindset: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: “The view you adopt for yourself profoundly affects the way you lead your life… Believing that your qualities are carved in stone - <em>the fixed mindset</em> - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character — well, then you’d better prove that you have a healthy dose of them. It simply wouldn’t do to look or feel deficient in these most basic characteristics… There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you’re secretly worried it’s a pair of tens. In this mindset, the hand you’re dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience.” Programming may be a very new, intimidating thing for you. That’s okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!</li>
-<li>Learn by doing: <a href="https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA&amp;sq=t">A wise statistics instructor</a> once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won’t get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good <em>start</em>, but you’ll have to actually <em>program</em> in order to get any better! This textbook was designed to be <em>interactive</em>, and I encourage you to “code along with the book” as you read.</li>
+<li><strong>Late Work</strong>: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50% credit.</li>
+<li><strong>Group Work</strong>: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You may not work with other students on quizzes. You <em>are</em> welcome to seek help on Canvas discussion boards and during office hours.</li>
+<li><strong>Students with Disabilities</strong>: The university is committed to providing support for students with disabilities. If you have an accommodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.</li>
+<li><strong>Growth Mindset</strong>: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: “The view you adopt for yourself profoundly affects the way you lead your life… Believing that your qualities are carved in stone - <em>the fixed mindset</em> - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character — well, then you’d better prove that you have a healthy dose of them. It simply wouldn’t do to look or feel deficient in these most basic characteristics… There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you’re secretly worried it’s a pair of tens. In this mindset, the hand you’re dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience.” Programming may be a very new, intimidating thing for you. That’s okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!</li>
+<li><strong>Learn by doing</strong>: <a href="https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA&amp;sq=t">A wise statistics instructor</a> once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won’t get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good <em>start</em>, but you’ll have to actually <em>program</em> in order to get any better! This textbook was designed to be <em>interactive</em>, and I encourage you to “code along with the book” as you read.</li>
 </ul>
 </div>
 <div id="grading-scale" class="section level3">
