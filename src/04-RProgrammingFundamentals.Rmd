@@ -245,9 +245,6 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
 
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming%20Preliminaries)
@@ -583,9 +580,6 @@ Now that we've discussed different types of data, we'll now see how they can be 
 
 ```{block, type="caution"}
 What about dates? R actually has three built-in [date classes](https://www.r-bloggers.com/using-dates-and-times-in-r/). This can be confusing at first, but libraries like [lubridate](https://lubridate.tidyverse.org/) make it easy to work with dates in R. 
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
 ```{block, type='feedback'}
@@ -1344,10 +1338,6 @@ So far we've seen vectors, lists, matrices, and arrays.
 How are they different and how are they similar?
 ```
 
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
 
 List components can also have _names_.
 Here we add an component with a name:
@@ -1707,9 +1697,6 @@ a
 
 Or if a function is supposed to return but doesn't have an object to return (more on this later when we discuss functions).
 
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects)
