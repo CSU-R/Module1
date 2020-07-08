@@ -96,7 +96,7 @@ First, some important details:
 
 - __Quizzes__: Once per week, there will be a 15 minute Canvas quiz. Quizzes must be completed by 11:59pm (Mountain) on the day they are due.
 
-- __Lectures__: Since we aren't having in-person lectures, we will hold short "Virtual Meetings" through MS Teams instead. These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics.
+- __Lectures__: Since we aren't having in-person lectures, we will hold short _mini-lectures_ instead (more details on Canvas). These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics and address any challenges that students are having.
 
 - __Grading__: The grading for the course is apportioned like so:
 
