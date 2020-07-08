@@ -1,6 +1,14 @@
 # Working with Data
 
+```{block, type="caution"}
+This section is still under construction
+```
+
 ## Loading / Saving Data
+
+```{block, type="caution"}
+This section is still under construction
+```
 
 ### "Taster"(?) list of file forms and sources
 
@@ -26,6 +34,10 @@ Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content i
 ```
 
 ## Working With Data
+
+```{block, type="caution"}
+This section is still under construction
+```
 
 ### Basic indexing
 
@@ -62,6 +74,10 @@ Adding structure to make your code more readable is like doing your future self 
 ```
 
 ## Practice
+
+```{block, type="caution"}
+This section is still under construction
+```
 
 ```{block, type="progress"}
 asdf
