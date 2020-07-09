@@ -21,4 +21,52 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Assignment
 
-1. Create a new code chunk...
+In this assignment, we'll focus on familiarity with RMarkdown documents and writing R commands.
+
+## 1. 
+
+Here is a code chunk with no code in it.
+
+```{r}
+
+```
+
+Type `1+1` into the above code chunk (don't include the backticks) and press the green play button to the right to run the code.
+
+## 2. 
+
+Here's another code chunk:
+
+```{r}
+
+```
+## 3. 
+
+Enter code in the code chunk to find the result of 22 divided by 7
+
+```{r}
+
+```
+
+## 4.
+
+Create a new code chunk below and compute the result of 12 squared.
+Make sure that code chunk works by running the code chunk.
+
+
+
+## 5.
+
+Create another code chunk below and write code to print out the message: Hello from the other side!
+
+
+
+## 6.
+
+Here is an example of a hyperlink in RMarkdown:
+
+[The R Graph Gallery](https://www.r-graph-gallery.com/)
+
+VIsit the R Graph Gallery by following the link above, and 
+
+
