@@ -84,7 +84,7 @@ First, some important details:
 
 - __Course Credits__: 1. Because this week lasts four weeks, this course should "feel" like a 3 credit course for four weeks. Normally this means ~3 hours of lecture and 12 hours of work outside of lecture per week. Because this course is online, there will be 1 hour or less of "lecture" (see below), and about 14 hours of outside work per week.
 
-- __Textbook__: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way.
+- __Textbook__: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way. On days when a quiz is due, you should complete the reading _before_ you take the quiz.
 
 - __Prerequisites__: None
 
@@ -153,7 +153,7 @@ In a browser, navigate to [rdrr.io/snippets](https://rdrr.io/snippets/){target="
 knitr::include_graphics("src/images/rdrr.png")
 ```
 
-The box comes with some code entered already, but we want to use our own code instead, so delete all the text, starting with `library(ggplot2)` and ending with `factor(cyl))`.
+The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from `library(ggplot2)` to `factor(cyl))`.
 In its place, type `1+1`, then click the big green "Run" button.
 You should see the `[1] 2` displayed below.
 So if you give R a math expression, it will evaluate it and give the result.
@@ -348,6 +348,7 @@ If you find yourself stuck, there are many options available to you, here are a 
 
 1. [Stack Overflow](https://stackoverflow.com) is a message board where users can post questions about issues they're having. If you search for your error, there's likely already an answered question about it. If not, you can submit one with a [reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) that the active community can help you with.
 1. [R Manuals](https://cran.r-project.org/manuals.html): With so many R resources available on the internet, sometimes information get's "boiled down" or simplified for ease of communication. If you need the "official answer" to a question, these manuals are the place to go. Check out "An Introduction to R" for a good reference.
+
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=The%20R%20Community)
