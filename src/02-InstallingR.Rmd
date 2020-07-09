@@ -3,28 +3,61 @@
 In the previous chapter, you ran R code on a website.
 The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Installing%20R)
+``` 
+
 ## Computer Basics
 
 If you're new to computers, this section will be important for you to get set up.
-If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can safely skip to the next section.
+We'll briefly introduce some computer concepts and discuss how they're relevant to R.
+If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can probably skim this section, but be sure to pay attention to the R-specific information.
 
-```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer%20Basics)
-``` 
 
 ### Operating Systems
 
+An operating system is a set of programs that allow you to interact with the computer, and the most popular operating systems are Windows, Mac OS X, and Linux. 
 R works on Windows, Mac OS X, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R. 
-At least, this is mostly true. 
+At least, this is mostly true:
 ```{block, type="caution"}
-Some versions of Windows that run on ARM processors cannot install R, and installing R on a Chromebook will likely be more complicated (see [here](https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/){target="_blank"}).
+Some versions of Windows that run on ARM processors cannot install R, and installing R on a Chromebook will likely be more complicated (see [here](https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/){target="_blank"}). If you're in this situation, contact the instructor immediately.
 ```
+
+R isn't designed to work on tablets or phones which run mobile/tablet operating systems (like iOS, iPadOS, Android, ChromeOS), so these are not an option for R.
+
+
+### Files \& Directory Structures
+
+A file is a collection of data stored on your computer's hard drive.
+Examples of files include:
+
+- A music file
+- A video
+- A slide presentation
+- A text document
+
+Different types of files are often treated differently by your computer.
+For example, a music file is played with a music player program, a video can be viewed with a video player, and a slide presentation might be viewed with Powerpoint.
+Most operating systems know the type of a file by looking at the _extension_, which is at the very end of the file's name. 
+Examples include ".mp3", ".doc", ".txt", and ".ppt".
+When using R, we can write scripts which contain R code, and _RMarkdown_ documents, which include human readable text and code.
+R scripts usually have either a ".R" or ".r" extension, and we'll also be using _RMarkdown_, which use either a ".Rmd" or ".rmd" extension.
+
+
+A _directory_, or _folder_, is a collection of files, and computers use directories to logically organize sets of files.
+When working with R, you may have to organize several different types of files, including R code, data files, and images.
+It will be important to stay organized when using R, and we will address this more later in the chapter.
+
+
+With the increasing prevalence of the internet in everyday life, it's becoming less common for files to exist on your computer.
+When writing R code, you'll be working with files on your computer, not accessing them over the internet.
+
 
 ### Downloads and Installations
 
 To install R, you'll have to download a file from the internet which performs the installation.
 After you install R, you shouldn't have to download anything to run R.
-
+The specific steps to install R will be different depending on your operating system, and this will be addressed in the next section.
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer%20Basics)
@@ -33,15 +66,9 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Install R \& R Studio
 
-You'll actually be installing _two_ separate programs, both of which are free to use.
+Here's where you install R on your personal computer, but you'll actually be installing _two_ separate programs.
 The _first_ is the R programming language.
-The _second_ is a separate program called R Studio.
-R Studio will be the primary way in which you interact with R in this class, we will say more about this later.
-
-```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20&%20RStudio)
-``` 
-
+The _second_ is a separate program called R Studio, which will be the primary way in which you interact with R in this class, we will say more about this later.
 
 ### Installing R
 
@@ -56,12 +83,14 @@ From this point, this will change depending on your operating system.
 
 - Click "Download R for Windows", then click "base". 
 - Finally, Click "Download R X.Y.Z for Windows", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
-- any other settings. Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your Downloads folder or the Desktop) and select "save".
+- Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your `Downloads` folder or the `Desktop`) and select "save".
 - When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.
-- Follow the on screen prompts. For the most part you can click "continue", "agree", "install" as appropriate, and you don't have to worry about changing any installation settings.
+- Follow the on screen prompts. For the most part you can click "next" and "install" as appropriate, and you don't have to worry about changing any installation settings.
+- Click "Finish" to complete the installation!
 
 ```{block, type="video"}
-Create windows R install Video
+TODO: fill link
+[This video](https://youtu.be/7ZYn6q_pboE) shows the installation process for Windows 
 ```
 
 #### Mac OS X
@@ -70,88 +99,263 @@ Create windows R install Video
 - Click "R-X.Y.Z.pkg", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
 - Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select "save".
 - When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process. 
-- Follow the on screen prompts. For the most part you can click "continue", "agree", "install" as appropriate, and you don't have to worry about changing any installation settings.
+- Follow the on screen prompts. For the most part you can click "continue", "agree", "install", as appropriate, and you don't have to worry about changing any installation settings.
+- Click "Close" to complete the installation!
+
+#### Linux
+
+We will not provide details on installing R for Linux, because the process varies depending on your distribution, and because if you're using Linux, chances are you're more computer proficient than the average user.
+Suffice it to say, The first step is:
+
+- Click "Download R for Linux"
+
+And you can probably figure things out from there.
+
+#### Conclusion
+
+You should now have R installed!
+Technically speaking, nothing further is required to work with R.
+You can open the RGui, and start coding immediately. 
+However, for this course we will be using RStudio, which is a very popular program with an incredibly rich set of features, which will enhance your R programming experience.
+
+
+### Installing RStudio
+
+- Navigate to the [RStudio Download Page](https://rstudio.com/products/rstudio/download/#download), and find the download file that matches your operating system.
+- Click the link to download the installer, which starts with "RStudio-" or "rstudio-".
+- Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your `Downloads` folder or the `Desktop`) and select "save".
+- When the download completes, find the downloaded file and double click to run it. This will start the installation process.
+
+From this point, this will change depending on your operating system.
+
+#### Windows
+
+- Follow the on screen prompts. For the most part you can click "next" and "install" as appropriate, and you don't have to worry about changing any installation settings.
+- You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio
 
 ```{block, type="video"}
-?Ben? install from Mac OS X?
+TODO: fill link
+[This video](https://youtu.be/XnqENdiEb3I) shows the installation process for Windows 
 ```
+
+
+#### Mac OS X
+
+- In the window which opens, drag the RStudio icon into the "Applications" folder. You may need to enter your password (click the "Authenticate" button) in order to do so.
+- You should now be able to navigate to the Applications folder in Finder, and click on the RStudio icon to open RStudio.
+
+#### Conclusion
+
 ```{block, type="bonus"}
 Rstudio also offers a [cloud service](https://rstudio.cloud/) that allows you to work with R in your browser. We'll use the desktop version but you can check out the [interactive primers](https://rstudio.cloud/learn/primers) on the cloud site.
 ```
 
 
-
-### Installing R Studio
-
-
 ```{block, type='feedback'}
-`r print("test")`
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20%26%20R%20Studio)
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20%26%20RStudio)
 ```
+
+
 
 ## Successfull Installation
 
-TODO: add some basic tasks here to make sure R and RStudio work. (screenshots?)
+When you successfully install R and RStudio, you should now be able to program in R!
+Before moving further, you should become acquainted with the different parts of RStudio.
+To do so, watch the video below:
 
 ```{block, type="video"}
-todo: video orienting to R Studio (Matt video?)
+todo: fill in link 
+[This video](https://youtu.be/w_3xp_3Sz6s) gives an introduction to some of the main pieces of RStudio
 ```
-
-
-```{block, type="assessment"}
-todo: create assessment
-```
-
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Successfull%20Installation)
 ``` 
 
-## Running Code in RStudio Console
+## Running Code in RStudio
 
-TODO: repeat online examples + Pull from here: https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html
+Now that you're somewhat familiar with RStudio, let's run the same code as we ran on the website, but this time let's run it in R. 
 
-```{block, type="progress"}
-R comes pre-loaded with several datasets that are used in many examples. One is a set of 150 measurements of irises from 3 species. 
+### The R Console:
 
-Use `mean(iris$Petal.Length)` to find out what the mean petal length is. 
+In the _R console_, type `1+1` and press enter.
+The output in the console should look like the following:
+
+```{r, fig.cap="code in the console", echo=F}
+knitr::include_graphics("src/images/1_plus_1_console.png")
+```
+
+Notice that the output `2` is displayed, and the cursor is on a blank line, waiting for more input. This is how coding in the console works.
+
+### R scripts
+
+Now let's run the same code, but in an R script.
+If you haven't already, create a new R script by clicking on the `New File` icon, then selecting `R Script` like so:
+
+```{r, fig.cap="code in the console", echo=F}
+knitr::include_graphics("src/images/rstudio_newfile.png")
+```
+
+In the script window which opens, type `1+1` and press enter.
+Notice how now, the code did _not_ run?
+In a script, you are free to write R code on several lines before you run it. 
+You can even save the script  and load it later in order to run the code it contains.
+There are multiple ways to run R code in a script.
+To run a single line of code, do one of the following:
+
+- Place the cursor on the desired line, hold the <control> key, and press enter. On Mac OS X, hold <command> key and press enter instead
+- Place the curse on the desired line and click the `Run` button that looks like this:
+
+```{r, fig.cap="code in the console", echo=F}
+knitr::include_graphics("src/images/rstudio_run.png")
+```
+
+To run multiple lines of code, do one of the following:
+- Highlight all the code you'd like to run, hold the <control> key, and press enter. On Mac OS X, hold the <command> key and press enter instead.
+- Highlight all the code you'd like to run, and click the `Run` button.
+
+Run the `1+1` code using one of the methods above, and observe the output. 
+Notice how the output is _still_ in the console window, even you ran the code in a script!
+
+```{block, type="caution"}
+Even though running R code from the console and an R script are done differently, they should produce the same results. Both are running R!
+```
+
+Now that you've run some code in the console and from an R script, let's try some of the other code we wrote previously. 
+
+### Same Examples, On Your Computer!
+
+In the _console_, type the command `factorial(10)`.
+Did you get the same result as you got on the website?
+Now type the following two lines in an R script and run them:
+
+```{r, eval=F}
+x <- -10:10
+plot(x, x^2)
+```
+
+This code produces a plot, which should show up in the lower right corner in the "Plots" window.
+Finally, _copy_ the following code, paste it into your script, and run it:
+
+```{r, eval=F}
+library(ggplot2)
+theme_set(theme_bw())
+ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) + 
+  geom_boxplot() + 
+  labs(title="Engine Fuel Efficiency vs. Number of Cylinders", y="MPG", fill="Cylinders") + 
+  theme(legend.position="bottom", 
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+```
+
+You're now running R code on your computer!
+
+```{block, type="reflect"}
+Imagine you are practicing programming in R and your classmate tells you they heard about an interesting new R command which they'd like you to try out.
+Would you run the command in an R script, or the R console? How might your answer change if you wanted to keep a record of all the interesting R command you found?
+```
+
+### R Markdown
+
+You've seen how to run R code in the R console, and from an R script, but there's one more way to run R that we need to talk about: R Markdown
+
+R scripts are convenient because they can store multiple R commands in one file. 
+R Markdown takes this idea further and stores code alongside human readable text.
+There is much that could be said about R Markdown, but for now, we'll just stick with the basics.
+
+To start, watch this video:
+
+```{block, type="video"}
+TODO: fill in link
+[This Video](https://youtu.be/MhvipLohEfU) gives a basic introduction to RMarkdown.
+```
+
+As the video stated, there are three types of sections to an RMarkdown document: 
+- Header
+- Human readable text
+- Code Chunks
+
+There's only one header, but there can be many blocks of human readable text and many code chunks.
+
+```{block, type="bonus"}
+See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more things you can do with RMarkdown.
+```
+
+```{block, type="caution"}
+As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
+On Canvas, download the `progress_check_2.rmd` file and follow the instructions. 
+Here is the first code chunk you will include in the document!
+```
+
+```{block, type="video"}
+TODO: add link
+[This video]() should help get you started with the Progress Check Assignments!
 ```
 
 ```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio%20Console)
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio)
 ``` 
 
 ## Workspace setup
+
+Whenever you are programming in R, and especially for this class, it's important to stay organized.
+This section will give you some instructions and tips for how to organize material for this R course
+
+### Recommended Settings
+
+First of all, let's set some settings in RStudio.
+At the top of the R window, click `Tools`, then `Global Options`, and do the following:
+
+1. On the left side of the window that pops up, and make sure it's on the "General" tab
+1. Find the "Workspace" section on the right, make the following changes:
+-- _uncheck_ "Restore .RData into workspace on startup"
+-- Change the "Save workspace to .RData on exit" option to _never_
+1. On the left side, select the "Appearance" tab.
+1. (Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.
+1. (Optional) Change the "Editor theme:" setting to find a color scheme that looks good to you.
+1. Click "Apply", then "OK" at the bottom of the window.
+
+Step 2 ensures that each time you open RStudio, there's no "memory" of anything you may have been doing in R previously.
+This is a good option for R beginners to avoid confusion and mistakes.
+Step 4 can also be done using the shortcuts `<control> <shift> +` (to increase size) and `<control> -` (to decrease size). 
+On Mac OS X, the commands are `<command> <shift> +` and `<command> -`.
+
+
+### Setting working directory
+
+Every time R runs, it has a _working directory_, which is the folder where R "looks" when loading and saving files.
+In RStudio, the `Files` window contains the "More" menu, which has options to _set as working directory_ or _go to working directory_.
+This will become more relevant when you start loading data and saving results later in the course.
+For this course, you'll be using an RStudio project, which automatically sets the working directory.
+
+```{block, type="bonus"}
+See [here](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces) for more information about working directories.
+```
+
+### Create RStudio Project and directories for class
+
+RStudio also has a feature called _projects_, which 
+
+Note: This will automatically set your working directory
+
+Folder structure:`
+
+- raw_data
+- assignments
+- 
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
 ``` 
 
-### Recommended Settings
+### Best Practices
 
-- don't save/load workspace
-- how to adjust font size (in options and with ctrl +/-)
-- dark mode!
+When you're finished coding in R, 
 
-### Setting working directory
+How to clear environment
+How to clear console
 
-- 
 
-### Create R Studio Project and directories for class
-
-TODO: pull from: https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html#r-scripts
-
-Note: This will automatically set your working directory
-
-Folder structure:
-
-- Raw Data
-- Assignments
-- 
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
 
 ## Reflection
 
