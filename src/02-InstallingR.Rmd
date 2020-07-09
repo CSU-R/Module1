@@ -1,4 +1,4 @@
-# Installing R {#installingr}
+# Installing R 
 
 In the previous chapter, you ran R code on a website.
 The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
@@ -89,7 +89,6 @@ From this point, this will change depending on your operating system.
 - Click "Finish" to complete the installation!
 
 ```{block, type="video"}
-TODO: fill link
 [This video](https://youtu.be/7ZYn6q_pboE) shows the installation process for Windows 
 ```
 
@@ -134,7 +133,6 @@ From this point, this will change depending on your operating system.
 - You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio
 
 ```{block, type="video"}
-TODO: fill link
 [This video](https://youtu.be/XnqENdiEb3I) shows the installation process for Windows 
 ```
 
@@ -164,7 +162,6 @@ Before moving further, you should become acquainted with the different parts of 
 To do so, watch the video below:
 
 ```{block, type="video"}
-todo: fill in link 
 [This video](https://youtu.be/w_3xp_3Sz6s) gives an introduction to some of the main pieces of RStudio
 ```
 
@@ -266,7 +263,6 @@ There is much that could be said about R Markdown, but for now, we'll just stick
 To start, watch this video:
 
 ```{block, type="video"}
-TODO: fill in link
 [This Video](https://youtu.be/MhvipLohEfU) gives a basic introduction to RMarkdown.
 ```
 
@@ -288,7 +284,7 @@ Here is the first code chunk you will include in the document!
 ```
 
 ```{block, type="video"}
-TODO: add link
+TODO: Add video link.
 [This video]() should help get you started with the Progress Check Assignments!
 ```
 
@@ -367,5 +363,6 @@ Before moving on to the next section, take a note of all you've done so far.
 2. Does using R remind you of other programs you have experience with? 
 
 3. What could be some reasons that using R code written by someone else might not work on your computer?
+
 ```
 
