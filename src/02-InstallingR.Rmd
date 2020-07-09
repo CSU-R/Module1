@@ -267,6 +267,7 @@ To start, watch this video:
 ```
 
 As the video stated, there are three types of sections to an RMarkdown document: 
+
 - Header
 - Human readable text
 - Code Chunks
@@ -280,12 +281,16 @@ See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.p
 ```{block, type="caution"}
 As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
 On Canvas, download the `progress_check_2.rmd` file and follow the instructions. 
-Here is the first code chunk you will include in the document!
+The next box should be the first code chunk you will include in the document!
 ```
 
+```{block, type="progress"}
+Run the command `8 / (2*(2+2)) ` and observe the output!
+```
+
+
 ```{block, type="video"}
-TODO: Add video link.
-[This video]() should help get you started with the Progress Check Assignments!
+[This video](https://youtu.be/QLXB4kPngqM) should help get you started with the Progress Check Assignments!
 ```
 
 ```{block, type='feedback'}
@@ -370,8 +375,7 @@ You can create these either using your operating system, or the "New Folder" com
 #### Video
 
 ```{block, type="video"}
-TODO: Add link
-Check out [this video]() to watch me set up a project and the new directories.
+Check out [this video](https://youtu.be/0saBBd6lQDI) to watch me set up a project and the new directories.
 ```
 
 
@@ -385,7 +389,7 @@ rm(list=ls())  # Clear everything in your workspace
 gc()           # perform garbage collection
 ```
 
-You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l`.
+You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l` (or `<command> l` for Mac).
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
