@@ -235,6 +235,7 @@ This code produces a plot, which should show up in the lower right corner in the
 Finally, _copy_ the following code, paste it into your script, and run it:
 
 ```{r, eval=F}
+install.packages("ggplot2")
 library(ggplot2)
 theme_set(theme_bw())
 ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) + 
@@ -246,6 +247,11 @@ ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) +
 ```
 
 You're now running R code on your computer!
+
+```{block, type="bonus"}
+The above code block includes a command to install an R package!
+[ggplot2](https://ggplot2.tidyverse.org/) is a very popular plotting package that can create sophisticated and (arguably) aesthetically pleasing graphs.
+```
 
 ```{block, type="reflect"}
 Imagine you are practicing programming in R and your classmate tells you they heard about an interesting new R command which they'd like you to try out.
