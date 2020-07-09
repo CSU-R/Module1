@@ -73,7 +73,6 @@ Including multiple semicolons (e.g. `print("hello");;`) does not work!
 You've just seen your first example of _assignment_.
 That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
 Formally `x` is called an object, but we'll talk about that more objects and assignments later.
-
 ```
 
 
@@ -1697,7 +1696,31 @@ a
 
 Or if a function is supposed to return but doesn't have an object to return (more on this later when we discuss functions).
 
+### Removing Objects
+
+Sometimes you want to _get rid_ of an object!
+In R, you can use the `rm` function like so:
+
+```{r, error=T}
+a <- "an object"
+rm(a)
+a
+```
+As you can see, the error message indicates that `a` has been removed.
+Sometimes, you'd like to remove all the objects in your environment.
+To do this, you can use the command:
+
+```{r, eval=F}
+rm(list=ls())
+```
+
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects)
 ``` 
+
+
+## Wrap Up
+
+This concludes the chapter. Next we'll use the R skills you've developed in this chapter to do interesting things with Data!
+
