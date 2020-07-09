@@ -47,6 +47,6 @@ print("here's some code for the second progress check box in 3.1")
 Here's where section 3.2 progress checks will go, etc.
 
 
-## Progress Checks:
+# Progress Checks:
 
 You fill in this part!
