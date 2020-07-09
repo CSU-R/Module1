@@ -336,7 +336,7 @@ round(a, 3)
 ```
 It also turns out that R stores _more_ digits than what it shows when it prints, though we won't go into detail on that now.
 
-TODO: talk about Inf, -Inf, and NaN?
+
 
 ### Integer
 
@@ -728,7 +728,7 @@ Once you make a guess, try it in R and see if you were correct.
 ```
 
 #### Working with vectors
-TODO: add sort/order?
+
 
 You can do many things with vectors that you can with single instances of each data type. 
 Recall, you can add a number to a numeric object:
