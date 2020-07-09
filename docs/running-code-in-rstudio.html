@@ -327,15 +327,21 @@ Now type the following two lines in an R script and run them:</p>
 <span id="cb6-2"><a href="running-code-in-rstudio.html#cb6-2"></a><span class="kw">plot</span>(x, x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>This code produces a plot, which should show up in the lower right corner in the “Plots” window.
 Finally, <em>copy</em> the following code, paste it into your script, and run it:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb7-1"><a href="running-code-in-rstudio.html#cb7-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb7-2"><a href="running-code-in-rstudio.html#cb7-2"></a><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</span>
-<span id="cb7-3"><a href="running-code-in-rstudio.html#cb7-3"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">y=</span>mpg, <span class="dt">fill=</span><span class="kw">as.factor</span>(cyl))) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-4"><a href="running-code-in-rstudio.html#cb7-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-5"><a href="running-code-in-rstudio.html#cb7-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>, <span class="dt">y=</span><span class="st">&quot;MPG&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;Cylinders&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-6"><a href="running-code-in-rstudio.html#cb7-6"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>, </span>
-<span id="cb7-7"><a href="running-code-in-rstudio.html#cb7-7"></a>        <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>(),</span>
-<span id="cb7-8"><a href="running-code-in-rstudio.html#cb7-8"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb7-1"><a href="running-code-in-rstudio.html#cb7-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb7-2"><a href="running-code-in-rstudio.html#cb7-2"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb7-3"><a href="running-code-in-rstudio.html#cb7-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>())</span>
+<span id="cb7-4"><a href="running-code-in-rstudio.html#cb7-4"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">y=</span>mpg, <span class="dt">fill=</span><span class="kw">as.factor</span>(cyl))) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-5"><a href="running-code-in-rstudio.html#cb7-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-6"><a href="running-code-in-rstudio.html#cb7-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>, <span class="dt">y=</span><span class="st">&quot;MPG&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;Cylinders&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb7-7"><a href="running-code-in-rstudio.html#cb7-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb7-8"><a href="running-code-in-rstudio.html#cb7-8"></a>        <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb7-9"><a href="running-code-in-rstudio.html#cb7-9"></a>        <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>())</span></code></pre></div>
 <p>You’re now running R code on your computer!</p>
+<div class="bonus">
+<p>
+The above code block includes a command to install an R package! <a href="https://ggplot2.tidyverse.org/">ggplot2</a> is a very popular plotting package that can create sophisticated and (arguably) aesthetically pleasing graphs.
+</p>
+</div>
 <div class="reflect">
 <p>
 Imagine you are practicing programming in R and your classmate tells you they heard about an interesting new R command which they’d like you to try out. Would you run the command in an R script, or the R console? How might your answer change if you wanted to keep a record of all the interesting R command you found?
