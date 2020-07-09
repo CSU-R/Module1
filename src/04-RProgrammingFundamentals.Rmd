@@ -76,21 +76,9 @@ Formally `x` is called an object, but we'll talk about that more objects and ass
 ```
 
 
-TODO: make these code blocks display on multiple lines:
-
-```{block, type="bonus"}
+```{block2, type="bonus"}
 So far, we've seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
-The answer is _sometimes_, depending on the command.
-Generally, if R is expecting the end of a command but doesn't see one by the time it gets to the end of a line, it will continue looking on the next line. 
-Here are some examples:
-`1 + \
-1`
-
-`
-print("This string is on 
-multiple lines")
-`
-
+The answer is _sometimes_, depending on the command, but we will not discuss this now.
 ```
 
 ```{block, type="caution"}
@@ -123,13 +111,12 @@ print(w)
 ```{block, type="bonus"}
 Indenting is an example of coding _style_, which are formatting decisions which don't affect the results of the code, but are meant to enhance readability.
 We'll talk more about coding style later.
-TODO: talk about style later.
 In some programming languages, Python for example, white space matters. That is, code indents and other spaces change the way the code runs. In R, white space _does not_ matter, so things like indents are used purely for readability.
 ```
 
 What does it mean to "group" code?
 At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
-However, code grouping will become very important later on, when we discuss _control flow_ in section (TODO: add ref).
+However, code grouping will become very important later on, when we discuss _control flow_ later.
 
 ```{block, type="bonus"}
 There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
@@ -227,11 +214,10 @@ However, the following should still work:
 Programmers have a sense of humor, too! Try running `????print` to see a small joke. Remember, comedic taste varies!
 ```
 
-
-TODO: put these bonus blocks in more appropriate places:
 ```{block, type="bonus"}
 This is a lot to remember, but luckily you can use a [cheat sheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) while you're learning. As you get more familiar with R, you'll begin to memorize basic funtions - and google is always there for the rest. 
 ```
+
 ```{block, type="bonus"}
 Want to know more about R syntax? Try typing `?Syntax` in the R console (then press `Enter`).
 ```
@@ -251,8 +237,10 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Data Types
 
-```{block, type="reflection"}
-TODO: what should this be?
+```{block, type="reflect"}
+Think of all the things you might be expected to remember.
+These different items can probably be categorized into different types of information, like phone numbers, passwords, birthdays, historical events, and math theorems for example.
+R was designed to handle different types of data as well, though the types are different from the examples just given.
 ```
 
 
@@ -587,7 +575,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Data Structures
 
-```{block, type="reflection"}
+```{block, type="reflect"}
 Imagine a grocery list, shopping list, or to-do list. That list consists of a set of items in a specified order, and the list also has a length. Why do you think it's useful to organize these items into a list, rather than in some other fashion? Can you think of why it might be useful to store data in a list?
 ```
 
@@ -1331,7 +1319,7 @@ If you try to assign a list to be one of its own components (e.g. `A[[5]] <- A`)
 Thus there is no "self reference", and no issue with [Russel's Paradox](https://en.wikipedia.org/wiki/Russell%27s_paradox).
 ```
 
-```{block, type="reflection"}
+```{block, type="reflect"}
 So far we've seen vectors, lists, matrices, and arrays. 
 
 How are they different and how are they similar?
@@ -1723,4 +1711,3 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 ## Wrap Up
 
 This concludes the chapter. Next we'll use the R skills you've developed in this chapter to do interesting things with Data!
-
