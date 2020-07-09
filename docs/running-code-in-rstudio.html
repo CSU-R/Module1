@@ -24,7 +24,6 @@
 <meta name="author" content="Alex Fout" />
 
 
-<meta name="date" content="2020-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
 <li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
-<li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#best-practices"><i class="fa fa-check"></i><b>3.5.4</b> Best Practices</a></li>
+<li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
@@ -226,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html"><i class="fa fa-check"></i><b>5.1</b> Loading / Saving Data</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html#taster-list-of-file-forms-and-sources"><i class="fa fa-check"></i><b>5.1.1</b> “Taster”(?) list of file forms and sources</a></li>
 <li class="chapter" data-level="5.1.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html#readingwriting-csv"><i class="fa fa-check"></i><b>5.1.2</b> reading/writing csv</a></li>
-<li class="chapter" data-level="5.1.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices-1"><i class="fa fa-check"></i><b>5.1.3</b> Best practices</a></li>
+<li class="chapter" data-level="5.1.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices"><i class="fa fa-check"></i><b>5.1.3</b> Best practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="downloading-and-saving.html"><a href="downloading-and-saving.html"><i class="fa fa-check"></i><b>5.2</b> Downloading and Saving</a></li>
 <li class="chapter" data-level="5.3" data-path="working-with-data-1.html"><a href="working-with-data-1.html"><i class="fa fa-check"></i><b>5.3</b> Working With Data</a><ul>
@@ -286,9 +285,9 @@ Figure 3.1: code in the console
 <p>Now let’s run the same code, but in an R script.
 If you haven’t already, create a new R script by clicking on the <code>New File</code> icon, then selecting <code>R Script</code> like so:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
-<img src="src/images/rstudio_newfile.png" alt="code in the console"  />
+<img src="src/images/rstudio_newfile.png" alt="Click this button to create a new file"  />
 <p class="caption">
-Figure 3.2: code in the console
+Figure 3.2: Click this button to create a new file
 </p>
 </div>
 <p>In the script window which opens, type <code>1+1</code> and press enter.
@@ -308,7 +307,7 @@ Figure 3.3: code in the console
 </p>
 </div>
 <p>To run multiple lines of code, do one of the following:
-- Highlight all the code you’d like to run, hold the <control> key, and press enter. On Mac OS X, hold the <command> key and press enter instead.
+- Highlight all the code you’d like to run, hold the <code>&lt;control&gt;</code> key, and press enter. On Mac OS X, hold the <code>&lt;command&gt;</code> key and press enter instead.
 - Highlight all the code you’d like to run, and click the <code>Run</code> button.</p>
 <p>Run the <code>1+1</code> code using one of the methods above, and observe the output.
 Notice how the output is <em>still</em> in the console window, even you ran the code in a script!</p>
@@ -355,10 +354,12 @@ There is much that could be said about R Markdown, but for now, we’ll just sti
 <a href="https://youtu.be/MhvipLohEfU">This Video</a> gives a basic introduction to RMarkdown.
 </p>
 </div>
-<p>As the video stated, there are three types of sections to an RMarkdown document:
-- Header
-- Human readable text
-- Code Chunks</p>
+<p>As the video stated, there are three types of sections to an RMarkdown document:</p>
+<ul>
+<li>Header</li>
+<li>Human readable text</li>
+<li>Code Chunks</li>
+</ul>
 <p>There’s only one header, but there can be many blocks of human readable text and many code chunks.</p>
 <div class="bonus">
 <p>
@@ -367,12 +368,17 @@ See <a href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet
 </div>
 <div class="caution">
 <p>
-As part of this class, you’ll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already) On Canvas, download the <code>progress_check_2.rmd</code> file and follow the instructions. Here is the first code chunk you will include in the document!
+As part of this class, you’ll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already) On Canvas, download the <code>progress_check_2.rmd</code> file and follow the instructions. The next box should be the first code chunk you will include in the document!
+</p>
+</div>
+<div class="progress">
+<p>
+Run the command <code>8 / (2*(2+2))</code> and observe the output!
 </p>
 </div>
 <div class="video">
 <p>
-TODO: Add video link. <a href="">This video</a> should help get you started with the Progress Check Assignments!
+<a href="https://youtu.be/QLXB4kPngqM">This video</a> should help get you started with the Progress Check Assignments!
 </p>
 </div>
 <div class="feedback">
