@@ -23,6 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 In this assignment, we'll focus on familiarity with RMarkdown documents and writing R commands.
 
+
 ## Problem 1. 
 
 Here is a code chunk with no code in it.
@@ -33,13 +34,16 @@ Here is a code chunk with no code in it.
 
 Type `1+1` into the above code chunk (don't include the backticks) and press the green play button to the right to run the code.
 
-## Problem 2. 
 
+## Problem 2. 
+ 
 Here's another code chunk:
 
 ```{r}
 
 ```
+
+
 ## Problem 3. 
 
 Enter code in the code chunk below to find the result of 22 divided by 7.
@@ -49,6 +53,7 @@ Enter code in the code chunk below to find the result of 22 divided by 7.
 ```
 
 Add a comment inside the code chunk _before_ the command you just wrote, and use the comment to explain what your code is doing.
+
 
 ## Problem 4.
 
@@ -104,6 +109,7 @@ If you can't find any _good_ examples, repeat the search with a different exampl
 
 ### Hyperlink
 
+
 ## Problem 8.
 
 Visit [#rstats](https://twitter.com/hashtag/rstats?lang=en) on twitter and peruse the posts for a while.
@@ -119,5 +125,6 @@ You can knit the document and upload it.
 
 
 
+VIsit the R Graph Gallery by following the link above, and 
 
 
