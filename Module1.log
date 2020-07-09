@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7440 64-bit) (preloaded format=xelatex 2020.6.8)  6 JUL 2020 19:20
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7440 64-bit) (preloaded format=xelatex 2020.6.8)  8 JUL 2020 23:55
 entering extended mode
 **./Module1.tex
 (Module1.tex
@@ -660,7 +660,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip67
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count313
-) (Module1.aux)
+)
+No file Module1.aux.
 \openout1 = `Module1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 208.
@@ -982,6 +983,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 208.
 LaTeX Info: Redefining \pageref on input line 208.
 LaTeX Info: Redefining \nameref on input line 208.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
@@ -1062,18 +1066,6 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 5.00046pt on input line 210.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 210.
-(Module1.toc
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 3.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 3.
-)
 \tf@toc=\write4
 \openout4 = `Module1.toc'.
 
@@ -1081,6 +1073,16 @@ File: src/images/left_arrow.png Graphic file (type bmp)
 <src/images/left_arrow.png>
 File: src/images/right_arrow.png Graphic file (type bmp)
 <src/images/right_arrow.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 275.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 275.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 275.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 275.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 275.
 [1
 
 ]
@@ -1103,15 +1105,27 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 338.
 File: src/images/copy_code.png Graphic file (type bmp)
 <src/images/copy_code.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
 [3] [4]
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
 File: src/images/rdrr.png Graphic file (type bmp)
 <src/images/rdrr.png>
 [5]
 File: src/images/sun-fill.png Graphic file (type bmp)
 <src/images/sun-fill.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+[6]
 File: src/images/lightbulb-fill.png Graphic file (type bmp)
 <src/images/lightbulb-fill.png>
-[6]
+File: src/images/pulse-line.png Graphic file (type bmp)
+<src/images/pulse-line.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
 File: src/images/sun-fill.png Graphic file (type bmp)
 <src/images/sun-fill.png>
 [7]
@@ -1120,22 +1134,61 @@ File: src/images/lightbulb-fill.png Graphic file (type bmp)
 File: src/images/sun-fill.png Graphic file (type bmp)
 <src/images/sun-fill.png>
 [8]
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+[9]
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
 File: src/images/alarm-warning-fill.png Graphic file (type bmp)
 <src/images/alarm-warning-fill.png>
-[9]
+[10]
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
 File: src/images/vidicon-fill.png Graphic file (type bmp)
 <src/images/vidicon-fill.png>
+[11]
 File: src/images/vidicon-fill.png Graphic file (type bmp)
 <src/images/vidicon-fill.png>
 File: src/images/sun-fill.png Graphic file (type bmp)
 <src/images/sun-fill.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+[12]
 File: src/images/vidicon-fill.png Graphic file (type bmp)
 <src/images/vidicon-fill.png>
-File: src/images/pencil-fill.png Graphic file (type bmp)
-<src/images/pencil-fill.png>
-[10]
-File: src/images/pulse-line.png Graphic file (type bmp)
-<src/images/pulse-line.png>
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+File: src/images/1_plus_1_console.png Graphic file (type bmp)
+<src/images/1_plus_1_console.png>
+File: src/images/rstudio_newfile.png Graphic file (type bmp)
+<src/images/rstudio_newfile.png>
+File: src/images/rstudio_run.png Graphic file (type bmp)
+<src/images/rstudio_run.png>
+[13]
+File: src/images/alarm-warning-fill.png Graphic file (type bmp)
+<src/images/alarm-warning-fill.png>
+File: src/images/lightbulb-fill.png Graphic file (type bmp)
+<src/images/lightbulb-fill.png>
+File: src/images/vidicon-fill.png Graphic file (type bmp)
+<src/images/vidicon-fill.png>
+File: src/images/sun-fill.png Graphic file (type bmp)
+<src/images/sun-fill.png>
+[14]
+File: src/images/alarm-warning-fill.png Graphic file (type bmp)
+<src/images/alarm-warning-fill.png>
+File: src/images/vidicon-fill.png Graphic file (type bmp)
+<src/images/vidicon-fill.png>
+
+Package hyperref Warning: Suppressing link with empty target on input line 1197
+.
+
+File: src/images/chat-1-fill.png Graphic file (type bmp)
+<src/images/chat-1-fill.png>
+File: src/images/sun-fill.png Graphic file (type bmp)
+<src/images/sun-fill.png>
+[15]
 File: src/images/chat-1-fill.png Graphic file (type bmp)
 <src/images/chat-1-fill.png>
 File: src/images/lightbulb-fill.png Graphic file (type bmp)
@@ -1147,15 +1200,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.943   D
-         id your R installation go smoothly? If not, could you troubleshoot 
+l.1296   D
+          id your R installation go smoothly? If not, could you troubleshoot 
 Here is how much of TeX's memory you used:
- 20829 strings out of 414083
- 356704 string characters out of 2894405
- 819943 words of memory out of 3000000
- 38162 multiletter control sequences out of 15000+200000
+ 20827 strings out of 414083
+ 356957 string characters out of 2894405
+ 819302 words of memory out of 3000000
+ 38161 multiletter control sequences out of 15000+200000
  538887 words of font info for 77 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,12n,118p,1496b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 59i,12n,118p,1505b,518s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Module1.pdf (10 pages).
+Output written on Module1.pdf (15 pages).

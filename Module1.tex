@@ -203,7 +203,7 @@
 
 \title{R Module 1}
 \author{Alex Fout\footnote{Department of Statistics, Colorado State University, \href{mailto:fout@colostate.edu}{\nolinkurl{fout@colostate.edu}}}}
-\date{2020-07-06}
+\date{2020-07-08}
 
 \begin{document}
 \maketitle
@@ -215,7 +215,7 @@
 \hypertarget{welcome}{%
 \section{Welcome!}\label{welcome}}
 
-Hi, and welcome to the R Module 1 course at Colorado State University!
+Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!
 
 This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.
 
@@ -362,6 +362,11 @@ This will be useful when you are asked to run code on your computer.
 
 When you're ready, go to the next section to learn about the course syllabus and grading policies.
 
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course\%20Preliminaries}{here}
+\end{feedback}
+
 \hypertarget{course-topics-syllabus}{%
 \subsection{Course Topics \& Syllabus}\label{course-topics-syllabus}}
 
@@ -385,13 +390,13 @@ First, some important details:
 \item
   \textbf{Webpages}: \href{https://canvas.colostate.edu}{Canvas}, \href{https://csu-r.github.io/Module1/}{this textbook}
 \item
-  \textbf{Course Credits}: 1. Because this is a summer course, you'll be expected to digest the
+  \textbf{Course Credits}: 1. Because this week lasts four weeks, this course should ``feel'' like a 3 credit course for four weeks. Normally this means \textasciitilde3 hours of lecture and 12 hours of work outside of lecture per week. Because this course is online, there will be 1 hour or less of ``lecture'' (see below), and about 14 hours of outside work per week.
 \item
-  \textbf{Textbook}: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way.
+  \textbf{Textbook}: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way. On days when a quiz is due, you should complete the reading \emph{before} you take the quiz.
 \item
   \textbf{Prerequisites}: None
 \item
-  \textbf{Progress Checks}: As you work your way through the textbook, you'll encounter purple ``Progress Check'' boxes. You'll be provided a template RMarkdown Document to fill in as you complete the progress checks. About once per week, you'll compile the document and turn it in for grading via Canvas
+  \textbf{Progress Checks}: As you work your way through the textbook, you'll encounter purple ``Progress Check'' boxes. For Week 1, you'll submit your responses directly to canvas. For weeks 2-4, you'll fill in a R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll \textbf{knit} the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness.
 \item
   \textbf{Homework}: About once per week, you'll complete an assignment using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due.
 \item
@@ -399,7 +404,7 @@ First, some important details:
 \item
   \textbf{Quizzes}: Once per week, there will be a 15 minute Canvas quiz. Quizzes must be completed by 11:59pm (Mountain) on the day they are due.
 \item
-  \textbf{Lectures}: Since we aren't having in-person lectures, we will hold short ``Virtual Meetings'' through MS Teams instead. These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics.
+  \textbf{Lectures}: Since we aren't having in-person lectures, we will hold short \emph{mini-lectures} instead (more details on Canvas). These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics and address any challenges that students are having.
 \item
   \textbf{Grading}: The grading for the course is apportioned like so:
 
@@ -423,25 +428,25 @@ First, some important details:
 \hline
 Week & Weekday & Date & Reading & Due\\
 \hline
-1 & Monday & July 13 & Ch1, Ch2 & Progress Checks 1\\
+1 & Monday & July 13 & Ch1, Ch2 & Progress Check 1\\
 \hline
 1 & Wednesday & July 15 & Ch3 & Quiz 1\\
 \hline
 1 & Friday & July 17 & Ch4 & Assignment 1\\
 \hline
-2 & Monday & July 20 & Ch4 & Progress Checks 2\\
+2 & Monday & July 20 & Ch4 & Progress Check 2\\
 \hline
 2 & Wednesday & July 22 & Ch4 & Quiz 1\\
 \hline
 2 & Friday & July 24 & Ch5 & Assignment 2\\
 \hline
-3 & Monday & July 27 & Ch5 & Progress Checks 3\\
+3 & Monday & July 27 & Ch5 & Progress Check 3\\
 \hline
 3 & Wednesday & July 29 & Ch5 & Quiz 1\\
 \hline
 3 & Friday & July 31 & Ch5 & Assignment 3\\
 \hline
-4 & Monday & August 03 & Ch6 & Progress Checks 4\\
+4 & Monday & August 03 & Ch6 & Progress Check 4\\
 \hline
 4 & Wednesday & August 05 & Ch6 & Quiz 4\\
 \hline
@@ -456,15 +461,15 @@ Week & Weekday & Date & Reading & Due\\
 \begin{itemize}
 \tightlist
 \item
-  Late Work: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50\% credit.
+  \textbf{Late Work}: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50\% credit.
 \item
-  Group Work: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You \emph{are} welcome to seek help
+  \textbf{Group Work}: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You may not work with other students on quizzes. You \emph{are} welcome to seek help on Canvas discussion boards and during office hours.
 \item
-  Students with Disabilities: The university is committed to providing support for students with disabilities. If you have an accomodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.
+  \textbf{Students with Disabilities}: The university is committed to providing support for students with disabilities. If you have an accommodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.
 \item
-  Growth Mindset: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: ``The view you adopt for yourself profoundly affects the way you lead your life\ldots{} Believing that your qualities are carved in stone - \emph{the fixed mindset} - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character --- well, then you'd better prove that you have a healthy dose of them. It simply wouldn't do to look or feel deficient in these most basic characteristics\ldots{} There's another mindset in which these traits are not simply a hand you're dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you're secretly worried it's a pair of tens. In this mindset, the hand you're dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way --- in their initial talents and aptitudes, interests, or temperaments --- everyone can change and grow through application and experience.'' Programming may be a very new, intimidating thing for you. That's okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!
+  \textbf{Growth Mindset}: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: ``The view you adopt for yourself profoundly affects the way you lead your life\ldots{} Believing that your qualities are carved in stone - \emph{the fixed mindset} - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character --- well, then you'd better prove that you have a healthy dose of them. It simply wouldn't do to look or feel deficient in these most basic characteristics\ldots{} There's another mindset in which these traits are not simply a hand you're dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you're secretly worried it's a pair of tens. In this mindset, the hand you're dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way --- in their initial talents and aptitudes, interests, or temperaments --- everyone can change and grow through application and experience.'' Programming may be a very new, intimidating thing for you. That's okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!
 \item
-  Learn by doing: \href{https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA\&sq=t}{A wise statistics instructor} once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won't get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good \emph{start}, but you'll have to actually \emph{program} in order to get any better! This textbook was designed to be \emph{interactive}, and I encourage you to ``code along with the book'' as you read.
+  \textbf{Learn by doing}: \href{https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA\&sq=t}{A wise statistics instructor} once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won't get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good \emph{start}, but you'll have to actually \emph{program} in order to get any better! This textbook was designed to be \emph{interactive}, and I encourage you to ``code along with the book'' as you read.
 \end{itemize}
 
 \hypertarget{grading-scale}{%
@@ -499,6 +504,11 @@ Class\_Score & Letter\_Grade\\
 \end{tabular}
 \end{table}
 
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course\%20Topics\%20\%26\%20Syllabus}{here}
+\end{feedback}
+
 \hypertarget{running-your-first-r-code}{%
 \subsection{Running your first R Code}\label{running-your-first-r-code}}
 
@@ -513,14 +523,14 @@ In a browser, navigate to \href{https://rdrr.io/snippets/}{rdrr.io/snippets}, wh
 
 }
 
-\caption{rdrr code entry box}\label{fig:unnamed-chunk-10}
+\caption{rdrr code entry box}\label{fig:unnamed-chunk-12}
 \end{figure}
 
-The box comes with some code entered already, but we want to use our own code instead, so delete all the text, starting with \texttt{library(ggplot2)} and ending with \texttt{factor(cyl))}.
+The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from \texttt{library(ggplot2)} to \texttt{factor(cyl))}.
 In its place, type \texttt{1+1}, then click the big green ``Run'' button.
 You should see the \texttt{{[}1{]}\ 2} displayed below.
 So if you give R a math expression, it will evaluate it and give the result.
-Note: the ``correct answer'' to \(1+1\) is \texttt{2}, but the output also displays \texttt{{[}1{]}}, which we won't explain until later(TODO), so you can ignore that for now.
+Note: the ``correct answer'' to \(1+1\) is \texttt{2}, but the output also displays \texttt{{[}1{]}}, which we won't explain until later, so you can ignore that for now.
 
 Next, delete the code you just wrote and type (or copy/paste) the following, and run it:
 
@@ -531,7 +541,7 @@ Next, delete the code you just wrote and type (or copy/paste) the following, and
 \end{Shaded}
 
 The result should be a very large number, which is equivalent to \(10!\), that is, \(10\times9\times8\times7\times6\times5\times4\times3\times2\times1\).
-This is an example of an R \emph{function}, which we will discuss more in Section (TODO: insert ref).
+This is an example of an R \emph{function}, which we will discuss more later.
 
 Aside from math, R can produce plots. Try copy/pasting the following code into the website:
 
@@ -558,7 +568,7 @@ Here's a more complicated example, which you should copy/paste into the website 
 \end{Highlighting}
 \end{Shaded}
 
-R can be used to make many types of visualizations, which you will do more of in Section (TODO: insert ref).
+R can be used to make many types of visualizations, which you will do more of later.
 
 \begin{bonus}
 This may be the first time you've seen R, so it's okay if you don't
@@ -576,6 +586,11 @@ the code above:
   packages provide extra abilities to R.
 \end{itemize}
 \end{bonus}
+
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running\%20Your\%20First\%20R\%20Code}{here}
+\end{feedback}
 
 \hypertarget{getoutoftheclass}{%
 \subsection{What do you hope to get out of this course?}\label{getoutoftheclass}}
@@ -603,18 +618,30 @@ In that case, try to come up with some possible answers that \emph{might} be tru
 \end{enumerate}
 \end{reflect}
 
-TODO: canvas assignment?
+\begin{progress}
+Submit your answers to the above reflection to Canvas.
+\end{progress}
 
 Store your answers in a safe place, and refer to them periodically as you progress through the course.
 You may find that you aren't achieving your goals and that some adjustment to how you are approaching the course may be necessary.
 Or you may find that your goals have changed, which is fine!
 Just update your goals so that you have something to refer back to.
 
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What\%20Do\%20You\%20Hope\%20To\%20Get\%20Out\%20Of\%20The\%20Class}{here}
+\end{feedback}
+
 \hypertarget{what-is-r}{%
 \subsection{What is R?}\label{what-is-r}}
 
 What is R? This question can be answered several different ways.
 Here are a few of them:
+
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What\%20is\%20R}{here}
+\end{feedback}
 
 \hypertarget{r-is-a-programming-language}{%
 \subsubsection{R is a Programming Language}\label{r-is-a-programming-language}}
@@ -708,6 +735,11 @@ R can be run using a terminal or command line (if you know what those are), or u
 By far one of the most popular ways of using R is with RStudio, which is \emph{also} open free and open source software.
 For this course, you'll be using RStudio.
 
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What\%20Is\%20R}{here}
+\end{feedback}
+
 \hypertarget{the-r-community}{%
 \subsection{The R Community}\label{the-r-community}}
 
@@ -733,13 +765,23 @@ Here is a partial list of venues where R users interact (aside from the official
   \href{r-bloggers.com}{R-Bloggers}: A blog website where authors can post examples of code, data analysis, and visualization.
 \end{enumerate}
 
-\hypertarget{places-to-get-help-if-youre-taking-this-class-for-credit}{%
-\subsubsection{Places to Get Help (If you're taking this class for credit)}\label{places-to-get-help-if-youre-taking-this-class-for-credit}}
+\hypertarget{places-to-get-help-if-youre-a-student-taking-this-class-for-credit}{%
+\subsubsection{Places to Get Help (If you're a student taking this class for credit)}\label{places-to-get-help-if-youre-a-student-taking-this-class-for-credit}}
 
-TBD.
+Students taking the course for credit should seek help from these places, in order:
 
-\hypertarget{places-to-get-help-if-youre-just-looking-at-this-material-but-arent-taking-the-class}{%
-\subsubsection{Places to Get Help (If you're just looking at this material but aren't taking the class)}\label{places-to-get-help-if-youre-just-looking-at-this-material-but-arent-taking-the-class}}
+\begin{itemize}
+\tightlist
+\item
+  Canvas Discussion boards
+\item
+  Office Hours
+\end{itemize}
+
+I will not answer homework/quiz/textbook related questions via email
+
+\hypertarget{places-to-get-help-anyone}{%
+\subsubsection{Places to Get Help (anyone)}\label{places-to-get-help-anyone}}
 
 If you find yourself stuck, there are many options available to you, here are a few:
 
@@ -752,48 +794,98 @@ If you find yourself stuck, there are many options available to you, here are a 
   \href{https://cran.r-project.org/manuals.html}{R Manuals}: With so many R resources available on the internet, sometimes information get's ``boiled down'' or simplified for ease of communication. If you need the ``official answer'' to a question, these manuals are the place to go. Check out ``An Introduction to R'' for a good reference.
 \end{enumerate}
 
-\hypertarget{installingr}{%
-\section{Installing R}\label{installingr}}
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=The\%20R\%20Community}{here}
+\end{feedback}
+
+\hypertarget{installing-r}{%
+\section{Installing R}\label{installing-r}}
 
 In the previous chapter, you ran R code on a website.
 The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
+
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Installing\%20R}{here}
+\end{feedback}
 
 \hypertarget{computer-basics}{%
 \subsection{Computer Basics}\label{computer-basics}}
 
 If you're new to computers, this section will be important for you to get set up.
-If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can safely skip to the next section.
+We'll briefly introduce some computer concepts and discuss how they're relevant to R.
+If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can probably skim this section, but be sure to pay attention to the R-specific information.
 
 \hypertarget{operating-systems}{%
 \subsubsection{Operating Systems}\label{operating-systems}}
 
+An operating system is a set of programs that allow you to interact with the computer, and the most popular operating systems are Windows, Mac OS X, and Linux.
 R works on Windows, Mac OS X, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R.
-At least, this is mostly true.
+At least, this is mostly true:
 
 \begin{caution}
 Some versions of Windows that run on ARM processors cannot install R,
 and installing R on a Chromebook will likely be more complicated (see
 \href{https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/}{here}).
+If you're in this situation, contact the instructor immediately.
 \end{caution}
+
+R isn't designed to work on tablets or phones which run mobile/tablet operating systems (like iOS, iPadOS, Android, ChromeOS), so these are not an option for R.
+
+\hypertarget{files-directory-structures}{%
+\subsubsection{Files \& Directory Structures}\label{files-directory-structures}}
+
+A file is a collection of data stored on your computer's hard drive.
+Examples of files include:
+
+\begin{itemize}
+\tightlist
+\item
+  A music file
+\item
+  A video
+\item
+  A slide presentation
+\item
+  A text document
+\end{itemize}
+
+Different types of files are often treated differently by your computer.
+For example, a music file is played with a music player program, a video can be viewed with a video player, and a slide presentation might be viewed with Powerpoint.
+Most operating systems know the type of a file by looking at the \emph{extension}, which is at the very end of the file's name.
+Examples include ``.mp3'', ``.doc'', ``.txt'', and ``.ppt''.
+When using R, we can write scripts which contain R code, and \emph{RMarkdown} documents, which include human readable text and code.
+R scripts usually have either a ``.R'' or ``.r'' extension, and we'll also be using \emph{RMarkdown}, which use either a ``.Rmd'' or ``.rmd'' extension.
+
+A \emph{directory}, or \emph{folder}, is a collection of files, and computers use directories to logically organize sets of files.
+When working with R, you may have to organize several different types of files, including R code, data files, and images.
+It will be important to stay organized when using R, and we will address this more later in the chapter.
+
+With the increasing prevalence of the internet in everyday life, it's becoming less common for files to exist on your computer.
+When writing R code, you'll be working with files on your computer, not accessing them over the internet.
 
 \hypertarget{downloads-and-installations}{%
 \subsubsection{Downloads and Installations}\label{downloads-and-installations}}
 
 To install R, you'll have to download a file from the internet which performs the installation.
 After you install R, you shouldn't have to download anything to run R.
+The specific steps to install R will be different depending on your operating system, and this will be addressed in the next section.
 
-TODO: take out?
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer\%20Basics}{here}
+\end{feedback}
 
 \hypertarget{install-r-r-studio}{%
 \subsection{Install R \& R Studio}\label{install-r-r-studio}}
 
-You'll actually be installing \emph{two} separate programs, both of which are free to use.
+Here's where you install R on your personal computer, but you'll actually be installing \emph{two} separate programs.
 The \emph{first} is the R programming language.
-The \emph{second} is a separate program called R Studio.
-R Studio will be the primary way in which you interact with R in this class, we will say more about this later.
+The \emph{second} is a separate program called R Studio, which will be the primary way in which you interact with R in this class, we will say more about this later.
 
-\hypertarget{installing-r}{%
-\subsubsection{Installing R}\label{installing-r}}
+\hypertarget{installing-r-1}{%
+\subsubsection{Installing R}\label{installing-r-1}}
 
 Installation will look slightly different depending on the operating system, but the major steps are the same.
 
@@ -817,15 +909,18 @@ From this point, this will change depending on your operating system.
 \item
   Finally, Click ``Download R X.Y.Z for Windows'', where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version \texttt{r\_version}.
 \item
-  any other settings. Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your Downloads folder or the Desktop) and select ``save''.
+  Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your \texttt{Downloads} folder or the \texttt{Desktop}) and select ``save''.
 \item
   When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.
 \item
-  Follow the on screen prompts. For the most part you can click ``continue'', ``agree'', ``install'' as appropriate, and you don't have to worry about changing any installation settings.
+  Follow the on screen prompts. For the most part you can click ``next'' and ``install'' as appropriate, and you don't have to worry about changing any installation settings.
+\item
+  Click ``Finish'' to complete the installation!
 \end{itemize}
 
 \begin{video}
-Create windows R install Video
+\href{https://youtu.be/7ZYn6q_pboE}{This video} shows the installation
+process for Windows
 \end{video}
 
 \hypertarget{mac-os-x}{%
@@ -842,12 +937,80 @@ Create windows R install Video
 \item
   When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process.
 \item
-  Follow the on screen prompts. For the most part you can click ``continue'', ``agree'', ``install'' as appropriate, and you don't have to worry about changing any installation settings.
+  Follow the on screen prompts. For the most part you can click ``continue'', ``agree'', ``install'', as appropriate, and you don't have to worry about changing any installation settings.
+\item
+  Click ``Close'' to complete the installation!
+\end{itemize}
+
+\hypertarget{linux}{%
+\paragraph{Linux}\label{linux}}
+
+We will not provide details on installing R for Linux, because the process varies depending on your distribution, and because if you're using Linux, chances are you're more computer proficient than the average user.
+Suffice it to say, The first step is:
+
+\begin{itemize}
+\tightlist
+\item
+  Click ``Download R for Linux''
+\end{itemize}
+
+And you can probably figure things out from there.
+
+\hypertarget{conclusion}{%
+\paragraph{Conclusion}\label{conclusion}}
+
+You should now have R installed!
+Technically speaking, nothing further is required to work with R.
+You can open the RGui, and start coding immediately.
+However, for this course we will be using RStudio, which is a very popular program with an incredibly rich set of features, which will enhance your R programming experience.
+
+\hypertarget{installing-rstudio}{%
+\subsubsection{Installing RStudio}\label{installing-rstudio}}
+
+\begin{itemize}
+\tightlist
+\item
+  Navigate to the \href{https://rstudio.com/products/rstudio/download/\#download}{RStudio Download Page}, and find the download file that matches your operating system.
+\item
+  Click the link to download the installer, which starts with ``RStudio-'' or ``rstudio-''.
+\item
+  Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your \texttt{Downloads} folder or the \texttt{Desktop}) and select ``save''.
+\item
+  When the download completes, find the downloaded file and double click to run it. This will start the installation process.
+\end{itemize}
+
+From this point, this will change depending on your operating system.
+
+\hypertarget{windows-1}{%
+\paragraph{Windows}\label{windows-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Follow the on screen prompts. For the most part you can click ``next'' and ``install'' as appropriate, and you don't have to worry about changing any installation settings.
+\item
+  You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio
 \end{itemize}
 
 \begin{video}
-?Ben? install from Mac OS X?
+\href{https://youtu.be/XnqENdiEb3I}{This video} shows the installation
+process for Windows
 \end{video}
+
+\hypertarget{mac-os-x-1}{%
+\paragraph{Mac OS X}\label{mac-os-x-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  In the window which opens, drag the RStudio icon into the ``Applications'' folder. You may need to enter your password (click the ``Authenticate'' button) in order to do so.
+\item
+  You should now be able to navigate to the Applications folder in Finder, and click on the RStudio icon to open RStudio.
+\end{itemize}
+
+\hypertarget{conclusion-1}{%
+\paragraph{Conclusion}\label{conclusion-1}}
+
 \begin{bonus}
 Rstudio also offers a \href{https://rstudio.cloud/}{cloud service} that
 allows you to work with R in your browser. We'll use the desktop version
@@ -856,82 +1019,272 @@ but you can check out the
 cloud site.
 \end{bonus}
 
-\hypertarget{installing-r-studio}{%
-\subsubsection{Installing R Studio}\label{installing-r-studio}}
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install\%20R\%20\%26\%20RStudio}{here}
+\end{feedback}
 
 \hypertarget{successfull-installation}{%
 \subsection{Successfull Installation}\label{successfull-installation}}
 
-TODO: add some basic tasks here to make sure R and RStudio work. (screenshots?)
+When you successfully install R and RStudio, you should now be able to program in R!
+Before moving further, you should become acquainted with the different parts of RStudio.
+To do so, watch the video below:
 
 \begin{video}
-todo: video orienting to R Studio (Matt video?)
+\href{https://youtu.be/w_3xp_3Sz6s}{This video} gives an introduction to
+some of the main pieces of RStudio
 \end{video}
 
-\begin{assessment}
-todo: create assessment
-\end{assessment}
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Successfull\%20Installation}{here}
+\end{feedback}
 
-\hypertarget{running-code-in-rstudio-console}{%
-\subsection{Running Code in RStudio Console}\label{running-code-in-rstudio-console}}
+\hypertarget{running-code-in-rstudio}{%
+\subsection{Running Code in RStudio}\label{running-code-in-rstudio}}
 
-TODO: repeat online examples + Pull from here: \url{https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html}
+Now that you're somewhat familiar with RStudio, let's run the same code as we ran on the website, but this time let's run it in R.
 
-\begin{progress}
-R comes pre-loaded with several datasets that are used in many examples.
-One is a set of 150 measurements of irises from 3 species.
+\hypertarget{the-r-console}{%
+\subsubsection{The R Console:}\label{the-r-console}}
 
-Use \texttt{mean(iris\$Petal.Length)} to find out what the mean petal
-length is.
-\end{progress}
+In the \emph{R console}, type \texttt{1+1} and press enter.
+The output in the console should look like the following:
 
-\hypertarget{workspace-setup}{%
-\subsection{Workspace setup}\label{workspace-setup}}
+\begin{figure}
 
-\hypertarget{recommended-settings}{%
-\subsubsection{Recommended Settings}\label{recommended-settings}}
+{\centering \includegraphics{src/images/1_plus_1_console} 
+
+}
+
+\caption{code in the console}\label{fig:unnamed-chunk-36}
+\end{figure}
+
+Notice that the output \texttt{2} is displayed, and the cursor is on a blank line, waiting for more input. This is how coding in the console works.
+
+\hypertarget{r-scripts}{%
+\subsubsection{R scripts}\label{r-scripts}}
+
+Now let's run the same code, but in an R script.
+If you haven't already, create a new R script by clicking on the \texttt{New\ File} icon, then selecting \texttt{R\ Script} like so:
+
+\begin{figure}
+
+{\centering \includegraphics{src/images/rstudio_newfile} 
+
+}
+
+\caption{code in the console}\label{fig:unnamed-chunk-37}
+\end{figure}
+
+In the script window which opens, type \texttt{1+1} and press enter.
+Notice how now, the code did \emph{not} run?
+In a script, you are free to write R code on several lines before you run it.
+You can even save the script and load it later in order to run the code it contains.
+There are multiple ways to run R code in a script.
+To run a single line of code, do one of the following:
 
 \begin{itemize}
 \tightlist
 \item
-  don't save/load workspace
+  Place the cursor on the desired line, hold the key, and press enter. On Mac OS X, hold key and press enter instead
 \item
-  how to adjust font size (in options and with ctrl +/-)
-\item
-  dark mode!
+  Place the curse on the desired line and click the \texttt{Run} button that looks like this:
 \end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics{src/images/rstudio_run} 
+
+}
+
+\caption{code in the console}\label{fig:unnamed-chunk-38}
+\end{figure}
+
+To run multiple lines of code, do one of the following:
+- Highlight all the code you'd like to run, hold the key, and press enter. On Mac OS X, hold the key and press enter instead.
+- Highlight all the code you'd like to run, and click the \texttt{Run} button.
+
+Run the \texttt{1+1} code using one of the methods above, and observe the output.
+Notice how the output is \emph{still} in the console window, even you ran the code in a script!
+
+\begin{caution}
+Even though running R code from the console and an R script are done
+differently, they should produce the same results. Both are running R!
+\end{caution}
+
+Now that you've run some code in the console and from an R script, let's try some of the other code we wrote previously.
+
+\hypertarget{same-examples-on-your-computer}{%
+\subsubsection{Same Examples, On Your Computer!}\label{same-examples-on-your-computer}}
+
+In the \emph{console}, type the command \texttt{factorial(10)}.
+Did you get the same result as you got on the website?
+Now type the following two lines in an R script and run them:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{-10}\OperatorTok{:}\DecValTok{10}
+\KeywordTok{plot}\NormalTok{(x, x}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This code produces a plot, which should show up in the lower right corner in the ``Plots'' window.
+Finally, \emph{copy} the following code, paste it into your script, and run it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\KeywordTok{ggplot}\NormalTok{(mtcars, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{mpg, }\DataTypeTok{fill=}\KeywordTok{as.factor}\NormalTok{(cyl))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title=}\StringTok{"Engine Fuel Efficiency vs. Number of Cylinders"}\NormalTok{, }\DataTypeTok{y=}\StringTok{"MPG"}\NormalTok{, }\DataTypeTok{fill=}\StringTok{"Cylinders"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"bottom"}\NormalTok{, }
+        \DataTypeTok{axis.ticks.x =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{axis.text.x =} \KeywordTok{element_blank}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+You're now running R code on your computer!
+
+\begin{reflect}
+Imagine you are practicing programming in R and your classmate tells you
+they heard about an interesting new R command which they'd like you to
+try out. Would you run the command in an R script, or the R console? How
+might your answer change if you wanted to keep a record of all the
+interesting R command you found?
+\end{reflect}
+
+\hypertarget{r-markdown}{%
+\subsubsection{R Markdown}\label{r-markdown}}
+
+You've seen how to run R code in the R console, and from an R script, but there's one more way to run R that we need to talk about: R Markdown
+
+R scripts are convenient because they can store multiple R commands in one file.
+R Markdown takes this idea further and stores code alongside human readable text.
+There is much that could be said about R Markdown, but for now, we'll just stick with the basics.
+
+To start, watch this video:
+
+\begin{video}
+\href{https://youtu.be/MhvipLohEfU}{This Video} gives a basic
+introduction to RMarkdown.
+\end{video}
+
+As the video stated, there are three types of sections to an RMarkdown document:
+- Header
+- Human readable text
+- Code Chunks
+
+There's only one header, but there can be many blocks of human readable text and many code chunks.
+
+\begin{bonus}
+See
+\href{https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf}{here}
+for more things you can do with RMarkdown.
+\end{bonus}
+
+\begin{caution}
+As part of this class, you'll be filling in an R Markdown document as
+you complete the progress checks in the book (except for the first
+progress check box, which you completed already) On Canvas, download the
+\texttt{progress\_check\_2.rmd} file and follow the instructions. Here
+is the first code chunk you will include in the document!
+\end{caution}
+
+\begin{video}
+TODO: Add video link. \href{}{This video} should help get you started
+with the Progress Check Assignments!
+\end{video}
+
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running\%20Code\%20in\%20RStudio}{here}
+\end{feedback}
+
+\hypertarget{workspace-setup}{%
+\subsection{Workspace setup}\label{workspace-setup}}
+
+Whenever you are programming in R, and especially for this class, it's important to stay organized.
+This section will give you some instructions and tips for how to organize material for this R course
+
+\hypertarget{recommended-settings}{%
+\subsubsection{Recommended Settings}\label{recommended-settings}}
+
+First of all, let's set some settings in RStudio.
+At the top of the R window, click \texttt{Tools}, then \texttt{Global\ Options}, and do the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  On the left side of the window that pops up, and make sure it's on the ``General'' tab
+\item
+  Find the ``Workspace'' section on the right, make the following changes:
+  -- \emph{uncheck} ``Restore .RData into workspace on startup''
+  -- Change the ``Save workspace to .RData on exit'' option to \emph{never}
+\item
+  On the left side, select the ``Appearance'' tab.
+\item
+  (Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.
+\item
+  (Optional) Change the ``Editor theme:'' setting to find a color scheme that looks good to you.
+\item
+  Click ``Apply'', then ``OK'' at the bottom of the window.
+\end{enumerate}
+
+Step 2 ensures that each time you open RStudio, there's no ``memory'' of anything you may have been doing in R previously.
+This is a good option for R beginners to avoid confusion and mistakes.
+Step 4 can also be done using the shortcuts \texttt{\textless{}control\textgreater{}\ \textless{}shift\textgreater{}\ +} (to increase size) and \texttt{\textless{}control\textgreater{}\ -} (to decrease size).
+On Mac OS X, the commands are \texttt{\textless{}command\textgreater{}\ \textless{}shift\textgreater{}\ +} and \texttt{\textless{}command\textgreater{}\ -}.
 
 \hypertarget{setting-working-directory}{%
 \subsubsection{Setting working directory}\label{setting-working-directory}}
 
-\begin{itemize}
-\item
-\end{itemize}
+Every time R runs, it has a \emph{working directory}, which is the folder where R ``looks'' when loading and saving files.
+In RStudio, the \texttt{Files} window contains the ``More'' menu, which has options to \emph{set as working directory} or \emph{go to working directory}.
+This will become more relevant when you start loading data and saving results later in the course.
+For this course, you'll be using an RStudio project, which automatically sets the working directory.
 
-\hypertarget{create-r-studio-project-and-directories-for-class}{%
-\subsubsection{Create R Studio Project and directories for class}\label{create-r-studio-project-and-directories-for-class}}
+\begin{bonus}
+See
+\href{https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces}{here}
+for more information about working directories.
+\end{bonus}
 
-TODO: pull from: \url{https://geanders.github.io/RProgrammingForResearch/r-preliminaries.html\#r-scripts}
+\hypertarget{create-rstudio-project-and-directories-for-class}{%
+\subsubsection{Create RStudio Project and directories for class}\label{create-rstudio-project-and-directories-for-class}}
+
+RStudio also has a feature called \emph{projects}, which
 
 Note: This will automatically set your working directory
 
-Folder structure:
+Folder structure:`
 
 \begin{itemize}
 \item
-  Raw Data
+  raw\_data
 \item
-  Assignments
+  assignments
 \item
 \end{itemize}
 
 \begin{feedback}
-Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
-the content in this section.
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace\%20Setup}{here}
 \end{feedback}
 
-\hypertarget{reflection-assignment}{%
-\subsection{Reflection \& Assignment}\label{reflection-assignment}}
+\hypertarget{best-practices}{%
+\subsubsection{Best Practices}\label{best-practices}}
+
+When you're finished coding in R,
+
+How to clear environment
+How to clear console
+
+\hypertarget{reflection}{%
+\subsection{Reflection}\label{reflection}}
 
 \begin{reflect}
 Before moving on to the next section, take a note of all you've done so
@@ -950,13 +1303,6 @@ far.
 \end{enumerate}
 \end{reflect}
 
-TODO: Kathleen thought this could be a progress check, I think we can have it be the first homework.
-
-\begin{assessment}
-todo: create R script to do some math, then turn in. provide template
-with comment block at the top
-\end{assessment}
-
 \hypertarget{r-programming-fundamentals}{%
 \section{R Programming Fundamentals}\label{r-programming-fundamentals}}
 
@@ -964,8 +1310,6 @@ with comment block at the top
 \subsection{Programming Preliminaries}\label{programming-preliminaries}}
 
 \begin{reflect}
-\begin{reflect}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -976,8 +1320,6 @@ with comment block at the top
 \item
   Now think about English (or another language you know well) and think about the syntax and grammar rules that you take for granted.
 \end{enumerate}
-
-\end{reflect}
 \end{reflect}
 
 All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
@@ -1074,18 +1416,9 @@ of \texttt{1+1} using the \emph{assignment operator},
 we'll talk about that more objects and assignments later.
 \end{bonus}
 
-TODO: make these code blocks display on multiple lines:
-
 \begin{bonus}
-So far, we've seen that you can place one command on one line, multiple
-commands on multiple lines, multiple commands on one line, so you may
-ask: can you can place one command on multiple lines? The answer is
-\emph{sometimes}, depending on the command. Generally, if R is expecting
-the end of a command but doesn't see one by the time it gets to the end
-of a line, it will continue looking on the next line. Here are some
-examples: \texttt{1\ +\ \textbackslash{}\ 1}
-
-\texttt{print("This\ string\ is\ on\ \ multiple\ lines")}
+So far, we've seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
+The answer is \emph{sometimes}, depending on the command, but we will not discuss this now.
 \end{bonus}
 
 \begin{caution}
@@ -1137,16 +1470,16 @@ The above grouped code is indented so that it looks nice, but it doesn't have to
 \begin{bonus}
 Indenting is an example of coding \emph{style}, which are formatting
 decisions which don't affect the results of the code, but are meant to
-enhance readability. We'll talk more about coding style later. TODO:
-talk about style later. In some programming languages, Python for
-example, white space matters. That is, code indents and other spaces
-change the way the code runs. In R, white space \emph{does not} matter,
-so things like indents are used purely for readability.
+enhance readability. We'll talk more about coding style later. In some
+programming languages, Python for example, white space matters. That is,
+code indents and other spaces change the way the code runs. In R, white
+space \emph{does not} matter, so things like indents are used purely for
+readability.
 \end{bonus}
 
 What does it mean to ``group'' code?
 At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
-However, code grouping will become very important later on, when we discuss \emph{control flow} in section (TODO: add ref).
+However, code grouping will become very important later on, when we discuss \emph{control flow} later.
 
 \begin{bonus}
 There are several helpful shortcuts that you can use in R. If you forget
@@ -1287,8 +1620,6 @@ Programmers have a sense of humor, too! Try running \texttt{????print}
 to see a small joke. Remember, comedic taste varies!
 \end{bonus}
 
-TODO: put these bonus blocks in more appropriate places:
-
 \begin{bonus}
 This is a lot to remember, but luckily you can use a
 \href{https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf}{cheat
@@ -1296,6 +1627,7 @@ sheet} while you're learning. As you get more familiar with R, you'll
 begin to memorize basic funtions - and google is always there for the
 rest.
 \end{bonus}
+
 \begin{bonus}
 Want to know more about R syntax? Try typing \texttt{?Syntax} in the R
 console (then press \texttt{Enter}).
@@ -1311,16 +1643,21 @@ Okay, now that we've covered some of the basics, it's time to start learning how
 The next few sections will describe the different types of data that R can handle.
 
 \begin{feedback}
-Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
-the content in this section.
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming\%20Preliminaries}{here}
 \end{feedback}
 
 \hypertarget{data-types}{%
 \subsection{Data Types}\label{data-types}}
 
-\begin{reflection}
-TODO: what should this be?
-\end{reflection}
+\begin{reflect}
+Think of all the things you might be expected to remember. These
+different items can probably be categorized into different types of
+information, like phone numbers, passwords, birthdays, historical
+events, and math theorems for example. R was designed to handle
+different types of data as well, though the types are different from the
+examples just given.
+\end{reflect}
 
 R can store and manipulate different pieces of information, called data, and these data can be of several different types.
 Here are some examples of different types of data:
@@ -1481,8 +1818,6 @@ You can show just some of the digits by using the \texttt{round} function:
 \end{verbatim}
 
 It also turns out that R stores \emph{more} digits than what it shows when it prints, though we won't go into detail on that now.
-
-TODO: talk about Inf, -Inf, and NaN?
 
 \hypertarget{integer}{%
 \subsubsection{Integer}\label{integer}}
@@ -1882,8 +2217,6 @@ The last example deserves some thought. Start with each expression in parenthese
 Then remember how logicals are treated as numbers, and determine what happens when you add them together.
 
 \begin{bonus}
-\begin{bonus}
-
 Numeric, integer, character, and logical data types are probably the most important data types to know in R, but there are others that were not covered here.
 These include:
 
@@ -1898,13 +2231,9 @@ These include:
 \end{itemize}
 
 At least one of these (factor) will be covered later, but you can find more information about the other types \href{https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/}{here}
-
-\end{bonus}
 \end{bonus}
 
 \begin{progress}
-\begin{progress}
-
 In the R console, type the following R commands and observe the result
 
 \texttt{x\ \textless{}-\ "5"}
@@ -1925,8 +2254,6 @@ In the R console, type the following R commands and observe the result
 \item
   What is the value of z, and why does this make sense?
 \end{enumerate}
-
-\end{progress}
 \end{progress}
 
 Now that we've discussed different types of data, we'll now see how they can be structured together in meaningful ways.
@@ -1938,21 +2265,22 @@ classes}. This can be confusing at first, but libraries like
 \href{https://lubridate.tidyverse.org/}{lubridate} make it easy to work
 with dates in R.
 \end{caution}
+
 \begin{feedback}
-Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
-the content in this section.
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data\%20Types}{here}
 \end{feedback}
 
 \hypertarget{data-structures}{%
 \subsection{Data Structures}\label{data-structures}}
 
-\begin{reflection}
+\begin{reflect}
 Imagine a grocery list, shopping list, or to-do list. That list consists
 of a set of items in a specified order, and the list also has a length.
 Why do you think it's useful to organize these items into a list, rather
 than in some other fashion? Can you think of why it might be useful to
 store data in a list?
-\end{reflection}
+\end{reflect}
 
 Often, you will need to work with many related data, for example:
 - A sequence of measurements through time
@@ -2057,8 +2385,6 @@ Here's how to create logical or numeric vectors:
 \end{verbatim}
 
 \begin{reflect}
-\begin{reflect}
-
 The above statement states that all elements of a vector must have the same data type, so what do you think will happen if you try to create a vector using elements from different data types?
 Here are some possibilities, can you think of another one?
 
@@ -2074,8 +2400,6 @@ Here are some possibilities, can you think of another one?
 
 Whatever happens, humans were behind the decision of how R should behave in this situation.
 If you were in charge of making this decision, what would make the most sense?
-
-\end{reflect}
 \end{reflect}
 \begin{progress}
 Let's try to create a vector of mixed type and see what happens. Run the
@@ -2207,8 +2531,6 @@ Once you make a guess, try it in R and see if you were correct.
 
 \hypertarget{working-with-vectors}{%
 \paragraph{Working with vectors}\label{working-with-vectors}}
-
-TODO: add sort/order?
 
 You can do many things with vectors that you can with single instances of each data type.
 Recall, you can add a number to a numeric object:
@@ -2504,10 +2826,7 @@ Error in a + b: non-numeric argument to binary operator
 We see that you can't add a numeric vector to a character vector, but
 you \emph{can} add a numeric vector to a logical vector. Why is this?
 \end{reflect}
-
 \begin{progress}
-\begin{progress}
-
 Predict whether the following are possible:
 
 \begin{itemize}
@@ -2519,8 +2838,6 @@ Predict whether the following are possible:
 \end{itemize}
 
 Check whether you are correct by creating some vectors in R and attempting to multiply them together. Can you make sense of the answer?
-
-\end{progress}
 \end{progress}
 
 \hypertarget{special-numeric-vectors}{%
@@ -3387,16 +3704,11 @@ of \texttt{A} and assign the copy to be one of the components of
 Paradox}.
 \end{bonus}
 
-\begin{reflection}
+\begin{reflect}
 So far we've seen vectors, lists, matrices, and arrays.
 
 How are they different and how are they similar?
-\end{reflection}
-
-\begin{feedback}
-Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
-the content in this section.
-\end{feedback}
+\end{reflect}
 
 List components can also have \emph{names}.
 Here we add an component with a name:
@@ -3885,8 +4197,6 @@ you must enclose the reference in ``backticks'' (
 \end{caution}
 
 \begin{progress}
-\begin{progress}
-
 Look at the set of available data sets in R, and pick 2 data sets.
 For each data set, answer the following questions:
 
@@ -3903,9 +4213,12 @@ For each data set, answer the following questions:
 \item
   How many columns are in the data frame?
 \end{itemize}
+\end{progress}
 
-\end{progress}
-\end{progress}
+\begin{feedback}
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data\%20Structures}{here}
+\end{feedback}
 
 \hypertarget{r-objects}{%
 \subsection{R Objects}\label{r-objects}}
@@ -4164,23 +4477,57 @@ It's used mainly if you want to \emph{remove} an element from a list:
 
 Or if a function is supposed to return but doesn't have an object to return (more on this later when we discuss functions).
 
+\hypertarget{removing-objects}{%
+\subsubsection{Removing Objects}\label{removing-objects}}
+
+Sometimes you want to \emph{get rid} of an object!
+In R, you can use the \texttt{rm} function like so:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ "an object"}
+\KeywordTok{rm}\NormalTok{(a)}
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Error in eval(expr, envir, enclos): object 'a' not found
+\end{verbatim}
+
+As you can see, the error message indicates that \texttt{a} has been removed.
+Sometimes, you'd like to remove all the objects in your environment.
+To do this, you can use the command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{feedback}
-Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
-the content in this section.
+Any feedback for this section? Click
+\href{https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R\%20Objects}{here}
 \end{feedback}
 
-\hypertarget{quiz}{%
-\subsection{Quiz}\label{quiz}}
+\hypertarget{wrap-up}{%
+\subsection{Wrap Up}\label{wrap-up}}
 
-\begin{assessment}
-asdf
-\end{assessment}
+This concludes the chapter. Next we'll use the R skills you've developed in this chapter to do interesting things with Data!
 
 \hypertarget{working-with-data}{%
 \section{Working with Data}\label{working-with-data}}
 
+\begin{caution}
+This section is still under construction
+\end{caution}
+
 \hypertarget{loading-saving-data}{%
 \subsection{Loading / Saving Data}\label{loading-saving-data}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 \hypertarget{taster-list-of-file-forms-and-sources}{%
 \subsubsection{``Taster''(?) list of file forms and sources}\label{taster-list-of-file-forms-and-sources}}
@@ -4188,8 +4535,8 @@ asdf
 \hypertarget{readingwriting-csv}{%
 \subsubsection{reading/writing csv}\label{readingwriting-csv}}
 
-\hypertarget{best-practices}{%
-\subsubsection{Best practices}\label{best-practices}}
+\hypertarget{best-practices-1}{%
+\subsubsection{Best practices}\label{best-practices-1}}
 
 principles of Tidy Data (wickham 2014)
 
@@ -4213,6 +4560,10 @@ the content in this section.
 
 \hypertarget{working-with-data-1}{%
 \subsection{Working With Data}\label{working-with-data-1}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 \hypertarget{basic-indexing}{%
 \subsubsection{Basic indexing}\label{basic-indexing}}
@@ -4261,15 +4612,27 @@ future self a favor (and anyone reading your code).
 \hypertarget{practice}{%
 \subsection{Practice}\label{practice}}
 
+\begin{caution}
+This section is still under construction
+\end{caution}
+
 \begin{progress}
 asdf
 \end{progress}
 
-\hypertarget{creating-r-programs}{%
-\section{Creating R Programs}\label{creating-r-programs}}
+\hypertarget{performing-data-analysis}{%
+\section{Performing Data Analysis}\label{performing-data-analysis}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 \hypertarget{basic-control-flow}{%
 \subsection{Basic Control Flow}\label{basic-control-flow}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 If/else
 
@@ -4285,6 +4648,10 @@ the content in this section.
 \hypertarget{advanced-control-flow}{%
 \subsection{Advanced Control Flow}\label{advanced-control-flow}}
 
+\begin{caution}
+This section is still under construction
+\end{caution}
+
 *apply family
 
 \begin{feedback}
@@ -4294,6 +4661,10 @@ the content in this section.
 
 \hypertarget{writing-functions}{%
 \subsection{Writing FUnctions}\label{writing-functions}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 Function scope
 
@@ -4310,15 +4681,20 @@ work, debugging the issue can be equally complicated.
   Pass by value, contrast with other languages
 \end{itemize}
 \end{bonus}
+
+caution: use ``='' when mapping named arguments, not \texttt{\textless{}-}.
+
 \begin{feedback}
 Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
 the content in this section.
 \end{feedback}
 
-caution: use ``='' when mapping named arguments, not \texttt{\textless{}-}.
-
 \hypertarget{working-with-popular-packages}{%
 \subsection{Working With Popular Packages}\label{working-with-popular-packages}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 \begin{feedback}
 Give me some \href{https://forms.gle/2Fw8y4aY51ijdmyE9}{feedback} about
@@ -4327,6 +4703,10 @@ the content in this section.
 
 \hypertarget{assignment}{%
 \subsection{Assignment}\label{assignment}}
+
+\begin{caution}
+This section is still under construction
+\end{caution}
 
 \begin{assessment}
 Make R Markdown PDF that covers most/all of CH4: read in data, do basic
