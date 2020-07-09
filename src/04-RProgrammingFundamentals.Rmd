@@ -1146,7 +1146,7 @@ TODO: include conversion b/t character vec and factor vec.
 
 ### Matrices
 
-Not all data can be arraned as an ordered set of elements, so R has other data structures besides vectors.
+Not all data can be arranged as an ordered set of elements, so R has other data structures besides vectors.
 Another data type is the _matrix_, which can be thought of as a _grid_ of numbers.
 Here's an example of creating a grid:
 

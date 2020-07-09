@@ -189,7 +189,7 @@ Notice that the output `2` is displayed, and the cursor is on a blank line, wait
 Now let's run the same code, but in an R script.
 If you haven't already, create a new R script by clicking on the `New File` icon, then selecting `R Script` like so:
 
-```{r, fig.cap="code in the console", echo=F}
+```{r, fig.cap="Click this button to create a new file", echo=F}
 knitr::include_graphics("src/images/rstudio_newfile.png")
 ```
 
@@ -208,7 +208,7 @@ knitr::include_graphics("src/images/rstudio_run.png")
 ```
 
 To run multiple lines of code, do one of the following:
-- Highlight all the code you'd like to run, hold the <control> key, and press enter. On Mac OS X, hold the <command> key and press enter instead.
+- Highlight all the code you'd like to run, hold the `<control>` key, and press enter. On Mac OS X, hold the `<command>` key and press enter instead.
 - Highlight all the code you'd like to run, and click the `Run` button.
 
 Run the `1+1` code using one of the methods above, and observe the output. 
@@ -330,30 +330,71 @@ See [here](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Direc
 
 ### Create RStudio Project and directories for class
 
-RStudio also has a feature called _projects_, which 
+RStudio also has a feature called _projects_, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects without having to 
+For this class, you should set up a new project, so all of your project related files are in one place.
 
-Note: This will automatically set your working directory
+#### Create RStudio Project
 
-Folder structure:`
+To create an RStudio project, follow these steps:
 
-- raw_data
-- assignments
-- 
+- Click on the "new project" button
+
+```{r, fig.cap="Click this button to create a new project", echo=F}
+knitr::include_graphics("src/images/rstudio_newproject.png")
+```
+
+- In the window that pops up, click on  "New Directory" then "New Project".
+- In the box after "Directory name", type "RModule1", which will be the name of the project.
+- Then click the "Browse" button to select where to place the project.
+- You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.
+- Click on "Create Project"
+
+You should now be _in_ your newly created project.
+If you look at the Files window in the lower right part of RStudio, you should see the files in your new project directory, which should only be one file, called "RModule1.rproj.
+This file is the _project file_, which tells RStudio that this directory contains an R Project.
+When you're working on this course, you should be working in this project.
+The easiest way to open up the project is to use your operating system's file explorer and click on the project file. 
+This will automatically set the working directory to the project directory.
+
+#### Create Directory Structure
+
+To stay organized, you should also create the following folders inside your project directory
+
+- scripts
+- data_raw
+- data_clean
+- output
+
+You can create these either using your operating system, or the "New Folder" command in the file window within RStudio.
+
+#### Video
+
+```{block, type="video"}
+TODO: Add link
+Check out [this video]() to watch me set up a project and the new directories.
+```
+
+
+### Some useful commands you should know
+
+As you program in R, you'll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
+This will reduce the amount of memory that is taken up 
+
+```{r}
+rm(list=ls())  # Clear everything in your workspace
+gc()           # perform garbage collection
+```
+
+You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l`.
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
 ``` 
 
-### Best Practices
-
-When you're finished coding in R, 
-
-How to clear environment
-How to clear console
-
-
 
 ## Reflection
+
+You should now be set up to 
 
 ```{block, type="reflect"}
 Before moving on to the next section, take a note of all you've done so far. 
