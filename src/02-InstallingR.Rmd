@@ -200,7 +200,7 @@ You can even save the script  and load it later in order to run the code it cont
 There are multiple ways to run R code in a script.
 To run a single line of code, do one of the following:
 
-- Place the cursor on the desired line, hold the <control> key, and press enter. On Mac OS X, hold <command> key and press enter instead
+- Place the cursor on the desired line, hold the `<control>` key, and press enter. On Mac OS X, hold `<command>` key and press enter instead
 - Place the curse on the desired line and click the `Run` button that looks like this:
 
 ```{r, fig.cap="code in the console", echo=F}
