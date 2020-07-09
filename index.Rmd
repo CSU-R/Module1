@@ -2,7 +2,7 @@
 title: "R Module 1"
 author: 
   - "Alex Fout^[Department of Statistics, Colorado State University, fout@colostate.edu]"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
 description: This is the book for the R Intro Course at CSU.
 link-citations: yes
 bibliography:
