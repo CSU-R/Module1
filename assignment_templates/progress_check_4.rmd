@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Instructions:
 
 1. Update your name in the header block, example: `author: "Alex Fout" `
-1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_assignment_1.rmd`
+1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_progress_check_4.rmd`
 1. Each time you encounter a purple "Progress Check" block in the textbook, create a new sub-subheading  and a new code block for any code you write.
 1. Be sure to _run your code chunks when you make them_, to make sure everything works!
 1. Your completed assignment should contain all progress checks from section XX through section XX
