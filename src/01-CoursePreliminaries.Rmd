@@ -111,7 +111,7 @@ sched <- data.frame(
   Week = 1 + isoweek(course_dates) - isoweek(start_date),
   Weekday = wday(course_dates, label=T, abbr=F),
   Date = format(course_dates, "%B %d"),
-  Reading = c("Ch1, Ch2", "Ch3", "Ch4", "Ch4", "Ch4", "Ch5", "Ch5", "Ch5", "Ch5", "Ch6", "Ch6", "Ch6"),
+  Reading = c("1, 2", "3", "4.1, 4.2", "4.3", "4.4, 4.5", "5.X (TBD)", "5.X (TBD)", "5.X (TBD)", "5.X (TBD)", "6.X (TBD)", "6.X (TBD)", "6.X (TBD)"),
   Due= c("Progress Check 1", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 1", "Assignment 2", "Progress Check 3", "Quiz 1", "Assignment 3", "Progress Check 4", "Quiz 4", "Assignment 4")
 )
 knitr::kable(sched) %>% kable_styling()
@@ -304,7 +304,7 @@ The inclusion of R packages, combined with the free and open source nature of R 
 
 
 ```{block, type="bonus"}
-[skimr](https://github.com/ropensci/skimr) provides a frictionless approach to summary statistics which conforms to the principle of least surprise, displaying summary statistics the user can skim quickly to understand their data.
+[skimr](https://github.com/ropensci/skimr) is one example of a package. It provides a frictionless approach to summary statistics which conforms to the principle of least surprise, displaying summary statistics the user can skim quickly to understand their data.
 ```
 
 ### R Interfaces
