@@ -157,14 +157,14 @@ The box comes with some code entered already, but we want to use our own code in
 In its place, type `1+1`, then click the big green "Run" button.
 You should see the `[1] 2` displayed below.
 So if you give R a math expression, it will evaluate it and give the result.
-Note: the "correct answer" to $1+1$ is `2`, but the output also displays `[1]`, which we won't explain until later(TODO), so you can ignore that for now.
+Note: the "correct answer" to $1+1$ is `2`, but the output also displays `[1]`, which we won't explain until later, so you can ignore that for now.
 
 Next, delete the code you just wrote and type (or copy/paste) the following, and run it:
 ```{r, eval=F}
 factorial(10)
 ```
 The result should be a very large number, which is equivalent to $10!$, that is, $10\times9\times8\times7\times6\times5\times4\times3\times2\times1$.
-This is an example of an R _function_, which we will discuss more in Section (TODO: insert ref).
+This is an example of an R _function_, which we will discuss more later.
 
 Aside from math, R can produce plots. Try copy/pasting the following code into the website:
 ```{r, eval=F}
@@ -183,7 +183,7 @@ ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) +
         axis.ticks.x = element_blank(),
         axis.text.x = element_blank())
 ```
-R can be used to make many types of visualizations, which you will do more of in Section (TODO: insert ref).
+R can be used to make many types of visualizations, which you will do more of later.
 
 
 ```{block, type="bonus"}

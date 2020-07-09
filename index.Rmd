@@ -22,6 +22,9 @@ biblio-style: apalike
 # class.output="output-style"    Use the CSS style "output-style" to style output of code chunks
 knitr::opts_chunk$set(fig.align="center", comment=NA, results="hold", class.source="chunk-style", class.output="output-style")
 
+# A recent change in RMarkdown required this change. 
+
+
 library(kableExtra)
 library(lubridate)
 start_date <- ymd("2020/07/13")
