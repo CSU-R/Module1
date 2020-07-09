@@ -124,7 +124,3 @@ This is the end of the assignment!
 You can knit the document and upload it.
 
 
-
-VIsit the R Graph Gallery by following the link above, and 
-
-
