@@ -1,8 +1,23 @@
 # Working with Data
 
+Congratulations! You're all set up and ready to work with data. That's what we're all here for, right? 
+
+There's a lot to take in while you're getting started, so don't worry if you need to look up the command names or documentation. 
+
+It's important to make good habits when you're starting out, but keep in mind that R is constantly being updated and new packages come out frequently. There are also many ways to get to the same place sometimes, so feel free to get your feet dirty experimenting! 
+
 ```{block, type="caution"}
 This section is still under construction
 ```
+## Base R and the Tidyverse
+
+So far, you've been working with commands that are included when you download R, called [base R](https://rstudio.com/wp-content/uploads/2016/05/base-r.pdf). There are many packages that can go above and beyond base R (an advantage of open-source code), and we'll start by installing a core set of them, called _*the tidyverse*_. The packages included in [the tidyverse](https://www.tidyverse.org/) are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. Each of these serves a different purpose, and you'll get more familiar with them as you begin to write code. 
+
+>The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+
+To get analyze data, you will often need to wrangle it from the raw srtructure into your desired format. Let's get wrangling!
+
+<iframe src="https://giphy.com/embed/g0QGZxpbFueYVluQb4" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/georgestrait-george-strait-heartland-g0QGZxpbFueYVluQb4">via GIPHY</a></p>
 
 ## Loading / Saving Data
 
@@ -10,21 +25,42 @@ This section is still under construction
 This section is still under construction
 ```
 
+
 ### "Taster"(?) list of file forms and sources
 
 ### reading/writing csv
+
+_*Should we mention using the UI or stick to the code?*_ -liz
+
+Let's import some data about animal crossing from the tidytuesday github repo. We'll use the package readr here. The read_csv() function from the readr package is is an example of a command that is faster/better than the similar read.csv() function in base R.
+
+```{r, message = FALSE}
+library(tidyverse) # this loads all of the packages in the tidyverse
+villagers <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/villagers.csv') 
+# `readr::` tells us this command is from the readr package. It's not necessary if there is no conflicting command (ex. another package has a command called `read_csv()` but here it gives us context. Using read_csv() will work just as well.
+```
+
+Okay, so we have an object named `villagers` now, but how do we see what's inside? 
+
+(Would you rather have this is this section or "Practice" or as an assignment? -liz)
+
+```{r}
+str(villagers)
+```
 
 ### Best practices
 
 principles of Tidy Data (wickham 2014)
 
-raw data as read only
+raw data as read only 
 
 ```{block, type="feedback"}
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
-## Downloading and Saving
+## Downloading and Saving 
+
+This section seems like the same as Loading / Saving Data? -liz
 
 ```{block, type="caution"}
 This section is still under construction
