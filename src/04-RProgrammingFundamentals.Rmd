@@ -328,7 +328,7 @@ However, viewing all of the digits stored by R can be distracting and hard to re
 You can show just some of the digits by using the `round` function:
 
 ```{r}
-a
+a <- 0.123456
 ```
 
 ```{r}
@@ -1416,7 +1416,7 @@ rocks
 
 ```{block, type="caution"}
 When defining the `rocks` list, we've spread the command accross multiple lines for clarity.
-The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `'`.
+The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `)`.
 ```
 
 There are so many sets of data that fit into this pattern, that R has a special data type called a _data frame_, which we will discuss in the next section.
@@ -1512,7 +1512,7 @@ names(rocks)[[1]] <- "rock type"
 rocks
 ```
 
-```{block, type="caution"}
+```{block2, type="caution"}
 Row and column names are allowed to have spaces in them, but you must be careful how you access them. 
 The following code will not work: `rocks$rock type` , because R will stop looking for the name you are referencing once it encounters a space. 
 To access this column, you must enclose the reference in "backticks" ( `` ` `` ) like so: ``rocks$`rock type` ``.
@@ -1667,7 +1667,7 @@ Aside from these two attributes, you can list all attributes of an object like t
 attributes(mtcars)
 ```
 
-To access a specific attribute of an object, you can use the dollar sign (`$`):
+To access a specific attribute of an object, you can do this:
 ```{r}
 attr(mtcars, "class")  # get the class attribute for the mtcars dataframe
 ```
