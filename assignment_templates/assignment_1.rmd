@@ -40,13 +40,15 @@ Type `1+1` into the above code chunk (don't include the backticks) and press the
 Here's another code chunk:
 
 ```{r}
-
+12 * 2
 ```
+
+Change the code so that it's computing 12 _divided by_ 2, and press the green play button to run the code.
 
 
 ## Problem 3. 
 
-Enter code in the code chunk below to find the result of 22 divided by 7.
+Type code in the code chunk below to find the result of 22 divided by 7.
 
 ```{r}
 
@@ -121,6 +123,6 @@ Find one post that looks interesting to you and link to it below:
 ## End
 
 This is the end of the assignment!
-You can knit the document and upload it.
+You can knit the document and upload it to Canvas
 
 
