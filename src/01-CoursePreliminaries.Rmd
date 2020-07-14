@@ -78,7 +78,7 @@ First, some important details:
 
 - __Instructor__: [Alex Fout](mailto:fout@colostate.edu)
 
-- __Office Hours__: TBD on Google Meet (look for email invite)
+- __Office Hours__: Held via Google Meet (look for email invite), schedule on Canvas.
 
 - __Webpages__: [Canvas](https://canvas.colostate.edu), [this textbook](https://csu-r.github.io/Module1/)
 
