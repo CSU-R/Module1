@@ -1136,13 +1136,13 @@ is.character(a)
 is.numeric(a)
 ```
 
+
 ```{block, type="bonus"}
 As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (`c`).
 
 To understand more about this, try typing `?c` to bring up the documentation, and have a look at the "Details" section.
 ```
 
-TODO: include conversion b/t character vec and factor vec.
 
 ### Matrices
 
