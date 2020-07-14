@@ -1265,7 +1265,7 @@ Matrices have two dimensions (row and column), and arrays can have any number of
 We won't discuss arrays in this course much.
 ```
 
-```{block, type="progress"}
+```{block2, type="progress"}
 Try running the following code in R, which should produce an error message:
   ```{r, eval=F}
   data <- c(4.5, 6.1, 3.3, 2.0)
