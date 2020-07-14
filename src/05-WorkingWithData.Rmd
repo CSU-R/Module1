@@ -34,7 +34,7 @@ head(Seatbelts)  # view first few rows of the Seatbelts dataset
 This is a good way to learn which variables are being measured (columns) and see some example observations (rows) for each variable.
 Because these data are included with R, more information about each variable can be found with:
 
-```{r}
+```{r, eval=F}
 ?Seatbelts
 ```
 
