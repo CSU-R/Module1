@@ -16,7 +16,8 @@ section_headings <- c(
   "Programming Preliminaries",
   "Data Types",
   "Data Structures",
-  "R Objects"
+  "R Objects",
+  "Quick Example"
 )
 link_prefix <- "https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501="
 
