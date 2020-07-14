@@ -33,7 +33,13 @@ pre {
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre.output-style,
 .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre.output-style,
 .book               .book-body .page-wrapper .page-inner section.normal pre.output-style{
-  /*background: #d1fff8;*/
   background: #fffbcf;
 }
 
+
+/* Set background of code error messages */
+.book.color-theme-1 .book-body .page-wrapper .page-inner section.normal pre.error-style,
+.book.color-theme-2 .book-body .page-wrapper .page-inner section.normal pre.error-style,
+.book               .book-body .page-wrapper .page-inner section.normal pre.error-style{
+  background: #ffd4d4;
+}
