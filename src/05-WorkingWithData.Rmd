@@ -92,6 +92,9 @@ Do you think the question can be answered using the data alone?
 If not, what other sources of data might be available which can help answer the question?
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Quick%20Example)
+``` 
 
 ## Loading / Saving Data
 
