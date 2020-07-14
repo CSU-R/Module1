@@ -86,7 +86,7 @@ Did this also remove `a`, `b`, `c`, and `d`?
 ## Problem 11.
 
 Create a numeric vector called `two` which has elements 1 and 2.
-Create a numeric vector called `four` which has all ones.
+Create a numeric vector called `four` which has four ones.
 Normally you can't add vectors of different length, but let's try anyways.
 Print the result of `two` plus `four`.
 What did R do?
