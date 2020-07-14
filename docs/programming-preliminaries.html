@@ -426,14 +426,15 @@ Here we create two variables and give them different values, notice how they are
 We’ve been using the <code>print</code> function a lot in the above examples, which begins with a lower case p. 
 There is no <code>Print</code> function:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb27-1"><a href="programming-preliminaries.html#cb27-1"></a><span class="kw">Print</span>(<span class="st">&quot;testing&quot;</span>)</span></code></pre></div>
-<pre><code>Error in Print(&quot;testing&quot;): could not find function &quot;Print&quot;</code></pre>
+<pre class="sourceCode r error-style"><code>Error in Print("testing"): could not find function "Print"
+</code></pre>
 </div>
 <div id="section" class="section level3">
 <h3><span class="header-section-number">4.1.5</span> ?</h3>
 <p>One <em>very</em> nice thing in R is the documentation that accompanies it.
 Every function included in R (like <code>print</code>) has documentation that explains how that function works.
 To access the documentation, use a <code>?</code> followed by the name of the function, like so:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb29-1"><a href="programming-preliminaries.html#cb29-1"></a>?print</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb28-1"><a href="programming-preliminaries.html#cb28-1"></a>?print</span></code></pre></div>
 <div class="progress">
 <p>
 The output of the above code chunk is not shown, because the result of this code is best viewed in RStudio. Go to R Studio and type in <code>?print</code> and observe what happens!
@@ -445,7 +446,7 @@ The output of the above code chunk is not shown, because the result of this code
 <p>If you don’t remember the exact name of a function, or would like to search for general matches to a topic, then you can use <code>??</code>.
 For example, trying <code>?Print</code> produces an error, because there is not <code>Print</code> function (remember, R is case sensitive), so there’s no documentation to go with it.
 However, the following should still work:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb30-1"><a href="programming-preliminaries.html#cb30-1"></a>??Print</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb29-1"><a href="programming-preliminaries.html#cb29-1"></a>??Print</span></code></pre></div>
 <div class="bonus">
 <p>
 Programmers have a sense of humor, too! Try running <code>????print</code> to see a small joke. Remember, comedic taste varies!

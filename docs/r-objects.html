@@ -299,11 +299,11 @@ In many programming languages, functions are handled differently from other type
 <h3><span class="header-section-number">4.4.2</span> Assigning Objects</h3>
 <p>Any object can be assigned to a variable, as we’ve been doing already.
 Here’s an example:</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb310-1"><a href="r-objects.html#cb310-1"></a>a &lt;-<span class="st"> &quot;pink pineapple&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb301-1"><a href="r-objects.html#cb301-1"></a>a &lt;-<span class="st"> &quot;pink pineapple&quot;</span></span></code></pre></div>
 <p>The <code>&lt;-</code> is called an <em>assignment operator</em>.
 This is the most common way of assigning objects in R, but there are others.
 Sometimes you may see:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb311-1"><a href="r-objects.html#cb311-1"></a>a =<span class="st"> &quot;pink pineapple&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb302-1"><a href="r-objects.html#cb302-1"></a>a =<span class="st"> &quot;pink pineapple&quot;</span></span></code></pre></div>
 <p>which in <em>most cases</em>, has the exact same effect as using the <code>&lt;-</code>, but in a few instances, it has a different effect.
 Our recommendation is to always use <code>&lt;-</code> when making object assignments.</p>
 <div class="bonus">
@@ -312,10 +312,10 @@ There are other assignment operators as well, <code>&lt;&lt;-</code>, <code>-&gt
 </p>
 </div>
 <p>One neat thing you can do is assign multiple variables at the same time:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb312-1"><a href="r-objects.html#cb312-1"></a>a &lt;-<span class="st"> </span>b &lt;-<span class="st"> &quot;Hello&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb313-1"><a href="r-objects.html#cb313-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb303-1"><a href="r-objects.html#cb303-1"></a>a &lt;-<span class="st"> </span>b &lt;-<span class="st"> &quot;Hello&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb304-1"><a href="r-objects.html#cb304-1"></a>a</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb315-1"><a href="r-objects.html#cb315-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb306-1"><a href="r-objects.html#cb306-1"></a>b</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
 <div class="caution">
 <p>
@@ -327,11 +327,11 @@ Even though <code>a</code> and <code>b</code> were assigned at the same time, th
 <h3><span class="header-section-number">4.4.3</span> Attributes</h3>
 <p>Every object in R has <em>attributes</em>, extra information that’s “attached” to the object.
 <em>Every object</em> has a length attribute:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb317-1"><a href="r-objects.html#cb317-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb317-2"><a href="r-objects.html#cb317-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;au revoir&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb318-1"><a href="r-objects.html#cb318-1"></a><span class="kw">length</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb308-1"><a href="r-objects.html#cb308-1"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb308-2"><a href="r-objects.html#cb308-2"></a>b &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;au revoir&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb309-1"><a href="r-objects.html#cb309-1"></a><span class="kw">length</span>(a)</span></code></pre></div>
 <pre class="output-style"><code>[1] 4</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb320-1"><a href="r-objects.html#cb320-1"></a><span class="kw">length</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb311-1"><a href="r-objects.html#cb311-1"></a><span class="kw">length</span>(b)</span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
 <div class="progress">
 <p>
@@ -340,9 +340,9 @@ Even though <code>a</code> and <code>b</code> were assigned at the same time, th
 </div>
 <p>Every R object has a <em>mode</em> as well, which tells you what <em>type</em> of object you have.
 Here are some examples:</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb322-1"><a href="r-objects.html#cb322-1"></a><span class="kw">mode</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb313-1"><a href="r-objects.html#cb313-1"></a><span class="kw">mode</span>(a)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb324-1"><a href="r-objects.html#cb324-1"></a><span class="kw">mode</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb315-1"><a href="r-objects.html#cb315-1"></a><span class="kw">mode</span>(b)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;character&quot;</code></pre>
 <div class="progress">
 <p>
@@ -350,7 +350,7 @@ Here are some examples:</p>
 </p>
 </div>
 <p>Aside from these two attributes, you can list all attributes of an object like this:</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="r-objects.html#cb326-1"></a><span class="kw">attributes</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb317-1"><a href="r-objects.html#cb317-1"></a><span class="kw">attributes</span>(mtcars)</span></code></pre></div>
 <pre class="output-style"><code>$names
  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
 [11] &quot;carb&quot;
@@ -371,16 +371,16 @@ $row.names
 $class
 [1] &quot;data.frame&quot;</code></pre>
 <p>To access a specific attribute of an object, you can do this:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb328-1"><a href="r-objects.html#cb328-1"></a><span class="kw">attr</span>(mtcars, <span class="st">&quot;class&quot;</span>)  <span class="co"># get the class attribute for the mtcars dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb319-1"><a href="r-objects.html#cb319-1"></a><span class="kw">attr</span>(mtcars, <span class="st">&quot;class&quot;</span>)  <span class="co"># get the class attribute for the mtcars dataframe</span></span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;data.frame&quot;</code></pre>
 </div>
 <div id="null-objects" class="section level3">
 <h3><span class="header-section-number">4.4.4</span> Null Objects</h3>
 <p>There is a special object called the <code>NULL</code> object, which is really just represents “nothing”.
 It’s used mainly if you want to <em>remove</em> an element from a list:</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb330-1"><a href="r-objects.html#cb330-1"></a>a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb330-2"><a href="r-objects.html#cb330-2"></a>a[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="ot">NULL</span>   <span class="co"># replace component 2 with &quot;nothing&quot;</span></span>
-<span id="cb330-3"><a href="r-objects.html#cb330-3"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb321-1"><a href="r-objects.html#cb321-1"></a>a &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb321-2"><a href="r-objects.html#cb321-2"></a>a[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="ot">NULL</span>   <span class="co"># replace component 2 with &quot;nothing&quot;</span></span>
+<span id="cb321-3"><a href="r-objects.html#cb321-3"></a>a</span></code></pre></div>
 <pre class="output-style"><code>[[1]]
 [1] 1
 
@@ -392,14 +392,15 @@ It’s used mainly if you want to <em>remove</em> an element from a list:</p>
 <h3><span class="header-section-number">4.4.5</span> Removing Objects</h3>
 <p>Sometimes you want to <em>get rid</em> of an object!
 In R, you can use the <code>rm</code> function like so:</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="r-objects.html#cb332-1"></a>a &lt;-<span class="st"> &quot;an object&quot;</span></span>
-<span id="cb332-2"><a href="r-objects.html#cb332-2"></a><span class="kw">rm</span>(a)</span>
-<span id="cb332-3"><a href="r-objects.html#cb332-3"></a>a</span></code></pre></div>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;a&#39; not found</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb323-1"><a href="r-objects.html#cb323-1"></a>a &lt;-<span class="st"> &quot;an object&quot;</span></span>
+<span id="cb323-2"><a href="r-objects.html#cb323-2"></a><span class="kw">rm</span>(a)</span>
+<span id="cb323-3"><a href="r-objects.html#cb323-3"></a>a</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in eval(expr, envir, enclos): object 'a' not found
+</code></pre>
 <p>As you can see, the error message indicates that <code>a</code> has been removed.
 Sometimes, you’d like to remove all the objects in your environment.
 To do this, you can use the command:</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb334-1"><a href="r-objects.html#cb334-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb324-1"><a href="r-objects.html#cb324-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span></code></pre></div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects">here</a>
