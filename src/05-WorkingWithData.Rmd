@@ -1,16 +1,112 @@
 # Working with Data
 
 ```{block, type="caution"}
-This section is still under construction
+This chapter is still under construction
 ```
 
+In this Chapter, we'll use R to do interesting things with _data_.
+This is by far the most popular use of the R programming language, and arguably the most fun!
+You'll learn how to load data sets into R, do interesting things with them, and save your results.
+
+## Quick Example
+
+Before diving into detail, let's do a quick example so you can begin to see what is possible with data in R.
+As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the `data()` command.
+One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
+Firstly, we need to convert `Seatbelts` to a dataframe, because it starts out as a "Time-Series", which we haven't discussed.
+```{r}
+Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))
+```
+We've also added a month and year column 
+
+look at the dimensions of the data set with the `dim` command:
+```{r}
+dim(Seatbelts)   # get the number of dimensions in the Seatbelts dataframe
+```
+This shows that there are 192 rows (months), and 9 columns (variables measured each month).
+We could also determine the number of rows and columns separately using the `nrow` and `ncol` functions.
+To view the first few rows of the Seatbelts dataframe, use the `head` command:
+
+```{r}
+head(Seatbelts)  # view first few rows of the Seatbelts dataset
+```
+
+This is a good way to learn which variables are being measured (columns) and see some example observations (rows) for each variable.
+Because these data are included with R, more information about each variable can be found with:
+
+```{r}
+?Seatbelts
+```
+
+Next, let's view a summary of each column with the summary function:
+
+```{r}
+summary(Seatbelts)
+```
+
+Since each column is numeric, R shows a five number summary (minimum, first quartile, median, third quartile, maximum) and mean for each column. 
+We learn, for example, that the average number of drivers killed per month is 1670, and that the greatest price of petrol was £0.13 per litre!
+Let's view a histogram of `DriversKilled`:
+
+```{r, fig.cap="Histogram of Drivers Killed in Seatbelt data"}
+hist(Seatbelts$DriversKilled, breaks=20)
+```
+We see that in some months, more than 150 drivers were killed!
+We can calculate how many exactly like so:
+
+```{r}
+sum(Seatbelts$DriversKilled > 150)
+```
+To investigate the effect of the seat belt law, let's create a scatter plot Drivers killed against time:
+```{r, fig.keep='all', fig.cap="UK Seatbelt deaths vs time"}
+plot(Seatbelts$date, Seatbelts$DriversKilled)
+```
+By adding a `col` argument to the `plot` function, we can color the points based on whether the law was in effect:
+
+```{r, fig.keep='all', fig.cap="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law"}
+plot(Seatbelts$date, Seatbelts$DriversKilled, col=(Seatbelts$law+2))
+```
+
+There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it's difficult to tell.
+Let's change the x-axis to reflect month of the year instead of date:
+
+```{r, fig.cap="UK Driver Deaths vs. Month"}
+plot((Seatbelts$date %% 1) * 12 + 1, Seatbelts$DriversKilled, 
+     xlab = "Month", col=Seatbelts$law + 2)
+```
+This plot shows that there is a clear seasonal effect in the number of deaths with higher deaths occurring in the Fall/Winter compared to Spring/Summer.
+We can also see that within each month, the traffic deaths after enacting the Seatbelt law are among the lowest.
+
+```{block, type="progress"}
+Another data set included in R is `mtcars`. Following the example above, find the dimension of `mtcars` and have R print out a summary of each column, then create a scatter plot of fuel economy (`mpg`) to engine displacement.
+What do you observe about the relationship between these two variables?
+```
+
+This concludes the quick example.
+In the rest of this chapter, we'll talk in more detail about the different steps of working with data, and how to complete them using R!
+
+```{block, type="reflect"}
+People often use data in order to answer questions, but often times, learning about data can generate even _more_ questions than it answers.
+Take a moment to think of a question that you have about the `Seatbelts` dataset. 
+Do you think the question can be answered using the data alone?
+If not, what other sources of data might be available which can help answer the question?
+```
+
+
 ## Loading / Saving Data
+
 
 ```{block, type="caution"}
 This section is still under construction
 ```
 
 ### "Taster"(?) list of file forms and sources
+
+### Data Format
+
+Talk about what columns and rows mean 
+
+(long vs. wide? probably not...)
 
 ### reading/writing csv
 
