@@ -391,7 +391,10 @@ Notice also that we didn’t have to change the defining quotes to be double quo
 The backslash is called the <em>escape character</em>, and it signifies that what follows it should be interpreted <em>literally</em> by R, and any special meaning should be ignored.</p>
 <div class="bonus">
 <p>
-Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: <code>g &lt;- “here is a backslash: \”</code>
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another backslash, which functions as an escape character, like so: <code>g &lt;- “here is a backslash: \\”</code>. You will see both backslashes when using the <code>print</code> function (which is meant for any data type), but if you use the special <code>cat</code> function (which is meant for character types specifically), all escape characters will be “processed”, and you will see just a single backslash.
+</p>
+<p>
+Try the same thing with the newline character, <code>\n</code>!
 </p>
 <p>
 To see a list of special characters, try typing <code>?Quotes</code> into the R console

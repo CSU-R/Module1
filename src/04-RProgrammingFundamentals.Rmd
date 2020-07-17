@@ -400,7 +400,9 @@ Notice also that we didn't have to change the defining quotes to be double quote
 The backslash is called the _escape character_, and it signifies that what follows it should be interpreted _literally_ by R, and any special meaning should be ignored. 
 
 ```{block, type="bonus"}
-Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another backslash, which functions as an escape character, like so: `g <- "here is a backslash: \\\\"`. You will see both backslashes when using the `print` function (which is meant for any data type), but if you use the special `cat` function (which is meant for character types specifically), all escape characters will be "processed", and you will see just a single backslash. 
+
+Try the same thing with the newline character, `\\n`!
 
 To see a list of special characters, try typing `?Quotes` into the R console
 ```
