@@ -18,7 +18,7 @@ When two humans communicate with a language, they both must agree on the the rul
 
 R also has rules that must be followed in order for a human ( _you_ ) to communicate with a computer, in order to tell the computer what to do.
 In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
-With R, the fules are fixed, and the computer "knows" them perfectly.
+With R, the rules are fixed, and the computer "knows" them perfectly.
 It is up to you to learn the rules in order to make the computer do exactly what you want it to do.
 
 Since any computer programming language will do exactly what you tell it to do,
@@ -58,7 +58,7 @@ x <- 1+1; print(x); print(x^2)
 In this example, three commands are given on one line.
 The first command creates a new _variable_ called `x`, the second command prints the value of `x`, and the third command prints the value of `x` _squared_.
 We see that the semicolon, `;`, serves as the command _termination_, because it tells R where one command ends and another begins.
-When a line contains a single command, no semicolon in necessary at the end, but including a semicolon doesn't have any effect either.
+When a line contains a single command, no semicolon is necessary at the end, but including a semicolon doesn't have any effect either.
 
 ```{r, class.source="chunk-style"}
 print("This line doesn't have a semicolon")
@@ -72,7 +72,7 @@ Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```{block, type="bonus"}
 You've just seen your first example of _assignment_.
 That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
-Formally `x` is called an object, but we'll talk about that more objects and assignments later.
+Formally `x` is called an object, but we'll talk more about objects and assignment later.
 ```
 
 
@@ -119,9 +119,9 @@ At this point there is no practical difference, each command gets executed wheth
 However, code grouping will become very important later on, when we discuss _control flow_ later.
 
 ```{block, type="bonus"}
-There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parentheses too. 
 
-You can also use tab completion with functions and defined variables. Tab completion allows you to use the same amount of time using a longer, descriptive variable name as a short, meaningless, and easily confused one. This can save you a lot of time and reduce mistakes! 
+You can also use tab completion with functions and defined variables. Tab completion allows you to use longer, more descriptive variable names without the additional typing time. This can save you a lot of time and reduce mistakes! 
 ```
 
 ```{block, type="progress"}

@@ -153,7 +153,7 @@ In a browser, navigate to [rdrr.io/snippets](https://rdrr.io/snippets/){target="
 knitr::include_graphics("src/images/rdrr.png")
 ```
 
-The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from `library(ggplot2)` to `factor(cyl))`.
+The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from before `library(ggplot2)` to after `factor(cyl))`.
 In its place, type `1+1`, then click the big green "Run" button.
 You should see the `[1] 2` displayed below.
 So if you give R a math expression, it will evaluate it and give the result.

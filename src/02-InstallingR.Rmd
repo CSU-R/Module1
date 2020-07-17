@@ -82,7 +82,7 @@ From this point, this will change depending on your operating system.
 #### Windows
 
 - Click "Download R for Windows", then click "base". 
-- Finally, Click "Download R X.Y.Z for Windows", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
+- Finally, Click "Download R X.Y.Z for Windows", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r r_version`.
 - Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your `Downloads` folder or the `Desktop`) and select "save".
 - When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.
 - Follow the on screen prompts. For the most part you can click "next" and "install" as appropriate, and you don't have to worry about changing any installation settings.
@@ -95,7 +95,7 @@ From this point, this will change depending on your operating system.
 #### Mac OS X
 
 - Click "Download R for (Mac) OS X"
-- Click "R-X.Y.Z.pkg", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r_version`.
+- Click "R-X.Y.Z.pkg", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r r_version`.
 - Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select "save".
 - When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process. 
 - Follow the on screen prompts. For the most part you can click "continue", "agree", "install", as appropriate, and you don't have to worry about changing any installation settings.
@@ -175,7 +175,7 @@ Now that you're somewhat familiar with RStudio, let's run the same code as we ra
 
 ### The R Console:
 
-In the _R console_, type `1+1` and press enter.
+In the _R console_, type `1+1` and press `enter`.
 The output in the console should look like the following:
 
 ```{r, fig.cap="code in the console", echo=F}
@@ -193,22 +193,22 @@ If you haven't already, create a new R script by clicking on the `New File` icon
 knitr::include_graphics("src/images/rstudio_newfile.png")
 ```
 
-In the script window which opens, type `1+1` and press enter.
+In the script window which opens, type `1+1` and press `enter`.
 Notice how now, the code did _not_ run?
 In a script, you are free to write R code on several lines before you run it. 
 You can even save the script  and load it later in order to run the code it contains.
 There are multiple ways to run R code in a script.
 To run a single line of code, do one of the following:
 
-- Place the cursor on the desired line, hold the `<control>` key, and press enter. On Mac OS X, hold `<command>` key and press enter instead
-- Place the curse on the desired line and click the `Run` button that looks like this:
+- Place the cursor on the desired line, hold the `<control>` key, and press `enter`. On Mac OS X, hold `<command>` key and press `return` instead
+- Place the cursor on the desired line and click the `Run` button that looks like this:
 
 ```{r, fig.cap="code in the console", echo=F}
 knitr::include_graphics("src/images/rstudio_run.png")
 ```
 
 To run multiple lines of code, do one of the following:
-- Highlight all the code you'd like to run, hold the `<control>` key, and press enter. On Mac OS X, hold the `<command>` key and press enter instead.
+- Highlight all the code you'd like to run, hold the `<control>` key, and press `enter`. On Mac OS X, hold the `<command>` key and press `return` instead.
 - Highlight all the code you'd like to run, and click the `Run` button.
 
 Run the `1+1` code using one of the methods above, and observe the output. 
@@ -395,7 +395,11 @@ rm(list=ls())  # Clear everything in your workspace
 gc()           # perform garbage collection
 ```
 
-You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l`.
+You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l` (careful! that's a lowercase L).
+
+```{bonus}
+Here's a [more complete list](https://support.rstudio.com/hc/en-us/articles/200711853) of RStudio shortcuts.
+```
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
