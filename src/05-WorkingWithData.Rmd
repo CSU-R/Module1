@@ -1,5 +1,11 @@
 # Working with Data
 
+Congratulations! You're all set up and ready to work with data. That's what we're all here for, right? 
+
+There's a lot to take in while you're getting started, so don't worry if you need to look up the command names or documentation. 
+
+It's important to make good habits when you're starting out, but keep in mind that R is constantly being updated and new packages come out frequently. There are also many ways to get to the same place sometimes, so feel free to get your feet dirty experimenting! 
+
 ```{block, type="caution"}
 This chapter is still under construction
 ```
@@ -17,6 +23,7 @@ Firstly, we need to convert `Seatbelts` to a dataframe, because it starts out as
 ```{r}
 Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))
 ```
+
 We've also added a month and year column 
 
 look at the dimensions of the data set with the `dim` command:
@@ -103,6 +110,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 This section is still under construction
 ```
 
+
 ### "Taster"(?) list of file forms and sources
 
 ### Data Format
@@ -113,17 +121,35 @@ Talk about what columns and rows mean
 
 ### reading/writing csv
 
+Let's import some data about animal crossing from the tidytuesday github repo. We'll use the package readr here. The read_csv() function from the readr package is is an example of a command that is faster/better than the similar read.csv() function in base R.
+
+```{r, message = FALSE}
+library(tidyverse) # this loads all of the packages in the tidyverse
+villagers <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/villagers.csv') 
+# `readr::` tells us this command is from the readr package. It's not necessary if there is no conflicting command (ex. another package has a command called `read_csv()` but here it gives us context. Using read_csv() will work just as well.
+```
+
+Okay, so we have an object named `villagers` now, but how do we see what's inside? 
+
+(Would you rather have this is this section or "Practice" or as an assignment? -liz)
+
+```{r}
+str(villagers)
+```
+
 ### Best practices
 
 principles of Tidy Data (wickham 2014)
 
-raw data as read only
+raw data as read only 
 
 ```{block, type="feedback"}
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
-## Downloading and Saving
+## Downloading and Saving 
+
+
 
 ```{block, type="caution"}
 This section is still under construction
