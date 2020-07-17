@@ -22,6 +22,12 @@ biblio-style: apalike
 # class.output="output-style"    Use the CSS style "output-style" to style output of code chunks
 knitr::opts_chunk$set(fig.align="center", comment=NA, results="hold", class.source="chunk-style", class.output="output-style")
 
+knitr::knit_hooks$set(
+  error = function(x, options){
+    paste0('\n<pre class="sourceCode r error-style"><code>', x, '</code></pre>')
+  }
+)
+
 # A recent change in RMarkdown required this change. 
 
 

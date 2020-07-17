@@ -18,7 +18,7 @@ When two humans communicate with a language, they both must agree on the the rul
 
 R also has rules that must be followed in order for a human ( _you_ ) to communicate with a computer, in order to tell the computer what to do.
 In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
-With R, the fules are fixed, and the computer "knows" them perfectly.
+With R, the rules are fixed, and the computer "knows" them perfectly.
 It is up to you to learn the rules in order to make the computer do exactly what you want it to do.
 
 Since any computer programming language will do exactly what you tell it to do,
@@ -58,7 +58,7 @@ x <- 1+1; print(x); print(x^2)
 In this example, three commands are given on one line.
 The first command creates a new _variable_ called `x`, the second command prints the value of `x`, and the third command prints the value of `x` _squared_.
 We see that the semicolon, `;`, serves as the command _termination_, because it tells R where one command ends and another begins.
-When a line contains a single command, no semicolon in necessary at the end, but including a semicolon doesn't have any effect either.
+When a line contains a single command, no semicolon is necessary at the end, but including a semicolon doesn't have any effect either.
 
 ```{r, class.source="chunk-style"}
 print("This line doesn't have a semicolon")
@@ -72,7 +72,7 @@ Including multiple semicolons (e.g. `print("hello");;`) does not work!
 ```{block, type="bonus"}
 You've just seen your first example of _assignment_.
 That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
-Formally `x` is called an object, but we'll talk about that more objects and assignments later.
+Formally `x` is called an object, but we'll talk more about objects and assignment later.
 ```
 
 
@@ -119,9 +119,9 @@ At this point there is no practical difference, each command gets executed wheth
 However, code grouping will become very important later on, when we discuss _control flow_ later.
 
 ```{block, type="bonus"}
-There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parenthesis too. 
+There are several helpful shortcuts that you can use in R. If you forget to put quotes around something, you can highlight and press the quote key and it will add quotes to both sides. This works with parentheses too. 
 
-You can also use tab completion with functions and defined variables. Tab completion allows you to use the same amount of time using a longer, descriptive variable name as a short, meaningless, and easily confused one. This can save you a lot of time and reduce mistakes! 
+You can also use tab completion with functions and defined variables. Tab completion allows you to use longer, more descriptive variable names without the additional typing time. This can save you a lot of time and reduce mistakes! 
 ```
 
 ```{block, type="progress"}
@@ -230,7 +230,11 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
 
+```{block2, type="reflect"}
 
+A common mistake is forgetting to put things in quotes. Try highlighting a word then pressing the quote key. What would you expect to happen and what actually happens? Try again with parenthesis. Do you think this shortcut makes it easier to write code in R?
+
+```
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming%20Preliminaries)
 ``` 
@@ -328,7 +332,7 @@ However, viewing all of the digits stored by R can be distracting and hard to re
 You can show just some of the digits by using the `round` function:
 
 ```{r}
-a
+a <- 0.123456
 ```
 
 ```{r}
@@ -400,7 +404,9 @@ Notice also that we didn't have to change the defining quotes to be double quote
 The backslash is called the _escape character_, and it signifies that what follows it should be interpreted _literally_ by R, and any special meaning should be ignored. 
 
 ```{block, type="bonus"}
-Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another escape character, like so: `g <- "here is a backslash: \\"`
+Since backslash also has special meaning itself, if you want a backslash in your string, you need to use another backslash, which functions as an escape character, like so: `g <- "here is a backslash: \\\\"`. You will see both backslashes when using the `print` function (which is meant for any data type), but if you use the special `cat` function (which is meant for character types specifically), all escape characters will be "processed", and you will see just a single backslash. 
+
+Try the same thing with the newline character, `\\n`!
 
 To see a list of special characters, try typing `?Quotes` into the R console
 ```
@@ -1136,13 +1142,13 @@ is.character(a)
 is.numeric(a)
 ```
 
+
 ```{block, type="bonus"}
 As we've seen, type conversion is sometimes performed automatically, specifically when using the combine function (`c`).
 
 To understand more about this, try typing `?c` to bring up the documentation, and have a look at the "Details" section.
 ```
 
-TODO: include conversion b/t character vec and factor vec.
 
 ### Matrices
 
@@ -1265,7 +1271,7 @@ Matrices have two dimensions (row and column), and arrays can have any number of
 We won't discuss arrays in this course much.
 ```
 
-```{block, type="progress"}
+```{block2, type="progress"}
 Try running the following code in R, which should produce an error message:
   ```{r, eval=F}
   data <- c(4.5, 6.1, 3.3, 2.0)
@@ -1416,7 +1422,7 @@ rocks
 
 ```{block, type="caution"}
 When defining the `rocks` list, we've spread the command accross multiple lines for clarity.
-The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `'`.
+The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `)`.
 ```
 
 There are so many sets of data that fit into this pattern, that R has a special data type called a _data frame_, which we will discuss in the next section.
@@ -1512,7 +1518,7 @@ names(rocks)[[1]] <- "rock type"
 rocks
 ```
 
-```{block, type="caution"}
+```{block2, type="caution"}
 Row and column names are allowed to have spaces in them, but you must be careful how you access them. 
 The following code will not work: `rocks$rock type` , because R will stop looking for the name you are referencing once it encounters a space. 
 To access this column, you must enclose the reference in "backticks" ( `` ` `` ) like so: ``rocks$`rock type` ``.
@@ -1667,7 +1673,7 @@ Aside from these two attributes, you can list all attributes of an object like t
 attributes(mtcars)
 ```
 
-To access a specific attribute of an object, you can use the dollar sign (`$`):
+To access a specific attribute of an object, you can do this:
 ```{r}
 attr(mtcars, "class")  # get the class attribute for the mtcars dataframe
 ```
