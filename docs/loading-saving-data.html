@@ -224,10 +224,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
 <li class="chapter" data-level="5.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html"><i class="fa fa-check"></i><b>5.2</b> Loading / Saving Data</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html#taster-list-of-file-forms-and-sources"><i class="fa fa-check"></i><b>5.2.1</b> “Taster”(?) list of file forms and sources</a></li>
-<li class="chapter" data-level="5.2.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html#data-format"><i class="fa fa-check"></i><b>5.2.2</b> Data Format</a></li>
-<li class="chapter" data-level="5.2.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#readingwriting-csv"><i class="fa fa-check"></i><b>5.2.3</b> reading/writing csv</a></li>
-<li class="chapter" data-level="5.2.4" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices"><i class="fa fa-check"></i><b>5.2.4</b> Best practices</a></li>
+<li class="chapter" data-level="5.2.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
+<li class="chapter" data-level="5.2.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
+<li class="chapter" data-level="5.2.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#taster-list-of-file-forms-and-sources"><i class="fa fa-check"></i><b>5.2.3</b> “Taster”(?) list of file forms and sources</a></li>
+<li class="chapter" data-level="5.2.4" data-path="loading-saving-data.html"><a href="loading-saving-data.html#data-format"><i class="fa fa-check"></i><b>5.2.4</b> Data Format</a></li>
+<li class="chapter" data-level="5.2.5" data-path="loading-saving-data.html"><a href="loading-saving-data.html#readingwriting-csv"><i class="fa fa-check"></i><b>5.2.5</b> reading/writing csv</a></li>
+<li class="chapter" data-level="5.2.6" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices"><i class="fa fa-check"></i><b>5.2.6</b> Best practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="downloading-and-saving.html"><a href="downloading-and-saving.html"><i class="fa fa-check"></i><b>5.3</b> Downloading and Saving</a></li>
 <li class="chapter" data-level="5.4" data-path="working-with-data-1.html"><a href="working-with-data-1.html"><i class="fa fa-check"></i><b>5.4</b> Working With Data</a><ul>
@@ -274,19 +276,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 This section is still under construction
 </p>
 </div>
+<p>Of course, if we want work on data which is NOT included in R, then we have to load that data into R in order to work with it.
+That is, the data are normally somewhere on your computer’s hard drive (or SSD), and you must run a command in R which loads that data into your R environment.</p>
+<div id="olympic-athletes-example" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Olympic Athletes Example</h3>
+<p>Let’s look another example, this time with a data set of Olympic athletes.
+Here’s how we’ll load them into R:</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb339-1"><a href="loading-saving-data.html#cb339-1"></a><span class="co"># Load the csv file into a data frame:</span></span>
+<span id="cb339-2"><a href="loading-saving-data.html#cb339-2"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
+<span id="cb339-3"><a href="loading-saving-data.html#cb339-3"></a></span>
+<span id="cb339-4"><a href="loading-saving-data.html#cb339-4"></a><span class="co"># print a summary of the data frame</span></span>
+<span id="cb339-5"><a href="loading-saving-data.html#cb339-5"></a><span class="kw">summary</span>(athletes)</span></code></pre></div>
+<pre class="output-style"><code>       ID             Name               Sex                 Age       
+ Min.   :     1   Length:271116      Length:271116      Min.   :10.00  
+ 1st Qu.: 34643   Class :character   Class :character   1st Qu.:21.00  
+ Median : 68205   Mode  :character   Mode  :character   Median :24.00  
+ Mean   : 68249                                         Mean   :25.56  
+ 3rd Qu.:102097                                         3rd Qu.:28.00  
+ Max.   :135571                                         Max.   :97.00  
+                                                        NA&#39;s   :9474   
+     Height          Weight          Team               NOC           
+ Min.   :127.0   Min.   : 25.0   Length:271116      Length:271116     
+ 1st Qu.:168.0   1st Qu.: 60.0   Class :character   Class :character  
+ Median :175.0   Median : 70.0   Mode  :character   Mode  :character  
+ Mean   :175.3   Mean   : 70.7                                        
+ 3rd Qu.:183.0   3rd Qu.: 79.0                                        
+ Max.   :226.0   Max.   :214.0                                        
+ NA&#39;s   :60171   NA&#39;s   :62875                                        
+    Games                Year         Season              City          
+ Length:271116      Min.   :1896   Length:271116      Length:271116     
+ Class :character   1st Qu.:1960   Class :character   Class :character  
+ Mode  :character   Median :1988   Mode  :character   Mode  :character  
+                    Mean   :1978                                        
+                    3rd Qu.:2002                                        
+                    Max.   :2016                                        
+                                                                        
+    Sport              Event              Medal          
+ Length:271116      Length:271116      Length:271116     
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+                                                         </code></pre>
+
+<div class="caution">
+The above command only works because the data set is in a particular location (the data folder), and is in a particular format (csv).
+In the sections that follow, we’ll discuss how to address both of these issues.
+</div>
+
+</div>
+<div id="locating-your-data-set" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Locating your data set</h3>
+<p>R is capable of loading data from your computer, no matter where it is, as long as you “point” R to the correct location.
+The location is usually specified with a <em>file path</em>, which is a character string that specifies the folder structure that holds your file.
+By default, R starts “looking” from the current working directory, and the file path used was <code>data_raw/olympic_athletes.csv</code>.
+This means that R will look inside the current working directory for a folder called <code>data_raw</code>, and if it exists, R will look inside <code>data_raw</code> for a file called <code>olympic_athletes.csv</code>.
+In this class, you should be working within an rstudio project, which automatically sets the working directory.
+If you created the folders as instructed earlier, then you should have a <code>data_raw</code> folder!</p>
+
+<div class="progress">
+Download the olympic athletes data set from <a href="data_raw/olympic_athletes.csv">this link</a> and save it in your <code>data_raw</code> folder.
+</div>
+
+<p>[]</p>
+<p>Create some summary statistics
+put those in list
+save as rdata</p>
+</div>
 <div id="taster-list-of-file-forms-and-sources" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> “Taster”(?) list of file forms and sources</h3>
+<h3><span class="header-section-number">5.2.3</span> “Taster”(?) list of file forms and sources</h3>
 </div>
 <div id="data-format" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Data Format</h3>
+<h3><span class="header-section-number">5.2.4</span> Data Format</h3>
 <p>Talk about what columns and rows mean</p>
 <p>(long vs. wide? probably not…)</p>
 </div>
 <div id="readingwriting-csv" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> reading/writing csv</h3>
+<h3><span class="header-section-number">5.2.5</span> reading/writing csv</h3>
 </div>
 <div id="best-practices" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Best practices</h3>
+<h3><span class="header-section-number">5.2.6</span> Best practices</h3>
 <p>principles of Tidy Data (wickham 2014)</p>
 <p>raw data as read only</p>
 <div class="feedback">

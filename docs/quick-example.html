@@ -224,10 +224,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
 <li class="chapter" data-level="5.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html"><i class="fa fa-check"></i><b>5.2</b> Loading / Saving Data</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html#taster-list-of-file-forms-and-sources"><i class="fa fa-check"></i><b>5.2.1</b> “Taster”(?) list of file forms and sources</a></li>
-<li class="chapter" data-level="5.2.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html#data-format"><i class="fa fa-check"></i><b>5.2.2</b> Data Format</a></li>
-<li class="chapter" data-level="5.2.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#readingwriting-csv"><i class="fa fa-check"></i><b>5.2.3</b> reading/writing csv</a></li>
-<li class="chapter" data-level="5.2.4" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices"><i class="fa fa-check"></i><b>5.2.4</b> Best practices</a></li>
+<li class="chapter" data-level="5.2.1" data-path="loading-saving-data.html"><a href="loading-saving-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
+<li class="chapter" data-level="5.2.2" data-path="loading-saving-data.html"><a href="loading-saving-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
+<li class="chapter" data-level="5.2.3" data-path="loading-saving-data.html"><a href="loading-saving-data.html#taster-list-of-file-forms-and-sources"><i class="fa fa-check"></i><b>5.2.3</b> “Taster”(?) list of file forms and sources</a></li>
+<li class="chapter" data-level="5.2.4" data-path="loading-saving-data.html"><a href="loading-saving-data.html#data-format"><i class="fa fa-check"></i><b>5.2.4</b> Data Format</a></li>
+<li class="chapter" data-level="5.2.5" data-path="loading-saving-data.html"><a href="loading-saving-data.html#readingwriting-csv"><i class="fa fa-check"></i><b>5.2.5</b> reading/writing csv</a></li>
+<li class="chapter" data-level="5.2.6" data-path="loading-saving-data.html"><a href="loading-saving-data.html#best-practices"><i class="fa fa-check"></i><b>5.2.6</b> Best practices</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="downloading-and-saving.html"><a href="downloading-and-saving.html"><i class="fa fa-check"></i><b>5.3</b> Downloading and Saving</a></li>
 <li class="chapter" data-level="5.4" data-path="working-with-data-1.html"><a href="working-with-data-1.html"><i class="fa fa-check"></i><b>5.4</b> Working With Data</a><ul>
@@ -273,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the <code>data()</code> command.
 One of the data sets is <code>Seatbelts</code>, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert <code>Seatbelts</code> to a dataframe, because it starts out as a “Time-Series”, which we haven’t discussed.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1"></a>Seatbelts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">as.matrix</span>(Seatbelts), <span class="dt">date=</span><span class="kw">time</span>(Seatbelts))</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1"></a>Seatbelts &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">as.matrix</span>(Seatbelts), <span class="dt">date=</span><span class="kw">time</span>(Seatbelts))   <span class="co"># convert Time Series to data frame</span></span></code></pre></div>
 <p>We’ve also added a month and year column</p>
 <p>look at the dimensions of the data set with the <code>dim</code> command:</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb327-1"><a href="quick-example.html#cb327-1"></a><span class="kw">dim</span>(Seatbelts)   <span class="co"># get the number of dimensions in the Seatbelts dataframe</span></span></code></pre></div>
@@ -343,8 +345,8 @@ Figure 5.2: UK Seatbelt deaths vs time
 Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law
 </p>
 </div>
-<p>There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it’s difficult to tell.
-Let’s change the x-axis to reflect month of the year instead of date:</p>
+<p>There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it’s difficult to tell.</p>
+<p>Let’s change the x-axis to reflect month of the year instead of date:</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb338-1"><a href="quick-example.html#cb338-1"></a><span class="kw">plot</span>((Seatbelts<span class="op">$</span>date <span class="op">%%</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="dv">12</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, Seatbelts<span class="op">$</span>DriversKilled, </span>
 <span id="cb338-2"><a href="quick-example.html#cb338-2"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="dt">col=</span>Seatbelts<span class="op">$</span>law <span class="op">+</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-315"></span>

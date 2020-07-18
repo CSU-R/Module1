@@ -1,10 +1,15 @@
 # Working with Data
 
+
 ```{block, type="caution"}
 This chapter is still under construction
 ```
 
-In this Chapter, we'll use R to do interesting things with _data_.
+> The goal is to turn data into information, and information into insight.” – Carly Fiorina, former CEO of Hewlett-Packard
+
+In the previous chapter, we've talked about the different types of data that R stores and the different structures that R stores data _in_.
+We've mostly just made up numbers, character strings, and logical values for illustration.
+In this chapter, we'll use R to do interesting things with _real data_.
 This is by far the most popular use of the R programming language, and arguably the most fun!
 You'll learn how to load data sets into R, do interesting things with them, and save your results.
 
@@ -15,7 +20,7 @@ As we mentioned in the last chapter, R includes some pre-packaged data sets, whi
 One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert `Seatbelts` to a dataframe, because it starts out as a "Time-Series", which we haven't discussed.
 ```{r}
-Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))
+Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))   # convert Time Series to data frame
 ```
 We've also added a month and year column 
 
@@ -68,6 +73,7 @@ plot(Seatbelts$date, Seatbelts$DriversKilled, col=(Seatbelts$law+2))
 ```
 
 There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it's difficult to tell.
+
 Let's change the x-axis to reflect month of the year instead of date:
 
 ```{r, fig.cap="UK Driver Deaths vs. Month"}
@@ -98,10 +104,52 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Loading / Saving Data
 
-
 ```{block, type="caution"}
 This section is still under construction
 ```
+
+Of course, if we want work on data which is NOT included in R, then we have to load that data into R in order to work with it.
+That is, the data are normally somewhere on your computer's hard drive (or SSD), and you must run a command in R which loads that data into your R environment. 
+
+
+### Olympic Athletes Example
+
+Let's look another example, this time with a data set of Olympic athletes.
+Here's how we'll load them into R:
+
+```{r}
+# Load the csv file into a data frame:
+athletes <- read.csv("data_raw/olympic_athletes.csv")
+
+# print a summary of the data frame
+summary(athletes)
+```
+
+```{block2, type="caution"}
+The above command only works because the data set is in a particular location (the data folder), and is in a particular format (csv). 
+In the sections that follow, we'll discuss how to address both of these issues.
+```
+
+### Locating your data set
+
+R is capable of loading data from your computer, no matter where it is, as long as you "point" R to the correct location.
+The location is usually specified with a _file path_, which is a character string that specifies the folder structure that holds your file.
+By default, R starts "looking" from the current working directory, and the file path used was `data_raw/olympic_athletes.csv`.
+This means that R will look inside the current working directory for a folder called `data_raw`, and if it exists, R will look inside `data_raw` for a file called `olympic_athletes.csv`.
+In this class, you should be working within an rstudio project, which automatically sets the working directory.
+If you created the folders as instructed earlier, then you should have a `data_raw` folder!
+
+```{block2, type="progress"}
+Download the olympic athletes data set from [this link](data_raw/olympic_athletes.csv) and save it in your `data_raw` folder.
+```
+
+[]
+
+
+Create some summary statistics
+put those in list
+save as rdata
+
 
 ### "Taster"(?) list of file forms and sources
 
