@@ -2,7 +2,7 @@
 
 
 ```{block, type="caution"}
-This chapter is still under construction
+Portions of this chapter are still under construction. Sections in progress will start with a caution block like this one.
 ```
 
 > The goal is to turn data into information, and information into insight.” – Carly Fiorina, former CEO of Hewlett-Packard
@@ -104,10 +104,6 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Reading / Writing Data
 
-```{block, type="caution"}
-This section is still under construction
-```
-
 Of course, if we want work on data which is NOT included in R, then we have to _read_ that data into R in order to work with it.
 That is, the data are normally somewhere on your computer's hard drive (or SSD), and you must run a command in R which _reads_ that data into your R environment. 
 
@@ -195,16 +191,14 @@ We will talk more about different ways to select data when we discuss _indexing_
 Notice also that the write.csv function requires that we give it the name of the dataframe being saved (`athletes2`), then the file path for the csv file that the data will be written to (`"data_clean/olympic_athletes_age_sex.csv"`).
 
 ```{block, type="caution"}
-`write.csv` is an example of a function which takes _multiple arguments_. 
+`write.csv` is an example of a function which takes _multiple arguments_, separating them with a comma (`,`). Usually, these arguments must be specified in order, but more will be said about this later.
 ```
 
 ```{block, type="progress"}
-Create a version of the athletes dataframe which contains the athlete's name and their sport.
+Create a version of the athletes dataframe which contains the athletes' names and their sports.
 Save the new dataframe as a csv file in your data_clean folder with the file name "olympic_athletes_name_sport.csv".
+Include the code in your progress check assignment.
 ```
-
-
-
 
 ```{block, type="caution"}
 The `read` and `write` terminology may seem odd if you have not heard those terms before.
@@ -212,63 +206,280 @@ Your computer's hard drive (or SSD) will store data which will be remembered eve
 The process of getting data from, and putting data on your hard drive (or SSD) is called _reading_ and _writing_.
 ```
 
-### Summary Statistics
-
-Now that we've loaded 
-
-Create some summary statistics
-put those in list
-save as rdata
-
-
-### "Taster"(?) list of file forms and sources
-
-### Data Format
-
-Talk about what columns and rows mean 
-
-(long vs. wide? probably not...)
-
-### Reading / Writing csv
-
-### Best practices
-
-principles of Tidy Data (wickham 2014)
-
-raw data as read only
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Reading%20Writing%20Data)
 ```
 
-## Downloading and Saving
+## Summary Statistics
+
+Reading and writing data is useful, but the power of R is _doing interesting things_ with the data!
+Let's perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis. 
+As we've seen, the `summary` function automatically performs some summary statistics on each column of a dataframe.
+Let's see how to produce these and other results manually.
+
+### Quantitative Variables
+
+To showcase the functions R provides to summarize quantitative variables, we'll look at the `Age` column of our dataframe, which is stored as an integer vector in R.
+
+```{block, type="reflect"}
+What other R data types might be used to store quantitative data?
+```
+
+However, `Age` contains `NA` values, as we know from running the following function:
+
+```{r}
+sum(is.na(athletes$Age))   # count how many NA's are in the Age column
+```
+
+```{block2, type="reflect"}
+Pause and think through what's happening in the above code. The `is.na` function returns a logical array which is true whenever the `Age` column is `NA`. So why does the `sum` function produce the number of `NA`'s?
+```
+
+As a cleaning step, we must first remove the `NA` values:
+```{r}
+age <- athletes$Age         # assign the Ages column to a variable
+age <- age[!is.na(age)]   # extract only the elements which are not NA (more on this when we discuss advanced indexing)
+```
+
+```{block, type="bonus"}
+This type of "data cleaning" is a very common first step when performing data analysis. You will get more opportunities to clean data later in the course.
+```
+
+Here are some functions R provides to summarize quantitative variables.
+```{r}
+age_min <- min(age)     # find the minimum age
+age_med <- median(age)  # find the median age
+age_max <- max(age)     # find the maximum age
+age_mean <- mean(age)   # find the average age
+age_sd <- sd(age)       # find the standard deviation of age
+age_var <- var(age)     # find the variance of age
+```
+
+Let's put all these results in a named list.
+In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.
+
+```{r}
+# Create a list containing all the stats
+age_stats <- list(  # R knows that this command continues until a closed parenthesis
+  min = age_min,   
+  median = age_med, 
+  max = age_max,    
+  mean = age_mean,  
+  sd = age_sd,      
+  var = age_var
+)  # this could all go on one line, but it looks more organized this way.
+age_stats
+```
+
+```{block2, type="progress"}
+Create a list called `weight_stats` with the mean, median, and standard deviation of the `Weight` column.
+```
+
+Visualization will be discussed more later, but we'll show one plot now, to show how multiple summary statistics can be shown at the same time.
+
+```{r, eval=F}
+hist(age, breaks=50)
+abline(v=age_mean, col="blue", lty=2, lwd=3)
+abline(v=age_med, col="red", lty=2, lwd=3)
+```
+```{r, echo=F}
+# not shown but knitted
+{
+hist(age, breaks=50)
+abline(v=age_mean, col="blue", lty=2, lwd=3)
+abline(v=age_med, col="red", lty=2, lwd=3)
+}
+```
+It looks like the distribution of `Age` is _right skewed_, consistent with the fact that the mean is greater than the median.
+
+### Categorical Variables
+
+To showcase the functions R provides for categorical variables, we'll look, at the `Sport` column, which is stored as a character vector in R.
+
+```{block, type="reflect"}
+What other R data types might be used to store categorical data?
+```
+
+Are there any `NA` values in this column?
+
+```{r}
+sport <- athletes$Sport
+sum(is.na(sport))
+```
+
+It turns out the answer is no, so there's no need to remove anything.
+In a character vector like this, we expect there to be many duplicated values.
+We can see a list of all the unique values with the following:
+
+```{r}
+unique(sport)
+```
+
+Using the numbers in brackets to the left as our guide, we can see that there are 66 unique values, but this can also be determined by running:
+
+```{r}
+length(unique(sport))
+```
+It would be nice to see how many times each entry occurs in the data set.
+This is what the `table` function does:
+
+```{r}
+table(sport)
+```
+
+Let's save this table to a list as before:
+```{r}
+# assign summary statistics to variables
+sport_n_unique <- length(unique(sport))
+sport_counts <- table(sport)
+
+# combine them into a list
+sport_stats <- list(
+  number_unique = sport_n_unique,
+  counts = sport_counts
+)
+```
+
+Again, a visualization may be useful here:
+
+```{r, eval=F}
+par(mar=c(5,15,4,2) + 0.1)  # command to make the labels fit
+barplot(table(sport), horiz=T, las=2)   # bar plot
+```
+```{r, fig.height=20, echo=F, fig.asp=2}
+# evaluated, but not shown (because RMarkdown needs brackets)
+{
+par(mar=c(5,15,4,2) + 0.1)  # command to make the labels fit
+barplot(table(sport), horiz=T, las=2)   # bar plot
+}
+```
+
+So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).
+
+```{block2, type="progress"}
+Create a list called `season_stats` with the a table of counts for the `Season` variable.
+```
+
+```{block2, type="caution"}
+It's always important to remember what the rows of your data set represent.
+In the Olympic athletes example, one athlete may occupy multiple rows, if they competed in multiple olympic games.
+This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
+```
+```{block2, type="reflect"}
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the `Height`, `Weight`, and `Sex` variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the dataframe?
+```
+
+### Saving an RData file
+
+Finally, we may want to save these results for use _in R_ later.
+First, we'll create a new list to put our two stats list _in_ (remember, we can have lists inside of other lists!).
+```{r}
+# Create list
+athlete_stats <- list(
+  age = age_stats,
+  sport = sport_stats
+)
+```
+
+```{block2, type="bonus"}
+Remember that the `names` function retrieves the column names for a dataframe? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+The following commands may be useful for remembering what the contents of our stats list:
+  
+  - `names(athlete_stats)`
+  - `names(athlete_stats$age)`
+  - `names(athlete_stats$sport)`
+
+```
+
+To save these results, we can use the `saveRDS` function:
+```{r}
+saveRDS(athlete_stats, "data_clean/athlete_stats.rds")
+```
+
+Later, we can use the following command to load the RDS file back into R:
+```{r}
+rm(athlete_stats)  # remove athlete stats to prove we are loading it from the hard drive
+
+athlete_stats <- readRDS("data_clean/athlete_stats.rds")  # load the RDS file and name it athlete_stats
+
+athlete_stats$age   # show that we have loaded the data by printing the age stats
+```
+```{block2, type="caution"}
+Notice the file ends with _.rds_, indicating that this is a special RDS type which can only be read by R.
+This is different from other data formats like CSV, which are plain text and can be read by other programs like Excel or Sheets.
+RDS should only be used when you want to save work that you want to resume in R later.
+If at all possible, you should prefer using plain text formats rather than RDS.
+```
+
+```{block2, type="bonus"}
+RDS stands for _R Data Serialization_. This is R's version of object serialization, just like the io.Serializable interface in Java or the pickle module in Python.
+As with other languages, R's serialization can only be used in R.
+```
+
+The RDS format works for any R Object, not just lists, so it can be used for vectors, matrices, factors, and even functions.
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Summary%20Statistics)
+``` 
+
+## Data Formatting
+
+Before we continue working with data, here are a few comments about data formatting.
+Many data sets can be thought of as one or more _observations_ of one or more _variables_.
+R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
+Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
+Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
+In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.
+
+```{block, type="bonus"}
+One concept related to data organization is called "Tidy Data", which you can read more about [here](https://vita.had.co.nz/papers/tidy-data.pdf). This focus on tidyness has led to the development of a set of R packages collectively called the "tidyverse", which has become very popular for R analysis. The tidyverse will not be covered in this class, but a later module will provide extensive experience with it.
+```
+
+### "Raw" data vs. "Clean" data.
+
+Why is there a "data_raw" folder and a "data_clean" folder, and not just a "data" folder?
+The idea is that the data_raw folder contains all of the _original_ data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the "data_clean" folder (or possibly even a "results" folder).
+This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
+This is why the data in the folder should be thought of as _read only_. 
+Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
+The "clean" moniker comes from the fact that often times data sets need some "cleaning" such as removing duplicates, `NA` values, discarding irrelevant data, etc.
+There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets. 
+
+```{block2, type="reflect"}
+Perhaps you've never thought about how data should be structured.
+Consider an experiment which measures the temperatures of five guinea pigs is measured for each of four different days.
+Think about organizing each row to be a guinea pig and each column to be a day. 
+Can you think of an R function to compute the average tempareature on day 1?
+How about the average temperature for guinea pig 3?
+How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
+Can you think of another way to organize the data?
+```
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting)
+``` 
+
+## Indexing 
 
 ```{block, type="caution"}
 This section is still under construction
 ```
-```{block, type="video"}
-downloading and saving example csv from canvas or website
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Working With Data
-
-Mostly Dataframes
-
-```{block, type="caution"}
-This section is still under construction
-```
-
 
 ### Basic indexing
 
+For different data types
+
 matrices: can use single index
 
-nested indexing: [[1]][3]
 
 ### Advanced indexing
+
+logical based indexing
+
+which function
+
+nested indexing: [[1]][3]
 
 ```{block, type="bonus"}
 dplyr example
@@ -277,31 +488,26 @@ dplyr example
 Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
 ```
 
+## Basic Plotting
 
-### RData for non-dataframes?
-
-### Summarizing vectors \& Matrices
-
-Mean, std, etc.
-
-### Basic Plotting
+```{block, type="caution"}
+This section is still under construction
+```
 
 ```{block, type="bonus"}
-ggplot example
+brief ggplot example
 ```
+
 ```{block, type="caution"}
 Remember to pay close attention to the syntax when using ggplot. R won't work if parenthesis or quotes are not paired. If you're adding multiple layers, put each on a new line.
 
 Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
 ```
 
-## Practice
+## Vignettes
 
 ```{block, type="caution"}
 This section is still under construction
 ```
 
-```{block, type="progress"}
-asdf
-```
-
+In this section, you'll gain more experience working with data by following along with some more data analysis examples.
