@@ -1290,9 +1290,6 @@ It turns out, matrices can work with non-numeric types as well! But like vectors
 ```
 
 ### Lists
-```{block, type="bonus"}
-[purrr](https://purrr.tidyverse.org/) is a very useful library for working with lists. 
-```
 
 
 A List is an ordered set of _components_.
@@ -1369,6 +1366,10 @@ Below is some R code:
   `C$year <- A[2,2] + B[["age"]]`
 
 Assuming this code works, what are the data structures of A, B, and C?
+```
+
+```{block, type="bonus"}
+[purrr](https://purrr.tidyverse.org/) is a very useful R package for working with lists. 
 ```
 
 #### Lists and Vectors
