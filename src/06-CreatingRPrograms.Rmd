@@ -1,7 +1,7 @@
 # Performing Data Analysis
 
 ```{block, type="caution"}
-This section is still under construction
+This chapter is still under construction
 ```
 
 ## Basic Control Flow
@@ -28,10 +28,6 @@ This section is still under construction
 
 *apply family
 
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
 ## Writing FUnctions
 
 ```{block, type="caution"}
@@ -48,28 +44,9 @@ When writing functions, it helps to start simple. It's easy to make a complicate
 ```
 
 
-caution: use "=" when mapping named arguments, not `<-`.
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
 ## Working With Popular Packages
 
 ```{block, type="caution"}
 This section is still under construction
 ```
 
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
-
-## Assignment
-
-```{block, type="caution"}
-This section is still under construction
-```
-
-```{block, type="assessment"}
-Make R Markdown PDF that covers most/all of CH4: read in data, do basic things with it.
-```
