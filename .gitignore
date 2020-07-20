@@ -5,3 +5,4 @@
 .DS_Store
 git_steps.sh
 libs/
+data_clean/
