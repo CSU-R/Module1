@@ -881,7 +881,11 @@ Predict whether the following are possible:
 - Can you can multiply a logical vector with a numeric vector?
   
 Check whether you are correct by creating some vectors in R and attempting to multiply them together. Can you make sense of the answer?
+If you run into errors, you can include `errors=TRUE` in your code chunk options like this:
   
+` ```{r, errors=TRUE}`
+
+This will allow RStudio to still knit the document, even thought the code block generated errors.
 ```
 
 #### Special Numeric Vectors
@@ -1269,10 +1273,9 @@ We won't discuss arrays in this course much.
 
 ```{block2, type="progress"}
 Try running the following code in R, which should produce an error message:
-  ```{r, eval=F}
-  data <- c(4.5, 6.1, 3.3, 2.0)
-  A <- matrix(data, 2, 3)
-  ```
+
+    `data <- c(4.5, 6.1, 3.3, 2.0); A <- matrix(data, 2, 3);
+
 Read the error message and the code carefully, and see if you can figure out the problem.
 What change would you make to the above code so that it runs?
 ```
@@ -1281,6 +1284,10 @@ Remember everything inside a vector must have the _same data type_.
 Here we've seen that matrices _all have to be numeric data types_.
 Wouldn't it be nice if there were a way to store objects of different types (without doing type conversion)?
 This is what lists can do!
+
+```{block, type="bonus"}
+It turns out, matrices can work with non-numeric types as well! But like vectors, mixed type matrices are not allowed. For this, you'll have to use a dataframe, as we discuss later.
+```
 
 ### Lists
 ```{block, type="bonus"}
@@ -1361,7 +1368,7 @@ Below is some R code:
 
   `C$year <- A[2,2] + B[["age"]]`
 
-Assuming this code works, what are the data types are A, B, and C?
+Assuming this code works, what are the data structures of A, B, and C?
 ```
 
 #### Lists and Vectors
@@ -1442,7 +1449,7 @@ rocks   # we'll add the specimen names later
 
 
 Now when R display `rocks`, it arranges the data in rows and columns, similar to how it displays matrices.
-Unlike matrices, however, columns can have non-numeric data!
+Unlike matrices, however, the columns don't all have to be the same data type!
 
 ```{block, type="caution"}
 Remember that a data frame is basically a list of vectors, so even though it can contain different types of data (because it is a list), each column is a vector, which means each column must have all elements of the same type.
