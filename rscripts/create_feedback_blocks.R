@@ -19,6 +19,11 @@ section_headings <- c(
   "R Objects",
   "Quick Example"
 )
+section_headings <- c(
+  "Reading Writing Data",
+  "Summary Statistics",
+  "Data Formatting"
+)
 link_prefix <- "https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501="
 
 block1 <- "```{block, type='feedback'}
