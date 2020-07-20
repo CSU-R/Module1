@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Workspace setup | R Module 1</title>
+  <title>5.2 Reading / Writing Data | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
+  <meta property="og:title" content="5.2 Reading / Writing Data | R Module 1" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
+  <meta name="twitter:title" content="5.2 Reading / Writing Data | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-code-in-rstudio.html"/>
-<link rel="next" href="reflection.html"/>
+<link rel="prev" href="quick-example.html"/>
+<link rel="next" href="summary-statistics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -270,105 +270,199 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2">
-<h2><span class="header-section-number">3.5</span> Workspace setup</h2>
-<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course</p>
-<div id="recommended-settings" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Recommended Settings</h3>
-<p>First of all, let’s set some settings in RStudio.
-At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
-<ol style="list-style-type: decimal">
-<li>On the left side of the window that pops up, and make sure it’s on the “General” tab</li>
-<li>Find the “Workspace” section on the right, make the following changes:
-– <em>uncheck</em> “Restore .RData into workspace on startup”
-– Change the “Save workspace to .RData on exit” option to <em>never</em></li>
-<li>On the left side, select the “Appearance” tab.</li>
-<li>(Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.</li>
-<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
-<li>Click “Apply”, then “OK” at the bottom of the window.</li>
-</ol>
-<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
-This is a good option for R beginners to avoid confusion and mistakes.
-Step 4 can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
-On Mac OS X, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
+<div id="reading-writing-data" class="section level2">
+<h2><span class="header-section-number">5.2</span> Reading / Writing Data</h2>
+<p>Of course, if we want work on data which is NOT included in R, then we have to <em>read</em> that data into R in order to work with it.
+That is, the data are normally somewhere on your computer’s hard drive (or SSD), and you must run a command in R which <em>reads</em> that data into your R environment.</p>
+<div id="olympic-athletes-example" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Olympic Athletes Example</h3>
+<p>Let’s look another example, this time with a data set of Olympic athletes.
+Here’s how we’ll <em>read</em> them into R:</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb339-1"><a href="reading-writing-data.html#cb339-1"></a><span class="co"># Read the csv file into a data frame called athletes</span></span>
+<span id="cb339-2"><a href="reading-writing-data.html#cb339-2"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
+<span id="cb339-3"><a href="reading-writing-data.html#cb339-3"></a></span>
+<span id="cb339-4"><a href="reading-writing-data.html#cb339-4"></a><span class="co"># print a summary of the data frame</span></span>
+<span id="cb339-5"><a href="reading-writing-data.html#cb339-5"></a><span class="kw">summary</span>(athletes)</span></code></pre></div>
+<pre class="output-style"><code>       ID             Name               Sex                 Age       
+ Min.   :     1   Length:271116      Length:271116      Min.   :10.00  
+ 1st Qu.: 34643   Class :character   Class :character   1st Qu.:21.00  
+ Median : 68205   Mode  :character   Mode  :character   Median :24.00  
+ Mean   : 68249                                         Mean   :25.56  
+ 3rd Qu.:102097                                         3rd Qu.:28.00  
+ Max.   :135571                                         Max.   :97.00  
+                                                        NA&#39;s   :9474   
+     Height          Weight          Team               NOC           
+ Min.   :127.0   Min.   : 25.0   Length:271116      Length:271116     
+ 1st Qu.:168.0   1st Qu.: 60.0   Class :character   Class :character  
+ Median :175.0   Median : 70.0   Mode  :character   Mode  :character  
+ Mean   :175.3   Mean   : 70.7                                        
+ 3rd Qu.:183.0   3rd Qu.: 79.0                                        
+ Max.   :226.0   Max.   :214.0                                        
+ NA&#39;s   :60171   NA&#39;s   :62875                                        
+    Games                Year         Season              City          
+ Length:271116      Min.   :1896   Length:271116      Length:271116     
+ Class :character   1st Qu.:1960   Class :character   Class :character  
+ Mode  :character   Median :1988   Mode  :character   Mode  :character  
+                    Mean   :1978                                        
+                    3rd Qu.:2002                                        
+                    Max.   :2016                                        
+                                                                        
+    Sport              Event              Medal          
+ Length:271116      Length:271116      Length:271116     
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+                                                         </code></pre>
+
+<div class="caution">
+The above command only works because the data set is in a particular location (the data folder), and is in a particular format (csv).
+In the sections that follow, we’ll discuss how to address both of these issues.
 </div>
-<div id="setting-working-directory" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Setting working directory</h3>
-<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
-In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
-This will become more relevant when you start loading data and saving results later in the course.
-For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
+
+</div>
+<div id="locating-your-data-set" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Locating your data set</h3>
+<p>R is capable of reading data from your computer, no matter where it is, as long as you “point” R to the correct location.
+The location is usually specified with a <em>file path</em>, which is a character string that specifies the folder structure that holds your file.
+By default, R starts “looking” from the current working directory, and the file path used was <code>data_raw/olympic_athletes.csv</code>.
+This means that R will look inside the current working directory for a folder called <code>data_raw</code>, and if it exists, R will look inside <code>data_raw</code> for a file called <code>olympic_athletes.csv</code>.
+In this class, you should be working within an rstudio project, which automatically sets the working directory.
+If you created the folders as instructed earlier, then you should already have a <code>data_raw</code> folder in your project directory.</p>
+
+<div class="progress">
+Download the olympic athletes data set from <a href="data_raw/olympic_athletes.csv">this link</a> and save it in your data_raw folder.
+In your progress check document, simply write: “Olympic Data Downloaded”
+</div>
+
+</div>
+<div id="reading-csv-files" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Reading CSV files</h3>
+<p>A common way of storing data in a computer file is called CSV, which stands for <em>comma-separated values</em>.
+These files are <em>plain text</em>, so you can open them in any text editor like Word, Notepad, or even Google Docs.
+Just like a data frame, these files contain data in rows and columns, where on each line, the columns are <em>separated</em> from each other with a comma (<code>,</code>), which is technically called a <em>delimiter</em>.
+Programs like Excel, Google Sheets, and R can read these files and understand their row-column structure.
+In R, the function to read CSV files (as you saw above) is <code>read.csv</code>.
+In addition, if you call up the help file for read.csv using <code>?</code>, you’ll see that there are other similar functions as well, including <code>read.table</code>, and <code>read.delim</code>.</p>
 <div class="bonus">
 <p>
-See <a href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a> for more information about working directories.
+In many object oriented languages, the “dot” (<code>.</code>) is a special symbol used to access an attribute or method of an object. In R, however, variable names and function names can contain a dot, and the dot has no special purpose. There are some exceptions, however, that relate to function overloading, and R formulas, but these are advanced topics that will not be discussed here.
 </p>
 </div>
+<p>These functions are actually all different variations of the same, generic, function called <code>read.table</code>.
+The difference is that <code>read.csv</code>, <code>read.delim</code>, and the others make different assumptions about what delimiters are being used, and how decimal numbers are displayed (e.g. one-and-a-half may be written as <code>1.5</code>, or <code>1,5</code> depending on where you live).
+We will discuss functions and arguments more in the next chapter, but for now, see the following table for when to use each function:</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb341-1"><a href="reading-writing-data.html#cb341-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Function=</span><span class="kw">c</span>(<span class="st">&quot;read.table&quot;</span>, <span class="st">&quot;read.csv&quot;</span>, <span class="st">&quot;read.csv2&quot;</span>, <span class="st">&quot;read.delim&quot;</span>, <span class="st">&quot;read.delim2&quot;</span>), <span class="dt">Delimiter=</span><span class="kw">c</span>(<span class="st">&quot;Must specify with sep=...&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;;&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>), <span class="dt">Decimals=</span><span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb341-2"><a href="reading-writing-data.html#cb341-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(df) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Function
+</th>
+<th style="text-align:left;">
+Delimiter
+</th>
+<th style="text-align:left;">
+Decimals
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+read.table
+</td>
+<td style="text-align:left;">
+Must specify with sep=…
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+read.csv
+</td>
+<td style="text-align:left;">
+,
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+read.csv2
+</td>
+<td style="text-align:left;">
+;
+</td>
+<td style="text-align:left;">
+,
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+read.delim
+</td>
+<td style="text-align:left;">
+tab)
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+read.delim2
+</td>
+<td style="text-align:left;">
+tab)
+</td>
+<td style="text-align:left;">
+,
+</td>
+</tr>
+</tbody>
+</table>
+<p>Any of these functions accepts the argument <code>header=FALSE</code>, which indicates that the first row of the file <em>does not</em> contain column names.
+Without this argument, R will assume the first row <em>does</em> contain column names.
+If our Olympic athletes data did not contain headers in the first row, we would use this:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="reading-writing-data.html#cb342-1"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>, <span class="dt">header=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 </div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class</h3>
-<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects without having to
-For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4">
-<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project</h4>
-<p>To create an RStudio project, follow these steps:</p>
-<ul>
-<li>Click on the “new project” button</li>
-</ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
-<p class="caption">
-Figure 3.4: Click this button to create a new project
-</p>
-</div>
-<ul>
-<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
-<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
-<li>Then click the “Browse” button to select where to place the project.</li>
-<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
-<li>Click on “Create Project”</li>
-</ul>
-<p>You should now be <em>in</em> your newly created project.
-If you look at the Files window in the lower right part of RStudio, you should see the files in your new project directory, which should only be one file, called "RModule1.rproj.
-This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
-When you’re working on this course, you should be working in this project.
-The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
-This will automatically set the working directory to the project directory.</p>
-</div>
-<div id="create-directory-structure" class="section level4">
-<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure</h4>
-<p>To stay organized, you should also create the following folders inside your project directory</p>
-<ul>
-<li>scripts</li>
-<li>data_raw</li>
-<li>data_clean</li>
-<li>output</li>
-</ul>
-<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
-</div>
-<div id="video" class="section level4">
-<h4><span class="header-section-number">3.5.3.3</span> Video</h4>
-<div class="video">
+<div id="writing-csv-files" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Writing CSV files</h3>
+<p>R also has the capability to <em>write</em> a dataframe to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
+Let’s suppose we wanted to save a version of the athletes data with only the <code>Sex</code> and <code>Age</code> columns.
+We could use the <code>write.csv</code> function:</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb343-1"><a href="reading-writing-data.html#cb343-1"></a><span class="co"># make a new dataframe with only the Sex and Age columns</span></span>
+<span id="cb343-2"><a href="reading-writing-data.html#cb343-2"></a>athletes2 &lt;-<span class="st"> </span>athletes[,<span class="kw">c</span>(<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Age&quot;</span>)]</span>
+<span id="cb343-3"><a href="reading-writing-data.html#cb343-3"></a></span>
+<span id="cb343-4"><a href="reading-writing-data.html#cb343-4"></a><span class="co"># save the new data frame as a CSV in the clean data folder</span></span>
+<span id="cb343-5"><a href="reading-writing-data.html#cb343-5"></a><span class="kw">write.csv</span>(athletes2, <span class="st">&quot;data_clean/olympic_athletes_age_sex.csv&quot;</span>)</span></code></pre></div>
+<p>Notice we created a new dataframe by selecting only the desired columns.
+We will talk more about different ways to select data when we discuss <em>indexing</em>.
+Notice also that the write.csv function requires that we give it the name of the dataframe being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
+<div class="caution">
 <p>
-Check out <a href="https://youtu.be/0saBBd6lQDI">this video</a> to watch me set up a project and the new directories.
+<code>write.csv</code> is an example of a function which takes <em>multiple arguments</em>, separating them with a comma (<code>,</code>). Usually, these arguments must be specified in order, but more will be said about this later.
 </p>
 </div>
+<div class="progress">
+<p>
+Create a version of the athletes dataframe which contains the athletes’ names and their sports. Save the new dataframe as a csv file in your data_clean folder with the file name “olympic_athletes_name_sport.csv”. Include the code in your progress check assignment.
+</p>
 </div>
+<div class="caution">
+<p>
+The <code>read</code> and <code>write</code> terminology may seem odd if you have not heard those terms before. Your computer’s hard drive (or SSD) will store data which will be remembered even after you turn off your computer. The process of getting data from, and putting data on your hard drive (or SSD) is called <em>reading</em> and <em>writing</em>.
+</p>
 </div>
-<div id="some-useful-commands-you-should-know" class="section level3">
-<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know</h3>
-<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
-This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2"></a><span class="kw">gc</span>()           <span class="co"># perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  815188 43.6    1561228 83.4  1216032 65.0
-Vcells 1435468 11.0    8388608 64.0  2112140 16.2</code></pre>
-<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
-<pre class="bonus chunk-style"><code>Here&#39;s a [more complete list](https://support.rstudio.com/hc/en-us/articles/200711853) of RStudio shortcuts.</code></pre>
 <div class="feedback">
 <p>
-Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Reading%20Writing%20Data">here</a>
 </p>
 </div>
 </div>
@@ -378,8 +472,8 @@ Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/
           </div>
         </div>
       </div>
-<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reflection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="quick-example.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="summary-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

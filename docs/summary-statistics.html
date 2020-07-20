@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Workspace setup | R Module 1</title>
+  <title>5.3 Summary Statistics | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
+  <meta property="og:title" content="5.3 Summary Statistics | R Module 1" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
+  <meta name="twitter:title" content="5.3 Summary Statistics | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-code-in-rstudio.html"/>
-<link rel="next" href="reflection.html"/>
+<link rel="prev" href="reading-writing-data.html"/>
+<link rel="next" href="data-formatting.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -270,105 +270,280 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2">
-<h2><span class="header-section-number">3.5</span> Workspace setup</h2>
-<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course</p>
-<div id="recommended-settings" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Recommended Settings</h3>
-<p>First of all, let’s set some settings in RStudio.
-At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
-<ol style="list-style-type: decimal">
-<li>On the left side of the window that pops up, and make sure it’s on the “General” tab</li>
-<li>Find the “Workspace” section on the right, make the following changes:
-– <em>uncheck</em> “Restore .RData into workspace on startup”
-– Change the “Save workspace to .RData on exit” option to <em>never</em></li>
-<li>On the left side, select the “Appearance” tab.</li>
-<li>(Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.</li>
-<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
-<li>Click “Apply”, then “OK” at the bottom of the window.</li>
-</ol>
-<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
-This is a good option for R beginners to avoid confusion and mistakes.
-Step 4 can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
-On Mac OS X, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
+<div id="summary-statistics" class="section level2">
+<h2><span class="header-section-number">5.3</span> Summary Statistics</h2>
+<p>Reading and writing data is useful, but the power of R is <em>doing interesting things</em> with the data!
+Let’s perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis.
+As we’ve seen, the <code>summary</code> function automatically performs some summary statistics on each column of a dataframe.
+Let’s see how to produce these and other results manually.</p>
+<div id="quantitative-variables" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Quantitative Variables</h3>
+<p>To showcase the functions R provides to summarize quantitative variables, we’ll look at the <code>Age</code> column of our dataframe, which is stored as an integer vector in R.</p>
+<div class="reflect">
+<p>
+What other R data types might be used to store quantitative data?
+</p>
 </div>
-<div id="setting-working-directory" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Setting working directory</h3>
-<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
-In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
-This will become more relevant when you start loading data and saving results later in the course.
-For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
+<p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(athletes<span class="op">$</span>Age))   <span class="co"># count how many NA&#39;s are in the Age column</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 9474</code></pre>
+
+<div class="reflect">
+Pause and think through what’s happening in the above code. The <code>is.na</code> function returns a logical array which is true whenever the <code>Age</code> column is <code>NA</code>. So why does the <code>sum</code> function produce the number of <code>NA</code>’s?
+</div>
+
+<p>As a cleaning step, we must first remove the <code>NA</code> values:</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb346-1"><a href="summary-statistics.html#cb346-1"></a>age &lt;-<span class="st"> </span>athletes<span class="op">$</span>Age         <span class="co"># assign the Ages column to a variable</span></span>
+<span id="cb346-2"><a href="summary-statistics.html#cb346-2"></a>age &lt;-<span class="st"> </span>age[<span class="op">!</span><span class="kw">is.na</span>(age)]   <span class="co"># extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
 <div class="bonus">
 <p>
-See <a href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a> for more information about working directories.
+This type of “data cleaning” is a very common first step when performing data analysis. You will get more opportunities to clean data later in the course.
 </p>
 </div>
+<p>Here are some functions R provides to summarize quantitative variables.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb347-1"><a href="summary-statistics.html#cb347-1"></a>age_min &lt;-<span class="st"> </span><span class="kw">min</span>(age)     <span class="co"># find the minimum age</span></span>
+<span id="cb347-2"><a href="summary-statistics.html#cb347-2"></a>age_med &lt;-<span class="st"> </span><span class="kw">median</span>(age)  <span class="co"># find the median age</span></span>
+<span id="cb347-3"><a href="summary-statistics.html#cb347-3"></a>age_max &lt;-<span class="st"> </span><span class="kw">max</span>(age)     <span class="co"># find the maximum age</span></span>
+<span id="cb347-4"><a href="summary-statistics.html#cb347-4"></a>age_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(age)   <span class="co"># find the average age</span></span>
+<span id="cb347-5"><a href="summary-statistics.html#cb347-5"></a>age_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(age)       <span class="co"># find the standard deviation of age</span></span>
+<span id="cb347-6"><a href="summary-statistics.html#cb347-6"></a>age_var &lt;-<span class="st"> </span><span class="kw">var</span>(age)     <span class="co"># find the variance of age</span></span></code></pre></div>
+<p>Let’s put all these results in a named list.
+In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb348-1"><a href="summary-statistics.html#cb348-1"></a><span class="co"># Create a list containing all the stats</span></span>
+<span id="cb348-2"><a href="summary-statistics.html#cb348-2"></a>age_stats &lt;-<span class="st"> </span><span class="kw">list</span>(  <span class="co"># R knows that this command continues until a closed parenthesis</span></span>
+<span id="cb348-3"><a href="summary-statistics.html#cb348-3"></a>  <span class="dt">min =</span> age_min,   </span>
+<span id="cb348-4"><a href="summary-statistics.html#cb348-4"></a>  <span class="dt">median =</span> age_med, </span>
+<span id="cb348-5"><a href="summary-statistics.html#cb348-5"></a>  <span class="dt">max =</span> age_max,    </span>
+<span id="cb348-6"><a href="summary-statistics.html#cb348-6"></a>  <span class="dt">mean =</span> age_mean,  </span>
+<span id="cb348-7"><a href="summary-statistics.html#cb348-7"></a>  <span class="dt">sd =</span> age_sd,      </span>
+<span id="cb348-8"><a href="summary-statistics.html#cb348-8"></a>  <span class="dt">var =</span> age_var</span>
+<span id="cb348-9"><a href="summary-statistics.html#cb348-9"></a>)  <span class="co"># this could all go on one line, but it looks more organized this way.</span></span>
+<span id="cb348-10"><a href="summary-statistics.html#cb348-10"></a>age_stats</span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 10
+
+$median
+[1] 24
+
+$max
+[1] 97
+
+$mean
+[1] 25.5569
+
+$sd
+[1] 6.393561
+
+$var
+[1] 40.87762</code></pre>
+
+<div class="progress">
+Create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
 </div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class</h3>
-<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects without having to
-For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4">
-<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project</h4>
-<p>To create an RStudio project, follow these steps:</p>
-<ul>
-<li>Click on the “new project” button</li>
-</ul>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
-<p class="caption">
-Figure 3.4: Click this button to create a new project
-</p>
+
+<p>Visualization will be discussed more later, but we’ll show one plot now, to show how multiple summary statistics can be shown at the same time.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb350-1"><a href="summary-statistics.html#cb350-1"></a><span class="kw">hist</span>(age, <span class="dt">breaks=</span><span class="dv">50</span>)</span>
+<span id="cb350-2"><a href="summary-statistics.html#cb350-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>age_mean, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb350-3"><a href="summary-statistics.html#cb350-3"></a><span class="kw">abline</span>(<span class="dt">v=</span>age_med, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-339-1.png" width="672" style="display: block; margin: auto;" />
+It looks like the distribution of <code>Age</code> is <em>right skewed</em>, consistent with the fact that the mean is greater than the median.</p>
 </div>
-<ul>
-<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
-<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
-<li>Then click the “Browse” button to select where to place the project.</li>
-<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
-<li>Click on “Create Project”</li>
-</ul>
-<p>You should now be <em>in</em> your newly created project.
-If you look at the Files window in the lower right part of RStudio, you should see the files in your new project directory, which should only be one file, called "RModule1.rproj.
-This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
-When you’re working on this course, you should be working in this project.
-The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
-This will automatically set the working directory to the project directory.</p>
-</div>
-<div id="create-directory-structure" class="section level4">
-<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure</h4>
-<p>To stay organized, you should also create the following folders inside your project directory</p>
-<ul>
-<li>scripts</li>
-<li>data_raw</li>
-<li>data_clean</li>
-<li>output</li>
-</ul>
-<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
-</div>
-<div id="video" class="section level4">
-<h4><span class="header-section-number">3.5.3.3</span> Video</h4>
-<div class="video">
+<div id="categorical-variables" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Categorical Variables</h3>
+<p>To showcase the functions R provides for categorical variables, we’ll look, at the <code>Sport</code> column, which is stored as a character vector in R.</p>
+<div class="reflect">
 <p>
-Check out <a href="https://youtu.be/0saBBd6lQDI">this video</a> to watch me set up a project and the new directories.
+What other R data types might be used to store categorical data?
 </p>
 </div>
+<p>Are there any <code>NA</code> values in this column?</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb351-1"><a href="summary-statistics.html#cb351-1"></a>sport &lt;-<span class="st"> </span>athletes<span class="op">$</span>Sport</span>
+<span id="cb351-2"><a href="summary-statistics.html#cb351-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 0</code></pre>
+<p>It turns out the answer is no, so there’s no need to remove anything.
+In a character vector like this, we expect there to be many duplicated values.
+We can see a list of all the unique values with the following:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1"></a><span class="kw">unique</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code> [1] &quot;Basketball&quot;                &quot;Judo&quot;                     
+ [3] &quot;Football&quot;                  &quot;Tug-Of-War&quot;               
+ [5] &quot;Speed Skating&quot;             &quot;Cross Country Skiing&quot;     
+ [7] &quot;Athletics&quot;                 &quot;Ice Hockey&quot;               
+ [9] &quot;Swimming&quot;                  &quot;Badminton&quot;                
+[11] &quot;Sailing&quot;                   &quot;Biathlon&quot;                 
+[13] &quot;Gymnastics&quot;                &quot;Art Competitions&quot;         
+[15] &quot;Alpine Skiing&quot;             &quot;Handball&quot;                 
+[17] &quot;Weightlifting&quot;             &quot;Wrestling&quot;                
+[19] &quot;Luge&quot;                      &quot;Water Polo&quot;               
+[21] &quot;Hockey&quot;                    &quot;Rowing&quot;                   
+[23] &quot;Bobsleigh&quot;                 &quot;Fencing&quot;                  
+[25] &quot;Equestrianism&quot;             &quot;Shooting&quot;                 
+[27] &quot;Boxing&quot;                    &quot;Taekwondo&quot;                
+[29] &quot;Cycling&quot;                   &quot;Diving&quot;                   
+[31] &quot;Canoeing&quot;                  &quot;Tennis&quot;                   
+[33] &quot;Modern Pentathlon&quot;         &quot;Figure Skating&quot;           
+[35] &quot;Golf&quot;                      &quot;Softball&quot;                 
+[37] &quot;Archery&quot;                   &quot;Volleyball&quot;               
+[39] &quot;Synchronized Swimming&quot;     &quot;Table Tennis&quot;             
+[41] &quot;Nordic Combined&quot;           &quot;Baseball&quot;                 
+[43] &quot;Rhythmic Gymnastics&quot;       &quot;Freestyle Skiing&quot;         
+[45] &quot;Rugby Sevens&quot;              &quot;Trampolining&quot;             
+[47] &quot;Beach Volleyball&quot;          &quot;Triathlon&quot;                
+[49] &quot;Ski Jumping&quot;               &quot;Curling&quot;                  
+[51] &quot;Snowboarding&quot;              &quot;Rugby&quot;                    
+[53] &quot;Short Track Speed Skating&quot; &quot;Skeleton&quot;                 
+[55] &quot;Lacrosse&quot;                  &quot;Polo&quot;                     
+[57] &quot;Cricket&quot;                   &quot;Racquets&quot;                 
+[59] &quot;Motorboating&quot;              &quot;Military Ski Patrol&quot;      
+[61] &quot;Croquet&quot;                   &quot;Jeu De Paume&quot;             
+[63] &quot;Roque&quot;                     &quot;Alpinism&quot;                 
+[65] &quot;Basque Pelota&quot;             &quot;Aeronautics&quot;              </code></pre>
+<p>Using the numbers in brackets to the left as our guide, we can see that there are 66 unique values, but this can also be determined by running:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 66</code></pre>
+<p>It would be nice to see how many times each entry occurs in the data set.
+This is what the <code>table</code> function does:</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb357-1"><a href="summary-statistics.html#cb357-1"></a><span class="kw">table</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code>sport
+              Aeronautics             Alpine Skiing                  Alpinism 
+                        1                      8829                        25 
+                  Archery          Art Competitions                 Athletics 
+                     2334                      3578                     38624 
+                Badminton                  Baseball                Basketball 
+                     1457                       894                      4536 
+            Basque Pelota          Beach Volleyball                  Biathlon 
+                        2                       564                      4893 
+                Bobsleigh                    Boxing                  Canoeing 
+                     3058                      6047                      6171 
+                  Cricket                   Croquet      Cross Country Skiing 
+                       24                        19                      9133 
+                  Curling                   Cycling                    Diving 
+                      463                     10859                      2842 
+            Equestrianism                   Fencing            Figure Skating 
+                     6344                     10735                      2298 
+                 Football          Freestyle Skiing                      Golf 
+                     6745                       937                       247 
+               Gymnastics                  Handball                    Hockey 
+                    26707                      3665                      5417 
+               Ice Hockey              Jeu De Paume                      Judo 
+                     5516                        11                      3801 
+                 Lacrosse                      Luge       Military Ski Patrol 
+                       60                      1479                        24 
+        Modern Pentathlon              Motorboating           Nordic Combined 
+                     1677                        17                      1344 
+                     Polo                  Racquets       Rhythmic Gymnastics 
+                       95                        12                       658 
+                    Roque                    Rowing                     Rugby 
+                        4                     10595                       162 
+             Rugby Sevens                   Sailing                  Shooting 
+                      299                      6586                     11448 
+Short Track Speed Skating                  Skeleton               Ski Jumping 
+                     1534                       199                      2401 
+             Snowboarding                  Softball             Speed Skating 
+                      936                       478                      5613 
+                 Swimming     Synchronized Swimming              Table Tennis 
+                    23195                       909                      1955 
+                Taekwondo                    Tennis              Trampolining 
+                      606                      2862                       152 
+                Triathlon                Tug-Of-War                Volleyball 
+                      529                       170                      3404 
+               Water Polo             Weightlifting                 Wrestling 
+                     3846                      3937                      7154 </code></pre>
+<p>Let’s save this table to a list as before:</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb359-1"><a href="summary-statistics.html#cb359-1"></a><span class="co"># assign summary statistics to variables</span></span>
+<span id="cb359-2"><a href="summary-statistics.html#cb359-2"></a>sport_n_unique &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span>
+<span id="cb359-3"><a href="summary-statistics.html#cb359-3"></a>sport_counts &lt;-<span class="st"> </span><span class="kw">table</span>(sport)</span>
+<span id="cb359-4"><a href="summary-statistics.html#cb359-4"></a></span>
+<span id="cb359-5"><a href="summary-statistics.html#cb359-5"></a><span class="co"># combine them into a list</span></span>
+<span id="cb359-6"><a href="summary-statistics.html#cb359-6"></a>sport_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb359-7"><a href="summary-statistics.html#cb359-7"></a>  <span class="dt">number_unique =</span> sport_n_unique,</span>
+<span id="cb359-8"><a href="summary-statistics.html#cb359-8"></a>  <span class="dt">counts =</span> sport_counts</span>
+<span id="cb359-9"><a href="summary-statistics.html#cb359-9"></a>)</span></code></pre></div>
+<p>Again, a visualization may be useful here:</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb360-1"><a href="summary-statistics.html#cb360-1"></a><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
+<span id="cb360-2"><a href="summary-statistics.html#cb360-2"></a><span class="kw">barplot</span>(<span class="kw">table</span>(sport), <span class="dt">horiz=</span>T, <span class="dt">las=</span><span class="dv">2</span>)   <span class="co"># bar plot</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-347-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
+
+<div class="progress">
+Create a list called <code>season_stats</code> with the a table of counts for the <code>Season</code> variable.
 </div>
+
+
+<div class="caution">
+It’s always important to remember what the rows of your data set represent.
+In the Olympic athletes example, one athlete may occupy multiple rows, if they competed in multiple olympic games.
+This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
 </div>
-<div id="some-useful-commands-you-should-know" class="section level3">
-<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know</h3>
-<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
-This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2"></a><span class="kw">gc</span>()           <span class="co"># perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  815188 43.6    1561228 83.4  1216032 65.0
-Vcells 1435468 11.0    8388608 64.0  2112140 16.2</code></pre>
-<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
-<pre class="bonus chunk-style"><code>Here&#39;s a [more complete list](https://support.rstudio.com/hc/en-us/articles/200711853) of RStudio shortcuts.</code></pre>
+
+
+<div class="reflect">
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the <code>Height</code>, <code>Weight</code>, and <code>Sex</code> variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the dataframe?
+</div>
+
+</div>
+<div id="saving-an-rdata-file" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Saving an RData file</h3>
+<p>Finally, we may want to save these results for use <em>in R</em> later.
+First, we’ll create a new list to put our two stats list <em>in</em> (remember, we can have lists inside of other lists!).</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb361-1"><a href="summary-statistics.html#cb361-1"></a><span class="co"># Create list</span></span>
+<span id="cb361-2"><a href="summary-statistics.html#cb361-2"></a>athlete_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
+<span id="cb361-3"><a href="summary-statistics.html#cb361-3"></a>  <span class="dt">age =</span> age_stats,</span>
+<span id="cb361-4"><a href="summary-statistics.html#cb361-4"></a>  <span class="dt">sport =</span> sport_stats</span>
+<span id="cb361-5"><a href="summary-statistics.html#cb361-5"></a>)</span></code></pre></div>
+
+<div class="bonus">
+<p>Remember that the <code>names</code> function retrieves the column names for a dataframe? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+The following commands may be useful for remembering what the contents of our stats list:</p>
+<ul>
+<li><code>names(athlete_stats)</code></li>
+<li><code>names(athlete_stats$age)</code></li>
+<li><code>names(athlete_stats$sport)</code></li>
+</ul>
+</div>
+
+<p>To save these results, we can use the <code>saveRDS</code> function:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb362-1"><a href="summary-statistics.html#cb362-1"></a><span class="kw">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</span></code></pre></div>
+<p>Later, we can use the following command to load the RDS file back into R:</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb363-1"><a href="summary-statistics.html#cb363-1"></a><span class="kw">rm</span>(athlete_stats)  <span class="co"># remove athlete stats to prove we are loading it from the hard drive</span></span>
+<span id="cb363-2"><a href="summary-statistics.html#cb363-2"></a></span>
+<span id="cb363-3"><a href="summary-statistics.html#cb363-3"></a>athlete_stats &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># load the RDS file and name it athlete_stats</span></span>
+<span id="cb363-4"><a href="summary-statistics.html#cb363-4"></a></span>
+<span id="cb363-5"><a href="summary-statistics.html#cb363-5"></a>athlete_stats<span class="op">$</span>age   <span class="co"># show that we have loaded the data by printing the age stats</span></span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 10
+
+$median
+[1] 24
+
+$max
+[1] 97
+
+$mean
+[1] 25.5569
+
+$sd
+[1] 6.393561
+
+$var
+[1] 40.87762</code></pre>
+
+<div class="caution">
+Notice the file ends with <em>.rds</em>, indicating that this is a special RDS type which can only be read by R.
+This is different from other data formats like CSV, which are plain text and can be read by other programs like Excel or Sheets.
+RDS should only be used when you want to save work that you want to resume in R later.
+If at all possible, you should prefer using plain text formats rather than RDS.
+</div>
+
+
+<div class="bonus">
+RDS stands for <em>R Data Serialization</em>. This is R’s version of object serialization, just like the io.Serializable interface in Java or the pickle module in Python.
+As with other languages, R’s serialization can only be used in R.
+</div>
+
+<p>The RDS format works for any R Object, not just lists, so it can be used for vectors, matrices, factors, and even functions.</p>
 <div class="feedback">
 <p>
-Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Summary%20Statistics">here</a>
 </p>
 </div>
 </div>
@@ -378,8 +553,8 @@ Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/
           </div>
         </div>
       </div>
-<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reflection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reading-writing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-formatting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
