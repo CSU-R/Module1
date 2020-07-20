@@ -1,0 +1,17 @@
+# Book Wrap Up
+
+
+## Things you should know
+
+
+## Things you don't know yet
+
+
+## Should you always use R? 
+
+R has some [shortfalls](https://twitter.com/CKVanPay/status/1283384711239344130) as well
+
+
+
+
+
