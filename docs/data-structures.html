@@ -903,7 +903,7 @@ To access just one of the components, use double square brackets (<code>[[</code
 <div class="sourceCode" id="cb255"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb255-1"><a href="data-structures.html#cb255-1"></a><span class="co"># Get the second component of A</span></span>
 <span id="cb255-2"><a href="data-structures.html#cb255-2"></a>A[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;chicken&quot;</code></pre>
-<p>Notice that each component of <code>A</code> is a different data type (numeric, character, boolean), which is not a problem for lists.
+<p>Notice that each component of <code>A</code> is a different data type (numeric, character, logical), which is not a problem for lists.
 Nothing was converted automatically, as we saw happen with vectors.
 Here’s how to add a component to an existing list:</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb257-1"><a href="data-structures.html#cb257-1"></a>A[[<span class="dv">4</span>]] &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
@@ -1069,7 +1069,7 @@ When defining the <code>rocks</code> list, we’ve spread the command accross mu
 <p>There are so many sets of data that fit into this pattern, that R has a special data type called a <em>data frame</em>, which we will discuss in the next section.</p>
 <div class="progress">
 <p>
-Create a matrix, a character vector, and a boolean object, then place them all in a new list called “my_list”, with the names “my_matrix”, “my_vector”, and “my_boolean”.
+Create a matrix, a character vector, and a logical object, then place them all in a new list called “my_list”, with the names “my_matrix”, “my_vector”, and “my_logical”.
 </p>
 </div>
 </div>
