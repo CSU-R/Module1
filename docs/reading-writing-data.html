@@ -239,8 +239,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#basic-indexing"><i class="fa fa-check"></i><b>5.5.1</b> Basic indexing</a></li>
-<li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.2</b> Advanced indexing</a></li>
+<li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
+<li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
+<li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
+<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced indexing</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="basic-plotting.html"><a href="basic-plotting.html"><i class="fa fa-check"></i><b>5.6</b> Basic Plotting</a></li>
 <li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a></li>
@@ -435,17 +438,17 @@ If our Olympic athletes data did not contain headers in the first row, we would 
 </div>
 <div id="writing-csv-files" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Writing CSV files</h3>
-<p>R also has the capability to <em>write</em> a dataframe to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
+<p>R also has the capability to <em>write</em> a data frame to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
 Let’s suppose we wanted to save a version of the athletes data with only the <code>Sex</code> and <code>Age</code> columns.
 We could use the <code>write.csv</code> function:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb343-1"><a href="reading-writing-data.html#cb343-1"></a><span class="co"># make a new dataframe with only the Sex and Age columns</span></span>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb343-1"><a href="reading-writing-data.html#cb343-1"></a><span class="co"># make a new data frame with only the Sex and Age columns</span></span>
 <span id="cb343-2"><a href="reading-writing-data.html#cb343-2"></a>athletes2 &lt;-<span class="st"> </span>athletes[,<span class="kw">c</span>(<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Age&quot;</span>)]</span>
 <span id="cb343-3"><a href="reading-writing-data.html#cb343-3"></a></span>
 <span id="cb343-4"><a href="reading-writing-data.html#cb343-4"></a><span class="co"># save the new data frame as a CSV in the clean data folder</span></span>
 <span id="cb343-5"><a href="reading-writing-data.html#cb343-5"></a><span class="kw">write.csv</span>(athletes2, <span class="st">&quot;data_clean/olympic_athletes_age_sex.csv&quot;</span>)</span></code></pre></div>
-<p>Notice we created a new dataframe by selecting only the desired columns.
+<p>Notice we created a new data frame by selecting only the desired columns.
 We will talk more about different ways to select data when we discuss <em>indexing</em>.
-Notice also that the write.csv function requires that we give it the name of the dataframe being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
+Notice also that the write.csv function requires that we give it the name of the data frame being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
 <div class="caution">
 <p>
 <code>write.csv</code> is an example of a function which takes <em>multiple arguments</em>, separating them with a comma (<code>,</code>). Usually, these arguments must be specified in order, but more will be said about this later.
@@ -453,7 +456,7 @@ Notice also that the write.csv function requires that we give it the name of the
 </div>
 <div class="progress">
 <p>
-Create a version of the athletes dataframe which contains the athletes’ names and their sports. Save the new dataframe as a csv file in your data_clean folder with the file name “olympic_athletes_name_sport.csv”. Include the code in your progress check assignment.
+Create a version of the athletes data frame which contains the athletes’ names and their sports. Save the new data frame as a csv file in your data_clean folder with the file name “olympic_athletes_name_sport.csv”. Include the code in your progress check assignment.
 </p>
 </div>
 <div class="caution">

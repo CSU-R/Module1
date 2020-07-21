@@ -239,8 +239,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#basic-indexing"><i class="fa fa-check"></i><b>5.5.1</b> Basic indexing</a></li>
-<li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.2</b> Advanced indexing</a></li>
+<li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
+<li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
+<li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
+<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced indexing</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="basic-plotting.html"><a href="basic-plotting.html"><i class="fa fa-check"></i><b>5.6</b> Basic Plotting</a></li>
 <li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a></li>
@@ -275,11 +278,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.3</span> Summary Statistics</h2>
 <p>Reading and writing data is useful, but the power of R is <em>doing interesting things</em> with the data!
 Let’s perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis.
-As we’ve seen, the <code>summary</code> function automatically performs some summary statistics on each column of a dataframe.
+As we’ve seen, the <code>summary</code> function automatically performs some summary statistics on each column of a data frame.
 Let’s see how to produce these and other results manually.</p>
 <div id="quantitative-variables" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Quantitative Variables</h3>
-<p>To showcase the functions R provides to summarize quantitative variables, we’ll look at the <code>Age</code> column of our dataframe, which is stored as an integer vector in R.</p>
+<p>To showcase the functions R provides to summarize quantitative variables, we’ll look at the <code>Age</code> column of our data frame, which is stored as an integer vector in R.</p>
 <div class="reflect">
 <p>
 What other R data types might be used to store quantitative data?
@@ -339,7 +342,7 @@ $var
 [1] 40.87762</code></pre>
 
 <div class="progress">
-Create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
+Using the Olympic Athletes data, create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
 </div>
 
 <p>Visualization will be discussed more later, but we’ll show one plot now, to show how multiple summary statistics can be shown at the same time.</p>
@@ -466,7 +469,7 @@ Short Track Speed Skating                  Skeleton               Ski Jumping
 <p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
 
 <div class="progress">
-Create a list called <code>season_stats</code> with the a table of counts for the <code>Season</code> variable.
+Using the Olympic athletes data, create a list called <code>season_stats</code> with the a table of counts for the <code>Season</code> variable.
 </div>
 
 
@@ -478,7 +481,7 @@ This impacts how you should interpret the summary statistics computed above (mea
 
 
 <div class="reflect">
-Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the <code>Height</code>, <code>Weight</code>, and <code>Sex</code> variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the dataframe?
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the <code>Height</code>, <code>Weight</code>, and <code>Sex</code> variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the data frame?
 </div>
 
 </div>
@@ -493,7 +496,7 @@ First, we’ll create a new list to put our two stats list <em>in</em> (remember
 <span id="cb361-5"><a href="summary-statistics.html#cb361-5"></a>)</span></code></pre></div>
 
 <div class="bonus">
-<p>Remember that the <code>names</code> function retrieves the column names for a dataframe? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+<p>Remember that the <code>names</code> function retrieves the column names for a data frame? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
 The following commands may be useful for remembering what the contents of our stats list:</p>
 <ul>
 <li><code>names(athlete_stats)</code></li>
