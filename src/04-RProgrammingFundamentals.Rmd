@@ -1306,7 +1306,7 @@ To access just one of the components, use double square brackets (`[[` and `]]`)
 # Get the second component of A
 A[[2]]
 ```
-Notice that each component of `A` is a different data type (numeric, character, boolean), which is not a problem for lists.
+Notice that each component of `A` is a different data type (numeric, character, logical), which is not a problem for lists.
 Nothing was converted automatically, as we saw happen with vectors.
 Here's how to add a component to an existing list:
 ```{r}
@@ -1433,7 +1433,7 @@ There are so many sets of data that fit into this pattern, that R has a special 
 
 
 ```{block, type="progress"}
-Create a matrix, a character vector, and a boolean object, then place them all in a new list called "my_list", with the names "my_matrix", "my_vector", and "my_boolean".
+Create a matrix, a character vector, and a logical object, then place them all in a new list called "my_list", with the names "my_matrix", "my_vector", and "my_logical".
 ```
 
 
@@ -1648,7 +1648,7 @@ length(b)
 ```{block, type="progress"}
 _Every object_ has a length.
 Try creating an example of the following and examining the length:
-1. A boolean vector with 5 elements
+1. A logical vector with 5 elements
 1. A matrix with two rows and two columns
 1. A list with two objects in it.
 ```
@@ -1667,7 +1667,7 @@ mode(b)
 ```{block, type="progress"}
 _Every object_ has a length.
 Try creating an example of the following and examining the mode:
-1. A boolean vector with 5 elements
+1. A logical vector with 5 elements
 1. A 2 x 2 matrix
 1. The `mtcars` dataframe 
 ```
