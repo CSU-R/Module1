@@ -272,7 +272,7 @@ age_stats
 ```
 
 ```{block2, type="progress"}
-Create a list called `weight_stats` with the mean, median, and standard deviation of the `Weight` column.
+Using the Olympic Athletes data, create a list called `weight_stats` with the mean, median, and standard deviation of the `Weight` column.
 ```
 
 Visualization will be discussed more later, but we'll show one plot now, to show how multiple summary statistics can be shown at the same time.
@@ -357,7 +357,7 @@ barplot(table(sport), horiz=T, las=2)   # bar plot
 So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).
 
 ```{block2, type="progress"}
-Create a list called `season_stats` with the a table of counts for the `Season` variable.
+Using the Olympic athletes data, create a list called `season_stats` with the a table of counts for the `Season` variable.
 ```
 
 ```{block2, type="caution"}
@@ -462,17 +462,12 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Indexing
 
-```{block, type="caution"}
-This section is still under construction
-```
-
 Part of doing interesting things with data is being able to select just the data that you need for a particular circumstance. 
 You've already seen how to get a particular element from a vector or matrix, or a specific component from a list, using _indices_.
 A datum's _index_ is its position in the vector or list.
 For example, to get the second element of a vector `A`, we use index 2 in square brackets: `A[2]`.
 The process of selecting elements using their indices is called _indexing_, and R provides multiple ways of indexing vectors.
 Below we'll cover some basic indexing and more advanced indexing for the different data structures in R.
-
 
 ### Vectors
 
@@ -642,20 +637,124 @@ There are _even more_ ways to select the data you need from your R data structur
 
 #### Logical based indexing
 
-One _very_ useful method that R provides is to use a logical array to index a vector.
-As the following example will show, R will give only the elements which are 
+One _very_ useful method that R provides is to access elements of a vector using a different, logical vector of the same length. 
+As the following example will show, R will give only the elements which are true in the logical vector:
 
-Filling in missing values
+```{r}
+v <- c("alpha", "bravo", "charlie", "delta")  # the vector we want to access
+i <- c(FALSE, TRUE, FALSE, TRUE)  # the logical vector we'll use to index.
 
-subsetting data frame
+# index v using i:
+v[i]
+```
+
+Why is this so useful?
+Remember that you can create logical vectors by comparing any type of vector to some value:
+```{r}
+v == "delta"
+```
+This means you can create a logical vector in order to extract only the elements of a vector which match some criterion.
+For example, let's create a logical vector based on whether an Olympic athlete's sport was "Tug-Of-War".
+
+```{r}
+plays_tug_of_war <- athletes$Sport == "Tug-Of-War"  # create logical vector
+
+sum(plays_tug_of_war)  # count how many TRUE's
+```
+Now let's use that logical vector to get the names of the athletes:
+```{r}
+athletes$Name[plays_tug_of_war]
+```
+
+```{block, type="progress"}
+Using the Olympic athletes data, create a logical vector which is true when an athlete's sport is wrestling.
+Then access the age of all wrestlers, and assign the ages to another vector.
+Finally, compute the average age of the wrestlers vector (remember, we there may be duplicate athlete names, so this average won't mean much; the emphasis is on indexing right now)
+```
+
+Logical vectors can also be used to subset a data frame based on some condition. 
+That is, we take entire rows which meet a condition, rather than just a single variable.
+For example:
+
+```{r}
+# Subset the athletes data frame to get only Summer athletes.
+athletes_summer <- athletes[athletes$Season == "Summer",]
+```
+
+```{block2, type="caution"}
+In the last example, we are creating the logical vector and immediately using it to index the rows.
+Pause and think through what's happening in this example if it's not quite clear.
+Also note the placement of the comma (`,`), which indicates that we're indexing rows, not columns, of the data frame.
+```
 
 
-#### negative indexing
+Another common use for Logical indexing is filling in missing values.
+As part of data cleaning, you may decide to change `NA`'s to some other value. This is easy since we can create a logical vector which is `TRUE` when a value is `NA`.
+We can do this with the `is.na` function:
+```{r}
+# For athletes with no medal, replace `NA` with "No Medal"
+athletes$Medal[is.na(athletes$Medal)] <- "No Medal"
+```
+
+```{block, type="caution"}
+This is not an endorsement of a particular approach to handling missing values. There are many situation dependent considerations that should be made in order to decide the best thing to do.
+```
 
 
-#### which function
+#### Negative Indexing
 
-nested indexing: [[1]][3]
+Sometimes it's easier to specify which columns or rows should be _excluded_ from indexing, rather than those that should be _included_.
+To select every column except the first one, you can use a negative index:
+
+```{r}
+athletes[,-1]  # leave out the ID column
+```
+
+This also works with numeric vectors:
+
+```{r}
+athletes[-c(1:10),]  # access all but the first 10 rows.
+```
+
+
+#### nested indexing: [[1]][3]
+
+In R, it's likely that at some point you will encounter nested data structures, such as vectors within lists (data frames!) and lists within lists.
+This might make indexing more confusing at first, but a little practice will help you keep things organized in your mind.
+Consider the following example:
+
+```{r}
+# create a vector and a matrix
+V <- 1:16
+M <- matrix(V, 4, 4)
+
+# create a list which contains them:
+L <- list(V, M)
+
+# create a character vector
+C <- c("I", "think", "therefore", "I", "am")
+
+# create another list which will contain L and C:
+L2 <- list(L, C)
+```
+
+With lists like this, it's easy to see code like `L2[[1]][[2]][2,3]` and get confused about what is happening.
+It's best to break down the statement from left to right
+
+```{r, eval=FALSE}
+L2                 # the second list, L2
+L2[[1]]            # the first component of L2, which is the first list, L
+L2[[1]][[2]]       # the second element of L, which is the matrix M
+L2[[1]][[2]][2,3]  # the second row and third column of M.
+```
+
+```{block, type="caution"}
+We have discussed quite a few ways to index data, but rest assured there are more ways that we did not discuss! We won't address them now, to keep things simple! 
+```
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Indexing)
+``` 
 
 ## Basic Plotting
 
@@ -673,6 +772,10 @@ Remember to pay close attention to the syntax when using ggplot. R won't work if
 Adding structure to make your code more readable is like doing your future self a favor (and anyone reading your code).
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Plotting)
+``` 
+
 ## Vignettes
 
 ```{block, type="caution"}
@@ -680,3 +783,7 @@ This section is still under construction
 ```
 
 In this section, you'll gain more experience working with data by following along with some more data analysis examples.
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Vignettes)
+``` 

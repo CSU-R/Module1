@@ -22,7 +22,10 @@ section_headings <- c(
 section_headings <- c(
   "Reading Writing Data",
   "Summary Statistics",
-  "Data Formatting"
+  "Data Formatting",
+  "Indexing",
+  "Basic Plotting",
+  "Vignettes"
 )
 link_prefix <- "https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501="
 
