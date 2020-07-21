@@ -18,7 +18,7 @@ You'll learn how to read data sets into R, do interesting things with them, and 
 Before diving into detail, let's do a quick example so you can begin to see what is possible with data in R.
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the `data()` command.
 One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
-Firstly, we need to convert `Seatbelts` to a dataframe, because it starts out as a "Time-Series", which we haven't discussed.
+Firstly, we need to convert `Seatbelts` to a data frame, because it starts out as a "Time-Series", which we haven't discussed.
 ```{r}
 Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))   # convert Time Series to data frame
 ```
@@ -26,11 +26,11 @@ We've also added a month and year column
 
 look at the dimensions of the data set with the `dim` command:
 ```{r}
-dim(Seatbelts)   # get the number of dimensions in the Seatbelts dataframe
+dim(Seatbelts)   # get the number of dimensions in the Seatbelts data frame
 ```
 This shows that there are 192 rows (months), and 9 columns (variables measured each month).
 We could also determine the number of rows and columns separately using the `nrow` and `ncol` functions.
-To view the first few rows of the Seatbelts dataframe, use the `head` command:
+To view the first few rows of the Seatbelts data frame, use the `head` command:
 
 ```{r}
 head(Seatbelts)  # view first few rows of the Seatbelts dataset
@@ -174,29 +174,29 @@ athletes <- read.csv("data_raw/olympic_athletes.csv", header=FALSE)
 
 ###  Writing CSV files
 
-R also has the capability to _write_ a dataframe to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
+R also has the capability to _write_ a data frame to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
 Let's suppose we wanted to save a version of the athletes data with only the `Sex` and `Age` columns.
 We could use the `write.csv` function:
 
 ```{r}
-# make a new dataframe with only the Sex and Age columns
+# make a new data frame with only the Sex and Age columns
 athletes2 <- athletes[,c("Sex", "Age")]
 
 # save the new data frame as a CSV in the clean data folder
 write.csv(athletes2, "data_clean/olympic_athletes_age_sex.csv")
 ```
 
-Notice we created a new dataframe by selecting only the desired columns.
+Notice we created a new data frame by selecting only the desired columns.
 We will talk more about different ways to select data when we discuss _indexing_.
-Notice also that the write.csv function requires that we give it the name of the dataframe being saved (`athletes2`), then the file path for the csv file that the data will be written to (`"data_clean/olympic_athletes_age_sex.csv"`).
+Notice also that the write.csv function requires that we give it the name of the data frame being saved (`athletes2`), then the file path for the csv file that the data will be written to (`"data_clean/olympic_athletes_age_sex.csv"`).
 
 ```{block, type="caution"}
 `write.csv` is an example of a function which takes _multiple arguments_, separating them with a comma (`,`). Usually, these arguments must be specified in order, but more will be said about this later.
 ```
 
 ```{block, type="progress"}
-Create a version of the athletes dataframe which contains the athletes' names and their sports.
-Save the new dataframe as a csv file in your data_clean folder with the file name "olympic_athletes_name_sport.csv".
+Create a version of the athletes data frame which contains the athletes' names and their sports.
+Save the new data frame as a csv file in your data_clean folder with the file name "olympic_athletes_name_sport.csv".
 Include the code in your progress check assignment.
 ```
 
@@ -214,12 +214,12 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 Reading and writing data is useful, but the power of R is _doing interesting things_ with the data!
 Let's perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis. 
-As we've seen, the `summary` function automatically performs some summary statistics on each column of a dataframe.
+As we've seen, the `summary` function automatically performs some summary statistics on each column of a data frame.
 Let's see how to produce these and other results manually.
 
 ### Quantitative Variables
 
-To showcase the functions R provides to summarize quantitative variables, we'll look at the `Age` column of our dataframe, which is stored as an integer vector in R.
+To showcase the functions R provides to summarize quantitative variables, we'll look at the `Age` column of our data frame, which is stored as an integer vector in R.
 
 ```{block, type="reflect"}
 What other R data types might be used to store quantitative data?
@@ -366,7 +366,7 @@ In the Olympic athletes example, one athlete may occupy multiple rows, if they c
 This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
 ```
 ```{block2, type="reflect"}
-Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the `Height`, `Weight`, and `Sex` variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the dataframe?
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the `Height`, `Weight`, and `Sex` variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the data frame?
 ```
 
 ### Saving an RData file
@@ -382,7 +382,7 @@ athlete_stats <- list(
 ```
 
 ```{block2, type="bonus"}
-Remember that the `names` function retrieves the column names for a dataframe? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+Remember that the `names` function retrieves the column names for a data frame? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
 The following commands may be useful for remembering what the contents of our stats list:
   
   - `names(athlete_stats)`
@@ -460,33 +460,202 @@ Can you think of another way to organize the data?
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting)
 ``` 
 
-## Indexing 
+## Indexing
 
 ```{block, type="caution"}
 This section is still under construction
 ```
 
-### Basic indexing
+Part of doing interesting things with data is being able to select just the data that you need for a particular circumstance. 
+You've already seen how to get a particular element from a vector or matrix, or a specific component from a list, using _indices_.
+A datum's _index_ is its position in the vector or list.
+For example, to get the second element of a vector `A`, we use index 2 in square brackets: `A[2]`.
+The process of selecting elements using their indices is called _indexing_, and R provides multiple ways of indexing vectors.
+Below we'll cover some basic indexing and more advanced indexing for the different data structures in R.
 
-For different data types
 
-matrices: can use single index
+### Vectors
+
+Let's define a vector and access an element in the way you already know:
+
+```{r}
+# create an example vector
+V <- c("A", "B", "C", "D", "E", "F", "G", "H", "I")
+
+# access the 5th element
+V[5]
+```
+```{block, type="caution"}
+Unlike many other languages, R indices start with 1, not 0! so the first element is accessed as `A[1]`, etc.
+```
+
+Here are some other ways you can index as well.
+You can access multiple indices at the same time using a numric vector of indices:
+
+```{r}
+V[c(1, 2, 5)]  # access elements 1, 2, and 5
+```
+If you need to access several indices in a row, you can use a colon (`:`):
+
+```{r}
+V[2:7]  # access elements 2 through 7
+```
+You can even combine these two methods:
+```{r}
+V[c(1:3, 6)]  # access elements 1, 2, 3, and 6
+```
+Note that the following are all equivalent ways to access the first three elements of `V`:
+
+- `V[1:3]`
+- `V[c(1,2,3)]`
+- `V[c(1:3)]`
+- `V[c(1:2,3)]`
+- can you think of another example?
+
+But the first way would probably be the most clear for someone else to understand.
+All of these methods can work with _assignment_ as well:
+
+```{r}
+V[c(1, 7:9)] <- "X"  # change elements 1, 7, 8, and 9 to "X"
+V
+```
+
+```{block, type="caution"}
+Even though these examples use a character vector, this indexing works on vectors of any type.
+```
+
+
+### Matrices
+
+To access an element of a matrix, we have to specify the row and the column.
+Let's create a matrix from the `V` vector and access one of its elements:
+
+```{r}
+M <- matrix(V, 3, 3)  # create matrix M with data from vector V
+M
+```
+```{r}
+M[1,2]  # access the element in row 1, column 2
+```
+
+Recall that we can access an entire row or column by leaving the _other_ index blank:
+```{r}
+M[1,]  # access the entire first row
+```
+```{r}
+M[,2]  # access the entire second column
+```
+But any of the indexing we just used for vectors can also be used on matrices
+
+```{r}
+M[1:2, c(2, 3)]  # access the elements in rows 1 and 2, columns 2 and 3.
+```
+Finally, there is one more way of indexing Matrices (for now), that provides only _one_ index:
+```{r}
+M[5]  # access the "5th" element of the matrix
+```
+If you give one index, then R will count down the first row, then the second, then the third, etc., until it reaches the index you specified.
+Notice how this agrees with the 5th element of the matrix `V`, which was used to make our matrix!
+And finally, as before, any of these indexing methods can be used to change an element's value:
+
+```{r}
+M[2, 1:3] <- "Hats"
+M
+```
+
+### Lists
+
+So far we've discussed three different ways of accessing elements in a list: 
+
+```{r}
+L <- list(A = "apple", b = "banana", c="cherry")
+
+L[[1]]  # access using index number
+```
+```{r}
+L[["b"]]  # access using component name
+```
+
+```{r}
+L$c  # access using component name and dollar sign notation
+```
+And these are basically the only option.
+Unfortunately, you _cannot_ pass lists a vector of indices in order to access multiple components at once:
+
+```{r, error=TRUE}
+L[[1:3]]  # this does not work
+```
+```{block2, type="bonus"}
+What `L[[1:3]]` _actually_ does (as the error message might suggest), is access elements within a _nested_ list, but that is beyond the scope of this class.
+```
+
+```{block, type="progress"}
+Create a vector containing the numbers 1 through 1000 in order (hint: try using 1:1000 on the right of the assignment operator).
+Then, change elements 4, 196, and 501 through 556 to "brussels sprouts".
+What happened to the other elements in the vector?
+```
+
+### Data Frames
+
+Remember that data frames are just lists of vectors, so the same indexing rules of lists and vectors apply.
+But remember that matrix indexing rules also apply!
+Here are some examples with the Olympic athletes data. 
+
+```{r}
+athletes3 <- athletes[1:20,1:5]  # get the first 20 rows and first 5 columns, and assign it to athletes3
+```
+
+```{r}
+athletes3$Name  # get the Name column
+```
+
+Remember that each column of a data frame is just a vector, so we can use list indexing to access the `Name` column, then _immediately_ use vector indexing to get only the indices that we want:
+
+```{r}
+athletes3$Name[1:3]  # get the first three elements of the Name column
+```
+
+```{block, type="caution"}
+Notice how With lists, you _cannot_ access multiple components (which is what dataframe columns are) at the same time, but with matrices you _can_ access multiple columns at once. 
+Since data frames can use matrix formatting, you _can_ select multiple columns at once, as the first example above showed.
+```
+
+You can also access 
+
+```{r}
+athletes3[,c("Name", "Sex")]  # Access columns 1:3 like 
+```
+
+```{block, type="progress"}
+Using the mtcars data frame (included in R), get the `mpg` for the cars in rows 15 through 20, and assign it to a vector.
+Now find the average `mpg` of those cars.
+```
+
+```{block2, type="bonus"}
+Think it's weird that data frames can be indexed like matrices? It gets weirder. When vectors have names, they can be indexed like lists! Try for yourself: create a vector `a <- c(1, 2, 3)` and set the names with `names(a) <- c("angus", "brillow", "chandelier")` , then see what happens if you type `a[["angus"]]`! Matrices can also be accessed using names as well.
+```
 
 
 ### Advanced indexing
 
-logical based indexing
+There are _even more_ ways to select the data you need from your R data structures, let's look some more advanced techniques.
 
-which function
+#### Logical based indexing
+
+One _very_ useful method that R provides is to use a logical array to index a vector.
+As the following example will show, R will give only the elements which are 
+
+Filling in missing values
+
+subsetting data frame
+
+
+#### negative indexing
+
+
+#### which function
 
 nested indexing: [[1]][3]
-
-```{block, type="bonus"}
-dplyr example
-```
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
-```
 
 ## Basic Plotting
 
