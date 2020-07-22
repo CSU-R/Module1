@@ -28,7 +28,7 @@ This section is still under construction
 
 *apply family
 
-## Writing FUnctions
+## Writing Functions
 
 ```{block, type="caution"}
 This section is still under construction
