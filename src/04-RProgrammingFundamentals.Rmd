@@ -1664,12 +1664,14 @@ mode(a)
 mode(b)
 ```
 
-```{block, type="progress"}
+```{block2, type="progress"}
 _Every object_ has a length.
 Try creating an example of the following and examining the mode:
+  
 1. A logical vector with 5 elements
 1. A 2 x 2 matrix
 1. The `mtcars` dataframe 
+
 ```
 
 Aside from these two attributes, you can list all attributes of an object like this:
