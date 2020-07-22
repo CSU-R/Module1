@@ -251,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="performing-data-analysis.html"><a href="performing-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Data Analysis</a><ul>
 <li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a></li>
 <li class="chapter" data-level="6.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.2</b> Advanced Control Flow</a></li>
-<li class="chapter" data-level="6.3" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.3</b> Writing FUnctions</a></li>
+<li class="chapter" data-level="6.3" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.3</b> Writing Functions</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -282,11 +282,11 @@ That is, the data are normally somewhere on your computer’s hard drive (or SSD
 <h3><span class="header-section-number">5.2.1</span> Olympic Athletes Example</h3>
 <p>Let’s look another example, this time with a data set of Olympic athletes.
 Here’s how we’ll <em>read</em> them into R:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb339-1"><a href="reading-writing-data.html#cb339-1"></a><span class="co"># Read the csv file into a data frame called athletes</span></span>
-<span id="cb339-2"><a href="reading-writing-data.html#cb339-2"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
-<span id="cb339-3"><a href="reading-writing-data.html#cb339-3"></a></span>
-<span id="cb339-4"><a href="reading-writing-data.html#cb339-4"></a><span class="co"># print a summary of the data frame</span></span>
-<span id="cb339-5"><a href="reading-writing-data.html#cb339-5"></a><span class="kw">summary</span>(athletes)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb338-1"><a href="reading-writing-data.html#cb338-1"></a><span class="co"># Read the csv file into a data frame called athletes</span></span>
+<span id="cb338-2"><a href="reading-writing-data.html#cb338-2"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
+<span id="cb338-3"><a href="reading-writing-data.html#cb338-3"></a></span>
+<span id="cb338-4"><a href="reading-writing-data.html#cb338-4"></a><span class="co"># print a summary of the data frame</span></span>
+<span id="cb338-5"><a href="reading-writing-data.html#cb338-5"></a><span class="kw">summary</span>(athletes)</span></code></pre></div>
 <pre class="output-style"><code>       ID             Name               Sex                 Age       
  Min.   :     1   Length:271116      Length:271116      Min.   :10.00  
  1st Qu.: 34643   Class :character   Class :character   1st Qu.:21.00  
@@ -357,8 +357,8 @@ In many object oriented languages, the “dot” (<code>.</code>) is a special s
 <p>These functions are actually all different variations of the same, generic, function called <code>read.table</code>.
 The difference is that <code>read.csv</code>, <code>read.delim</code>, and the others make different assumptions about what delimiters are being used, and how decimal numbers are displayed (e.g. one-and-a-half may be written as <code>1.5</code>, or <code>1,5</code> depending on where you live).
 We will discuss functions and arguments more in the next chapter, but for now, see the following table for when to use each function:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb341-1"><a href="reading-writing-data.html#cb341-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Function=</span><span class="kw">c</span>(<span class="st">&quot;read.table&quot;</span>, <span class="st">&quot;read.csv&quot;</span>, <span class="st">&quot;read.csv2&quot;</span>, <span class="st">&quot;read.delim&quot;</span>, <span class="st">&quot;read.delim2&quot;</span>), <span class="dt">Delimiter=</span><span class="kw">c</span>(<span class="st">&quot;Must specify with sep=...&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;;&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>), <span class="dt">Decimals=</span><span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>))</span>
-<span id="cb341-2"><a href="reading-writing-data.html#cb341-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(df) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb340-1"><a href="reading-writing-data.html#cb340-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Function=</span><span class="kw">c</span>(<span class="st">&quot;read.table&quot;</span>, <span class="st">&quot;read.csv&quot;</span>, <span class="st">&quot;read.csv2&quot;</span>, <span class="st">&quot;read.delim&quot;</span>, <span class="st">&quot;read.delim2&quot;</span>), <span class="dt">Delimiter=</span><span class="kw">c</span>(<span class="st">&quot;Must specify with sep=...&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;;&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">t (tab)&quot;</span>), <span class="dt">Decimals=</span><span class="kw">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>))</span>
+<span id="cb340-2"><a href="reading-writing-data.html#cb340-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(df) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable_styling</span>()</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -434,18 +434,18 @@ tab)
 <p>Any of these functions accepts the argument <code>header=FALSE</code>, which indicates that the first row of the file <em>does not</em> contain column names.
 Without this argument, R will assume the first row <em>does</em> contain column names.
 If our Olympic athletes data did not contain headers in the first row, we would use this:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="reading-writing-data.html#cb342-1"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>, <span class="dt">header=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb341-1"><a href="reading-writing-data.html#cb341-1"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>, <span class="dt">header=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 </div>
 <div id="writing-csv-files" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Writing CSV files</h3>
 <p>R also has the capability to <em>write</em> a data frame to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
 Let’s suppose we wanted to save a version of the athletes data with only the <code>Sex</code> and <code>Age</code> columns.
 We could use the <code>write.csv</code> function:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb343-1"><a href="reading-writing-data.html#cb343-1"></a><span class="co"># make a new data frame with only the Sex and Age columns</span></span>
-<span id="cb343-2"><a href="reading-writing-data.html#cb343-2"></a>athletes2 &lt;-<span class="st"> </span>athletes[,<span class="kw">c</span>(<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Age&quot;</span>)]</span>
-<span id="cb343-3"><a href="reading-writing-data.html#cb343-3"></a></span>
-<span id="cb343-4"><a href="reading-writing-data.html#cb343-4"></a><span class="co"># save the new data frame as a CSV in the clean data folder</span></span>
-<span id="cb343-5"><a href="reading-writing-data.html#cb343-5"></a><span class="kw">write.csv</span>(athletes2, <span class="st">&quot;data_clean/olympic_athletes_age_sex.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="reading-writing-data.html#cb342-1"></a><span class="co"># make a new data frame with only the Sex and Age columns</span></span>
+<span id="cb342-2"><a href="reading-writing-data.html#cb342-2"></a>athletes2 &lt;-<span class="st"> </span>athletes[,<span class="kw">c</span>(<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Age&quot;</span>)]</span>
+<span id="cb342-3"><a href="reading-writing-data.html#cb342-3"></a></span>
+<span id="cb342-4"><a href="reading-writing-data.html#cb342-4"></a><span class="co"># save the new data frame as a CSV in the clean data folder</span></span>
+<span id="cb342-5"><a href="reading-writing-data.html#cb342-5"></a><span class="kw">write.csv</span>(athletes2, <span class="st">&quot;data_clean/olympic_athletes_age_sex.csv&quot;</span>)</span></code></pre></div>
 <p>Notice we created a new data frame by selecting only the desired columns.
 We will talk more about different ways to select data when we discuss <em>indexing</em>.
 Notice also that the write.csv function requires that we give it the name of the data frame being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
