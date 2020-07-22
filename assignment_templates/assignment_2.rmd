@@ -71,19 +71,19 @@ Change the column names of `df` to have names `a`, `b`, `c`, and `d`, respective
 Then print out the dimension of `df`.
 
 
-## Problem 9.
+## Problem 8.
 
 Create a logical vector by comparing which elements in `a` are equal to 6.
 
 
-## Problem 10.
+## Problem 9.
 
 remove the `letters` variable from R.
 Did this also remove `a`, `b`, `c`, and `d`?
 
 
 
-## Problem 11.
+## Problem 10.
 
 Create a numeric vector called `two` which has elements 1 and 2.
 Create a numeric vector called `four` which has four ones.
