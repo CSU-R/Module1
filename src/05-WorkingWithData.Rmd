@@ -758,10 +758,6 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Visualization
 
-```{block, type="caution"}
-This section is still under construction
-```
-
 R is incredibly useful for creating visualizations and graphics which are easy to customize and automate, and entire university courses are dedicated to creating visualizations with R.
 Here we can only introduce the basics of creating visualizations in R.
 
@@ -817,8 +813,8 @@ In this case, there are no default title or labels, but we can still add them:
 ```{r, fig.width=3, fig.height=5}
 boxplot(athletes$Height, main="Olympic Athlete Height", ylab="Height (in)")
 ```
-```{block2, caution}
-__Hint__: In RMarkdown, boxplots may look too wide by default. You can control the width of a figure by using the `fig.height` and `fig.width` commands in the chunk header like this:
+```{block2, type="caution"}
+Hint: In RMarkdown, boxplots may look too wide by default. You can control the width of a figure by using the `fig.height` and `fig.width` commands in the chunk header like this:
   
 ` ```{r, fig.height=3, fit.width=5}`
 
@@ -842,13 +838,13 @@ boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of h
   boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by Sport
 }
 ```
-Here we've added a few more bits to fit all the sport labels in: the `las` option rotates the labels, and the `par` function will be discussed later.
+Here we've added a few more bits to fit all the sport labels in: the `las` option rotates the labels, and the `par` function is used to increase the bottom margin below the graph. 
 
 ```{r, fig.width=10, fig.height=5}
 boxplot(athletes$Height ~ athletes$Age)
 ```
 
-```{block, caution}
+```{block, type="caution"}
 Different software will use different rules to determine how far out the "whiskers" go (and therefore which points are outliers). The default in R is 1.5 times the interquartile range, but this can be changed. When you view a boxplot, never assume what rule was used!
 ```
 
@@ -865,6 +861,11 @@ gy_bb_wr <- athletes[athletes$Sport %in% c("Gymnastics", "Basketball", "Wrestlin
 
 plot(gy_bb_wr$Height, gy_bb_wr$Weight)  # plot height vs weight
 ```
+```{block, type="bonus"}
+Above we saw another nice way to index: the `%in%` command. 
+This returns a logical vector which is true for elements that are found in the search list.
+```
+
 There are a lot of points, so it may be useful to decrease the size of the circles using the `cex` option, which has a default value of 1:
 
 ```{r}
@@ -953,19 +954,53 @@ mosaicplot(gy_bb_wr$Sport ~ gy_bb_wr$Sex, col=c("blue", "orange"), main="Athlete
 
 ### Multiple plots
 
-on top of one another (lines, points)
-next to each other (par)
+One nice feature of R's plotting capability is that you can plot multiple things at the same time.
+One way to do this is to create a plot and then add another plot _on top_ of it, using either the `points` or `lines` function.
+`points` will add a scatter plot using lines, and `lines` will add a scatter plot using a line.
+Normally, a plotting function like `plot` or `hist` will create a new plot _figure_, erasing what may have been plotted before.
+But with the `points` and `lines` functions, R just adds to the existing figure.
+Here's an example of each:
 
-the par function
+```{r}
+# create some data to plot
+x <- (1:100)/100
+y1 <- x
+y2 <- sin(3/x)*x
+```
+
+```{r, eval=F}
+plot(x, y2,)  # plot x against y2
+points(x, y1, col="blue")  # add points of x against y1 (on same figure)
+lines(x, -y1, col="red")  # add lines of x against -y1 (on same figure)
+```
+```{r, echo=F}
+{
+  plot(x, y2,)
+  points(x, y1, col="blue")
+  lines(x, -y1, col="red")
+}
+```
+
 
 ### Other types of plots
 
-image
+The following plots that are less common, but may be useful for you, and this is an opportunity to show some other capabilities of R!
 
-pairs(mtcars)
+#### Scatterplot Matrix
+
+Given several quantitative variables, there are many different possible scatterplots you could make. 
+The `pairs` function takes in a matrix or data frame and creates a matrix of all possible scatter plots.
+Here's an example using the `iris` data set which is included in R:
+```{r}
+pairs(iris, pch=20)
+```
+To know the x axis for one of these plots, look up/down to the diagonal, which will tell you the variable on the x axis.
+To know the y axis for one of these plots, look left/right to the diagonal, which will tell you the variable on the y axis.
+
+#### Surfaces
 
 If you need to plot a surface, there are a few options for visualization.
-The first is contour:
+The first is `contour`, which shows level curves of the surface in a 2d plane:
 
 ```{r}
 # Make a surface using the rep function
@@ -976,18 +1011,71 @@ z <- matrix(sin(x) + cos(y), n, n)
 
 contour(z, nlevels=20)
 ```
+
+The second option is `parsp`, which gives a 3d perspective of the surface:
+
 ```{r, fig.height=8}
 persp(z, theta=45, phi=30, shade=0.5)
 ```
 
-
 ### Saving Images
 
-RMarkdown vs. R script
+Creating visualizations in R wouldn't be very useful if there were no way to save them onto your hard drive (or ssd).
+Thankfully, R provides various ways of doing this, depending on where the plot "lives". 
+We'll talk through each of these below.
+
+#### RCode
+
+The most universal way to save plots is to use R code itself! This will work anywhere that R code can be run, whether that's the RStudio console, an R script, or an RMarkdown document. 
+All you have to do is type a few simple commands.
+The idea is, that normally R "sends" a plot to the plotting window (in the lower right of RStudio), or to the output of a code chunk (if you're using RMarkdown), but to save the file, you just have to change where R is sending the plot. 
+For example, if you add put the `png` function before a plotting command, then instead of sending the plot to wherever it normally does, R will send the plot into the png file you specify. 
+Here's an example:
+
+```{r}
+png("output/test_plot.png")  # start "sending" plots to the png file called "test_plot.png"
+plot(y1, y2)          # this plot will go to "test_plot.png"
+dev.off()             # Stop sending plots to "test_plot.png"
+```
+After you're done sending plots to a file, use the command `dev.off()` to reset where R is sending the plots
+
+```{block2, type="bonus"}
+R graphics works with objects called "graphics devices". 
+The `png` function creates a new graphics device which is a file on your computer. 
+The `dev.off()` shuts down the current graphics device, so no more plots are sent to the file. 
+You can check out other `dev.` functions by running `?dev.off().
+```
+
+There are other commands like `png` as well, including `bmp` for bitmap images, and `jpeg` for jpeg images.
+When you're sending a plot to a file, it will _not_ display in the plot window.
+
+#### RStudio Plot Window
+
+If you run code to generate a plot from the console or an R script, then the plot will show up in the RStudio plot window.
+To save a figure displayed in the plot window, use the "Explort" button in the plot window menu.
+
+#### RMarkdown
+
+If you're plotting inside of an RMarkdown document, then plots will be shown inside your document.
+One way to get them "out of RStudio" is simply to knit the document. 
+But if you want the plot by itself, then right click on the plot and select "Save image as".
 
 
-```{block, type="bonus"}
-brief ggplot example
+### Plotting Wrap Up
+
+These examples of plotting are only scratching the surface.
+There are many more things possible with base R graphics, not to mention the numerous other capabilities provided by community developed Packages.
+Before ending this section, we'll leave you with an example from the `ggplot2` package, just to give you a taste of what's possible.
+
+```{r, fig.height=5, fig.width=10}
+library(ggplot2)
+
+ggplot(gy_bb_wr, aes(Height, Weight, color=Sex)) +
+  geom_point(alpha=0.1) + 
+  theme_bw() + 
+  labs(title="Athlete Height vs. Weight") + 
+  facet_grid(Sex~Sport)
+
 ```
 
 

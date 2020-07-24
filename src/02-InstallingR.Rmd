@@ -397,7 +397,7 @@ gc()           # perform garbage collection
 
 You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l` (careful! that's a lowercase L).
 
-```{bonus}
+```{block, type="bonus"}
 Here's a [more complete list](https://support.rstudio.com/hc/en-us/articles/200711853) of RStudio shortcuts.
 ```
 
