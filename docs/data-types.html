@@ -243,9 +243,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
-<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced indexing</a></li>
+<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="basic-plotting.html"><a href="basic-plotting.html"><i class="fa fa-check"></i><b>5.6</b> Basic Plotting</a></li>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
+<li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
+<li class="chapter" data-level="5.6.4" data-path="visualization.html"><a href="visualization.html#two-categorical-variables"><i class="fa fa-check"></i><b>5.6.4</b> Two Categorical Variables</a></li>
+<li class="chapter" data-level="5.6.5" data-path="visualization.html"><a href="visualization.html#multiple-plots"><i class="fa fa-check"></i><b>5.6.5</b> Multiple plots</a></li>
+<li class="chapter" data-level="5.6.6" data-path="visualization.html"><a href="visualization.html#other-types-of-plots"><i class="fa fa-check"></i><b>5.6.6</b> Other types of plots</a></li>
+<li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
+<li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="performing-data-analysis.html"><a href="performing-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Data Analysis</a><ul>
@@ -283,9 +292,9 @@ Think of all the things you might be expected to remember. These different items
 </div>
 <p>R can store and manipulate different pieces of information, called data, and these data can be of several different types.
 Here are some examples of different types of data:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb31-1"><a href="data-types.html#cb31-1"></a>a &lt;-<span class="st"> </span><span class="fl">12.34</span>      <span class="co"># a is a number</span></span>
-<span id="cb31-2"><a href="data-types.html#cb31-2"></a>b &lt;-<span class="st"> &quot;Hello&quot;</span>    <span class="co"># b is a string of characters</span></span>
-<span id="cb31-3"><a href="data-types.html#cb31-3"></a>c &lt;-<span class="st"> </span><span class="ot">TRUE</span>       <span class="co"># c is a special type of data that is either true or false</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb30-1"><a href="data-types.html#cb30-1"></a>a &lt;-<span class="st"> </span><span class="fl">12.34</span>      <span class="co"># a is a number</span></span>
+<span id="cb30-2"><a href="data-types.html#cb30-2"></a>b &lt;-<span class="st"> &quot;Hello&quot;</span>    <span class="co"># b is a string of characters</span></span>
+<span id="cb30-3"><a href="data-types.html#cb30-3"></a>c &lt;-<span class="st"> </span><span class="ot">TRUE</span>       <span class="co"># c is a special type of data that is either true or false</span></span></code></pre></div>
 <p>R has special names for these examples, and there are other types of data as well.
 Below, we’ll talk about each data type, one at a time.</p>
 <div class="bonus">
@@ -297,16 +306,16 @@ The term “data” is actually plural! A single piece of data is called a “da
 <h3><span class="header-section-number">4.2.1</span> Numeric</h3>
 <p>Many data exist as numbers, and R has a specific data type for storing those numbers, called the <em>numeric</em> data type.
 Here are some examples:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb32-1"><a href="data-types.html#cb32-1"></a>a &lt;-<span class="st"> </span><span class="dv">-11</span></span>
-<span id="cb32-2"><a href="data-types.html#cb32-2"></a>b &lt;-<span class="st"> </span><span class="fl">13.37</span></span>
-<span id="cb32-3"><a href="data-types.html#cb32-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">137</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb31-1"><a href="data-types.html#cb31-1"></a>a &lt;-<span class="st"> </span><span class="dv">-11</span></span>
+<span id="cb31-2"><a href="data-types.html#cb31-2"></a>b &lt;-<span class="st"> </span><span class="fl">13.37</span></span>
+<span id="cb31-3"><a href="data-types.html#cb31-3"></a>c &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">137</span></span></code></pre></div>
 <p>Note that integers, decimals, and fractions are all examples of numeric data in R.
 We can prove that these are all the same data type using the <code>class</code> function:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb33-1"><a href="data-types.html#cb33-1"></a><span class="kw">class</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb32-1"><a href="data-types.html#cb32-1"></a><span class="kw">class</span>(a)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb35-1"><a href="data-types.html#cb35-1"></a><span class="kw">class</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb34-1"><a href="data-types.html#cb34-1"></a><span class="kw">class</span>(b)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb37-1"><a href="data-types.html#cb37-1"></a><span class="kw">class</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb36-1"><a href="data-types.html#cb36-1"></a><span class="kw">class</span>(c)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
 <div class="caution">
 <p>
@@ -315,18 +324,18 @@ So far, we’ve defined the <code>a</code> object a few different times, which i
 </div>
 <p>When you have numeric objects, you may want to perform math operations on them.
 R has a number of built in functions to deal with numeric data, here are some examples:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb39-1"><a href="data-types.html#cb39-1"></a><span class="kw">print</span>(a <span class="op">+</span><span class="st"> </span>b)  <span class="co"># Add two numeric values</span></span>
-<span id="cb39-2"><a href="data-types.html#cb39-2"></a><span class="kw">print</span>(b <span class="op">-</span><span class="st"> </span>c)  <span class="co"># subtract two numeric values </span></span>
-<span id="cb39-3"><a href="data-types.html#cb39-3"></a><span class="kw">print</span>(a <span class="op">*</span><span class="st"> </span>b)  <span class="co"># multiply two numeric values</span></span>
-<span id="cb39-4"><a href="data-types.html#cb39-4"></a><span class="kw">print</span>(a<span class="op">^</span><span class="dv">3</span>)    <span class="co"># take the cube of a numeric value</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb38-1"><a href="data-types.html#cb38-1"></a><span class="kw">print</span>(a <span class="op">+</span><span class="st"> </span>b)  <span class="co"># Add two numeric values</span></span>
+<span id="cb38-2"><a href="data-types.html#cb38-2"></a><span class="kw">print</span>(b <span class="op">-</span><span class="st"> </span>c)  <span class="co"># subtract two numeric values </span></span>
+<span id="cb38-3"><a href="data-types.html#cb38-3"></a><span class="kw">print</span>(a <span class="op">*</span><span class="st"> </span>b)  <span class="co"># multiply two numeric values</span></span>
+<span id="cb38-4"><a href="data-types.html#cb38-4"></a><span class="kw">print</span>(a<span class="op">^</span><span class="dv">3</span>)    <span class="co"># take the cube of a numeric value</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 2.37
 [1] 13.3627
 [1] -147.07
 [1] -1331</code></pre>
 <p>When performing math on numeric objects, R will obey <a href="https://en.wikipedia.org/wiki/Order_of_operations">order of operations</a>, so the following two examples will give different results:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb41-1"><a href="data-types.html#cb41-1"></a>a <span class="op">+</span><span class="st"> </span>b <span class="op">*</span><span class="st"> </span>c    <span class="co"># R will perform the multiplication before the addition</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb40-1"><a href="data-types.html#cb40-1"></a>a <span class="op">+</span><span class="st"> </span>b <span class="op">*</span><span class="st"> </span>c    <span class="co"># R will perform the multiplication before the addition</span></span></code></pre></div>
 <pre class="output-style"><code>[1] -10.90241</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb43-1"><a href="data-types.html#cb43-1"></a>(a <span class="op">+</span><span class="st"> </span>b) <span class="op">*</span><span class="st"> </span>c  <span class="co"># R will perform the addition first, then the multiplication </span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1"></a>(a <span class="op">+</span><span class="st"> </span>b) <span class="op">*</span><span class="st"> </span>c  <span class="co"># R will perform the addition first, then the multiplication </span></span></code></pre></div>
 <pre class="output-style"><code>[1] 0.01729927</code></pre>
 <p>Notice that we’ve added extra spaces in the code to help you understand what’s going on.
 This is another example of code <em>style</em>, which we’ll talk more about later.</p>
@@ -339,8 +348,8 @@ Wait a second, we didn’t use the the <code>print</code> function just now, but
 R can be very precise when performing computations.
 However, viewing all of the digits stored by R can be distracting and hard to read.
 You can show just some of the digits by using the <code>round</code> function:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb45-1"><a href="data-types.html#cb45-1"></a>a &lt;-<span class="st"> </span><span class="fl">0.123456</span></span></code></pre></div>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb46-1"><a href="data-types.html#cb46-1"></a><span class="kw">round</span>(a, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb44-1"><a href="data-types.html#cb44-1"></a>a &lt;-<span class="st"> </span><span class="fl">0.123456</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb45-1"><a href="data-types.html#cb45-1"></a><span class="kw">round</span>(a, <span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 0.123</code></pre>
 <p>It also turns out that R stores <em>more</em> digits than what it shows when it prints, though we won’t go into detail on that now.</p>
 </div>
@@ -348,11 +357,11 @@ You can show just some of the digits by using the <code>round</code> function:</
 <h3><span class="header-section-number">4.2.2</span> Integer</h3>
 <p>In general, numeric data in R are treated as if they can be any decimal number (technically, they are a <em>double precision</em> number, if you know what that means; if not, it’s not important right now).
 However, there is a way to specify that a specific numeric object is an integer, by placing an “L” at the end of it, like so:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1"></a>x &lt;-<span class="st"> </span><span class="dv">20</span>   <span class="co"># x will be a numeric object</span></span>
-<span id="cb48-2"><a href="data-types.html#cb48-2"></a>y &lt;-<span class="st"> </span>20L  <span class="co"># y will be an integer object</span></span></code></pre></div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb49-1"><a href="data-types.html#cb49-1"></a><span class="kw">class</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb47-1"><a href="data-types.html#cb47-1"></a>x &lt;-<span class="st"> </span><span class="dv">20</span>   <span class="co"># x will be a numeric object</span></span>
+<span id="cb47-2"><a href="data-types.html#cb47-2"></a>y &lt;-<span class="st"> </span>20L  <span class="co"># y will be an integer object</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1"></a><span class="kw">class</span>(x)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb51-1"><a href="data-types.html#cb51-1"></a><span class="kw">class</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1"></a><span class="kw">class</span>(y)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;integer&quot;</code></pre>
 <p>Integers take half of the space in a computer’s memory or hard drive, so if you are working with or storing a lot of numbers which are integers, it might make sense to declare them as integer type in R.
 This will make more sense when we discuss vectors later.</p>
@@ -362,16 +371,16 @@ This will make more sense when we discuss vectors later.</p>
 <p>Not all data are numbers!
 R also has the capability to store strings of characters, and this is the aptly named <em>character</em> type (or sometimes called a <em>character string</em> or just <em>string</em>).
 Here are some examples:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb53-1"><a href="data-types.html#cb53-1"></a>d &lt;-<span class="st"> &quot;Hello&quot;</span>         <span class="co"># This string is defined with   *double*   quotes </span></span>
-<span id="cb53-2"><a href="data-types.html#cb53-2"></a>e &lt;-<span class="st"> &#39;how are you?&#39;</span>  <span class="co"># This string is defined with   *single*   quotes!</span></span>
-<span id="cb53-3"><a href="data-types.html#cb53-3"></a><span class="kw">print</span>(d)</span>
-<span id="cb53-4"><a href="data-types.html#cb53-4"></a><span class="kw">print</span>(e)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb52-1"><a href="data-types.html#cb52-1"></a>d &lt;-<span class="st"> &quot;Hello&quot;</span>         <span class="co"># This string is defined with   *double*   quotes </span></span>
+<span id="cb52-2"><a href="data-types.html#cb52-2"></a>e &lt;-<span class="st"> &#39;how are you?&#39;</span>  <span class="co"># This string is defined with   *single*   quotes!</span></span>
+<span id="cb52-3"><a href="data-types.html#cb52-3"></a><span class="kw">print</span>(d)</span>
+<span id="cb52-4"><a href="data-types.html#cb52-4"></a><span class="kw">print</span>(e)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;Hello&quot;
 [1] &quot;how are you?&quot;</code></pre>
 <p>Notice how we can define character strings using single quotes or double quotes, as long as we are consistent.
 So this is not valid:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb55-1"><a href="data-types.html#cb55-1"></a><span class="co"># Note the mismatched single/double quotes:</span></span>
-<span id="cb55-2"><a href="data-types.html#cb55-2"></a>f &lt;-<span class="st"> &quot;this does not work&#39; </span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb54-1"><a href="data-types.html#cb54-1"></a><span class="co"># Note the mismatched single/double quotes:</span></span>
+<span id="cb54-2"><a href="data-types.html#cb54-2"></a>f &lt;-<span class="st"> &quot;this does not work&#39; </span></span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error: <text>:2:6: unexpected INCOMPLETE_STRING
 1: # Note the mismatched single/double quotes:
 2: f <- "this does not work' 
@@ -379,19 +388,19 @@ So this is not valid:</p>
 </code></pre>
 <p>So, make sure you are consistent.
 However, you may see another problem with this: some strings contain quotes <em>in them</em>, like this:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1"></a>g &lt;-<span class="st"> &#39;This won&#39;</span>t work<span class="st">&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb55-1"><a href="data-types.html#cb55-1"></a>g &lt;-<span class="st"> &#39;This won&#39;</span>t work<span class="st">&#39;</span></span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error: <text>:1:16: unexpected symbol
 1: g <- 'This won't
                    ^
 </code></pre>
 <p>Since single quotes are being used to define the string, they can’t be used in the string itself, because R will “think” the string is ending at the second <code>'</code>.
 One option is to change the defining quotes to be double quotes, then the single quote will be safely included in the string:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb57-1"><a href="data-types.html#cb57-1"></a>g &lt;-<span class="st"> &quot;I&#39;m happy that this works!&quot;</span></span>
-<span id="cb57-2"><a href="data-types.html#cb57-2"></a><span class="kw">print</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1"></a>g &lt;-<span class="st"> &quot;I&#39;m happy that this works!&quot;</span></span>
+<span id="cb56-2"><a href="data-types.html#cb56-2"></a><span class="kw">print</span>(g)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;I&#39;m happy that this works!&quot;</code></pre>
 <p>Another option is to use a backslash when using quotes inside the string, so that R “knows” the quote is part of the string and not ending the definition of the string:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb59-1"><a href="data-types.html#cb59-1"></a>g &lt;-<span class="st"> &#39;I</span><span class="ch">\&#39;</span><span class="st">ve found another way that works!&#39;</span></span>
-<span id="cb59-2"><a href="data-types.html#cb59-2"></a><span class="kw">print</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb58-1"><a href="data-types.html#cb58-1"></a>g &lt;-<span class="st"> &#39;I</span><span class="ch">\&#39;</span><span class="st">ve found another way that works!&#39;</span></span>
+<span id="cb58-2"><a href="data-types.html#cb58-2"></a><span class="kw">print</span>(g)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;I&#39;ve found another way that works!&quot;</code></pre>
 <p>Notice that when we define <code>g</code> we place a <code>\'</code> anywhere in the string where we want a <code>'</code> to be, but when printed out, we see that R has interpreted it as just a <code>'</code>.
 Notice also that we didn’t have to change the defining quotes to be double quotes in this case.
@@ -408,16 +417,16 @@ To see a list of special characters, try typing <code>?Quotes</code> into the R 
 </p>
 </div>
 <p>Here is an important string to know about:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb61-1"><a href="data-types.html#cb61-1"></a>h &lt;-<span class="st"> &quot;&quot;</span>              <span class="co"># This string is empty!</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb60-1"><a href="data-types.html#cb60-1"></a>h &lt;-<span class="st"> &quot;&quot;</span>              <span class="co"># This string is empty!</span></span></code></pre></div>
 <p><code>h</code> is a character string with no characters, called an <em>empty string</em>.</p>
 <p>You can perform math on numeric data, so what can you do with strings?
 The answer is, quite alot, using some functions that R provides.
 Here are some of them:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb62-1"><a href="data-types.html#cb62-1"></a><span class="kw">nchar</span>(g)   <span class="co"># This prints out the number of characters in a string</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb61-1"><a href="data-types.html#cb61-1"></a><span class="kw">nchar</span>(g)   <span class="co"># This prints out the number of characters in a string</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 34</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb64-1"><a href="data-types.html#cb64-1"></a><span class="kw">substr</span>(g, <span class="dv">6</span>, <span class="dv">10</span>)   <span class="co"># This extracts just part of a string, using the start and stop positions you provide</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb63-1"><a href="data-types.html#cb63-1"></a><span class="kw">substr</span>(g, <span class="dv">6</span>, <span class="dv">10</span>)   <span class="co"># This extracts just part of a string, using the start and stop positions you provide</span></span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;found&quot;</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb66-1"><a href="data-types.html#cb66-1"></a><span class="kw">strsplit</span>(g, <span class="st">&quot; &quot;</span>)   <span class="co"># This splits the string up using a specified &quot;delimiter&quot; string, a single space in this case. </span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb65-1"><a href="data-types.html#cb65-1"></a><span class="kw">strsplit</span>(g, <span class="st">&quot; &quot;</span>)   <span class="co"># This splits the string up using a specified &quot;delimiter&quot; string, a single space in this case. </span></span></code></pre></div>
 <pre class="output-style"><code>[[1]]
 [1] &quot;I&#39;ve&quot;    &quot;found&quot;   &quot;another&quot; &quot;way&quot;     &quot;that&quot;    &quot;works!&quot; </code></pre>
 <div class="bonus">
@@ -425,7 +434,7 @@ Here are some of them:</p>
 When you split a string, this produces a <em>list</em> containing a <em>vector</em> of character strings. This is an example of how data can be organized in a structured way. We’ll talk more about so called <em>data structures</em> in the next section.
 </p>
 </div>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb68-1"><a href="data-types.html#cb68-1"></a><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)   <span class="co"># This combines multiple strings together into one string!</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1"></a><span class="kw">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)   <span class="co"># This combines multiple strings together into one string!</span></span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;hello world&quot;</code></pre>
 <div class="reflect">
 <p>
@@ -439,45 +448,45 @@ Remember that you can learn more about a function using <code>?</code>. Type <co
 <p>Numeric objects can be any number, character objects can be any string of characters, but logical objects can only be two different values: True or False
 Logical data types are also known as <a href="https://en.wikipedia.org/wiki/Boolean_data_type">“boolean” data types</a>.
 Here we define some Logical objects:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb70-1"><a href="data-types.html#cb70-1"></a>a &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
-<span id="cb70-2"><a href="data-types.html#cb70-2"></a>b &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
-<span id="cb70-3"><a href="data-types.html#cb70-3"></a>c &lt;-<span class="st"> </span>T</span>
-<span id="cb70-4"><a href="data-types.html#cb70-4"></a>d &lt;-<span class="st"> </span>F</span></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb71-1"><a href="data-types.html#cb71-1"></a><span class="kw">print</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1"></a>a &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb69-2"><a href="data-types.html#cb69-2"></a>b &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
+<span id="cb69-3"><a href="data-types.html#cb69-3"></a>c &lt;-<span class="st"> </span>T</span>
+<span id="cb69-4"><a href="data-types.html#cb69-4"></a>d &lt;-<span class="st"> </span>F</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb70-1"><a href="data-types.html#cb70-1"></a><span class="kw">print</span>(a)</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb73-1"><a href="data-types.html#cb73-1"></a><span class="kw">print</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb72-1"><a href="data-types.html#cb72-1"></a><span class="kw">print</span>(b)</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb75-1"><a href="data-types.html#cb75-1"></a><span class="kw">print</span>(c)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb74-1"><a href="data-types.html#cb74-1"></a><span class="kw">print</span>(c)</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb77-1"><a href="data-types.html#cb77-1"></a><span class="kw">print</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb76-1"><a href="data-types.html#cb76-1"></a><span class="kw">print</span>(d)</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <p>So you can see that we can define a logical object using the full name or just the first letter.
 Here’s how to get the “opposite” of a logical object</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb79-1"><a href="data-types.html#cb79-1"></a><span class="op">!</span>a</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb78-1"><a href="data-types.html#cb78-1"></a><span class="op">!</span>a</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <p>Logical data are the simplest type, but there are actually some clever things you can do with them.
 You can test whether simple mathematical expressions are true or false.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb81-1"><a href="data-types.html#cb81-1"></a><span class="co"># create x and y</span></span>
-<span id="cb81-2"><a href="data-types.html#cb81-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb81-3"><a href="data-types.html#cb81-3"></a>y &lt;-<span class="st"> </span><span class="dv">4</span></span>
-<span id="cb81-4"><a href="data-types.html#cb81-4"></a><span class="co"># check: is x less than y? (should give TRUE)</span></span>
-<span id="cb81-5"><a href="data-types.html#cb81-5"></a>x <span class="op">&lt;</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1"></a><span class="co"># create x and y</span></span>
+<span id="cb80-2"><a href="data-types.html#cb80-2"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb80-3"><a href="data-types.html#cb80-3"></a>y &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb80-4"><a href="data-types.html#cb80-4"></a><span class="co"># check: is x less than y? (should give TRUE)</span></span>
+<span id="cb80-5"><a href="data-types.html#cb80-5"></a>x <span class="op">&lt;</span><span class="st"> </span>y</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
 <p>The third command is a way to check if the value of <code>x</code> is less than the value of <code>y</code>.
 The result of this comparison is a logical, in this case, <code>TRUE</code>.
 Here are other ways of making comparisons:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb83-1"><a href="data-types.html#cb83-1"></a>x <span class="op">&lt;=</span><span class="st"> </span>y  <span class="co"># check if x is less or equal to y</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb82-1"><a href="data-types.html#cb82-1"></a>x <span class="op">&lt;=</span><span class="st"> </span>y  <span class="co"># check if x is less or equal to y</span></span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb85-1"><a href="data-types.html#cb85-1"></a>x <span class="op">==</span><span class="st"> </span>y  <span class="co"># check if x is equal to y (note how you need two equals signs)</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb84-1"><a href="data-types.html#cb84-1"></a>x <span class="op">==</span><span class="st"> </span>y  <span class="co"># check if x is equal to y (note how you need two equals signs)</span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb87-1"><a href="data-types.html#cb87-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater or equal to y </span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb86-1"><a href="data-types.html#cb86-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater or equal to y </span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb89-1"><a href="data-types.html#cb89-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater than y </span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb88-1"><a href="data-types.html#cb88-1"></a>x <span class="op">&gt;=</span><span class="st"> </span>y  <span class="co"># check if x is greater than y </span></span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <p>Comparisons can be made using strings as well:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb91-1"><a href="data-types.html#cb91-1"></a>x &lt;-<span class="st"> &quot;Hello&quot;</span></span>
-<span id="cb91-2"><a href="data-types.html#cb91-2"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
-<span id="cb91-3"><a href="data-types.html#cb91-3"></a>x <span class="op">==</span><span class="st"> </span>y</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb90-1"><a href="data-types.html#cb90-1"></a>x &lt;-<span class="st"> &quot;Hello&quot;</span></span>
+<span id="cb90-2"><a href="data-types.html#cb90-2"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb90-3"><a href="data-types.html#cb90-3"></a>x <span class="op">==</span><span class="st"> </span>y</span></code></pre></div>
 <pre class="output-style"><code>[1] FALSE</code></pre>
 <div class="caution">
 <p>
@@ -485,15 +494,15 @@ Remember that R is case sensitive, and two strings must be <em>exactly</em> the 
 </p>
 </div>
 <p>Of course any object (like <code>x</code>) will be equal to itself:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb93-1"><a href="data-types.html#cb93-1"></a>x <span class="op">==</span><span class="st"> </span>x</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb92-1"><a href="data-types.html#cb92-1"></a>x <span class="op">==</span><span class="st"> </span>x</span></code></pre></div>
 <pre class="output-style"><code>[1] TRUE</code></pre>
 <p>Surprisingly, logicals can be treated as numerics, where <code>TRUE</code> is treated as <code>1</code> and <code>FALSE</code> is treated as <code>0</code>.
 Here are some examples:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb95-1"><a href="data-types.html#cb95-1"></a><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># TRUE is treated as 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb94-1"><a href="data-types.html#cb94-1"></a><span class="ot">TRUE</span> <span class="op">+</span><span class="st"> </span><span class="ot">TRUE</span>  <span class="co"># TRUE is treated as 1</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb97-1"><a href="data-types.html#cb97-1"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">7</span>  <span class="co"># FALSE is treated as 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb96-1"><a href="data-types.html#cb96-1"></a><span class="ot">FALSE</span> <span class="op">*</span><span class="st"> </span><span class="dv">7</span>  <span class="co"># FALSE is treated as 0</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 0</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb99-1"><a href="data-types.html#cb99-1"></a>(<span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)  <span class="co"># What&#39;s going on here? </span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb98-1"><a href="data-types.html#cb98-1"></a>(<span class="dv">2</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)  <span class="co"># What&#39;s going on here? </span></span></code></pre></div>
 <pre class="output-style"><code>[1] 1</code></pre>
 <p>The last example deserves some thought. Start with each expression in parentheses, and decide whether it will evaluate to true or false.
 Then remember how logicals are treated as numbers, and determine what happens when you add them together.</p>

@@ -243,9 +243,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
-<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced indexing</a></li>
+<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="basic-plotting.html"><a href="basic-plotting.html"><i class="fa fa-check"></i><b>5.6</b> Basic Plotting</a></li>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
+<li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
+<li class="chapter" data-level="5.6.4" data-path="visualization.html"><a href="visualization.html#two-categorical-variables"><i class="fa fa-check"></i><b>5.6.4</b> Two Categorical Variables</a></li>
+<li class="chapter" data-level="5.6.5" data-path="visualization.html"><a href="visualization.html#multiple-plots"><i class="fa fa-check"></i><b>5.6.5</b> Multiple plots</a></li>
+<li class="chapter" data-level="5.6.6" data-path="visualization.html"><a href="visualization.html#other-types-of-plots"><i class="fa fa-check"></i><b>5.6.6</b> Other types of plots</a></li>
+<li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
+<li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="performing-data-analysis.html"><a href="performing-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Data Analysis</a><ul>
@@ -300,29 +309,29 @@ before you can learn what it can do.</p>
 <p>Like most programming languages, R consists of a set of <em>commands</em> which form the sequence of instructions which the computer completes. You can think of <em>commands</em>
 as the verbs of R, they are the actions the computer will take.
 Here is an example of a command, followed by the result.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb11-1"><a href="programming-preliminaries.html#cb11-1"></a><span class="kw">print</span>(<span class="st">&quot;hello, world!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb10-1"><a href="programming-preliminaries.html#cb10-1"></a><span class="kw">print</span>(<span class="st">&quot;hello, world!&quot;</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;hello, world!&quot;</code></pre>
 <p>This command is telling R to <code>print</code> out a message.
 R code usually contains more than one command, and typically each command is put on a separate line.
 Here are multiple commands, each on a separate line:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb13-1"><a href="programming-preliminaries.html#cb13-1"></a><span class="kw">print</span>(<span class="st">&quot;The air is fine!&quot;</span>)</span>
-<span id="cb13-2"><a href="programming-preliminaries.html#cb13-2"></a><span class="kw">print</span>(<span class="dv">1</span><span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb13-3"><a href="programming-preliminaries.html#cb13-3"></a><span class="kw">print</span>(<span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb12-1"><a href="programming-preliminaries.html#cb12-1"></a><span class="kw">print</span>(<span class="st">&quot;The air is fine!&quot;</span>)</span>
+<span id="cb12-2"><a href="programming-preliminaries.html#cb12-2"></a><span class="kw">print</span>(<span class="dv">1</span><span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb12-3"><a href="programming-preliminaries.html#cb12-3"></a><span class="kw">print</span>(<span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;The air is fine!&quot;
 [1] 2
 [1] FALSE</code></pre>
 <p>The first command prints another message, the second command does some math then then prints the result, and the third command evaluates whether the statement is true or false and prints the result.
 Generally, it’s a good idea to put separate commands on separate lines, but you <em>can</em> put multiple commands on the same line, <strong>as long as you separate them by a semicolon</strong>.
 See this code for example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb15-1"><a href="programming-preliminaries.html#cb15-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="dv">1</span>; <span class="kw">print</span>(x); <span class="kw">print</span>(x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb14-1"><a href="programming-preliminaries.html#cb14-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">+</span><span class="dv">1</span>; <span class="kw">print</span>(x); <span class="kw">print</span>(x<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 2
 [1] 4</code></pre>
 <p>In this example, three commands are given on one line.
 The first command creates a new <em>variable</em> called <code>x</code>, the second command prints the value of <code>x</code>, and the third command prints the value of <code>x</code> <em>squared</em>.
 We see that the semicolon, <code>;</code>, serves as the command <em>termination</em>, because it tells R where one command ends and another begins.
 When a line contains a single command, no semicolon is necessary at the end, but including a semicolon doesn’t have any effect either.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb17-1"><a href="programming-preliminaries.html#cb17-1"></a><span class="kw">print</span>(<span class="st">&quot;This line doesn&#39;t have a semicolon&quot;</span>)</span>
-<span id="cb17-2"><a href="programming-preliminaries.html#cb17-2"></a><span class="kw">print</span>(<span class="st">&quot;This line does have a semicolon&quot;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb16-1"><a href="programming-preliminaries.html#cb16-1"></a><span class="kw">print</span>(<span class="st">&quot;This line doesn&#39;t have a semicolon&quot;</span>)</span>
+<span id="cb16-2"><a href="programming-preliminaries.html#cb16-2"></a><span class="kw">print</span>(<span class="st">&quot;This line does have a semicolon&quot;</span>);</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;This line doesn&#39;t have a semicolon&quot;
 [1] &quot;This line does have a semicolon&quot;</code></pre>
 <div class="caution">
@@ -348,22 +357,22 @@ At this point, we’ve introduced several new types of R commands (assigning a v
 </div>
 <p>Lastly, commands can be “grouped together” using left and right curly braces: <code>{</code> and <code>}</code>.
 Here’s an example:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb19-1"><a href="programming-preliminaries.html#cb19-1"></a>{</span>
-<span id="cb19-2"><a href="programming-preliminaries.html#cb19-2"></a>  <span class="kw">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
-<span id="cb19-3"><a href="programming-preliminaries.html#cb19-3"></a>  <span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">7</span>)</span>
-<span id="cb19-4"><a href="programming-preliminaries.html#cb19-4"></a>  w &lt;-<span class="st"> &quot;hello&quot;</span></span>
-<span id="cb19-5"><a href="programming-preliminaries.html#cb19-5"></a>  <span class="kw">print</span>(w)</span>
-<span id="cb19-6"><a href="programming-preliminaries.html#cb19-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb18-1"><a href="programming-preliminaries.html#cb18-1"></a>{</span>
+<span id="cb18-2"><a href="programming-preliminaries.html#cb18-2"></a>  <span class="kw">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
+<span id="cb18-3"><a href="programming-preliminaries.html#cb18-3"></a>  <span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">7</span>)</span>
+<span id="cb18-4"><a href="programming-preliminaries.html#cb18-4"></a>  w &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb18-5"><a href="programming-preliminaries.html#cb18-5"></a>  <span class="kw">print</span>(w)</span>
+<span id="cb18-6"><a href="programming-preliminaries.html#cb18-6"></a>}</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;here&#39;s some code that&#39;s all grouped together&quot;
 [1] 1
 [1] &quot;hello&quot;</code></pre>
 <p>The above grouped code is indented so that it looks nice, but it doesn’t have to be:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb21-1"><a href="programming-preliminaries.html#cb21-1"></a>{</span>
-<span id="cb21-2"><a href="programming-preliminaries.html#cb21-2"></a><span class="kw">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
-<span id="cb21-3"><a href="programming-preliminaries.html#cb21-3"></a><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">7</span>)</span>
-<span id="cb21-4"><a href="programming-preliminaries.html#cb21-4"></a>w &lt;-<span class="st"> &quot;hello&quot;</span></span>
-<span id="cb21-5"><a href="programming-preliminaries.html#cb21-5"></a><span class="kw">print</span>(w)</span>
-<span id="cb21-6"><a href="programming-preliminaries.html#cb21-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb20-1"><a href="programming-preliminaries.html#cb20-1"></a>{</span>
+<span id="cb20-2"><a href="programming-preliminaries.html#cb20-2"></a><span class="kw">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
+<span id="cb20-3"><a href="programming-preliminaries.html#cb20-3"></a><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">7</span>)</span>
+<span id="cb20-4"><a href="programming-preliminaries.html#cb20-4"></a>w &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb20-5"><a href="programming-preliminaries.html#cb20-5"></a><span class="kw">print</span>(w)</span>
+<span id="cb20-6"><a href="programming-preliminaries.html#cb20-6"></a>}</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;here&#39;s some code that&#39;s all grouped together&quot;
 [1] 1
 [1] &quot;hello&quot;</code></pre>
@@ -395,10 +404,10 @@ In RStudio, open a new R script and type in all the R commands from this section
 This can be done with <em>comments</em>, which are ignored by R when it is running the code.
 The “#” comment
 Here’s an example of some comments:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb23-1"><a href="programming-preliminaries.html#cb23-1"></a><span class="co"># Let&#39;s define y and z</span></span>
-<span id="cb23-2"><a href="programming-preliminaries.html#cb23-2"></a>y &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb23-3"><a href="programming-preliminaries.html#cb23-3"></a>z &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="co"># adding 5 to y and assigning the result to z</span></span>
-<span id="cb23-4"><a href="programming-preliminaries.html#cb23-4"></a><span class="co">## This is still a comment, even though we&#39;re using two #&#39;s</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb22-1"><a href="programming-preliminaries.html#cb22-1"></a><span class="co"># Let&#39;s define y and z</span></span>
+<span id="cb22-2"><a href="programming-preliminaries.html#cb22-2"></a>y &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb22-3"><a href="programming-preliminaries.html#cb22-3"></a>z &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="co"># adding 5 to y and assigning the result to z</span></span>
+<span id="cb22-4"><a href="programming-preliminaries.html#cb22-4"></a><span class="co">## This is still a comment, even though we&#39;re using two #&#39;s</span></span></code></pre></div>
 <p>Notice that it’s possible for a line to contain only a comment, or for part of a line to be a comment.
 R decides which part of a line is a comment by looking for the first “#”, and everything after that will be treated as a comment and ignored.</p>
 <div class="caution">
@@ -410,10 +419,10 @@ R ignores comments, but you should <em>not</em>! If you’re reading code that s
 <div id="blank-lines" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Blank Lines</h3>
 <p>Blank lines in R are ignored, but they can be used to organize code and enhance readability:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb24-1"><a href="programming-preliminaries.html#cb24-1"></a><span class="kw">print</span>(<span class="st">&quot;The sky is blue&quot;</span>)</span>
-<span id="cb24-2"><a href="programming-preliminaries.html#cb24-2"></a><span class="co"># the blank line below here is ignored</span></span>
-<span id="cb24-3"><a href="programming-preliminaries.html#cb24-3"></a></span>
-<span id="cb24-4"><a href="programming-preliminaries.html#cb24-4"></a><span class="kw">print</span>(<span class="st">&quot;The grass is green&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb23-1"><a href="programming-preliminaries.html#cb23-1"></a><span class="kw">print</span>(<span class="st">&quot;The sky is blue&quot;</span>)</span>
+<span id="cb23-2"><a href="programming-preliminaries.html#cb23-2"></a><span class="co"># the blank line below here is ignored</span></span>
+<span id="cb23-3"><a href="programming-preliminaries.html#cb23-3"></a></span>
+<span id="cb23-4"><a href="programming-preliminaries.html#cb23-4"></a><span class="kw">print</span>(<span class="st">&quot;The grass is green&quot;</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;The sky is blue&quot;
 [1] &quot;The grass is green&quot;</code></pre>
 </div>
@@ -422,17 +431,17 @@ R ignores comments, but you should <em>not</em>! If you’re reading code that s
 <p>In R, variables, functions, and other objects (all of which we’ll talk about later), have names.
 These names are case sensitive, so you must be careful when referencing an object by name.
 Here we create two variables and give them different values, notice how they are different from each other:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb26-1"><a href="programming-preliminaries.html#cb26-1"></a>A &lt;-<span class="st"> </span><span class="dv">4</span></span>
-<span id="cb26-2"><a href="programming-preliminaries.html#cb26-2"></a>a &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb26-3"><a href="programming-preliminaries.html#cb26-3"></a></span>
-<span id="cb26-4"><a href="programming-preliminaries.html#cb26-4"></a><span class="kw">print</span>(a)</span>
-<span id="cb26-5"><a href="programming-preliminaries.html#cb26-5"></a><span class="kw">print</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb25-1"><a href="programming-preliminaries.html#cb25-1"></a>A &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb25-2"><a href="programming-preliminaries.html#cb25-2"></a>a &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb25-3"><a href="programming-preliminaries.html#cb25-3"></a></span>
+<span id="cb25-4"><a href="programming-preliminaries.html#cb25-4"></a><span class="kw">print</span>(a)</span>
+<span id="cb25-5"><a href="programming-preliminaries.html#cb25-5"></a><span class="kw">print</span>(A)</span></code></pre></div>
 <pre class="output-style"><code>[1] 5
 [1] 4</code></pre>
 <p>This may seem obvious, but case sensitivity applies to functions (which we’ll talk about later) too.
 We’ve been using the <code>print</code> function a lot in the above examples, which begins with a lower case p. 
 There is no <code>Print</code> function:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb28-1"><a href="programming-preliminaries.html#cb28-1"></a><span class="kw">Print</span>(<span class="st">&quot;testing&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb27-1"><a href="programming-preliminaries.html#cb27-1"></a><span class="kw">Print</span>(<span class="st">&quot;testing&quot;</span>)</span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in Print("testing"): could not find function "Print"
 </code></pre>
 </div>
@@ -441,7 +450,7 @@ There is no <code>Print</code> function:</p>
 <p>One <em>very</em> nice thing in R is the documentation that accompanies it.
 Every function included in R (like <code>print</code>) has documentation that explains how that function works.
 To access the documentation, use a <code>?</code> followed by the name of the function, like so:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb29-1"><a href="programming-preliminaries.html#cb29-1"></a>?print</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb28-1"><a href="programming-preliminaries.html#cb28-1"></a>?print</span></code></pre></div>
 <div class="progress">
 <p>
 The output of the above code chunk is not shown, because the result of this code is best viewed in RStudio. Go to R Studio and type in <code>?print</code> and observe what happens!
@@ -453,7 +462,7 @@ The output of the above code chunk is not shown, because the result of this code
 <p>If you don’t remember the exact name of a function, or would like to search for general matches to a topic, then you can use <code>??</code>.
 For example, trying <code>?Print</code> produces an error, because there is not <code>Print</code> function (remember, R is case sensitive), so there’s no documentation to go with it.
 However, the following should still work:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb30-1"><a href="programming-preliminaries.html#cb30-1"></a>??Print</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb29-1"><a href="programming-preliminaries.html#cb29-1"></a>??Print</span></code></pre></div>
 <div class="bonus">
 <p>
 Programmers have a sense of humor, too! Try running <code>????print</code> to see a small joke. Remember, comedic taste varies!
