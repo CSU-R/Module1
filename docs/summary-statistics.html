@@ -299,7 +299,7 @@ What other R data types might be used to store quantitative data?
 </div>
 <p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
 <div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(athletes<span class="op">$</span>Age))   <span class="co"># count how many NA&#39;s are in the Age column</span></span></code></pre></div>
-<pre class="output-style"><code>[1] 9474</code></pre>
+<pre class="output-style"><code>[1] 183</code></pre>
 
 <div class="reflect">
 Pause and think through what’s happening in the above code. The <code>is.na</code> function returns a logical array which is true whenever the <code>Age</code> column is <code>NA</code>. So why does the <code>sum</code> function produce the number of <code>NA</code>’s?
@@ -333,22 +333,22 @@ In the following code, read the comments carefully to understand how the code is
 <span id="cb346-9"><a href="summary-statistics.html#cb346-9"></a>)  <span class="co"># this could all go on one line, but it looks more organized this way.</span></span>
 <span id="cb346-10"><a href="summary-statistics.html#cb346-10"></a>age_stats</span></code></pre></div>
 <pre class="output-style"><code>$min
-[1] 10
+[1] 12
 
 $median
-[1] 24
+[1] 25
 
 $max
-[1] 97
+[1] 74
 
 $mean
-[1] 25.5569
+[1] 25.65373
 
 $sd
-[1] 6.393561
+[1] 6.495693
 
 $var
-[1] 40.87762</code></pre>
+[1] 42.19402</code></pre>
 
 <div class="progress">
 Using the Olympic Athletes data, create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
@@ -377,90 +377,80 @@ What other R data types might be used to store categorical data?
 In a character vector like this, we expect there to be many duplicated values.
 We can see a list of all the unique values with the following:</p>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb351-1"><a href="summary-statistics.html#cb351-1"></a><span class="kw">unique</span>(sport)</span></code></pre></div>
-<pre class="output-style"><code> [1] &quot;Basketball&quot;                &quot;Judo&quot;                     
- [3] &quot;Football&quot;                  &quot;Tug-Of-War&quot;               
- [5] &quot;Speed Skating&quot;             &quot;Cross Country Skiing&quot;     
- [7] &quot;Athletics&quot;                 &quot;Ice Hockey&quot;               
- [9] &quot;Swimming&quot;                  &quot;Badminton&quot;                
-[11] &quot;Sailing&quot;                   &quot;Biathlon&quot;                 
-[13] &quot;Gymnastics&quot;                &quot;Art Competitions&quot;         
-[15] &quot;Alpine Skiing&quot;             &quot;Handball&quot;                 
-[17] &quot;Weightlifting&quot;             &quot;Wrestling&quot;                
-[19] &quot;Luge&quot;                      &quot;Water Polo&quot;               
-[21] &quot;Hockey&quot;                    &quot;Rowing&quot;                   
-[23] &quot;Bobsleigh&quot;                 &quot;Fencing&quot;                  
-[25] &quot;Equestrianism&quot;             &quot;Shooting&quot;                 
-[27] &quot;Boxing&quot;                    &quot;Taekwondo&quot;                
-[29] &quot;Cycling&quot;                   &quot;Diving&quot;                   
-[31] &quot;Canoeing&quot;                  &quot;Tennis&quot;                   
-[33] &quot;Modern Pentathlon&quot;         &quot;Figure Skating&quot;           
-[35] &quot;Golf&quot;                      &quot;Softball&quot;                 
-[37] &quot;Archery&quot;                   &quot;Volleyball&quot;               
-[39] &quot;Synchronized Swimming&quot;     &quot;Table Tennis&quot;             
-[41] &quot;Nordic Combined&quot;           &quot;Baseball&quot;                 
-[43] &quot;Rhythmic Gymnastics&quot;       &quot;Freestyle Skiing&quot;         
-[45] &quot;Rugby Sevens&quot;              &quot;Trampolining&quot;             
-[47] &quot;Beach Volleyball&quot;          &quot;Triathlon&quot;                
-[49] &quot;Ski Jumping&quot;               &quot;Curling&quot;                  
-[51] &quot;Snowboarding&quot;              &quot;Rugby&quot;                    
-[53] &quot;Short Track Speed Skating&quot; &quot;Skeleton&quot;                 
-[55] &quot;Lacrosse&quot;                  &quot;Polo&quot;                     
-[57] &quot;Cricket&quot;                   &quot;Racquets&quot;                 
-[59] &quot;Motorboating&quot;              &quot;Military Ski Patrol&quot;      
-[61] &quot;Croquet&quot;                   &quot;Jeu De Paume&quot;             
-[63] &quot;Roque&quot;                     &quot;Alpinism&quot;                 
-[65] &quot;Basque Pelota&quot;             &quot;Aeronautics&quot;              </code></pre>
-<p>Using the numbers in brackets to the left as our guide, we can see that there are 66 unique values, but this can also be determined by running:</p>
+<pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                
+ [3] &quot;Swimming&quot;                  &quot;Basketball&quot;               
+ [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;            
+ [7] &quot;Fencing&quot;                   &quot;Weightlifting&quot;            
+ [9] &quot;Equestrianism&quot;             &quot;Archery&quot;                  
+[11] &quot;Cross Country Skiing&quot;      &quot;Gymnastics&quot;               
+[13] &quot;Tennis&quot;                    &quot;Athletics&quot;                
+[15] &quot;Cycling&quot;                   &quot;Bobsleigh&quot;                
+[17] &quot;Shooting&quot;                  &quot;Sailing&quot;                  
+[19] &quot;Alpine Skiing&quot;             &quot;Art Competitions&quot;         
+[21] &quot;Canoeing&quot;                  &quot;Football&quot;                 
+[23] &quot;Rowing&quot;                    &quot;Figure Skating&quot;           
+[25] &quot;Nordic Combined&quot;           &quot;Judo&quot;                     
+[27] &quot;Short Track Speed Skating&quot; &quot;Water Polo&quot;               
+[29] &quot;Snowboarding&quot;              &quot;Taekwondo&quot;                
+[31] &quot;Diving&quot;                    &quot;Handball&quot;                 
+[33] &quot;Softball&quot;                  &quot;Boxing&quot;                   
+[35] &quot;Tug-Of-War&quot;                &quot;Ski Jumping&quot;              
+[37] &quot;Table Tennis&quot;              &quot;Ice Hockey&quot;               
+[39] &quot;Modern Pentathlon&quot;         &quot;Golf&quot;                     
+[41] &quot;Baseball&quot;                  &quot;Volleyball&quot;               
+[43] &quot;Luge&quot;                      &quot;Badminton&quot;                
+[45] &quot;Trampolining&quot;              &quot;Curling&quot;                  
+[47] &quot;Beach Volleyball&quot;          &quot;Polo&quot;                     
+[49] &quot;Rugby Sevens&quot;              &quot;Synchronized Swimming&quot;    
+[51] &quot;Triathlon&quot;                 &quot;Skeleton&quot;                 
+[53] &quot;Freestyle Skiing&quot;          &quot;Military Ski Patrol&quot;      
+[55] &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
+[57] &quot;Rugby&quot;                    </code></pre>
+<p>Using the numbers in brackets to the left as our guide, we can see that there are 57 unique values, but this can also be determined by running:</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span></code></pre></div>
-<pre class="output-style"><code>[1] 66</code></pre>
+<pre class="output-style"><code>[1] 57</code></pre>
 <p>It would be nice to see how many times each entry occurs in the data set.
 This is what the <code>table</code> function does:</p>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1"></a><span class="kw">table</span>(sport)</span></code></pre></div>
 <pre class="output-style"><code>sport
-              Aeronautics             Alpine Skiing                  Alpinism 
-                        1                      8829                        25 
-                  Archery          Art Competitions                 Athletics 
-                     2334                      3578                     38624 
-                Badminton                  Baseball                Basketball 
-                     1457                       894                      4536 
-            Basque Pelota          Beach Volleyball                  Biathlon 
-                        2                       564                      4893 
+            Alpine Skiing                   Archery          Art Competitions 
+                      148                        41                        64 
+                Athletics                 Badminton                  Baseball 
+                      728                        32                        19 
+               Basketball          Beach Volleyball                  Biathlon 
+                       98                        18                       100 
                 Bobsleigh                    Boxing                  Canoeing 
-                     3058                      6047                      6171 
-                  Cricket                   Croquet      Cross Country Skiing 
-                       24                        19                      9133 
-                  Curling                   Cycling                    Diving 
-                      463                     10859                      2842 
-            Equestrianism                   Fencing            Figure Skating 
-                     6344                     10735                      2298 
-                 Football          Freestyle Skiing                      Golf 
-                     6745                       937                       247 
-               Gymnastics                  Handball                    Hockey 
-                    26707                      3665                      5417 
-               Ice Hockey              Jeu De Paume                      Judo 
-                     5516                        11                      3801 
+                       53                       121                       112 
+     Cross Country Skiing                   Curling                   Cycling 
+                      174                         8                       205 
+                   Diving             Equestrianism                   Fencing 
+                       56                       121                       184 
+           Figure Skating                  Football          Freestyle Skiing 
+                       44                       138                         9 
+                     Golf                Gymnastics                  Handball 
+                        5                       498                        61 
+                   Hockey                Ice Hockey                      Judo 
+                      101                        83                        76 
                  Lacrosse                      Luge       Military Ski Patrol 
-                       60                      1479                        24 
-        Modern Pentathlon              Motorboating           Nordic Combined 
-                     1677                        17                      1344 
-                     Polo                  Racquets       Rhythmic Gymnastics 
-                       95                        12                       658 
-                    Roque                    Rowing                     Rugby 
-                        4                     10595                       162 
+                        1                        25                         2 
+        Modern Pentathlon           Nordic Combined                      Polo 
+                       37                        25                         4 
+      Rhythmic Gymnastics                    Rowing                     Rugby 
+                        9                       190                         4 
              Rugby Sevens                   Sailing                  Shooting 
-                      299                      6586                     11448 
+                        6                       126                       218 
 Short Track Speed Skating                  Skeleton               Ski Jumping 
-                     1534                       199                      2401 
+                       23                         4                        45 
              Snowboarding                  Softball             Speed Skating 
-                      936                       478                      5613 
+                       19                        10                       104 
                  Swimming     Synchronized Swimming              Table Tennis 
-                    23195                       909                      1955 
+                      399                         9                        36 
                 Taekwondo                    Tennis              Trampolining 
-                      606                      2862                       152 
+                       10                        45                         4 
                 Triathlon                Tug-Of-War                Volleyball 
-                      529                       170                      3404 
+                        6                         5                        50 
                Water Polo             Weightlifting                 Wrestling 
-                     3846                      3937                      7154 </code></pre>
+                       79                        85                       123 </code></pre>
 <p>Let’s save this table to a list as before:</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb357-1"><a href="summary-statistics.html#cb357-1"></a><span class="co"># assign summary statistics to variables</span></span>
 <span id="cb357-2"><a href="summary-statistics.html#cb357-2"></a>sport_n_unique &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span>
@@ -523,22 +513,22 @@ The following commands may be useful for remembering what the contents of our st
 <span id="cb361-4"><a href="summary-statistics.html#cb361-4"></a></span>
 <span id="cb361-5"><a href="summary-statistics.html#cb361-5"></a>athlete_stats<span class="op">$</span>age   <span class="co"># show that we have loaded the data by printing the age stats</span></span></code></pre></div>
 <pre class="output-style"><code>$min
-[1] 10
+[1] 12
 
 $median
-[1] 24
+[1] 25
 
 $max
-[1] 97
+[1] 74
 
 $mean
-[1] 25.5569
+[1] 25.65373
 
 $sd
-[1] 6.393561
+[1] 6.495693
 
 $var
-[1] 40.87762</code></pre>
+[1] 42.19402</code></pre>
 
 <div class="caution">
 Notice the file ends with <em>.rds</em>, indicating that this is a special RDS type which can only be read by R.

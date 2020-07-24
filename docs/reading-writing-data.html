@@ -290,44 +290,45 @@ That is, the data are normally somewhere on your computer’s hard drive (or SSD
 <div id="olympic-athletes-example" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Olympic Athletes Example</h3>
 <p>Let’s look another example, this time with a data set of Olympic athletes.
+This is just a subset of the full dataset, to make it easier for you to work with.
 Here’s how we’ll <em>read</em> them into R:</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb337-1"><a href="reading-writing-data.html#cb337-1"></a><span class="co"># Read the csv file into a data frame called athletes</span></span>
 <span id="cb337-2"><a href="reading-writing-data.html#cb337-2"></a>athletes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
 <span id="cb337-3"><a href="reading-writing-data.html#cb337-3"></a></span>
 <span id="cb337-4"><a href="reading-writing-data.html#cb337-4"></a><span class="co"># print a summary of the data frame</span></span>
 <span id="cb337-5"><a href="reading-writing-data.html#cb337-5"></a><span class="kw">summary</span>(athletes)</span></code></pre></div>
-<pre class="output-style"><code>       ID             Name               Sex                 Age       
- Min.   :     1   Length:271116      Length:271116      Min.   :10.00  
- 1st Qu.: 34643   Class :character   Class :character   1st Qu.:21.00  
- Median : 68205   Mode  :character   Mode  :character   Median :24.00  
- Mean   : 68249                                         Mean   :25.56  
- 3rd Qu.:102097                                         3rd Qu.:28.00  
- Max.   :135571                                         Max.   :97.00  
-                                                        NA&#39;s   :9474   
-     Height          Weight          Team               NOC           
- Min.   :127.0   Min.   : 25.0   Length:271116      Length:271116     
- 1st Qu.:168.0   1st Qu.: 60.0   Class :character   Class :character  
- Median :175.0   Median : 70.0   Mode  :character   Mode  :character  
- Mean   :175.3   Mean   : 70.7                                        
- 3rd Qu.:183.0   3rd Qu.: 79.0                                        
- Max.   :226.0   Max.   :214.0                                        
- NA&#39;s   :60171   NA&#39;s   :62875                                        
-    Games                Year         Season              City          
- Length:271116      Min.   :1896   Length:271116      Length:271116     
- Class :character   1st Qu.:1960   Class :character   Class :character  
- Mode  :character   Median :1988   Mode  :character   Mode  :character  
-                    Mean   :1978                                        
-                    3rd Qu.:2002                                        
-                    Max.   :2016                                        
+<pre class="output-style"><code>       X              ID             Name               Sex           
+ Min.   :   1   Min.   :     4   Length:5000        Length:5000       
+ 1st Qu.:1251   1st Qu.: 35321   Class :character   Class :character  
+ Median :2500   Median : 68267   Mode  :character   Mode  :character  
+ Mean   :2500   Mean   : 68668                                        
+ 3rd Qu.:3750   3rd Qu.:102377                                        
+ Max.   :5000   Max.   :135559                                        
+                                                                      
+      Age            Height          Weight           Team          
+ Min.   :12.00   Min.   :139.0   Min.   : 33.00   Length:5000       
+ 1st Qu.:21.00   1st Qu.:168.5   1st Qu.: 61.00   Class :character  
+ Median :25.00   Median :175.0   Median : 70.00   Mode  :character  
+ Mean   :25.65   Mean   :175.4   Mean   : 70.91                     
+ 3rd Qu.:28.00   3rd Qu.:183.0   3rd Qu.: 80.00                     
+ Max.   :74.00   Max.   :223.0   Max.   :182.00                     
+ NA&#39;s   :183     NA&#39;s   :1109    NA&#39;s   :1131                       
+     NOC               Games                Year         Season         
+ Length:5000        Length:5000        Min.   :1896   Length:5000       
+ Class :character   Class :character   1st Qu.:1960   Class :character  
+ Mode  :character   Mode  :character   Median :1988   Mode  :character  
+                                       Mean   :1978                     
+                                       3rd Qu.:2002                     
+                                       Max.   :2016                     
                                                                         
-    Sport              Event              Medal          
- Length:271116      Length:271116      Length:271116     
- Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character  
-                                                         
-                                                         
-                                                         
-                                                         </code></pre>
+     City              Sport              Event              Medal          
+ Length:5000        Length:5000        Length:5000        Length:5000       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            </code></pre>
 
 <div class="caution">
 The above command only works because the data set is in a particular location (the data folder), and is in a particular format (csv).
