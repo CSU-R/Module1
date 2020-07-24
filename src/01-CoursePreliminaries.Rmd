@@ -111,7 +111,7 @@ sched <- data.frame(
   Week = 1 + isoweek(course_dates) - isoweek(start_date),
   Weekday = wday(course_dates, label=T, abbr=F),
   Date = format(course_dates, "%B %d"),
-  Reading = c("1, 2", "3", "4.1, 4.2", "4.3", "4.4, 4.5", "5.1, 5.2", "5.3, 5.4", "5.X (TBD)", "5.X (TBD)", "6.X (TBD)", "6.X (TBD)", "6.X (TBD)"),
+  Reading = c("1, 2", "3", "4.1, 4.2", "4.3", "4.4, 4.5", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.X (TBD)", "6.X (TBD)", "6.X (TBD)"),
   Due= c("Progress Check 1", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "Quiz 4", "Assignment 4")
 )
 knitr::kable(sched) %>% kable_styling()
