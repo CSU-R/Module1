@@ -688,6 +688,25 @@ Pause and think through what's happening in this example if it's not quite clear
 Also note the placement of the comma (`,`), which indicates that we're indexing rows, not columns, of the data frame.
 ```
 
+You can specify multiple conditions using "and" (`&`) and "or" (`|`) like this:
+
+```{r}
+# create logical vector which is true for female gymnasts (female AND gymnast)
+index <- (athletes$Sex == "F") & (athletes$Sport == "Gymnastics")
+
+# select only female gymnasts
+fem_gym <- athletes[index,]
+```
+
+```{r}
+# create logical vector which is true if sport is basketball OR gymnastics
+index <- (athletes$Sport == "Basketball") | (athletes$Sport == "Gymnastics")
+
+# select only female gymnasts
+bb_gy <- athletes[index,]
+```
+
+
 ```{block2, type="progress"}
 Create a data frame called athletes_winter with only the rows whose `Season` is "Winter"
 ```
