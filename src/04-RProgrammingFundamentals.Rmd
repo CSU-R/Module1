@@ -881,9 +881,9 @@ Predict whether the following are possible:
 - Can you can multiply a logical vector with a numeric vector?
   
 Check whether you are correct by creating some vectors in R and attempting to multiply them together. Can you make sense of the answer?
-If you run into errors, you can include `errors=TRUE` in your code chunk options like this:
+If you run into errors, you can include `error=TRUE` in your code chunk options like this:
   
-` ```{r, errors=TRUE}`
+` ```{r, error=TRUE}`
 
 This will allow RStudio to still knit the document, even thought the code block generated errors.
 ```
