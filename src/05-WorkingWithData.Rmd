@@ -1123,12 +1123,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Vignettes
 
-```{r, include = F}
-
-#This may break everything for you alex. Unclear. Helps print help files. 
-library(printr)
-
-```
+In this section, you'll gain more experience working with data by following along with some more data analysis examples.
 
 ### Flood analysis example
 
@@ -1179,14 +1174,8 @@ Once we have loaded the package we can use
 the special functions that it brings to the table. In this case `dataRetrival` 
 provides a function called `readNWISdv` which can download daily data 
 (or daily values, hence readNWIS*dv*) for specific
-monitoring locations. But how do we use this function? Here we can use the `?`
-operator to get a better sense of how it works. 
-
-
-```{r}
-?readNWISdv
-```
-
+monitoring locations. But how do we use this function? 
+Try `?readNWISdv` to get more details.
 So the `readNWISdv` command requires a few key arguments. First
 `siteNumbers`, these are simply the site identifiers that the USGS uses 
 to track different monitoring stations and in our case that number for the 
@@ -1289,15 +1278,9 @@ pq_wy <- addWaterYear(pq)
 ```
 
 
-To look at variation per year we can use the base function called `tapply` which can take the mean, max or any summary
-function of groups of data. In this case we want to look
-at the mean river flow for each water year.
-
-```{r}
-?tapply
-```
-
-
+To look at variation per year we can use the function called `tapply` which can take the mean, max or any summary
+function of groups of data (more on this in the next chapter, but you can type `?tapply` for more info).
+In this case we want to look at the mean river flow for each water year.
 Now to use tapply we use the following code
 
 
@@ -1321,11 +1304,6 @@ What about the last 6?
 ```
 
 
-```{block, type="caution"}
-This section is still under construction
-```
-
-In this section, you'll gain more experience working with data by following along with some more data analysis examples.
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Vignettes)
