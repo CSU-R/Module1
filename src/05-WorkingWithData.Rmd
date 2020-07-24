@@ -575,7 +575,7 @@ L[["b"]]  # access using component name
 L$c  # access using component name and dollar sign notation
 ```
 And these are basically the only option.
-Unfortunately, you _cannot_ pass lists a vector of indices in order to access multiple components at once:
+Unfortunately, you _cannot_ use a vector of indices in order to access multiple list components at once:
 
 ```{r, error=TRUE}
 L[[1:3]]  # this does not work
@@ -669,7 +669,7 @@ athletes$Name[plays_tug_of_war]
 ```{block, type="progress"}
 Using the Olympic athletes data, create a logical vector which is true when an athlete's sport is wrestling.
 Then access the age of all wrestlers, and assign the ages to another vector.
-Finally, compute the average age of the wrestlers vector (remember, we there may be duplicate athlete names, so this average won't mean much; the emphasis is on indexing right now)
+Finally, compute the average age of the wrestlers vector (remember, there may be duplicate athlete names, so this average won't mean much; the emphasis is on indexing right now)
 ```
 
 Logical vectors can also be used to subset a data frame based on some condition. 
@@ -687,6 +687,9 @@ Pause and think through what's happening in this example if it's not quite clear
 Also note the placement of the comma (`,`), which indicates that we're indexing rows, not columns, of the data frame.
 ```
 
+```{block2, type="progress"}
+Create a data frame called athletes_winter with only the rows whose `Season` is "Winter"
+```
 
 Another common use for Logical indexing is filling in missing values.
 As part of data cleaning, you may decide to change `NA`'s to some other value. This is easy since we can create a logical vector which is `TRUE` when a value is `NA`.
@@ -694,6 +697,10 @@ We can do this with the `is.na` function:
 ```{r}
 # For athletes with no medal, replace `NA` with "No Medal"
 athletes$Medal[is.na(athletes$Medal)] <- "No Medal"
+```
+
+```{block, type="progress"}
+Run the above code to replace NA values with "No Medal", and save the file in your data_clean folder as "athletes_clean.csv"
 ```
 
 ```{block, type="caution"}
@@ -799,6 +806,12 @@ hist(athletes$Height, breaks=60, main="Olympic Athlete Heights", xlab="Height (i
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.
 
+```{block, type="progress"}
+Using the clean athletes data, make a histogram of height for athletes whose sport is Basketball.
+Hint: It might be easiest to create a new data frame with only basketball players first. 
+Give it an appropriate title and axis labels.
+```
+
 ```{block2, type="bonus"}
 To see more options for the `hist` function, run `?hist`.
 ```
@@ -846,6 +859,14 @@ boxplot(athletes$Height ~ athletes$Age)
 
 ```{block, type="caution"}
 Different software will use different rules to determine how far out the "whiskers" go (and therefore which points are outliers). The default in R is 1.5 times the interquartile range, but this can be changed. When you view a boxplot, never assume what rule was used!
+```
+
+```{block, type="progress"}
+Using the clean athletes data, make boxplots of Weight for athletes whose Sport is "Golf"
+Give it an appropriate title and axis labels.
+Comment on the differences in height between the different categories.
+How many athletes have no height reported (that is, how many have `NA` for Height) and how many athletes have a height?
+How should this affect your interpretation of the boxplots?
 ```
 
 
@@ -934,6 +955,12 @@ Another option for plotting two quantitative variables, especially when there ar
 smoothScatter(gy_bb_wr$Height, gy_bb_wr$Weight)
 ```
 
+```{block, type="progress"}
+Create a scatter plot of athlete height (y axis) vs. year (x axis) for athletes with Sport "Weightlifting", and color the points by Sex.
+Create an appropriate title and axis titles.
+What was the first year to allow Female Weightlifters?
+```
+
 ### One Categorical Variables
 
 One useful way to visualize categorical variables is bar plots.
@@ -943,6 +970,12 @@ Before creating a barplot, we need to create a summary table of the variable of 
 sport_tab <- table(gy_bb_wr$Sport)
 barplot(sport_tab, col=rgb(0.2, 0.2, 1))
 ```
+
+```{block, type="progress"}
+Create a barplot for the Season variable, with an appropriate title and axis labels.
+Which Season has more rows in the data frame??
+```
+
 
 ### Two Categorical Variables
 
@@ -1059,6 +1092,11 @@ To save a figure displayed in the plot window, use the "Explort" button in the p
 If you're plotting inside of an RMarkdown document, then plots will be shown inside your document.
 One way to get them "out of RStudio" is simply to knit the document. 
 But if you want the plot by itself, then right click on the plot and select "Save image as".
+
+```{block, type="progress"}
+Choose a plot that you previously created, and write code to save the plot to a png file in the "output" directory of your RStudio project.
+Choose an appropriate filename for the file.
+```
 
 
 ### Plotting Wrap Up
