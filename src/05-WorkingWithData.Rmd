@@ -13,8 +13,7 @@ In this chapter, we'll use R to do interesting things with _real data_.
 This is by far the most popular use of the R programming language, and arguably the most fun!
 You'll learn how to read data sets into R, do interesting things with them, and save your results.
 
-## Quick Example
-
+## Quick Example 
 Before diving into detail, let's do a quick example so you can begin to see what is possible with data in R.
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the `data()` command.
 One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
@@ -160,7 +159,7 @@ These functions are actually all different variations of the same, generic, func
 The difference is that `read.csv`, `read.delim`, and the others make different assumptions about what delimiters are being used, and how decimal numbers are displayed (e.g. one-and-a-half may be written as `1.5`, or `1,5` depending on where you live).
 We will discuss functions and arguments more in the next chapter, but for now, see the following table for when to use each function:
 
-```{r}
+```{r, echo=F}
 df <- data.frame(Function=c("read.table", "read.csv", "read.csv2", "read.delim", "read.delim2"), Delimiter=c("Must specify with sep=...", ",", ";", "\\t (tab)", "\\t (tab)"), Decimals=c(".", ".", ",", ".", ","))
 knitr::kable(df) %>% kable_styling()
 ```
@@ -882,10 +881,10 @@ Different software will use different rules to determine how far out the "whiske
 ```
 
 ```{block, type="progress"}
-Using the clean athletes data, make boxplots of Weight for athletes whose Sport is "Golf"
+Using the clean athletes data, make boxplots of Height for athletes whose Sport is "Cycling", separated by Medal.
 Give it an appropriate title and axis labels.
-Comment on the differences in height between the different categories.
-How many athletes have no height reported (that is, how many have `NA` for Height) and how many athletes have a height?
+Comment on the differences in Height between the different categories.
+How many Cyclists have no height reported (that is, how many have `NA` for Height) and how many athletes have a height?
 How should this affect your interpretation of the boxplots?
 ```
 
