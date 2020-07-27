@@ -504,7 +504,7 @@ Also note the placement of the comma (<code>,</code>), which indicates that weâ€
 <div class="sourceCode" id="cb409"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb409-1"><a href="indexing.html#cb409-1"></a><span class="co"># create logical vector which is true if sport is basketball OR gymnastics</span></span>
 <span id="cb409-2"><a href="indexing.html#cb409-2"></a>index &lt;-<span class="st"> </span>(athletes<span class="op">$</span>Sport <span class="op">==</span><span class="st"> &quot;Basketball&quot;</span>) <span class="op">|</span><span class="st"> </span>(athletes<span class="op">$</span>Sport <span class="op">==</span><span class="st"> &quot;Gymnastics&quot;</span>)</span>
 <span id="cb409-3"><a href="indexing.html#cb409-3"></a></span>
-<span id="cb409-4"><a href="indexing.html#cb409-4"></a><span class="co"># select only female gymnasts</span></span>
+<span id="cb409-4"><a href="indexing.html#cb409-4"></a><span class="co"># select athletes whos sport is basketball OR gymnastics. </span></span>
 <span id="cb409-5"><a href="indexing.html#cb409-5"></a>bb_gy &lt;-<span class="st"> </span>athletes[index,]</span></code></pre></div>
 
 <div class="progress">
