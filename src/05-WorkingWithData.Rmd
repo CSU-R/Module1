@@ -272,7 +272,8 @@ age_stats
 ```
 
 ```{block2, type="progress"}
-Using the Olympic Athletes data, create a list called `weight_stats` with the mean, median, and standard deviation of the `Weight` column.
+Using the Olympic Athletes data, create a list called `weight_stats` with the mean, median, and standard deviation of the `Weight` column. 
+If you get `NA` values for the statistics, you should include the `na.rm=T` argument like so: `mean(weight, na.rm=T)`, to remove the `NA` values before computing the statistics.
 ```
 
 Visualization will be discussed more later, but we'll show one plot now, to show how multiple summary statistics can be shown at the same time.
