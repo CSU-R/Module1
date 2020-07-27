@@ -27,7 +27,7 @@ The data set is based on this [Kaggle dataset](https://www.kaggle.com/leonardope
 
 ## Problem 1. 
 
-Download the [data set](data_raw/top10s.csv) and save it in your data_raw folder.
+Download the [data set](https://github.com/CSU-R/Module1/raw/master/data_raw/top10s.csv) and save it in your data_raw folder.
 Read the dataset into R to an object called `top`.
 
 ```{r}
