@@ -701,7 +701,7 @@ fem_gym <- athletes[index,]
 # create logical vector which is true if sport is basketball OR gymnastics
 index <- (athletes$Sport == "Basketball") | (athletes$Sport == "Gymnastics")
 
-# select only female gymnasts
+# select athletes whos sport is basketball OR gymnastics. 
 bb_gy <- athletes[index,]
 ```
 
