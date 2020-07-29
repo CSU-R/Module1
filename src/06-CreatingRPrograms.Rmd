@@ -24,9 +24,6 @@ It will all start with basic logic, in the next section!
 
 
 ## Basic Control Flow
-```{block, type="caution"}
-This section is still under construction
-```
 
 When you write R code, you are creating commands that R will execute one at a time _in order_, from top to bottom. 
 This is the basic _flow_ of an R program, but R also provides ways that you can _control_ the flow, using basic logic.
