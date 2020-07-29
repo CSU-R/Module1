@@ -1,24 +1,459 @@
-# Performing Data Analysis
+# Performing Effective Data Analysis
 
 ```{block, type="caution"}
-This chapter is still under construction
+This chapter is still under construction, sections are marked if incomplete.
 ```
 
-## Basic Control Flow
+> "Learning to write programs stretches your mind, and helps you think better, creates a way of thinking about things that I think is helpful in all domains." —Bill Gates
 
+```{block, type="reflection"}
+In the previous chapter, you learned how to load a data set, compute summary statistics, and create visualizations.
+Suppose instead of just one data set, you had to do analysis on 100 different data sets.
+Will you have to write 100 times the amount of code?
+Now suppose that instead of 100 data sets, you have one data set and 100 columns, and you would like to create a visualization of each column. 
+As you've seen, different types of data merit different types of visualizations.
+Will you have to manually examine each column and write the appropriate code to visualize that column?
+Clearly these scenarios (and many others) would benefit from _smarter_ R programs.
+```
+
+In this Chapter you'll discover ways to make R do _more_ work and letting you do _less_.
+This is where the true power of R as a programming language will be harnessed, and you will be able to write less code and perform more effective analysis.
+You will also be able to reduce mistakes and increase consistency in analysis, as well as better communicate your work to others.
+This chapter is where you will gain the skills to move you from being able to work with data to being able to perform effective data analysis. 
+It will all start with basic logic, in the next section!
+
+
+## Basic Control Flow
 ```{block, type="caution"}
 This section is still under construction
 ```
 
-If/else
+When you write R code, you are creating commands that R will execute one at a time _in order_, from top to bottom. 
+This is the basic _flow_ of an R program, but R also provides ways that you can _control_ the flow, using basic logic.
+In this section, we'll introduce a few ways of controlling the flow of an R program, but first, we need a data set to work with.
 
-loops (for, while)
+Our working example for this chapter will be the latest (as of this book's writing) provisional estimates of COVID-19 Deaths in the United States, available from the Centers for Disease Control at [this link](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Sex-Age-and-S/9bhg-hcku/data).
+We've downloaded the data and saved it in the `data_raw` folder, and you should do the same (the data are also available [here](https://raw.githubusercontent.com/CSU-R/Module1/master/data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv))
+First, let's load the data and do some minor cleaning:
 
-switch
-
-```{block, type="feedback"}
-Give me some [feedback](https://forms.gle/2Fw8y4aY51ijdmyE9) about the content in this section.
+```{r}
+# Load the data.
+# The "Footnote" column has hyphens, which only display correctly if we specify "UTF-8" encoding.
+covid <- read.csv("data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv", fileEncoding = "UTF-8")
+# remove rows with state totals. This will mess up our summary statistics later
+covid <- covid[!grepl("Total", covid$State),]
 ```
+
+```{block, type="progress"}
+Download the covid data into your data_raw folder, and load/clean it using the code above.
+```
+
+### Loops 
+
+
+One of the first things we might like to do with our data set is create visualizations. 
+This data contains deaths data for different states, age groups, and sexes, let's pick a state and sex, create a bar chart for deaths in different age groups, and save the image to the `output` directory:
+
+```{r, eval=F}
+# Select only Females from Colorado
+covid_co_f <- covid[(covid$State == "Colorado") & (covid$Sex == "Female"),]
+
+# save a barplot of the deaths by age group
+png("output/covid_deaths_by_agegroup_colorado_female.png")
+par(mar = c(9, 4, 2, 2))
+# The COVID.19.Deaths vector doesn't have row names, so we specify the bar labels with names.arg 
+barplot(covid_co_f$COVID.19.Deaths, names.arg = covid_co_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+dev.off()
+```
+
+Here's the plot we just created:
+
+```{r}
+covid_co_f <- covid[(covid$State == "Colorado") & (covid$Sex == "Female"),]
+par(mar = c(9, 4, 2, 2))
+barplot(covid_co_f$COVID.19.Deaths, names.arg = covid_co_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+```
+
+Note that three age groups have more than 0 but less than 9 cases, so the counts have been omitted from the data set to maintain confidentiality of the victims.
+
+Let's repeat this process for two other states:
+```{r, eval=F}
+# deaths by age group for females in Wyoming
+covid_wy_f <- covid[(covid$State == "Wyoming") & (covid$Sex == "Female"),]
+png("output/covid_deaths_by_agegroup_wyoming_female.png")
+par(mar = c(9, 4, 2, 2))
+barplot(covid_wy_f$COVID.19.Deaths, names.arg = covid_wy_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+dev.off()
+
+
+# deaths by age group for females in Wyoming
+covid_nm_f <- covid[(covid$State == "New Mexico") & (covid$Sex == "Female"),]
+png("output/covid_deaths_by_agegroup_newmexico_female.png")
+par(mar = c(9, 4, 2, 2))
+barplot(covid_nm_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+dev.off()
+```
+
+Here are these plots, too:
+
+```{r, echo=F}
+covid_wy_f <- covid[(covid$State == "Wyoming") & (covid$Sex == "Female"),]
+par(mar = c(9, 4, 2, 2))
+barplot(covid_wy_f$COVID.19.Deaths, names.arg = covid_wy_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+```
+
+```{r, echo=F}
+covid_nm_f <- covid[(covid$State == "New Mexico") & (covid$Sex == "Female"),]
+par(mar = c(9, 4, 2, 2))
+barplot(covid_nm_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+        las=2, 
+        main="Deaths By Age Group")
+```
+Now, if we wanted to do this for all States, this would take a lot of code.
+But notice that the code we wrote in each case was very similar?
+This is a perfect opportunity to use _looping_.
+Looping involves running the same R commands multiple times, usually making small changes in between. 
+The most common form of loop is called a _for-loop_.
+Here's a simple example:
+
+```{r}
+vec <- c("a", "b", "c")  # create a vector
+for(i in vec){   # loop through the elements of the vector
+  print(i)           # print out the current element
+}                    # stop the loop
+```
+
+This for-loop printed out each element of the `vec` variable, one at a time.
+Here's the way this works:
+- `for` tells R we want to repeat code multiple times. When R "sees" the `for` command, it knows that the code that follows will be repeated
+- the parentheses (`(` and `)`) specify a vector that will be looped over (`vec` in this example), and a variable name to use while looping (`i` in this example). Each time through the loop, the variable (`i`) will have a different value. In this example, the __first__ time through the loop, `i` will have the value of the __first__ element of `vec` (`"a"`), the __second__ time through the loop, `i` will have the value of the __second__ element of `vec (`"b"`), etc. The name _for-loop_ is common in many programming languages, which reflects the fact that R is running the loop _for each_ element of the vector.
+- The braces (`{` and `}`) specify which code should be run each time through the loop. In this example, we're just printing out the value of `i`, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.
+- After it finishes looping, R continues proceeds to run any code below the for-loop.
+
+Here's another example of a for-loop:
+
+```{r}
+for(j in 1:10){
+  print(j^2)
+}
+print(j+1)
+```
+
+There are a few things to learn from this second example:
+
+- The variable used in the loop doesn't have to be `i`. It can be any name you like.
+- You can create vectors in the for-loop. Here we use `1:10` to generate a sequence of numbers from 1 to 10 (remember this?)
+- The value of `j` (or whatever your looping variable is called) still exists after the for-loop is over. Here the _last_ value of `j` was 10, so printing `j+1` produced 11.
+
+```{block2, type="caution"}
+Don't forget to include the curly braces (`{`, `}`) after your for-loop, or else R may not include
+```
+
+```{block2, type="bonus"}
+In some languages, white space like tabs and spaces are _significant_, meaning they imply something about what should happen when the code is run.
+In R, spaces and tabs don't change anything about how code is run, and usually are used to make code more readable. 
+For example, it's common to indent for-loops, for clarity, but it's not strictly necessary for the code to run.
+This is another example of coding _style_.
+```
+
+```{block2, type="bonus"}
+Technically, you don't _need_ to include braces after the for-loop, but if you leave them out, then R will only run the first command it finds after the `for(...)`.
+```
+
+Now let's gradually change the first example into a loop that runs visualizations for each state in our data set. 
+First, instead of looping over `c("a", "b", "c")`, let's loop over state names:
+
+```{r}
+for(i in c("Colorado", "Wyoming", "New Mexico")){
+  print(i)
+}
+```
+Now instead of just printing the state name, let's create a data frame of just that state, for females:
+```{r}
+for(i in c("Colorado", "Wyoming", "New Mexico")){
+  covid_state_f <- covid[(covid$State == i) & (covid$Sex == "Female"),]
+}
+```
+
+Remember, each time through the loop, the value of `i` matches one of the state names in the vector.
+So `covid$State == i` will produce a logical vector which is true for the rows specific to whichever state name we're on.
+Notice that each time through the loop, the `covid_state_f` data frame will _also_ change, containing only the rows for the state we're on.
+Now that we are selecting only the state of interest, let's produce a bar plot of cases, split by age group:
+
+```{r}
+# Loop though three states
+for(i in c("Colorado", "Wyoming", "New Mexico")){
+  # select only the rows from the state
+  covid_state_f <- covid[(covid$State == i) & (covid$Sex == "Female"),]
+  # create the file name using the state's name
+  file_name <- paste("output/covid_deaths_by_agegroup_", i, "_female.png", sep="")
+  # produce the plot
+  png(file_name)
+  par(mar = c(9, 4, 2, 2))
+  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+          las=2, 
+          main=paste("Deaths By Age Group, ", i, sep=""))
+  dev.off()
+}
+```
+
+We've used the `paste` function a few times in this loop, remember that it combines multiple strings using a separator, which we've set as an empty string (so no separator between the strings being combined).
+
+```{block, type="caution"}
+This is some of the most long and complex code that we've discussed so far! It's important that you fully understand what each line is doing, so take your time and review the above code chunk until you're comfortable with it.
+```
+
+Here comes the real power of this method. So far, we've just produced plots for three states, but with one small change, we can produce plots for each state in the data frame:
+
+```{r}
+for(i in unique(covid$State)){  # <<------ Here's the one change we made!
+  covid_state_f <- covid[(covid$State == i) & (covid$Sex == "Female"),]
+  file_name <- paste("output/covid_deaths_by_agegroup_", i, "_female.png", sep="")
+  png(file_name)
+  par(mar = c(9, 4, 2, 2))
+  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+          las=2, 
+          main=paste("Deaths By Age Group, ", i, sep=""))
+  dev.off()
+}
+```
+
+This code will now loop through _every unique value_ in the `State` column and produce identical visualizations for each state!
+
+```{block, type="progress"}
+Write a for-loop which loops through each age group category, and prints the total number of COVID-19 deaths across all states (Hint: each time through the loop, subset based on the age group, then find the sum of the deaths column, then print the result).
+```
+
+
+```{block, type="bonus"}
+R has other functions for looping as well, but for-loops are _by far_ the most common.
+Another option is `while` which, rather than looping through a vector, just continues looping forever as long as some condition is true. Try `?Control` for more info.
+```
+
+#### Nested Loops
+
+Sometimes it becomes necessary to loop over multiple vectors at once.
+This is possible by _nesting_ the for loops (putting one inside the other) like so:
+
+```{r}
+for(i in c(10, 50)){
+  for(j in c(1, 2)){
+    print(i + j)
+  }
+}
+```
+
+Look carefully at the output, and notice that `j` is changing "faster" than `i`: First `i` is 10, and `j` cycles through 1 and 2, then `i` is 50, and `j` cycles through 1 and 2 again.
+
+```{block, type="caution"}
+Notice that when nesting for-loops, each for loop has its own set of braces (`{`, `}`). Don't forget to put the second ending brace `}`! 
+Another reason to use indenting is to catch mistakes like a missing ending brace.
+```
+
+Let's apply this concept to our COVID-19 data. 
+So far, we've been generating plots for the females only, but we can include another loop which cycles through each Sex for each state (changes marked with comments):
+
+```{r}
+for(i in unique(covid$State)){  
+  for(j in unique(covid$Sex)){  # add a nested loop for sex
+    covid_state_sex <- covid[(covid$State == i) & (covid$Sex == j),]  # compare covid$Sex to j
+    # add j to the file name
+    file_name <- paste("output/covid_deaths_by_agegroup_", i, "_", j, ".png", sep="")
+    png(file_name)
+    par(mar = c(9, 4, 2, 2))
+    barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+            las=2, 
+            main=paste("Deaths By Age Group,", i, j))  # change add Sex to title
+    dev.off()
+  }
+}
+```
+
+
+
+```{block, type="caution"}
+Nested for-loops can be useful and even necessary, but nesting can sometimes take a very long time to run. 
+If two nested for loops each run through 1,000 vector elements, that means a total of 1,000,000 iterations through the inner loop's code!
+It's possible to have a set of three nested for-loops or even more, but generally this is not wise practice, and in most cases there is a way to accomplish the same goal without so much much looping.
+```
+
+#### Breaking Out of For Loops.
+
+Sometimes it's necessary to stop a loop earlier than expected.
+This can be done with `break`, but this is best explained after discussing if/else statements.
+
+
+### If Statements
+
+So far, you've seen how to control the _flow_ of a program by having R run the same chunk of code multiple times. 
+Another common way of controlling flow is to change the code that runs based on some condition. 
+Let's return to the COVID example for a motivation.
+
+Suppose we wanted to create a visualization of the data in each column of the data frame. 
+Remember that the choice of visualization is affected by the type of variable being visualized (quantitative or categorical).
+If the column is quantitative, we'd like to produce a histogram, perhaps, and if the column is categorical, we'd like to produce a bar graph.
+Remember that looping runs the _same_ code each time through the loop, so how are we supposed to change the plot method to suit the variable type?
+The answer is to use _if_ statements.
+
+Before going further, here's a quick example:
+
+```{r}
+if("cat" == "dog"){
+  print("Something doesn't make sense!")
+}
+```
+
+This code produces precisely _no output_.
+Even though there is a print command, R does not print anything!
+The reason is that the print command is inside of an _if_ statement, and R only runs that code if the specified condition is met.
+here's how it works:
+- The `if` indicates the start of the if statement.
+- R expects the parentheses to contain a logical statement that produces either `TRUE` or `FALSE`. In this example, we are comparing the character strings `"cat"` and `"dog"` (which are not the same, so the result is `FALSE`).
+- If the condition is `TRUE`, then the code block in curly braces is run (not true for this example).
+- If the condition is `FALSE`, then the code block is _not_ run. In the example (which is why this example did not print).
+- Whether the code block is run or not, R will then proceed to run any code below the if statement.
+
+```{block, type="caution"}
+In the simple example above, the logical condition (`"cat" == "dog"`) is obviously false, so every time we run the code, the print statement will not be run. 
+If the code never runs, then why go through the trouble of _including_ it?
+The answer is that this simple example isn't realistic, and you should look at the next example.
+```
+
+Let's see how if statements can be used inside of a for loop.
+
+```{r}
+for(i in 1:5){
+  if(i == 4){
+    print(i)
+  }
+}
+```
+Here we have a for-loop which loops through the vector `1:5`, remember that the value of `i` is changing each time through the loop to a different element of the vector.
+Each time through the loop, R evaluates the condition `i == 4`. 
+If it is true, then the value of `i` is printed, otherwise nothing happens, because there is no other code in the for loop.
+`i` takes on the value 4 exactly once, in which case the print statement runs and we see the value of `i`.
+To summarize, the for-loop code ran five times, four of these times the if condition was `FALSE` and nothing happened, but one time the if condition was `TRUE`.
+
+
+#### Else 
+
+If statements can also be written with an `else` block, which specifies code to run if the logical condition is `FALSE`:
+
+```{r}
+for(i in 1:5){
+  if(i == 4){  # condition to test
+    print(i)   # code to run if condition is TRUE
+  } else {
+    print("Not 4")  # code to run if condition is FALSE
+  }
+}
+```
+Here you can see that rather than doing nothing when the condition is not true, the second code block (after `else`) is run instead.
+
+Returning to the COVID example, let's loop through each of the columns of the data frame, and use an if statement to determine if it is a character or numeric mode (remember mode?).
+Then let's choose an appropriate visualization based on the mode:
+
+```{r, fig.height=3}
+for(col_name in names(covid)){
+  col <- covid[[col_name]]
+  if(mode(col) == "numeric"){           # check if mode is numeric
+    hist(col, main=col_name)            # plot histogram
+  } else {                              # not numeric, assume character
+    barplot(table(col), main=col_name)  # plot barplot
+  }
+}
+```
+
+Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
+This is another way in which you can control the flow of an R program.
+
+```{block, type="progress"}
+Looking at visualizations like this for variables in a data set can be a useful way to identify potential problems. 
+Look at the barplot for `State`, and notice that one category has more observations that the others. 
+Which state this is (hint: the `table` and `sort` functions might be useful)? 
+Create a new data frame by subsetting on the outlier state, and examine it.
+Is there cause for concern? Why or why not?
+```
+
+
+
+```{block, type="bonus"}
+There are other variations on if statements, including using `else if` to test a second condition if the first is not met, and the `switch` function which matches an argument to one of several possibilities, and runs different code for each match.
+These are more advanced topics that will not be covered here.
+```
+
+```{block, type="progress"}
+Create a for-loop which loops through each state. 
+In the for loop, determine whether there are more male or female deaths in the 45-54 age group. 
+If there are more females, print "There are more female deaths in <State>", where <State> is the state name for that iteration in the loop. 
+If there are more males or the deaths are the same, the print "There are not more female deaths in <State>".
+```
+
+
+#### Breaking Out of For Loops.
+
+Sometimes it's useful to be able to stop a for-loop before it has finished looping through the whole vector.
+This can be done with the `break` statement, which is usually placed within an if statement. 
+Here's an example:
+
+```{r}
+for(i in 1:10){
+  if(i > 5){
+    break
+  }
+  print(i)
+}
+```
+The if condition is `FALSE` at first, until `i` is 6, at which point the if condition is `TRUE`, so the `break` statement is run, and R exits from the loop.
+Hence we see the numbers 1-5 printed but not the numbers 6-10.
+
+
+### Formatting Conventions
+
+Since R is a programming language, it is not immune to the common debates between programers regarding proper formatting.
+For example, the following for-loops are all equivalent:
+
+```{r}
+for(i in 1:3){
+  print(i)
+}
+```
+
+```{r}
+for(i in 1:3)
+{
+  print(i)
+}
+```
+
+```{r}
+for(i in 1:3) {print(i)}
+```
+
+```{r}
+for(i in 1:3) print(i)
+```
+
+But different programmers (and sometimes programming communities) will have different ideas on what is best.
+For this book, we'll use the first convention, but you could reasonably choose the second as well.
+The third and fourth conventions should probably only be used if the code block is very short (e.g. a single command).
+Mainly we raise these differences because you may have to read code written by someone with a different convention as yourself.
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Control%20Flow)
+``` 
+
 
 ## Advanced Control Flow
 
@@ -27,6 +462,10 @@ This section is still under construction
 ```
 
 *apply family
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Advanced%20Control%20Flow)
+``` 
 
 ## Writing Functions
 
@@ -43,6 +482,9 @@ When writing functions, it helps to start simple. It's easy to make a complicate
 - Pass by value, contrast with other languages
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Writing%20Functions)
+``` 
 
 ## Working With Popular Packages
 
@@ -50,3 +492,7 @@ When writing functions, it helps to start simple. It's easy to make a complicate
 This section is still under construction
 ```
 
+[1] "R Packages"
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Packages)
+``` 
