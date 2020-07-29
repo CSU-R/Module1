@@ -1,11 +1,7 @@
 # Working with Data
 
 
-```{block, type="caution"}
-Portions of this chapter are still under construction. Sections in progress will start with a caution block like this one.
-```
-
-> The goal is to turn data into information, and information into insight.” – Carly Fiorina, former CEO of Hewlett-Packard
+> "The goal is to turn data into information, and information into insight." – Carly Fiorina, former CEO of Hewlett-Packard
 
 In the previous chapter, we've talked about the different types of data that R stores and the different structures that R stores data _in_.
 We've mostly just made up numbers, character strings, and logical values for illustration.
@@ -136,7 +132,7 @@ In this class, you should be working within an rstudio project, which automatica
 If you created the folders as instructed earlier, then you should already have a `data_raw` folder in your project directory.
 
 ```{block2, type="progress"}
-Download the olympic athletes data set from [this link](data_raw/olympic_athletes.csv) and save it in your data_raw folder.
+Download the olympic athletes data set from [this link](/data_raw/olympic_athletes.csv) and save it in your data_raw folder.
 In your progress check document, simply write: "Olympic Data Downloaded"
 ```
 
