@@ -6,3 +6,4 @@
 git_steps.sh
 libs/
 data_clean/
+output/*
