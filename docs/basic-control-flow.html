@@ -300,7 +300,7 @@ This section is still under construction
 This is the basic <em>flow</em> of an R program, but R also provides ways that you can <em>control</em> the flow, using basic logic.
 In this section, we’ll introduce a few ways of controlling the flow of an R program, but first, we need a data set to work with.</p>
 <p>Our working example for this chapter will be the latest (as of this book’s writing) provisional estimates of COVID-19 Deaths in the United States, available from the Centers for Disease Control at <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Sex-Age-and-S/9bhg-hcku/data">this link</a>.
-We’ve downloaded the data and saved it in the <code>data_raw</code> folder, and you should do the same (the data are also available <a href="https://raw.githubusercontent.com/CSU-R/Module1/master/data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv">here</a>)
+We’ve downloaded the data and saved it in the <code>data_raw</code> folder, and you should do the same (the data are also available <a href="/data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv">here</a>)
 First, let’s load the data and do some minor cleaning:</p>
 <div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="basic-control-flow.html#cb455-1"></a><span class="co"># Load the data.</span></span>
 <span id="cb455-2"><a href="basic-control-flow.html#cb455-2"></a><span class="co"># The &quot;Footnote&quot; column has hyphens, which only display correctly if we specify &quot;UTF-8&quot; encoding.</span></span>
