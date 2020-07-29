@@ -1,5 +1,7 @@
 # Installing R 
 
+> "Any fool can write code that a computer can understand. Good programmers write code that humans can understand." - Martin Fowler
+
 In the previous chapter, you ran R code on a website.
 The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
 
