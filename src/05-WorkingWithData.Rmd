@@ -132,7 +132,7 @@ In this class, you should be working within an rstudio project, which automatica
 If you created the folders as instructed earlier, then you should already have a `data_raw` folder in your project directory.
 
 ```{block2, type="progress"}
-Download the olympic athletes data set from [this link](/data_raw/olympic_athletes.csv) and save it in your data_raw folder.
+Download the olympic athletes data set from [this link](data_raw/olympic_athletes.csv) and save it in your data_raw folder.
 In your progress check document, simply write: "Olympic Data Downloaded"
 ```
 
