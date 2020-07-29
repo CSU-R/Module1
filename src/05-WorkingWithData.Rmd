@@ -612,11 +612,14 @@ Notice how With lists, you _cannot_ access multiple components (which is what da
 Since data frames can use matrix formatting, you _can_ select multiple columns at once, as the first example above showed.
 ```
 
-You can also access 
+You can also access columns by name like so:
 
 ```{r}
 athletes3[,c("Name", "Sex")]  # Access Name and Sex columns
 ```
+
+(and if your rows have names, you can access rows by name as well).
+
 
 ```{block, type="progress"}
 Using the mtcars data frame (included in R), get the `mpg` for the cars in rows 15 through 20, and assign it to a vector.
