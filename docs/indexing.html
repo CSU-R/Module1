@@ -437,13 +437,14 @@ Here are some examples with the Olympic athletes data.</p>
 Notice how With lists, you <em>cannot</em> access multiple components (which is what dataframe columns are) at the same time, but with matrices you <em>can</em> access multiple columns at once. Since data frames can use matrix formatting, you <em>can</em> select multiple columns at once, as the first example above showed.
 </p>
 </div>
-<p>You can also access</p>
+<p>You can also access columns by name like so:</p>
 <div class="sourceCode" id="cb398"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb398-1"><a href="indexing.html#cb398-1"></a>athletes3[,<span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Sex&quot;</span>)]  <span class="co"># Access Name and Sex columns</span></span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sex"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"Berta Hrub","2":"F","_rn_":"1"},{"1":"Joaquim Vital","2":"M","_rn_":"2"},{"1":"Madelon Baans","2":"F","_rn_":"3"},{"1":"Achille Canna","2":"M","_rn_":"4"},{"1":"Antje Buschschulte (-Meeuw)","2":"F","_rn_":"5"},{"1":"Ludwig Gredler","2":"M","_rn_":"6"},{"1":"Pawe Abratkiewicz","2":"M","_rn_":"7"},{"1":"Jerzy Zdzisaw Janikowski","2":"M","_rn_":"8"},{"1":"Giuseppe \"Peppino\" Tanti","2":"M","_rn_":"9"},{"1":"Carl-Jan Gustaf David Hamilton","2":"M","_rn_":"10"},{"1":"Bla Nagy","2":"M","_rn_":"11"},{"1":"Vincent Vittoz","2":"M","_rn_":"12"},{"1":"Joyce May Racek (-Markley, -Budrunas)","2":"F","_rn_":"13"},{"1":"Seiichiro Kashio","2":"M","_rn_":"14"},{"1":"Surzer","2":"M","_rn_":"15"},{"1":"Dimitrios Kantzias","2":"M","_rn_":"16"},{"1":"Kim Gwang-Suk","2":"F","_rn_":"17"},{"1":"Joshua Noel \"Josh\" Laban","2":"M","_rn_":"18"},{"1":"Alejandro Vidal Arellano","2":"M","_rn_":"19"},{"1":"Mariusz Latkowski","2":"M","_rn_":"20"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<p>(and if your rows have names, you can access rows by name as well).</p>
 <div class="progress">
 <p>
 Using the mtcars data frame (included in R), get the <code>mpg</code> for the cars in rows 15 through 20, and assign it to a vector. Now find the average <code>mpg</code> of those cars.
