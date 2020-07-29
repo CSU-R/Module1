@@ -33,7 +33,7 @@ This is the basic _flow_ of an R program, but R also provides ways that you can 
 In this section, we'll introduce a few ways of controlling the flow of an R program, but first, we need a data set to work with.
 
 Our working example for this chapter will be the latest (as of this book's writing) provisional estimates of COVID-19 Deaths in the United States, available from the Centers for Disease Control at [this link](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Sex-Age-and-S/9bhg-hcku/data).
-We've downloaded the data and saved it in the `data_raw` folder, and you should do the same (the data are also available [here](/data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv))
+We've downloaded the data and saved it in the `data_raw` folder, and you should do the same (the data are also available [here](data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv))
 First, let's load the data and do some minor cleaning:
 
 ```{r}
