@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="performing-data-analysis.html"/>
+<link rel="prev" href="performing-effective-data-analysis.html"/>
 <link rel="next" href="advanced-control-flow.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -259,8 +259,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-data-analysis.html"><a href="performing-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Data Analysis</a><ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a></li>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
+<li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
+<li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.2</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.3" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.3</b> Writing Functions</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
@@ -292,13 +296,368 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 This section is still under construction
 </p>
 </div>
-<p>If/else</p>
-<p>loops (for, while)</p>
-<p>switch</p>
+<p>When you write R code, you are creating commands that R will execute one at a time <em>in order</em>, from top to bottom.
+This is the basic <em>flow</em> of an R program, but R also provides ways that you can <em>control</em> the flow, using basic logic.
+In this section, we’ll introduce a few ways of controlling the flow of an R program, but first, we need a data set to work with.</p>
+<p>Our working example for this chapter will be the latest (as of this book’s writing) provisional estimates of COVID-19 Deaths in the United States, available from the Centers for Disease Control at <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Sex-Age-and-S/9bhg-hcku/data">this link</a>.
+We’ve downloaded the data and saved it in the <code>data_raw</code> folder, and you should do the same (the data are also available <a href="https://raw.githubusercontent.com/CSU-R/Module1/master/data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv">here</a>)
+First, let’s load the data and do some minor cleaning:</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="basic-control-flow.html#cb455-1"></a><span class="co"># Load the data.</span></span>
+<span id="cb455-2"><a href="basic-control-flow.html#cb455-2"></a><span class="co"># The &quot;Footnote&quot; column has hyphens, which only display correctly if we specify &quot;UTF-8&quot; encoding.</span></span>
+<span id="cb455-3"><a href="basic-control-flow.html#cb455-3"></a>covid &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv&quot;</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb455-4"><a href="basic-control-flow.html#cb455-4"></a><span class="co"># remove rows with state totals. This will mess up our summary statistics later</span></span>
+<span id="cb455-5"><a href="basic-control-flow.html#cb455-5"></a>covid &lt;-<span class="st"> </span>covid[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="op">$</span>State),]</span></code></pre></div>
+<div class="progress">
+<p>
+Download the covid data into your data_raw folder, and load/clean it using the code above.
+</p>
+</div>
+<div id="loops" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Loops</h3>
+<p>One of the first things we might like to do with our data set is create visualizations.
+This data contains deaths data for different states, age groups, and sexes, let’s pick a state and sex, create a bar chart for deaths in different age groups, and save the image to the <code>output</code> directory:</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="basic-control-flow.html#cb456-1"></a><span class="co"># Select only Females from Colorado</span></span>
+<span id="cb456-2"><a href="basic-control-flow.html#cb456-2"></a>covid_co_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;Colorado&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb456-3"><a href="basic-control-flow.html#cb456-3"></a></span>
+<span id="cb456-4"><a href="basic-control-flow.html#cb456-4"></a><span class="co"># save a barplot of the deaths by age group</span></span>
+<span id="cb456-5"><a href="basic-control-flow.html#cb456-5"></a><span class="kw">png</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_colorado_female.png&quot;</span>)</span>
+<span id="cb456-6"><a href="basic-control-flow.html#cb456-6"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb456-7"><a href="basic-control-flow.html#cb456-7"></a><span class="co"># The COVID.19.Deaths vector doesn&#39;t have row names, so we specify the bar labels with names.arg </span></span>
+<span id="cb456-8"><a href="basic-control-flow.html#cb456-8"></a><span class="kw">barplot</span>(covid_co_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_co_f<span class="op">$</span>Age.group, </span>
+<span id="cb456-9"><a href="basic-control-flow.html#cb456-9"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb456-10"><a href="basic-control-flow.html#cb456-10"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
+<span id="cb456-11"><a href="basic-control-flow.html#cb456-11"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<p>Here’s the plot we just created:</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="basic-control-flow.html#cb457-1"></a>covid_co_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;Colorado&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb457-2"><a href="basic-control-flow.html#cb457-2"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb457-3"><a href="basic-control-flow.html#cb457-3"></a><span class="kw">barplot</span>(covid_co_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_co_f<span class="op">$</span>Age.group, </span>
+<span id="cb457-4"><a href="basic-control-flow.html#cb457-4"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb457-5"><a href="basic-control-flow.html#cb457-5"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-467-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Note that three age groups have more than 0 but less than 9 cases, so the counts have been omitted from the data set to maintain confidentiality of the victims.</p>
+<p>Let’s repeat this process for two other states:</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb458-1"><a href="basic-control-flow.html#cb458-1"></a><span class="co"># deaths by age group for females in Wyoming</span></span>
+<span id="cb458-2"><a href="basic-control-flow.html#cb458-2"></a>covid_wy_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;Wyoming&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb458-3"><a href="basic-control-flow.html#cb458-3"></a><span class="kw">png</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_wyoming_female.png&quot;</span>)</span>
+<span id="cb458-4"><a href="basic-control-flow.html#cb458-4"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb458-5"><a href="basic-control-flow.html#cb458-5"></a><span class="kw">barplot</span>(covid_wy_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_wy_f<span class="op">$</span>Age.group, </span>
+<span id="cb458-6"><a href="basic-control-flow.html#cb458-6"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb458-7"><a href="basic-control-flow.html#cb458-7"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
+<span id="cb458-8"><a href="basic-control-flow.html#cb458-8"></a><span class="kw">dev.off</span>()</span>
+<span id="cb458-9"><a href="basic-control-flow.html#cb458-9"></a></span>
+<span id="cb458-10"><a href="basic-control-flow.html#cb458-10"></a></span>
+<span id="cb458-11"><a href="basic-control-flow.html#cb458-11"></a><span class="co"># deaths by age group for females in Wyoming</span></span>
+<span id="cb458-12"><a href="basic-control-flow.html#cb458-12"></a>covid_nm_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;New Mexico&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb458-13"><a href="basic-control-flow.html#cb458-13"></a><span class="kw">png</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_newmexico_female.png&quot;</span>)</span>
+<span id="cb458-14"><a href="basic-control-flow.html#cb458-14"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb458-15"><a href="basic-control-flow.html#cb458-15"></a><span class="kw">barplot</span>(covid_nm_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_nm_f<span class="op">$</span>Age.group, </span>
+<span id="cb458-16"><a href="basic-control-flow.html#cb458-16"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb458-17"><a href="basic-control-flow.html#cb458-17"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
+<span id="cb458-18"><a href="basic-control-flow.html#cb458-18"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<p>Here are these plots, too:</p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-469-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-470-1.png" width="672" style="display: block; margin: auto;" />
+Now, if we wanted to do this for all States, this would take a lot of code.
+But notice that the code we wrote in each case was very similar?
+This is a perfect opportunity to use <em>looping</em>.
+Looping involves running the same R commands multiple times, usually making small changes in between.
+The most common form of loop is called a <em>for-loop</em>.
+Here’s a simple example:</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="basic-control-flow.html#cb459-1"></a>vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)  <span class="co"># create a vector</span></span>
+<span id="cb459-2"><a href="basic-control-flow.html#cb459-2"></a><span class="cf">for</span>(i <span class="cf">in</span> vec){   <span class="co"># loop through the elements of the vector</span></span>
+<span id="cb459-3"><a href="basic-control-flow.html#cb459-3"></a>  <span class="kw">print</span>(i)           <span class="co"># print out the current element</span></span>
+<span id="cb459-4"><a href="basic-control-flow.html#cb459-4"></a>}                    <span class="co"># stop the loop</span></span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;a&quot;
+[1] &quot;b&quot;
+[1] &quot;c&quot;</code></pre>
+<p>This for-loop printed out each element of the <code>vec</code> variable, one at a time.
+Here’s the way this works:
+- <code>for</code> tells R we want to repeat code multiple times. When R “sees” the <code>for</code> command, it knows that the code that follows will be repeated
+- the parentheses (<code>(</code> and <code>)</code>) specify a vector that will be looped over (<code>vec</code> in this example), and a variable name to use while looping (<code>i</code> in this example). Each time through the loop, the variable (<code>i</code>) will have a different value. In this example, the <strong>first</strong> time through the loop, <code>i</code> will have the value of the <strong>first</strong> element of <code>vec</code> (<code>"a"</code>), the <strong>second</strong> time through the loop, <code>i</code> will have the value of the <strong>second</strong> element of <code>vec (</code>“b”<code>), etc. The name _for-loop_ is common in many programming languages, which reflects the fact that R is running the loop _for each_ element of the vector. - The braces (</code>{<code>and</code>}<code>) specify which code should be run each time through the loop. In this example, we're just printing out the value of</code>i`, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.
+- After it finishes looping, R continues proceeds to run any code below the for-loop.</p>
+<p>Here’s another example of a for-loop:</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="basic-control-flow.html#cb461-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb461-2"><a href="basic-control-flow.html#cb461-2"></a>  <span class="kw">print</span>(j<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb461-3"><a href="basic-control-flow.html#cb461-3"></a>}</span>
+<span id="cb461-4"><a href="basic-control-flow.html#cb461-4"></a><span class="kw">print</span>(j<span class="op">+</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 4
+[1] 9
+[1] 16
+[1] 25
+[1] 36
+[1] 49
+[1] 64
+[1] 81
+[1] 100
+[1] 11</code></pre>
+<p>There are a few things to learn from this second example:</p>
+<ul>
+<li>The variable used in the loop doesn’t have to be <code>i</code>. It can be any name you like.</li>
+<li>You can create vectors in the for-loop. Here we use <code>1:10</code> to generate a sequence of numbers from 1 to 10 (remember this?)</li>
+<li>The value of <code>j</code> (or whatever your looping variable is called) still exists after the for-loop is over. Here the <em>last</em> value of <code>j</code> was 10, so printing <code>j+1</code> produced 11.</li>
+</ul>
+
+<div class="caution">
+Don’t forget to include the curly braces (<code>{</code>, <code>}</code>) after your for-loop, or else R may not include
+</div>
+
+
+<div class="bonus">
+In some languages, white space like tabs and spaces are <em>significant</em>, meaning they imply something about what should happen when the code is run.
+In R, spaces and tabs don’t change anything about how code is run, and usually are used to make code more readable.
+For example, it’s common to indent for-loops, for clarity, but it’s not strictly necessary for the code to run.
+This is another example of coding <em>style</em>.
+</div>
+
+
+<div class="bonus">
+Technically, you don’t <em>need</em> to include braces after the for-loop, but if you leave them out, then R will only run the first command it finds after the <code>for(...)</code>.
+</div>
+
+<p>Now let’s gradually change the first example into a loop that runs visualizations for each state in our data set.
+First, instead of looping over <code>c("a", "b", "c")</code>, let’s loop over state names:</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb463-1"><a href="basic-control-flow.html#cb463-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;Wyoming&quot;</span>, <span class="st">&quot;New Mexico&quot;</span>)){</span>
+<span id="cb463-2"><a href="basic-control-flow.html#cb463-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb463-3"><a href="basic-control-flow.html#cb463-3"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Colorado&quot;
+[1] &quot;Wyoming&quot;
+[1] &quot;New Mexico&quot;</code></pre>
+<p>Now instead of just printing the state name, let’s create a data frame of just that state, for females:</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb465-1"><a href="basic-control-flow.html#cb465-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;Wyoming&quot;</span>, <span class="st">&quot;New Mexico&quot;</span>)){</span>
+<span id="cb465-2"><a href="basic-control-flow.html#cb465-2"></a>  covid_state_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>i) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb465-3"><a href="basic-control-flow.html#cb465-3"></a>}</span></code></pre></div>
+<p>Remember, each time through the loop, the value of <code>i</code> matches one of the state names in the vector.
+So <code>covid$State == i</code> will produce a logical vector which is true for the rows specific to whichever state name we’re on.
+Notice that each time through the loop, the <code>covid_state_f</code> data frame will <em>also</em> change, containing only the rows for the state we’re on.
+Now that we are selecting only the state of interest, let’s produce a bar plot of cases, split by age group:</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb466-1"><a href="basic-control-flow.html#cb466-1"></a><span class="co"># Loop though three states</span></span>
+<span id="cb466-2"><a href="basic-control-flow.html#cb466-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;Wyoming&quot;</span>, <span class="st">&quot;New Mexico&quot;</span>)){</span>
+<span id="cb466-3"><a href="basic-control-flow.html#cb466-3"></a>  <span class="co"># select only the rows from the state</span></span>
+<span id="cb466-4"><a href="basic-control-flow.html#cb466-4"></a>  covid_state_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>i) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb466-5"><a href="basic-control-flow.html#cb466-5"></a>  <span class="co"># create the file name using the state&#39;s name</span></span>
+<span id="cb466-6"><a href="basic-control-flow.html#cb466-6"></a>  file_name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_&quot;</span>, i, <span class="st">&quot;_female.png&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb466-7"><a href="basic-control-flow.html#cb466-7"></a>  <span class="co"># produce the plot</span></span>
+<span id="cb466-8"><a href="basic-control-flow.html#cb466-8"></a>  <span class="kw">png</span>(file_name)</span>
+<span id="cb466-9"><a href="basic-control-flow.html#cb466-9"></a>  <span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb466-10"><a href="basic-control-flow.html#cb466-10"></a>  <span class="kw">barplot</span>(covid_state_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_nm_f<span class="op">$</span>Age.group, </span>
+<span id="cb466-11"><a href="basic-control-flow.html#cb466-11"></a>          <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb466-12"><a href="basic-control-flow.html#cb466-12"></a>          <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Deaths By Age Group, &quot;</span>, i, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</span>
+<span id="cb466-13"><a href="basic-control-flow.html#cb466-13"></a>  <span class="kw">dev.off</span>()</span>
+<span id="cb466-14"><a href="basic-control-flow.html#cb466-14"></a>}</span></code></pre></div>
+<p>We’ve used the <code>paste</code> function a few times in this loop, remember that it combines multiple strings using a separator, which we’ve set as an empty string (so no separator between the strings being combined).</p>
+<div class="caution">
+<p>
+This is some of the most long and complex code that we’ve discussed so far! It’s important that you fully understand what each line is doing, so take your time and review the above code chunk until you’re comfortable with it.
+</p>
+</div>
+<p>Here comes the real power of this method. So far, we’ve just produced plots for three states, but with one small change, we can produce plots for each state in the data frame:</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb467-1"><a href="basic-control-flow.html#cb467-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">unique</span>(covid<span class="op">$</span>State)){  <span class="co"># &lt;&lt;------ Here&#39;s the one change we made!</span></span>
+<span id="cb467-2"><a href="basic-control-flow.html#cb467-2"></a>  covid_state_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>i) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
+<span id="cb467-3"><a href="basic-control-flow.html#cb467-3"></a>  file_name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_&quot;</span>, i, <span class="st">&quot;_female.png&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb467-4"><a href="basic-control-flow.html#cb467-4"></a>  <span class="kw">png</span>(file_name)</span>
+<span id="cb467-5"><a href="basic-control-flow.html#cb467-5"></a>  <span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb467-6"><a href="basic-control-flow.html#cb467-6"></a>  <span class="kw">barplot</span>(covid_state_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_nm_f<span class="op">$</span>Age.group, </span>
+<span id="cb467-7"><a href="basic-control-flow.html#cb467-7"></a>          <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb467-8"><a href="basic-control-flow.html#cb467-8"></a>          <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Deaths By Age Group, &quot;</span>, i, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))</span>
+<span id="cb467-9"><a href="basic-control-flow.html#cb467-9"></a>  <span class="kw">dev.off</span>()</span>
+<span id="cb467-10"><a href="basic-control-flow.html#cb467-10"></a>}</span></code></pre></div>
+<p>This code will now loop through <em>every unique value</em> in the <code>State</code> column and produce identical visualizations for each state!</p>
+<div class="progress">
+<p>
+Write a for-loop which loops through each age group category, and prints the total number of COVID-19 deaths across all states (Hint: each time through the loop, subset based on the age group, then find the sum of the deaths column, then print the result).
+</p>
+</div>
+<div class="bonus">
+<p>
+R has other functions for looping as well, but for-loops are <em>by far</em> the most common. Another option is <code>while</code> which, rather than looping through a vector, just continues looping forever as long as some condition is true. Try <code>?Control</code> for more info.
+</p>
+</div>
+<div id="nested-loops" class="section level4">
+<h4><span class="header-section-number">6.1.1.1</span> Nested Loops</h4>
+<p>Sometimes it becomes necessary to loop over multiple vectors at once.
+This is possible by <em>nesting</em> the for loops (putting one inside the other) like so:</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb468-1"><a href="basic-control-flow.html#cb468-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">50</span>)){</span>
+<span id="cb468-2"><a href="basic-control-flow.html#cb468-2"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)){</span>
+<span id="cb468-3"><a href="basic-control-flow.html#cb468-3"></a>    <span class="kw">print</span>(i <span class="op">+</span><span class="st"> </span>j)</span>
+<span id="cb468-4"><a href="basic-control-flow.html#cb468-4"></a>  }</span>
+<span id="cb468-5"><a href="basic-control-flow.html#cb468-5"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] 11
+[1] 12
+[1] 51
+[1] 52</code></pre>
+<p>Look carefully at the output, and notice that <code>j</code> is changing “faster” than <code>i</code>: First <code>i</code> is 10, and <code>j</code> cycles through 1 and 2, then <code>i</code> is 50, and <code>j</code> cycles through 1 and 2 again.</p>
+<div class="caution">
+<p>
+Notice that when nesting for-loops, each for loop has its own set of braces (<code>{</code>, <code>}</code>). Don’t forget to put the second ending brace <code>}</code>! Another reason to use indenting is to catch mistakes like a missing ending brace.
+</p>
+</div>
+<p>Let’s apply this concept to our COVID-19 data.
+So far, we’ve been generating plots for the females only, but we can include another loop which cycles through each Sex for each state (changes marked with comments):</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb470-1"><a href="basic-control-flow.html#cb470-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">unique</span>(covid<span class="op">$</span>State)){  </span>
+<span id="cb470-2"><a href="basic-control-flow.html#cb470-2"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="kw">unique</span>(covid<span class="op">$</span>Sex)){  <span class="co"># add a nested loop for sex</span></span>
+<span id="cb470-3"><a href="basic-control-flow.html#cb470-3"></a>    covid_state_sex &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>i) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> </span>j),]  <span class="co"># compare covid$Sex to j</span></span>
+<span id="cb470-4"><a href="basic-control-flow.html#cb470-4"></a>    <span class="co"># add j to the file name</span></span>
+<span id="cb470-5"><a href="basic-control-flow.html#cb470-5"></a>    file_name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_&quot;</span>, i, <span class="st">&quot;_&quot;</span>, j, <span class="st">&quot;.png&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb470-6"><a href="basic-control-flow.html#cb470-6"></a>    <span class="kw">png</span>(file_name)</span>
+<span id="cb470-7"><a href="basic-control-flow.html#cb470-7"></a>    <span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb470-8"><a href="basic-control-flow.html#cb470-8"></a>    <span class="kw">barplot</span>(covid_state_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_nm_f<span class="op">$</span>Age.group, </span>
+<span id="cb470-9"><a href="basic-control-flow.html#cb470-9"></a>            <span class="dt">las=</span><span class="dv">2</span>, </span>
+<span id="cb470-10"><a href="basic-control-flow.html#cb470-10"></a>            <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Deaths By Age Group,&quot;</span>, i, j))  <span class="co"># change add Sex to title</span></span>
+<span id="cb470-11"><a href="basic-control-flow.html#cb470-11"></a>    <span class="kw">dev.off</span>()</span>
+<span id="cb470-12"><a href="basic-control-flow.html#cb470-12"></a>  }</span>
+<span id="cb470-13"><a href="basic-control-flow.html#cb470-13"></a>}</span></code></pre></div>
+<div class="caution">
+<p>
+Nested for-loops can be useful and even necessary, but nesting can sometimes take a very long time to run. If two nested for loops each run through 1,000 vector elements, that means a total of 1,000,000 iterations through the inner loop’s code! It’s possible to have a set of three nested for-loops or even more, but generally this is not wise practice, and in most cases there is a way to accomplish the same goal without so much much looping.
+</p>
+</div>
+</div>
+<div id="breaking-out-of-for-loops." class="section level4">
+<h4><span class="header-section-number">6.1.1.2</span> Breaking Out of For Loops.</h4>
+<p>Sometimes it’s necessary to stop a loop earlier than expected.
+This can be done with <code>break</code>, but this is best explained after discussing if/else statements.</p>
+</div>
+</div>
+<div id="if-statements" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> If Statements</h3>
+<p>So far, you’ve seen how to control the <em>flow</em> of a program by having R run the same chunk of code multiple times.
+Another common way of controlling flow is to change the code that runs based on some condition.
+Let’s return to the COVID example for a motivation.</p>
+<p>Suppose we wanted to create a visualization of the data in each column of the data frame.
+Remember that the choice of visualization is affected by the type of variable being visualized (quantitative or categorical).
+If the column is quantitative, we’d like to produce a histogram, perhaps, and if the column is categorical, we’d like to produce a bar graph.
+Remember that looping runs the <em>same</em> code each time through the loop, so how are we supposed to change the plot method to suit the variable type?
+The answer is to use <em>if</em> statements.</p>
+<p>Before going further, here’s a quick example:</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb471-1"><a href="basic-control-flow.html#cb471-1"></a><span class="cf">if</span>(<span class="st">&quot;cat&quot;</span> <span class="op">==</span><span class="st"> &quot;dog&quot;</span>){</span>
+<span id="cb471-2"><a href="basic-control-flow.html#cb471-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Something doesn&#39;t make sense!&quot;</span>)</span>
+<span id="cb471-3"><a href="basic-control-flow.html#cb471-3"></a>}</span></code></pre></div>
+<p>This code produces precisely <em>no output</em>.
+Even though there is a print command, R does not print anything!
+The reason is that the print command is inside of an <em>if</em> statement, and R only runs that code if the specified condition is met.
+here’s how it works:
+- The <code>if</code> indicates the start of the if statement.
+- R expects the parentheses to contain a logical statement that produces either <code>TRUE</code> or <code>FALSE</code>. In this example, we are comparing the character strings <code>"cat"</code> and <code>"dog"</code> (which are not the same, so the result is <code>FALSE</code>).
+- If the condition is <code>TRUE</code>, then the code block in curly braces is run (not true for this example).
+- If the condition is <code>FALSE</code>, then the code block is <em>not</em> run. In the example (which is why this example did not print).
+- Whether the code block is run or not, R will then proceed to run any code below the if statement.</p>
+<div class="caution">
+<p>
+In the simple example above, the logical condition (<code>“cat” == “dog”</code>) is obviously false, so every time we run the code, the print statement will not be run. If the code never runs, then why go through the trouble of <em>including</em> it? The answer is that this simple example isn’t realistic, and you should look at the next example.
+</p>
+</div>
+<p>Let’s see how if statements can be used inside of a for loop.</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb472-1"><a href="basic-control-flow.html#cb472-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</span>
+<span id="cb472-2"><a href="basic-control-flow.html#cb472-2"></a>  <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">4</span>){</span>
+<span id="cb472-3"><a href="basic-control-flow.html#cb472-3"></a>    <span class="kw">print</span>(i)</span>
+<span id="cb472-4"><a href="basic-control-flow.html#cb472-4"></a>  }</span>
+<span id="cb472-5"><a href="basic-control-flow.html#cb472-5"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] 4</code></pre>
+<p>Here we have a for-loop which loops through the vector <code>1:5</code>, remember that the value of <code>i</code> is changing each time through the loop to a different element of the vector.
+Each time through the loop, R evaluates the condition <code>i == 4</code>.
+If it is true, then the value of <code>i</code> is printed, otherwise nothing happens, because there is no other code in the for loop.
+<code>i</code> takes on the value 4 exactly once, in which case the print statement runs and we see the value of <code>i</code>.
+To summarize, the for-loop code ran five times, four of these times the if condition was <code>FALSE</code> and nothing happened, but one time the if condition was <code>TRUE</code>.</p>
+<div id="else" class="section level4">
+<h4><span class="header-section-number">6.1.2.1</span> Else</h4>
+<p>If statements can also be written with an <code>else</code> block, which specifies code to run if the logical condition is <code>FALSE</code>:</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb474-1"><a href="basic-control-flow.html#cb474-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</span>
+<span id="cb474-2"><a href="basic-control-flow.html#cb474-2"></a>  <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">4</span>){  <span class="co"># condition to test</span></span>
+<span id="cb474-3"><a href="basic-control-flow.html#cb474-3"></a>    <span class="kw">print</span>(i)   <span class="co"># code to run if condition is TRUE</span></span>
+<span id="cb474-4"><a href="basic-control-flow.html#cb474-4"></a>  } <span class="cf">else</span> {</span>
+<span id="cb474-5"><a href="basic-control-flow.html#cb474-5"></a>    <span class="kw">print</span>(<span class="st">&quot;Not 4&quot;</span>)  <span class="co"># code to run if condition is FALSE</span></span>
+<span id="cb474-6"><a href="basic-control-flow.html#cb474-6"></a>  }</span>
+<span id="cb474-7"><a href="basic-control-flow.html#cb474-7"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Not 4&quot;
+[1] &quot;Not 4&quot;
+[1] &quot;Not 4&quot;
+[1] 4
+[1] &quot;Not 4&quot;</code></pre>
+<p>Here you can see that rather than doing nothing when the condition is not true, the second code block (after <code>else</code>) is run instead.</p>
+<p>Returning to the COVID example, let’s loop through each of the columns of the data frame, and use an if statement to determine if it is a character or numeric mode (remember mode?).
+Then let’s choose an appropriate visualization based on the mode:</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb476-1"><a href="basic-control-flow.html#cb476-1"></a><span class="cf">for</span>(col_name <span class="cf">in</span> <span class="kw">names</span>(covid)){</span>
+<span id="cb476-2"><a href="basic-control-flow.html#cb476-2"></a>  col &lt;-<span class="st"> </span>covid[[col_name]]</span>
+<span id="cb476-3"><a href="basic-control-flow.html#cb476-3"></a>  <span class="cf">if</span>(<span class="kw">mode</span>(col) <span class="op">==</span><span class="st"> &quot;numeric&quot;</span>){           <span class="co"># check if mode is numeric</span></span>
+<span id="cb476-4"><a href="basic-control-flow.html#cb476-4"></a>    <span class="kw">hist</span>(col, <span class="dt">main=</span>col_name)            <span class="co"># plot histogram</span></span>
+<span id="cb476-5"><a href="basic-control-flow.html#cb476-5"></a>  } <span class="cf">else</span> {                              <span class="co"># not numeric, assume character</span></span>
+<span id="cb476-6"><a href="basic-control-flow.html#cb476-6"></a>    <span class="kw">barplot</span>(<span class="kw">table</span>(col), <span class="dt">main=</span>col_name)  <span class="co"># plot barplot</span></span>
+<span id="cb476-7"><a href="basic-control-flow.html#cb476-7"></a>  }</span>
+<span id="cb476-8"><a href="basic-control-flow.html#cb476-8"></a>}</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-491-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-13.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
+This is another way in which you can control the flow of an R program.</p>
+<div class="progress">
+<p>
+Looking at visualizations like this for variables in a data set can be a useful way to identify potential problems. Look at the barplot for <code>State</code>, and notice that one category has more observations that the others. Which state this is (hint: the <code>table</code> and <code>sort</code> functions might be useful)? Create a new data frame by subsetting on the outlier state, and examine it. Is there cause for concern? Why or why not?
+</p>
+</div>
+<div class="bonus">
+<p>
+There are other variations on if statements, including using <code>else if</code> to test a second condition if the first is not met, and the <code>switch</code> function which matches an argument to one of several possibilities, and runs different code for each match. These are more advanced topics that will not be covered here.
+</p>
+</div>
+<div class="progress">
+<p>
+Create a for-loop which loops through each state. In the for loop, determine whether there are more male or female deaths in the 45-54 age group. If there are more females, print “There are more female deaths in <State>”, where <State> is the state name for that iteration in the loop. If there are more males or the deaths are the same, the print “There are not more female deaths in <State>”.
+</p>
+</div>
+</div>
+<div id="breaking-out-of-for-loops.-1" class="section level4">
+<h4><span class="header-section-number">6.1.2.2</span> Breaking Out of For Loops.</h4>
+<p>Sometimes it’s useful to be able to stop a for-loop before it has finished looping through the whole vector.
+This can be done with the <code>break</code> statement, which is usually placed within an if statement.
+Here’s an example:</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb477-1"><a href="basic-control-flow.html#cb477-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb477-2"><a href="basic-control-flow.html#cb477-2"></a>  <span class="cf">if</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</span>
+<span id="cb477-3"><a href="basic-control-flow.html#cb477-3"></a>    <span class="cf">break</span></span>
+<span id="cb477-4"><a href="basic-control-flow.html#cb477-4"></a>  }</span>
+<span id="cb477-5"><a href="basic-control-flow.html#cb477-5"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb477-6"><a href="basic-control-flow.html#cb477-6"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+<p>The if condition is <code>FALSE</code> at first, until <code>i</code> is 6, at which point the if condition is <code>TRUE</code>, so the <code>break</code> statement is run, and R exits from the loop.
+Hence we see the numbers 1-5 printed but not the numbers 6-10.</p>
+</div>
+</div>
+<div id="formatting-conventions" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Formatting Conventions</h3>
+<p>Since R is a programming language, it is not immune to the common debates between programers regarding proper formatting.
+For example, the following for-loops are all equivalent:</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb479-1"><a href="basic-control-flow.html#cb479-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</span>
+<span id="cb479-2"><a href="basic-control-flow.html#cb479-2"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb479-3"><a href="basic-control-flow.html#cb479-3"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb481-1"><a href="basic-control-flow.html#cb481-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)</span>
+<span id="cb481-2"><a href="basic-control-flow.html#cb481-2"></a>{</span>
+<span id="cb481-3"><a href="basic-control-flow.html#cb481-3"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb481-4"><a href="basic-control-flow.html#cb481-4"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb483-1"><a href="basic-control-flow.html#cb483-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) {<span class="kw">print</span>(i)}</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb485-1"><a href="basic-control-flow.html#cb485-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>) <span class="kw">print</span>(i)</span></code></pre></div>
+<pre class="output-style"><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+<p>But different programmers (and sometimes programming communities) will have different ideas on what is best.
+For this book, we’ll use the first convention, but you could reasonably choose the second as well.
+The third and fourth conventions should probably only be used if the code block is very short (e.g. a single command).
+Mainly we raise these differences because you may have to read code written by someone with a different convention as yourself.</p>
 <div class="feedback">
 <p>
-Give me some <a href="https://forms.gle/2Fw8y4aY51ijdmyE9">feedback</a> about the content in this section.
+Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Control%20Flow">here</a>
 </p>
+</div>
 </div>
 </div>
             </section>
@@ -306,7 +665,7 @@ Give me some <a href="https://forms.gle/2Fw8y4aY51ijdmyE9">feedback</a> about th
           </div>
         </div>
       </div>
-<a href="performing-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="performing-effective-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="advanced-control-flow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

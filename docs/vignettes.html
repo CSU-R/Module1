@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="visualization.html"/>
-<link rel="next" href="performing-data-analysis.html"/>
+<link rel="next" href="performing-effective-data-analysis.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -259,8 +259,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-data-analysis.html"><a href="performing-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Data Analysis</a><ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a></li>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
+<li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
+<li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
+</ul></li>
 <li class="chapter" data-level="6.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.2</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.3" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.3</b> Writing Functions</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
@@ -388,20 +392,20 @@ rename and remove some of our columns in a new, simpler data.frame.</p>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
 <div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="vignettes.html#cb449-1"></a><span class="kw">summary</span>(pq)</span></code></pre></div>
-<pre class="output-style"><code>      Date                q_cfs       
- Min.   :2010-10-01   Min.   :   2.6  
- 1st Qu.:2013-03-15   1st Qu.:  30.1  
- Median :2015-08-29   Median :  79.3  
- Mean   :2015-08-29   Mean   : 250.5  
- 3rd Qu.:2018-02-10   3rd Qu.: 161.5  
- Max.   :2020-07-26   Max.   :7150.0  </code></pre>
-<p>It looks like we have data from 2010 to 2020-07-27 and a range in river
+<pre class="output-style"><code>      Date                q_cfs        
+ Min.   :2010-10-01   Min.   :   2.60  
+ 1st Qu.:2013-03-15   1st Qu.:  30.10  
+ Median :2015-08-29   Median :  79.25  
+ Mean   :2015-08-29   Mean   : 250.47  
+ 3rd Qu.:2018-02-11   3rd Qu.: 161.25  
+ Max.   :2020-07-27   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2020-07-29 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
 <div class="sourceCode" id="cb451"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb451-1"><a href="vignettes.html#cb451-1"></a><span class="kw">plot</span>(pq<span class="op">$</span>q_cfs <span class="op">~</span><span class="st"> </span>pq<span class="op">$</span>Date, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
 <span id="cb451-2"><a href="vignettes.html#cb451-2"></a>     <span class="dt">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-455-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-454-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>
 The above plot is called a “hydrograph” or a plot of how river flow has changed over time. In the Cache La Poudre, what might explain the peaks and valleys of the data? What controls river flow in Colorado rivers.
@@ -425,7 +429,7 @@ Now to use tapply we use the following code</p>
 <div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb453-1"><a href="vignettes.html#cb453-1"></a>annual &lt;-<span class="st"> </span><span class="kw">tapply</span>(pq_wy<span class="op">$</span>q_cfs,pq_wy<span class="op">$</span>waterYear, mean)</span></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
 <div class="sourceCode" id="cb454"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb454-1"><a href="vignettes.html#cb454-1"></a><span class="kw">plot</span>(<span class="kw">names</span>(annual),(annual))</span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-459-1.png" width="672" style="display: block; margin: auto;" />
+<img src="Module1_files/figure-html/unnamed-chunk-458-1.png" width="672" style="display: block; margin: auto;" />
 <div class="reflect">
 <p>
 Has annual mean river declined over the past ten years? What about the last 6?
@@ -447,7 +451,7 @@ Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/
         </div>
       </div>
 <a href="visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="performing-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="performing-effective-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
