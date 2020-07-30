@@ -405,13 +405,13 @@ Here's an example:
 
 ```{r}
 for(i in 1:10){
-  if(i > 5){
+  if(i == 6){
     break
   }
   print(i)
 }
 ```
-The if condition is `FALSE` at first, until `i` is 6, at which point the if condition is `TRUE`, so the `break` statement is run, and R exits from the loop.
+The if condition is `FALSE` at first, until `i` is 6, at which point the if condition is `TRUE`, so the `break` statement is run, and R exits from the loop, and doesn't loop through the rest of the vector.
 Hence we see the numbers 1-5 printed but not the numbers 6-10.
 
 
@@ -451,24 +451,193 @@ Mainly we raise these differences because you may have to read code written by s
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Control%20Flow)
 ``` 
 
-
-## Advanced Control Flow
-
-```{block, type="caution"}
-This section is still under construction
-```
-
-*apply family
-
-```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Advanced%20Control%20Flow)
-``` 
-
 ## Writing Functions
 
 ```{block, type="caution"}
 This section is still under construction
 ```
+
+Throughout this course, we've been using various R _functions_, like `print`, `sum`, `is.na`, and `hist`. 
+Each of these functions does different things, but they all obey similar rules.
+First we'll think carefully about what all R functions have in common, then we'll see how you can write your own functions to suit your needs!
+
+### The Components Of A Function
+
+As an example, consider the `sum` function:
+
+```{r}
+v <- c(1, 2, 3)
+sum(v)
+```
+When R runs this function, it takes a numeric vector and computes the sum of its elements.
+The numeric vector is specified by _you_, the programmer, and it's formally called an _argument_.
+The argument can be thought of as the "input" into the function.
+Some functions use more than one argument, like the `seq` function:
+
+```{r}
+# Create a sequence of numbers from 3 to 9 
+seq(3, 9)
+```
+while others functions might have _no_ arguments, like `getwd`:
+
+```{r}
+# Get the current working directory
+getwd()
+```
+Other functions can work with different numbers of arguments, like the combine function, `c`:
+
+```{r}
+c(1)
+```
+```{r}
+c(1,2)
+```
+```{r}
+c(1,2,3)
+```
+Thinking back to the `sum` example, we also notice that the function produces a result, which is the sum of the elements of the vector.
+This result is called a _return value_, because it's something that the function "returns" back to you after it has finished running.
+Return values can assigned to R objects:
+
+```{r}
+s <- sum(v)
+print(s)
+```
+
+The combine function's output is a vector, which we can assign to an object called `w`:
+```{r}
+# the return value of c() is assigned to w
+w <- c("a", "b", "c") 
+print(w)
+```
+
+Sometimes a function doesn't have a return value, as with the `rm` function:
+
+```{r}
+# rm doesn't have a return value, which is why result is NULL (i.e. no object)
+result <- rm(w) 
+print(result)
+```
+```{block, type="reflect"}
+Remember what the `rm` function does?
+```
+
+Aside from the _arguments_ and the _return value_ of a function, we can talk about what the function actually _does_.
+The `sum` function obviously computes the sum of a vector, but the `sqrt` takes the square root of a number:
+
+```{r}
+sqrt(58)
+```
+As we will see shortly, what a function _does_ is determined by the code in its _body_.
+That's right, functions are basically a collection of code that is combined in a convenient package.
+We can even examine the code for a function by typing its name _without parentheses_. 
+Here's the `sort` function:
+
+```{r}
+# View the code of the sort function
+sort
+```
+Now, there are some things in this output that may be confusing and that we won't explain in this book, but at least some of the output should look like R code to you!
+Here's another example, the `mean` function:
+
+```{r}
+# View the code of the mean function (or so we think)
+mean
+```
+This example doesn't seem to have as much R code in it, so where is the code for this function?
+The answer is that both `sort` and `mean` (and many other R functions) are written in a _different_ programming language, C, which isn't human readable once it's compiled.
+Don't worry too much about this, except that we will use the same method to view the code of our own functions later.
+
+```{block, type="bonus"}
+The way we've described R functions as being _arguments_, a _body_, and a _return value_, is mostly correct, but there is also something called the _environment_ of the function, which is essentially _scoping_, if you are familiar with that concept from other programming languages. 
+We will discuss scoping briefly here but not in detail. 
+For more on functions, check out [this link](http://adv-r.had.co.nz/Functions.html).
+```
+
+### Writing A Function
+
+The beauty of functions in R is that you can write your own! 
+All you have to do is specify the arguments, body, and return value for your function.
+Here's a simple example how to define a function:
+
+```{r}
+# Create function which adds 1 to the input argument
+add_one <- function(x){
+  y <- x + 1
+  return(y)
+}
+# test out the function
+add_one(100)
+```
+Here we define a function called `add_one`, using the assignment operator `<-`, just like when we define new vectors, data frames, integers, etc.
+- The statement `function` signifies that we are defining a new function, and the parentheses surround any arguments that this function accepts. Here, we have just one argument called `x`.
+- The body of the code has just two commands. The first command creates a new variable `y` by adding 1 to the argument `x`. The second command specifies that `y` will be the return value of the function.
+- The function is used by writing its name `add_one` and specifying the arguments in parentheses (100). Technically we are specifying that the value of `x` is 100.
+- When the function is run, we see the return value (100 + 1) displayed in the output. 
+
+Let's view the code of the function we just wrote:
+
+```{r}
+add_one
+```
+Here it shows us exactly the code that we used to create the function.
+Let's use the function a few more times:
+
+```{r}
+number <- add_one(10)  # assign the return value of add_one to `number`
+number
+```
+```{r}
+# nest our function
+add_one(add_one(add_one(1)))
+```
+```{block, type="caution"}
+It's possible re-define the built in R functions by choosing a function name that already exists (`print` for example), but this is a _very bad idea_. This can make your code very difficult to understand, and potentially unpredictable!
+```
+
+Now let's look at a more complicated example that has two arguments:
+
+```{r}
+# function to raise x to the y-th power 
+pow <- function(x, y){   # Here we specify the function has two arguments.
+  p <- x^y
+  return(p)
+}
+# test the arguments with x=2 and y=3
+pow(2, 3)
+```
+There's an important lesson to learn from this example.
+When we tested the function, R used 2 as the value of `x` and 3 for the value of `y` (after all, 2 cubed is 8), and this is because of the _order_ that the arguments were supplied. 
+When we defined the function, we specified that `x` and `y` are the arguments, in that order.
+Then when we called the function, we put 2 first and 3 second.
+Perhaps this is obvious, but strange things are possible, because R also allows you to specify the arguments _by name_ like so:
+
+```{r}
+pow(x=2, y=3)
+```
+So far this gives the same result, but watch what happens if we do this instead:
+
+```{r}
+pow(y=2, x=3)
+```
+This time, R computed 3 squared instead of 2 cubed, even though we specified `y` first and `x` second.
+When you specify parameters by name, _R will ignore the order that they are given in_.
+
+```{block, type="bonus"}
+R also allows you to specify the type of
+What do you think will happen if you run
+```
+
+```{block, type="progress"}
+Write a function called `math` which has three arguments, a, b, and c.
+In the body of the function, write code which computes a - b * c, store the result as x, then specify the return value of the function to be x.
+```
+
+
+### Using Functions for Data Analysis
+
+Similar to how loops allowed 
+
 
 Function scope
 ```{block, type ="caution"}
@@ -479,9 +648,34 @@ When writing functions, it helps to start simple. It's easy to make a complicate
 - Pass by value, contrast with other languages
 ```
 
+
+```{block, type="reflect"}
+
+```
+
+```{block, type="progress"}
+
+```
+
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Writing%20Functions)
 ``` 
+
+
+## Advanced Control Flow
+
+```{block, type="caution"}
+This section is still under construction
+```
+
+In this section, we'll discuss more ways to control the flow of your code. 
+
+*apply family
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Advanced%20Control%20Flow)
+``` 
+
 
 ## Working With Popular Packages
 
