@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="performing-effective-data-analysis.html"/>
-<link rel="next" href="advanced-control-flow.html"/>
+<link rel="next" href="writing-functions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -265,8 +265,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
 <li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.2</b> Advanced Control Flow</a></li>
-<li class="chapter" data-level="6.3" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.3</b> Writing Functions</a></li>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
+<li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -291,11 +295,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="basic-control-flow" class="section level2">
 <h2><span class="header-section-number">6.1</span> Basic Control Flow</h2>
-<div class="caution">
-<p>
-This section is still under construction
-</p>
-</div>
 <p>When you write R code, you are creating commands that R will execute one at a time <em>in order</em>, from top to bottom.
 This is the basic <em>flow</em> of an R program, but R also provides ways that you can <em>control</em> the flow, using basic logic.
 In this section, we’ll introduce a few ways of controlling the flow of an R program, but first, we need a data set to work with.</p>
@@ -333,7 +332,7 @@ This data contains deaths data for different states, age groups, and sexes, let�
 <span id="cb457-3"><a href="basic-control-flow.html#cb457-3"></a><span class="kw">barplot</span>(covid_co_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_co_f<span class="op">$</span>Age.group, </span>
 <span id="cb457-4"><a href="basic-control-flow.html#cb457-4"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
 <span id="cb457-5"><a href="basic-control-flow.html#cb457-5"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-467-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-466-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note that three age groups have more than 0 but less than 9 cases, so the counts have been omitted from the data set to maintain confidentiality of the victims.</p>
 <p>Let’s repeat this process for two other states:</p>
 <div class="sourceCode" id="cb458"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb458-1"><a href="basic-control-flow.html#cb458-1"></a><span class="co"># deaths by age group for females in Wyoming</span></span>
@@ -355,8 +354,8 @@ This data contains deaths data for different states, age groups, and sexes, let�
 <span id="cb458-17"><a href="basic-control-flow.html#cb458-17"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
 <span id="cb458-18"><a href="basic-control-flow.html#cb458-18"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <p>Here are these plots, too:</p>
-<p><img src="Module1_files/figure-html/unnamed-chunk-469-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><img src="Module1_files/figure-html/unnamed-chunk-470-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-468-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-469-1.png" width="672" style="display: block; margin: auto;" />
 Now, if we wanted to do this for all States, this would take a lot of code.
 But notice that the code we wrote in each case was very similar?
 This is a perfect opportunity to use <em>looping</em>.
@@ -585,7 +584,7 @@ Then let’s choose an appropriate visualization based on the mode:</p>
 <span id="cb476-6"><a href="basic-control-flow.html#cb476-6"></a>    <span class="kw">barplot</span>(<span class="kw">table</span>(col), <span class="dt">main=</span>col_name)  <span class="co"># plot barplot</span></span>
 <span id="cb476-7"><a href="basic-control-flow.html#cb476-7"></a>  }</span>
 <span id="cb476-8"><a href="basic-control-flow.html#cb476-8"></a>}</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-491-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-491-13.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-490-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-490-13.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
 This is another way in which you can control the flow of an R program.</p>
 <div class="progress">
@@ -610,7 +609,7 @@ Create a for-loop which loops through each state. In the for loop, determine whe
 This can be done with the <code>break</code> statement, which is usually placed within an if statement.
 Here’s an example:</p>
 <div class="sourceCode" id="cb477"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb477-1"><a href="basic-control-flow.html#cb477-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
-<span id="cb477-2"><a href="basic-control-flow.html#cb477-2"></a>  <span class="cf">if</span>(i <span class="op">&gt;</span><span class="st"> </span><span class="dv">5</span>){</span>
+<span id="cb477-2"><a href="basic-control-flow.html#cb477-2"></a>  <span class="cf">if</span>(i <span class="op">==</span><span class="st"> </span><span class="dv">6</span>){</span>
 <span id="cb477-3"><a href="basic-control-flow.html#cb477-3"></a>    <span class="cf">break</span></span>
 <span id="cb477-4"><a href="basic-control-flow.html#cb477-4"></a>  }</span>
 <span id="cb477-5"><a href="basic-control-flow.html#cb477-5"></a>  <span class="kw">print</span>(i)</span>
@@ -620,7 +619,7 @@ Here’s an example:</p>
 [1] 3
 [1] 4
 [1] 5</code></pre>
-<p>The if condition is <code>FALSE</code> at first, until <code>i</code> is 6, at which point the if condition is <code>TRUE</code>, so the <code>break</code> statement is run, and R exits from the loop.
+<p>The if condition is <code>FALSE</code> at first, until <code>i</code> is 6, at which point the if condition is <code>TRUE</code>, so the <code>break</code> statement is run, and R exits from the loop, and doesn’t loop through the rest of the vector.
 Hence we see the numbers 1-5 printed but not the numbers 6-10.</p>
 </div>
 </div>
@@ -666,7 +665,7 @@ Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/
         </div>
       </div>
 <a href="performing-effective-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="advanced-control-flow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="writing-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
