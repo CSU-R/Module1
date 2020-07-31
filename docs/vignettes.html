@@ -269,6 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
@@ -399,11 +400,11 @@ First we can use a summary command to just quickly look at the variables we have
 <pre class="output-style"><code>      Date                q_cfs       
  Min.   :2010-10-01   Min.   :   2.6  
  1st Qu.:2013-03-16   1st Qu.:  30.1  
- Median :2015-08-30   Median :  79.2  
- Mean   :2015-08-30   Mean   : 250.4  
- 3rd Qu.:2018-02-12   3rd Qu.: 161.0  
- Max.   :2020-07-28   Max.   :7150.0  </code></pre>
-<p>It looks like we have data from 2010 to 2020-07-30 and a range in river
+ Median :2015-08-31   Median :  79.2  
+ Mean   :2015-08-31   Mean   : 250.3  
+ 3rd Qu.:2018-02-13   3rd Qu.: 161.0  
+ Max.   :2020-07-30   Max.   :7150.0  </code></pre>
+<p>It looks like we have data from 2010 to 2020-07-31 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>

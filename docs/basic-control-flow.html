@@ -269,6 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
@@ -370,10 +371,13 @@ Here’s a simple example:</p>
 [1] &quot;b&quot;
 [1] &quot;c&quot;</code></pre>
 <p>This for-loop printed out each element of the <code>vec</code> variable, one at a time.
-Here’s the way this works:
-- <code>for</code> tells R we want to repeat code multiple times. When R “sees” the <code>for</code> command, it knows that the code that follows will be repeated
-- the parentheses (<code>(</code> and <code>)</code>) specify a vector that will be looped over (<code>vec</code> in this example), and a variable name to use while looping (<code>i</code> in this example). Each time through the loop, the variable (<code>i</code>) will have a different value. In this example, the <strong>first</strong> time through the loop, <code>i</code> will have the value of the <strong>first</strong> element of <code>vec</code> (<code>"a"</code>), the <strong>second</strong> time through the loop, <code>i</code> will have the value of the <strong>second</strong> element of <code>vec (</code>“b”<code>), etc. The name _for-loop_ is common in many programming languages, which reflects the fact that R is running the loop _for each_ element of the vector. - The braces (</code>{<code>and</code>}<code>) specify which code should be run each time through the loop. In this example, we're just printing out the value of</code>i`, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.
-- After it finishes looping, R continues proceeds to run any code below the for-loop.</p>
+Here’s the way this works:</p>
+<ul>
+<li><code>for</code> tells R we want to repeat code multiple times. When R “sees” the <code>for</code> command, it knows that the code that follows will be repeated</li>
+<li>the parentheses (<code>(</code> and <code>)</code>) specify a vector that will be looped over (<code>vec</code> in this example), and a variable name to use while looping (<code>i</code> in this example). Each time through the loop, the variable (<code>i</code>) will have a different value. In this example, the <strong>first</strong> time through the loop, <code>i</code> will have the value of the <strong>first</strong> element of <code>vec</code> (<code>"a"</code>), the <strong>second</strong> time through the loop, <code>i</code> will have the value of the <strong>second</strong> element of <code>vec (</code>“b”`), etc. The name <em>for-loop</em> is common in many programming languages, which reflects the fact that R is running the loop <em>for each</em> element of the vector.</li>
+<li>The braces (<code>{</code> and <code>}</code>) specify which code should be run each time through the loop. In this example, we’re just printing out the value of <code>i</code>, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.</li>
+<li>After it finishes looping, R continues proceeds to run any code below the for-loop.</li>
+</ul>
 <p>Here’s another example of a for-loop:</p>
 <div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="basic-control-flow.html#cb461-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
 <span id="cb461-2"><a href="basic-control-flow.html#cb461-2"></a>  <span class="kw">print</span>(j<span class="op">^</span><span class="dv">2</span>)</span>
@@ -535,12 +539,14 @@ The answer is to use <em>if</em> statements.</p>
 <p>This code produces precisely <em>no output</em>.
 Even though there is a print command, R does not print anything!
 The reason is that the print command is inside of an <em>if</em> statement, and R only runs that code if the specified condition is met.
-here’s how it works:
-- The <code>if</code> indicates the start of the if statement.
-- R expects the parentheses to contain a logical statement that produces either <code>TRUE</code> or <code>FALSE</code>. In this example, we are comparing the character strings <code>"cat"</code> and <code>"dog"</code> (which are not the same, so the result is <code>FALSE</code>).
-- If the condition is <code>TRUE</code>, then the code block in curly braces is run (not true for this example).
-- If the condition is <code>FALSE</code>, then the code block is <em>not</em> run. In the example (which is why this example did not print).
-- Whether the code block is run or not, R will then proceed to run any code below the if statement.</p>
+here’s how it works:</p>
+<ul>
+<li>The <code>if</code> indicates the start of the if statement.</li>
+<li>R expects the parentheses to contain a logical statement that produces either <code>TRUE</code> or <code>FALSE</code>. In this example, we are comparing the character strings <code>"cat"</code> and <code>"dog"</code> (which are not the same, so the result is <code>FALSE</code>).</li>
+<li>If the condition is <code>TRUE</code>, then the code block in curly braces is run (not true for this example).</li>
+<li>If the condition is <code>FALSE</code>, then the code block is <em>not</em> run. In the example (which is why this example did not print).</li>
+<li>Whether the code block is run or not, R will then proceed to run any code below the if statement.</li>
+</ul>
 <div class="caution">
 <p>
 In the simple example above, the logical condition (<code>“cat” == “dog”</code>) is obviously false, so every time we run the code, the print statement will not be run. If the code never runs, then why go through the trouble of <em>including</em> it? The answer is that this simple example isn’t realistic, and you should look at the next example.
@@ -597,11 +603,14 @@ Looking at visualizations like this for variables in a data set can be a useful 
 There are other variations on if statements, including using <code>else if</code> to test a second condition if the first is not met, and the <code>switch</code> function which matches an argument to one of several possibilities, and runs different code for each match. These are more advanced topics that will not be covered here.
 </p>
 </div>
+
 <div class="progress">
-<p>
-Create a for-loop which loops through each state. In the for loop, determine whether there are more male or female deaths in the 45-54 age group. If there are more females, print “There are more female deaths in <State>”, where <State> is the state name for that iteration in the loop. If there are more males or the deaths are the same, the print “There are not more female deaths in <State>”.
-</p>
+Create a for-loop which loops through each state.
+In the for loop, determine whether there are more male or female deaths in the 45-54 age group.
+If there are more females, print “There are more female deaths in &lt;State&gt;”, where &lt;State&gt; is the state name for that iteration in the loop.
+If there are more males or the deaths are the same, the print “There are not more female deaths in &lt;State&gt;”.
 </div>
+
 </div>
 <div id="breaking-out-of-for-loops.-1" class="section level4">
 <h4><span class="header-section-number">6.1.2.2</span> Breaking Out of For Loops.</h4>

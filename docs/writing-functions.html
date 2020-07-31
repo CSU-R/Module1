@@ -269,6 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
@@ -295,11 +296,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="writing-functions" class="section level2">
 <h2><span class="header-section-number">6.2</span> Writing Functions</h2>
-<div class="caution">
-<p>
-This section is still under construction
-</p>
-</div>
 <p>Throughout this course, we’ve been using various R <em>functions</em>, like <code>print</code>, <code>sum</code>, <code>is.na</code>, and <code>hist</code>.
 Each of these functions does different things, but they all obey similar rules.
 First we’ll think carefully about what all R functions have in common, then we’ll see how you can write your own functions to suit your needs!</p>
@@ -364,7 +360,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x00000000149444f0&gt;
+&lt;bytecode: 0x00000000159f8db0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -372,7 +368,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb509-2"><a href="writing-functions.html#cb509-2"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x000000001779ebe0&gt;
+&lt;bytecode: 0x00000000159e8e10&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -396,11 +392,13 @@ Here’s a simple example how to define a function:</p>
 <span id="cb511-6"><a href="writing-functions.html#cb511-6"></a><span class="co"># test out the function</span></span>
 <span id="cb511-7"><a href="writing-functions.html#cb511-7"></a><span class="kw">add_one</span>(<span class="dv">100</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 101</code></pre>
-<p>Here we define a function called <code>add_one</code>, using the assignment operator <code>&lt;-</code>, just like when we define new vectors, data frames, integers, etc.
-- The statement <code>function</code> signifies that we are defining a new function, and the parentheses surround any arguments that this function accepts. Here, we have just one argument called <code>x</code>.
-- The body of the code has just two commands. The first command creates a new variable <code>y</code> by adding 1 to the argument <code>x</code>. The second command specifies that <code>y</code> will be the return value of the function.
-- The function is used by writing its name <code>add_one</code> and specifying the arguments in parentheses (100). Technically we are specifying that the value of <code>x</code> is 100.
-- When the function is run, we see the return value (100 + 1) displayed in the output.</p>
+<p>Here we define a function called <code>add_one</code>, using the assignment operator <code>&lt;-</code>, just like when we define new vectors, data frames, integers, etc.</p>
+<ul>
+<li>The statement <code>function</code> signifies that we are defining a new function, and the parentheses surround any arguments that this function accepts. Here, we have just one argument called <code>x</code>.</li>
+<li>The body of the code has just two commands. The first command creates a new variable <code>y</code> by adding 1 to the argument <code>x</code>. The second command specifies that <code>y</code> will be the return value of the function.</li>
+<li>The function is used by writing its name <code>add_one</code> and specifying the arguments in parentheses (100). Technically we are specifying that the value of <code>x</code> is 100.</li>
+<li>When the function is run, we see the return value (100 + 1) displayed in the output.</li>
+</ul>
 <p>Let’s view the code of the function we just wrote:</p>
 <div class="sourceCode" id="cb513"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb513-1"><a href="writing-functions.html#cb513-1"></a>add_one</span></code></pre></div>
 <pre class="output-style"><code>function(x){
@@ -443,36 +441,125 @@ Perhaps this is obvious, but strange things are possible, because R also allows 
 When you specify parameters by name, <em>R will ignore the order that they are given in</em>.</p>
 <div class="bonus">
 <p>
-R also allows you to specify the type of What do you think will happen if you run
+R also allows you to specify some arguments by name and some by position, as long as the position arguments come first. For more, see <a href="http://adv-r.had.co.nz/Functions.html">here</a>.
 </p>
 </div>
 <div class="progress">
 <p>
-Write a function called <code>math</code> which has three arguments, a, b, and c. In the body of the function, write code which computes a - b * c, store the result as x, then specify the return value of the function to be x.
+(No need to turn this in) Write a function called <code>math</code> which has three arguments, a, b, and c. In the body of the function, write code which computes a - b * c, store the result as x, then specify the return value of the function to be x. Demonstrate the use of your function with a few examples.
 </p>
 </div>
 </div>
 <div id="using-functions-for-data-analysis" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Using Functions for Data Analysis</h3>
-<p>Similar to how loops allowed</p>
-Function scope
+<p>Functions offer many of the same advantages as loops: They allow you can write less code and do more.
+Let’s see how loops might be used for data analysis.<br />
+Suppose we want to compare deaths between men and women for particular states and age groups.
+Here’s a barplot for Colorado in the 45-54 age group:</p>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb525-1"><a href="writing-functions.html#cb525-1"></a><span class="co"># Extract just the state and age group of interest</span></span>
+<span id="cb525-2"><a href="writing-functions.html#cb525-2"></a>covid2 &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;Colorado&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Age.group <span class="op">==</span><span class="st"> &quot;45-54 years&quot;</span>),]</span>
+<span id="cb525-3"><a href="writing-functions.html#cb525-3"></a></span>
+<span id="cb525-4"><a href="writing-functions.html#cb525-4"></a><span class="co"># create a bar plot</span></span>
+<span id="cb525-5"><a href="writing-functions.html#cb525-5"></a><span class="kw">barplot</span>(covid2<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths,  <span class="co"># specify column to plot</span></span>
+<span id="cb525-6"><a href="writing-functions.html#cb525-6"></a>        <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex,    <span class="co"># specify bar names</span></span>
+<span id="cb525-7"><a href="writing-functions.html#cb525-7"></a>        <span class="dt">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
+<span id="cb525-8"><a href="writing-functions.html#cb525-8"></a>        <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-524-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Suppose we wanted to view this information for more states and age groups.
+Rather than repeat the above code each time, let’s put it in a function:</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb526-1"><a href="writing-functions.html#cb526-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
+<span id="cb526-2"><a href="writing-functions.html#cb526-2"></a>plot_fm &lt;-<span class="st"> </span><span class="cf">function</span>(state, ages){</span>
+<span id="cb526-3"><a href="writing-functions.html#cb526-3"></a>  covid2 &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>state) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Age.group <span class="op">==</span><span class="st"> </span>ages),]</span>
+<span id="cb526-4"><a href="writing-functions.html#cb526-4"></a>  <span class="kw">barplot</span>(covid2<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, </span>
+<span id="cb526-5"><a href="writing-functions.html#cb526-5"></a>          <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex, </span>
+<span id="cb526-6"><a href="writing-functions.html#cb526-6"></a>          <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Sex Comparison:&quot;</span>, state, ages), </span>
+<span id="cb526-7"><a href="writing-functions.html#cb526-7"></a>          <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)</span>
+<span id="cb526-8"><a href="writing-functions.html#cb526-8"></a>  <span class="kw">return</span>(<span class="ot">NULL</span>)</span>
+<span id="cb526-9"><a href="writing-functions.html#cb526-9"></a>}</span></code></pre></div>
+<p>Now let’s try out the code on a few states and age groups:</p>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb527-1"><a href="writing-functions.html#cb527-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-527-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="output-style"><code>NULL</code></pre>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb529-1"><a href="writing-functions.html#cb529-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-528-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="output-style"><code>NULL</code></pre>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb531-1"><a href="writing-functions.html#cb531-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-529-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="output-style"><code>NULL</code></pre>
+<div class="bonus">
+<p>
+Notice that our function doesn’t actually <em>return</em> anything, but it does produce a plot while running. The plots produced by this function are one example of <em>side effects</em>, which are changes that persist after the function is completed, that aren’t the return value.
+</p>
+</div>
+
+<div class="bonus">
+<p>If you tried to run <code>plot_fm("Colorado", "5-14 years")</code>, R would produce an error.
+This is because both the <code>COVID.19.Deaths</code> column for that State/Age group is <code>NA</code>, and R needs at least one non-<code>NA</code> value to determine the limits of the y axis.
+To get around this error, we could write extra code to manually set the y limits and specify them while plotting, like so:</p>
+<p><code>covid2 &lt;- covid[(covid$State == state) &amp; (covid$Age.group == ages),]</code></p>
+<p><code># set the maximum y limit manually, in case there are NA values</code></p>
+<p><code>ymax = max(covid2$COVID.19.Deaths, na.rm=T)</code></p>
+<p><code>if(ymax == -Inf) ymax &lt;- 1</code></p>
+<p><code># create the plot</code></p>
+<p><code>barplot(covid2$COVID.19.Deaths,</code></p>
+<p><code>names.arg=covid2$Sex,</code></p>
+<p><code>main=paste("Sex Comparison:", state, ages),</code></p>
+<p><code>ylab="COVID-19 Deaths",</code></p>
+<p><code>ylim=c(0, ymax))</code></p>
+<p><code>return(NULL)</code></p>
+</div>
+
+<div class="progress">
+<p>
+(No need to turn this in) Make a function with arguments for state, sex, and age group, and print out the COVID 19 deaths, Total Deaths, Pneumonia Deaths, and Influenza Deaths for that demographic.
+</p>
+</div>
+</div>
+<div id="function-scope" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Function Scope</h3>
+<p>There’s another important concept for functions in R, called <em>scope</em>, which is best illustrated through the following example:</p>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb533-1"><a href="writing-functions.html#cb533-1"></a>simple_f &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb533-2"><a href="writing-functions.html#cb533-2"></a>  XYZ &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb533-3"><a href="writing-functions.html#cb533-3"></a>  <span class="kw">return</span>(XYZ)</span>
+<span id="cb533-4"><a href="writing-functions.html#cb533-4"></a>}</span>
+<span id="cb533-5"><a href="writing-functions.html#cb533-5"></a></span>
+<span id="cb533-6"><a href="writing-functions.html#cb533-6"></a><span class="kw">print</span>(<span class="kw">simple_f</span>())</span>
+<span id="cb533-7"><a href="writing-functions.html#cb533-7"></a><span class="kw">print</span>(XYZ)</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in print(XYZ): object 'XYZ' not found
+</code></pre>
+<pre class="output-style"><code>[1] 2</code></pre>
+<p>This function has no arguments, but it does create a new object called <code>var</code>, which is returned from the function.
+Notice, however, that printing out <code>var</code> gives an error.
+This is because the object <code>var</code> only exists in the <em>scope</em> of the function <code>simple_f</code>, and is “forgotten” after the function finishes running.
+This is true for any objects created inside any function (with one exception, noted in the bonus block below).
+Variables defined outside of functions are in the <em>global scope</em>, which means they can be accessed anywhere, both inside and outside functions:</p>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb535-1"><a href="writing-functions.html#cb535-1"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb535-2"><a href="writing-functions.html#cb535-2"></a></span>
+<span id="cb535-3"><a href="writing-functions.html#cb535-3"></a>say_hello &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb535-4"><a href="writing-functions.html#cb535-4"></a>  <span class="kw">print</span>(y)</span>
+<span id="cb535-5"><a href="writing-functions.html#cb535-5"></a>}</span>
+<span id="cb535-6"><a href="writing-functions.html#cb535-6"></a></span>
+<span id="cb535-7"><a href="writing-functions.html#cb535-7"></a><span class="kw">say_hello</span>()</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;hello&quot;</code></pre>
+<div class="bonus">
+<p>
+In an earlier chapter, we briefly mentioned the assignment operators <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code>, but didn’t say what made them special. It turns out, they are able to assign objects in the global scope from inside functions. You can test this by altering the above example by replacing the command <code>z &lt;- 2</code> with the command <code>z &lt;&lt;- 2</code> and observing the result. This assignment operator should almost <em>never</em> be used, as it can cause confusion and unpredictable behavior if used in a more complicated R program.
+</p>
+</div>
 <div class="caution">
 <p>
 When writing functions, it helps to start simple. It’s easy to make a complicated function, but when you try to put it into use and it doesn’t work, debugging the issue can be equally complicated.
 </p>
 </div>
 <div class="bonus">
-<ul>
-<li>
-Pass by value, contrast with other languages
-</li>
-</ul>
-</div>
-<div class="reflect">
-
+<p>
+You may be familiar with “pointers” in other language, and the difference between “pass by value” and “pass by reference”. In most ordinary circumstances with R, there is <em>only</em> pass by value.
+</p>
 </div>
 <div class="progress">
-
+<p>
+(No need to turn this in) When discussing Objects in a previous chapter, we mentioned that everything in R is an object, and every object has a <code>mode</code> and <code>length</code>. pick an R function, or create your own function, and print its <code>mode</code> and <code>length</code>.
+</p>
 </div>
 <div class="feedback">
 <p>
