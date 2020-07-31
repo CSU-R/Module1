@@ -455,10 +455,6 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Writing Functions
 
-```{block, type="caution"}
-This section is still under construction
-```
-
 Throughout this course, we've been using various R _functions_, like `print`, `sum`, `is.na`, and `hist`. 
 Each of these functions does different things, but they all obey similar rules.
 First we'll think carefully about what all R functions have in common, then we'll see how you can write your own functions to suit your needs!
@@ -674,6 +670,7 @@ plot_fm <- function(state, ages){
           main=paste("Sex Comparison:", state, ages), 
           ylab="COVID-19 Deaths",
           ylim=c(0, ymax))
+  return(NULL)
 }
 ```
 ```{r}
@@ -684,6 +681,7 @@ plot_fm <- function(state, ages){
           names.arg=covid2$Sex, 
           main=paste("Sex Comparison:", state, ages), 
           ylab="COVID-19 Deaths")
+  return(NULL)
 }
 ```
 
@@ -730,12 +728,13 @@ To get around this error, we could write extra code to manually set the y limits
   
   `        ylim=c(0, ymax))`
   
+  `return(NULL)`
 
 ```
 
 ```{block, type="progress"}
 (No need to turn this in)
-Make a function with arguments for state, sex, and age group, and print out the COVID.19 deaths, Total Deaths, Pneumonia Deaths, and Influenza Deaths for that demographic.
+Make a function with arguments for state, sex, and age group, and print out the COVID 19 deaths, Total Deaths, Pneumonia Deaths, and Influenza Deaths for that demographic.
 ```
 
 ### Function Scope
