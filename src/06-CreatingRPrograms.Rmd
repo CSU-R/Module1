@@ -132,6 +132,7 @@ for(i in vec){   # loop through the elements of the vector
 
 This for-loop printed out each element of the `vec` variable, one at a time.
 Here's the way this works:
+
 - `for` tells R we want to repeat code multiple times. When R "sees" the `for` command, it knows that the code that follows will be repeated
 - the parentheses (`(` and `)`) specify a vector that will be looped over (`vec` in this example), and a variable name to use while looping (`i` in this example). Each time through the loop, the variable (`i`) will have a different value. In this example, the __first__ time through the loop, `i` will have the value of the __first__ element of `vec` (`"a"`), the __second__ time through the loop, `i` will have the value of the __second__ element of `vec (`"b"`), etc. The name _for-loop_ is common in many programming languages, which reflects the fact that R is running the loop _for each_ element of the vector.
 - The braces (`{` and `}`) specify which code should be run each time through the loop. In this example, we're just printing out the value of `i`, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.
@@ -314,6 +315,7 @@ This code produces precisely _no output_.
 Even though there is a print command, R does not print anything!
 The reason is that the print command is inside of an _if_ statement, and R only runs that code if the specified condition is met.
 here's how it works:
+
 - The `if` indicates the start of the if statement.
 - R expects the parentheses to contain a logical statement that produces either `TRUE` or `FALSE`. In this example, we are comparing the character strings `"cat"` and `"dog"` (which are not the same, so the result is `FALSE`).
 - If the condition is `TRUE`, then the code block in curly braces is run (not true for this example).
@@ -389,11 +391,11 @@ There are other variations on if statements, including using `else if` to test a
 These are more advanced topics that will not be covered here.
 ```
 
-```{block, type="progress"}
+```{block2, type="progress"}
 Create a for-loop which loops through each state. 
 In the for loop, determine whether there are more male or female deaths in the 45-54 age group. 
-If there are more females, print "There are more female deaths in <State>", where <State> is the state name for that iteration in the loop. 
-If there are more males or the deaths are the same, the print "There are not more female deaths in <State>".
+If there are more females, print "There are more female deaths in \<State\>", where \<State\> is the state name for that iteration in the loop. 
+If there are more males or the deaths are the same, the print "There are not more female deaths in \<State\>".
 ```
 
 
@@ -570,6 +572,7 @@ add_one <- function(x){
 add_one(100)
 ```
 Here we define a function called `add_one`, using the assignment operator `<-`, just like when we define new vectors, data frames, integers, etc.
+
 - The statement `function` signifies that we are defining a new function, and the parentheses surround any arguments that this function accepts. Here, we have just one argument called `x`.
 - The body of the code has just two commands. The first command creates a new variable `y` by adding 1 to the argument `x`. The second command specifies that `y` will be the return value of the function.
 - The function is used by writing its name `add_one` and specifying the arguments in parentheses (100). Technically we are specifying that the value of `x` is 100.
@@ -624,37 +627,168 @@ This time, R computed 3 squared instead of 2 cubed, even though we specified `y`
 When you specify parameters by name, _R will ignore the order that they are given in_.
 
 ```{block, type="bonus"}
-R also allows you to specify the type of
-What do you think will happen if you run
+R also allows you to specify some arguments by name and some by position, as long as the position arguments come first. 
+For more, see [here](http://adv-r.had.co.nz/Functions.html).
 ```
 
 ```{block, type="progress"}
+(No need to turn this in)
 Write a function called `math` which has three arguments, a, b, and c.
 In the body of the function, write code which computes a - b * c, store the result as x, then specify the return value of the function to be x.
+Demonstrate the use of your function with a few examples. 
 ```
 
 
 ### Using Functions for Data Analysis
 
-Similar to how loops allowed 
+Functions offer many of the same advantages as loops: They allow you can write less code and do more.
+Let's see how loops might be used for data analysis.  
+Suppose we want to compare deaths between men and women for particular states and age groups. 
+Here's a barplot for Colorado in the 45-54 age group: 
 
+```{r, fig.width=6, fig.height=7}
+# Extract just the state and age group of interest
+covid2 <- covid[(covid$State == "Colorado") & (covid$Age.group == "45-54 years"),]
 
-Function scope
-```{block, type ="caution"}
-When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated. 
+# create a bar plot
+barplot(covid2$COVID.19.Deaths,  # specify column to plot
+        names.arg=covid2$Sex,    # specify bar names
+        main="Sex Comparison: Colorado 45-54 years",  # title
+        ylab="COVID-19 Deaths")  # y label
+
 ```
+
+Suppose we wanted to view this information for more states and age groups.
+Rather than repeat the above code each time, let's put it in a function:
+
+```{r, include=FALSE}
+# create a function called plot_fm with two arguments: state and ages
+plot_fm <- function(state, ages){
+  covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]
+  # set the maximum y limit manually, in case there are NA values
+  ymax = max(covid2$COVID.19.Deaths, na.rm=T)
+  if(ymax == -Inf) ymax <- 1
+  # create the plot
+  barplot(covid2$COVID.19.Deaths, 
+          names.arg=covid2$Sex, 
+          main=paste("Sex Comparison:", state, ages), 
+          ylab="COVID-19 Deaths",
+          ylim=c(0, ymax))
+}
+```
+```{r}
+# create a function called plot_fm with two arguments: state and ages
+plot_fm <- function(state, ages){
+  covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]
+  barplot(covid2$COVID.19.Deaths, 
+          names.arg=covid2$Sex, 
+          main=paste("Sex Comparison:", state, ages), 
+          ylab="COVID-19 Deaths")
+}
+```
+
+Now let's try out the code on a few states and age groups:
+
+```{r, fig.width=6, fig.height=7}
+plot_fm("Colorado", "45-54 years")
+```
+```{r, fig.width=6, fig.height=7}
+plot_fm("Texas", "65-74 years")
+```
+```{r, fig.width=6, fig.height=7}
+plot_fm("New York", "85 years and over")
+```
+
 
 ```{block, type="bonus"}
-- Pass by value, contrast with other languages
+Notice that our function doesn't actually _return_ anything, but it does produce a plot while running.
+The plots produced by this function are one example of _side effects_, which are changes that persist after the function is completed, that aren't the return value.
 ```
 
+```{block2, type="bonus"}
+If you tried to run `plot_fm("Colorado", "5-14 years")`, R would produce an error. 
+This is because both the `COVID.19.Deaths` column for that State/Age group is `NA`, and R needs at least one non-`NA` value to determine the limits of the y axis. 
+To get around this error, we could write extra code to manually set the y limits and specify them while plotting, like so:
 
-```{block, type="reflect"}
+  `covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]`
+
+  `# set the maximum y limit manually, in case there are NA values`
+  
+  `ymax = max(covid2$COVID.19.Deaths, na.rm=T)`
+  
+  `if(ymax == -Inf) ymax <- 1`
+  
+  `# create the plot`
+  
+  `barplot(covid2$COVID.19.Deaths, `
+  
+  `        names.arg=covid2$Sex, `
+  
+  `        main=paste("Sex Comparison:", state, ages), `
+  
+  `        ylab="COVID-19 Deaths",`
+  
+  `        ylim=c(0, ymax))`
+  
 
 ```
 
 ```{block, type="progress"}
+(No need to turn this in)
+Make a function with arguments for state, sex, and age group, and print out the COVID.19 deaths, Total Deaths, Pneumonia Deaths, and Influenza Deaths for that demographic.
+```
 
+### Function Scope
+
+There's another important concept for functions in R, called _scope_, which is best illustrated through the following example:
+
+```{r, error=TRUE}
+simple_f <- function(){
+  XYZ <- 2
+  return(XYZ)
+}
+
+print(simple_f())
+print(XYZ)
+
+```
+
+This function has no arguments, but it does create a new object called `var`, which is returned from the function.
+Notice, however, that printing out `var` gives an error.
+This is because the object `var` only exists in the _scope_ of the function `simple_f`, and is "forgotten" after the function finishes running.
+This is true for any objects created inside any function (with one exception, noted in the bonus block below).
+Variables defined outside of functions are in the _global scope_, which means they can be accessed anywhere, both inside and outside functions:
+
+```{r}
+y <- "hello"
+
+say_hello <- function(){
+  print(y)
+}
+
+say_hello()
+```
+
+```{block, type="bonus"}
+In an earlier chapter, we briefly mentioned the assignment operators `<<-` and `->>`, but didn't say what made them special. 
+It turns out, they are able to assign objects in the global scope from inside functions. 
+You can test this by altering the above example by replacing the command `z <- 2` with the command `z <<- 2` and observing the result.
+This assignment operator should almost _never_ be used, as it can cause confusion and unpredictable behavior if used in a more complicated R program.
+```
+
+```{block, type ="caution"}
+When writing functions, it helps to start simple. It's easy to make a complicated function, but when you try to put it into use and it doesn't work, debugging the issue can be equally complicated.
+```
+
+```{block, type="bonus"}
+You may be familiar with "pointers" in other language, and the difference between "pass by value" and "pass by reference". 
+In most ordinary circumstances with R, there is _only_ pass by value.
+```
+
+```{block, type="progress"}
+(No need to turn this in)
+When discussing Objects in a previous chapter, we mentioned that everything in R is an object, and every object has a `mode` and `length`.
+pick an R function, or create your own function, and print its `mode` and `length`.
 ```
 
 ```{block, type='feedback'}
