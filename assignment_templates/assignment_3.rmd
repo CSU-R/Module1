@@ -30,10 +30,6 @@ The data set is based on this [Kaggle dataset](https://www.kaggle.com/leonardope
 Download the [data set](https://github.com/CSU-R/Module1/raw/master/data_raw/top10s.csv) and save it in your data_raw folder.
 Read the dataset into R to an object called `top`.
 
-```{r}
-top <- read.csv("data_raw/top10s.csv")
-```
-
 ## Problem 2
 
 Print a summary of each variable in the data frame
@@ -42,10 +38,6 @@ Print a summary of each variable in the data frame
 
 Create a histogram of song duration, (`dur`).
 Make sure to set an appropriate title and axis titles.
-
-```{r}
-hist(top$dur, breaks=20)
-```
 
 ## Problem 4
 

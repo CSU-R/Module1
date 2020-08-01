@@ -271,7 +271,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
 <li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a></li>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
+<li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
+</ul></li>
 <li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -306,7 +309,9 @@ First, let’s load the data and do some minor cleaning:</p>
 <span id="cb455-2"><a href="basic-control-flow.html#cb455-2"></a><span class="co"># The &quot;Footnote&quot; column has hyphens, which only display correctly if we specify &quot;UTF-8&quot; encoding.</span></span>
 <span id="cb455-3"><a href="basic-control-flow.html#cb455-3"></a>covid &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv&quot;</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb455-4"><a href="basic-control-flow.html#cb455-4"></a><span class="co"># remove rows with state totals. This will mess up our summary statistics later</span></span>
-<span id="cb455-5"><a href="basic-control-flow.html#cb455-5"></a>covid &lt;-<span class="st"> </span>covid[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="op">$</span>State),]</span></code></pre></div>
+<span id="cb455-5"><a href="basic-control-flow.html#cb455-5"></a>covid &lt;-<span class="st"> </span>covid[<span class="op">!</span><span class="kw">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="op">$</span>State),]</span>
+<span id="cb455-6"><a href="basic-control-flow.html#cb455-6"></a><span class="co"># remove all ages category</span></span>
+<span id="cb455-7"><a href="basic-control-flow.html#cb455-7"></a>covid &lt;-<span class="st"> </span>covid[covid<span class="op">$</span>Age.group <span class="op">!=</span><span class="st"> &quot;All ages&quot;</span>,]</span></code></pre></div>
 <div class="progress">
 <p>
 Download the covid data into your data_raw folder, and load/clean it using the code above.
