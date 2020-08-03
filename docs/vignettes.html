@@ -400,13 +400,13 @@ rename and remove some of our columns in a new, simpler data.frame.</p>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
 <div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="vignettes.html#cb449-1"></a><span class="kw">summary</span>(pq)</span></code></pre></div>
-<pre class="output-style"><code>      Date                q_cfs       
- Min.   :2010-10-01   Min.   :   2.6  
- 1st Qu.:2013-03-17   1st Qu.:  30.1  
- Median :2015-09-01   Median :  79.3  
- Mean   :2015-09-01   Mean   : 250.2  
- 3rd Qu.:2018-02-15   3rd Qu.: 161.0  
- Max.   :2020-08-01   Max.   :7150.0  </code></pre>
+<pre class="output-style"><code>      Date                q_cfs        
+ Min.   :2010-10-01   Min.   :   2.60  
+ 1st Qu.:2013-03-17   1st Qu.:  30.12  
+ Median :2015-09-01   Median :  79.30  
+ Mean   :2015-09-01   Mean   : 250.19  
+ 3rd Qu.:2018-02-15   3rd Qu.: 161.00  
+ Max.   :2020-08-02   Max.   :7150.00  </code></pre>
 <p>It looks like we have data from 2010 to 2020-08-03 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure

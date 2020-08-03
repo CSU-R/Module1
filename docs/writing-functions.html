@@ -363,7 +363,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x0000000015a4d758&gt;
+&lt;bytecode: 0x0000000015658320&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -371,7 +371,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb509-2"><a href="writing-functions.html#cb509-2"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x0000000015ab2478&gt;
+&lt;bytecode: 0x0000000016633bc8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -441,6 +441,11 @@ So if we write a statement at the end of a function, but assign the result to a 
 <span id="cb524-3"><a href="writing-functions.html#cb524-3"></a>}</span>
 <span id="cb524-4"><a href="writing-functions.html#cb524-4"></a></span>
 <span id="cb524-5"><a href="writing-functions.html#cb524-5"></a><span class="kw">add_three</span>(<span class="dv">4</span>)  <span class="co"># this returns nothing</span></span></code></pre></div>
+
+<div class="bonus">
+This is technically <em>not true</em>. The above function <em>does</em> return the value of y, but it is “invisible”. To display the output, you can wrap the result in parentheses like this: <code>(add_three(4))</code>
+</div>
+
 <p>Now let’s look at a more complicated example that has two arguments:</p>
 <div class="sourceCode" id="cb525"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb525-1"><a href="writing-functions.html#cb525-1"></a><span class="co"># function to raise x to the y-th power </span></span>
 <span id="cb525-2"><a href="writing-functions.html#cb525-2"></a>pow &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){   <span class="co"># Here we specify the function has two arguments.</span></span>
@@ -487,7 +492,7 @@ Here’s a barplot for Colorado in the 45-54 age group:</p>
 <span id="cb531-6"><a href="writing-functions.html#cb531-6"></a>        <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex,    <span class="co"># specify bar names</span></span>
 <span id="cb531-7"><a href="writing-functions.html#cb531-7"></a>        <span class="dt">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
 <span id="cb531-8"><a href="writing-functions.html#cb531-8"></a>        <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-528-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-529-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Suppose we wanted to view this information for more states and age groups.
 Rather than repeat the above code each time, let’s put it in a function:</p>
 <div class="sourceCode" id="cb532"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb532-1"><a href="writing-functions.html#cb532-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
@@ -501,13 +506,13 @@ Rather than repeat the above code each time, let’s put it in a function:</p>
 <span id="cb532-9"><a href="writing-functions.html#cb532-9"></a>}</span></code></pre></div>
 <p>Now let’s try out the code on a few states and age groups:</p>
 <div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb533-1"><a href="writing-functions.html#cb533-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-531-1.png" width="576" style="display: block; margin: auto;" /></p>
-<pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb535-1"><a href="writing-functions.html#cb535-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-532-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb537-1"><a href="writing-functions.html#cb537-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb535-1"><a href="writing-functions.html#cb535-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-533-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="output-style"><code>NULL</code></pre>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb537-1"><a href="writing-functions.html#cb537-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-534-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="bonus">
 <p>
