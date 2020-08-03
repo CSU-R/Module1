@@ -629,6 +629,10 @@ add_three <- function(x){
 add_three(4)  # this returns nothing
 ```
 
+```{block2, type="bonus"}
+This is technically _not true_. The above function _does_ return the value of y, but it is "invisible". To display the output, you can wrap the result in parentheses like this: `(add_three(4))`
+```
+
 
 Now let's look at a more complicated example that has two arguments:
 
