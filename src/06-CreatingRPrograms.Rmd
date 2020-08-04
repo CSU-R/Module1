@@ -1002,6 +1002,108 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Working With Popular Packages
 
+### What is a package?
+
+Up to this point in this book/course, we have really focused on using `base` R.
+By `base`, we simpy mean the functions, datasets, and arguments that come 
+pre-packaged with R. While this book has (hopefully) shown you just how much 
+these basic functions can do, R can do so much more by relying on `packages.`
+
+`Packages` are an integral part of R programming, and you have been using them
+throughout this book and class. A `package` is a contained set of arguments,
+operations, data, and/or other tools that don't come with R. In general
+these are built by the vast community of R users and they cover tools from making
+beautiful maps in R to doing financial time-series analyses to downloading
+and analyzing hydrology data (see Vignettes). In fact, you have been using 
+`packages` this whole time. For example, In order to `knit` a document using RMarkdown, you have to have the `RMarkdown` package installed. 
+
+On many (most?) projects, the most efficient way to complete whatever task you 
+are doing is to spend at least sometime checking out if there is a `package`
+that makes it easier for you to do things like:
+
+1) Download data from the internet
+
+2) Perform statistical analyses
+
+3) Plot data
+
+4) Make maps
+
+5) Add interactivity to your R code (make zoomable maps or plots)
+
+6) And so much more!
+
+### How do I use packages?
+
+There are always at least two steps to using any package. 
+
+1) Install the package using `install.packages()`
+
+2) Load the package using `library()`
+
+Here is an example with an extremely common plotting package `ggplot2` you will 
+work on in the next module (and have probably already seen on the internet)
+
+```{r, eval = F}
+install.packages('ggplot2')
+```
+
+
+Now that we've installed the package we can load it into R, using `library()`
+
+```{r}
+library('ggplot2')
+```
+
+
+Now that we have installed the package we will need to learn how to use it.
+Where can we go to for help? 
+
+### Finding and using package help. 
+
+All R packages installed with `install.packages` will come from the 
+Comprehensive R Archive Network or CRAN. In order for you to work with them
+they have to have gone through a minimum overview, which ensures that they 
+will at least have a minimum help page. So for any package you want to
+read more about you can simply search for: `CRAN + package name`. For ggplot2
+this will lead you to [this website](https://cran.r-project.org/web/packages/ggplot2/index.html). This site
+outlines many of the resources for using ggplot2, but they can be hard to find. 
+The two most important places to look for help are the Reference manual and the 
+URL. 
+
+The [reference manual](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf) will outline every function that the package can perform and how to use the functions. 
+ggplot2 is a big package so it has tons of functions, which is why you might not 
+want to only use the PDF which can be hard to navigate. Luckily they made a website
+that is more clear and has far more examples [here](https://ggplot2.tidyverse.org/).
+
+
+### Using ggplot2
+
+Our package is now loaded, we have a manual for reference so let's use it!
+
+
+```{r}
+#Making up data for plotting
+dat <- data.frame( response = c(1,5,10,30,100,300),
+                   driver = c(1,2,3,4,5,6))
+
+##Using ggplot
+ggplot(dat, aes(x = driver, y = response)) + 
+  geom_point()
+```
+
+In the above command call ggplot uses the data frame `dat` and the aesthetics (`aes`)
+argument to map which columns go where. In this case we want the driver variable
+to be on the x-axis and the response variable to be on the y-axis. Finally
+we want to use a point geometry to display this relationship (`geom_point`). 
+
+
+Note: ggplot connects a series of arguments using `+` operator. This is unique 
+to ggplot, but it's a helpful way to make complex plots without 100s of assigned 
+plot names. 
+
+
+
 ```{block, type="caution"}
 This section is still under construction
 ```
