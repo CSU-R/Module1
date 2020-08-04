@@ -275,7 +275,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
 <li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a></li>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
+<li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
+<li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
+<li class="chapter" data-level="6.4.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#making-beautiful-plots-with-ggplot2"><i class="fa fa-check"></i><b>6.4.4</b> Making Beautiful Plots with <em>ggplot2</em></a></li>
+<li class="chapter" data-level="6.4.5" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#organizing-your-data-with-dplyr"><i class="fa fa-check"></i><b>6.4.5</b> Organizing Your Data With <em>dplyr</em></a></li>
+<li class="chapter" data-level="6.4.6" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#working-with-character-strings-with-stringr"><i class="fa fa-check"></i><b>6.4.6</b> Working With Character Strings with <em>stringr</em></a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -402,12 +409,12 @@ First we can use a summary command to just quickly look at the variables we have
 <div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="vignettes.html#cb449-1"></a><span class="kw">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   2.60  
- 1st Qu.:2013-03-17   1st Qu.:  30.12  
- Median :2015-09-01   Median :  79.30  
- Mean   :2015-09-01   Mean   : 250.19  
- 3rd Qu.:2018-02-15   3rd Qu.: 161.00  
- Max.   :2020-08-02   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2020-08-03 and a range in river
+ 1st Qu.:2013-03-17   1st Qu.:  30.15  
+ Median :2015-09-02   Median :  79.30  
+ Mean   :2015-09-02   Mean   : 250.14  
+ 3rd Qu.:2018-02-16   3rd Qu.: 161.00  
+ Max.   :2020-08-03   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2020-08-04 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
