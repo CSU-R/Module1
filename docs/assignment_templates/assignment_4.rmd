@@ -1,0 +1,103 @@
+---
+title: "Assignment 4"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions:
+
+1. Update your name in the header block, example: `author: "Alex Fout" `
+1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_assignment_4.rmd`
+1. Follow the instructions below to fill in the assignment.
+1. Be sure to _run your code chunks when you make them_, to make sure everything works!
+1. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
+1. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
+
+
+# Assignment
+
+This assignment will explore real estate prices using another [data set from Kaggle](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/).
+You should download the data from [here](https://github.com/CSU-R/Module1/raw/master/data_raw/housing.csv) and place it in your data_raw folder.
+
+## Problem 1. 
+
+Read the dataset into R to an object called `housing` and print the shape of the data frame
+
+```{r}
+```
+
+## Problem 2
+
+Below is some incomplete code that you must finish.
+The purpose of the code is to loop through each column in the data frame and determine how many columns have type "numeric".
+Replace both sets of `...` below to accomplish the task
+Don't change any other code.
+
+```{r}
+is_quant <- 0  # counter
+for(...){
+  col <- housing[,i]
+  if(...){
+    # increase counter by 1
+    is_quant <- is_quant + 1
+  }
+}
+```
+
+
+## Problem 3
+
+Below is a list of some of the quantitative variables.
+Write a for loop which iterates through the list and prints the range (maximum minus minimum). 
+Remember, you may have to use `na.rm=T` if you encounter `NA` values.
+
+```{r}
+qvs <- list(housing$LotFrontage, housing$LotArea, housing$SalePrice, housing$Fireplaces)
+```
+
+
+## Problem 4
+
+Write code that computes the average sale price for houses, split by number of Fireplaces
+
+
+## Problem 5
+
+How many houses have a garage built after 1995?
+
+## Problem 6
+
+Find two quantitative variables in the data set, and create a plot between them. 
+Make an observation about the relationship between the two variables.
+If no relationship is clear, try two other quantitative variables.
+
+## Problem 7
+
+What was the most valuable thing you got from this course?
+
+
+## Problem 8
+
+What was the least valuable part of the course? 
+
+
+## Problem 9
+
+What is one thing that could be improved about the course?
+
+## Problem 10
+
+Anything else you'd like to share?
+
+
+## End
+
+This is the end of the assignment!
+You can knit the document and upload it to Canvas
+
+

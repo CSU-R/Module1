@@ -1,0 +1,128 @@
+---
+title: "Assignment 1"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions:
+
+1. Update your name in the header block, example: `author: "Alex Fout" `
+1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_assignment_1.rmd`
+1. Follow the instructions below to fill in the assignment.
+1. Be sure to _run your code chunks when you make them_, to make sure everything works!
+1. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
+1. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
+
+
+# Assignment
+
+In this assignment, we'll focus on familiarity with RMarkdown documents and writing R commands.
+
+
+## Problem 1. 
+
+Here is a code chunk with no code in it.
+
+```{r}
+
+```
+
+Type `1+1` into the above code chunk (don't include the backticks) and press the green play button to the right to run the code.
+
+
+## Problem 2. 
+ 
+Here's another code chunk:
+
+```{r}
+12 * 2
+```
+
+Change the code so that it's computing 12 _divided by_ 2, and press the green play button to run the code.
+
+
+## Problem 3. 
+
+Type code in the code chunk below to find the result of 22 divided by 7.
+
+```{r}
+
+```
+
+Add a comment inside the code chunk _before_ the command you just wrote, and use the comment to explain what your code is doing.
+
+
+## Problem 4.
+
+Create a new code chunk below and compute the result of 12 squared.
+Make sure that code chunk works by running the code chunk.
+
+
+## Problem 5.
+
+Create another code chunk below and write code to print out the message: Hello from the other side!
+
+
+## Problem 6.
+
+Here is an example of a hyperlink in RMarkdown:
+
+[The R Graph Gallery](https://www.r-graph-gallery.com/)
+
+The part in square brackets, [], is the text that will be displayed after knitting.
+The part in parentheses, (), is the URL to a website.
+
+VIsit the R Graph Gallery by following the link above, and spend some time perusing the different categories. 
+You can click on a graph type (for example, "violin") and scroll down to view some examples of that type. 
+
+Find three different examples graphs from three different categories that you find particularly interesting.
+In the sections below, create a hyperlink which links to the example graph you found.
+
+
+### Example 1
+
+
+### Example 2
+
+
+### Example 3
+
+
+
+## Problem 7. 
+
+R is used in many different disciplines!
+Take your major (sociology for example) and try doing the following google search:
+
+"R for sociology" (or whatever your major is)
+
+Look at a few search results to see if there are some interesting resources available to people in your field who are using R.
+If you aren't finding anything very promising, try something like:
+
+"sociology with R"
+
+Pick a website that seems interesting to you, and create a hyperlink below for it.
+If you can't find any _good_ examples, repeat the search with a different example from yours, and see if you find something interesting. 
+
+### Hyperlink
+
+
+## Problem 8.
+
+Visit [#rstats](https://twitter.com/hashtag/rstats?lang=en) on twitter and peruse the posts for a while.
+Find one post that looks interesting to you and link to it below:
+
+### Hyperlink
+
+
+## End
+
+This is the end of the assignment!
+You can knit the document and upload it to Canvas
+
+

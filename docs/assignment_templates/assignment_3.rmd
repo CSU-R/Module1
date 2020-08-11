@@ -1,0 +1,84 @@
+---
+title: "Assignment 3"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions:
+
+1. Update your name in the header block, example: `author: "Alex Fout" `
+1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_assignment_3.rmd`
+1. Follow the instructions below to fill in the assignment.
+1. Be sure to _run your code chunks when you make them_, to make sure everything works!
+1. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
+1. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
+
+
+# Assignment
+
+In this assignment, we'll explore working with data in R, using a dataset of top songs on Spotify from 2010 to 2019.
+The data set is based on this [Kaggle dataset](https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year) if you want to learn more about it.
+
+
+## Problem 1. 
+
+Download the [data set](https://github.com/CSU-R/Module1/raw/master/data_raw/top10s.csv) and save it in your data_raw folder.
+Read the dataset into R to an object called `top`.
+
+## Problem 2
+
+Print a summary of each variable in the data frame
+
+## Problem 3
+
+Create a histogram of song duration, (`dur`).
+Make sure to set an appropriate title and axis titles.
+
+## Problem 4
+
+Which song has the highest `bpm`? (hint: find the max bpm, then index the data frame based on which bpm has that value).
+
+## Problem 5
+
+Create a table of `top.genre`, then use the `sort` function to order by counts.
+Which genre has the most top songs?
+
+## Problem 6
+
+Create a data frame called `top3genres` with only the rows in the top three genres. 
+Using `top3genres`, create boxplots of popularity (`pop`), and split by genre.
+Make sure to set an appropriate title and axis titles.
+Which genre tends to have higher popularity values?
+
+## Problem 7
+
+One of the genres is called "complextro". 
+Select the rows with this genre. 
+Which artist is categorized in this genre?
+
+## Problem 8
+
+Which two artists have the most songs on in the data set?
+Create a new data frame called `top2artists` that has only the two artists with the most songs.
+
+## Problem 9
+
+Using `top2artists`, create a scatter plot of duration (`dur`) vs. "acousticness" (`acous`), colored by artist
+What do you notice about the plot?
+
+## Problem 10
+
+Which of the top 2 artists has longer songs on average?
+
+
+## End
+
+This is the end of the assignment!
+You can knit the document and upload it to Canvas
+
+

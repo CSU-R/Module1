@@ -1,0 +1,102 @@
+---
+title: "Assignment 2"
+author: "Your Name Here"
+date: "`r format(Sys.time(), '%d %h, %Y, %I:%M %p')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Instructions:
+
+1. Update your name in the header block, example: `author: "Alex Fout" `
+1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_assignment_2.rmd`
+1. Follow the instructions below to fill in the assignment.
+1. Be sure to _run your code chunks when you make them_, to make sure everything works!
+1. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
+1. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
+
+
+# Assignment
+
+In this assignment, we'll review R programming fundamentals.
+Remember to place all code inside a code chunk.
+
+
+## Problem 1. 
+
+Create an empty numeric vector of length 3 called `a`
+Then assign the elements of a the values 5, 6, and 6, respectively.
+
+
+
+## Problem 2.
+
+Create a new numeric vector called `b` which is the result of squaring each element of `a`.
+Then change the value of the second element of `b` so that it is the same as the first element of `b`.
+
+
+
+## Problem 3.
+
+Find the result of `a` times `b` and assign it to a new variable, `c`.
+Then print out the sum of the elements of `c`.
+
+
+
+## Problem 4.
+
+Re-visit problems 1, 2, and 3, and add comments to your code explaining what the code does.
+
+
+## Problem 5.
+
+Change the third element of `b` to -2.
+print out the values of `b` and `c`.
+`c` was defined using `b`, did the value of `c` change?
+
+
+## Problem 6. 
+
+create a new variable `d` which is the result of converting `a` into a character vector.
+combine `a`, `b`, `c`, and `d` into a list called `letters`.
+
+
+## Problem 7.
+
+create a data frame from `letters` and call it `df`.
+Change the column names of `df` to have names `a`, `b`, `c`, and `d`, respectively.
+Then print out the dimension of `df`.
+
+
+## Problem 8.
+
+Create a logical vector by comparing which elements in `a` are equal to 6.
+
+
+## Problem 9.
+
+remove the `letters` variable from R.
+Did this also remove `a`, `b`, `c`, and `d`?
+
+
+
+## Problem 10.
+
+Create a numeric vector called `two` which has elements 1 and 2.
+Create a numeric vector called `four` which has four ones.
+Normally you can't add vectors of different length, but let's try anyways.
+Print the result of `two` plus `four`.
+What did R do?
+
+
+
+
+## End
+
+This is the end of the assignment!
+You can knit the document and upload it to Canvas
+
+
