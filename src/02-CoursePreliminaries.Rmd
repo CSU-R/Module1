@@ -2,9 +2,13 @@
 
 > "Learning to code is useful no matter what your career ambitions are." —Arianna Huffington, Founder, The Huffington Post
 
+In this chapter, we'll discuss the preliminary details of the course.
+Then you'll run some R code and learn more about R and the R community.
+
+## This Textbook
+
 This course is presented as a [bookdown](https://bookdown.org/) document, and is divided into chapters and sections
 Each week, you'll be expected to read through the chapter and complete any associated exercises, quizzes, or assignments.
-
 
 ### Special Boxes
 
@@ -118,6 +122,23 @@ sched <- data.frame(
 )
 knitr::kable(sched) %>% kable_styling()
 ```
+### Assignment Templates
+
+In order to complete the progress checks and course assignments, you'll need to start from these templates:
+
+Progress Checks
+
+- (Assignment 1 will not require a template)
+- [Progress Check 2](assignment_templates/progress_check_2.rmd)
+- [Progress Check 3](assignment_templates/progress_check_3.rmd)
+- [Progress Check 4](assignment_templates/progress_check_4.rmd)
+
+Assignments
+
+- [Assignment 1](assignment_templates/assignment_1.rmd)
+- [Assignment 2](assignment_templates/assignment_2.rmd)
+- [Assignment 3](assignment_templates/assignment_3.rmd)
+- [Assignment 4](assignment_templates/assignment_4.rmd)
 
 
 ### Course Policies 
@@ -134,11 +155,13 @@ Grades will be assigned according to the following scale:
 
 ```{r, grading_scale, echo=F}
 grading_scale <- data.frame(
-  Class_Score = c("92%-100%", "90%-92%", "88%-90%", "82%-88%", "80%-82%", "78%-80%", "70%-78%", "60%-70%", "0%-60%"),
-  Letter_Grade = c("A", "A-", "B+", "B", "B-", "C+", "C", "D", "F")
+  `Class Score` = c("92%-100%", "90%-92%", "88%-90%", "82%-88%", "80%-82%", "78%-80%", "70%-78%", "60%-70%", "0%-60%"),
+  `Letter Grade` = c("A", "A-", "B+", "B", "B-", "C+", "C", "D", "F")
 )
 knitr::kable(grading_scale) %>% kable_styling()
 ```
+
+
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Topics%20%26%20Syllabus)
@@ -215,8 +238,8 @@ In that case, try to come up with some possible answers that _might_ be true.
 1. What skills do you hope to develop in this course, and how might they be applied in your major and career?
 ```
 
-```{block, type="progress"}
-Submit your answers to the above reflection to Canvas.
+```{block, type="assessment"}
+Submit your answers to the above reflection to Canvas. This will be your Progress Check 1.
 ```
 
 Store your answers in a safe place, and refer to them periodically as you progress through the course.

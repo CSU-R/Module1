@@ -5,9 +5,6 @@
 In the previous chapter, you ran R code on a website.
 The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.
 
-```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Installing%20R)
-``` 
 
 ## Computer Basics
 
@@ -42,8 +39,8 @@ Different types of files are often treated differently by your computer.
 For example, a music file is played with a music player program, a video can be viewed with a video player, and a slide presentation might be viewed with Powerpoint.
 Most operating systems know the type of a file by looking at the _extension_, which is at the very end of the file's name. 
 Examples include ".mp3", ".doc", ".txt", and ".ppt".
-When using R, we can write scripts which contain R code, and _RMarkdown_ documents, which include human readable text and code.
-R scripts usually have either a ".R" or ".r" extension, and we'll also be using _RMarkdown_, which use either a ".Rmd" or ".rmd" extension.
+When using R, we can write scripts which contain R code, and _R Markdown_ documents, which include human readable text and code.
+R scripts usually have either a ".R" or ".r" extension, and we'll also be using _R Markdown_, which use either a ".Rmd" or ".rmd" extension.
 
 
 A _directory_, or _folder_, is a collection of files, and computers use directories to logically organize sets of files.
@@ -271,10 +268,10 @@ There is much that could be said about R Markdown, but for now, we'll just stick
 To start, watch this video:
 
 ```{block, type="video"}
-[This Video](https://youtu.be/MhvipLohEfU) gives a basic introduction to RMarkdown.
+[This Video](https://youtu.be/MhvipLohEfU) gives a basic introduction to R Markdown.
 ```
 
-As the video stated, there are three types of sections to an RMarkdown document: 
+As the video stated, there are three types of sections to an R Markdown document: 
 
 - Header
 - Human readable text
@@ -283,12 +280,13 @@ As the video stated, there are three types of sections to an RMarkdown document:
 There's only one header, but there can be many blocks of human readable text and many code chunks.
 
 ```{block, type="bonus"}
-See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more things you can do with RMarkdown.
+See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more things you can do with R Markdown.
 ```
 
-```{block, type="caution"}
+```{block, type="assessment"}
 As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
-On Canvas, download the `progress_check_2.rmd` file and follow the instructions. 
+Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `data_raw` folder, and follow the instructions.
+That document should include all progress reports from Section 4.1 through (and including) Section 4.3
 The next box should be the first code chunk you will include in the document!
 ```
 
@@ -317,16 +315,19 @@ At the top of the R window, click `Tools`, then `Global Options`, and do the fol
 
 1. On the left side of the window that pops up, and make sure it's on the "General" tab
 1. Find the "Workspace" section on the right, make the following changes:
--- _uncheck_ "Restore .RData into workspace on startup"
--- Change the "Save workspace to .RData on exit" option to _never_
-1. On the left side, select the "Appearance" tab.
-1. (Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.
-1. (Optional) Change the "Editor theme:" setting to find a color scheme that looks good to you.
+    - _uncheck_ "Restore .RData into workspace on startup"
+    - Change the "Save workspace to .RData on exit" option to _never_
+1. On the left side, select the "R Markdown" tab and make the following change:
+    - Change the "Evaluate chunks in directory" option to _Project_.
+1. (Optional) On the left side, select the "Appearance" tab and make the changes:
+    - (Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.
+    - (Optional) Change the "Editor theme:" setting to find a color scheme that looks good to you.
 1. Click "Apply", then "OK" at the bottom of the window.
 
 Step 2 ensures that each time you open RStudio, there's no "memory" of anything you may have been doing in R previously.
 This is a good option for R beginners to avoid confusion and mistakes.
-Step 4 can also be done using the shortcuts `<control> <shift> +` (to increase size) and `<control> -` (to decrease size). 
+Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the _working directory_ (more on working directories below).
+Changing the zoom can also be done using the shortcuts `<control> <shift> +` (to increase size) and `<control> -` (to decrease size). 
 On Mac OS X, the commands are `<command> <shift> +` and `<command> -`.
 
 
@@ -385,6 +386,9 @@ You can create these either using your operating system, or the "New Folder" com
 ```{block, type="video"}
 Check out [this video](https://youtu.be/0saBBd6lQDI) to watch me set up a project and the new directories.
 ```
+
+
+#### Set 
 
 
 ### Some useful commands you should know

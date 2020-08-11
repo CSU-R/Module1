@@ -6,11 +6,11 @@ language:
     before_chapter_script: "rscripts/before_chapter.r"
 rmd_files:
   - "index.Rmd"
-  - "src/01-CoursePreliminaries.Rmd"
-  - "src/02-InstallingR.Rmd"
+  - "src/02-CoursePreliminaries.Rmd"
+  - "src/03-InstallingR.Rmd"
   - "src/04-RProgrammingFundamentals.Rmd"
   - "src/05-WorkingWithData.Rmd"
-  - "src/06-CreatingRPrograms.Rmd"
+  - "src/06-PerformingEffectiveDataAnalysis.Rmd"
 output_dir: "docs"
 # rmd_subdir: ["src"]  # misses index.Rmd if we use this
 # clean: ["src/book.bib"] # removes book.bib file when cleaned
