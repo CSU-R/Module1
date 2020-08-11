@@ -2,6 +2,9 @@
 
 > "Computers are good at following instructions, but not at reading your mind.” - Donald Knuth
 
+In this chapter, we'll start to learn the "nuts and bolts" of R. 
+Think of these things as the fundamental pieces that you need to understand in order to make R do more interesting and sophisticated things later.
+
 ## Programming Preliminaries
 
 ```{block2, type="reflect"}
@@ -166,7 +169,7 @@ print("The sky is blue")
 print("The grass is green")
 ```
 
-### CaSe SeNsItIvItY
+### CaSe SeNsItIvItY {#case}
 
 In R, variables, functions, and other objects (all of which we'll talk about later), have names.
 These names are case sensitive, so you must be careful when referencing an object by name.
@@ -1336,10 +1339,18 @@ List components can also have _names_.
 Here we add an component with a name:
 ```{r}
 A[["color"]] <- "yellow"
+A
 ```
 Notice how this new component displays differently?
 Instead of showing `[[5]]`, the component is labeled with a dollar sign, then its name: `$color`.
+
+```{block, type="caution"}
+We first use the term _name_ for individual variables, but here we see that components of lists can also have names.
+When we encounter data frames later, we'll see how each _row_ and _column_ can also have its own name.
+```
+
 You can access components using their name in two ways:
+
 ```{r}
 A[["color"]]  # use double square brackets to access a named element
 ```
@@ -1363,9 +1374,9 @@ person
 ```{block, type="progress"}
 Below is some R code:
 
-  `C$year <- A[2,2] + B[["age"]]`
+  `S1$year <- S2[2,2] + S3[["age"]]`
 
-Assuming this code works, what are the data structures of A, B, and C?
+Assuming this code works, what are the data structures of S1, S2, and S3?
 ```
 
 ```{block, type="bonus"}
@@ -1542,6 +1553,14 @@ For each data set, answer the following questions:
 
 ```
 
+
+```{block, type="assessment"}
+This is the last section you should include in Progress Check 2.
+Knit your output document and submit on Canvas.
+```
+
+
+
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Structures)
 ``` 
@@ -1562,6 +1581,11 @@ Many of these ideas will be true for R objects as well.
 ```
 
 We've already introduced the concepts of objects in R in passing, but here we briefly focus on what they are and how to work with them.
+
+```{block, type="assessment"}
+Download the [progress check 3 template](assignment_templates/progress_check_3.rmd) into your `data_raw` folder, and follow the instructions.
+That document should include all progress reports from Section 4.4 through (and including) Section 5.4
+```
 
 ### _Everything_ is an object in R
 
