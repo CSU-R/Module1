@@ -26,8 +26,9 @@ div.progress:after{
     right:0.3em;
     position:absolute;
     bottom:0.1em;
-    font-size: 0.8em;
-    content:  counter(counter-progress-blocks) ;
+    font-size: 1.0em;
+    font-weight: bold;
+    content: "#" counter(counter-progress-blocks) ;
 }
 
 
