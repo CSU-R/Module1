@@ -289,6 +289,35 @@ abline(v=age_med, col="red", lty=2, lwd=3)
 ```
 It looks like the distribution of `Age` is _right skewed_, consistent with the fact that the mean is greater than the median.
 
+Of course, having more than one quantitative variable allows us to compare them against each other. 
+Here's how to compute the covariance between two quantitative variables:
+
+```{r}
+cov(athletes$Age, athletes$Height, use="complete.obs")
+```
+
+```{block, type="caution"}
+The argument r`use="complete.obs"` is one way to deal with `NA` values in the `cov` function. This makes R remove any observations which are NA in either the first or second variable. There are other ways as well, which you can check using the help function: `?cov`.
+```
+
+You can also compute the correlation between two variables like so:
+
+```{r}
+cor(athletes$Age, athletes$Height, use="complete.obs")
+```
+Using the `cov` or `cor` functions on an entire data frame or matrix will produce a correlation matrix of the columns. 
+Here's an example with the `mtcars` data frame:
+
+```{r}
+cor(mtcars)
+```
+However, this only works if every column the data frame (or matrix) are numeric.
+Here's what happens if we try the same thing on the athletes data:
+
+```{r, error=T}
+cor(athletes)
+```
+
 ### Categorical Variables
 
 To showcase the functions R provides for categorical variables, we'll look, at the `Sport` column, which is stored as a character vector in R.
@@ -453,6 +482,12 @@ Can you think of another way to organize the data?
 ```
 
 
+```{block, type="assessment"}
+This is the last section you should include in Progress Check 3.
+Knit your output document and submit on Canvas.
+```
+
+
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting)
 ``` 
@@ -465,6 +500,11 @@ A datum's _index_ is its position in the vector or list.
 For example, to get the second element of a vector `A`, we use index 2 in square brackets: `A[2]`.
 The process of selecting elements using their indices is called _indexing_, and R provides multiple ways of indexing vectors.
 Below we'll cover some basic indexing and more advanced indexing for the different data structures in R.
+
+```{block, type="assessment"}
+Download the [progress check 4 template](assignment_templates/progress_check_4.rmd) and follow the instructions.
+That document should include all progress reports from Section 5.5 through (and including) Section 6.1
+```
 
 ### Vectors
 
