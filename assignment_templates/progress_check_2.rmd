@@ -12,12 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 # Instructions:
 
 1. Update your name in the header block, example: `author: "Alex Fout" `
-1. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_progress_check_2.rmd`
-1. Each time you encounter a purple "Progress Check" block in the textbook, create a new sub-subheading  and a new code block for any code you write.
-1. Be sure to _run your code chunks when you make them_, to make sure everything works!
-1. Your completed assignment should contain all progress checks from Chapter 3 through (and including) Section 4.3
-1. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
-1. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
+2. Select `File > Save as` and save the file by adding your last name at the beginning with an underscore, example: `fout_progress_check_2.rmd`
+3. Each time you encounter a purple "Progress Check" block in the textbook, create a new sub-subheading  and a new code block for any code you write.
+4. Be sure to _run your code chunks when you make them_, to make sure everything works!
+5. Your completed assignment should contain all progress checks from Section 4.1 through and including Section 4.3
+6. When you've completed the assignment, __knit__ the document and make sure the resulting HTML or PDF file looks alright.
+7. Upload the PDF or HTML file to Canvas (Don't upload the Rmd document).
 
 
 # Example:
@@ -33,8 +33,10 @@ Each time you encounter a progress check block in this section, make a sub-subhe
 For each progress check, you'll create a code chunk for any code you write:
 
 ```{r}
-print("here's some code for the first progress check box in 3.1")
+2 + 2
 ```
+
+And you may also include some extra text to answer any questions not requiring code.
 
 ### 2
 
@@ -45,6 +47,17 @@ print("here's some code for the second progress check box in 3.1")
 ## Section 3.2
 
 Here's where section 3.2 progress checks will go, etc.
+
+# R Markdown Tips:
+
+- Save your work often!
+- Knit your work often!
+- Make sure any headings have a blank line _before_ them. E.g. the following will not work:
+
+this text is too close to the heading
+## this is a heading
+
+To see the problem, knit the document and observe that "this is a heading" is not displayed as a heading.
 
 
 # Progress Checks:
