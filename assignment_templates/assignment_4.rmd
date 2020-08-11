@@ -34,7 +34,7 @@ Read the dataset into R to an object called `housing` and print the shape of the
 ## Problem 2
 
 Below is some incomplete code that you must finish.
-The purpose of the code is to loop through each column in the data frame and determine how many columns have type "character".
+The purpose of the code is to loop through each column in the data frame and determine how many columns have type "numeric".
 Replace both sets of `...` below to accomplish the task
 Don't change any other code.
 
