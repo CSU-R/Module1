@@ -286,7 +286,7 @@ See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.p
 ```{block, type="assessment"}
 As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
 Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `data_raw` folder, and follow the instructions.
-That document should include all progress reports from Section 4.1 through (and including) Section 4.3
+That document should include all progress reports from Section 3.4 through (and including) Section 4.3
 The next box should be the first code chunk you will include in the document!
 ```
 
