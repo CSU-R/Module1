@@ -234,7 +234,7 @@ Okay, now that we've covered some of the basics, it's time to start learning how
 The next few sections will describe the different types of data that R can handle.
 
 ```{block, type="video"}
-[This video](https://youtu.be/EShV_T2P7sw) discusses numerics.
+[This video](https://youtu.be/EShV_T2P7sw) discusses programming preliminaries.
 ```
 
 
@@ -1187,7 +1187,7 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/XKdZzHBRO9o) gives an introduction to Vectors.
+[This video](https://youtu.be/XKdZzHBRO9o) finishes the discussion of vectors.
 ```
 
 
