@@ -412,10 +412,6 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 ``` 
 
 
-## Reflection
-
-You should now be set up to 
-
 ```{block, type="reflect"}
 Before moving on to the next section, take a note of all you've done so far. 
 
