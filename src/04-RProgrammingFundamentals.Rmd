@@ -233,6 +233,10 @@ As we've seen, symbols and characters have specific meaning in R. You must be ca
 Okay, now that we've covered some of the basics, it's time to start learning how to do useful things in R!
 The next few sections will describe the different types of data that R can handle.
 
+```{block, type="video"}
+[This video](https://youtu.be/EShV_T2P7sw) discusses numerics.
+```
+
 
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming%20Preliminaries)
@@ -340,6 +344,9 @@ round(a, 3)
 It also turns out that R stores _more_ digits than what it shows when it prints, though we won't go into detail on that now.
 
 
+```{block, type="video"}
+[This video](https://youtu.be/juscNzIrmJQ) discusses numerics.
+```
 
 ### Integer
 
@@ -357,6 +364,11 @@ class(y)
 ```
 Integers take half of the space in a computer's memory or hard drive, so if you are working with or storing a lot of numbers which are integers, it might make sense to declare them as integer type in R.
 This will make more sense when we discuss vectors later.
+
+
+```{block, type="video"}
+[This video](https://youtu.be/rNkEAPsipCk) discusses integers.
+```
 
 
 ### Character
@@ -448,6 +460,10 @@ Remember that you can learn more about a function using `?`. Type `?paste` into 
 
 
 There are other ways of manipulating strings, but we'll return to this later.
+
+```{block, type="video"}
+[This video](https://youtu.be/1JgmnulM_4g) discusses characters.
+```
 
 ### Logical
 
@@ -572,6 +588,10 @@ Now that we've discussed different types of data, we'll now see how they can be 
 
 ```{block, type="caution"}
 What about dates? R actually has three built-in [date classes](https://www.r-bloggers.com/using-dates-and-times-in-r/). This can be confusing at first, but packages like [lubridate](https://lubridate.tidyverse.org/) make it easy to work with dates in R. 
+```
+
+```{block, type="video"}
+[This video](https://youtu.be/GH9AZcexokU) discusses logicals.
 ```
 
 ```{block, type='feedback'}
@@ -732,6 +752,10 @@ What do you think will be the result of the following code (hint: the result wil
 Once you make a guess, try it in R and see if you were correct.
 ```
 
+```{block, type="video"}
+[This video](https://youtu.be/-BlN6_ZMpKE) gives an introduction to vectors.
+```
+
 #### Working with vectors
 
 
@@ -855,6 +879,11 @@ What if we search for a phrase that doesn't occur?
 grep("raddish", a)
 ```
 The result is an integer vector of length 0, meaning there are no elements that match the phrase!
+
+
+```{block, type="video"}
+[This video](https://youtu.be/NgmVhLpuM5k) continues the discussion of vectors.
+```
 
 #### Vectors of different types
 
@@ -1002,6 +1031,10 @@ There is more to be said about factors, but this is all we will explore at this 
 ```{block, type="bonus"}
 In newer versions of R, all strings are _treated like factors_ behind the scenes, meaning there's really no difference between factor and character types in terms of how much space they take up in the computer's memory.
 However, R still treats the two types differently, so it's important to remember that they are different!
+```
+
+```{block, type="video"}
+[This video](https://youtu.be/iusiO1dRQdY) discusses coercion, sequences, and factors.
 ```
 
 #### Combining Vectors
@@ -1153,6 +1186,11 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 ```
 
 
+```{block, type="video"}
+[This video](https://youtu.be/XKdZzHBRO9o) gives an introduction to Vectors.
+```
+
+
 ### Matrices
 
 Not all data can be arranged as an ordered set of elements, so R has other data structures besides vectors.
@@ -1292,6 +1330,10 @@ This is what lists can do!
 It turns out, matrices can work with non-numeric types as well! But like vectors, mixed type matrices are not allowed. For this, you'll have to use a dataframe, as we discuss later.
 ```
 
+```{block, type="video"}
+[This video](https://youtu.be/hknL1EbrIB4) gives an introduction to Vectors.
+```
+
 ### Lists
 
 
@@ -1413,6 +1455,10 @@ A == 12  # compare against a numeric (won't work)
 ```
 
 So there are trade-offs when deciding whether a list or a vector is most appropriate.
+
+```{block, type="video"}
+[This video](https://youtu.be/-Y02JkqDlWU) discusses lists.
+```
 
 #### Lists of Vectors
 
@@ -1564,6 +1610,11 @@ Knit your output document and submit on Canvas.
 ```{block, type='feedback'}
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Structures)
 ``` 
+
+
+```{block, type="video"}
+[This video](https://youtu.be/9BGRIC1js04) discusses lists of vectors.
+```
 
 ## R Objects
 
@@ -1743,7 +1794,7 @@ rm(list=ls())
 Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects)
 ``` 
 
+```{block, type="video"}
+[This video](https://youtu.be/VrgoEoMo9ZM) discusses lists of vectors.
+```
 
-## Wrap Up
-
-This concludes the chapter. Next we'll use the R skills you've developed in this chapter to do interesting things with Data!
