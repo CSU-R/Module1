@@ -193,7 +193,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
 <li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
@@ -223,7 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>4.5</b> Wrap Up</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
@@ -357,8 +355,8 @@ Because these data are included with R, more information about each variable can
 We learn, for example, that the average number of drivers killed per month is 1670, and that the greatest price of petrol was £0.13 per litre!
 Let’s view a histogram of <code>DriversKilled</code>:</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="quick-example.html#cb332-1"></a><span class="kw">hist</span>(Seatbelts<span class="op">$</span>DriversKilled, <span class="dt">breaks=</span><span class="dv">20</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-312"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-312-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-325"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-325-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
 <p class="caption">
 Figure 5.1: Histogram of Drivers Killed in Seatbelt data
 </p>
@@ -369,16 +367,16 @@ We can calculate how many exactly like so:</p>
 <pre class="output-style"><code>[1] 33</code></pre>
 <p>To investigate the effect of the seat belt law, let’s create a scatter plot Drivers killed against time:</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb335-1"><a href="quick-example.html#cb335-1"></a><span class="kw">plot</span>(Seatbelts<span class="op">$</span>date, Seatbelts<span class="op">$</span>DriversKilled)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-314"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-314-1.png" alt="UK Seatbelt deaths vs time" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-327"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-327-1.png" alt="UK Seatbelt deaths vs time" width="672" />
 <p class="caption">
 Figure 5.2: UK Seatbelt deaths vs time
 </p>
 </div>
 <p>By adding a <code>col</code> argument to the <code>plot</code> function, we can color the points based on whether the law was in effect:</p>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb336-1"><a href="quick-example.html#cb336-1"></a><span class="kw">plot</span>(Seatbelts<span class="op">$</span>date, Seatbelts<span class="op">$</span>DriversKilled, <span class="dt">col=</span>(Seatbelts<span class="op">$</span>law<span class="op">+</span><span class="dv">2</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-315"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-315-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-328"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-328-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
 <p class="caption">
 Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law
 </p>
@@ -387,8 +385,8 @@ Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt 
 <p>Let’s change the x-axis to reflect month of the year instead of date:</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb337-1"><a href="quick-example.html#cb337-1"></a><span class="kw">plot</span>((Seatbelts<span class="op">$</span>date <span class="op">%%</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="dv">12</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, Seatbelts<span class="op">$</span>DriversKilled, </span>
 <span id="cb337-2"><a href="quick-example.html#cb337-2"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="dt">col=</span>Seatbelts<span class="op">$</span>law <span class="op">+</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-316"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-316-1.png" alt="UK Driver Deaths vs. Month" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-329"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-329-1.png" alt="UK Driver Deaths vs. Month" width="672" />
 <p class="caption">
 Figure 5.4: UK Driver Deaths vs. Month
 </p>

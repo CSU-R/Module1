@@ -193,7 +193,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
 <li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
@@ -223,7 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>4.5</b> Wrap Up</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
@@ -373,7 +371,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x0000000015738400&gt;
+&lt;bytecode: 0x0000000015738298&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -381,7 +379,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb517-2"><a href="writing-functions.html#cb517-2"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x0000000016712ea8&gt;
+&lt;bytecode: 0x0000000016714428&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -502,7 +500,7 @@ Here’s a barplot for Colorado in the 45-54 age group:</p>
 <span id="cb539-6"><a href="writing-functions.html#cb539-6"></a>        <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex,    <span class="co"># specify bar names</span></span>
 <span id="cb539-7"><a href="writing-functions.html#cb539-7"></a>        <span class="dt">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
 <span id="cb539-8"><a href="writing-functions.html#cb539-8"></a>        <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-538-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-551-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Suppose we wanted to view this information for more states and age groups.
 Rather than repeat the above code each time, let’s put it in a function:</p>
 <div class="sourceCode" id="cb540"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb540-1"><a href="writing-functions.html#cb540-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
@@ -516,13 +514,13 @@ Rather than repeat the above code each time, let’s put it in a function:</p>
 <span id="cb540-9"><a href="writing-functions.html#cb540-9"></a>}</span></code></pre></div>
 <p>Now let’s try out the code on a few states and age groups:</p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb541-1"><a href="writing-functions.html#cb541-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-541-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-554-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="sourceCode" id="cb543"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb543-1"><a href="writing-functions.html#cb543-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-542-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-555-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="sourceCode" id="cb545"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb545-1"><a href="writing-functions.html#cb545-1"></a><span class="kw">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-543-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-556-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="bonus">
 <p>

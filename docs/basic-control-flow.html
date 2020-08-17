@@ -193,7 +193,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
 <li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
@@ -223,7 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>4.5</b> Wrap Up</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
@@ -348,7 +346,7 @@ This data contains deaths data for different states, age groups, and sexes, letâ
 <span id="cb465-3"><a href="basic-control-flow.html#cb465-3"></a><span class="kw">barplot</span>(covid_co_f<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="dt">names.arg =</span> covid_co_f<span class="op">$</span>Age.group, </span>
 <span id="cb465-4"><a href="basic-control-flow.html#cb465-4"></a>        <span class="dt">las=</span><span class="dv">2</span>, </span>
 <span id="cb465-5"><a href="basic-control-flow.html#cb465-5"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-474-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-487-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note that three age groups have more than 0 but less than 9 cases, so the counts have been omitted from the data set to maintain confidentiality of the victims.</p>
 <p>Letâ€™s repeat this process for two other states:</p>
 <div class="sourceCode" id="cb466"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb466-1"><a href="basic-control-flow.html#cb466-1"></a><span class="co"># deaths by age group for females in Wyoming</span></span>
@@ -370,8 +368,8 @@ This data contains deaths data for different states, age groups, and sexes, letâ
 <span id="cb466-17"><a href="basic-control-flow.html#cb466-17"></a>        <span class="dt">main=</span><span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
 <span id="cb466-18"><a href="basic-control-flow.html#cb466-18"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <p>Here are these plots, too:</p>
-<p><img src="Module1_files/figure-html/unnamed-chunk-476-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><img src="Module1_files/figure-html/unnamed-chunk-477-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-489-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-490-1.png" width="672" style="display: block; margin: auto;" />
 Now, if we wanted to do this for all States, this would take a lot of code.
 But notice that the code we wrote in each case was very similar?
 This is a perfect opportunity to use <em>looping</em>.
@@ -605,7 +603,7 @@ Then letâ€™s choose an appropriate visualization based on the mode:</p>
 <span id="cb484-6"><a href="basic-control-flow.html#cb484-6"></a>    <span class="kw">barplot</span>(<span class="kw">table</span>(col), <span class="dt">main=</span>col_name)  <span class="co"># plot barplot</span></span>
 <span id="cb484-7"><a href="basic-control-flow.html#cb484-7"></a>  }</span>
 <span id="cb484-8"><a href="basic-control-flow.html#cb484-8"></a>}</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-498-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-498-13.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-511-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-13.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
 This is another way in which you can control the flow of an R program.</p>
 <div class="progress">

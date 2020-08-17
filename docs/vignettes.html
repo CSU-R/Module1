@@ -193,7 +193,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
 <li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
@@ -223,7 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>4.5</b> Wrap Up</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
@@ -410,20 +408,20 @@ rename and remove some of our columns in a new, simpler data.frame.</p>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1"></a><span class="kw">summary</span>(pq)</span></code></pre></div>
-<pre class="output-style"><code>      Date                q_cfs       
- Min.   :2010-10-01   Min.   :   2.6  
- 1st Qu.:2013-03-19   1st Qu.:  30.2  
- Median :2015-09-05   Median :  79.2  
- Mean   :2015-09-05   Mean   : 249.8  
- 3rd Qu.:2018-02-21   3rd Qu.: 161.0  
- Max.   :2020-08-10   Max.   :7150.0  </code></pre>
-<p>It looks like we have data from 2010 to 2020-08-11 and a range in river
+<pre class="output-style"><code>      Date                q_cfs        
+ Min.   :2010-10-01   Min.   :   2.60  
+ 1st Qu.:2013-03-20   1st Qu.:  30.25  
+ Median :2015-09-08   Median :  79.00  
+ Mean   :2015-09-08   Mean   : 249.41  
+ 3rd Qu.:2018-02-25   3rd Qu.: 160.50  
+ Max.   :2020-08-15   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2020-08-16 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
 <div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="vignettes.html#cb459-1"></a><span class="kw">plot</span>(pq<span class="op">$</span>q_cfs <span class="op">~</span><span class="st"> </span>pq<span class="op">$</span>Date, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
 <span id="cb459-2"><a href="vignettes.html#cb459-2"></a>     <span class="dt">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-463-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-476-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>
 The above plot is called a “hydrograph” or a plot of how river flow has changed over time. In the Cache La Poudre, what might explain the peaks and valleys of the data? What controls river flow in Colorado rivers.
@@ -447,7 +445,7 @@ Now to use tapply we use the following code</p>
 <div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1"></a>annual &lt;-<span class="st"> </span><span class="kw">tapply</span>(pq_wy<span class="op">$</span>q_cfs,pq_wy<span class="op">$</span>waterYear, mean)</span></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1"></a><span class="kw">plot</span>(<span class="kw">names</span>(annual),(annual))</span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-467-1.png" width="672" style="display: block; margin: auto;" />
+<img src="Module1_files/figure-html/unnamed-chunk-480-1.png" width="672" style="display: block; margin: auto;" />
 <div class="reflect">
 <p>
 Has annual mean river declined over the past ten years? What about the last 6?

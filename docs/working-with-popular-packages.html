@@ -193,7 +193,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="reflection.html"><a href="reflection.html"><i class="fa fa-check"></i><b>3.6</b> Reflection</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
 <li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
@@ -223,7 +222,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="wrap-up.html"><a href="wrap-up.html"><i class="fa fa-check"></i><b>4.5</b> Wrap Up</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
@@ -375,7 +373,7 @@ that is more clear and has far more examples <a href="https://ggplot2.tidyverse.
 <span id="cb573-5"><a href="working-with-popular-packages.html#cb573-5"></a><span class="co"># Make a scatter plot with x and y </span></span>
 <span id="cb573-6"><a href="working-with-popular-packages.html#cb573-6"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> driver, <span class="dt">y =</span> response)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb573-7"><a href="working-with-popular-packages.html#cb573-7"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-569-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-582-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In the above command <code>ggplot2</code> uses the data frame <code>dat</code> and the aesthetics (<code>aes</code>)
 argument to map which columns go where. In this case we want the driver variable
 to be on the x-axis and the response variable to be on the y-axis. Finally
@@ -389,7 +387,7 @@ Note: <code>ggplot2</code> connects a series of arguments using <code>+</code> o
 <div class="sourceCode" id="cb574"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb574-1"><a href="working-with-popular-packages.html#cb574-1"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> driver, <span class="dt">y =</span> response)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb574-2"><a href="working-with-popular-packages.html#cb574-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
 <span id="cb574-3"><a href="working-with-popular-packages.html#cb574-3"></a><span class="st">  </span><span class="kw">geom_line</span>()  <span class="co"># add lines to connect the points</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-571-1.png" width="384" style="display: block; margin: auto;" />
+<img src="Module1_files/figure-html/unnamed-chunk-584-1.png" width="384" style="display: block; margin: auto;" />
 <div class="bonus">
 <p>
 The <code>geom</code> prefix on the <code>geom_point</code> and <code>geom_line</code> functions stands for <em>geometry</em>. <code>ggplot2</code> comes with many different types of geometries (see <a href="https://ggplot2.tidyverse.org/reference/">here</a> ), and some folks have created their <em>own</em> packages to add <em>even more</em> options!
@@ -399,13 +397,13 @@ The <code>geom</code> prefix on the <code>geom_point</code> and <code>geom_line<
 <div class="sourceCode" id="cb575"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb575-1"><a href="working-with-popular-packages.html#cb575-1"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> driver, <span class="dt">y =</span> response)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb575-2"><a href="working-with-popular-packages.html#cb575-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st">                   </span><span class="co"># make the points blue</span></span>
 <span id="cb575-3"><a href="working-with-popular-packages.html#cb575-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>)   <span class="co"># make the lines dashed and blue</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-573-1.png" width="384" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-586-1.png" width="384" style="display: block; margin: auto;" />
 We can add a title and axis labels using the <code>labs</code> function:</p>
 <div class="sourceCode" id="cb576"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb576-1"><a href="working-with-popular-packages.html#cb576-1"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(<span class="dt">x =</span> driver, <span class="dt">y =</span> response)) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb576-2"><a href="working-with-popular-packages.html#cb576-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb576-3"><a href="working-with-popular-packages.html#cb576-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb576-4"><a href="working-with-popular-packages.html#cb576-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Response&quot;</span>)   <span class="co"># add labels to the plot</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-574-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-587-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finally, we can use one of the included <code>ggplot2</code> themes to change how the plot looks, using the <code>theme_set</code> function:</p>
 <div class="sourceCode" id="cb577"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb577-1"><a href="working-with-popular-packages.html#cb577-1"></a><span class="kw">theme_set</span>(<span class="kw">theme_minimal</span>())   <span class="co"># change the theme</span></span>
 <span id="cb577-2"><a href="working-with-popular-packages.html#cb577-2"></a></span>
@@ -413,7 +411,7 @@ We can add a title and axis labels using the <code>labs</code> function:</p>
 <span id="cb577-4"><a href="working-with-popular-packages.html#cb577-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb577-5"><a href="working-with-popular-packages.html#cb577-5"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb577-6"><a href="working-with-popular-packages.html#cb577-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Response&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-575-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-588-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Here’s another example using the <code>mtcars</code> data frame, where we color the points based on their fuel economy (<em>mpg</em>) and annotate a few cars.</p>
 <div class="sourceCode" id="cb578"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-popular-packages.html#cb578-1"></a>mtcars<span class="op">$</span>car &lt;-<span class="st"> </span><span class="kw">row.names</span>(mtcars)  <span class="co"># turn row names into a column so we can label with them</span></span>
 <span id="cb578-2"><a href="working-with-popular-packages.html#cb578-2"></a></span>
@@ -422,7 +420,7 @@ We can add a title and axis labels using the <code>labs</code> function:</p>
 <span id="cb578-5"><a href="working-with-popular-packages.html#cb578-5"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">color=</span><span class="st">&quot;black&quot;</span>, <span class="dt">hjust=</span><span class="dv">0</span>, <span class="dt">nudge_x=</span><span class="dv">5</span>, <span class="dt">alpha=</span><span class="fl">0.8</span>, <span class="dt">size=</span><span class="dv">2</span>) <span class="op">+</span><span class="st">   </span><span class="co"># annotate each car</span></span>
 <span id="cb578-6"><a href="working-with-popular-packages.html#cb578-6"></a><span class="st">  </span><span class="kw">scale_color_viridis_c</span>(<span class="dt">option=</span><span class="st">&quot;D&quot;</span>) <span class="op">+</span><span class="st">                                 </span><span class="co"># change color scale to use</span></span>
 <span id="cb578-7"><a href="working-with-popular-packages.html#cb578-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Motor Trend Car Comparison&quot;</span>, <span class="dt">x=</span><span class="st">&quot;Horsepower&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Displacement&quot;</span>, <span class="dt">color=</span><span class="st">&quot;MPG&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-576-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-589-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>This is only scratching the surface of what <code>ggplot2</code> can do, but hopefully this introduction is enough to hint at the possibilities.
 You can find many more examples at <a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a>.</p>
 <div class="progress">
