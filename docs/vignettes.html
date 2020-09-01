@@ -49,16 +49,16 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -67,16 +67,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -85,9 +83,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -337,13 +335,13 @@ stations in the United States and millions of water quantity and quality
 records. You can learn more about the data from the USGS <a href="https://waterdata.usgs.gov/nwis">here</a>. To use packages we first have
 to install them using the command <code>install.packages</code> and then load them
 using the command <code>library</code>.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb453-1"><a href="vignettes.html#cb453-1"></a><span class="co">## Install the package if it&#39;s not already installed by uncommenting the line </span></span>
-<span id="cb453-2"><a href="vignettes.html#cb453-2"></a><span class="co">#below</span></span>
-<span id="cb453-3"><a href="vignettes.html#cb453-3"></a></span>
-<span id="cb453-4"><a href="vignettes.html#cb453-4"></a><span class="co">#install.packages(&#39;dataRetrieval&#39;)</span></span>
-<span id="cb453-5"><a href="vignettes.html#cb453-5"></a></span>
-<span id="cb453-6"><a href="vignettes.html#cb453-6"></a><span class="co">#load the package</span></span>
-<span id="cb453-7"><a href="vignettes.html#cb453-7"></a><span class="kw">library</span>(dataRetrieval)</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" title="1"><span class="co">## Install the package if it&#39;s not already installed by uncommenting the line </span></a>
+<a class="sourceLine" id="cb453-2" title="2"><span class="co">#below</span></a>
+<a class="sourceLine" id="cb453-3" title="3"></a>
+<a class="sourceLine" id="cb453-4" title="4"><span class="co">#install.packages(&#39;dataRetrieval&#39;)</span></a>
+<a class="sourceLine" id="cb453-5" title="5"></a>
+<a class="sourceLine" id="cb453-6" title="6"><span class="co">#load the package</span></a>
+<a class="sourceLine" id="cb453-7" title="7"><span class="kw">library</span>(dataRetrieval)</a></code></pre></div>
 </div>
 <div id="downloading-the-data" class="section level4">
 <h4><span class="header-section-number">5.7.1.3</span> Downloading the data</h4>
@@ -369,10 +367,10 @@ and <code>endDate</code> which we will set to the current day using the command
 <code>Sys.Date()</code>. These arguments should be in the
 YYYY-MM-DD format. With all this knowledge of how the command works, we can
 finally download some data, directly into R!</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb454-1"><a href="vignettes.html#cb454-1"></a>poudre &lt;-<span class="st"> </span><span class="kw">readNWISdv</span>(<span class="dt">siteNumbers =</span> <span class="st">&#39;06752260&#39;</span>,</span>
-<span id="cb454-2"><a href="vignettes.html#cb454-2"></a>                     <span class="dt">parameterCd =</span> <span class="kw">c</span>(<span class="st">&#39;00060&#39;</span>),</span>
-<span id="cb454-3"><a href="vignettes.html#cb454-3"></a>                     <span class="dt">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</span>
-<span id="cb454-4"><a href="vignettes.html#cb454-4"></a>                     <span class="dt">endDate =</span> <span class="kw">Sys.Date</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" title="1">poudre &lt;-<span class="st"> </span><span class="kw">readNWISdv</span>(<span class="dt">siteNumbers =</span> <span class="st">&#39;06752260&#39;</span>,</a>
+<a class="sourceLine" id="cb454-2" title="2">                     <span class="dt">parameterCd =</span> <span class="kw">c</span>(<span class="st">&#39;00060&#39;</span>),</a>
+<a class="sourceLine" id="cb454-3" title="3">                     <span class="dt">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</a>
+<a class="sourceLine" id="cb454-4" title="4">                     <span class="dt">endDate =</span> <span class="kw">Sys.Date</span>())</a></code></pre></div>
 </div>
 <div id="explore-the-data-structure" class="section level4">
 <h4><span class="header-section-number">5.7.1.4</span> Explore the data structure</h4>
@@ -380,7 +378,7 @@ finally download some data, directly into R!</p>
 of this data frame using commands we have already learn. First let’s
 see what the structure of the data is using the <code>head</code> command, which
 will print the first 6 rows of data.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="vignettes.html#cb455-1"></a><span class="kw">head</span>(poudre)</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" title="1"><span class="kw">head</span>(poudre)</a></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["agency_cd"],"name":[1],"type":["chr"],"align":["left"]},{"label":["site_no"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Date"],"name":[3],"type":["date"],"align":["right"]},{"label":["X_00060_00003"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["X_00060_00003_cd"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"USGS","2":"06752260","3":"2010-10-01","4":"20.4","5":"A","_rn_":"1"},{"1":"USGS","2":"06752260","3":"2010-10-02","4":"16.8","5":"A","_rn_":"2"},{"1":"USGS","2":"06752260","3":"2010-10-03","4":"22.6","5":"A","_rn_":"3"},{"1":"USGS","2":"06752260","3":"2010-10-04","4":"99.2","5":"A","_rn_":"4"},{"1":"USGS","2":"06752260","3":"2010-10-05","4":"120.0","5":"A","_rn_":"5"},{"1":"USGS","2":"06752260","3":"2010-10-06","4":"113.0","5":"A","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -397,30 +395,30 @@ we will ignore this final column, but if you were doing an analysis of this data
 for a project, you would want to investigate what codes are acceptable for
 high quality analyses. To make working with this data a little easier let’s
 rename and remove some of our columns in a new, simpler data.frame.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1"></a><span class="co">#Remove the first two columns</span></span>
-<span id="cb456-2"><a href="vignettes.html#cb456-2"></a>pq &lt;-<span class="st"> </span>poudre[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
-<span id="cb456-3"><a href="vignettes.html#cb456-3"></a></span>
-<span id="cb456-4"><a href="vignettes.html#cb456-4"></a><span class="co">#Rename the remaining columns</span></span>
-<span id="cb456-5"><a href="vignettes.html#cb456-5"></a><span class="kw">names</span>(pq) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" title="1"><span class="co">#Remove the first two columns</span></a>
+<a class="sourceLine" id="cb456-2" title="2">pq &lt;-<span class="st"> </span>poudre[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</a>
+<a class="sourceLine" id="cb456-3" title="3"></a>
+<a class="sourceLine" id="cb456-4" title="4"><span class="co">#Rename the remaining columns</span></a>
+<a class="sourceLine" id="cb456-5" title="5"><span class="kw">names</span>(pq) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</a></code></pre></div>
 </div>
 <div id="explore-the-data." class="section level4">
 <h4><span class="header-section-number">5.7.1.5</span> Explore the data.</h4>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1"></a><span class="kw">summary</span>(pq)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" title="1"><span class="kw">summary</span>(pq)</a></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   2.60  
- 1st Qu.:2013-03-20   1st Qu.:  30.25  
- Median :2015-09-08   Median :  79.00  
- Mean   :2015-09-08   Mean   : 249.41  
- 3rd Qu.:2018-02-25   3rd Qu.: 160.50  
- Max.   :2020-08-15   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2020-08-16 and a range in river
+ 1st Qu.:2013-03-24   1st Qu.:  30.43  
+ Median :2015-09-15   Median :  78.70  
+ Mean   :2015-09-15   Mean   : 248.68  
+ 3rd Qu.:2018-03-08   3rd Qu.: 160.00  
+ Max.   :2020-08-30   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2020-08-31 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="vignettes.html#cb459-1"></a><span class="kw">plot</span>(pq<span class="op">$</span>q_cfs <span class="op">~</span><span class="st"> </span>pq<span class="op">$</span>Date, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
-<span id="cb459-2"><a href="vignettes.html#cb459-2"></a>     <span class="dt">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" title="1"><span class="kw">plot</span>(pq<span class="op">$</span>q_cfs <span class="op">~</span><span class="st"> </span>pq<span class="op">$</span>Date, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </a>
+<a class="sourceLine" id="cb459-2" title="2">     <span class="dt">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="dt">col =</span> <span class="st">&#39;blue3&#39;</span>)</a></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-476-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>
@@ -437,14 +435,14 @@ put, a water year is a way to analyze yearly variation in flow, which doesn’t
 map well to a calendar year. Water years in the USA are typically from October 1
 to September 30th. Luckily for us, the <code>dataRetrieval</code> package has a function
 that calculates water year for us. It’s simply called <code>addWaterYear</code></p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb460-1"><a href="vignettes.html#cb460-1"></a>pq_wy &lt;-<span class="st"> </span><span class="kw">addWaterYear</span>(pq)</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" title="1">pq_wy &lt;-<span class="st"> </span><span class="kw">addWaterYear</span>(pq)</a></code></pre></div>
 <p>To look at variation per year we can use the function called <code>tapply</code> which can take the mean, max or any summary
 function of groups of data (more on this in the next chapter, but you can type <code>?tapply</code> for more info).
 In this case we want to look at the mean river flow for each water year.
 Now to use tapply we use the following code</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1"></a>annual &lt;-<span class="st"> </span><span class="kw">tapply</span>(pq_wy<span class="op">$</span>q_cfs,pq_wy<span class="op">$</span>waterYear, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" title="1">annual &lt;-<span class="st"> </span><span class="kw">tapply</span>(pq_wy<span class="op">$</span>q_cfs,pq_wy<span class="op">$</span>waterYear, mean)</a></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1"></a><span class="kw">plot</span>(<span class="kw">names</span>(annual),(annual))</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" title="1"><span class="kw">plot</span>(<span class="kw">names</span>(annual),(annual))</a></code></pre></div>
 <img src="Module1_files/figure-html/unnamed-chunk-480-1.png" width="672" style="display: block; margin: auto;" />
 <div class="reflect">
 <p>

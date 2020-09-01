@@ -49,16 +49,16 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -67,16 +67,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -85,9 +83,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -320,7 +318,7 @@ What other R data types might be used to store quantitative data?
 </p>
 </div>
 <p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(athletes<span class="op">$</span>Age))   <span class="co"># count how many NA&#39;s are in the Age column</span></span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" title="1"><span class="kw">sum</span>(<span class="kw">is.na</span>(athletes<span class="op">$</span>Age))   <span class="co"># count how many NA&#39;s are in the Age column</span></a></code></pre></div>
 <pre class="output-style"><code>[1] 183</code></pre>
 
 <div class="reflect">
@@ -328,32 +326,32 @@ Pause and think through what’s happening in the above code. The <code>is.na</c
 </div>
 
 <p>As a cleaning step, we must first remove the <code>NA</code> values:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1"></a>age &lt;-<span class="st"> </span>athletes<span class="op">$</span>Age         <span class="co"># assign the Ages column to a variable</span></span>
-<span id="cb344-2"><a href="summary-statistics.html#cb344-2"></a>age &lt;-<span class="st"> </span>age[<span class="op">!</span><span class="kw">is.na</span>(age)]   <span class="co"># extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" title="1">age &lt;-<span class="st"> </span>athletes<span class="op">$</span>Age         <span class="co"># assign the Ages column to a variable</span></a>
+<a class="sourceLine" id="cb344-2" title="2">age &lt;-<span class="st"> </span>age[<span class="op">!</span><span class="kw">is.na</span>(age)]   <span class="co"># extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></a></code></pre></div>
 <div class="bonus">
 <p>
 This type of “data cleaning” is a very common first step when performing data analysis. You will get more opportunities to clean data later in the course.
 </p>
 </div>
 <p>Here are some functions R provides to summarize quantitative variables.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb345-1"><a href="summary-statistics.html#cb345-1"></a>age_min &lt;-<span class="st"> </span><span class="kw">min</span>(age)     <span class="co"># find the minimum age</span></span>
-<span id="cb345-2"><a href="summary-statistics.html#cb345-2"></a>age_med &lt;-<span class="st"> </span><span class="kw">median</span>(age)  <span class="co"># find the median age</span></span>
-<span id="cb345-3"><a href="summary-statistics.html#cb345-3"></a>age_max &lt;-<span class="st"> </span><span class="kw">max</span>(age)     <span class="co"># find the maximum age</span></span>
-<span id="cb345-4"><a href="summary-statistics.html#cb345-4"></a>age_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(age)   <span class="co"># find the average age</span></span>
-<span id="cb345-5"><a href="summary-statistics.html#cb345-5"></a>age_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(age)       <span class="co"># find the standard deviation of age</span></span>
-<span id="cb345-6"><a href="summary-statistics.html#cb345-6"></a>age_var &lt;-<span class="st"> </span><span class="kw">var</span>(age)     <span class="co"># find the variance of age</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" title="1">age_min &lt;-<span class="st"> </span><span class="kw">min</span>(age)     <span class="co"># find the minimum age</span></a>
+<a class="sourceLine" id="cb345-2" title="2">age_med &lt;-<span class="st"> </span><span class="kw">median</span>(age)  <span class="co"># find the median age</span></a>
+<a class="sourceLine" id="cb345-3" title="3">age_max &lt;-<span class="st"> </span><span class="kw">max</span>(age)     <span class="co"># find the maximum age</span></a>
+<a class="sourceLine" id="cb345-4" title="4">age_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(age)   <span class="co"># find the average age</span></a>
+<a class="sourceLine" id="cb345-5" title="5">age_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(age)       <span class="co"># find the standard deviation of age</span></a>
+<a class="sourceLine" id="cb345-6" title="6">age_var &lt;-<span class="st"> </span><span class="kw">var</span>(age)     <span class="co"># find the variance of age</span></a></code></pre></div>
 <p>Let’s put all these results in a named list.
 In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb346-1"><a href="summary-statistics.html#cb346-1"></a><span class="co"># Create a list containing all the stats</span></span>
-<span id="cb346-2"><a href="summary-statistics.html#cb346-2"></a>age_stats &lt;-<span class="st"> </span><span class="kw">list</span>(  <span class="co"># R knows that this command continues until a closed parenthesis</span></span>
-<span id="cb346-3"><a href="summary-statistics.html#cb346-3"></a>  <span class="dt">min =</span> age_min,   </span>
-<span id="cb346-4"><a href="summary-statistics.html#cb346-4"></a>  <span class="dt">median =</span> age_med, </span>
-<span id="cb346-5"><a href="summary-statistics.html#cb346-5"></a>  <span class="dt">max =</span> age_max,    </span>
-<span id="cb346-6"><a href="summary-statistics.html#cb346-6"></a>  <span class="dt">mean =</span> age_mean,  </span>
-<span id="cb346-7"><a href="summary-statistics.html#cb346-7"></a>  <span class="dt">sd =</span> age_sd,      </span>
-<span id="cb346-8"><a href="summary-statistics.html#cb346-8"></a>  <span class="dt">var =</span> age_var</span>
-<span id="cb346-9"><a href="summary-statistics.html#cb346-9"></a>)  <span class="co"># this could all go on one line, but it looks more organized this way.</span></span>
-<span id="cb346-10"><a href="summary-statistics.html#cb346-10"></a>age_stats</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" title="1"><span class="co"># Create a list containing all the stats</span></a>
+<a class="sourceLine" id="cb346-2" title="2">age_stats &lt;-<span class="st"> </span><span class="kw">list</span>(  <span class="co"># R knows that this command continues until a closed parenthesis</span></a>
+<a class="sourceLine" id="cb346-3" title="3">  <span class="dt">min =</span> age_min,   </a>
+<a class="sourceLine" id="cb346-4" title="4">  <span class="dt">median =</span> age_med, </a>
+<a class="sourceLine" id="cb346-5" title="5">  <span class="dt">max =</span> age_max,    </a>
+<a class="sourceLine" id="cb346-6" title="6">  <span class="dt">mean =</span> age_mean,  </a>
+<a class="sourceLine" id="cb346-7" title="7">  <span class="dt">sd =</span> age_sd,      </a>
+<a class="sourceLine" id="cb346-8" title="8">  <span class="dt">var =</span> age_var</a>
+<a class="sourceLine" id="cb346-9" title="9">)  <span class="co"># this could all go on one line, but it looks more organized this way.</span></a>
+<a class="sourceLine" id="cb346-10" title="10">age_stats</a></code></pre></div>
 <pre class="output-style"><code>$min
 [1] 12
 
@@ -378,14 +376,14 @@ If you get <code>NA</code> values for the statistics, you should include the <co
 </div>
 
 <p>Visualization will be discussed more later, but we’ll show one plot now, to show how multiple summary statistics can be shown at the same time.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb348-1"><a href="summary-statistics.html#cb348-1"></a><span class="kw">hist</span>(age, <span class="dt">breaks=</span><span class="dv">50</span>)</span>
-<span id="cb348-2"><a href="summary-statistics.html#cb348-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>age_mean, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb348-3"><a href="summary-statistics.html#cb348-3"></a><span class="kw">abline</span>(<span class="dt">v=</span>age_med, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" title="1"><span class="kw">hist</span>(age, <span class="dt">breaks=</span><span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb348-2" title="2"><span class="kw">abline</span>(<span class="dt">v=</span>age_mean, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb348-3" title="3"><span class="kw">abline</span>(<span class="dt">v=</span>age_med, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</a></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-353-1.png" width="672" style="display: block; margin: auto;" />
 It looks like the distribution of <code>Age</code> is <em>right skewed</em>, consistent with the fact that the mean is greater than the median.</p>
 <p>Of course, having more than one quantitative variable allows us to compare them against each other.
 Here’s how to compute the covariance between two quantitative variables:</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb349-1"><a href="summary-statistics.html#cb349-1"></a><span class="kw">cov</span>(athletes<span class="op">$</span>Age, athletes<span class="op">$</span>Height, <span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" title="1"><span class="kw">cov</span>(athletes<span class="op">$</span>Age, athletes<span class="op">$</span>Height, <span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>)</a></code></pre></div>
 <pre class="output-style"><code>[1] 6.483675</code></pre>
 <div class="caution">
 <p>
@@ -393,11 +391,11 @@ The argument r<code>use=“complete.obs”</code> is one way to deal with <code>
 </p>
 </div>
 <p>You can also compute the correlation between two variables like so:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb351-1"><a href="summary-statistics.html#cb351-1"></a><span class="kw">cor</span>(athletes<span class="op">$</span>Age, athletes<span class="op">$</span>Height, <span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" title="1"><span class="kw">cor</span>(athletes<span class="op">$</span>Age, athletes<span class="op">$</span>Height, <span class="dt">use=</span><span class="st">&quot;complete.obs&quot;</span>)</a></code></pre></div>
 <pre class="output-style"><code>[1] 0.1104457</code></pre>
 <p>Using the <code>cov</code> or <code>cor</code> functions on an entire data frame or matrix will produce a correlation matrix of the columns.
 Here’s an example with the <code>mtcars</code> data frame:</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1"></a><span class="kw">cor</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" title="1"><span class="kw">cor</span>(mtcars)</a></code></pre></div>
 <pre class="output-style"><code>            mpg        cyl       disp         hp        drat         wt
 mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
 cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
@@ -424,7 +422,7 @@ gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
 carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
 <p>However, this only works if every column the data frame (or matrix) are numeric.
 Here’s what happens if we try the same thing on the athletes data:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1"></a><span class="kw">cor</span>(athletes)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" title="1"><span class="kw">cor</span>(athletes)</a></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in cor(athletes): 'x' must be numeric
 </code></pre>
 </div>
@@ -437,13 +435,13 @@ What other R data types might be used to store categorical data?
 </p>
 </div>
 <p>Are there any <code>NA</code> values in this column?</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb356-1"><a href="summary-statistics.html#cb356-1"></a>sport &lt;-<span class="st"> </span>athletes<span class="op">$</span>Sport</span>
-<span id="cb356-2"><a href="summary-statistics.html#cb356-2"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(sport))</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" title="1">sport &lt;-<span class="st"> </span>athletes<span class="op">$</span>Sport</a>
+<a class="sourceLine" id="cb356-2" title="2"><span class="kw">sum</span>(<span class="kw">is.na</span>(sport))</a></code></pre></div>
 <pre class="output-style"><code>[1] 0</code></pre>
 <p>It turns out the answer is no, so there’s no need to remove anything.
 In a character vector like this, we expect there to be many duplicated values.
 We can see a list of all the unique values with the following:</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb358-1"><a href="summary-statistics.html#cb358-1"></a><span class="kw">unique</span>(sport)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" title="1"><span class="kw">unique</span>(sport)</a></code></pre></div>
 <pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                
  [3] &quot;Swimming&quot;                  &quot;Basketball&quot;               
  [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;            
@@ -474,11 +472,11 @@ We can see a list of all the unique values with the following:</p>
 [55] &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
 [57] &quot;Rugby&quot;                    </code></pre>
 <p>Using the numbers in brackets to the left as our guide, we can see that there are 57 unique values, but this can also be determined by running:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb360-1"><a href="summary-statistics.html#cb360-1"></a><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" title="1"><span class="kw">length</span>(<span class="kw">unique</span>(sport))</a></code></pre></div>
 <pre class="output-style"><code>[1] 57</code></pre>
 <p>It would be nice to see how many times each entry occurs in the data set.
 This is what the <code>table</code> function does:</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb362-1"><a href="summary-statistics.html#cb362-1"></a><span class="kw">table</span>(sport)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" title="1"><span class="kw">table</span>(sport)</a></code></pre></div>
 <pre class="output-style"><code>sport
             Alpine Skiing                   Archery          Art Competitions 
                       148                        41                        64 
@@ -519,18 +517,18 @@ Short Track Speed Skating                  Skeleton               Ski Jumping
                Water Polo             Weightlifting                 Wrestling 
                        79                        85                       123 </code></pre>
 <p>Let’s save this table to a list as before:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1"></a><span class="co"># assign summary statistics to variables</span></span>
-<span id="cb364-2"><a href="summary-statistics.html#cb364-2"></a>sport_n_unique &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(sport))</span>
-<span id="cb364-3"><a href="summary-statistics.html#cb364-3"></a>sport_counts &lt;-<span class="st"> </span><span class="kw">table</span>(sport)</span>
-<span id="cb364-4"><a href="summary-statistics.html#cb364-4"></a></span>
-<span id="cb364-5"><a href="summary-statistics.html#cb364-5"></a><span class="co"># combine them into a list</span></span>
-<span id="cb364-6"><a href="summary-statistics.html#cb364-6"></a>sport_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb364-7"><a href="summary-statistics.html#cb364-7"></a>  <span class="dt">number_unique =</span> sport_n_unique,</span>
-<span id="cb364-8"><a href="summary-statistics.html#cb364-8"></a>  <span class="dt">counts =</span> sport_counts</span>
-<span id="cb364-9"><a href="summary-statistics.html#cb364-9"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" title="1"><span class="co"># assign summary statistics to variables</span></a>
+<a class="sourceLine" id="cb364-2" title="2">sport_n_unique &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(sport))</a>
+<a class="sourceLine" id="cb364-3" title="3">sport_counts &lt;-<span class="st"> </span><span class="kw">table</span>(sport)</a>
+<a class="sourceLine" id="cb364-4" title="4"></a>
+<a class="sourceLine" id="cb364-5" title="5"><span class="co"># combine them into a list</span></a>
+<a class="sourceLine" id="cb364-6" title="6">sport_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb364-7" title="7">  <span class="dt">number_unique =</span> sport_n_unique,</a>
+<a class="sourceLine" id="cb364-8" title="8">  <span class="dt">counts =</span> sport_counts</a>
+<a class="sourceLine" id="cb364-9" title="9">)</a></code></pre></div>
 <p>Again, a visualization may be useful here:</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb365-1"><a href="summary-statistics.html#cb365-1"></a><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
-<span id="cb365-2"><a href="summary-statistics.html#cb365-2"></a><span class="kw">barplot</span>(<span class="kw">table</span>(sport), <span class="dt">horiz=</span>T, <span class="dt">las=</span><span class="dv">2</span>)   <span class="co"># bar plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" title="1"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></a>
+<a class="sourceLine" id="cb365-2" title="2"><span class="kw">barplot</span>(<span class="kw">table</span>(sport), <span class="dt">horiz=</span>T, <span class="dt">las=</span><span class="dv">2</span>)   <span class="co"># bar plot</span></a></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-366-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
 
@@ -555,11 +553,11 @@ Since an athlete may show up for multiple olympic games, what impact could this 
 <h3><span class="header-section-number">5.3.3</span> Saving an RData file</h3>
 <p>Finally, we may want to save these results for use <em>in R</em> later.
 First, we’ll create a new list to put our two stats list <em>in</em> (remember, we can have lists inside of other lists!).</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb366-1"><a href="summary-statistics.html#cb366-1"></a><span class="co"># Create list</span></span>
-<span id="cb366-2"><a href="summary-statistics.html#cb366-2"></a>athlete_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb366-3"><a href="summary-statistics.html#cb366-3"></a>  <span class="dt">age =</span> age_stats,</span>
-<span id="cb366-4"><a href="summary-statistics.html#cb366-4"></a>  <span class="dt">sport =</span> sport_stats</span>
-<span id="cb366-5"><a href="summary-statistics.html#cb366-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" title="1"><span class="co"># Create list</span></a>
+<a class="sourceLine" id="cb366-2" title="2">athlete_stats &lt;-<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb366-3" title="3">  <span class="dt">age =</span> age_stats,</a>
+<a class="sourceLine" id="cb366-4" title="4">  <span class="dt">sport =</span> sport_stats</a>
+<a class="sourceLine" id="cb366-5" title="5">)</a></code></pre></div>
 
 <div class="bonus">
 <p>Remember that the <code>names</code> function retrieves the column names for a data frame? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
@@ -572,13 +570,13 @@ The following commands may be useful for remembering what the contents of our st
 </div>
 
 <p>To save these results, we can use the <code>saveRDS</code> function:</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb367-1"><a href="summary-statistics.html#cb367-1"></a><span class="kw">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" title="1"><span class="kw">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</a></code></pre></div>
 <p>Later, we can use the following command to load the RDS file back into R:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb368-1"><a href="summary-statistics.html#cb368-1"></a><span class="kw">rm</span>(athlete_stats)  <span class="co"># remove athlete stats to prove we are loading it from the hard drive</span></span>
-<span id="cb368-2"><a href="summary-statistics.html#cb368-2"></a></span>
-<span id="cb368-3"><a href="summary-statistics.html#cb368-3"></a>athlete_stats &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># load the RDS file and name it athlete_stats</span></span>
-<span id="cb368-4"><a href="summary-statistics.html#cb368-4"></a></span>
-<span id="cb368-5"><a href="summary-statistics.html#cb368-5"></a>athlete_stats<span class="op">$</span>age   <span class="co"># show that we have loaded the data by printing the age stats</span></span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" title="1"><span class="kw">rm</span>(athlete_stats)  <span class="co"># remove athlete stats to prove we are loading it from the hard drive</span></a>
+<a class="sourceLine" id="cb368-2" title="2"></a>
+<a class="sourceLine" id="cb368-3" title="3">athlete_stats &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># load the RDS file and name it athlete_stats</span></a>
+<a class="sourceLine" id="cb368-4" title="4"></a>
+<a class="sourceLine" id="cb368-5" title="5">athlete_stats<span class="op">$</span>age   <span class="co"># show that we have loaded the data by printing the age stats</span></a></code></pre></div>
 <pre class="output-style"><code>$min
 [1] 12
 

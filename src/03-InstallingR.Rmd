@@ -88,7 +88,11 @@ From this point, this will change depending on your operating system.
 - Click "Finish" to complete the installation!
 
 ```{block, type="video"}
-[This video](https://youtu.be/7ZYn6q_pboE) shows the installation process for Windows 
+This video shows the installation process for Windows.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7ZYn6q_pboE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://www.youtube.com/embed/7ZYn6q_pboE__ </center>
 ```
 
 #### Mac OS X
@@ -132,7 +136,11 @@ From this point, this will change depending on your operating system.
 - You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio
 
 ```{block, type="video"}
-[This video](https://youtu.be/XnqENdiEb3I) shows the installation process for Windows 
+This video shows the installation process for Windows.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XnqENdiEb3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/XnqENdiEb3I__ </center>
 ```
 
 
@@ -161,7 +169,11 @@ Before moving further, you should become acquainted with the different parts of 
 To do so, watch the video below:
 
 ```{block, type="video"}
-[This video](https://youtu.be/w_3xp_3Sz6s) gives an introduction to some of the main pieces of RStudio
+This video gives an introduction to some of the main pieces of RStudio.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w_3xp_3Sz6s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/w_3xp_3Sz6s__ </center>
 ```
 
 ```{block, type='feedback'}
@@ -268,7 +280,11 @@ There is much that could be said about R Markdown, but for now, we'll just stick
 To start, watch this video:
 
 ```{block, type="video"}
-[This Video](https://youtu.be/MhvipLohEfU) gives a basic introduction to R Markdown.
+This video gives a basic introduction to R Markdown.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MhvipLohEfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/MhvipLohEfU__ </center>
 ```
 
 As the video stated, there are three types of sections to an R Markdown document: 
@@ -296,7 +312,11 @@ Run the command `8 / (2*(2+2)) ` and observe the output!
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/QLXB4kPngqM) should help get you started with the Progress Check Assignments!
+This video should help get you started with the Progress Check Assignments!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QLXB4kPngqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/QLXB4kPngqM__ </center>
 ```
 
 ```{block, type='feedback'}
@@ -384,7 +404,11 @@ You can create these either using your operating system, or the "New Folder" com
 #### Video
 
 ```{block, type="video"}
-Check out [this video](https://youtu.be/0saBBd6lQDI) to watch me set up a project and the new directories.
+Check out this video to watch me set up a project and the new directories.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0saBBd6lQDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/0saBBd6lQDI__ </center>
 ```
 
 

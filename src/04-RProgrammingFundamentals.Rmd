@@ -234,7 +234,11 @@ Okay, now that we've covered some of the basics, it's time to start learning how
 The next few sections will describe the different types of data that R can handle.
 
 ```{block, type="video"}
-[This video](https://youtu.be/EShV_T2P7sw) discusses programming preliminaries.
+This video discusses programming preliminaries.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EShV_T2P7sw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/EShV_T2P7sw__</center>
 ```
 
 
@@ -345,7 +349,11 @@ It also turns out that R stores _more_ digits than what it shows when it prints,
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/juscNzIrmJQ) discusses numerics.
+This video discusses numerics.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/juscNzIrmJQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/juscNzIrmJQ__</center>
 ```
 
 ### Integer
@@ -367,7 +375,11 @@ This will make more sense when we discuss vectors later.
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/rNkEAPsipCk) discusses integers.
+This video discusses integers.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rNkEAPsipCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/rNkEAPsipCk__</center>
 ```
 
 
@@ -462,7 +474,11 @@ Remember that you can learn more about a function using `?`. Type `?paste` into 
 There are other ways of manipulating strings, but we'll return to this later.
 
 ```{block, type="video"}
-[This video](https://youtu.be/1JgmnulM_4g) discusses characters.
+This video discusses characters.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1JgmnulM_4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/1JgmnulM_4g__</center>
 ```
 
 ### Logical
@@ -591,7 +607,11 @@ What about dates? R actually has three built-in [date classes](https://www.r-blo
 ```
 
 ```{block, type="video"}
-[This video](https://youtu.be/GH9AZcexokU) discusses logicals.
+This video discusses logicals.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GH9AZcexokU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/GH9AZcexokU__</center>
 ```
 
 ```{block, type='feedback'}
@@ -753,7 +773,11 @@ Once you make a guess, try it in R and see if you were correct.
 ```
 
 ```{block, type="video"}
-[This video](https://youtu.be/-BlN6_ZMpKE) gives an introduction to vectors.
+This video gives an introduction to vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-BlN6_ZMpKE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/-BlN6_ZMpKE__</center>
 ```
 
 #### Working with vectors
@@ -882,7 +906,11 @@ The result is an integer vector of length 0, meaning there are no elements that 
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/NgmVhLpuM5k) continues the discussion of vectors.
+This video continues the discussion of vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NgmVhLpuM5k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/NgmVhLpuM5k__</center>
 ```
 
 #### Vectors of different types
@@ -1034,7 +1062,11 @@ However, R still treats the two types differently, so it's important to remember
 ```
 
 ```{block, type="video"}
-[This video](https://youtu.be/iusiO1dRQdY) discusses coercion, sequences, and factors.
+This video discusses coercion, sequences, and factors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iusiO1dRQdY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/iusiO1dRQdY__</center>
 ```
 
 #### Combining Vectors
@@ -1187,7 +1219,11 @@ To understand more about this, try typing `?c` to bring up the documentation, an
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/XKdZzHBRO9o) finishes the discussion of vectors.
+This video finishes the discussion of vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XKdZzHBRO9o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/XKdZzHBRO9o__</center>
 ```
 
 
@@ -1331,7 +1367,11 @@ It turns out, matrices can work with non-numeric types as well! But like vectors
 ```
 
 ```{block, type="video"}
-[This video](https://youtu.be/hknL1EbrIB4) gives an introduction to Vectors.
+This video gives an introduction to Vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hknL1EbrIB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/hknL1EbrIB4__</center>
 ```
 
 ### Lists
@@ -1457,7 +1497,11 @@ A == 12  # compare against a numeric (won't work)
 So there are trade-offs when deciding whether a list or a vector is most appropriate.
 
 ```{block, type="video"}
-[This video](https://youtu.be/-Y02JkqDlWU) discusses lists.
+This video discusses lists.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-Y02JkqDlWU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/-Y02JkqDlWU__</center>
 ```
 
 #### Lists of Vectors
@@ -1613,7 +1657,11 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 
 ```{block, type="video"}
-[This video](https://youtu.be/9BGRIC1js04) discusses lists of vectors.
+This video discusses lists of vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9BGRIC1js04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/9BGRIC1js04__</center>
 ```
 
 ## R Objects
@@ -1795,6 +1843,10 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 ``` 
 
 ```{block, type="video"}
-[This video](https://youtu.be/VrgoEoMo9ZM) discusses lists of vectors.
+This video discusses lists of vectors.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VrgoEoMo9ZM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<center> __https://youtu.be/VrgoEoMo9ZM__</center>
 ```
 
