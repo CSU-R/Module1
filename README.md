@@ -15,6 +15,7 @@ Feel free to open an issue, create a pull request, or just directly contact one 
 
 The following individuals have or are currently contributing to the project
 * [Alex Fout](https://github.com/fouticus)
+* [Connor Gibbs](https://github.com/congibbs10)
 * Kathleen Wendt
 * Liz McConnell
 * Matt Ross
