@@ -22,7 +22,8 @@ The following individuals have or are currently contributing to the project
 * Ben Prytherch
 
 
-With thanks to the following for blazing the _bookdown book for an R course_ trail:
+With thanks to the following for blazing the _bookdown book for an R course_ trail at CSU:
 * [Brooke Anderson](https://github.com/geanders)
+* [John Volckens](https://github.com/smogdr)
 
 
