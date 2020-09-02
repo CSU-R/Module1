@@ -16,13 +16,13 @@ Feel free to open an issue, create a pull request, or just directly contact one 
 The following individuals have or are currently contributing to the project
 * [Alex Fout](https://github.com/fouticus)
 * [Connor Gibbs](https://github.com/congibbs10)
-* Kathleen Wendt
+* [Kathleen Wendt](https://github.com/wendtke)
 * Liz McConnell
 * Matt Ross
 * Ben Prytherch
 
 
 With thanks to the following for blazing the _bookdown book for an R course_ trail:
-* Brook Anderson
+* [Brooke Anderson](https://github.com/geanders)
 
 
