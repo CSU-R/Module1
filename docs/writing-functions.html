@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.2 Writing Functions | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.2 Writing Functions | R Module 1" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="basic-control-flow.html"/>
 <link rel="next" href="advanced-control-flow.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,25 +57,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -118,8 +120,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="src\style.css" type="text/css" />
-<link rel="stylesheet" href="src\environments.css" type="text/css" />
+<link rel="stylesheet" href="src/style.css" type="text/css" />
+<link rel="stylesheet" href="src/environments.css" type="text/css" />
 </head>
 
 <body>
@@ -135,17 +137,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Module 1</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a>
+<ul>
 <li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#how-to-navigate-this-book"><i class="fa fa-check"></i><b>1.0.1</b> How To Navigate This Book</a></li>
 <li class="chapter" data-level="1.1" data-path="associated-csu-course.html"><a href="associated-csu-course.html"><i class="fa fa-check"></i><b>1.1</b> Associated CSU Course</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a><ul>
-<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a><ul>
+<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="this-textbook.html"><a href="this-textbook.html#special-boxes"><i class="fa fa-check"></i><b>2.1.1</b> Special Boxes</a></li>
 <li class="chapter" data-level="2.1.2" data-path="this-textbook.html"><a href="this-textbook.html#how-this-book-displays-code"><i class="fa fa-check"></i><b>2.1.2</b> How This Book Displays Code</a></li>
 <li class="chapter" data-level="2.1.3" data-path="this-textbook.html"><a href="this-textbook.html#next-steps"><i class="fa fa-check"></i><b>2.1.3</b> Next Steps</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a><ul>
+<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#syllabus"><i class="fa fa-check"></i><b>2.2.1</b> Syllabus</a></li>
 <li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#schedule"><i class="fa fa-check"></i><b>2.2.2</b> Schedule</a></li>
 <li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.3</b> Assignment Templates</a></li>
@@ -154,7 +160,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="running-your-first-r-code.html"><a href="running-your-first-r-code.html"><i class="fa fa-check"></i><b>2.3</b> Running your first R Code</a></li>
 <li class="chapter" data-level="2.4" data-path="getoutoftheclass.html"><a href="getoutoftheclass.html"><i class="fa fa-check"></i><b>2.4</b> What do you hope to get out of this course?</a></li>
-<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a><ul>
+<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="what-is-r.html"><a href="what-is-r.html#r-is-a-programming-language"><i class="fa fa-check"></i><b>2.5.1</b> R is a Programming Language</a></li>
 <li class="chapter" data-level="2.5.2" data-path="what-is-r.html"><a href="what-is-r.html#r-is-software"><i class="fa fa-check"></i><b>2.5.2</b> R is software</a></li>
 <li class="chapter" data-level="2.5.3" data-path="what-is-r.html"><a href="what-is-r.html#r-is-free"><i class="fa fa-check"></i><b>2.5.3</b> R is Free</a></li>
@@ -163,37 +170,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="what-is-r.html"><a href="what-is-r.html#r-packages"><i class="fa fa-check"></i><b>2.5.6</b> R Packages</a></li>
 <li class="chapter" data-level="2.5.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.5.7</b> R Interfaces</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a><ul>
+<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.6.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.6.2</b> Places to Get Help (anyone)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a><ul>
-<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a><ul>
+<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="computer-basics.html"><a href="computer-basics.html#operating-systems"><i class="fa fa-check"></i><b>3.1.1</b> Operating Systems</a></li>
 <li class="chapter" data-level="3.1.2" data-path="computer-basics.html"><a href="computer-basics.html#files-directory-structures"><i class="fa fa-check"></i><b>3.1.2</b> Files &amp; Directory Structures</a></li>
 <li class="chapter" data-level="3.1.3" data-path="computer-basics.html"><a href="computer-basics.html#downloads-and-installations"><i class="fa fa-check"></i><b>3.1.3</b> Downloads and Installations</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Installing R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installing RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="successfull-installation.html"><a href="successfull-installation.html"><i class="fa fa-check"></i><b>3.3</b> Successfull Installation</a></li>
-<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a><ul>
+<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#the-r-console"><i class="fa fa-check"></i><b>3.4.1</b> The R Console:</a></li>
 <li class="chapter" data-level="3.4.2" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-scripts"><i class="fa fa-check"></i><b>3.4.2</b> R scripts</a></li>
 <li class="chapter" data-level="3.4.3" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#same-examples-on-your-computer"><i class="fa fa-check"></i><b>3.4.3</b> Same Examples, On Your Computer!</a></li>
 <li class="chapter" data-level="3.4.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>3.4.4</b> R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a><ul>
+<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
 <li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
-<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
+<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#r-commands"><i class="fa fa-check"></i><b>4.1.1</b> R Commands</a></li>
 <li class="chapter" data-level="4.1.2" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#comments"><i class="fa fa-check"></i><b>4.1.2</b> Comments</a></li>
 <li class="chapter" data-level="4.1.3" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#blank-lines"><i class="fa fa-check"></i><b>4.1.3</b> Blank Lines</a></li>
@@ -201,19 +216,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>4.1.5</b> ?</a></li>
 <li class="chapter" data-level="4.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>4.1.6</b> ??</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>4.2.1</b> Numeric</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>4.2.2</b> Integer</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>4.2.3</b> Character</a></li>
 <li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>4.2.4</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.3.1</b> Vectors</a></li>
 <li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3.2</b> Matrices</a></li>
 <li class="chapter" data-level="4.3.3" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.3.3</b> Lists</a></li>
 <li class="chapter" data-level="4.3.4" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.3.4</b> Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>4.4.1</b> <em>Everything</em> is an object in R</a></li>
 <li class="chapter" data-level="4.4.2" data-path="r-objects.html"><a href="r-objects.html#assigning-objects"><i class="fa fa-check"></i><b>4.4.2</b> Assigning Objects</a></li>
 <li class="chapter" data-level="4.4.3" data-path="r-objects.html"><a href="r-objects.html#attributes"><i class="fa fa-check"></i><b>4.4.3</b> Attributes</a></li>
@@ -221,30 +239,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
+<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
-<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a><ul>
+<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="reading-writing-data.html"><a href="reading-writing-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reading-writing-data.html"><a href="reading-writing-data.html#reading-csv-files"><i class="fa fa-check"></i><b>5.2.3</b> Reading CSV files</a></li>
 <li class="chapter" data-level="5.2.4" data-path="reading-writing-data.html"><a href="reading-writing-data.html#writing-csv-files"><i class="fa fa-check"></i><b>5.2.4</b> Writing CSV files</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#quantitative-variables"><i class="fa fa-check"></i><b>5.3.1</b> Quantitative Variables</a></li>
 <li class="chapter" data-level="5.3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>5.3.2</b> Categorical Variables</a></li>
 <li class="chapter" data-level="5.3.3" data-path="summary-statistics.html"><a href="summary-statistics.html#saving-an-rdata-file"><i class="fa fa-check"></i><b>5.3.3</b> Saving an RData file</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a><ul>
+<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
+<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
 <li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
 <li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
 <li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
@@ -254,27 +278,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
 <li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a><ul>
+<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
 <li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
 <li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a><ul>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
 <li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a><ul>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
 <li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a><ul>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
 <li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
 <li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
@@ -303,50 +333,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="writing-functions" class="section level2">
+<div id="writing-functions" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Writing Functions</h2>
 <p>Throughout this course, we’ve been using various R <em>functions</em>, like <code>print</code>, <code>sum</code>, <code>is.na</code>, and <code>hist</code>.
 Each of these functions does different things, but they all obey similar rules.
 First we’ll think carefully about what all R functions have in common, then we’ll see how you can write your own functions to suit your needs!</p>
-<div id="the-components-of-a-function" class="section level3">
+<div id="the-components-of-a-function" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> The Components Of A Function</h3>
 <p>As an example, consider the <code>sum</code> function:</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" title="1">v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb495-2" title="2"><span class="kw">sum</span>(v)</a></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb495-1"><a href="writing-functions.html#cb495-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb495-2"><a href="writing-functions.html#cb495-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v)</span></code></pre></div>
 <pre class="output-style"><code>[1] 6</code></pre>
 <p>When R runs this function, it takes a numeric vector and computes the sum of its elements.
 The numeric vector is specified by <em>you</em>, the programmer, and it’s formally called an <em>argument</em>.
 The argument can be thought of as the “input” into the function.
 Some functions use more than one argument, like the <code>seq</code> function:</p>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" title="1"><span class="co"># Create a sequence of numbers from 3 to 9 </span></a>
-<a class="sourceLine" id="cb497-2" title="2"><span class="kw">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb497-1"><a href="writing-functions.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a sequence of numbers from 3 to 9 </span></span>
+<span id="cb497-2"><a href="writing-functions.html#cb497-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 3 4 5 6 7 8 9</code></pre>
 <p>while others functions might have <em>no</em> arguments, like <code>getwd</code>:</p>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" title="1"><span class="co"># Get the current working directory</span></a>
-<a class="sourceLine" id="cb499-2" title="2"><span class="kw">getwd</span>()</a></code></pre></div>
-<pre class="output-style"><code>[1] &quot;C:/Users/Conner Pierce Gibbs/OneDrive - Colostate/3. Graduate/GTA/CSU-R/Module1&quot;</code></pre>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb499-1"><a href="writing-functions.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the current working directory</span></span>
+<span id="cb499-2"><a href="writing-functions.html#cb499-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;C:/Users/congi/OneDrive - Colostate/3. Graduate/GTA/CSU-R/Module1&quot;</code></pre>
 <p>Other functions can work with different numbers of arguments, like the combine function, <code>c</code>:</p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb501-1"><a href="writing-functions.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb503-1"><a href="writing-functions.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1 2</code></pre>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" title="1"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb505-1"><a href="writing-functions.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1 2 3</code></pre>
 <p>Thinking back to the <code>sum</code> example, we also notice that the function produces a result, which is the sum of the elements of the vector.
 This result is called a <em>return value</em>, because it’s something that the function “returns” back to you after it has finished running.
 Return values can assigned to R objects:</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" title="1">s &lt;-<span class="st"> </span><span class="kw">sum</span>(v)</a>
-<a class="sourceLine" id="cb507-2" title="2"><span class="kw">print</span>(s)</a></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb507-1"><a href="writing-functions.html#cb507-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(v)</span>
+<span id="cb507-2"><a href="writing-functions.html#cb507-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(s)</span></code></pre></div>
 <pre class="output-style"><code>[1] 6</code></pre>
 <p>The combine function’s output is a vector, which we can assign to an object called <code>w</code>:</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" title="1"><span class="co"># the return value of c() is assigned to w</span></a>
-<a class="sourceLine" id="cb509-2" title="2">w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </a>
-<a class="sourceLine" id="cb509-3" title="3"><span class="kw">print</span>(w)</a></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb509-1"><a href="writing-functions.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the return value of c() is assigned to w</span></span>
+<span id="cb509-2"><a href="writing-functions.html#cb509-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </span>
+<span id="cb509-3"><a href="writing-functions.html#cb509-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(w)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>Sometimes a function doesn’t have a return value, as with the <code>rm</code> function:</p>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" title="1"><span class="co"># rm doesn&#39;t have a return value, which is why result is NULL (i.e. no object)</span></a>
-<a class="sourceLine" id="cb511-2" title="2">result &lt;-<span class="st"> </span><span class="kw">rm</span>(w) </a>
-<a class="sourceLine" id="cb511-3" title="3"><span class="kw">print</span>(result)</a></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb511-1"><a href="writing-functions.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rm doesn&#39;t have a return value, which is why result is NULL (i.e. no object)</span></span>
+<span id="cb511-2"><a href="writing-functions.html#cb511-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rm</span>(w) </span>
+<span id="cb511-3"><a href="writing-functions.html#cb511-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="reflect">
 <p>
@@ -355,29 +385,29 @@ Remember what the <code>rm</code> function does?
 </div>
 <p>Aside from the <em>arguments</em> and the <em>return value</em> of a function, we can talk about what the function actually <em>does</em>.
 The <code>sum</code> function obviously computes the sum of a vector, but the <code>sqrt</code> takes the square root of a number:</p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" title="1"><span class="kw">sqrt</span>(<span class="dv">58</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb513-1"><a href="writing-functions.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">58</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 7.615773</code></pre>
 <p>As we will see shortly, what a function <em>does</em> is determined by the code in its <em>body</em>.
 That’s right, functions are basically a collection of code that is combined in a convenient package.
 We can even examine the code for a function by typing its name <em>without parentheses</em>.
 Here’s the <code>sort</code> function:</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" title="1"><span class="co"># View the code of the sort function</span></a>
-<a class="sourceLine" id="cb515-2" title="2">sort</a></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb515-1"><a href="writing-functions.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the code of the sort function</span></span>
+<span id="cb515-2"><a href="writing-functions.html#cb515-2" aria-hidden="true" tabindex="-1"></a>sort</span></code></pre></div>
 <pre class="output-style"><code>function (x, decreasing = FALSE, ...) 
 {
     if (!is.logical(decreasing) || length(decreasing) != 1L) 
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x000000001449ade0&gt;
+&lt;bytecode: 0x0000000015edd148&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" title="1"><span class="co"># View the code of the mean function (or so we think)</span></a>
-<a class="sourceLine" id="cb517-2" title="2">mean</a></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb517-1"><a href="writing-functions.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the code of the mean function (or so we think)</span></span>
+<span id="cb517-2"><a href="writing-functions.html#cb517-2" aria-hidden="true" tabindex="-1"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x000000001547e550&gt;
+&lt;bytecode: 0x0000000016ec7728&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -388,18 +418,18 @@ The way we’ve described R functions as being <em>arguments</em>, a <em>body</e
 </p>
 </div>
 </div>
-<div id="writing-a-function" class="section level3">
+<div id="writing-a-function" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Writing A Function</h3>
 <p>The beauty of functions in R is that you can write your own!
 All you have to do is specify the arguments, body, and return value for your function.
 Here’s a simple example how to define a function:</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" title="1"><span class="co"># Create function which adds 1 to the input argument</span></a>
-<a class="sourceLine" id="cb519-2" title="2">add_one &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb519-3" title="3">  y &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb519-4" title="4">  <span class="kw">return</span>(y)</a>
-<a class="sourceLine" id="cb519-5" title="5">}</a>
-<a class="sourceLine" id="cb519-6" title="6"><span class="co"># test out the function</span></a>
-<a class="sourceLine" id="cb519-7" title="7"><span class="kw">add_one</span>(<span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb519-1"><a href="writing-functions.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create function which adds 1 to the input argument</span></span>
+<span id="cb519-2"><a href="writing-functions.html#cb519-2" aria-hidden="true" tabindex="-1"></a>add_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb519-3"><a href="writing-functions.html#cb519-3" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb519-4"><a href="writing-functions.html#cb519-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb519-5"><a href="writing-functions.html#cb519-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb519-6"><a href="writing-functions.html#cb519-6" aria-hidden="true" tabindex="-1"></a><span class="co"># test out the function</span></span>
+<span id="cb519-7"><a href="writing-functions.html#cb519-7" aria-hidden="true" tabindex="-1"></a><span class="fu">add_one</span>(<span class="dv">100</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 101</code></pre>
 <p>Here we define a function called <code>add_one</code>, using the assignment operator <code>&lt;-</code>, just like when we define new vectors, data frames, integers, etc.</p>
 <ul>
@@ -409,18 +439,18 @@ Here’s a simple example how to define a function:</p>
 <li>When the function is run, we see the return value (100 + 1) displayed in the output.</li>
 </ul>
 <p>Let’s view the code of the function we just wrote:</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" title="1">add_one</a></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb521-1"><a href="writing-functions.html#cb521-1" aria-hidden="true" tabindex="-1"></a>add_one</span></code></pre></div>
 <pre class="output-style"><code>function(x){
   y &lt;- x + 1
   return(y)
 }</code></pre>
 <p>Here it shows us exactly the code that we used to create the function.
 Let’s use the function a few more times:</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" title="1">number &lt;-<span class="st"> </span><span class="kw">add_one</span>(<span class="dv">10</span>)  <span class="co"># assign the return value of add_one to `number`</span></a>
-<a class="sourceLine" id="cb523-2" title="2">number</a></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb523-1"><a href="writing-functions.html#cb523-1" aria-hidden="true" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">add_one</span>(<span class="dv">10</span>)  <span class="co"># assign the return value of add_one to `number`</span></span>
+<span id="cb523-2"><a href="writing-functions.html#cb523-2" aria-hidden="true" tabindex="-1"></a>number</span></code></pre></div>
 <pre class="output-style"><code>[1] 11</code></pre>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" title="1"><span class="co"># nest our function</span></a>
-<a class="sourceLine" id="cb525-2" title="2"><span class="kw">add_one</span>(<span class="kw">add_one</span>(<span class="kw">add_one</span>(<span class="dv">1</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb525-1"><a href="writing-functions.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nest our function</span></span>
+<span id="cb525-2"><a href="writing-functions.html#cb525-2" aria-hidden="true" tabindex="-1"></a><span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="dv">1</span>)))</span></code></pre></div>
 <pre class="output-style"><code>[1] 4</code></pre>
 <div class="caution">
 <p>
@@ -429,47 +459,46 @@ It’s possible re-define the built in R functions by choosing a function name t
 </div>
 <p>Sometimes it’s not necessary to specify a return value.
 If you don’t, then R will take any output generated by the last command in the function and return it:</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" title="1">add_two &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb527-2" title="2">  x <span class="op">+</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># R will return the result of x + 2 </span></a>
-<a class="sourceLine" id="cb527-3" title="3">}</a>
-<a class="sourceLine" id="cb527-4" title="4"></a>
-<a class="sourceLine" id="cb527-5" title="5"><span class="kw">add_two</span>(<span class="dv">12</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb527-1"><a href="writing-functions.html#cb527-1" aria-hidden="true" tabindex="-1"></a>add_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb527-2"><a href="writing-functions.html#cb527-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">2</span>  <span class="co"># R will return the result of x + 2 </span></span>
+<span id="cb527-3"><a href="writing-functions.html#cb527-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb527-4"><a href="writing-functions.html#cb527-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb527-5"><a href="writing-functions.html#cb527-5" aria-hidden="true" tabindex="-1"></a><span class="fu">add_two</span>(<span class="dv">12</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 14</code></pre>
 <p>But you must be careful, because some commands produce no output. Remember that if we type math, then R will print the result:</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" title="1"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb529-1"><a href="writing-functions.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
 <p>but if we assign the result to a variable, R will not print anything (the result is assigned to the variable instead):</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" title="1">two &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb531-1"><a href="writing-functions.html#cb531-1" aria-hidden="true" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <p>This is how it works for function return values as well.
 So if we write a statement at the end of a function, but assign the result to a variable, R will not return the value.</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" title="1">add_three &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb532-2" title="2">  y &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">3</span>  <span class="co"># the results are assigned to y, but y is not returned</span></a>
-<a class="sourceLine" id="cb532-3" title="3">}</a>
-<a class="sourceLine" id="cb532-4" title="4"></a>
-<a class="sourceLine" id="cb532-5" title="5"><span class="kw">add_three</span>(<span class="dv">4</span>)  <span class="co"># this returns nothing</span></a></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb532-1"><a href="writing-functions.html#cb532-1" aria-hidden="true" tabindex="-1"></a>add_three <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb532-2"><a href="writing-functions.html#cb532-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span>  <span class="co"># the results are assigned to y, but y is not returned</span></span>
+<span id="cb532-3"><a href="writing-functions.html#cb532-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb532-4"><a href="writing-functions.html#cb532-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb532-5"><a href="writing-functions.html#cb532-5" aria-hidden="true" tabindex="-1"></a><span class="fu">add_three</span>(<span class="dv">4</span>)  <span class="co"># this returns nothing</span></span></code></pre></div>
 
 <div class="bonus">
-This is technically <em>not true</em>. The above function <em>does</em> return the value of y, but it is “invisible”. To display the output, you can wrap the result in parentheses like this: <code>(add_three(4))</code>
+This is technically <em>not true</em>. The above function <em>does</em> return the value of y, but it is “invisible.” To display the output, you can wrap the result in parentheses like this: <code>(add_three(4))</code>
 </div>
-
 <p>Now let’s look at a more complicated example that has two arguments:</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb533-1" title="1"><span class="co"># function to raise x to the y-th power </span></a>
-<a class="sourceLine" id="cb533-2" title="2">pow &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){   <span class="co"># Here we specify the function has two arguments.</span></a>
-<a class="sourceLine" id="cb533-3" title="3">  p &lt;-<span class="st"> </span>x<span class="op">^</span>y</a>
-<a class="sourceLine" id="cb533-4" title="4">  <span class="kw">return</span>(p)</a>
-<a class="sourceLine" id="cb533-5" title="5">}</a>
-<a class="sourceLine" id="cb533-6" title="6"><span class="co"># test the arguments with x=2 and y=3</span></a>
-<a class="sourceLine" id="cb533-7" title="7"><span class="kw">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb533-1"><a href="writing-functions.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># function to raise x to the y-th power </span></span>
+<span id="cb533-2"><a href="writing-functions.html#cb533-2" aria-hidden="true" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){   <span class="co"># Here we specify the function has two arguments.</span></span>
+<span id="cb533-3"><a href="writing-functions.html#cb533-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> x<span class="sc">^</span>y</span>
+<span id="cb533-4"><a href="writing-functions.html#cb533-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb533-5"><a href="writing-functions.html#cb533-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb533-6"><a href="writing-functions.html#cb533-6" aria-hidden="true" tabindex="-1"></a><span class="co"># test the arguments with x=2 and y=3</span></span>
+<span id="cb533-7"><a href="writing-functions.html#cb533-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 8</code></pre>
 <p>There’s an important lesson to learn from this example.
 When we tested the function, R used 2 as the value of <code>x</code> and 3 for the value of <code>y</code> (after all, 2 cubed is 8), and this is because of the <em>order</em> that the arguments were supplied.
 When we defined the function, we specified that <code>x</code> and <code>y</code> are the arguments, in that order.
 Then when we called the function, we put 2 first and 3 second.
 Perhaps this is obvious, but strange things are possible, because R also allows you to specify the arguments <em>by name</em> like so:</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb535-1" title="1"><span class="kw">pow</span>(<span class="dt">x=</span><span class="dv">2</span>, <span class="dt">y=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb535-1"><a href="writing-functions.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">y=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 8</code></pre>
 <p>So far this gives the same result, but watch what happens if we do this instead:</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" title="1"><span class="kw">pow</span>(<span class="dt">y=</span><span class="dv">2</span>, <span class="dt">x=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb537-1"><a href="writing-functions.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">y=</span><span class="dv">2</span>, <span class="at">x=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 9</code></pre>
 <p>This time, R computed 3 squared instead of 2 cubed, even though we specified <code>y</code> first and <code>x</code> second.
 When you specify parameters by name, <em>R will ignore the order that they are given in</em>.</p>
@@ -484,40 +513,40 @@ R also allows you to specify some arguments by name and some by position, as lon
 </p>
 </div>
 </div>
-<div id="using-functions-for-data-analysis" class="section level3">
+<div id="using-functions-for-data-analysis" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Using Functions for Data Analysis</h3>
 <p>Functions offer many of the same advantages as loops: They allow you can write less code and do more.
 Let’s see how loops might be used for data analysis.<br />
 Suppose we want to compare deaths between men and women for particular states and age groups.
 Here’s a barplot for Colorado in the 45-54 age group:</p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" title="1"><span class="co"># Extract just the state and age group of interest</span></a>
-<a class="sourceLine" id="cb539-2" title="2">covid2 &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;Colorado&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Age.group <span class="op">==</span><span class="st"> &quot;45-54 years&quot;</span>),]</a>
-<a class="sourceLine" id="cb539-3" title="3"></a>
-<a class="sourceLine" id="cb539-4" title="4"><span class="co"># create a bar plot</span></a>
-<a class="sourceLine" id="cb539-5" title="5"><span class="kw">barplot</span>(covid2<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths,  <span class="co"># specify column to plot</span></a>
-<a class="sourceLine" id="cb539-6" title="6">        <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex,    <span class="co"># specify bar names</span></a>
-<a class="sourceLine" id="cb539-7" title="7">        <span class="dt">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></a>
-<a class="sourceLine" id="cb539-8" title="8">        <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></a></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb539-1"><a href="writing-functions.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract just the state and age group of interest</span></span>
+<span id="cb539-2"><a href="writing-functions.html#cb539-2" aria-hidden="true" tabindex="-1"></a>covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> <span class="st">&quot;Colorado&quot;</span>) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> <span class="st">&quot;45-54 years&quot;</span>),]</span>
+<span id="cb539-3"><a href="writing-functions.html#cb539-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb539-4"><a href="writing-functions.html#cb539-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create a bar plot</span></span>
+<span id="cb539-5"><a href="writing-functions.html#cb539-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths,  <span class="co"># specify column to plot</span></span>
+<span id="cb539-6"><a href="writing-functions.html#cb539-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex,    <span class="co"># specify bar names</span></span>
+<span id="cb539-7"><a href="writing-functions.html#cb539-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
+<span id="cb539-8"><a href="writing-functions.html#cb539-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-551-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Suppose we wanted to view this information for more states and age groups.
 Rather than repeat the above code each time, let’s put it in a function:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" title="1"><span class="co"># create a function called plot_fm with two arguments: state and ages</span></a>
-<a class="sourceLine" id="cb540-2" title="2">plot_fm &lt;-<span class="st"> </span><span class="cf">function</span>(state, ages){</a>
-<a class="sourceLine" id="cb540-3" title="3">  covid2 &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> </span>state) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Age.group <span class="op">==</span><span class="st"> </span>ages),]</a>
-<a class="sourceLine" id="cb540-4" title="4">  <span class="kw">barplot</span>(covid2<span class="op">$</span>COVID.<span class="fl">19.</span>Deaths, </a>
-<a class="sourceLine" id="cb540-5" title="5">          <span class="dt">names.arg=</span>covid2<span class="op">$</span>Sex, </a>
-<a class="sourceLine" id="cb540-6" title="6">          <span class="dt">main=</span><span class="kw">paste</span>(<span class="st">&quot;Sex Comparison:&quot;</span>, state, ages), </a>
-<a class="sourceLine" id="cb540-7" title="7">          <span class="dt">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)</a>
-<a class="sourceLine" id="cb540-8" title="8">  <span class="kw">return</span>(<span class="ot">NULL</span>)</a>
-<a class="sourceLine" id="cb540-9" title="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb540-1"><a href="writing-functions.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
+<span id="cb540-2"><a href="writing-functions.html#cb540-2" aria-hidden="true" tabindex="-1"></a>plot_fm <span class="ot">&lt;-</span> <span class="cf">function</span>(state, ages){</span>
+<span id="cb540-3"><a href="writing-functions.html#cb540-3" aria-hidden="true" tabindex="-1"></a>  covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> state) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> ages),]</span>
+<span id="cb540-4"><a href="writing-functions.html#cb540-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, </span>
+<span id="cb540-5"><a href="writing-functions.html#cb540-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex, </span>
+<span id="cb540-6"><a href="writing-functions.html#cb540-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="fu">paste</span>(<span class="st">&quot;Sex Comparison:&quot;</span>, state, ages), </span>
+<span id="cb540-7"><a href="writing-functions.html#cb540-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)</span>
+<span id="cb540-8"><a href="writing-functions.html#cb540-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb540-9"><a href="writing-functions.html#cb540-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s try out the code on a few states and age groups:</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" title="1"><span class="kw">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb541-1"><a href="writing-functions.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-554-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" title="1"><span class="kw">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb543-1"><a href="writing-functions.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-555-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" title="1"><span class="kw">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb545-1"><a href="writing-functions.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-556-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="bonus">
@@ -542,23 +571,22 @@ To get around this error, we could write extra code to manually set the y limits
 <p><code>ylim=c(0, ymax))</code></p>
 <p><code>return(NULL)</code></p>
 </div>
-
 <div class="progress">
 <p>
 (No need to turn this in) Make a function with arguments for state, sex, and age group, and print out the COVID 19 deaths, Total Deaths, Pneumonia Deaths, and Influenza Deaths for that demographic.
 </p>
 </div>
 </div>
-<div id="function-scope" class="section level3">
+<div id="function-scope" class="section level3" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Function Scope</h3>
 <p>There’s another important concept for functions in R, called <em>scope</em>, which is best illustrated through the following example:</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" title="1">simple_f &lt;-<span class="st"> </span><span class="cf">function</span>(){</a>
-<a class="sourceLine" id="cb547-2" title="2">  XYZ &lt;-<span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb547-3" title="3">  <span class="kw">return</span>(XYZ)</a>
-<a class="sourceLine" id="cb547-4" title="4">}</a>
-<a class="sourceLine" id="cb547-5" title="5"></a>
-<a class="sourceLine" id="cb547-6" title="6"><span class="kw">print</span>(<span class="kw">simple_f</span>())</a>
-<a class="sourceLine" id="cb547-7" title="7"><span class="kw">print</span>(XYZ)</a></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb547-1"><a href="writing-functions.html#cb547-1" aria-hidden="true" tabindex="-1"></a>simple_f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb547-2"><a href="writing-functions.html#cb547-2" aria-hidden="true" tabindex="-1"></a>  XYZ <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb547-3"><a href="writing-functions.html#cb547-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(XYZ)</span>
+<span id="cb547-4"><a href="writing-functions.html#cb547-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb547-5"><a href="writing-functions.html#cb547-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-6"><a href="writing-functions.html#cb547-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">simple_f</span>())</span>
+<span id="cb547-7"><a href="writing-functions.html#cb547-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(XYZ)</span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in print(XYZ): object 'XYZ' not found
 </code></pre>
 <pre class="output-style"><code>[1] 2</code></pre>
@@ -567,27 +595,27 @@ Notice, however, that printing out <code>var</code> gives an error.
 This is because the object <code>var</code> only exists in the <em>scope</em> of the function <code>simple_f</code>, and is “forgotten” after the function finishes running.
 This is true for any objects created inside any function (with one exception, noted in the bonus block below).
 Variables defined outside of functions are in the <em>global scope</em>, which means they can be accessed anywhere, both inside and outside functions:</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb549-1" title="1">y &lt;-<span class="st"> &quot;hello&quot;</span></a>
-<a class="sourceLine" id="cb549-2" title="2"></a>
-<a class="sourceLine" id="cb549-3" title="3">say_hello &lt;-<span class="st"> </span><span class="cf">function</span>(){</a>
-<a class="sourceLine" id="cb549-4" title="4">  <span class="kw">print</span>(y)</a>
-<a class="sourceLine" id="cb549-5" title="5">}</a>
-<a class="sourceLine" id="cb549-6" title="6"></a>
-<a class="sourceLine" id="cb549-7" title="7"><span class="kw">say_hello</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb549-1"><a href="writing-functions.html#cb549-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb549-2"><a href="writing-functions.html#cb549-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-3"><a href="writing-functions.html#cb549-3" aria-hidden="true" tabindex="-1"></a>say_hello <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb549-4"><a href="writing-functions.html#cb549-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(y)</span>
+<span id="cb549-5"><a href="writing-functions.html#cb549-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb549-6"><a href="writing-functions.html#cb549-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb549-7"><a href="writing-functions.html#cb549-7" aria-hidden="true" tabindex="-1"></a><span class="fu">say_hello</span>()</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;hello&quot;</code></pre>
 <p>It’s also important to realize that variables in different scopes can have the same name without conflict.
 For example, we can use <code>x</code> as the argument to a function and as a variable outside of the function.
 R will search the current scope first, then look outside of the current scope if it can’t find an object.</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" title="1"><span class="co"># define x and y in the global scope</span></a>
-<a class="sourceLine" id="cb551-2" title="2">x &lt;-<span class="st"> &quot;a&quot;</span></a>
-<a class="sourceLine" id="cb551-3" title="3">y &lt;-<span class="st"> &quot;b&quot;</span></a>
-<a class="sourceLine" id="cb551-4" title="4"></a>
-<a class="sourceLine" id="cb551-5" title="5">f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb551-6" title="6">  <span class="kw">print</span>(x)  <span class="co"># This is NOT the global x</span></a>
-<a class="sourceLine" id="cb551-7" title="7">  <span class="kw">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></a>
-<a class="sourceLine" id="cb551-8" title="8">}</a>
-<a class="sourceLine" id="cb551-9" title="9"></a>
-<a class="sourceLine" id="cb551-10" title="10"><span class="kw">f</span>(<span class="st">&quot;c&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb551-1"><a href="writing-functions.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define x and y in the global scope</span></span>
+<span id="cb551-2"><a href="writing-functions.html#cb551-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb551-3"><a href="writing-functions.html#cb551-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;b&quot;</span></span>
+<span id="cb551-4"><a href="writing-functions.html#cb551-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb551-5"><a href="writing-functions.html#cb551-5" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb551-6"><a href="writing-functions.html#cb551-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)  <span class="co"># This is NOT the global x</span></span>
+<span id="cb551-7"><a href="writing-functions.html#cb551-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></span>
+<span id="cb551-8"><a href="writing-functions.html#cb551-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb551-9"><a href="writing-functions.html#cb551-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb551-10"><a href="writing-functions.html#cb551-10" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;c&quot;
 [1] &quot;b&quot;</code></pre>
 <p>In the above example, <code>x</code> was defined inside the function <code>f</code> (it’s the name of the first argument), so the global <code>x</code> is ignored.
@@ -604,7 +632,7 @@ When writing functions, it helps to start simple. It’s easy to make a complica
 </div>
 <div class="bonus">
 <p>
-You may be familiar with “pointers” in other language, and the difference between “pass by value” and “pass by reference”. In most ordinary circumstances with R, there is <em>only</em> pass by value.
+You may be familiar with “pointers” in other language, and the difference between “pass by value” and “pass by reference.” In most ordinary circumstances with R, there is <em>only</em> pass by value.
 </p>
 </div>
 <div class="progress">

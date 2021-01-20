@@ -203,7 +203,7 @@
 
 \title{R Module 1}
 \author{Alex Fout\footnote{Department of Statistics, Colorado State University, \href{mailto:fout@colostate.edu}{\nolinkurl{fout@colostate.edu}}}}
-\date{16 Aug, 2020, 09:25 PM}
+\date{20 Jan, 2021, 12:22 PM}
 
 \begin{document}
 \maketitle
@@ -227,7 +227,7 @@ Through these Modules (courses), we'll explore how R can be used to do the follo
 \item
   Perform basic computations and logic, just like any other programming language
 \item
-  Load, clean, analyze, and visualise data
+  Load, clean, analyze, and visualize data
 \item
   Run scripts
 \item
@@ -381,11 +381,20 @@ Any feedback for this section? Click
 \subsection{Course Topics \& Syllabus}\label{course-topics-syllabus}}
 
 Broadly speaking, the topics of this course are described by the Chapter Titles. Here's what each entails:
-- Course Preliminaries: Introduction to R and the world of R
-- Installing R: Like it sounds, setting up your computer so you can work with R.
-- R Programming Fundamentals: The basics of programming in R, the building blocks that you need in order to do anything more interesting.
-- Working with Data: How to do meaningful things with data sets. Probably the most useful Chapter of the book.
-- Creating R Programs: More programming concepts to increase your R Power!
+
+\begin{itemize}
+\tightlist
+\item
+  Course Preliminaries: Introduction to R and the world of R
+\item
+  Installing R: Like it sounds, setting up your computer so you can work with R.
+\item
+  R Programming Fundamentals: The basics of programming in R, the building blocks that you need in order to do anything more interesting.
+\item
+  Working with Data: How to do meaningful things with data sets. Probably the most useful Chapter of the book.
+\item
+  Creating R Programs: More programming concepts to increase your R Power!
+\end{itemize}
 
 \hypertarget{syllabus}{%
 \subsubsection{Syllabus}\label{syllabus}}
@@ -438,29 +447,37 @@ First, some important details:
 \hline
 Week & Weekday & Date & Reading & Due\\
 \hline
-1 & Monday & July 13 & 1, 2 & Progress Check 1\\
+1 & Friday & January 22 & 1 & \\
 \hline
-1 & Wednesday & July 15 & 3 & Quiz 1\\
+2 & Friday & January 29 & 2 & Progress Check 1\\
 \hline
-1 & Friday & July 17 & 4.1, 4.2 & Assignment 1\\
+3 & Friday & February 05 & 3.1, 3.2 & \\
 \hline
-2 & Monday & July 20 & 4.3 & Progress Check 2\\
+4 & Friday & February 12 & 3.3, 3.4, 3.5 & Quiz 1\\
 \hline
-2 & Wednesday & July 22 & 4.4, 4.5 & Quiz 2\\
+5 & Friday & February 19 & 4.1, 4.2 & Assignment 1\\
 \hline
-2 & Friday & July 24 & 5.1, 5.2 & Assignment 2\\
+6 & Friday & February 26 & 4.3 & Progress Check 2\\
 \hline
-3 & Monday & July 27 & 5.3, 5.4 & Progress Check 3\\
+7 & Friday & March 05 & 4.4 & Quiz 2\\
 \hline
-3 & Wednesday & July 29 & 5.5, 5.6 & Quiz 3\\
+8 & Friday & March 12 & 5.1, 5.2 & Assignment 2\\
 \hline
-3 & Friday & July 31 & 5.7 & Assignment 3\\
+9 & Friday & March 19 & 5.3, 5.4 & Progress Check 3\\
 \hline
-4 & Monday & August 03 & 6.1 & Progress Check 4\\
+10 & Friday & March 26 & 5.5, 5.6 & Quiz 3\\
 \hline
-4 & Wednesday & August 05 & 6.2, 6.3 & Quiz 4\\
+11 & Friday & April 02 & 5.7 & Assignment 3\\
 \hline
-4 & Friday & August 07 & 6.4 & Assignment 4\\
+12 & Friday & April 09 & 6.1 & Progress Check 4\\
+\hline
+13 & Friday & April 16 &  & \\
+\hline
+14 & Friday & April 23 & 6.2 & \\
+\hline
+15 & Friday & April 30 & 6.3 & Quiz 4\\
+\hline
+16 & Friday & May 07 & 6.4 & Assignment 4\\
 \hline
 \end{tabular}
 \end{table}
@@ -962,8 +979,9 @@ From this point, this will change depending on your operating system.
 \end{itemize}
 
 \begin{video}
-\href{https://youtu.be/7ZYn6q_pboE}{This video} shows the installation
-process for Windows
+This video shows the installation process for Windows.
+
+\_\_\url{https://www.youtube.com/embed/7ZYn6q_pboE__}
 \end{video}
 
 \hypertarget{mac-os-x}{%
@@ -1036,8 +1054,9 @@ From this point, this will change depending on your operating system.
 \end{itemize}
 
 \begin{video}
-\href{https://youtu.be/XnqENdiEb3I}{This video} shows the installation
-process for Windows
+This video shows the installation process for Windows.
+
+\_\_\url{https://youtu.be/XnqENdiEb3I__}
 \end{video}
 
 \hypertarget{mac-os-x-1}{%
@@ -1075,8 +1094,9 @@ Before moving further, you should become acquainted with the different parts of 
 To do so, watch the video below:
 
 \begin{video}
-\href{https://youtu.be/w_3xp_3Sz6s}{This video} gives an introduction to
-some of the main pieces of RStudio
+This video gives an introduction to some of the main pieces of RStudio.
+
+\_\_\url{https://youtu.be/w_3xp_3Sz6s__}
 \end{video}
 
 \begin{feedback}
@@ -1219,8 +1239,9 @@ There is much that could be said about R Markdown, but for now, we'll just stick
 To start, watch this video:
 
 \begin{video}
-\href{https://youtu.be/MhvipLohEfU}{This Video} gives a basic
-introduction to R Markdown.
+This video gives a basic introduction to R Markdown.
+
+\_\_\url{https://youtu.be/MhvipLohEfU__}
 \end{video}
 
 As the video stated, there are three types of sections to an R Markdown document:
@@ -1259,8 +1280,10 @@ Run the command \texttt{8\ /\ (2*(2+2))} and observe the output!
 \end{progress}
 
 \begin{video}
-\href{https://youtu.be/QLXB4kPngqM}{This video} should help get you
-started with the Progress Check Assignments!
+This video should help get you started with the Progress Check
+Assignments!
+
+\_\_\url{https://youtu.be/QLXB4kPngqM__}
 \end{video}
 
 \begin{feedback}
@@ -1407,8 +1430,10 @@ You can create these either using your operating system, or the ``New Folder'' c
 \paragraph{Video}\label{video}}
 
 \begin{video}
-Check out \href{https://youtu.be/0saBBd6lQDI}{this video} to watch me
-set up a project and the new directories.
+Check out this video to watch me set up a project and the new
+directories.
+
+\_\_\url{https://youtu.be/0saBBd6lQDI__}
 \end{video}
 
 \hypertarget{set}{%
@@ -1429,8 +1454,8 @@ This will reduce the amount of memory that is taken up
 
 \begin{verbatim}
           used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  827596 44.2    1599541 85.5  1210025 64.7
-Vcells 1482753 11.4    8388608 64.0  2092965 16.0
+Ncells  772996 41.3    1270061 67.9  1270061 67.9
+Vcells 1400313 10.7    8388608 64.0  2288242 17.5
 \end{verbatim}
 
 You might also want to clear the R console, which you can do by placing your cursor in the R console and typing \texttt{\textless{}control\textgreater{}\ l} (careful! that's a lowercase L).
@@ -1806,7 +1831,9 @@ Okay, now that we've covered some of the basics, it's time to start learning how
 The next few sections will describe the different types of data that R can handle.
 
 \begin{video}
-\href{https://youtu.be/EShV_T2P7sw}{This video} discusses numerics.
+This video discusses programming preliminaries.
+
+\_\_\url{https://youtu.be/EShV_T2P7sw__}
 \end{video}
 
 \begin{feedback}
@@ -1983,7 +2010,9 @@ You can show just some of the digits by using the \texttt{round} function:
 It also turns out that R stores \emph{more} digits than what it shows when it prints, though we won't go into detail on that now.
 
 \begin{video}
-\href{https://youtu.be/juscNzIrmJQ}{This video} discusses numerics.
+This video discusses numerics.
+
+\_\_\url{https://youtu.be/juscNzIrmJQ__}
 \end{video}
 
 \hypertarget{integer}{%
@@ -2023,7 +2052,9 @@ Integers take half of the space in a computer's memory or hard drive, so if you 
 This will make more sense when we discuss vectors later.
 
 \begin{video}
-\href{https://youtu.be/rNkEAPsipCk}{This video} discusses integers.
+This video discusses integers.
+
+\_\_\url{https://youtu.be/rNkEAPsipCk__}
 \end{video}
 
 \hypertarget{character}{%
@@ -2187,7 +2218,9 @@ if we ran the code \texttt{print("hello",\ "world",\ sep="-")}?
 There are other ways of manipulating strings, but we'll return to this later.
 
 \begin{video}
-\href{https://youtu.be/1JgmnulM_4g}{This video} discusses characters.
+This video discusses characters.
+
+\_\_\url{https://youtu.be/1JgmnulM_4g__}
 \end{video}
 
 \hypertarget{logical}{%
@@ -2438,7 +2471,9 @@ with dates in R.
 \end{caution}
 
 \begin{video}
-\href{https://youtu.be/GH9AZcexokU}{This video} discusses logicals.
+This video discusses logicals.
+
+\_\_\url{https://youtu.be/GH9AZcexokU__}
 \end{video}
 
 \begin{feedback}
@@ -2705,8 +2740,9 @@ Once you make a guess, try it in R and see if you were correct.
 \end{progress}
 
 \begin{video}
-\href{https://youtu.be/-BlN6_ZMpKE}{This video} gives an introduction to
-vectors.
+This video gives an introduction to vectors.
+
+\_\_\url{https://youtu.be/-BlN6_ZMpKE__}
 \end{video}
 
 \hypertarget{working-with-vectors}{%
@@ -2969,8 +3005,9 @@ integer(0)
 The result is an integer vector of length 0, meaning there are no elements that match the phrase!
 
 \begin{video}
-\href{https://youtu.be/NgmVhLpuM5k}{This video} continues the discussion
-of vectors.
+This video continues the discussion of vectors.
+
+\_\_\url{https://youtu.be/NgmVhLpuM5k__}
 \end{video}
 
 \hypertarget{vectors-of-different-types}{%
@@ -3225,8 +3262,9 @@ it's important to remember that they are different!
 \end{bonus}
 
 \begin{video}
-\href{https://youtu.be/iusiO1dRQdY}{This video} discusses coercion,
-sequences, and factors.
+This video discusses coercion, sequences, and factors.
+
+\_\_\url{https://youtu.be/iusiO1dRQdY__}
 \end{video}
 
 \hypertarget{combining-vectors}{%
@@ -3512,8 +3550,9 @@ documentation, and have a look at the ``Details'' section.
 \end{bonus}
 
 \begin{video}
-\href{https://youtu.be/XKdZzHBRO9o}{This video} gives an introduction to
-Vectors.
+This video finishes the discussion of vectors.
+
+\_\_\url{https://youtu.be/XKdZzHBRO9o__}
 \end{video}
 
 \hypertarget{matrices}{%
@@ -3802,8 +3841,9 @@ use a dataframe, as we discuss later.
 \end{bonus}
 
 \begin{video}
-\href{https://youtu.be/hknL1EbrIB4}{This video} gives an introduction to
-Vectors.
+This video gives an introduction to Vectors.
+
+\_\_\url{https://youtu.be/hknL1EbrIB4__}
 \end{video}
 
 \hypertarget{lists}{%
@@ -4091,7 +4131,9 @@ However, there are some things that vectors can do that lists \emph{can't}:
 So there are trade-offs when deciding whether a list or a vector is most appropriate.
 
 \begin{video}
-\href{https://youtu.be/-Y02JkqDlWU}{This video} discusses lists.
+This video discusses lists.
+
+\_\_\url{https://youtu.be/-Y02JkqDlWU__}
 \end{video}
 
 \hypertarget{lists-of-vectors}{%
@@ -4435,8 +4477,9 @@ Any feedback for this section? Click
 \end{feedback}
 
 \begin{video}
-\href{https://youtu.be/9BGRIC1js04}{This video} discusses lists of
-vectors.
+This video discusses lists of vectors.
+
+\_\_\url{https://youtu.be/9BGRIC1js04__}
 \end{video}
 
 \hypertarget{r-objects}{%
@@ -4743,8 +4786,9 @@ Any feedback for this section? Click
 \end{feedback}
 
 \begin{video}
-\href{https://youtu.be/VrgoEoMo9ZM}{This video} discusses lists of
-vectors.
+This video discusses lists of vectors.
+
+\_\_\url{https://youtu.be/VrgoEoMo9ZM__}
 \end{video}
 
 \hypertarget{working-with-data}{%
@@ -56838,14 +56882,14 @@ First we can use a summary command to just quickly look at the variables we have
 \begin{verbatim}
       Date                q_cfs        
  Min.   :2010-10-01   Min.   :   2.60  
- 1st Qu.:2013-03-20   1st Qu.:  30.25  
- Median :2015-09-08   Median :  79.00  
- Mean   :2015-09-08   Mean   : 249.41  
- 3rd Qu.:2018-02-25   3rd Qu.: 160.50  
- Max.   :2020-08-15   Max.   :7150.00  
+ 1st Qu.:2013-04-28   1st Qu.:  28.18  
+ Median :2015-11-25   Median :  74.10  
+ Mean   :2015-11-25   Mean   : 240.75  
+ 3rd Qu.:2018-06-23   3rd Qu.: 155.00  
+ Max.   :2021-01-19   Max.   :7150.00  
 \end{verbatim}
 
-It looks like we have data from 2010 to 2020-08-16 and a range in river
+It looks like we have data from 2010 to 2021-01-20 and a range in river
 flow (q\_cfs) from 2.6 cfs all the way up to 7150 cfs. If you're a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.
@@ -57609,7 +57653,7 @@ while others functions might have \emph{no} arguments, like \texttt{getwd}:
 \end{Shaded}
 
 \begin{verbatim}
-[1] "D:/Documents/academics/csu/teaching/Su2020_R_course_development/Module1"
+[1] "C:/Users/congi/OneDrive - Colostate/3. Graduate/GTA/CSU-R/Module1"
 \end{verbatim}
 
 Other functions can work with different numbers of arguments, like the combine function, \texttt{c}:
@@ -57723,7 +57767,7 @@ function (x, decreasing = FALSE, ...)
         stop("'decreasing' must be a length-1 logical vector.\nDid you intend to set 'partial'?")
     UseMethod("sort")
 }
-<bytecode: 0x0000000015738370>
+<bytecode: 0x0000000015ed8598>
 <environment: namespace:base>
 \end{verbatim}
 
@@ -57740,7 +57784,7 @@ Here's another example, the \texttt{mean} function:
 \begin{verbatim}
 function (x, ...) 
 UseMethod("mean")
-<bytecode: 0x0000000016712f38>
+<bytecode: 0x00000000148d8820>
 <environment: namespace:base>
 \end{verbatim}
 

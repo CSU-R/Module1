@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.5 What is R? | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.5 What is R? | R Module 1" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="getoutoftheclass.html"/>
 <link rel="next" href="the-r-community.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -56,25 +57,26 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -83,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -118,8 +120,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="src\style.css" type="text/css" />
-<link rel="stylesheet" href="src\environments.css" type="text/css" />
+<link rel="stylesheet" href="src/style.css" type="text/css" />
+<link rel="stylesheet" href="src/environments.css" type="text/css" />
 </head>
 
 <body>
@@ -135,17 +137,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Module 1</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a>
+<ul>
 <li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#how-to-navigate-this-book"><i class="fa fa-check"></i><b>1.0.1</b> How To Navigate This Book</a></li>
 <li class="chapter" data-level="1.1" data-path="associated-csu-course.html"><a href="associated-csu-course.html"><i class="fa fa-check"></i><b>1.1</b> Associated CSU Course</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a><ul>
-<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a><ul>
+<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="this-textbook.html"><a href="this-textbook.html#special-boxes"><i class="fa fa-check"></i><b>2.1.1</b> Special Boxes</a></li>
 <li class="chapter" data-level="2.1.2" data-path="this-textbook.html"><a href="this-textbook.html#how-this-book-displays-code"><i class="fa fa-check"></i><b>2.1.2</b> How This Book Displays Code</a></li>
 <li class="chapter" data-level="2.1.3" data-path="this-textbook.html"><a href="this-textbook.html#next-steps"><i class="fa fa-check"></i><b>2.1.3</b> Next Steps</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a><ul>
+<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#syllabus"><i class="fa fa-check"></i><b>2.2.1</b> Syllabus</a></li>
 <li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#schedule"><i class="fa fa-check"></i><b>2.2.2</b> Schedule</a></li>
 <li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.3</b> Assignment Templates</a></li>
@@ -154,7 +160,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="running-your-first-r-code.html"><a href="running-your-first-r-code.html"><i class="fa fa-check"></i><b>2.3</b> Running your first R Code</a></li>
 <li class="chapter" data-level="2.4" data-path="getoutoftheclass.html"><a href="getoutoftheclass.html"><i class="fa fa-check"></i><b>2.4</b> What do you hope to get out of this course?</a></li>
-<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a><ul>
+<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="what-is-r.html"><a href="what-is-r.html#r-is-a-programming-language"><i class="fa fa-check"></i><b>2.5.1</b> R is a Programming Language</a></li>
 <li class="chapter" data-level="2.5.2" data-path="what-is-r.html"><a href="what-is-r.html#r-is-software"><i class="fa fa-check"></i><b>2.5.2</b> R is software</a></li>
 <li class="chapter" data-level="2.5.3" data-path="what-is-r.html"><a href="what-is-r.html#r-is-free"><i class="fa fa-check"></i><b>2.5.3</b> R is Free</a></li>
@@ -163,37 +170,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="what-is-r.html"><a href="what-is-r.html#r-packages"><i class="fa fa-check"></i><b>2.5.6</b> R Packages</a></li>
 <li class="chapter" data-level="2.5.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.5.7</b> R Interfaces</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a><ul>
+<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.6.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.6.2</b> Places to Get Help (anyone)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a><ul>
-<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a><ul>
+<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="computer-basics.html"><a href="computer-basics.html#operating-systems"><i class="fa fa-check"></i><b>3.1.1</b> Operating Systems</a></li>
 <li class="chapter" data-level="3.1.2" data-path="computer-basics.html"><a href="computer-basics.html#files-directory-structures"><i class="fa fa-check"></i><b>3.1.2</b> Files &amp; Directory Structures</a></li>
 <li class="chapter" data-level="3.1.3" data-path="computer-basics.html"><a href="computer-basics.html#downloads-and-installations"><i class="fa fa-check"></i><b>3.1.3</b> Downloads and Installations</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Installing R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installing RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="successfull-installation.html"><a href="successfull-installation.html"><i class="fa fa-check"></i><b>3.3</b> Successfull Installation</a></li>
-<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a><ul>
+<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#the-r-console"><i class="fa fa-check"></i><b>3.4.1</b> The R Console:</a></li>
 <li class="chapter" data-level="3.4.2" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-scripts"><i class="fa fa-check"></i><b>3.4.2</b> R scripts</a></li>
 <li class="chapter" data-level="3.4.3" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#same-examples-on-your-computer"><i class="fa fa-check"></i><b>3.4.3</b> Same Examples, On Your Computer!</a></li>
 <li class="chapter" data-level="3.4.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>3.4.4</b> R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a><ul>
+<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
 <li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
-<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
+<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#r-commands"><i class="fa fa-check"></i><b>4.1.1</b> R Commands</a></li>
 <li class="chapter" data-level="4.1.2" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#comments"><i class="fa fa-check"></i><b>4.1.2</b> Comments</a></li>
 <li class="chapter" data-level="4.1.3" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#blank-lines"><i class="fa fa-check"></i><b>4.1.3</b> Blank Lines</a></li>
@@ -201,19 +216,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>4.1.5</b> ?</a></li>
 <li class="chapter" data-level="4.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>4.1.6</b> ??</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>4.2.1</b> Numeric</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>4.2.2</b> Integer</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>4.2.3</b> Character</a></li>
 <li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>4.2.4</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.3.1</b> Vectors</a></li>
 <li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3.2</b> Matrices</a></li>
 <li class="chapter" data-level="4.3.3" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.3.3</b> Lists</a></li>
 <li class="chapter" data-level="4.3.4" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.3.4</b> Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>4.4.1</b> <em>Everything</em> is an object in R</a></li>
 <li class="chapter" data-level="4.4.2" data-path="r-objects.html"><a href="r-objects.html#assigning-objects"><i class="fa fa-check"></i><b>4.4.2</b> Assigning Objects</a></li>
 <li class="chapter" data-level="4.4.3" data-path="r-objects.html"><a href="r-objects.html#attributes"><i class="fa fa-check"></i><b>4.4.3</b> Attributes</a></li>
@@ -221,30 +239,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
+<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
-<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a><ul>
+<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="reading-writing-data.html"><a href="reading-writing-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reading-writing-data.html"><a href="reading-writing-data.html#reading-csv-files"><i class="fa fa-check"></i><b>5.2.3</b> Reading CSV files</a></li>
 <li class="chapter" data-level="5.2.4" data-path="reading-writing-data.html"><a href="reading-writing-data.html#writing-csv-files"><i class="fa fa-check"></i><b>5.2.4</b> Writing CSV files</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#quantitative-variables"><i class="fa fa-check"></i><b>5.3.1</b> Quantitative Variables</a></li>
 <li class="chapter" data-level="5.3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>5.3.2</b> Categorical Variables</a></li>
 <li class="chapter" data-level="5.3.3" data-path="summary-statistics.html"><a href="summary-statistics.html#saving-an-rdata-file"><i class="fa fa-check"></i><b>5.3.3</b> Saving an RData file</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a><ul>
+<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
+<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
 <li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
 <li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
 <li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
@@ -254,27 +278,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
 <li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a><ul>
+<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
 <li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
 <li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a><ul>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
 <li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a><ul>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
 <li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a><ul>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
 <li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
 <li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
@@ -303,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="what-is-r" class="section level2">
+<div id="what-is-r" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> What is R?</h2>
 <p>What is R? This question can be answered several different ways.
 Here are a few of them:</p>
@@ -312,12 +342,12 @@ Here are a few of them:</p>
 Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20is%20R">here</a>
 </p>
 </div>
-<div id="r-is-a-programming-language" class="section level3">
+<div id="r-is-a-programming-language" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> R is a Programming Language</h3>
 <p>A programming language is a way of providing instructions to a computer.
 Some popular languages (in no particular order) are C, C++, Java, Python, PHP, Visual Basic, and Swift.
 Much like other types of languages, programming languages combine text and punctuation (syntax) to create statements which provide meaningful instructions (semantics) to be performed by a computer.
-These instructions are called “code”.
+These instructions are called “code.”
 R code can be used to do many things, but primarily R was designed to easily work with data and produce graphics.
 The R language can be used to use a computer to do the following:
 - Read and process a set of data in a file or database
@@ -345,17 +375,17 @@ Similar to learning a foreign language, learning your first programming language
 </p>
 </div>
 </div>
-<div id="r-is-software" class="section level3">
+<div id="r-is-software" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> R is software</h3>
 <p>R can also be thought of as the software program which runs R code.
 In other words, if R code is the computer language, then the R software is what interprets the language and makes the computer follow the instructions laid out in the code.
-This is sometimes called “base R”.</p>
+This is sometimes called “base R.”</p>
 </div>
-<div id="r-is-free" class="section level3">
+<div id="r-is-free" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> R is Free</h3>
 <p>The R software is free, so anyone can download R, write R code, and run the R code in order to produce results on their computer.</p>
 </div>
-<div id="r-is-open-source" class="section level3">
+<div id="r-is-open-source" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> R is Open Source</h3>
 <p>The R software, which runs R code, is also made up of a bunch of code called <em>source code</em>.
 In addition to being free, R is also <em>open source</em>, meaning that anyone can look at the source code and understand the “deep-down nuts-and-bolts” of how R works.
@@ -369,12 +399,12 @@ Why do you think the creators of R decided to make it open source?
 </p>
 </div>
 </div>
-<div id="r-is-an-ecosystem" class="section level3">
+<div id="r-is-an-ecosystem" class="section level3" number="2.5.5">
 <h3><span class="header-section-number">2.5.5</span> R is an ecosystem</h3>
 <p>Another way of thinking about R is to include not only the R language and the R software, but also the community of R users and programmers, and the various “add on” software they have created for R.
-These add on software are called “packages”.</p>
+These add on software are called “packages.”</p>
 </div>
-<div id="r-packages" class="section level3">
+<div id="r-packages" class="section level3" number="2.5.6">
 <h3><span class="header-section-number">2.5.6</span> R Packages</h3>
 <p>An R package is software written to extend the capabilities of base R.
 R packages are often written in R code, so anyone who knows how to write R code can also create R packages.
@@ -390,7 +420,7 @@ R can be used to make web sites, interactive applications, dynamic reproducible 
 </p>
 </div>
 </div>
-<div id="r-interfaces" class="section level3">
+<div id="r-interfaces" class="section level3" number="2.5.7">
 <h3><span class="header-section-number">2.5.7</span> R Interfaces</h3>
 <p>The R software can be run in many different places, including personal computers, remote servers, and websites (as you have seen!).
 R works on Windows, MAC OSX, and Linux, and
