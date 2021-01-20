@@ -93,7 +93,7 @@ First, some important details:
 
 - __Textbook__: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way. On days when a quiz is due, you should complete the reading _before_ you take the quiz.
 
-- __Prerequisites__: None
+- __Prerequisites__: None.
 
 - __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For Week 1, you'll submit your responses directly to canvas. For weeks 2-4, you'll fill in a R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness.
 
