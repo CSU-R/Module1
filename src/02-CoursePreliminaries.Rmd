@@ -103,7 +103,7 @@ First, some important details:
 
 - __Quizzes__: There will be a 15 minute Canvas quizes. Quizzes must be completed by 11:59pm (Mountain) on the day they are due.
 
-- __Discussion__: You are required to respond to one reflection prompted in the textbook within the discussion board on Canvas. The discussion boards should also be used to ask and answer questions regarding the material.
+- __Discussion__: You are required to respond to one reflection prompted in the textbook within the discussion board on Canvas. You can choose which to respond to, but it must not already be assigned.  More importantly, the discussion boards should also be used to ask and answer questions regarding the material.
 
 - __Lectures__: Since we aren't having in-person lectures, we will hold short _mini-lectures_ instead (more details on Canvas). These will be shorter than a traditional lecture (approximately 10-30 minutes), and the purpose will be to allow some interaction between everyone in the course and to allow the instructor to introduce any relevant topics and address any challenges that students are having.
 
@@ -121,7 +121,7 @@ sched <- data.frame(
   Week = 1 + isoweek(course_dates) - isoweek(start_date),
   Weekday = wday(course_dates, label=T, abbr=F),
   Date = format(course_dates, "%B %d"),
-  Reading = c("1", "2", "3.1, 3.2", "3.3, 3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "", "6.2", "6.3", "6.4"),
+  Reading = c("1", "2", "3.1, 3.2, 3.3", "3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "", "6.2", "6.3", "6.4"),
   Due= c("", "Progress Check 1", "", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "", "", "Quiz 4", "Assignment 4")
 )
 knitr::kable(sched) %>% kable_styling()
@@ -273,6 +273,7 @@ Much like other types of languages, programming languages combine text and punct
 These instructions are called "code".
 R code can be used to do many things, but primarily R was designed to easily work with data and produce graphics. 
 The R language can be used to use a computer to do the following:
+
 - Read and process a set of data in a file or database
 - Use data to compute statistics and perform statistical tests
 - Produce nice looking visualizations of data
@@ -370,7 +371,7 @@ Students taking the course for credit should seek help from these places, in ord
 - Canvas Discussion boards
 - Office Hours
 
-I will not answer homework/quiz/textbook related questions via email
+I will not answer homework/quiz/textbook related questions via email.
 
 ### Places to Get Help (anyone)
 

@@ -219,6 +219,7 @@ knitr::include_graphics("src/images/rstudio_run.png")
 ```
 
 To run multiple lines of code, do one of the following:
+
 - Highlight all the code you'd like to run, hold the `<control>` key, and press `enter`. On Mac OS X, hold the `<command>` key and press `return` instead.
 - Highlight all the code you'd like to run, and click the `Run` button.
 
