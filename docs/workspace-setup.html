@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.5 Workspace setup | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="running-code-in-rstudio.html"/>
 <link rel="next" href="r-programming-fundamentals.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +49,28 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +90,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -120,6 +123,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="src/style.css" type="text/css" />
 <link rel="stylesheet" href="src/environments.css" type="text/css" />
 </head>
@@ -137,21 +141,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Module 1</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a><ul>
 <li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#how-to-navigate-this-book"><i class="fa fa-check"></i><b>1.0.1</b> How To Navigate This Book</a></li>
 <li class="chapter" data-level="1.1" data-path="associated-csu-course.html"><a href="associated-csu-course.html"><i class="fa fa-check"></i><b>1.1</b> Associated CSU Course</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a>
-<ul>
+<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a><ul>
+<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="this-textbook.html"><a href="this-textbook.html#special-boxes"><i class="fa fa-check"></i><b>2.1.1</b> Special Boxes</a></li>
 <li class="chapter" data-level="2.1.2" data-path="this-textbook.html"><a href="this-textbook.html#how-this-book-displays-code"><i class="fa fa-check"></i><b>2.1.2</b> How This Book Displays Code</a></li>
 <li class="chapter" data-level="2.1.3" data-path="this-textbook.html"><a href="this-textbook.html#next-steps"><i class="fa fa-check"></i><b>2.1.3</b> Next Steps</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#syllabus"><i class="fa fa-check"></i><b>2.2.1</b> Syllabus</a></li>
 <li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#schedule"><i class="fa fa-check"></i><b>2.2.2</b> Schedule</a></li>
 <li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.3</b> Assignment Templates</a></li>
@@ -160,8 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="running-your-first-r-code.html"><a href="running-your-first-r-code.html"><i class="fa fa-check"></i><b>2.3</b> Running your first R Code</a></li>
 <li class="chapter" data-level="2.4" data-path="getoutoftheclass.html"><a href="getoutoftheclass.html"><i class="fa fa-check"></i><b>2.4</b> What do you hope to get out of this course?</a></li>
-<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="what-is-r.html"><a href="what-is-r.html#r-is-a-programming-language"><i class="fa fa-check"></i><b>2.5.1</b> R is a Programming Language</a></li>
 <li class="chapter" data-level="2.5.2" data-path="what-is-r.html"><a href="what-is-r.html#r-is-software"><i class="fa fa-check"></i><b>2.5.2</b> R is software</a></li>
 <li class="chapter" data-level="2.5.3" data-path="what-is-r.html"><a href="what-is-r.html#r-is-free"><i class="fa fa-check"></i><b>2.5.3</b> R is Free</a></li>
@@ -170,45 +169,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="what-is-r.html"><a href="what-is-r.html#r-packages"><i class="fa fa-check"></i><b>2.5.6</b> R Packages</a></li>
 <li class="chapter" data-level="2.5.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.5.7</b> R Interfaces</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.6.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.6.2</b> Places to Get Help (anyone)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a>
-<ul>
+<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a><ul>
+<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="computer-basics.html"><a href="computer-basics.html#operating-systems"><i class="fa fa-check"></i><b>3.1.1</b> Operating Systems</a></li>
 <li class="chapter" data-level="3.1.2" data-path="computer-basics.html"><a href="computer-basics.html#files-directory-structures"><i class="fa fa-check"></i><b>3.1.2</b> Files &amp; Directory Structures</a></li>
 <li class="chapter" data-level="3.1.3" data-path="computer-basics.html"><a href="computer-basics.html#downloads-and-installations"><i class="fa fa-check"></i><b>3.1.3</b> Downloads and Installations</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Installing R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installing RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="successfull-installation.html"><a href="successfull-installation.html"><i class="fa fa-check"></i><b>3.3</b> Successfull Installation</a></li>
-<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#the-r-console"><i class="fa fa-check"></i><b>3.4.1</b> The R Console:</a></li>
 <li class="chapter" data-level="3.4.2" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-scripts"><i class="fa fa-check"></i><b>3.4.2</b> R scripts</a></li>
 <li class="chapter" data-level="3.4.3" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#same-examples-on-your-computer"><i class="fa fa-check"></i><b>3.4.3</b> Same Examples, On Your Computer!</a></li>
 <li class="chapter" data-level="3.4.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>3.4.4</b> R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
 <li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a>
-<ul>
+<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
+<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#r-commands"><i class="fa fa-check"></i><b>4.1.1</b> R Commands</a></li>
 <li class="chapter" data-level="4.1.2" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#comments"><i class="fa fa-check"></i><b>4.1.2</b> Comments</a></li>
 <li class="chapter" data-level="4.1.3" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#blank-lines"><i class="fa fa-check"></i><b>4.1.3</b> Blank Lines</a></li>
@@ -216,22 +207,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>4.1.5</b> ?</a></li>
 <li class="chapter" data-level="4.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>4.1.6</b> ??</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>4.2.1</b> Numeric</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>4.2.2</b> Integer</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>4.2.3</b> Character</a></li>
 <li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>4.2.4</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.3.1</b> Vectors</a></li>
 <li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3.2</b> Matrices</a></li>
 <li class="chapter" data-level="4.3.3" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.3.3</b> Lists</a></li>
 <li class="chapter" data-level="4.3.4" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.3.4</b> Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>4.4.1</b> <em>Everything</em> is an object in R</a></li>
 <li class="chapter" data-level="4.4.2" data-path="r-objects.html"><a href="r-objects.html#assigning-objects"><i class="fa fa-check"></i><b>4.4.2</b> Assigning Objects</a></li>
 <li class="chapter" data-level="4.4.3" data-path="r-objects.html"><a href="r-objects.html#attributes"><i class="fa fa-check"></i><b>4.4.3</b> Attributes</a></li>
@@ -239,36 +227,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a>
-<ul>
+<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
-<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="reading-writing-data.html"><a href="reading-writing-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reading-writing-data.html"><a href="reading-writing-data.html#reading-csv-files"><i class="fa fa-check"></i><b>5.2.3</b> Reading CSV files</a></li>
 <li class="chapter" data-level="5.2.4" data-path="reading-writing-data.html"><a href="reading-writing-data.html#writing-csv-files"><i class="fa fa-check"></i><b>5.2.4</b> Writing CSV files</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#quantitative-variables"><i class="fa fa-check"></i><b>5.3.1</b> Quantitative Variables</a></li>
 <li class="chapter" data-level="5.3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>5.3.2</b> Categorical Variables</a></li>
 <li class="chapter" data-level="5.3.3" data-path="summary-statistics.html"><a href="summary-statistics.html#saving-an-rdata-file"><i class="fa fa-check"></i><b>5.3.3</b> Saving an RData file</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a>
-<ul>
+<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
 <li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
 <li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
 <li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
@@ -278,33 +260,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
 <li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a>
-<ul>
+<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a>
-<ul>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
 <li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
 <li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
 <li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
 <li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a>
-<ul>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
 <li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
 <li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
@@ -333,11 +309,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2" number="3.5">
+<div id="workspace-setup" class="section level2">
 <h2><span class="header-section-number">3.5</span> Workspace setup</h2>
 <p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
 This section will give you some instructions and tips for how to organize material for this R course</p>
-<div id="recommended-settings" class="section level3" number="3.5.1">
+<div id="recommended-settings" class="section level3">
 <h3><span class="header-section-number">3.5.1</span> Recommended Settings</h3>
 <p>First of all, let’s set some settings in RStudio.
 At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
@@ -357,7 +333,7 @@ At the top of the R window, click <code>Tools</code>, then <code>Global Options<
 <li>(Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.</li>
 <li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
 </ul></li>
-<li>Click “Apply,” then “OK” at the bottom of the window.</li>
+<li>Click “Apply”, then “OK” at the bottom of the window.</li>
 </ol>
 <p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
 This is a good option for R beginners to avoid confusion and mistakes.
@@ -365,7 +341,7 @@ Step 3 ensures that when you knit R Markdown documents, code chunks will use the
 Changing the zoom can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
 On Mac OS X, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
 </div>
-<div id="setting-working-directory" class="section level3" number="3.5.2">
+<div id="setting-working-directory" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Setting working directory</h3>
 <p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
 In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
@@ -377,25 +353,25 @@ See <a href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Dir
 </p>
 </div>
 </div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3" number="3.5.3">
+<div id="create-rstudio-project-and-directories-for-class" class="section level3">
 <h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class</h3>
 <p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects without having to
 For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4" number="3.5.3.1">
+<div id="create-rstudio-project" class="section level4">
 <h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project</h4>
 <p>To create an RStudio project, follow these steps:</p>
 <ul>
 <li>Click on the “new project” button</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project" width="17" />
+<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
 <p class="caption">
 Figure 3.4: Click this button to create a new project
 </p>
 </div>
 <ul>
-<li>In the window that pops up, click on “New Directory” then “New Project.”</li>
-<li>In the box after “Directory name,” type “RModule1,” which will be the name of the project.</li>
+<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
+<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
 <li>Then click the “Browse” button to select where to place the project.</li>
 <li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
 <li>Click on “Create Project”</li>
@@ -407,7 +383,7 @@ When you’re working on this course, you should be working in this project.
 The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
 This will automatically set the working directory to the project directory.</p>
 </div>
-<div id="create-directory-structure" class="section level4" number="3.5.3.2">
+<div id="create-directory-structure" class="section level4">
 <h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure</h4>
 <p>To stay organized, you should also create the following folders inside your project directory</p>
 <ul>
@@ -418,7 +394,7 @@ This will automatically set the working directory to the project directory.</p>
 </ul>
 <p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
 </div>
-<div id="video" class="section level4" number="3.5.3.3">
+<div id="video" class="section level4">
 <h4><span class="header-section-number">3.5.3.3</span> Video</h4>
 <div class="video">
 <p>
@@ -431,19 +407,19 @@ Check out this video to watch me set up a project and the new directories.
 </center>
 </div>
 </div>
-<div id="set" class="section level4" number="3.5.3.4">
+<div id="set" class="section level4">
 <h4><span class="header-section-number">3.5.3.4</span> Set</h4>
 </div>
 </div>
-<div id="some-useful-commands-you-should-know" class="section level3" number="3.5.4">
+<div id="some-useful-commands-you-should-know" class="section level3">
 <h3><span class="header-section-number">3.5.4</span> Some useful commands you should know</h3>
 <p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
 This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()           <span class="co"># perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) max used (Mb)
-Ncells  772212 41.3    1275165 68.2  1275165 68.2
-Vcells 1398839 10.7    8388608 64.0  2272372 17.4</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
+<span id="cb8-2"><a href="workspace-setup.html#cb8-2"></a><span class="kw">gc</span>()           <span class="co"># perform garbage collection</span></span></code></pre></div>
+<pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
+Ncells  803068 42.9    1339574 71.6         NA  1339574 71.6
+Vcells 1500504 11.5    8388608 64.0      16384  2555676 19.5</code></pre>
 <p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
 <div class="bonus">
 <p>
@@ -510,6 +486,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
