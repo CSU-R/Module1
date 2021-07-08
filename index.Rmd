@@ -33,10 +33,10 @@ knitr::knit_hooks$set(
 
 library(kableExtra)
 library(lubridate)
-start_date <- ymd("2021/01/22")
+start_date <- ymd("2021/07/13")
 # designed as a four week course that "meets" 3 times per week.
-# course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "+")))
-course_dates <- start_date + weeks(0:15)
+course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "+")))
+# course_dates <- start_date + weeks(0:15) 
 
 r_version <- "4.0.2"
 ```
