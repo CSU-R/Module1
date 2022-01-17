@@ -341,7 +341,7 @@ Some functions use more than one argument, like the <code>seq</code> function:</
 <pre class="output-style"><code>[1] 1 2 3</code></pre>
 <p>Thinking back to the <code>sum</code> example, we also notice that the function produces a result, which is the sum of the elements of the vector.
 This result is called a <em>return value</em>, because it’s something that the function “returns” back to you after it has finished running.
-Return values can assigned to R objects:</p>
+Return values can be assigned to R objects:</p>
 <div class="sourceCode" id="cb509"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb509-1"><a href="writing-functions.html#cb509-1"></a>s &lt;-<span class="st"> </span><span class="kw">sum</span>(v)</span>
 <span id="cb509-2"><a href="writing-functions.html#cb509-2"></a><span class="kw">print</span>(s)</span></code></pre></div>
 <pre class="output-style"><code>[1] 6</code></pre>
@@ -376,7 +376,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x7fccab21f1c8&gt;
+&lt;bytecode: 0x7f8c52f11dc8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -384,7 +384,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb519-2"><a href="writing-functions.html#cb519-2"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x7fccae2b99d0&gt;
+&lt;bytecode: 0x7f8c514383d0&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -493,8 +493,8 @@ R also allows you to specify some arguments by name and some by position, as lon
 </div>
 <div id="using-functions-for-data-analysis" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Using Functions for Data Analysis</h3>
-<p>Functions offer many of the same advantages as loops: They allow you can write less code and do more.
-Let’s see how loops might be used for data analysis.<br />
+<p>Functions offer many of the same advantages as loops: They allow you to write less code and do more.
+Let’s see how functions might be used for data analysis.<br />
 Suppose we want to compare deaths between men and women for particular states and age groups.
 Here’s a barplot for Colorado in the 45-54 age group:</p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb541-1"><a href="writing-functions.html#cb541-1"></a><span class="co"># Extract just the state and age group of interest</span></span>
@@ -529,7 +529,7 @@ Rather than repeat the above code each time, let’s put it in a function:</p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="bonus">
 <p>
-Notice that our function doesn’t actually <em>return</em> anything, but it does produce a plot while running. The plots produced by this function are one example of <em>side effects</em>, which are changes that persist after the function is completed, that aren’t the return value.
+Notice that our function doesn’t actually <em>return</em> anything, but it does produce a plot while running. The plots produced by this function are one example of <em>side effects</em>, which are changes that persist after the function is completed, and that aren’t the return value.
 </p>
 </div>
 
@@ -564,44 +564,44 @@ To get around this error, we could write extra code to manually set the y limits
 <span id="cb549-3"><a href="writing-functions.html#cb549-3"></a>  <span class="kw">return</span>(XYZ)</span>
 <span id="cb549-4"><a href="writing-functions.html#cb549-4"></a>}</span>
 <span id="cb549-5"><a href="writing-functions.html#cb549-5"></a></span>
-<span id="cb549-6"><a href="writing-functions.html#cb549-6"></a><span class="kw">print</span>(<span class="kw">simple_f</span>())</span>
-<span id="cb549-7"><a href="writing-functions.html#cb549-7"></a><span class="kw">print</span>(XYZ)</span></code></pre></div>
+<span id="cb549-6"><a href="writing-functions.html#cb549-6"></a><span class="kw">print</span>(XYZ)</span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in print(XYZ): object 'XYZ' not found
 </code></pre>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb550-1"><a href="writing-functions.html#cb550-1"></a><span class="kw">print</span>(<span class="kw">simple_f</span>())</span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
-<p>This function has no arguments, but it does create a new object called <code>var</code>, which is returned from the function.
-Notice, however, that printing out <code>var</code> gives an error.
-This is because the object <code>var</code> only exists in the <em>scope</em> of the function <code>simple_f</code>, and is “forgotten” after the function finishes running.
+<p>This function has no arguments, but it does create a new object called <code>XYZ</code>, which is returned from the function.
+Notice, however, that printing out <code>XYZ</code> gives an error.
+This is because the object <code>XYZ</code> only exists in the <em>scope</em> of the function <code>simple_f</code>, and is “forgotten” after the function finishes running.
 This is true for any objects created inside any function (with one exception, noted in the bonus block below).
 Variables defined outside of functions are in the <em>global scope</em>, which means they can be accessed anywhere, both inside and outside functions:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb551-1"><a href="writing-functions.html#cb551-1"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
-<span id="cb551-2"><a href="writing-functions.html#cb551-2"></a></span>
-<span id="cb551-3"><a href="writing-functions.html#cb551-3"></a>say_hello &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
-<span id="cb551-4"><a href="writing-functions.html#cb551-4"></a>  <span class="kw">print</span>(y)</span>
-<span id="cb551-5"><a href="writing-functions.html#cb551-5"></a>}</span>
-<span id="cb551-6"><a href="writing-functions.html#cb551-6"></a></span>
-<span id="cb551-7"><a href="writing-functions.html#cb551-7"></a><span class="kw">say_hello</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb552-1"><a href="writing-functions.html#cb552-1"></a>y &lt;-<span class="st"> &quot;hello&quot;</span></span>
+<span id="cb552-2"><a href="writing-functions.html#cb552-2"></a></span>
+<span id="cb552-3"><a href="writing-functions.html#cb552-3"></a>say_hello &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb552-4"><a href="writing-functions.html#cb552-4"></a>  <span class="kw">print</span>(y)</span>
+<span id="cb552-5"><a href="writing-functions.html#cb552-5"></a>}</span>
+<span id="cb552-6"><a href="writing-functions.html#cb552-6"></a></span>
+<span id="cb552-7"><a href="writing-functions.html#cb552-7"></a><span class="kw">say_hello</span>()</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;hello&quot;</code></pre>
 <p>It’s also important to realize that variables in different scopes can have the same name without conflict.
 For example, we can use <code>x</code> as the argument to a function and as a variable outside of the function.
 R will search the current scope first, then look outside of the current scope if it can’t find an object.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb553-1"><a href="writing-functions.html#cb553-1"></a><span class="co"># define x and y in the global scope</span></span>
-<span id="cb553-2"><a href="writing-functions.html#cb553-2"></a>x &lt;-<span class="st"> &quot;a&quot;</span></span>
-<span id="cb553-3"><a href="writing-functions.html#cb553-3"></a>y &lt;-<span class="st"> &quot;b&quot;</span></span>
-<span id="cb553-4"><a href="writing-functions.html#cb553-4"></a></span>
-<span id="cb553-5"><a href="writing-functions.html#cb553-5"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb553-6"><a href="writing-functions.html#cb553-6"></a>  <span class="kw">print</span>(x)  <span class="co"># This is NOT the global x</span></span>
-<span id="cb553-7"><a href="writing-functions.html#cb553-7"></a>  <span class="kw">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></span>
-<span id="cb553-8"><a href="writing-functions.html#cb553-8"></a>}</span>
-<span id="cb553-9"><a href="writing-functions.html#cb553-9"></a></span>
-<span id="cb553-10"><a href="writing-functions.html#cb553-10"></a><span class="kw">f</span>(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb554-1"><a href="writing-functions.html#cb554-1"></a><span class="co"># define x and y in the global scope</span></span>
+<span id="cb554-2"><a href="writing-functions.html#cb554-2"></a>x &lt;-<span class="st"> &quot;a&quot;</span></span>
+<span id="cb554-3"><a href="writing-functions.html#cb554-3"></a>y &lt;-<span class="st"> &quot;b&quot;</span></span>
+<span id="cb554-4"><a href="writing-functions.html#cb554-4"></a></span>
+<span id="cb554-5"><a href="writing-functions.html#cb554-5"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb554-6"><a href="writing-functions.html#cb554-6"></a>  <span class="kw">print</span>(x)  <span class="co"># This is NOT the global x</span></span>
+<span id="cb554-7"><a href="writing-functions.html#cb554-7"></a>  <span class="kw">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></span>
+<span id="cb554-8"><a href="writing-functions.html#cb554-8"></a>}</span>
+<span id="cb554-9"><a href="writing-functions.html#cb554-9"></a></span>
+<span id="cb554-10"><a href="writing-functions.html#cb554-10"></a><span class="kw">f</span>(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;c&quot;
 [1] &quot;b&quot;</code></pre>
 <p>In the above example, <code>x</code> was defined inside the function <code>f</code> (it’s the name of the first argument), so the global <code>x</code> is ignored.
 However, <code>y</code> is not defined inside the function, so R uses the <code>y</code> from the global scope.</p>
 <div class="bonus">
 <p>
-In an earlier chapter, we briefly mentioned the assignment operators <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code>, but didn’t say what made them special. It turns out, they are able to assign objects in the global scope from inside functions. You can test this by altering the above example by replacing the command <code>z &lt;- 2</code> with the command <code>z &lt;&lt;- 2</code> and observing the result. This assignment operator should almost <em>never</em> be used, as it can cause confusion and unpredictable behavior if used in a more complicated R program.
+In an earlier chapter, we briefly mentioned the assignment operators <code>&lt;&lt;-</code> and <code>-&gt;&gt;</code>, but didn’t say what made them special. It turns out, they are able to assign objects in the global scope from inside functions. You can test this by altering the <code>simple_f</code> function in a previous example (above) by replacing the command <code>XYZ &lt;- 2</code> with the command <code>XYZ &lt;&lt;- 2</code> and observing the result. This assignment operator should almost <em>never</em> be used, as it can cause confusion and unpredictable behavior if used in a more complicated R program.
 </p>
 </div>
 <div class="caution">
@@ -611,12 +611,12 @@ When writing functions, it helps to start simple. It’s easy to make a complica
 </div>
 <div class="bonus">
 <p>
-You may be familiar with “pointers” in other language, and the difference between “pass by value” and “pass by reference”. In most ordinary circumstances with R, there is <em>only</em> pass by value.
+You may be familiar with “pointers” in other languages, and the difference between “pass by value” and “pass by reference”. In most ordinary circumstances with R, there is <em>only</em> pass by value.
 </p>
 </div>
 <div class="progress">
 <p>
-(No need to turn this in) When discussing Objects in a previous chapter, we mentioned that everything in R is an object, and every object has a <code>mode</code> and <code>length</code>. pick an R function, or create your own function, and print its <code>mode</code> and <code>length</code>.
+(No need to turn this in) When discussing Objects in a previous chapter, we mentioned that everything in R is an object, and every object has a <code>mode</code> and <code>length</code>. Pick an R function, or create your own function, and print its <code>mode</code> and <code>length</code>.
 </p>
 </div>
 <div class="feedback">

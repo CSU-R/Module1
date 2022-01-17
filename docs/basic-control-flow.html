@@ -364,7 +364,7 @@ This data contains deaths data for different states, age groups, and sexes, let�
 <span id="cb468-8"><a href="basic-control-flow.html#cb468-8"></a><span class="kw">dev.off</span>()</span>
 <span id="cb468-9"><a href="basic-control-flow.html#cb468-9"></a></span>
 <span id="cb468-10"><a href="basic-control-flow.html#cb468-10"></a></span>
-<span id="cb468-11"><a href="basic-control-flow.html#cb468-11"></a><span class="co"># deaths by age group for females in Wyoming</span></span>
+<span id="cb468-11"><a href="basic-control-flow.html#cb468-11"></a><span class="co"># deaths by age group for females in New Mexico</span></span>
 <span id="cb468-12"><a href="basic-control-flow.html#cb468-12"></a>covid_nm_f &lt;-<span class="st"> </span>covid[(covid<span class="op">$</span>State <span class="op">==</span><span class="st"> &quot;New Mexico&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>(covid<span class="op">$</span>Sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>),]</span>
 <span id="cb468-13"><a href="basic-control-flow.html#cb468-13"></a><span class="kw">png</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_newmexico_female.png&quot;</span>)</span>
 <span id="cb468-14"><a href="basic-control-flow.html#cb468-14"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
@@ -394,7 +394,7 @@ Here’s the way this works:</p>
 <li><code>for</code> tells R we want to repeat code multiple times. When R “sees” the <code>for</code> command, it knows that the code that follows will be repeated</li>
 <li>the parentheses (<code>(</code> and <code>)</code>) specify a vector that will be looped over (<code>vec</code> in this example), and a variable name to use while looping (<code>i</code> in this example). Each time through the loop, the variable (<code>i</code>) will have a different value. In this example, the <strong>first</strong> time through the loop, <code>i</code> will have the value of the <strong>first</strong> element of <code>vec</code> (<code>"a"</code>), the <strong>second</strong> time through the loop, <code>i</code> will have the value of the <strong>second</strong> element of <code>vec (</code>“b”`), etc. The name <em>for-loop</em> is common in many programming languages, which reflects the fact that R is running the loop <em>for each</em> element of the vector.</li>
 <li>The braces (<code>{</code> and <code>}</code>) specify which code should be run each time through the loop. In this example, we’re just printing out the value of <code>i</code>, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.</li>
-<li>After it finishes looping, R continues proceeds to run any code below the for-loop.</li>
+<li>After it finishes looping, R proceeds to run any code below the for-loop.</li>
 </ul>
 <p>Here’s another example of a for-loop:</p>
 <div class="sourceCode" id="cb471"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb471-1"><a href="basic-control-flow.html#cb471-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
@@ -420,7 +420,7 @@ Here’s the way this works:</p>
 </ul>
 
 <div class="caution">
-Don’t forget to include the curly braces (<code>{</code>, <code>}</code>) after your for-loop, or else R may not include
+Don’t forget to include the curly braces (<code>{</code>, <code>}</code>) after your for-loop, or else R may not include your code in the loop.
 </div>
 
 
@@ -557,12 +557,12 @@ The answer is to use <em>if</em> statements.</p>
 <p>This code produces precisely <em>no output</em>.
 Even though there is a print command, R does not print anything!
 The reason is that the print command is inside of an <em>if</em> statement, and R only runs that code if the specified condition is met.
-here’s how it works:</p>
+Here’s how it works:</p>
 <ul>
 <li>The <code>if</code> indicates the start of the if statement.</li>
 <li>R expects the parentheses to contain a logical statement that produces either <code>TRUE</code> or <code>FALSE</code>. In this example, we are comparing the character strings <code>"cat"</code> and <code>"dog"</code> (which are not the same, so the result is <code>FALSE</code>).</li>
 <li>If the condition is <code>TRUE</code>, then the code block in curly braces is run (not true for this example).</li>
-<li>If the condition is <code>FALSE</code>, then the code block is <em>not</em> run. In the example (which is why this example did not print).</li>
+<li>If the condition is <code>FALSE</code>, then the code block is <em>not</em> run (which is why the above example did not print).</li>
 <li>Whether the code block is run or not, R will then proceed to run any code below the if statement.</li>
 </ul>
 <div class="caution">
@@ -609,16 +609,16 @@ Then let’s choose an appropriate visualization based on the mode:</p>
 <span id="cb486-7"><a href="basic-control-flow.html#cb486-7"></a>  }</span>
 <span id="cb486-8"><a href="basic-control-flow.html#cb486-8"></a>}</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-511-1.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-2.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-3.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-4.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-5.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-6.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-7.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-8.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-9.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-10.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-11.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-12.png" width="672" style="display: block; margin: auto;" /><img src="Module1_files/figure-html/unnamed-chunk-511-13.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
+<p>Admittedly, these plots are a little crude, but the point is that the code is able to create the appropriate plot depending on the type of variable.
 This is another way in which you can control the flow of an R program.</p>
 <div class="progress">
 <p>
-Looking at visualizations like this for variables in a data set can be a useful way to identify potential problems. Look at the barplot for <code>State</code>, and notice that one category has more observations that the others. Which state this is (hint: the <code>table</code> and <code>sort</code> functions might be useful)? Create a new data frame by subsetting on the outlier state, and examine it. Is there cause for concern? Why or why not?
+Looking at visualizations like this for variables in a data set can be a useful way to identify potential problems. Look at the barplot for <code>State</code>, and notice that one category has more observations than the others. Which state this is (hint: the <code>table</code> and <code>sort</code> functions might be useful)? Create a new data frame by subsetting on the outlier state, and examine it. Is there cause for concern? Why or why not?
 </p>
 </div>
 <div class="bonus">
 <p>
-There are other variations on if statements, including using <code>else if</code> to test a second condition if the first is not met, and the <code>switch</code> function which matches an argument to one of several possibilities, and runs different code for each match. These are more advanced topics that will not be covered here.
+There are other variations on <code>if</code> statements, including using <code>else if</code> to test a second condition if the first is not met, and the <code>switch</code> function which matches an argument to one of several possibilities, and runs different code for each match. These are more advanced topics that will not be covered here.
 </p>
 </div>
 
@@ -646,8 +646,7 @@ Here’s an example:</p>
 [1] 3
 [1] 4
 [1] 5</code></pre>
-<p>The if condition is <code>FALSE</code> at first, until <code>i</code> is 6, at which point the if condition is <code>TRUE</code>, so the <code>break</code> statement is run, and R exits from the loop, and doesn’t loop through the rest of the vector.
-Hence we see the numbers 1-5 printed but not the numbers 6-10.</p>
+<p>The if condition is <code>FALSE</code> until <code>i</code> is 6, at which point the if condition is <code>TRUE</code>, so the <code>break</code> statement is run. The <code>break</code> statement causes R to exit from the loop before 6 is printed and before <code>i</code> is updated to 7. Hence we see the numbers 1-5 printed but not the numbers 6-10.</p>
 </div>
 </div>
 <div id="formatting-conventions" class="section level3">

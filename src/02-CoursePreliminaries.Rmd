@@ -7,7 +7,7 @@ Then you'll run some R code and learn more about R and the R community.
 
 ## This Textbook
 
-This course is presented as a [bookdown](https://bookdown.org/) document, and is divided into chapters and sections
+This course is presented as a [bookdown](https://bookdown.org/) document, and is divided into chapters and sections.
 Each week, you'll be expected to read through the chapter and complete any associated exercises, quizzes, or assignments.
 
 ### Special Boxes
@@ -97,9 +97,9 @@ First, some important details:
 
 - __Assignments/What-to-turn-in__: This course will be graded on three types of assignments: Progress Checks, Homeworks, and Quizzes. There will be four of each. Most weeks, you will have one of these three types of assignments due. Due dates will be on Tuesdays at 11:59 pm (please see schedule below).
 
-- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For the first Progress Check, you'll submit your responses directly to canvas. For Progress Checks 2-4, you'll fill in a R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:50pm (Mountain) on the day they are due. Half credit will be given for two-day window after the due date, after which no credit will be possible.
+- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For the first Progress Check, you'll submit your responses directly to canvas. For Progress Checks 2-4, you'll fill in a R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
 
-- __Homework__: There are four homeworks during the semester. You'll complete each homework using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for two-day window after the due date, after which no credit will be possible.
+- __Homework__: There are four homeworks during the semester. You'll complete each homework using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
 
 - __Quizzes__: There will be four 15 minute Canvas quizzes during the semester. Quizzes must be completed by 11:59pm (Mountain) on the day they are due. __There are NO late quizzes excepted after the due date has passed. If you cannot complete the quiz on the day it is due, you are expected to do it early__.
 
@@ -130,8 +130,8 @@ sched <- data.frame(
   Week = 1 + isoweek(course_dates) - isoweek(start_date),
   Weekday = wday(course_dates, label=T, abbr=F),
   Date = format(course_dates, "%B %d"),
-  Reading = c("1", "2", "3.1, 3.2, 3.3", "3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "", "6.2", "6.3", "6.4"),
-  Due= c("", "Progress Check 1", "", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "", "", "Quiz 4", "Assignment 4")
+  Reading = c("1", "2", "3.1, 3.2, 3.3", "3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2","", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "6.2", "6.3", "6.4"),
+  Due= c("", "Progress Check 1", "", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "", "Quiz 4", "Assignment 4")
 )
 
 knitr::kable(sched) %>% kable_styling()
@@ -143,17 +143,17 @@ In order to complete the progress checks and course assignments, you'll need to 
 
 Progress Checks
 
-- (Assignment 1 will not require a template)
+- (Progress Check 1 will not require a template)
 - [Progress Check 2](assignment_templates/progress_check_2.rmd)
 - [Progress Check 3](assignment_templates/progress_check_3.rmd)
 - [Progress Check 4](assignment_templates/progress_check_4.rmd)
 
 Assignments
 
-- [Assignment 1](assignment_templates/assignment_1.rmd)
-- [Assignment 2](assignment_templates/assignment_2.rmd)
-- [Assignment 3](assignment_templates/assignment_3.rmd)
-- [Assignment 4](assignment_templates/assignment_4.rmd)
+- [Homework 1](assignment_templates/assignment_1.rmd)
+- [Homework 2](assignment_templates/assignment_2.rmd)
+- [Homework 3](assignment_templates/assignment_3.rmd)
+- [Homework 4](assignment_templates/assignment_4.rmd)
 
 
 ### Course Policies 

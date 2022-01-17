@@ -87,7 +87,7 @@ barplot(covid_wy_f$COVID.19.Deaths, names.arg = covid_wy_f$Age.group,
 dev.off()
 
 
-# deaths by age group for females in Wyoming
+# deaths by age group for females in New Mexico
 covid_nm_f <- covid[(covid$State == "New Mexico") & (covid$Sex == "Female"),]
 png("output/covid_deaths_by_agegroup_newmexico_female.png")
 par(mar = c(9, 4, 2, 2))
@@ -134,7 +134,7 @@ Here's the way this works:
 - `for` tells R we want to repeat code multiple times. When R "sees" the `for` command, it knows that the code that follows will be repeated
 - the parentheses (`(` and `)`) specify a vector that will be looped over (`vec` in this example), and a variable name to use while looping (`i` in this example). Each time through the loop, the variable (`i`) will have a different value. In this example, the __first__ time through the loop, `i` will have the value of the __first__ element of `vec` (`"a"`), the __second__ time through the loop, `i` will have the value of the __second__ element of `vec (`"b"`), etc. The name _for-loop_ is common in many programming languages, which reflects the fact that R is running the loop _for each_ element of the vector.
 - The braces (`{` and `}`) specify which code should be run each time through the loop. In this example, we're just printing out the value of `i`, so the result is that each element of vec is printed in order. Recall that braces are a way of specifying a block of code, and R knows that everything inside the block should be run while looping.
-- After it finishes looping, R continues proceeds to run any code below the for-loop.
+- After it finishes looping, R proceeds to run any code below the for-loop.
 
 Here's another example of a for-loop:
 
@@ -152,7 +152,7 @@ There are a few things to learn from this second example:
 - The value of `j` (or whatever your looping variable is called) still exists after the for-loop is over. Here the _last_ value of `j` was 10, so printing `j+1` produced 11.
 
 ```{block2, type="caution"}
-Don't forget to include the curly braces (`{`, `}`) after your for-loop, or else R may not include
+Don't forget to include the curly braces (`{`, `}`) after your for-loop, or else R may not include your code in the loop.
 ```
 
 ```{block2, type="bonus"}
@@ -312,12 +312,12 @@ if("cat" == "dog"){
 This code produces precisely _no output_.
 Even though there is a print command, R does not print anything!
 The reason is that the print command is inside of an _if_ statement, and R only runs that code if the specified condition is met.
-here's how it works:
+Here's how it works:
 
 - The `if` indicates the start of the if statement.
 - R expects the parentheses to contain a logical statement that produces either `TRUE` or `FALSE`. In this example, we are comparing the character strings `"cat"` and `"dog"` (which are not the same, so the result is `FALSE`).
 - If the condition is `TRUE`, then the code block in curly braces is run (not true for this example).
-- If the condition is `FALSE`, then the code block is _not_ run. In the example (which is why this example did not print).
+- If the condition is `FALSE`, then the code block is _not_ run (which is why the above example did not print).
 - Whether the code block is run or not, R will then proceed to run any code below the if statement.
 
 ```{block, type="caution"}
@@ -371,12 +371,12 @@ for(col_name in names(covid)){
 }
 ```
 
-Admittedly, these plots are a little crude, but the points is that the code is able to create the appropriate plot depending on the type of variable.
+Admittedly, these plots are a little crude, but the point is that the code is able to create the appropriate plot depending on the type of variable.
 This is another way in which you can control the flow of an R program.
 
 ```{block, type="progress"}
 Looking at visualizations like this for variables in a data set can be a useful way to identify potential problems. 
-Look at the barplot for `State`, and notice that one category has more observations that the others. 
+Look at the barplot for `State`, and notice that one category has more observations than the others. 
 Which state this is (hint: the `table` and `sort` functions might be useful)? 
 Create a new data frame by subsetting on the outlier state, and examine it.
 Is there cause for concern? Why or why not?
@@ -385,7 +385,7 @@ Is there cause for concern? Why or why not?
 
 
 ```{block, type="bonus"}
-There are other variations on if statements, including using `else if` to test a second condition if the first is not met, and the `switch` function which matches an argument to one of several possibilities, and runs different code for each match.
+There are other variations on `if` statements, including using `else if` to test a second condition if the first is not met, and the `switch` function which matches an argument to one of several possibilities, and runs different code for each match.
 These are more advanced topics that will not be covered here.
 ```
 
@@ -411,8 +411,7 @@ for(i in 1:10){
   print(i)
 }
 ```
-The if condition is `FALSE` at first, until `i` is 6, at which point the if condition is `TRUE`, so the `break` statement is run, and R exits from the loop, and doesn't loop through the rest of the vector.
-Hence we see the numbers 1-5 printed but not the numbers 6-10.
+The if condition is `FALSE` until `i` is 6, at which point the if condition is `TRUE`, so the `break` statement is run. The `break` statement causes R to exit from the loop before 6 is printed and before `i` is updated to 7. Hence we see the numbers 1-5 printed but not the numbers 6-10.
 
 
 ### Formatting Conventions
@@ -499,7 +498,7 @@ c(1,2,3)
 ```
 Thinking back to the `sum` example, we also notice that the function produces a result, which is the sum of the elements of the vector.
 This result is called a _return value_, because it's something that the function "returns" back to you after it has finished running.
-Return values can assigned to R objects:
+Return values can be assigned to R objects:
 
 ```{r}
 s <- sum(v)
@@ -679,8 +678,8 @@ Demonstrate the use of your function with a few examples.
 
 ### Using Functions for Data Analysis
 
-Functions offer many of the same advantages as loops: They allow you can write less code and do more.
-Let's see how loops might be used for data analysis.  
+Functions offer many of the same advantages as loops: They allow you to write less code and do more.
+Let's see how functions might be used for data analysis.  
 Suppose we want to compare deaths between men and women for particular states and age groups. 
 Here's a barplot for Colorado in the 45-54 age group: 
 
@@ -742,7 +741,7 @@ plot_fm("New York", "85 years and over")
 
 ```{block, type="bonus"}
 Notice that our function doesn't actually _return_ anything, but it does produce a plot while running.
-The plots produced by this function are one example of _side effects_, which are changes that persist after the function is completed, that aren't the return value.
+The plots produced by this function are one example of _side effects_, which are changes that persist after the function is completed, and that aren't the return value.
 ```
 
 ```{block2, type="bonus"}
@@ -789,14 +788,13 @@ simple_f <- function(){
   return(XYZ)
 }
 
-print(simple_f())
 print(XYZ)
-
+print(simple_f())
 ```
 
-This function has no arguments, but it does create a new object called `var`, which is returned from the function.
-Notice, however, that printing out `var` gives an error.
-This is because the object `var` only exists in the _scope_ of the function `simple_f`, and is "forgotten" after the function finishes running.
+This function has no arguments, but it does create a new object called `XYZ`, which is returned from the function.
+Notice, however, that printing out `XYZ` gives an error.
+This is because the object `XYZ` only exists in the _scope_ of the function `simple_f`, and is "forgotten" after the function finishes running.
 This is true for any objects created inside any function (with one exception, noted in the bonus block below).
 Variables defined outside of functions are in the _global scope_, which means they can be accessed anywhere, both inside and outside functions:
 
@@ -834,7 +832,7 @@ However, `y` is not defined inside the function, so R uses the `y` from the glob
 ```{block, type="bonus"}
 In an earlier chapter, we briefly mentioned the assignment operators `<<-` and `->>`, but didn't say what made them special. 
 It turns out, they are able to assign objects in the global scope from inside functions. 
-You can test this by altering the above example by replacing the command `z <- 2` with the command `z <<- 2` and observing the result.
+You can test this by altering the `simple_f` function in a previous example (above) by replacing the command `XYZ <- 2` with the command `XYZ <<- 2` and observing the result.
 This assignment operator should almost _never_ be used, as it can cause confusion and unpredictable behavior if used in a more complicated R program.
 ```
 
@@ -843,14 +841,14 @@ When writing functions, it helps to start simple. It's easy to make a complicate
 ```
 
 ```{block, type="bonus"}
-You may be familiar with "pointers" in other language, and the difference between "pass by value" and "pass by reference". 
+You may be familiar with "pointers" in other languages, and the difference between "pass by value" and "pass by reference". 
 In most ordinary circumstances with R, there is _only_ pass by value.
 ```
 
 ```{block, type="progress"}
 (No need to turn this in)
 When discussing Objects in a previous chapter, we mentioned that everything in R is an object, and every object has a `mode` and `length`.
-pick an R function, or create your own function, and print its `mode` and `length`.
+Pick an R function, or create your own function, and print its `mode` and `length`.
 ```
 
 ```{block, type='feedback'}
