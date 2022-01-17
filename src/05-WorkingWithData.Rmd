@@ -99,13 +99,13 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 ## Reading / Writing Data
 
-Of course, if we want work on data which is NOT included in R, then we have to _read_ that data into R in order to work with it.
+Of course, if we want work on data which is NOT included in R, we have to _read_ that data into R in order to work with it.
 That is, the data are normally somewhere on your computer's hard drive (or SSD), and you must run a command in R which _reads_ that data into your R environment. 
 
 
 ### Olympic Athletes Example
 
-Let's look another example, this time with a data set of Olympic athletes. 
+Let's look at another example, this time with a data set of Olympic athletes. 
 This is just a subset of the full dataset, to make it easier for you to work with.
 Here's how we'll _read_ them into R:
 
@@ -468,14 +468,14 @@ The idea is that the data_raw folder contains all of the _original_ data sets th
 This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
 This is why the data in the folder should be thought of as _read only_. 
 Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The "clean" moniker comes from the fact that often times data sets need some "cleaning" such as removing duplicates, `NA` values, discarding irrelevant data, etc.
+The "clean" moniker comes from the fact that often times data sets need some "cleaning" such as removing duplicates, removing `NA` values, discarding irrelevant data, etc.
 There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets. 
 
 ```{block2, type="reflect"}
 Perhaps you've never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs is measured for each of four different days.
+Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
 Think about organizing each row to be a guinea pig and each column to be a day. 
-Can you think of an R function to compute the average tempareature on day 1?
+Can you think of an R function to compute the average temperature on day 1?
 How about the average temperature for guinea pig 3?
 How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
 Can you think of another way to organize the data?
@@ -587,7 +587,7 @@ Finally, there is one more way of indexing Matrices (for now), that provides onl
 M[5]  # access the "5th" element of the matrix
 ```
 If you give one index, then R will count down the first row, then the second, then the third, etc., until it reaches the index you specified.
-Notice how this agrees with the 5th element of the matrix `V`, which was used to make our matrix!
+Notice how this agrees with the 5th element of the vector `V`, which was used to make our matrix!
 And finally, as before, any of these indexing methods can be used to change an element's value:
 
 ```{r}
@@ -673,7 +673,7 @@ Think it's weird that data frames can be indexed like matrices? It gets weirder.
 
 ### Advanced Indexing
 
-There are _even more_ ways to select the data you need from your R data structures, let's look some more advanced techniques.
+There are _even more_ ways to select the data you need from your R data structures, let's look at some more advanced techniques.
 
 #### Logical Based Indexing
 
@@ -825,7 +825,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 ## Visualization
 
 R is incredibly useful for creating visualizations and graphics which are easy to customize and automate, and entire university courses are dedicated to creating visualizations with R.
-Here we can only introduce the basics of creating visualizations in R.
+Here we will only introduce the basics of creating visualizations in R.
 
 ```{block2, type="caution"}
 In this course, we focus on the visualizations in "base R", not the capabilities provided by outside sources.
@@ -844,7 +844,7 @@ In the Olympic athletes data, `Height` is a quantitative variable, so let's crea
 ```{r, fig.height=4}
 hist(athletes$Height)
 ```
-This histogram shows that most heights are between roughly 160 and 190 inches, and the distribution looks _unimodal_.
+This histogram shows that most heights are between roughly 160 and 190 centimeters, and the distribution looks _unimodal_.
 Notice that R has decided how many bins (bars) to use, but this can be changed with the `breaks` option:
 
 ```{r, fig.height=4}
@@ -1048,7 +1048,7 @@ mosaicplot(gy_bb_wr$Sport ~ gy_bb_wr$Sex, col=c("blue", "orange"), main="Athlete
 
 One nice feature of R's plotting capability is that you can plot multiple things at the same time.
 One way to do this is to create a plot and then add another plot _on top_ of it, using either the `points` or `lines` function.
-`points` will add a scatter plot using lines, and `lines` will add a scatter plot using a line.
+`points` will add a scatter plot using points/dots, and `lines` will add a scatter plot using a line.
 Normally, a plotting function like `plot` or `hist` will create a new plot _figure_, erasing what may have been plotted before.
 But with the `points` and `lines` functions, R just adds to the existing figure.
 Here's an example of each:
@@ -1144,7 +1144,7 @@ When you're sending a plot to a file, it will _not_ display in the plot window.
 #### RStudio Plot Window
 
 If you run code to generate a plot from the console or an R script, then the plot will show up in the RStudio plot window.
-To save a figure displayed in the plot window, use the "Explort" button in the plot window menu.
+To save a figure displayed in the plot window, use the "Export" button in the plot window menu.
 
 #### RMarkdown
 
@@ -1191,7 +1191,7 @@ the history of flooding in the last ten years in the Cache La Poudre river
 which runs through Fort Collins. This vignette will help you learn three key ideas:
 
 1) Data can be read into R directly from online data services using `packages`
-which you will learn about more later in this book. 
+which you will learn about later in this book. 
 
 2) We can use this 'live' data to understand both past and present river conditions
 in the river.
@@ -1230,7 +1230,7 @@ library(dataRetrieval)
 #### Downloading the data
 
 Once we have loaded the package we can use
-the special functions that it brings to the table. In this case `dataRetrival` 
+the special functions that it brings to the table. In this case, `dataRetrival` 
 provides a function called `readNWISdv` which can download daily data 
 (or daily values, hence readNWIS*dv*) for specific
 monitoring locations. But how do we use this function? 
@@ -1242,7 +1242,7 @@ Cache La Poudre is `06752260`, which you can find [here](https://waterdata.usgs.
 The second argument is the `parameterCd` which
 is a cryptic code that indicates what kind of data you want to download. In 
 this case we want to download river flow data. River 
-flow tells us how much water is moving past a given point over and is correlated
+flow tells us how much water is moving past a given point and is correlated
 with the height of the river water. This code is `00060` for discharge which means
 river flow. 
 Lastly we need to tell the `readNWISdv` command the time period for which we want

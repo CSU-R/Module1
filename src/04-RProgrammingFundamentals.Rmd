@@ -17,7 +17,7 @@ Think of these things as the fundamental pieces that you need to understand in o
 
 
 All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
-When two humans communicate with a language, they both must agree on the the rules of that language.
+When two humans communicate with a language, they both must agree on the rules of that language.
 
 R also has rules that must be followed in order for a human ( _you_ ) to communicate with a computer, in order to tell the computer what to do.
 In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
@@ -218,7 +218,7 @@ Programmers have a sense of humor, too! Try running `????print` to see a small j
 ```
 
 ```{block, type="bonus"}
-This is a lot to remember, but luckily you can use a [cheat sheet](https://rstudio.com/wp-content/uploads/2016/10/r-cheat-sheet-3.pdf) while you're learning. As you get more familiar with R, you'll begin to memorize basic funtions - and google is always there for the rest. 
+This is a lot to remember. As you get more familiar with R, you'll begin to memorize basic functions - and Google is always there for the rest. 
 ```
 
 ```{block, type="bonus"}
@@ -688,7 +688,7 @@ If you were in charge of making this decision, what would make the most sense?
 Let's try to create a vector of mixed type and see what happens.
 Run the following commands in R and think about the output:
 
-`m <- c(TRUE, "Hello", 5)`
+`m <- c(TRUE, "Hello", 5)` 
 
 `class(m)`
 
@@ -871,7 +871,7 @@ Here's another example of using the sum function on a logical vector:
 ```{r}
 sum(a == b)  # how many elements do a and b have in common?
 ```
-So there are no elements where `a` and `b` are the same.
+So there is one element that both `a` and `b` share.
 
 ```{block, type="bonus"}
 Logical vectors can also be used to access all elements of a vector for which a certain condition is true.
@@ -1179,7 +1179,7 @@ Based on what you know, make a prediction about what the following commands will
 `as.numeric(c(T, F, F, T))`
 `as.character(c(T, F, F, T))`
 
-Check your predictions by typing running the commands in R.
+Check your predictions by running the commands in R.
 ```
 
 Remember that "solo" objects are just vectors of length 1, so any of these type conversions should work on a single object as well, like so:
@@ -1273,7 +1273,7 @@ You can get the shape of a matrix with the `dim` function:
 ```{r}
 dim(A)  # how many rows & columns does A have?
 ```
-Which gives an integer vector tellins us `A` has three rows and three columns.
+Which gives an integer vector telling us `A` has three rows and three columns.
 
 ```{block, type="progress"}
 In R, create the matrix `A` above, and write code to compute the first element of the second row times the third element of the third row.
@@ -1526,8 +1526,8 @@ rocks
 ```
 
 ```{block, type="caution"}
-When defining the `rocks` list, we've spread the command accross multiple lines for clarity.
-The commas at the end of some of the lines indicate that the list has more components, so R will continue reading the next line until it finds the closing parenthesis, `)`.
+When defining the `rocks` list, we've spread the command across multiple lines for clarity.
+The commas at the end of some of the lines separate the elements of the list. R will continue reading the next line until it finds the closing parenthesis, `)`.
 ```
 
 There are so many sets of data that fit into this pattern, that R has a special data type called a _data frame_, which we will discuss in the next section.
@@ -1550,7 +1550,7 @@ rocks   # we'll add the specimen names later
 ```
 
 
-Now when R display `rocks`, it arranges the data in rows and columns, similar to how it displays matrices.
+Now when R displays `rocks`, it arranges the data in rows and columns, similar to how it displays matrices.
 Unlike matrices, however, the columns don't all have to be the same data type!
 
 ```{block, type="caution"}
@@ -1730,7 +1730,7 @@ which in _most cases_, has the exact same effect as using the `<-`, but in a few
 Our recommendation is to always use `<-` when making object assignments.
 
 ```{block, type="bonus"}
-There are other assignment operators as well, `<<-`, `->>`, and `<-`, but we will not discuss these. 
+There are other assignment operators as well, `<<-`, `->>`, and `->`, but we will not discuss these. 
 You can find out more with the command `?assignOps`.
 ```
 
@@ -1769,11 +1769,11 @@ length(b)
 ```
 
 ```{block, type="progress"}
-_Every object_ has a length.
-Try creating an example of the following and examining the length:
+_Every object_ has a length attribute.
+Try creating an example of the following and examining the length of each:
 1. A logical vector with 5 elements
-1. A matrix with two rows and two columns
-1. A list with two objects in it.
+2. A matrix with two rows and two columns
+3. A list with two objects in it.
 ```
 
 Every R object has a _mode_ as well, which tells you what _type_ of object you have.
@@ -1789,7 +1789,7 @@ mode(b)
 
 ```{block2, type="progress"}
 _Every object_ has a length.
-Try creating an example of the following and examining the mode:
+Try creating an example of the following and examining the length:
   
 1. A logical vector with 5 elements
 1. A 2 x 2 matrix

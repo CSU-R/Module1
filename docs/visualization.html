@@ -313,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualization" class="section level2">
 <h2><span class="header-section-number">5.6</span> Visualization</h2>
 <p>R is incredibly useful for creating visualizations and graphics which are easy to customize and automate, and entire university courses are dedicated to creating visualizations with R.
-Here we can only introduce the basics of creating visualizations in R.</p>
+Here we will only introduce the basics of creating visualizations in R.</p>
 
 <div class="caution">
 In this course, we focus on the visualizations in “base R”, not the capabilities provided by outside sources.
@@ -329,7 +329,7 @@ The height of each bar reflects how many observations fall within that range.
 In the Olympic athletes data, <code>Height</code> is a quantitative variable, so let’s create a histogram using the <code>hist</code> function:</p>
 <div class="sourceCode" id="cb423"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb423-1"><a href="visualization.html#cb423-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
-This histogram shows that most heights are between roughly 160 and 190 inches, and the distribution looks <em>unimodal</em>.
+This histogram shows that most heights are between roughly 160 and 190 centimeters, and the distribution looks <em>unimodal</em>.
 Notice that R has decided how many bins (bars) to use, but this can be changed with the <code>breaks</code> option:</p>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb424-1"><a href="visualization.html#cb424-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height, <span class="dt">breaks=</span><span class="dv">70</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
@@ -474,7 +474,7 @@ Create a barplot for the Season variable, with an appropriate title and axis lab
 <h3><span class="header-section-number">5.6.5</span> Multiple plots</h3>
 <p>One nice feature of R’s plotting capability is that you can plot multiple things at the same time.
 One way to do this is to create a plot and then add another plot <em>on top</em> of it, using either the <code>points</code> or <code>lines</code> function.
-<code>points</code> will add a scatter plot using lines, and <code>lines</code> will add a scatter plot using a line.
+<code>points</code> will add a scatter plot using points/dots, and <code>lines</code> will add a scatter plot using a line.
 Normally, a plotting function like <code>plot</code> or <code>hist</code> will create a new plot <em>figure</em>, erasing what may have been plotted before.
 But with the <code>points</code> and <code>lines</code> functions, R just adds to the existing figure.
 Here’s an example of each:</p>
@@ -549,7 +549,7 @@ When you’re sending a plot to a file, it will <em>not</em> display in the plot
 <div id="rstudio-plot-window" class="section level4">
 <h4><span class="header-section-number">5.6.7.2</span> RStudio Plot Window</h4>
 <p>If you run code to generate a plot from the console or an R script, then the plot will show up in the RStudio plot window.
-To save a figure displayed in the plot window, use the “Explort” button in the plot window menu.</p>
+To save a figure displayed in the plot window, use the “Export” button in the plot window menu.</p>
 </div>
 <div id="rmarkdown" class="section level4">
 <h4><span class="header-section-number">5.6.7.3</span> RMarkdown</h4>

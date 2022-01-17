@@ -392,7 +392,7 @@ Let’s create a matrix from the <code>V</code> vector and access one of its ele
 <div class="sourceCode" id="cb390"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb390-1"><a href="indexing.html#cb390-1"></a>M[<span class="dv">5</span>]  <span class="co"># access the &quot;5th&quot; element of the matrix</span></span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;E&quot;</code></pre>
 <p>If you give one index, then R will count down the first row, then the second, then the third, etc., until it reaches the index you specified.
-Notice how this agrees with the 5th element of the matrix <code>V</code>, which was used to make our matrix!
+Notice how this agrees with the 5th element of the vector <code>V</code>, which was used to make our matrix!
 And finally, as before, any of these indexing methods can be used to change an element’s value:</p>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb392-1"><a href="indexing.html#cb392-1"></a>M[<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] &lt;-<span class="st"> &quot;Hats&quot;</span></span>
 <span id="cb392-2"><a href="indexing.html#cb392-2"></a>M</span></code></pre></div>
@@ -484,7 +484,7 @@ Think it’s weird that data frames can be indexed like matrices? It gets weirde
 </div>
 <div id="advanced-indexing" class="section level3">
 <h3><span class="header-section-number">5.5.5</span> Advanced Indexing</h3>
-<p>There are <em>even more</em> ways to select the data you need from your R data structures, let’s look some more advanced techniques.</p>
+<p>There are <em>even more</em> ways to select the data you need from your R data structures, let’s look at some more advanced techniques.</p>
 <div id="logical-based-indexing" class="section level4">
 <h4><span class="header-section-number">5.5.5.1</span> Logical Based Indexing</h4>
 <p>One <em>very</em> useful method that R provides is to access elements of a vector using a different, logical vector of the same length.

@@ -365,14 +365,14 @@ See [here](https://support.rstudio.com/hc/en-us/articles/200711843-Working-Direc
 
 ### Create RStudio Project and directories for class
 
-RStudio also has a feature called _projects_, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects without having to 
+RStudio also has a feature called _projects_, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects.
 For this class, you should set up a new project, so all of your project related files are in one place.
 
 #### Create RStudio Project
 
 To create an RStudio project, follow these steps:
 
-- Click on the "new project" button
+- Click on the "Create a project" button
 
 ```{r, fig.cap="Click this button to create a new project", echo=F}
 knitr::include_graphics("src/images/rstudio_newproject.png")

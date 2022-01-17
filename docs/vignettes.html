@@ -320,7 +320,7 @@ the history of flooding in the last ten years in the Cache La Poudre river
 which runs through Fort Collins. This vignette will help you learn three key ideas:</p>
 <ol style="list-style-type: decimal">
 <li><p>Data can be read into R directly from online data services using <code>packages</code>
-which you will learn about more later in this book.</p></li>
+which you will learn about later in this book.</p></li>
 <li><p>We can use this ‘live’ data to understand both past and present river conditions
 in the river.</p></li>
 <li><p>We can use R to look at changes over time in river flow and water height.</p></li>
@@ -353,7 +353,7 @@ using the command <code>library</code>.</p>
 <div id="downloading-the-data" class="section level4">
 <h4><span class="header-section-number">5.7.1.3</span> Downloading the data</h4>
 <p>Once we have loaded the package we can use
-the special functions that it brings to the table. In this case <code>dataRetrival</code>
+the special functions that it brings to the table. In this case, <code>dataRetrival</code>
 provides a function called <code>readNWISdv</code> which can download daily data
 (or daily values, hence readNWIS<em>dv</em>) for specific
 monitoring locations. But how do we use this function?
@@ -365,7 +365,7 @@ Cache La Poudre is <code>06752260</code>, which you can find <a href="https://wa
 The second argument is the <code>parameterCd</code> which
 is a cryptic code that indicates what kind of data you want to download. In
 this case we want to download river flow data. River
-flow tells us how much water is moving past a given point over and is correlated
+flow tells us how much water is moving past a given point and is correlated
 with the height of the river water. This code is <code>00060</code> for discharge which means
 river flow.
 Lastly we need to tell the <code>readNWISdv</code> command the time period for which we want

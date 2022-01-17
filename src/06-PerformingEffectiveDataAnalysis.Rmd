@@ -891,7 +891,7 @@ Here's another way to do the same thing using the `sapply` function:
 
 
 ```{r}
-# apply the function square_plus_one to every 
+# apply the function square_plus_one to every element in x
 z <- sapply(x, square_plus_one)
 
 # z agrees with y!
