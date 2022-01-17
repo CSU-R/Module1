@@ -22,6 +22,7 @@
   
 
 <meta name="author" content="Alex Fout" />
+<meta name="author" content="Addison Adams" />
 
 
 
@@ -567,13 +568,14 @@ Choose a plot that you previously created, and write code to save the plot to a 
 <p>These examples of plotting are only scratching the surface.
 There are many more things possible with base R graphics, not to mention the numerous other capabilities provided by community developed Packages.
 Before ending this section, we’ll leave you with an example from the <code>ggplot2</code> package, just to give you a taste of what’s possible.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb451-1"><a href="visualization.html#cb451-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb451-2"><a href="visualization.html#cb451-2"></a></span>
-<span id="cb451-3"><a href="visualization.html#cb451-3"></a><span class="kw">ggplot</span>(gy_bb_wr, <span class="kw">aes</span>(Height, Weight, <span class="dt">color=</span>Sex)) <span class="op">+</span></span>
-<span id="cb451-4"><a href="visualization.html#cb451-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span><span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb451-5"><a href="visualization.html#cb451-5"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb451-6"><a href="visualization.html#cb451-6"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb451-7"><a href="visualization.html#cb451-7"></a><span class="st">  </span><span class="kw">facet_grid</span>(Sex<span class="op">~</span>Sport)</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb451-1"><a href="visualization.html#cb451-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<pre><code>Warning: replacing previous import &#39;vctrs::data_frame&#39; by &#39;tibble::data_frame&#39;
+when loading &#39;dplyr&#39;</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb453-1"><a href="visualization.html#cb453-1"></a><span class="kw">ggplot</span>(gy_bb_wr, <span class="kw">aes</span>(Height, Weight, <span class="dt">color=</span>Sex)) <span class="op">+</span></span>
+<span id="cb453-2"><a href="visualization.html#cb453-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span><span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb453-3"><a href="visualization.html#cb453-3"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb453-4"><a href="visualization.html#cb453-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb453-5"><a href="visualization.html#cb453-5"></a><span class="st">  </span><span class="kw">facet_grid</span>(Sex<span class="op">~</span>Sport)</span></code></pre></div>
 <pre><code>Warning: Removed 199 rows containing missing values (geom_point).</code></pre>
 <p><img src="Module1_files/figure-html/unnamed-chunk-469-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="feedback">
