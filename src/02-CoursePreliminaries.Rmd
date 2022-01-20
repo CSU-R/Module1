@@ -105,7 +105,7 @@ First, some important details:
 
 - __Exams__: There will be no exams in this course
 
-- __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read before the lecture. The reminder of the time will be _student-lead_. We will cover questions students may have or work on homework together.
+- __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read before the lecture. The reminder of the time will be _student-led_. We will cover questions students may have or work on homework together.
 
 - __Grading__: The grading for the course is apportioned like so:
 
