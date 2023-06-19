@@ -9,27 +9,6 @@ bookdown::gitbook:
     download: ["pdf", "epub"]   
     toolbar:
       position: static
-    edit : null
-    # download: ["book.epub", "EPUB"]
-    search:
-      engine: lunr # or fuse
-      # options to control/tune search engine behavior (for
-      # fuse.js, refer to https://fusejs.io/api/options.html)
-      options: null
-    fontsettings:
-      theme: white
-      family: sans
-      size: 2
-    sharing:
-      facebook: true
-      github: true
-      twitter: true
-      linkedin: false
-      weibo: false
-      instapaper: false
-      vk: false
-      whatsapp: false
-      all: ['facebook', 'twitter', 'linkedin', 'weibo', 'instapaper']
   df_print: paged
   split_by: section
 bookdown::pdf_book:

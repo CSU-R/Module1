@@ -49,7 +49,6 @@
 
 
 
-
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
@@ -407,7 +406,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x11caf67c8&gt;
+&lt;bytecode: 0x11a00d1c8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -415,7 +414,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb517-2"><a href="writing-functions.html#cb517-2" tabindex="-1"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x132ca5978&gt;
+&lt;bytecode: 0x11aafc378&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -703,7 +702,6 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -715,7 +713,7 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": true,
+"github": false,
 "facebook": true,
 "twitter": true,
 "linkedin": false,
@@ -730,7 +728,10 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": null,
+"edit": {
+"link": null,
+"text": null
+},
 "history": {
 "link": null,
 "text": null
@@ -741,7 +742,7 @@ gitbook.start({
 },
 "download": ["Module1.pdf", "Module1.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
