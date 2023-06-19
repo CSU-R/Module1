@@ -8,7 +8,7 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]   
     toolbar:
-      position: static
+      position: fixed
   df_print: paged
   split_by: section
 bookdown::pdf_book:
