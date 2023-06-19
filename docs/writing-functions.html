@@ -348,42 +348,42 @@ First we’ll think carefully about what all R functions have in common, then we
 <div id="the-components-of-a-function" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> The Components Of A Function<a href="writing-functions.html#the-components-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As an example, consider the <code>sum</code> function:</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb496-1"><a href="writing-functions.html#cb496-1" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb496-2"><a href="writing-functions.html#cb496-2" tabindex="-1"></a><span class="fu">sum</span>(v)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb495-1"><a href="writing-functions.html#cb495-1" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb495-2"><a href="writing-functions.html#cb495-2" tabindex="-1"></a><span class="fu">sum</span>(v)</span></code></pre></div>
 <pre class="output-style"><code>[1] 6</code></pre>
 <p>When R runs this function, it takes a numeric vector and computes the sum of its elements.
 The numeric vector is specified by <em>you</em>, the programmer, and it’s formally called an <em>argument</em>.
 The argument can be thought of as the “input” into the function.
 Some functions use more than one argument, like the <code>seq</code> function:</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb498-1"><a href="writing-functions.html#cb498-1" tabindex="-1"></a><span class="co"># Create a sequence of numbers from 3 to 9 </span></span>
-<span id="cb498-2"><a href="writing-functions.html#cb498-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb497-1"><a href="writing-functions.html#cb497-1" tabindex="-1"></a><span class="co"># Create a sequence of numbers from 3 to 9 </span></span>
+<span id="cb497-2"><a href="writing-functions.html#cb497-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">3</span>, <span class="dv">9</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 3 4 5 6 7 8 9</code></pre>
 <p>while others functions might have <em>no</em> arguments, like <code>getwd</code>:</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb500-1"><a href="writing-functions.html#cb500-1" tabindex="-1"></a><span class="co"># Get the current working directory</span></span>
-<span id="cb500-2"><a href="writing-functions.html#cb500-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb499-1"><a href="writing-functions.html#cb499-1" tabindex="-1"></a><span class="co"># Get the current working directory</span></span>
+<span id="cb499-2"><a href="writing-functions.html#cb499-2" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;/Users/lanedrew/Documents/Teaching/STAT158_SU23/Module1&quot;</code></pre>
 <p>Other functions can work with different numbers of arguments, like the combine function, <code>c</code>:</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb502-1"><a href="writing-functions.html#cb502-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb501-1"><a href="writing-functions.html#cb501-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1</code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb504-1"><a href="writing-functions.html#cb504-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb503-1"><a href="writing-functions.html#cb503-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1 2</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb506-1"><a href="writing-functions.html#cb506-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb505-1"><a href="writing-functions.html#cb505-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 1 2 3</code></pre>
 <p>Thinking back to the <code>sum</code> example, we also notice that the function produces a result, which is the sum of the elements of the vector.
 This result is called a <em>return value</em>, because it’s something that the function “returns” back to you after it has finished running.
 Return values can be assigned to R objects:</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb508-1"><a href="writing-functions.html#cb508-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(v)</span>
-<span id="cb508-2"><a href="writing-functions.html#cb508-2" tabindex="-1"></a><span class="fu">print</span>(s)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb507-1"><a href="writing-functions.html#cb507-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sum</span>(v)</span>
+<span id="cb507-2"><a href="writing-functions.html#cb507-2" tabindex="-1"></a><span class="fu">print</span>(s)</span></code></pre></div>
 <pre class="output-style"><code>[1] 6</code></pre>
 <p>The combine function’s output is a vector, which we can assign to an object called <code>w</code>:</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb510-1"><a href="writing-functions.html#cb510-1" tabindex="-1"></a><span class="co"># the return value of c() is assigned to w</span></span>
-<span id="cb510-2"><a href="writing-functions.html#cb510-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </span>
-<span id="cb510-3"><a href="writing-functions.html#cb510-3" tabindex="-1"></a><span class="fu">print</span>(w)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb509-1"><a href="writing-functions.html#cb509-1" tabindex="-1"></a><span class="co"># the return value of c() is assigned to w</span></span>
+<span id="cb509-2"><a href="writing-functions.html#cb509-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>) </span>
+<span id="cb509-3"><a href="writing-functions.html#cb509-3" tabindex="-1"></a><span class="fu">print</span>(w)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <p>Sometimes a function doesn’t have a return value, as with the <code>rm</code> function:</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb512-1"><a href="writing-functions.html#cb512-1" tabindex="-1"></a><span class="co"># rm doesn&#39;t have a return value, which is why result is NULL (i.e. no object)</span></span>
-<span id="cb512-2"><a href="writing-functions.html#cb512-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rm</span>(w) </span>
-<span id="cb512-3"><a href="writing-functions.html#cb512-3" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb511-1"><a href="writing-functions.html#cb511-1" tabindex="-1"></a><span class="co"># rm doesn&#39;t have a return value, which is why result is NULL (i.e. no object)</span></span>
+<span id="cb511-2"><a href="writing-functions.html#cb511-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rm</span>(w) </span>
+<span id="cb511-3"><a href="writing-functions.html#cb511-3" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="reflect">
 <p>
@@ -392,29 +392,29 @@ Remember what the <code>rm</code> function does?
 </div>
 <p>Aside from the <em>arguments</em> and the <em>return value</em> of a function, we can talk about what the function actually <em>does</em>.
 The <code>sum</code> function obviously computes the sum of a vector, but the <code>sqrt</code> takes the square root of a number:</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb514-1"><a href="writing-functions.html#cb514-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">58</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb513-1"><a href="writing-functions.html#cb513-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">58</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 7.615773</code></pre>
 <p>As we will see shortly, what a function <em>does</em> is determined by the code in its <em>body</em>.
 That’s right, functions are basically a collection of code that is combined in a convenient package.
 We can even examine the code for a function by typing its name <em>without parentheses</em>.
 Here’s the <code>sort</code> function:</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb516-1"><a href="writing-functions.html#cb516-1" tabindex="-1"></a><span class="co"># View the code of the sort function</span></span>
-<span id="cb516-2"><a href="writing-functions.html#cb516-2" tabindex="-1"></a>sort</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb515-1"><a href="writing-functions.html#cb515-1" tabindex="-1"></a><span class="co"># View the code of the sort function</span></span>
+<span id="cb515-2"><a href="writing-functions.html#cb515-2" tabindex="-1"></a>sort</span></code></pre></div>
 <pre class="output-style"><code>function (x, decreasing = FALSE, ...) 
 {
     if (!is.logical(decreasing) || length(decreasing) != 1L) 
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x128859eb0&gt;
+&lt;bytecode: 0x11c5e7a70&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb518-1"><a href="writing-functions.html#cb518-1" tabindex="-1"></a><span class="co"># View the code of the mean function (or so we think)</span></span>
-<span id="cb518-2"><a href="writing-functions.html#cb518-2" tabindex="-1"></a>mean</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb517-1"><a href="writing-functions.html#cb517-1" tabindex="-1"></a><span class="co"># View the code of the mean function (or so we think)</span></span>
+<span id="cb517-2"><a href="writing-functions.html#cb517-2" tabindex="-1"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x1385ba3c8&gt;
+&lt;bytecode: 0x12a0fe150&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.
@@ -436,13 +436,13 @@ href="http://adv-r.had.co.nz/Functions.html">this link</a>.
 <p>The beauty of functions in R is that you can write your own!
 All you have to do is specify the arguments, body, and return value for your function.
 Here’s a simple example how to define a function:</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb520-1"><a href="writing-functions.html#cb520-1" tabindex="-1"></a><span class="co"># Create function which adds 1 to the input argument</span></span>
-<span id="cb520-2"><a href="writing-functions.html#cb520-2" tabindex="-1"></a>add_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb520-3"><a href="writing-functions.html#cb520-3" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb520-4"><a href="writing-functions.html#cb520-4" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
-<span id="cb520-5"><a href="writing-functions.html#cb520-5" tabindex="-1"></a>}</span>
-<span id="cb520-6"><a href="writing-functions.html#cb520-6" tabindex="-1"></a><span class="co"># test out the function</span></span>
-<span id="cb520-7"><a href="writing-functions.html#cb520-7" tabindex="-1"></a><span class="fu">add_one</span>(<span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb519-1"><a href="writing-functions.html#cb519-1" tabindex="-1"></a><span class="co"># Create function which adds 1 to the input argument</span></span>
+<span id="cb519-2"><a href="writing-functions.html#cb519-2" tabindex="-1"></a>add_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb519-3"><a href="writing-functions.html#cb519-3" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb519-4"><a href="writing-functions.html#cb519-4" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb519-5"><a href="writing-functions.html#cb519-5" tabindex="-1"></a>}</span>
+<span id="cb519-6"><a href="writing-functions.html#cb519-6" tabindex="-1"></a><span class="co"># test out the function</span></span>
+<span id="cb519-7"><a href="writing-functions.html#cb519-7" tabindex="-1"></a><span class="fu">add_one</span>(<span class="dv">100</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 101</code></pre>
 <p>Here we define a function called <code>add_one</code>, using the assignment operator <code>&lt;-</code>, just like when we define new vectors, data frames, integers, etc.</p>
 <ul>
@@ -452,18 +452,18 @@ Here’s a simple example how to define a function:</p>
 <li>When the function is run, we see the return value (100 + 1) displayed in the output.</li>
 </ul>
 <p>Let’s view the code of the function we just wrote:</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb522-1"><a href="writing-functions.html#cb522-1" tabindex="-1"></a>add_one</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb521-1"><a href="writing-functions.html#cb521-1" tabindex="-1"></a>add_one</span></code></pre></div>
 <pre class="output-style"><code>function(x){
   y &lt;- x + 1
   return(y)
 }</code></pre>
 <p>Here it shows us exactly the code that we used to create the function.
 Let’s use the function a few more times:</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb524-1"><a href="writing-functions.html#cb524-1" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">add_one</span>(<span class="dv">10</span>)  <span class="co"># assign the return value of add_one to `number`</span></span>
-<span id="cb524-2"><a href="writing-functions.html#cb524-2" tabindex="-1"></a>number</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb523-1"><a href="writing-functions.html#cb523-1" tabindex="-1"></a>number <span class="ot">&lt;-</span> <span class="fu">add_one</span>(<span class="dv">10</span>)  <span class="co"># assign the return value of add_one to `number`</span></span>
+<span id="cb523-2"><a href="writing-functions.html#cb523-2" tabindex="-1"></a>number</span></code></pre></div>
 <pre class="output-style"><code>[1] 11</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb526-1"><a href="writing-functions.html#cb526-1" tabindex="-1"></a><span class="co"># nest our function</span></span>
-<span id="cb526-2"><a href="writing-functions.html#cb526-2" tabindex="-1"></a><span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb525-1"><a href="writing-functions.html#cb525-1" tabindex="-1"></a><span class="co"># nest our function</span></span>
+<span id="cb525-2"><a href="writing-functions.html#cb525-2" tabindex="-1"></a><span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="fu">add_one</span>(<span class="dv">1</span>)))</span></code></pre></div>
 <pre class="output-style"><code>[1] 4</code></pre>
 <div class="caution">
 <p>
@@ -475,46 +475,46 @@ to understand, and potentially unpredictable!
 </div>
 <p>Sometimes it’s not necessary to specify a return value.
 If you don’t, then R will take any output generated by the last command in the function and return it:</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb528-1"><a href="writing-functions.html#cb528-1" tabindex="-1"></a>add_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb528-2"><a href="writing-functions.html#cb528-2" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">2</span>  <span class="co"># R will return the result of x + 2 </span></span>
-<span id="cb528-3"><a href="writing-functions.html#cb528-3" tabindex="-1"></a>}</span>
-<span id="cb528-4"><a href="writing-functions.html#cb528-4" tabindex="-1"></a></span>
-<span id="cb528-5"><a href="writing-functions.html#cb528-5" tabindex="-1"></a><span class="fu">add_two</span>(<span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb527-1"><a href="writing-functions.html#cb527-1" tabindex="-1"></a>add_two <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb527-2"><a href="writing-functions.html#cb527-2" tabindex="-1"></a>  x <span class="sc">+</span> <span class="dv">2</span>  <span class="co"># R will return the result of x + 2 </span></span>
+<span id="cb527-3"><a href="writing-functions.html#cb527-3" tabindex="-1"></a>}</span>
+<span id="cb527-4"><a href="writing-functions.html#cb527-4" tabindex="-1"></a></span>
+<span id="cb527-5"><a href="writing-functions.html#cb527-5" tabindex="-1"></a><span class="fu">add_two</span>(<span class="dv">12</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 14</code></pre>
 <p>But you must be careful, because some commands produce no output. Remember that if we type math, then R will print the result:</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb530-1"><a href="writing-functions.html#cb530-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb529-1"><a href="writing-functions.html#cb529-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
 <p>but if we assign the result to a variable, R will not print anything (the result is assigned to the variable instead):</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb532-1"><a href="writing-functions.html#cb532-1" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb531-1"><a href="writing-functions.html#cb531-1" tabindex="-1"></a>two <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <p>This is how it works for function return values as well.
 So if we write a statement at the end of a function, but assign the result to a variable, R will not return the value.</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb533-1"><a href="writing-functions.html#cb533-1" tabindex="-1"></a>add_three <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb533-2"><a href="writing-functions.html#cb533-2" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span>  <span class="co"># the results are assigned to y, but y is not returned</span></span>
-<span id="cb533-3"><a href="writing-functions.html#cb533-3" tabindex="-1"></a>}</span>
-<span id="cb533-4"><a href="writing-functions.html#cb533-4" tabindex="-1"></a></span>
-<span id="cb533-5"><a href="writing-functions.html#cb533-5" tabindex="-1"></a><span class="fu">add_three</span>(<span class="dv">4</span>)  <span class="co"># this returns nothing</span></span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb532-1"><a href="writing-functions.html#cb532-1" tabindex="-1"></a>add_three <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb532-2"><a href="writing-functions.html#cb532-2" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">3</span>  <span class="co"># the results are assigned to y, but y is not returned</span></span>
+<span id="cb532-3"><a href="writing-functions.html#cb532-3" tabindex="-1"></a>}</span>
+<span id="cb532-4"><a href="writing-functions.html#cb532-4" tabindex="-1"></a></span>
+<span id="cb532-5"><a href="writing-functions.html#cb532-5" tabindex="-1"></a><span class="fu">add_three</span>(<span class="dv">4</span>)  <span class="co"># this returns nothing</span></span></code></pre></div>
 
 <div class="bonus">
 This is technically <em>not true</em>. The above function <em>does</em> return the value of y, but it is “invisible”. To display the output, you can wrap the result in parentheses like this: <code>(add_three(4))</code>
 </div>
 <p>Now let’s look at a more complicated example that has two arguments:</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb534-1"><a href="writing-functions.html#cb534-1" tabindex="-1"></a><span class="co"># function to raise x to the y-th power </span></span>
-<span id="cb534-2"><a href="writing-functions.html#cb534-2" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){   <span class="co"># Here we specify the function has two arguments.</span></span>
-<span id="cb534-3"><a href="writing-functions.html#cb534-3" tabindex="-1"></a>  p <span class="ot">&lt;-</span> x<span class="sc">^</span>y</span>
-<span id="cb534-4"><a href="writing-functions.html#cb534-4" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
-<span id="cb534-5"><a href="writing-functions.html#cb534-5" tabindex="-1"></a>}</span>
-<span id="cb534-6"><a href="writing-functions.html#cb534-6" tabindex="-1"></a><span class="co"># test the arguments with x=2 and y=3</span></span>
-<span id="cb534-7"><a href="writing-functions.html#cb534-7" tabindex="-1"></a><span class="fu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb533-1"><a href="writing-functions.html#cb533-1" tabindex="-1"></a><span class="co"># function to raise x to the y-th power </span></span>
+<span id="cb533-2"><a href="writing-functions.html#cb533-2" tabindex="-1"></a>pow <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y){   <span class="co"># Here we specify the function has two arguments.</span></span>
+<span id="cb533-3"><a href="writing-functions.html#cb533-3" tabindex="-1"></a>  p <span class="ot">&lt;-</span> x<span class="sc">^</span>y</span>
+<span id="cb533-4"><a href="writing-functions.html#cb533-4" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb533-5"><a href="writing-functions.html#cb533-5" tabindex="-1"></a>}</span>
+<span id="cb533-6"><a href="writing-functions.html#cb533-6" tabindex="-1"></a><span class="co"># test the arguments with x=2 and y=3</span></span>
+<span id="cb533-7"><a href="writing-functions.html#cb533-7" tabindex="-1"></a><span class="fu">pow</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 8</code></pre>
 <p>There’s an important lesson to learn from this example.
 When we tested the function, R used 2 as the value of <code>x</code> and 3 for the value of <code>y</code> (after all, 2 cubed is 8), and this is because of the <em>order</em> that the arguments were supplied.
 When we defined the function, we specified that <code>x</code> and <code>y</code> are the arguments, in that order.
 Then when we called the function, we put 2 first and 3 second.
 Perhaps this is obvious, but strange things are possible, because R also allows you to specify the arguments <em>by name</em> like so:</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb536-1"><a href="writing-functions.html#cb536-1" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">y=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb535-1"><a href="writing-functions.html#cb535-1" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">y=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 8</code></pre>
 <p>So far this gives the same result, but watch what happens if we do this instead:</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb538-1"><a href="writing-functions.html#cb538-1" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">y=</span><span class="dv">2</span>, <span class="at">x=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb537-1"><a href="writing-functions.html#cb537-1" tabindex="-1"></a><span class="fu">pow</span>(<span class="at">y=</span><span class="dv">2</span>, <span class="at">x=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 9</code></pre>
 <p>This time, R computed 3 squared instead of 2 cubed, even though we specified <code>y</code> first and <code>x</code> second.
 When you specify parameters by name, <em>R will ignore the order that they are given in</em>.</p>
@@ -541,34 +541,34 @@ function with a few examples.
 Let’s see how functions might be used for data analysis.<br />
 Suppose we want to compare deaths between men and women for particular states and age groups.
 Here’s a barplot for Colorado in the 45-54 age group:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb540-1"><a href="writing-functions.html#cb540-1" tabindex="-1"></a><span class="co"># Extract just the state and age group of interest</span></span>
-<span id="cb540-2"><a href="writing-functions.html#cb540-2" tabindex="-1"></a>covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> <span class="st">&quot;Colorado&quot;</span>) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> <span class="st">&quot;45-54 years&quot;</span>),]</span>
-<span id="cb540-3"><a href="writing-functions.html#cb540-3" tabindex="-1"></a></span>
-<span id="cb540-4"><a href="writing-functions.html#cb540-4" tabindex="-1"></a><span class="co"># create a bar plot</span></span>
-<span id="cb540-5"><a href="writing-functions.html#cb540-5" tabindex="-1"></a><span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths,  <span class="co"># specify column to plot</span></span>
-<span id="cb540-6"><a href="writing-functions.html#cb540-6" tabindex="-1"></a>        <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex,    <span class="co"># specify bar names</span></span>
-<span id="cb540-7"><a href="writing-functions.html#cb540-7" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
-<span id="cb540-8"><a href="writing-functions.html#cb540-8" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb539-1"><a href="writing-functions.html#cb539-1" tabindex="-1"></a><span class="co"># Extract just the state and age group of interest</span></span>
+<span id="cb539-2"><a href="writing-functions.html#cb539-2" tabindex="-1"></a>covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> <span class="st">&quot;Colorado&quot;</span>) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> <span class="st">&quot;45-54 years&quot;</span>),]</span>
+<span id="cb539-3"><a href="writing-functions.html#cb539-3" tabindex="-1"></a></span>
+<span id="cb539-4"><a href="writing-functions.html#cb539-4" tabindex="-1"></a><span class="co"># create a bar plot</span></span>
+<span id="cb539-5"><a href="writing-functions.html#cb539-5" tabindex="-1"></a><span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths,  <span class="co"># specify column to plot</span></span>
+<span id="cb539-6"><a href="writing-functions.html#cb539-6" tabindex="-1"></a>        <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex,    <span class="co"># specify bar names</span></span>
+<span id="cb539-7"><a href="writing-functions.html#cb539-7" tabindex="-1"></a>        <span class="at">main=</span><span class="st">&quot;Sex Comparison: Colorado 45-54 years&quot;</span>,  <span class="co"># title</span></span>
+<span id="cb539-8"><a href="writing-functions.html#cb539-8" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)  <span class="co"># y label</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-550-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Suppose we wanted to view this information for more states and age groups.
 Rather than repeat the above code each time, let’s put it in a function:</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb541-1"><a href="writing-functions.html#cb541-1" tabindex="-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
-<span id="cb541-2"><a href="writing-functions.html#cb541-2" tabindex="-1"></a>plot_fm <span class="ot">&lt;-</span> <span class="cf">function</span>(state, ages){</span>
-<span id="cb541-3"><a href="writing-functions.html#cb541-3" tabindex="-1"></a>  covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> state) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> ages),]</span>
-<span id="cb541-4"><a href="writing-functions.html#cb541-4" tabindex="-1"></a>  <span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, </span>
-<span id="cb541-5"><a href="writing-functions.html#cb541-5" tabindex="-1"></a>          <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex, </span>
-<span id="cb541-6"><a href="writing-functions.html#cb541-6" tabindex="-1"></a>          <span class="at">main=</span><span class="fu">paste</span>(<span class="st">&quot;Sex Comparison:&quot;</span>, state, ages), </span>
-<span id="cb541-7"><a href="writing-functions.html#cb541-7" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)</span>
-<span id="cb541-8"><a href="writing-functions.html#cb541-8" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
-<span id="cb541-9"><a href="writing-functions.html#cb541-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb540-1"><a href="writing-functions.html#cb540-1" tabindex="-1"></a><span class="co"># create a function called plot_fm with two arguments: state and ages</span></span>
+<span id="cb540-2"><a href="writing-functions.html#cb540-2" tabindex="-1"></a>plot_fm <span class="ot">&lt;-</span> <span class="cf">function</span>(state, ages){</span>
+<span id="cb540-3"><a href="writing-functions.html#cb540-3" tabindex="-1"></a>  covid2 <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> state) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Age.group <span class="sc">==</span> ages),]</span>
+<span id="cb540-4"><a href="writing-functions.html#cb540-4" tabindex="-1"></a>  <span class="fu">barplot</span>(covid2<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, </span>
+<span id="cb540-5"><a href="writing-functions.html#cb540-5" tabindex="-1"></a>          <span class="at">names.arg=</span>covid2<span class="sc">$</span>Sex, </span>
+<span id="cb540-6"><a href="writing-functions.html#cb540-6" tabindex="-1"></a>          <span class="at">main=</span><span class="fu">paste</span>(<span class="st">&quot;Sex Comparison:&quot;</span>, state, ages), </span>
+<span id="cb540-7"><a href="writing-functions.html#cb540-7" tabindex="-1"></a>          <span class="at">ylab=</span><span class="st">&quot;COVID-19 Deaths&quot;</span>)</span>
+<span id="cb540-8"><a href="writing-functions.html#cb540-8" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb540-9"><a href="writing-functions.html#cb540-9" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s try out the code on a few states and age groups:</p>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb542-1"><a href="writing-functions.html#cb542-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb541-1"><a href="writing-functions.html#cb541-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Colorado&quot;</span>, <span class="st">&quot;45-54 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-553-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb544-1"><a href="writing-functions.html#cb544-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb543-1"><a href="writing-functions.html#cb543-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;Texas&quot;</span>, <span class="st">&quot;65-74 years&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-554-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb546-1"><a href="writing-functions.html#cb546-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb545-1"><a href="writing-functions.html#cb545-1" tabindex="-1"></a><span class="fu">plot_fm</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;85 years and over&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-555-1.png" width="576" style="display: block; margin: auto;" /></p>
 <pre class="output-style"><code>NULL</code></pre>
 <div class="bonus">
@@ -608,42 +608,42 @@ Pneumonia Deaths, and Influenza Deaths for that demographic.
 <div id="function-scope" class="section level3 hasAnchor" number="6.2.4">
 <h3><span class="header-section-number">6.2.4</span> Function Scope<a href="writing-functions.html#function-scope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There’s another important concept for functions in R, called <em>scope</em>, which is best illustrated through the following example:</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb548-1"><a href="writing-functions.html#cb548-1" tabindex="-1"></a>simple_f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
-<span id="cb548-2"><a href="writing-functions.html#cb548-2" tabindex="-1"></a>  XYZ <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb548-3"><a href="writing-functions.html#cb548-3" tabindex="-1"></a>  <span class="fu">return</span>(XYZ)</span>
-<span id="cb548-4"><a href="writing-functions.html#cb548-4" tabindex="-1"></a>}</span>
-<span id="cb548-5"><a href="writing-functions.html#cb548-5" tabindex="-1"></a></span>
-<span id="cb548-6"><a href="writing-functions.html#cb548-6" tabindex="-1"></a><span class="fu">print</span>(XYZ)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb547-1"><a href="writing-functions.html#cb547-1" tabindex="-1"></a>simple_f <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb547-2"><a href="writing-functions.html#cb547-2" tabindex="-1"></a>  XYZ <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb547-3"><a href="writing-functions.html#cb547-3" tabindex="-1"></a>  <span class="fu">return</span>(XYZ)</span>
+<span id="cb547-4"><a href="writing-functions.html#cb547-4" tabindex="-1"></a>}</span>
+<span id="cb547-5"><a href="writing-functions.html#cb547-5" tabindex="-1"></a></span>
+<span id="cb547-6"><a href="writing-functions.html#cb547-6" tabindex="-1"></a><span class="fu">print</span>(XYZ)</span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in eval(expr, envir, enclos): object 'XYZ' not found
 </code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb549-1"><a href="writing-functions.html#cb549-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">simple_f</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb548-1"><a href="writing-functions.html#cb548-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">simple_f</span>())</span></code></pre></div>
 <pre class="output-style"><code>[1] 2</code></pre>
 <p>This function has no arguments, but it does create a new object called <code>XYZ</code>, which is returned from the function.
 Notice, however, that printing out <code>XYZ</code> gives an error.
 This is because the object <code>XYZ</code> only exists in the <em>scope</em> of the function <code>simple_f</code>, and is “forgotten” after the function finishes running.
 This is true for any objects created inside any function (with one exception, noted in the bonus block below).
 Variables defined outside of functions are in the <em>global scope</em>, which means they can be accessed anywhere, both inside and outside functions:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb551-1"><a href="writing-functions.html#cb551-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
-<span id="cb551-2"><a href="writing-functions.html#cb551-2" tabindex="-1"></a></span>
-<span id="cb551-3"><a href="writing-functions.html#cb551-3" tabindex="-1"></a>say_hello <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
-<span id="cb551-4"><a href="writing-functions.html#cb551-4" tabindex="-1"></a>  <span class="fu">print</span>(y)</span>
-<span id="cb551-5"><a href="writing-functions.html#cb551-5" tabindex="-1"></a>}</span>
-<span id="cb551-6"><a href="writing-functions.html#cb551-6" tabindex="-1"></a></span>
-<span id="cb551-7"><a href="writing-functions.html#cb551-7" tabindex="-1"></a><span class="fu">say_hello</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb550-1"><a href="writing-functions.html#cb550-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb550-2"><a href="writing-functions.html#cb550-2" tabindex="-1"></a></span>
+<span id="cb550-3"><a href="writing-functions.html#cb550-3" tabindex="-1"></a>say_hello <span class="ot">&lt;-</span> <span class="cf">function</span>(){</span>
+<span id="cb550-4"><a href="writing-functions.html#cb550-4" tabindex="-1"></a>  <span class="fu">print</span>(y)</span>
+<span id="cb550-5"><a href="writing-functions.html#cb550-5" tabindex="-1"></a>}</span>
+<span id="cb550-6"><a href="writing-functions.html#cb550-6" tabindex="-1"></a></span>
+<span id="cb550-7"><a href="writing-functions.html#cb550-7" tabindex="-1"></a><span class="fu">say_hello</span>()</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;hello&quot;</code></pre>
 <p>It’s also important to realize that variables in different scopes can have the same name without conflict.
 For example, we can use <code>x</code> as the argument to a function and as a variable outside of the function.
 R will search the current scope first, then look outside of the current scope if it can’t find an object.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb553-1"><a href="writing-functions.html#cb553-1" tabindex="-1"></a><span class="co"># define x and y in the global scope</span></span>
-<span id="cb553-2"><a href="writing-functions.html#cb553-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;a&quot;</span></span>
-<span id="cb553-3"><a href="writing-functions.html#cb553-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;b&quot;</span></span>
-<span id="cb553-4"><a href="writing-functions.html#cb553-4" tabindex="-1"></a></span>
-<span id="cb553-5"><a href="writing-functions.html#cb553-5" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb553-6"><a href="writing-functions.html#cb553-6" tabindex="-1"></a>  <span class="fu">print</span>(x)  <span class="co"># This is NOT the global x</span></span>
-<span id="cb553-7"><a href="writing-functions.html#cb553-7" tabindex="-1"></a>  <span class="fu">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></span>
-<span id="cb553-8"><a href="writing-functions.html#cb553-8" tabindex="-1"></a>}</span>
-<span id="cb553-9"><a href="writing-functions.html#cb553-9" tabindex="-1"></a></span>
-<span id="cb553-10"><a href="writing-functions.html#cb553-10" tabindex="-1"></a><span class="fu">f</span>(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb552-1"><a href="writing-functions.html#cb552-1" tabindex="-1"></a><span class="co"># define x and y in the global scope</span></span>
+<span id="cb552-2"><a href="writing-functions.html#cb552-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb552-3"><a href="writing-functions.html#cb552-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;b&quot;</span></span>
+<span id="cb552-4"><a href="writing-functions.html#cb552-4" tabindex="-1"></a></span>
+<span id="cb552-5"><a href="writing-functions.html#cb552-5" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb552-6"><a href="writing-functions.html#cb552-6" tabindex="-1"></a>  <span class="fu">print</span>(x)  <span class="co"># This is NOT the global x</span></span>
+<span id="cb552-7"><a href="writing-functions.html#cb552-7" tabindex="-1"></a>  <span class="fu">print</span>(y)  <span class="co"># There&#39;s no y in the function scope, this is the global y</span></span>
+<span id="cb552-8"><a href="writing-functions.html#cb552-8" tabindex="-1"></a>}</span>
+<span id="cb552-9"><a href="writing-functions.html#cb552-9" tabindex="-1"></a></span>
+<span id="cb552-10"><a href="writing-functions.html#cb552-10" tabindex="-1"></a><span class="fu">f</span>(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;c&quot;
 [1] &quot;b&quot;</code></pre>
 <p>In the above example, <code>x</code> was defined inside the function <code>f</code> (it’s the name of the first argument), so the global <code>x</code> is ignored.

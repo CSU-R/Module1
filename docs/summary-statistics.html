@@ -437,18 +437,30 @@ help function: <code>?cov</code>.
 <p>Using the <code>cov</code> or <code>cor</code> functions on an entire data frame or matrix will produce a correlation matrix of the columns.
 Here’s an example with the <code>mtcars</code> data frame:</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
-<pre class="output-style"><code>            mpg        cyl       disp         hp        drat         wt        qsec         vs          am       gear        carb
-mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594  0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
-cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958 -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
-disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799 -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
-hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479 -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
-drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
-wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000 -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
-qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
-vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157  0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
-am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953 -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
-gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870 -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
-carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059 -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
+<pre class="output-style"><code>            mpg        cyl       disp         hp        drat         wt
+mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
+cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
+disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
+hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
+drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
+wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
+qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
+vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
+am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
+gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
+carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
+            qsec         vs          am       gear        carb
+mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
+cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
+disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
+hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
+drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
+wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
+qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
+vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
+am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
+gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
+carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
 <p>However, this only works if every column the data frame (or matrix) are numeric.
 Here’s what happens if we try the same thing on the athletes data:</p>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1" tabindex="-1"></a><span class="fu">cor</span>(athletes)</span></code></pre></div>
@@ -471,20 +483,34 @@ What other R data types might be used to store categorical data?
 In a character vector like this, we expect there to be many duplicated values.
 We can see a list of all the unique values with the following:</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb358-1"><a href="summary-statistics.html#cb358-1" tabindex="-1"></a><span class="fu">unique</span>(sport)</span></code></pre></div>
-<pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                 &quot;Swimming&quot;                  &quot;Basketball&quot;               
- [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;             &quot;Fencing&quot;                   &quot;Weightlifting&quot;            
- [9] &quot;Equestrianism&quot;             &quot;Archery&quot;                   &quot;Cross Country Skiing&quot;      &quot;Gymnastics&quot;               
-[13] &quot;Tennis&quot;                    &quot;Athletics&quot;                 &quot;Cycling&quot;                   &quot;Bobsleigh&quot;                
-[17] &quot;Shooting&quot;                  &quot;Sailing&quot;                   &quot;Alpine Skiing&quot;             &quot;Art Competitions&quot;         
-[21] &quot;Canoeing&quot;                  &quot;Football&quot;                  &quot;Rowing&quot;                    &quot;Figure Skating&quot;           
-[25] &quot;Nordic Combined&quot;           &quot;Judo&quot;                      &quot;Short Track Speed Skating&quot; &quot;Water Polo&quot;               
-[29] &quot;Snowboarding&quot;              &quot;Taekwondo&quot;                 &quot;Diving&quot;                    &quot;Handball&quot;                 
-[33] &quot;Softball&quot;                  &quot;Boxing&quot;                    &quot;Tug-Of-War&quot;                &quot;Ski Jumping&quot;              
-[37] &quot;Table Tennis&quot;              &quot;Ice Hockey&quot;                &quot;Modern Pentathlon&quot;         &quot;Golf&quot;                     
-[41] &quot;Baseball&quot;                  &quot;Volleyball&quot;                &quot;Luge&quot;                      &quot;Badminton&quot;                
-[45] &quot;Trampolining&quot;              &quot;Curling&quot;                   &quot;Beach Volleyball&quot;          &quot;Polo&quot;                     
-[49] &quot;Rugby Sevens&quot;              &quot;Synchronized Swimming&quot;     &quot;Triathlon&quot;                 &quot;Skeleton&quot;                 
-[53] &quot;Freestyle Skiing&quot;          &quot;Military Ski Patrol&quot;       &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
+<pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                
+ [3] &quot;Swimming&quot;                  &quot;Basketball&quot;               
+ [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;            
+ [7] &quot;Fencing&quot;                   &quot;Weightlifting&quot;            
+ [9] &quot;Equestrianism&quot;             &quot;Archery&quot;                  
+[11] &quot;Cross Country Skiing&quot;      &quot;Gymnastics&quot;               
+[13] &quot;Tennis&quot;                    &quot;Athletics&quot;                
+[15] &quot;Cycling&quot;                   &quot;Bobsleigh&quot;                
+[17] &quot;Shooting&quot;                  &quot;Sailing&quot;                  
+[19] &quot;Alpine Skiing&quot;             &quot;Art Competitions&quot;         
+[21] &quot;Canoeing&quot;                  &quot;Football&quot;                 
+[23] &quot;Rowing&quot;                    &quot;Figure Skating&quot;           
+[25] &quot;Nordic Combined&quot;           &quot;Judo&quot;                     
+[27] &quot;Short Track Speed Skating&quot; &quot;Water Polo&quot;               
+[29] &quot;Snowboarding&quot;              &quot;Taekwondo&quot;                
+[31] &quot;Diving&quot;                    &quot;Handball&quot;                 
+[33] &quot;Softball&quot;                  &quot;Boxing&quot;                   
+[35] &quot;Tug-Of-War&quot;                &quot;Ski Jumping&quot;              
+[37] &quot;Table Tennis&quot;              &quot;Ice Hockey&quot;               
+[39] &quot;Modern Pentathlon&quot;         &quot;Golf&quot;                     
+[41] &quot;Baseball&quot;                  &quot;Volleyball&quot;               
+[43] &quot;Luge&quot;                      &quot;Badminton&quot;                
+[45] &quot;Trampolining&quot;              &quot;Curling&quot;                  
+[47] &quot;Beach Volleyball&quot;          &quot;Polo&quot;                     
+[49] &quot;Rugby Sevens&quot;              &quot;Synchronized Swimming&quot;    
+[51] &quot;Triathlon&quot;                 &quot;Skeleton&quot;                 
+[53] &quot;Freestyle Skiing&quot;          &quot;Military Ski Patrol&quot;      
+[55] &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
 [57] &quot;Rugby&quot;                    </code></pre>
 <p>Using the numbers in brackets to the left as our guide, we can see that there are 57 unique values, but this can also be determined by running:</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb360-1"><a href="summary-statistics.html#cb360-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(sport))</span></code></pre></div>
@@ -493,30 +519,44 @@ We can see a list of all the unique values with the following:</p>
 This is what the <code>table</code> function does:</p>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb362-1"><a href="summary-statistics.html#cb362-1" tabindex="-1"></a><span class="fu">table</span>(sport)</span></code></pre></div>
 <pre class="output-style"><code>sport
-            Alpine Skiing                   Archery          Art Competitions                 Athletics                 Badminton 
-                      148                        41                        64                       728                        32 
-                 Baseball                Basketball          Beach Volleyball                  Biathlon                 Bobsleigh 
-                       19                        98                        18                       100                        53 
-                   Boxing                  Canoeing      Cross Country Skiing                   Curling                   Cycling 
-                      121                       112                       174                         8                       205 
-                   Diving             Equestrianism                   Fencing            Figure Skating                  Football 
-                       56                       121                       184                        44                       138 
-         Freestyle Skiing                      Golf                Gymnastics                  Handball                    Hockey 
-                        9                         5                       498                        61                       101 
-               Ice Hockey                      Judo                  Lacrosse                      Luge       Military Ski Patrol 
-                       83                        76                         1                        25                         2 
-        Modern Pentathlon           Nordic Combined                      Polo       Rhythmic Gymnastics                    Rowing 
-                       37                        25                         4                         9                       190 
-                    Rugby              Rugby Sevens                   Sailing                  Shooting Short Track Speed Skating 
-                        4                         6                       126                       218                        23 
-                 Skeleton               Ski Jumping              Snowboarding                  Softball             Speed Skating 
-                        4                        45                        19                        10                       104 
-                 Swimming     Synchronized Swimming              Table Tennis                 Taekwondo                    Tennis 
-                      399                         9                        36                        10                        45 
-             Trampolining                 Triathlon                Tug-Of-War                Volleyball                Water Polo 
-                        4                         6                         5                        50                        79 
-            Weightlifting                 Wrestling 
-                       85                       123 </code></pre>
+            Alpine Skiing                   Archery          Art Competitions 
+                      148                        41                        64 
+                Athletics                 Badminton                  Baseball 
+                      728                        32                        19 
+               Basketball          Beach Volleyball                  Biathlon 
+                       98                        18                       100 
+                Bobsleigh                    Boxing                  Canoeing 
+                       53                       121                       112 
+     Cross Country Skiing                   Curling                   Cycling 
+                      174                         8                       205 
+                   Diving             Equestrianism                   Fencing 
+                       56                       121                       184 
+           Figure Skating                  Football          Freestyle Skiing 
+                       44                       138                         9 
+                     Golf                Gymnastics                  Handball 
+                        5                       498                        61 
+                   Hockey                Ice Hockey                      Judo 
+                      101                        83                        76 
+                 Lacrosse                      Luge       Military Ski Patrol 
+                        1                        25                         2 
+        Modern Pentathlon           Nordic Combined                      Polo 
+                       37                        25                         4 
+      Rhythmic Gymnastics                    Rowing                     Rugby 
+                        9                       190                         4 
+             Rugby Sevens                   Sailing                  Shooting 
+                        6                       126                       218 
+Short Track Speed Skating                  Skeleton               Ski Jumping 
+                       23                         4                        45 
+             Snowboarding                  Softball             Speed Skating 
+                       19                        10                       104 
+                 Swimming     Synchronized Swimming              Table Tennis 
+                      399                         9                        36 
+                Taekwondo                    Tennis              Trampolining 
+                       10                        45                         4 
+                Triathlon                Tug-Of-War                Volleyball 
+                        6                         5                        50 
+               Water Polo             Weightlifting                 Wrestling 
+                       79                        85                       123 </code></pre>
 <p>Let’s save this table to a list as before:</p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1" tabindex="-1"></a><span class="co"># assign summary statistics to variables</span></span>
 <span id="cb364-2"><a href="summary-statistics.html#cb364-2" tabindex="-1"></a>sport_n_unique <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(sport))</span>

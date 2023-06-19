@@ -379,8 +379,6 @@ using the command <code>library</code>.</p>
 <span id="cb453-5"><a href="vignettes.html#cb453-5" tabindex="-1"></a></span>
 <span id="cb453-6"><a href="vignettes.html#cb453-6" tabindex="-1"></a><span class="co">#load the package</span></span>
 <span id="cb453-7"><a href="vignettes.html#cb453-7" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span></code></pre></div>
-<pre><code>dataRetrieval 2.7.12
-Extended Documentation: https://rconnect.usgs.gov/dataRetrieval</code></pre>
 </div>
 <div id="downloading-the-data" class="section level4 hasAnchor" number="5.7.1.3">
 <h4><span class="header-section-number">5.7.1.3</span> Downloading the data<a href="vignettes.html#downloading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -406,10 +404,10 @@ and <code>endDate</code> which we will set to the current day using the command
 <code>Sys.Date()</code>. These arguments should be in the
 YYYY-MM-DD format. With all this knowledge of how the command works, we can
 finally download some data, directly into R!</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="vignettes.html#cb455-1" tabindex="-1"></a>poudre <span class="ot">&lt;-</span> <span class="fu">readNWISdv</span>(<span class="at">siteNumbers =</span> <span class="st">&#39;06752260&#39;</span>,</span>
-<span id="cb455-2"><a href="vignettes.html#cb455-2" tabindex="-1"></a>                     <span class="at">parameterCd =</span> <span class="fu">c</span>(<span class="st">&#39;00060&#39;</span>),</span>
-<span id="cb455-3"><a href="vignettes.html#cb455-3" tabindex="-1"></a>                     <span class="at">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</span>
-<span id="cb455-4"><a href="vignettes.html#cb455-4" tabindex="-1"></a>                     <span class="at">endDate =</span> <span class="fu">Sys.Date</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb454-1"><a href="vignettes.html#cb454-1" tabindex="-1"></a>poudre <span class="ot">&lt;-</span> <span class="fu">readNWISdv</span>(<span class="at">siteNumbers =</span> <span class="st">&#39;06752260&#39;</span>,</span>
+<span id="cb454-2"><a href="vignettes.html#cb454-2" tabindex="-1"></a>                     <span class="at">parameterCd =</span> <span class="fu">c</span>(<span class="st">&#39;00060&#39;</span>),</span>
+<span id="cb454-3"><a href="vignettes.html#cb454-3" tabindex="-1"></a>                     <span class="at">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</span>
+<span id="cb454-4"><a href="vignettes.html#cb454-4" tabindex="-1"></a>                     <span class="at">endDate =</span> <span class="fu">Sys.Date</span>())</span></code></pre></div>
 </div>
 <div id="explore-the-data-structure" class="section level4 hasAnchor" number="5.7.1.4">
 <h4><span class="header-section-number">5.7.1.4</span> Explore the data structure<a href="vignettes.html#explore-the-data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -417,7 +415,7 @@ finally download some data, directly into R!</p>
 of this data frame using commands we have already learn. First let’s
 see what the structure of the data is using the <code>head</code> command, which
 will print the first 6 rows of data.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1" tabindex="-1"></a><span class="fu">head</span>(poudre)</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="vignettes.html#cb455-1" tabindex="-1"></a><span class="fu">head</span>(poudre)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["agency_cd"],"name":[1],"type":["chr"],"align":["left"]},{"label":["site_no"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Date"],"name":[3],"type":["date"],"align":["right"]},{"label":["X_00060_00003"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["X_00060_00003_cd"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"USGS","2":"06752260","3":"2010-10-01","4":"20.4","5":"A","_rn_":"1"},{"1":"USGS","2":"06752260","3":"2010-10-02","4":"16.8","5":"A","_rn_":"2"},{"1":"USGS","2":"06752260","3":"2010-10-03","4":"22.6","5":"A","_rn_":"3"},{"1":"USGS","2":"06752260","3":"2010-10-04","4":"99.2","5":"A","_rn_":"4"},{"1":"USGS","2":"06752260","3":"2010-10-05","4":"120.0","5":"A","_rn_":"5"},{"1":"USGS","2":"06752260","3":"2010-10-06","4":"113.0","5":"A","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -434,17 +432,17 @@ we will ignore this final column, but if you were doing an analysis of this data
 for a project, you would want to investigate what codes are acceptable for
 high quality analyses. To make working with this data a little easier let’s
 rename and remove some of our columns in a new, simpler data.frame.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="co">#Remove the first two columns</span></span>
-<span id="cb457-2"><a href="vignettes.html#cb457-2" tabindex="-1"></a>pq <span class="ot">&lt;-</span> poudre[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
-<span id="cb457-3"><a href="vignettes.html#cb457-3" tabindex="-1"></a></span>
-<span id="cb457-4"><a href="vignettes.html#cb457-4" tabindex="-1"></a><span class="co">#Rename the remaining columns</span></span>
-<span id="cb457-5"><a href="vignettes.html#cb457-5" tabindex="-1"></a><span class="fu">names</span>(pq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1" tabindex="-1"></a><span class="co">#Remove the first two columns</span></span>
+<span id="cb456-2"><a href="vignettes.html#cb456-2" tabindex="-1"></a>pq <span class="ot">&lt;-</span> poudre[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
+<span id="cb456-3"><a href="vignettes.html#cb456-3" tabindex="-1"></a></span>
+<span id="cb456-4"><a href="vignettes.html#cb456-4" tabindex="-1"></a><span class="co">#Rename the remaining columns</span></span>
+<span id="cb456-5"><a href="vignettes.html#cb456-5" tabindex="-1"></a><span class="fu">names</span>(pq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
 </div>
 <div id="explore-the-data." class="section level4 hasAnchor" number="5.7.1.5">
 <h4><span class="header-section-number">5.7.1.5</span> Explore the data.<a href="vignettes.html#explore-the-data." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb458-1"><a href="vignettes.html#cb458-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   1.31  
  1st Qu.:2013-12-04   1st Qu.:  23.80  
@@ -456,8 +454,8 @@ First we can use a summary command to just quickly look at the variables we have
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb460-1"><a href="vignettes.html#cb460-1" tabindex="-1"></a><span class="fu">plot</span>(pq<span class="sc">$</span>q_cfs <span class="sc">~</span> pq<span class="sc">$</span>Date, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
-<span id="cb460-2"><a href="vignettes.html#cb460-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="at">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="vignettes.html#cb459-1" tabindex="-1"></a><span class="fu">plot</span>(pq<span class="sc">$</span>q_cfs <span class="sc">~</span> pq<span class="sc">$</span>Date, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
+<span id="cb459-2"><a href="vignettes.html#cb459-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="at">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-475-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>
@@ -477,14 +475,14 @@ put, a water year is a way to analyze yearly variation in flow, which doesn’t
 map well to a calendar year. Water years in the USA are typically from October 1
 to September 30th. Luckily for us, the <code>dataRetrieval</code> package has a function
 that calculates water year for us. It’s simply called <code>addWaterYear</code></p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1" tabindex="-1"></a>pq_wy <span class="ot">&lt;-</span> <span class="fu">addWaterYear</span>(pq)</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb460-1"><a href="vignettes.html#cb460-1" tabindex="-1"></a>pq_wy <span class="ot">&lt;-</span> <span class="fu">addWaterYear</span>(pq)</span></code></pre></div>
 <p>To look at variation per year we can use the function called <code>tapply</code> which can take the mean, max or any summary
 function of groups of data (more on this in the next chapter, but you can type <code>?tapply</code> for more info).
 In this case we want to look at the mean river flow for each water year.
 Now to use tapply we use the following code</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a>annual <span class="ot">&lt;-</span> <span class="fu">tapply</span>(pq_wy<span class="sc">$</span>q_cfs,pq_wy<span class="sc">$</span>waterYear, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1" tabindex="-1"></a>annual <span class="ot">&lt;-</span> <span class="fu">tapply</span>(pq_wy<span class="sc">$</span>q_cfs,pq_wy<span class="sc">$</span>waterYear, mean)</span></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb463-1"><a href="vignettes.html#cb463-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual),(annual))</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual),(annual))</span></code></pre></div>
 <img src="Module1_files/figure-html/unnamed-chunk-479-1.png" width="672" style="display: block; margin: auto;" />
 <div class="reflect">
 <p>
