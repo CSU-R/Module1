@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.6 Visualization | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.6 Visualization | R Module 1" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -22,7 +21,7 @@
   
 
 <meta name="author" content="Alex Fout" />
-<meta name="author" content="Addison Adams" />
+<meta name="author" content="Lane Drew" />
 
 
 
@@ -33,7 +32,8 @@
   
 <link rel="prev" href="indexing.html"/>
 <link rel="next" href="vignettes.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,29 +49,28 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,13 +90,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -110,7 +109,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -124,6 +123,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="src/style.css" type="text/css" />
 <link rel="stylesheet" href="src/environments.css" type="text/css" />
@@ -142,26 +145,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">R Module 1</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a>
+<ul>
 <li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#how-to-navigate-this-book"><i class="fa fa-check"></i><b>1.0.1</b> How To Navigate This Book</a></li>
 <li class="chapter" data-level="1.1" data-path="associated-csu-course.html"><a href="associated-csu-course.html"><i class="fa fa-check"></i><b>1.1</b> Associated CSU Course</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a><ul>
-<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a><ul>
+<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="this-textbook.html"><a href="this-textbook.html#special-boxes"><i class="fa fa-check"></i><b>2.1.1</b> Special Boxes</a></li>
 <li class="chapter" data-level="2.1.2" data-path="this-textbook.html"><a href="this-textbook.html#how-this-book-displays-code"><i class="fa fa-check"></i><b>2.1.2</b> How This Book Displays Code</a></li>
 <li class="chapter" data-level="2.1.3" data-path="this-textbook.html"><a href="this-textbook.html#next-steps"><i class="fa fa-check"></i><b>2.1.3</b> Next Steps</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a><ul>
+<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#syllabus"><i class="fa fa-check"></i><b>2.2.1</b> Syllabus</a></li>
-<li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#schedule"><i class="fa fa-check"></i><b>2.2.2</b> Schedule</a></li>
-<li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.3</b> Assignment Templates</a></li>
-<li class="chapter" data-level="2.2.4" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#course-policies"><i class="fa fa-check"></i><b>2.2.4</b> Course Policies</a></li>
-<li class="chapter" data-level="2.2.5" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#grading-scale"><i class="fa fa-check"></i><b>2.2.5</b> Grading Scale</a></li>
+<li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.2</b> Assignment Templates</a></li>
+<li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#course-policies"><i class="fa fa-check"></i><b>2.2.3</b> Course Policies</a></li>
+<li class="chapter" data-level="2.2.4" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#grading-scale"><i class="fa fa-check"></i><b>2.2.4</b> Grading Scale</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="running-your-first-r-code.html"><a href="running-your-first-r-code.html"><i class="fa fa-check"></i><b>2.3</b> Running your first R Code</a></li>
 <li class="chapter" data-level="2.4" data-path="getoutoftheclass.html"><a href="getoutoftheclass.html"><i class="fa fa-check"></i><b>2.4</b> What do you hope to get out of this course?</a></li>
-<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a><ul>
+<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="what-is-r.html"><a href="what-is-r.html#r-is-a-programming-language"><i class="fa fa-check"></i><b>2.5.1</b> R is a Programming Language</a></li>
 <li class="chapter" data-level="2.5.2" data-path="what-is-r.html"><a href="what-is-r.html#r-is-software"><i class="fa fa-check"></i><b>2.5.2</b> R is software</a></li>
 <li class="chapter" data-level="2.5.3" data-path="what-is-r.html"><a href="what-is-r.html#r-is-free"><i class="fa fa-check"></i><b>2.5.3</b> R is Free</a></li>
@@ -170,37 +177,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.6" data-path="what-is-r.html"><a href="what-is-r.html#r-packages"><i class="fa fa-check"></i><b>2.5.6</b> R Packages</a></li>
 <li class="chapter" data-level="2.5.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.5.7</b> R Interfaces</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a><ul>
+<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a>
+<ul>
 <li class="chapter" data-level="2.6.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.6.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
 <li class="chapter" data-level="2.6.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.6.2</b> Places to Get Help (anyone)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a><ul>
-<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a><ul>
+<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="computer-basics.html"><a href="computer-basics.html#operating-systems"><i class="fa fa-check"></i><b>3.1.1</b> Operating Systems</a></li>
 <li class="chapter" data-level="3.1.2" data-path="computer-basics.html"><a href="computer-basics.html#files-directory-structures"><i class="fa fa-check"></i><b>3.1.2</b> Files &amp; Directory Structures</a></li>
 <li class="chapter" data-level="3.1.3" data-path="computer-basics.html"><a href="computer-basics.html#downloads-and-installations"><i class="fa fa-check"></i><b>3.1.3</b> Downloads and Installations</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a><ul>
+<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Installing R</a></li>
 <li class="chapter" data-level="3.2.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installing RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="successfull-installation.html"><a href="successfull-installation.html"><i class="fa fa-check"></i><b>3.3</b> Successfull Installation</a></li>
-<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a><ul>
+<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#the-r-console"><i class="fa fa-check"></i><b>3.4.1</b> The R Console:</a></li>
 <li class="chapter" data-level="3.4.2" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-scripts"><i class="fa fa-check"></i><b>3.4.2</b> R scripts</a></li>
 <li class="chapter" data-level="3.4.3" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#same-examples-on-your-computer"><i class="fa fa-check"></i><b>3.4.3</b> Same Examples, On Your Computer!</a></li>
 <li class="chapter" data-level="3.4.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>3.4.4</b> R Markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a><ul>
+<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
 <li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
 <li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
 <li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a><ul>
-<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a><ul>
+<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#r-commands"><i class="fa fa-check"></i><b>4.1.1</b> R Commands</a></li>
 <li class="chapter" data-level="4.1.2" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#comments"><i class="fa fa-check"></i><b>4.1.2</b> Comments</a></li>
 <li class="chapter" data-level="4.1.3" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#blank-lines"><i class="fa fa-check"></i><b>4.1.3</b> Blank Lines</a></li>
@@ -208,19 +223,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>4.1.5</b> ?</a></li>
 <li class="chapter" data-level="4.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>4.1.6</b> ??</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>4.2.1</b> Numeric</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>4.2.2</b> Integer</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>4.2.3</b> Character</a></li>
 <li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>4.2.4</b> Logical</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.3.1</b> Vectors</a></li>
 <li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3.2</b> Matrices</a></li>
 <li class="chapter" data-level="4.3.3" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.3.3</b> Lists</a></li>
 <li class="chapter" data-level="4.3.4" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.3.4</b> Data Frames</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a><ul>
+<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>4.4.1</b> <em>Everything</em> is an object in R</a></li>
 <li class="chapter" data-level="4.4.2" data-path="r-objects.html"><a href="r-objects.html#assigning-objects"><i class="fa fa-check"></i><b>4.4.2</b> Assigning Objects</a></li>
 <li class="chapter" data-level="4.4.3" data-path="r-objects.html"><a href="r-objects.html#attributes"><i class="fa fa-check"></i><b>4.4.3</b> Attributes</a></li>
@@ -228,30 +246,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a><ul>
+<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
-<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a><ul>
+<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="reading-writing-data.html"><a href="reading-writing-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reading-writing-data.html"><a href="reading-writing-data.html#reading-csv-files"><i class="fa fa-check"></i><b>5.2.3</b> Reading CSV files</a></li>
 <li class="chapter" data-level="5.2.4" data-path="reading-writing-data.html"><a href="reading-writing-data.html#writing-csv-files"><i class="fa fa-check"></i><b>5.2.4</b> Writing CSV files</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#quantitative-variables"><i class="fa fa-check"></i><b>5.3.1</b> Quantitative Variables</a></li>
 <li class="chapter" data-level="5.3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>5.3.2</b> Categorical Variables</a></li>
 <li class="chapter" data-level="5.3.3" data-path="summary-statistics.html"><a href="summary-statistics.html#saving-an-rdata-file"><i class="fa fa-check"></i><b>5.3.3</b> Saving an RData file</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a><ul>
+<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a><ul>
+<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
 <li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
 <li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
 <li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a><ul>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
 <li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
 <li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variables"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variables</a></li>
@@ -261,27 +285,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
 <li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a><ul>
+<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a>
+<ul>
 <li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a><ul>
-<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a><ul>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
 <li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
 <li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a><ul>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
 <li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
 <li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
 <li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a><ul>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
 <li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a><ul>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
 <li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
 <li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
@@ -310,8 +340,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualization" class="section level2">
-<h2><span class="header-section-number">5.6</span> Visualization</h2>
+<div id="visualization" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Visualization<a href="visualization.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is incredibly useful for creating visualizations and graphics which are easy to customize and automate, and entire university courses are dedicated to creating visualizations with R.
 Here we will only introduce the basics of creating visualizations in R.</p>
 
@@ -319,219 +349,241 @@ Here we will only introduce the basics of creating visualizations in R.</p>
 In this course, we focus on the visualizations in “base R”, not the capabilities provided by outside sources.
 This means we will not discuss the very popular <code>ggplot2</code> package, which has a very different way of constructing visualizations that could be confusing if included here.
 </div>
-
 <p>R can make several different types of plots, and the type of plot will depend on what kind of data you are dealing with.
 Below, we’ll explore common types of plots for various types of data.</p>
-<div id="one-quantitative-variable" class="section level3">
-<h3><span class="header-section-number">5.6.1</span> One Quantitative Variable</h3>
+<div id="one-quantitative-variable" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> One Quantitative Variable<a href="visualization.html#one-quantitative-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One of the most popular ways of visualizing quantitative variables is with a histogram, where each bar represents the observations falling within a specific range.
 The height of each bar reflects how many observations fall within that range.
 In the Olympic athletes data, <code>Height</code> is a quantitative variable, so let’s create a histogram using the <code>hist</code> function:</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb423-1"><a href="visualization.html#cb423-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb423"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb423-1"><a href="visualization.html#cb423-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-428-1.png" width="672" style="display: block; margin: auto;" />
 This histogram shows that most heights are between roughly 160 and 190 centimeters, and the distribution looks <em>unimodal</em>.
 Notice that R has decided how many bins (bars) to use, but this can be changed with the <code>breaks</code> option:</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb424-1"><a href="visualization.html#cb424-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height, <span class="dt">breaks=</span><span class="dv">70</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb424"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb424-1"><a href="visualization.html#cb424-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="dv">70</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
 R will “try” to create the number of bins equal to <code>breaks</code>, but sometimes won’t make exactly that number.
 Instead of just giving a single number breaks, you could <em>also</em> give a vector of numbers, which specify the start and stop points of the bins:</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb425-1"><a href="visualization.html#cb425-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>, <span class="dv">200</span>, <span class="dv">210</span>, <span class="dv">220</span>, <span class="dv">230</span>))</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-431-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb425"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb425-1"><a href="visualization.html#cb425-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>, <span class="dv">200</span>, <span class="dv">210</span>, <span class="dv">220</span>, <span class="dv">230</span>))</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
 By default, R adds a title and axis labels to the plot, but for presentation purposes, it’s probably a good idea to change them.
 This can be done with the <code>main</code>, <code>xlab</code>, and <code>ylab</code> options:</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb426-1"><a href="visualization.html#cb426-1"></a><span class="kw">hist</span>(athletes<span class="op">$</span>Height, <span class="dt">breaks=</span><span class="dv">60</span>, <span class="dt">main=</span><span class="st">&quot;Olympic Athlete Heights&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Height (in)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-432-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb426"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb426-1"><a href="visualization.html#cb426-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="dv">60</span>, <span class="at">main=</span><span class="st">&quot;Olympic Athlete Heights&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-431-1.png" width="672" style="display: block; margin: auto;" />
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.</p>
 <div class="progress">
 <p>
-Using the clean athletes data, make a histogram of height for athletes whose sport is Basketball. Hint: It might be easiest to create a new data frame with only basketball players first. Give it an appropriate title and axis labels.
+Using the clean athletes data, make a histogram of height for
+athletes whose sport is Basketball. Hint: It might be easiest to create
+a new data frame with only basketball players first. Give it an
+appropriate title and axis labels.
 </p>
 </div>
 
 <div class="bonus">
 To see more options for the <code>hist</code> function, run <code>?hist</code>.
 </div>
-
 <p>Another way to summarize a quantitative variable is with a boxplot, which shows a box whose boundaries are the first and third quartile. Inside the box, a line denotes the median, and the “whiskers” outside the box show which points are outliers (those outside the whiskers).</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb427-1"><a href="visualization.html#cb427-1"></a><span class="kw">boxplot</span>(athletes<span class="op">$</span>Height)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-435-1.png" width="288" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb427"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb427-1"><a href="visualization.html#cb427-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-434-1.png" width="288" style="display: block; margin: auto;" />
 In this case, there are no default title or labels, but we can still add them:</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb428-1"><a href="visualization.html#cb428-1"></a><span class="kw">boxplot</span>(athletes<span class="op">$</span>Height, <span class="dt">main=</span><span class="st">&quot;Olympic Athlete Height&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Height (in)&quot;</span>)</span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-436-1.png" width="288" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb428"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb428-1"><a href="visualization.html#cb428-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height, <span class="at">main=</span><span class="st">&quot;Olympic Athlete Height&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Height (in)&quot;</span>)</span></code></pre></div>
+<img src="Module1_files/figure-html/unnamed-chunk-435-1.png" width="288" style="display: block; margin: auto;" />
 
 <div class="caution">
 <p>Hint: In RMarkdown, boxplots may look too wide by default. You can control the width of a figure by using the <code>fig.height</code> and <code>fig.width</code> commands in the chunk header like this:</p>
 <p><code>```{r, fig.height=3, fit.width=5}</code></p>
 These are the values used for the boxplot above.
 </div>
-
 <p>The boxplot function also allows you to split up a quantitative variable using another variable, using the tilde (<code>~</code>).
 Here are some examples:</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb429-1"><a href="visualization.html#cb429-1"></a><span class="kw">boxplot</span>(athletes<span class="op">$</span>Height <span class="op">~</span><span class="st"> </span>athletes<span class="op">$</span>Sex)  <span class="co"># Make a boxplot of height, split by sex</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-438-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1"></a><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
-<span id="cb430-2"><a href="visualization.html#cb430-2"></a><span class="kw">boxplot</span>(athletes<span class="op">$</span>Height <span class="op">~</span><span class="st"> </span>athletes<span class="op">$</span>Sport, <span class="dt">las=</span><span class="dv">2</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>)  <span class="co"># Make a boxplot of height, split by Sport</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-440-1.png" width="1440" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb429"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb429-1"><a href="visualization.html#cb429-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sex)  <span class="co"># Make a boxplot of height, split by sex</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-437-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
+<span id="cb430-2"><a href="visualization.html#cb430-2" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sport, <span class="at">las=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)  <span class="co"># Make a boxplot of height, split by Sport</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-439-1.png" width="1440" style="display: block; margin: auto;" />
 Here we’ve added a few more bits to fit all the sport labels in: the <code>las</code> option rotates the labels, and the <code>par</code> function is used to increase the bottom margin below the graph.</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb431-1"><a href="visualization.html#cb431-1"></a><span class="kw">boxplot</span>(athletes<span class="op">$</span>Height <span class="op">~</span><span class="st"> </span>athletes<span class="op">$</span>Age)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-441-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb431-1"><a href="visualization.html#cb431-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Age)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-440-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="caution">
 <p>
-Different software will use different rules to determine how far out the “whiskers” go (and therefore which points are outliers). The default in R is 1.5 times the interquartile range, but this can be changed. When you view a boxplot, never assume what rule was used!
+Different software will use different rules to determine how far out
+the “whiskers” go (and therefore which points are outliers). The default
+in R is 1.5 times the interquartile range, but this can be changed. When
+you view a boxplot, never assume what rule was used!
 </p>
 </div>
 <div class="progress">
 <p>
-Using the clean athletes data, make boxplots of Height for athletes whose Sport is “Cycling”, separated by Medal. Give it an appropriate title and axis labels. Comment on the differences in Height between the different categories. How many Cyclists have no height reported (that is, how many have <code>NA</code> for Height) and how many athletes have a height? How should this affect your interpretation of the boxplots?
+Using the clean athletes data, make boxplots of Height for athletes
+whose Sport is “Cycling”, separated by Medal. Give it an appropriate
+title and axis labels. Comment on the differences in Height between the
+different categories. How many Cyclists have no height reported (that
+is, how many have <code>NA</code> for Height) and how many athletes have
+a height? How should this affect your interpretation of the
+boxplots?
 </p>
 </div>
 </div>
-<div id="two-quantitative-variables" class="section level3">
-<h3><span class="header-section-number">5.6.2</span> Two Quantitative Variables</h3>
+<div id="two-quantitative-variables" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Two Quantitative Variables<a href="visualization.html#two-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The most straightforward way to visualize two quantitative variables is with a scatter plot.
 In R, this is created with the <code>plot</code> function.
 Let’s look at the relationship between height and weight in the Olympic athletes data, but only for a few sports.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb432-1"><a href="visualization.html#cb432-1"></a><span class="co"># select only some sports</span></span>
-<span id="cb432-2"><a href="visualization.html#cb432-2"></a>gy_bb_wr &lt;-<span class="st"> </span>athletes[athletes<span class="op">$</span>Sport <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Gymnastics&quot;</span>, <span class="st">&quot;Basketball&quot;</span>, <span class="st">&quot;Wrestling&quot;</span>),]</span>
-<span id="cb432-3"><a href="visualization.html#cb432-3"></a></span>
-<span id="cb432-4"><a href="visualization.html#cb432-4"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight)  <span class="co"># plot height vs weight</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-444-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb432"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb432-1"><a href="visualization.html#cb432-1" tabindex="-1"></a><span class="co"># select only some sports</span></span>
+<span id="cb432-2"><a href="visualization.html#cb432-2" tabindex="-1"></a>gy_bb_wr <span class="ot">&lt;-</span> athletes[athletes<span class="sc">$</span>Sport <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Gymnastics&quot;</span>, <span class="st">&quot;Basketball&quot;</span>, <span class="st">&quot;Wrestling&quot;</span>),]</span>
+<span id="cb432-3"><a href="visualization.html#cb432-3" tabindex="-1"></a></span>
+<span id="cb432-4"><a href="visualization.html#cb432-4" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight)  <span class="co"># plot height vs weight</span></span></code></pre></div>
+<img src="Module1_files/figure-html/unnamed-chunk-443-1.png" width="672" style="display: block; margin: auto;" />
 <div class="bonus">
 <p>
-Above we saw another nice way to index: the <code>%in%</code> command. This returns a logical vector which is true for elements that are found in the search list.
+Above we saw another nice way to index: the <code>%in%</code>
+command. This returns a logical vector which is true for elements that
+are found in the search list.
 </p>
 </div>
 <p>There are a lot of points, so it may be useful to decrease the size of the circles using the <code>cex</code> option, which has a default value of 1:</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb433-1"><a href="visualization.html#cb433-1"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">cex=</span><span class="fl">0.4</span>)  <span class="co"># Make circles smaller</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-446-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb433"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb433-1"><a href="visualization.html#cb433-1" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">cex=</span><span class="fl">0.4</span>)  <span class="co"># Make circles smaller</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-445-1.png" width="672" style="display: block; margin: auto;" />
 Another option would be to change the type of marker, which can be selected using the <code>pch</code> option.
 We’ll choose a smaller, solid circle, which is marker number 20:</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb434-1"><a href="visualization.html#cb434-1"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">pch=</span><span class="dv">20</span>)  <span class="co"># try filled circles</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-447-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb434-1"><a href="visualization.html#cb434-1" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>)  <span class="co"># try filled circles</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-446-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can also set the color using the <code>col</code> argument.
 There are multiple ways to specify a color, but we’ll use the <code>rgb</code> function, which allows us to specify how much red, green, and blue the color has.</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb435-1"><a href="visualization.html#cb435-1"></a>color &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb435-2"><a href="visualization.html#cb435-2"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span>color)  <span class="co"># change color</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-448-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb435-1"><a href="visualization.html#cb435-1" tabindex="-1"></a>color <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb435-2"><a href="visualization.html#cb435-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># change color</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-447-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Lastly, we can also make the points less visible, so it’s easier to see when they are overlapping one another.
 This is done when defining the color, by giving a fourth value called the <em>alpha</em>, which represents how visible a point is.
 An alpha value of 0 is invisible, and a value of 1 is fully visible.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb436-1"><a href="visualization.html#cb436-1"></a>color &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)  <span class="co"># set the alpha level low, so points are transparent</span></span>
-<span id="cb436-2"><a href="visualization.html#cb436-2"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span>color)  <span class="co"># make points partially transparent</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-449-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb436"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb436-1"><a href="visualization.html#cb436-1" tabindex="-1"></a>color <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)  <span class="co"># set the alpha level low, so points are transparent</span></span>
+<span id="cb436-2"><a href="visualization.html#cb436-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># make points partially transparent</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-448-1.png" width="672" style="display: block; margin: auto;" />
 We can also color by sport, by converting the Sport column to a factor, then giving that as the color argument:</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb437-1"><a href="visualization.html#cb437-1"></a>colors &lt;-<span class="st"> </span><span class="kw">as.factor</span>(gy_bb_wr<span class="op">$</span>Sport)</span>
-<span id="cb437-2"><a href="visualization.html#cb437-2"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span>colors)  <span class="co"># color by sport</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-450-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb437"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb437-1"><a href="visualization.html#cb437-1" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(gy_bb_wr<span class="sc">$</span>Sport)</span>
+<span id="cb437-2"><a href="visualization.html#cb437-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>colors)  <span class="co"># color by sport</span></span></code></pre></div>
+<img src="Module1_files/figure-html/unnamed-chunk-449-1.png" width="672" style="display: block; margin: auto;" />
 <div class="caution">
 <p>
-We convert Sport to a factor because the <code>col</code> option in plot is expecting either a single color (as in the first example) or a vector of numbers indicating which color should be used for each point (remember, factors are represented as numbers). The numbers tell R which color in its palette it should use (for the default palette, 1=black, 2=reddish, 3=greenish, etc.), so factor level 1 (Basketball) is colored black, level 2 (Gymnastics) is colored reddish, and level 3 (Wrestling) is colored greenish.
+We convert Sport to a factor because the <code>col</code> option in
+plot is expecting either a single color (as in the first example) or a
+vector of numbers indicating which color should be used for each point
+(remember, factors are represented as numbers). The numbers tell R which
+color in its palette it should use (for the default palette, 1=black,
+2=reddish, 3=greenish, etc.), so factor level 1 (Basketball) is colored
+black, level 2 (Gymnastics) is colored reddish, and level 3 (Wrestling)
+is colored greenish.
 </p>
 </div>
 <p>The default colors in R are sometimes not very appealing, so we can define our own color palette:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1"></a><span class="kw">palette</span>(<span class="kw">c</span>(<span class="kw">rgb</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="kw">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)))   <span class="co"># create color palette</span></span>
-<span id="cb438-2"><a href="visualization.html#cb438-2"></a><span class="kw">plot</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">col=</span>colors)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-452-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)))   <span class="co"># create color palette</span></span>
+<span id="cb438-2"><a href="visualization.html#cb438-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>colors)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-451-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In some cases, it might be appropriate to use lines instead of points.
 This can be done by setting the <code>type</code> option to “l”:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb439-1"><a href="visualization.html#cb439-1"></a>x &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)<span class="op">/</span><span class="dv">10</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>pi</span>
-<span id="cb439-2"><a href="visualization.html#cb439-2"></a>y &lt;-<span class="st"> </span><span class="kw">sin</span>(x)</span>
-<span id="cb439-3"><a href="visualization.html#cb439-3"></a><span class="kw">plot</span>(x, y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-453-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb439-1"><a href="visualization.html#cb439-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi</span>
+<span id="cb439-2"><a href="visualization.html#cb439-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
+<span id="cb439-3"><a href="visualization.html#cb439-3" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-452-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>You can use points and lines at the same time using “b”:</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb440-1"><a href="visualization.html#cb440-1"></a><span class="kw">plot</span>(x, y, <span class="dt">type=</span><span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-454-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb440-1"><a href="visualization.html#cb440-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-453-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Another option for plotting two quantitative variables, especially when there are many overlapping points, is the smooth scatter:</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb441-1"><a href="visualization.html#cb441-1"></a><span class="kw">smoothScatter</span>(gy_bb_wr<span class="op">$</span>Height, gy_bb_wr<span class="op">$</span>Weight)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-455-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb441-1"><a href="visualization.html#cb441-1" tabindex="-1"></a><span class="fu">smoothScatter</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-454-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="progress">
 <p>
-Create a scatter plot of athlete height (y axis) vs. year (x axis) for athletes with Sport “Weightlifting”, and color the points by Sex. Create an appropriate title and axis titles. What was the first year to allow Female Weightlifters?
+Create a scatter plot of athlete height (y axis) vs. year (x axis)
+for athletes with Sport “Weightlifting”, and color the points by Sex.
+Create an appropriate title and axis titles. What was the first year to
+allow Female Weightlifters?
 </p>
 </div>
 </div>
-<div id="one-categorical-variables" class="section level3">
-<h3><span class="header-section-number">5.6.3</span> One Categorical Variables</h3>
+<div id="one-categorical-variables" class="section level3 hasAnchor" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> One Categorical Variables<a href="visualization.html#one-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One useful way to visualize categorical variables is bar plots.
 Before creating a barplot, we need to create a summary table of the variable of interest:</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb442-1"><a href="visualization.html#cb442-1"></a>sport_tab &lt;-<span class="st"> </span><span class="kw">table</span>(gy_bb_wr<span class="op">$</span>Sport)</span>
-<span id="cb442-2"><a href="visualization.html#cb442-2"></a><span class="kw">barplot</span>(sport_tab, <span class="dt">col=</span><span class="kw">rgb</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-457-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb442-1"><a href="visualization.html#cb442-1" tabindex="-1"></a>sport_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(gy_bb_wr<span class="sc">$</span>Sport)</span>
+<span id="cb442-2"><a href="visualization.html#cb442-2" tabindex="-1"></a><span class="fu">barplot</span>(sport_tab, <span class="at">col=</span><span class="fu">rgb</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-456-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="progress">
 <p>
-Create a barplot for the Season variable, with an appropriate title and axis labels. Which Season has more rows in the data frame??
+Create a barplot for the Season variable, with an appropriate title
+and axis labels. Which Season has more rows in the data frame??
 </p>
 </div>
 </div>
-<div id="two-categorical-variables" class="section level3">
-<h3><span class="header-section-number">5.6.4</span> Two Categorical Variables</h3>
+<div id="two-categorical-variables" class="section level3 hasAnchor" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> Two Categorical Variables<a href="visualization.html#two-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With two categorical variables, you can create a mosaicplot, where the size of each region is relative to the number of observations in that group.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb443-1"><a href="visualization.html#cb443-1"></a><span class="kw">mosaicplot</span>(gy_bb_wr<span class="op">$</span>Sport <span class="op">~</span><span class="st"> </span>gy_bb_wr<span class="op">$</span>Sex, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="dt">main=</span><span class="st">&quot;Athlete Sex by Sport&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Sport&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-459-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb443-1"><a href="visualization.html#cb443-1" tabindex="-1"></a><span class="fu">mosaicplot</span>(gy_bb_wr<span class="sc">$</span>Sport <span class="sc">~</span> gy_bb_wr<span class="sc">$</span>Sex, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">main=</span><span class="st">&quot;Athlete Sex by Sport&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Sport&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-458-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="multiple-plots" class="section level3">
-<h3><span class="header-section-number">5.6.5</span> Multiple plots</h3>
+<div id="multiple-plots" class="section level3 hasAnchor" number="5.6.5">
+<h3><span class="header-section-number">5.6.5</span> Multiple plots<a href="visualization.html#multiple-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One nice feature of R’s plotting capability is that you can plot multiple things at the same time.
 One way to do this is to create a plot and then add another plot <em>on top</em> of it, using either the <code>points</code> or <code>lines</code> function.
 <code>points</code> will add a scatter plot using points/dots, and <code>lines</code> will add a scatter plot using a line.
 Normally, a plotting function like <code>plot</code> or <code>hist</code> will create a new plot <em>figure</em>, erasing what may have been plotted before.
 But with the <code>points</code> and <code>lines</code> functions, R just adds to the existing figure.
 Here’s an example of each:</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb444-1"><a href="visualization.html#cb444-1"></a><span class="co"># create some data to plot</span></span>
-<span id="cb444-2"><a href="visualization.html#cb444-2"></a>x &lt;-<span class="st"> </span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>)<span class="op">/</span><span class="dv">100</span></span>
-<span id="cb444-3"><a href="visualization.html#cb444-3"></a>y1 &lt;-<span class="st"> </span>x</span>
-<span id="cb444-4"><a href="visualization.html#cb444-4"></a>y2 &lt;-<span class="st"> </span><span class="kw">sin</span>(<span class="dv">3</span><span class="op">/</span>x)<span class="op">*</span>x</span></code></pre></div>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb445-1"><a href="visualization.html#cb445-1"></a><span class="kw">plot</span>(x, y2,)  <span class="co"># plot x against y2</span></span>
-<span id="cb445-2"><a href="visualization.html#cb445-2"></a><span class="kw">points</span>(x, y1, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)  <span class="co"># add points of x against y1 (on same figure)</span></span>
-<span id="cb445-3"><a href="visualization.html#cb445-3"></a><span class="kw">lines</span>(x, <span class="op">-</span>y1, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)  <span class="co"># add lines of x against -y1 (on same figure)</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-462-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb444-1"><a href="visualization.html#cb444-1" tabindex="-1"></a><span class="co"># create some data to plot</span></span>
+<span id="cb444-2"><a href="visualization.html#cb444-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb444-3"><a href="visualization.html#cb444-3" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x</span>
+<span id="cb444-4"><a href="visualization.html#cb444-4" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">3</span><span class="sc">/</span>x)<span class="sc">*</span>x</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb445-1"><a href="visualization.html#cb445-1" tabindex="-1"></a><span class="fu">plot</span>(x, y2,)  <span class="co"># plot x against y2</span></span>
+<span id="cb445-2"><a href="visualization.html#cb445-2" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)  <span class="co"># add points of x against y1 (on same figure)</span></span>
+<span id="cb445-3"><a href="visualization.html#cb445-3" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="sc">-</span>y1, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)  <span class="co"># add lines of x against -y1 (on same figure)</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-461-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="other-types-of-plots" class="section level3">
-<h3><span class="header-section-number">5.6.6</span> Other types of plots</h3>
+<div id="other-types-of-plots" class="section level3 hasAnchor" number="5.6.6">
+<h3><span class="header-section-number">5.6.6</span> Other types of plots<a href="visualization.html#other-types-of-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The following plots that are less common, but may be useful for you, and this is an opportunity to show some other capabilities of R!</p>
-<div id="scatterplot-matrix" class="section level4">
-<h4><span class="header-section-number">5.6.6.1</span> Scatterplot Matrix</h4>
+<div id="scatterplot-matrix" class="section level4 hasAnchor" number="5.6.6.1">
+<h4><span class="header-section-number">5.6.6.1</span> Scatterplot Matrix<a href="visualization.html#scatterplot-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Given several quantitative variables, there are many different possible scatterplots you could make.
 The <code>pairs</code> function takes in a matrix or data frame and creates a matrix of all possible scatter plots.
 Here’s an example using the <code>iris</code> data set which is included in R:</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb446-1"><a href="visualization.html#cb446-1"></a><span class="kw">pairs</span>(iris, <span class="dt">pch=</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-463-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb446"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb446-1"><a href="visualization.html#cb446-1" tabindex="-1"></a><span class="fu">pairs</span>(iris, <span class="at">pch=</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-462-1.png" width="672" style="display: block; margin: auto;" />
 To know the x axis for one of these plots, look up/down to the diagonal, which will tell you the variable on the x axis.
 To know the y axis for one of these plots, look left/right to the diagonal, which will tell you the variable on the y axis.</p>
 </div>
-<div id="surfaces" class="section level4">
-<h4><span class="header-section-number">5.6.6.2</span> Surfaces</h4>
+<div id="surfaces" class="section level4 hasAnchor" number="5.6.6.2">
+<h4><span class="header-section-number">5.6.6.2</span> Surfaces<a href="visualization.html#surfaces" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If you need to plot a surface, there are a few options for visualization.
 The first is <code>contour</code>, which shows level curves of the surface in a 2d plane:</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb447-1"><a href="visualization.html#cb447-1"></a><span class="co"># Make a surface using the rep function</span></span>
-<span id="cb447-2"><a href="visualization.html#cb447-2"></a>n &lt;-<span class="st"> </span><span class="dv">100</span></span>
-<span id="cb447-3"><a href="visualization.html#cb447-3"></a>x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n, n)<span class="op">/</span>n<span class="op">*</span><span class="dv">2</span><span class="op">*</span>pi</span>
-<span id="cb447-4"><a href="visualization.html#cb447-4"></a>y &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dt">each=</span>n)<span class="op">/</span>n<span class="op">*</span><span class="dv">2</span><span class="op">*</span>pi</span>
-<span id="cb447-5"><a href="visualization.html#cb447-5"></a>z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sin</span>(x) <span class="op">+</span><span class="st"> </span><span class="kw">cos</span>(y), n, n)</span>
-<span id="cb447-6"><a href="visualization.html#cb447-6"></a></span>
-<span id="cb447-7"><a href="visualization.html#cb447-7"></a><span class="kw">contour</span>(z, <span class="dt">nlevels=</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-464-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb447-1"><a href="visualization.html#cb447-1" tabindex="-1"></a><span class="co"># Make a surface using the rep function</span></span>
+<span id="cb447-2"><a href="visualization.html#cb447-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb447-3"><a href="visualization.html#cb447-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, n)<span class="sc">/</span>n<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi</span>
+<span id="cb447-4"><a href="visualization.html#cb447-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">each=</span>n)<span class="sc">/</span>n<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi</span>
+<span id="cb447-5"><a href="visualization.html#cb447-5" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">cos</span>(y), n, n)</span>
+<span id="cb447-6"><a href="visualization.html#cb447-6" tabindex="-1"></a></span>
+<span id="cb447-7"><a href="visualization.html#cb447-7" tabindex="-1"></a><span class="fu">contour</span>(z, <span class="at">nlevels=</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-463-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The second option is <code>parsp</code>, which gives a 3d perspective of the surface:</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb448-1"><a href="visualization.html#cb448-1"></a><span class="kw">persp</span>(z, <span class="dt">theta=</span><span class="dv">45</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">shade=</span><span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-465-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb448-1"><a href="visualization.html#cb448-1" tabindex="-1"></a><span class="fu">persp</span>(z, <span class="at">theta=</span><span class="dv">45</span>, <span class="at">phi=</span><span class="dv">30</span>, <span class="at">shade=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-464-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="saving-images" class="section level3">
-<h3><span class="header-section-number">5.6.7</span> Saving Images</h3>
+<div id="saving-images" class="section level3 hasAnchor" number="5.6.7">
+<h3><span class="header-section-number">5.6.7</span> Saving Images<a href="visualization.html#saving-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Creating visualizations in R wouldn’t be very useful if there were no way to save them onto your hard drive (or ssd).
 Thankfully, R provides various ways of doing this, depending on where the plot “lives”.
 We’ll talk through each of these below.</p>
-<div id="rcode" class="section level4">
-<h4><span class="header-section-number">5.6.7.1</span> RCode</h4>
+<div id="rcode" class="section level4 hasAnchor" number="5.6.7.1">
+<h4><span class="header-section-number">5.6.7.1</span> RCode<a href="visualization.html#rcode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The most universal way to save plots is to use R code itself! This will work anywhere that R code can be run, whether that’s the RStudio console, an R script, or an RMarkdown document.
 All you have to do is type a few simple commands.
 The idea is, that normally R “sends” a plot to the plotting window (in the lower right of RStudio), or to the output of a code chunk (if you’re using RMarkdown), but to save the file, you just have to change where R is sending the plot.
 For example, if you add put the <code>png</code> function before a plotting command, then instead of sending the plot to wherever it normally does, R will send the plot into the png file you specify.
 Here’s an example:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="visualization.html#cb449-1"></a><span class="kw">png</span>(<span class="st">&quot;output/test_plot.png&quot;</span>)  <span class="co"># start &quot;sending&quot; plots to the png file called &quot;test_plot.png&quot;</span></span>
-<span id="cb449-2"><a href="visualization.html#cb449-2"></a><span class="kw">plot</span>(y1, y2)          <span class="co"># this plot will go to &quot;test_plot.png&quot;</span></span>
-<span id="cb449-3"><a href="visualization.html#cb449-3"></a><span class="kw">dev.off</span>()             <span class="co"># Stop sending plots to &quot;test_plot.png&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="visualization.html#cb449-1" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;output/test_plot.png&quot;</span>)  <span class="co"># start &quot;sending&quot; plots to the png file called &quot;test_plot.png&quot;</span></span>
+<span id="cb449-2"><a href="visualization.html#cb449-2" tabindex="-1"></a><span class="fu">plot</span>(y1, y2)          <span class="co"># this plot will go to &quot;test_plot.png&quot;</span></span>
+<span id="cb449-3"><a href="visualization.html#cb449-3" tabindex="-1"></a><span class="fu">dev.off</span>()             <span class="co"># Stop sending plots to &quot;test_plot.png&quot;</span></span></code></pre></div>
 <pre class="output-style"><code>quartz_off_screen 
                 2 </code></pre>
 <p>After you’re done sending plots to a file, use the command <code>dev.off()</code> to reset where R is sending the plots</p>
@@ -542,45 +594,46 @@ The <code>png</code> function creates a new graphics device which is a file on y
 The <code>dev.off()</code> shuts down the current graphics device, so no more plots are sent to the file.
 You can check out other <code>dev.</code> functions by running `?dev.off().
 </div>
-
 <p>There are other commands like <code>png</code> as well, including <code>bmp</code> for bitmap images, and <code>jpeg</code> for jpeg images.
 When you’re sending a plot to a file, it will <em>not</em> display in the plot window.</p>
 </div>
-<div id="rstudio-plot-window" class="section level4">
-<h4><span class="header-section-number">5.6.7.2</span> RStudio Plot Window</h4>
+<div id="rstudio-plot-window" class="section level4 hasAnchor" number="5.6.7.2">
+<h4><span class="header-section-number">5.6.7.2</span> RStudio Plot Window<a href="visualization.html#rstudio-plot-window" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If you run code to generate a plot from the console or an R script, then the plot will show up in the RStudio plot window.
 To save a figure displayed in the plot window, use the “Export” button in the plot window menu.</p>
 </div>
-<div id="rmarkdown" class="section level4">
-<h4><span class="header-section-number">5.6.7.3</span> RMarkdown</h4>
+<div id="rmarkdown" class="section level4 hasAnchor" number="5.6.7.3">
+<h4><span class="header-section-number">5.6.7.3</span> RMarkdown<a href="visualization.html#rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If you’re plotting inside of an RMarkdown document, then plots will be shown inside your document.
 One way to get them “out of RStudio” is simply to knit the document.
 But if you want the plot by itself, then right click on the plot and select “Save image as”.</p>
 <div class="progress">
 <p>
-Choose a plot that you previously created, and write code to save the plot to a png file in the “output” directory of your RStudio project. Choose an appropriate filename for the file.
+Choose a plot that you previously created, and write code to save the
+plot to a png file in the “output” directory of your RStudio project.
+Choose an appropriate filename for the file.
 </p>
 </div>
 </div>
 </div>
-<div id="plotting-wrap-up" class="section level3">
-<h3><span class="header-section-number">5.6.8</span> Plotting Wrap Up</h3>
+<div id="plotting-wrap-up" class="section level3 hasAnchor" number="5.6.8">
+<h3><span class="header-section-number">5.6.8</span> Plotting Wrap Up<a href="visualization.html#plotting-wrap-up" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These examples of plotting are only scratching the surface.
 There are many more things possible with base R graphics, not to mention the numerous other capabilities provided by community developed Packages.
 Before ending this section, we’ll leave you with an example from the <code>ggplot2</code> package, just to give you a taste of what’s possible.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb451-1"><a href="visualization.html#cb451-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
-<pre><code>Warning: replacing previous import &#39;vctrs::data_frame&#39; by &#39;tibble::data_frame&#39;
-when loading &#39;dplyr&#39;</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb453-1"><a href="visualization.html#cb453-1"></a><span class="kw">ggplot</span>(gy_bb_wr, <span class="kw">aes</span>(Height, Weight, <span class="dt">color=</span>Sex)) <span class="op">+</span></span>
-<span id="cb453-2"><a href="visualization.html#cb453-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span><span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb453-3"><a href="visualization.html#cb453-3"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb453-4"><a href="visualization.html#cb453-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb453-5"><a href="visualization.html#cb453-5"></a><span class="st">  </span><span class="kw">facet_grid</span>(Sex<span class="op">~</span>Sport)</span></code></pre></div>
-<pre><code>Warning: Removed 199 rows containing missing values (geom_point).</code></pre>
-<p><img src="Module1_files/figure-html/unnamed-chunk-469-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb451-1"><a href="visualization.html#cb451-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb451-2"><a href="visualization.html#cb451-2" tabindex="-1"></a></span>
+<span id="cb451-3"><a href="visualization.html#cb451-3" tabindex="-1"></a><span class="fu">ggplot</span>(gy_bb_wr, <span class="fu">aes</span>(Height, Weight, <span class="at">color=</span>Sex)) <span class="sc">+</span></span>
+<span id="cb451-4"><a href="visualization.html#cb451-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb451-5"><a href="visualization.html#cb451-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb451-6"><a href="visualization.html#cb451-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb451-7"><a href="visualization.html#cb451-7" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Sex<span class="sc">~</span>Sport)</span></code></pre></div>
+<pre><code>Warning: Removed 199 rows containing missing values (`geom_point()`).</code></pre>
+<p><img src="Module1_files/figure-html/unnamed-chunk-468-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="feedback">
 <p>
-Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Plotting">here</a>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Basic%20Plotting">here</a>
 </p>
 </div>
 </div>
@@ -595,7 +648,6 @@ Any feedback for this section? Click <a href="https://docs.google.com/forms/d/e/
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -635,6 +687,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
@@ -651,7 +707,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

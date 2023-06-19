@@ -15,8 +15,8 @@ If you understand the basics of operating systems, directory structures on your 
 
 ### Operating Systems
 
-An operating system is a set of programs that allow you to interact with the computer, and the most popular operating systems are Windows, Mac OS X, and Linux. 
-R works on Windows, Mac OS X, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R. 
+An operating system is a set of programs that allow you to interact with the computer, and the most popular operating systems are Windows, macOS, and Linux. 
+R works on Windows, macOS, and several Linux-based operating systems, so if you have one of these operating systems, you'll be able install and use R. 
 At least, this is mostly true:
 ```{block, type="caution"}
 Some versions of Windows that run on ARM processors cannot install R, and installing R on a Chromebook will likely be more complicated (see [here](https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/){target="_blank"}). If you're in this situation, contact the instructor immediately.
@@ -67,7 +67,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 
 Here's where you install R on your personal computer, but you'll actually be installing _two_ separate programs.
 The _first_ is the R programming language.
-The _second_ is a separate program called R Studio, which will be the primary way in which you interact with R in this class, we will say more about this later.
+The _second_ is a separate program called RStudio, which will be the primary way in which you interact with R in this class, we will say more about this later.
 
 ### Installing R
 
@@ -95,9 +95,9 @@ This video shows the installation process for Windows.
 <center> __https://www.youtube.com/embed/7ZYn6q_pboE__ </center>
 ```
 
-#### Mac OS X
+#### macOS
 
-- Click "Download R for (Mac) OS X"
+- Click "Download R for macOS"
 - Click "R-X.Y.Z.pkg", where X, Y, and Z will be numbers. These numbers indicate which version of R you'll be installing. As of the publishing of this book, R is on version `r r_version`.
 - Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select "save".
 - When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process. 
@@ -144,7 +144,7 @@ This video shows the installation process for Windows.
 ```
 
 
-#### Mac OS X
+#### macOS
 
 - In the window which opens, drag the RStudio icon into the "Applications" folder. You may need to enter your password (click the "Authenticate" button) in order to do so.
 - You should now be able to navigate to the Applications folder in Finder, and click on the RStudio icon to open RStudio.
@@ -207,11 +207,11 @@ knitr::include_graphics("src/images/rstudio_newfile.png")
 In the script window which opens, type `1+1` and press `enter`.
 Notice how now, the code did _not_ run?
 In a script, you are free to write R code on several lines before you run it. 
-You can even save the script  and load it later in order to run the code it contains.
+You can even save the script and load it later in order to run the code it contains.
 There are multiple ways to run R code in a script.
 To run a single line of code, do one of the following:
 
-- Place the cursor on the desired line, hold the `<control>` key, and press `enter`. On Mac OS X, hold `<command>` key and press `return` instead
+- Place the cursor on the desired line, hold the `<control>` key, and press `enter`. On macOS, hold `<command>` key and press `return` instead
 - Place the cursor on the desired line and click the `Run` button that looks like this:
 
 ```{r, fig.cap="code in the console", echo=F}
@@ -220,17 +220,17 @@ knitr::include_graphics("src/images/rstudio_run.png")
 
 To run multiple lines of code, do one of the following:
 
-- Highlight all the code you'd like to run, hold the `<control>` key, and press `enter`. On Mac OS X, hold the `<command>` key and press `return` instead.
+- Highlight all the code you'd like to run, hold the `<control>` key, and press `enter`. On macOS, hold the `<command>` key and press `return` instead.
 - Highlight all the code you'd like to run, and click the `Run` button.
 
 Run the `1+1` code using one of the methods above, and observe the output. 
-Notice how the output is _still_ in the console window, even you ran the code in a script!
+Notice how the output is _still_ in the console window, even though you ran the code in a script!
 
 ```{block, type="caution"}
 Even though running R code from the console and an R script are done differently, they should produce the same results. Both are running R!
 ```
 
-Now that you've run some code in the console and from an R script, let's try some of the other code we wrote previously. 
+Now that you've run some code in the console and from an R script, let's try some of the other code we ran previously. 
 
 ### Same Examples, On Your Computer!
 
@@ -267,12 +267,12 @@ The above code block includes a command to install an R package!
 
 ```{block, type="reflect"}
 Imagine you are practicing programming in R and your classmate tells you they heard about an interesting new R command which they'd like you to try out.
-Would you run the command in an R script, or the R console? How might your answer change if you wanted to keep a record of all the interesting R command you found?
+Would you run the command in an R script, or the R console? How might your answer change if you wanted to keep a record of all the interesting R commands you found?
 ```
 
 ### R Markdown
 
-You've seen how to run R code in the R console, and from an R script, but there's one more way to run R that we need to talk about: R Markdown
+You've seen how to run R code in the R console, and from an R script, but there's one more way to run R that we need to talk about: R Markdown.
 
 R scripts are convenient because they can store multiple R commands in one file. 
 R Markdown takes this idea further and stores code alongside human readable text.
@@ -292,7 +292,7 @@ As the video stated, there are three types of sections to an R Markdown document
 
 - Header
 - Human readable text
-- Code Chunks
+- Code chunks
 
 There's only one header, but there can be many blocks of human readable text and many code chunks.
 
@@ -302,8 +302,8 @@ See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.p
 
 ```{block, type="assessment"}
 As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
-Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `data_raw` folder, and follow the instructions.
-That document should include all progress reports from Section 3.4 through (and including) Section 4.3
+Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `scripts` folder, and follow the instructions.
+That document should include all progress checks from Section 3.4 through (and including) Section 4.3
 The next box should be the first code chunk you will include in the document!
 ```
 
@@ -327,21 +327,21 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 ## Workspace setup
 
 Whenever you are programming in R, and especially for this class, it's important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course
+This section will give you some instructions and tips for how to organize material for this R course.
 
 ### Recommended Settings
 
 First of all, let's set some settings in RStudio.
 At the top of the R window, click `Tools`, then `Global Options`, and do the following:
 
-1. On the left side of the window that pops up, and make sure it's on the "General" tab
+1. On the left side of the window that pops up, make sure it's on the "General" tab
 1. Find the "Workspace" section on the right, make the following changes:
     - _uncheck_ "Restore .RData into workspace on startup"
     - Change the "Save workspace to .RData on exit" option to _never_
 1. On the left side, select the "R Markdown" tab and make the following change:
     - Change the "Evaluate chunks in directory" option to _Project_.
 1. (Optional) On the left side, select the "Appearance" tab and make the changes:
-    - (Optional) Change the Zoom setting to increase or decrease the size, to fit your screen best.
+    - (Optional) Change the "Zoom:" setting to increase or decrease the interface text size to fit your screen best.
     - (Optional) Change the "Editor theme:" setting to find a color scheme that looks good to you.
 1. Click "Apply", then "OK" at the bottom of the window.
 
@@ -349,7 +349,7 @@ Step 2 ensures that each time you open RStudio, there's no "memory" of anything 
 This is a good option for R beginners to avoid confusion and mistakes.
 Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the _working directory_ (more on working directories below).
 Changing the zoom can also be done using the shortcuts `<control> <shift> +` (to increase size) and `<control> -` (to decrease size). 
-On Mac OS X, the commands are `<command> <shift> +` and `<command> -`.
+On macOS, the commands are `<command> <shift> +` and `<command> -`.
 
 
 ### Setting working directory
@@ -372,20 +372,20 @@ For this class, you should set up a new project, so all of your project related 
 
 To create an RStudio project, follow these steps:
 
-- Click on the "Create a project" button
+- Click on the "Project" button at the top right of the RStudio window and select "New Project".
 
 ```{r, fig.cap="Click this button to create a new project", echo=F}
 knitr::include_graphics("src/images/rstudio_newproject.png")
 ```
 
-- In the window that pops up, click on  "New Directory" then "New Project".
+- In the window that pops up, click on "New Directory" then "New Project".
 - In the box after "Directory name", type "RModule1", which will be the name of the project.
 - Then click the "Browse" button to select where to place the project.
 - You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.
-- Click on "Create Project"
+- Click on "Create Project".
 
 You should now be _in_ your newly created project.
-If you look at the Files window in the lower right part of RStudio, you should see the files in your new project directory, which should only be one file, called "RModule1.rproj.
+If you look at the Files window in the lower right pane of RStudio, you should see the files in your new project directory, which should only be one file, called "RModule1.rproj".
 This file is the _project file_, which tells RStudio that this directory contains an R Project.
 When you're working on this course, you should be working in this project.
 The easiest way to open up the project is to use your operating system's file explorer and click on the project file. 
@@ -432,11 +432,6 @@ You might also want to clear the R console, which you can do by placing your cur
 Here's a [more complete list](https://support.rstudio.com/hc/en-us/articles/200711853) of RStudio shortcuts.
 ```
 
-```{block, type='feedback'}
-Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
-``` 
-
-
 ```{block, type="reflect"}
 Before moving on to the next section, take a note of all you've done so far. 
 
@@ -448,3 +443,6 @@ Before moving on to the next section, take a note of all you've done so far.
 
 ```
 
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup)
+``` 
