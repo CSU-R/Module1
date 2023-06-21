@@ -406,7 +406,7 @@ Here’s the <code>sort</code> function:</p>
         stop(&quot;&#39;decreasing&#39; must be a length-1 logical vector.\nDid you intend to set &#39;partial&#39;?&quot;)
     UseMethod(&quot;sort&quot;)
 }
-&lt;bytecode: 0x101077fc8&gt;
+&lt;bytecode: 0x11bc58dc8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>Now, there are some things in this output that may be confusing and that we won’t explain in this book, but at least some of the output should look like R code to you!
 Here’s another example, the <code>mean</code> function:</p>
@@ -414,7 +414,7 @@ Here’s another example, the <code>mean</code> function:</p>
 <span id="cb517-2"><a href="writing-functions.html#cb517-2" tabindex="-1"></a>mean</span></code></pre></div>
 <pre class="output-style"><code>function (x, ...) 
 UseMethod(&quot;mean&quot;)
-&lt;bytecode: 0x119cb8178&gt;
+&lt;bytecode: 0x11c6c2f78&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>This example doesn’t seem to have as much R code in it, so where is the code for this function?
 The answer is that both <code>sort</code> and <code>mean</code> (and many other R functions) are written in a <em>different</em> programming language, C, which isn’t human readable once it’s compiled.

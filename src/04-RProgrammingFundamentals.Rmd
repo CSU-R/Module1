@@ -771,7 +771,7 @@ a[3]    # access the third element
 ```{block, type="progress"}
 What do you think will be the result of the following code (hint: the result will either be `TRUE` or `FALSE`)?
 
-`vec <- c(4, 5, 6)  # create a vector`
+`vec <- c(4, 5, 6)  # Create a vector`
 
 `vec[3] == 6   # Remember what == does?`
 
@@ -1183,6 +1183,7 @@ Based on the examples we've seen before, it should make sense that numeric vecto
 ```{r}
 as.logical(c(1, 0, 1, 0))  # Here we create the vector and convert it in the same line
 ```
+
 ```{block, type="progress"}
 Logical vectors can also be converted into character or numeric vectors. 
 Based on what you know, make a prediction about what the following commands will produce:
