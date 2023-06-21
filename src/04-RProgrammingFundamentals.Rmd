@@ -692,7 +692,7 @@ If you were in charge of making this decision, what would make the most sense?
 Let's try to create a vector of mixed type and see what happens.
 Run the following commands in R and think about the output:
 
-`m <- c(TRUE, "Hello", 5)` 
+`m <- c(TRUE, "Hello", 5)`
 
 `class(m)`
 
