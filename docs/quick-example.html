@@ -346,15 +346,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the <code>data()</code> command.
 One of the data sets is <code>Seatbelts</code>, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert <code>Seatbelts</code> to a data frame, because it starts out as a “Time-Series”, which we haven’t discussed.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date=</span><span class="fu">time</span>(Seatbelts))   <span class="co"># convert Time Series to data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date=</span><span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
 <p>We’ve also added a month and year column</p>
 <p>look at the dimensions of the data set with the <code>dim</code> command:</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1" tabindex="-1"></a><span class="fu">dim</span>(Seatbelts)   <span class="co"># get the number of dimensions in the Seatbelts data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1" tabindex="-1"></a><span class="fu">dim</span>(Seatbelts)  <span class="co"># Get the number of dimensions in the Seatbelts data frame</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 192   9</code></pre>
 <p>This shows that there are 192 rows (months), and 9 columns (variables measured each month).
 We could also determine the number of rows and columns separately using the <code>nrow</code> and <code>ncol</code> functions.
 To view the first few rows of the Seatbelts data frame, use the <code>head</code> command:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb328-1"><a href="quick-example.html#cb328-1" tabindex="-1"></a><span class="fu">head</span>(Seatbelts)  <span class="co"># view first few rows of the Seatbelts dataset</span></span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb328-1"><a href="quick-example.html#cb328-1" tabindex="-1"></a><span class="fu">head</span>(Seatbelts)  <span class="co"># View first few rows of the Seatbelts dataset</span></span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["DriversKilled"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["drivers"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["front"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rear"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["kms"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["PetrolPrice"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VanKilled"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["law"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["date"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"107","2":"1687","3":"867","4":"269","5":"9059","6":"0.1029718","7":"12","8":"0","9":"1969.000","_rn_":"1"},{"1":"97","2":"1508","3":"825","4":"265","5":"7685","6":"0.1023630","7":"6","8":"0","9":"1969.083","_rn_":"2"},{"1":"102","2":"1507","3":"806","4":"319","5":"9963","6":"0.1020625","7":"12","8":"0","9":"1969.167","_rn_":"3"},{"1":"87","2":"1385","3":"814","4":"407","5":"10955","6":"0.1008733","7":"8","8":"0","9":"1969.250","_rn_":"4"},{"1":"119","2":"1632","3":"991","4":"454","5":"11823","6":"0.1010197","7":"10","8":"0","9":"1969.333","_rn_":"5"},{"1":"106","2":"1511","3":"945","4":"427","5":"12391","6":"0.1005812","7":"13","8":"0","9":"1969.417","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -390,8 +390,8 @@ Because these data are included with R, more information about each variable can
 We learn, for example, that the average number of drivers killed per month is 1670, and that the greatest price of petrol was £0.13 per litre!
 Let’s view a histogram of <code>DriversKilled</code>:</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="quick-example.html#cb332-1" tabindex="-1"></a><span class="fu">hist</span>(Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">breaks=</span><span class="dv">20</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-324"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-324-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-323"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-323-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
 <p class="caption">
 Figure 5.1: Histogram of Drivers Killed in Seatbelt data
 </p>
@@ -400,18 +400,18 @@ Figure 5.1: Histogram of Drivers Killed in Seatbelt data
 We can calculate how many exactly like so:</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb333-1"><a href="quick-example.html#cb333-1" tabindex="-1"></a><span class="fu">sum</span>(Seatbelts<span class="sc">$</span>DriversKilled <span class="sc">&gt;</span> <span class="dv">150</span>)</span></code></pre></div>
 <pre class="output-style"><code>[1] 33</code></pre>
-<p>To investigate the effect of the seat belt law, let’s create a scatter plot Drivers killed against time:</p>
+<p>To investigate the effect of the seat belt law, let’s create a scatter plot of drivers killed against time:</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb335-1"><a href="quick-example.html#cb335-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-326-1.png" alt="UK Seatbelt deaths vs time" width="672" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-325"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-325-1.png" alt="UK Seatbelt deaths vs time" width="672" />
 <p class="caption">
 Figure 5.2: UK Seatbelt deaths vs time
 </p>
 </div>
 <p>By adding a <code>col</code> argument to the <code>plot</code> function, we can color the points based on whether the law was in effect:</p>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb336-1"><a href="quick-example.html#cb336-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">col=</span>(Seatbelts<span class="sc">$</span>law<span class="sc">+</span><span class="dv">2</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-327-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-326-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
 <p class="caption">
 Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law
 </p>
@@ -420,8 +420,8 @@ Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt 
 <p>Let’s change the x-axis to reflect month of the year instead of date:</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb337-1"><a href="quick-example.html#cb337-1" tabindex="-1"></a><span class="fu">plot</span>((Seatbelts<span class="sc">$</span>date <span class="sc">%%</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">12</span> <span class="sc">+</span> <span class="dv">1</span>, Seatbelts<span class="sc">$</span>DriversKilled, </span>
 <span id="cb337-2"><a href="quick-example.html#cb337-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="at">col=</span>Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-328"></span>
-<img src="Module1_files/figure-html/unnamed-chunk-328-1.png" alt="UK Driver Deaths vs. Month" width="672" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-327-1.png" alt="UK Driver Deaths vs. Month" width="672" />
 <p class="caption">
 Figure 5.4: UK Driver Deaths vs. Month
 </p>
@@ -433,8 +433,8 @@ We can also see that within each month, the traffic deaths after enacting the Se
 Another data set included in R is <code>mtcars</code>. Following the
 example above, find the dimension of <code>mtcars</code> and have R
 print out a summary of each column, then create a scatter plot of fuel
-economy (<code>mpg</code>) to engine displacement. What do you observe
-about the relationship between these two variables?
+economy (<code>mpg</code>) versus engine displacement. What do you
+observe about the relationship between these two variables?
 </p>
 </div>
 <p>This concludes the quick example.

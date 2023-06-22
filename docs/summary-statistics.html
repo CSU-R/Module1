@@ -355,15 +355,15 @@ What other R data types might be used to store quantitative data?
 </p>
 </div>
 <p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Age))   <span class="co"># count how many NA&#39;s are in the Age column</span></span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Age))  <span class="co"># Count how many NA&#39;s are in the Age column</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 183</code></pre>
 
 <div class="reflect">
 Pause and think through what’s happening in the above code. The <code>is.na</code> function returns a logical array which is true whenever the <code>Age</code> column is <code>NA</code>. So why does the <code>sum</code> function produce the number of <code>NA</code>’s?
 </div>
 <p>As a cleaning step, we must first remove the <code>NA</code> values:</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Age         <span class="co"># assign the Ages column to a variable</span></span>
-<span id="cb344-2"><a href="summary-statistics.html#cb344-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> age[<span class="sc">!</span><span class="fu">is.na</span>(age)]   <span class="co"># extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Age       <span class="co"># Assign the Ages column to a variable</span></span>
+<span id="cb344-2"><a href="summary-statistics.html#cb344-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> age[<span class="sc">!</span><span class="fu">is.na</span>(age)]   <span class="co"># Extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
 <div class="bonus">
 <p>
 This type of “data cleaning” is a very common first step when
@@ -372,12 +372,12 @@ later in the course.
 </p>
 </div>
 <p>Here are some functions R provides to summarize quantitative variables.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb345-1"><a href="summary-statistics.html#cb345-1" tabindex="-1"></a>age_min <span class="ot">&lt;-</span> <span class="fu">min</span>(age)     <span class="co"># find the minimum age</span></span>
-<span id="cb345-2"><a href="summary-statistics.html#cb345-2" tabindex="-1"></a>age_med <span class="ot">&lt;-</span> <span class="fu">median</span>(age)  <span class="co"># find the median age</span></span>
-<span id="cb345-3"><a href="summary-statistics.html#cb345-3" tabindex="-1"></a>age_max <span class="ot">&lt;-</span> <span class="fu">max</span>(age)     <span class="co"># find the maximum age</span></span>
-<span id="cb345-4"><a href="summary-statistics.html#cb345-4" tabindex="-1"></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(age)   <span class="co"># find the average age</span></span>
-<span id="cb345-5"><a href="summary-statistics.html#cb345-5" tabindex="-1"></a>age_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(age)       <span class="co"># find the standard deviation of age</span></span>
-<span id="cb345-6"><a href="summary-statistics.html#cb345-6" tabindex="-1"></a>age_var <span class="ot">&lt;-</span> <span class="fu">var</span>(age)     <span class="co"># find the variance of age</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb345-1"><a href="summary-statistics.html#cb345-1" tabindex="-1"></a>age_min <span class="ot">&lt;-</span> <span class="fu">min</span>(age)     <span class="co"># Find the minimum age</span></span>
+<span id="cb345-2"><a href="summary-statistics.html#cb345-2" tabindex="-1"></a>age_med <span class="ot">&lt;-</span> <span class="fu">median</span>(age)  <span class="co"># Find the median age</span></span>
+<span id="cb345-3"><a href="summary-statistics.html#cb345-3" tabindex="-1"></a>age_max <span class="ot">&lt;-</span> <span class="fu">max</span>(age)     <span class="co"># Find the maximum age</span></span>
+<span id="cb345-4"><a href="summary-statistics.html#cb345-4" tabindex="-1"></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(age)   <span class="co"># Find the average age</span></span>
+<span id="cb345-5"><a href="summary-statistics.html#cb345-5" tabindex="-1"></a>age_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(age)       <span class="co"># Find the standard deviation of age</span></span>
+<span id="cb345-6"><a href="summary-statistics.html#cb345-6" tabindex="-1"></a>age_var <span class="ot">&lt;-</span> <span class="fu">var</span>(age)     <span class="co"># Find the variance of age</span></span></code></pre></div>
 <p>Let’s put all these results in a named list.
 In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.</p>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb346-1"><a href="summary-statistics.html#cb346-1" tabindex="-1"></a><span class="co"># Create a list containing all the stats</span></span>
@@ -388,7 +388,7 @@ In the following code, read the comments carefully to understand how the code is
 <span id="cb346-6"><a href="summary-statistics.html#cb346-6" tabindex="-1"></a>  <span class="at">mean =</span> age_mean,  </span>
 <span id="cb346-7"><a href="summary-statistics.html#cb346-7" tabindex="-1"></a>  <span class="at">sd =</span> age_sd,      </span>
 <span id="cb346-8"><a href="summary-statistics.html#cb346-8" tabindex="-1"></a>  <span class="at">var =</span> age_var</span>
-<span id="cb346-9"><a href="summary-statistics.html#cb346-9" tabindex="-1"></a>)  <span class="co"># this could all go on one line, but it looks more organized this way.</span></span>
+<span id="cb346-9"><a href="summary-statistics.html#cb346-9" tabindex="-1"></a>)  <span class="co"># This could all go on one line, but it looks more organized this way.</span></span>
 <span id="cb346-10"><a href="summary-statistics.html#cb346-10" tabindex="-1"></a>age_stats</span></code></pre></div>
 <pre class="output-style"><code>$min
 [1] 12
@@ -416,7 +416,7 @@ If you get <code>NA</code> values for the statistics, you should include the <co
 <div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb348-1"><a href="summary-statistics.html#cb348-1" tabindex="-1"></a><span class="fu">hist</span>(age, <span class="at">breaks=</span><span class="dv">50</span>)</span>
 <span id="cb348-2"><a href="summary-statistics.html#cb348-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>age_mean, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span>
 <span id="cb348-3"><a href="summary-statistics.html#cb348-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>age_med, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-352-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" />
 It looks like the distribution of <code>Age</code> is <em>right skewed</em>, consistent with the fact that the mean is greater than the median.</p>
 <p>Of course, having more than one quantitative variable allows us to compare them against each other.
 Here’s how to compute the covariance between two quantitative variables:</p>
@@ -424,7 +424,7 @@ Here’s how to compute the covariance between two quantitative variables:</p>
 <pre class="output-style"><code>[1] 6.483675</code></pre>
 <div class="caution">
 <p>
-The argument r<code>use=“complete.obs”</code> is one way to deal with
+The argument <code>use=“complete.obs”</code> is one way to deal with
 <code>NA</code> values in the <code>cov</code> function. This makes R
 remove any observations which are NA in either the first or second
 variable. There are other ways as well, which you can check using the
@@ -461,7 +461,7 @@ vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
 am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
 gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
 carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
-<p>However, this only works if every column the data frame (or matrix) are numeric.
+<p>However, this only works if all columns of the data frame (or matrix) are numeric.
 Here’s what happens if we try the same thing on the athletes data:</p>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1" tabindex="-1"></a><span class="fu">cor</span>(athletes)</span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in cor(athletes): 'x' must be numeric
@@ -558,19 +558,19 @@ Short Track Speed Skating                  Skeleton               Ski Jumping
                Water Polo             Weightlifting                 Wrestling 
                        79                        85                       123 </code></pre>
 <p>Let’s save this table to a list as before:</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1" tabindex="-1"></a><span class="co"># assign summary statistics to variables</span></span>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1" tabindex="-1"></a><span class="co"># Assign summary statistics to variables</span></span>
 <span id="cb364-2"><a href="summary-statistics.html#cb364-2" tabindex="-1"></a>sport_n_unique <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(sport))</span>
 <span id="cb364-3"><a href="summary-statistics.html#cb364-3" tabindex="-1"></a>sport_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(sport)</span>
 <span id="cb364-4"><a href="summary-statistics.html#cb364-4" tabindex="-1"></a></span>
-<span id="cb364-5"><a href="summary-statistics.html#cb364-5" tabindex="-1"></a><span class="co"># combine them into a list</span></span>
+<span id="cb364-5"><a href="summary-statistics.html#cb364-5" tabindex="-1"></a><span class="co"># Combine them into a list</span></span>
 <span id="cb364-6"><a href="summary-statistics.html#cb364-6" tabindex="-1"></a>sport_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb364-7"><a href="summary-statistics.html#cb364-7" tabindex="-1"></a>  <span class="at">number_unique =</span> sport_n_unique,</span>
 <span id="cb364-8"><a href="summary-statistics.html#cb364-8" tabindex="-1"></a>  <span class="at">counts =</span> sport_counts</span>
 <span id="cb364-9"><a href="summary-statistics.html#cb364-9" tabindex="-1"></a>)</span></code></pre></div>
 <p>Again, a visualization may be useful here:</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb365-1"><a href="summary-statistics.html#cb365-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
-<span id="cb365-2"><a href="summary-statistics.html#cb365-2" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(sport), <span class="at">horiz=</span>T, <span class="at">las=</span><span class="dv">2</span>)   <span class="co"># bar plot</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-365-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb365-1"><a href="summary-statistics.html#cb365-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">15</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
+<span id="cb365-2"><a href="summary-statistics.html#cb365-2" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(sport), <span class="at">horiz=</span>T, <span class="at">las=</span><span class="dv">2</span>)  <span class="co"># Bar plot</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-364-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
 
 <div class="progress">
@@ -609,11 +609,11 @@ The following commands may be useful for remembering what the contents of our st
 <p>To save these results, we can use the <code>saveRDS</code> function:</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb367-1"><a href="summary-statistics.html#cb367-1" tabindex="-1"></a><span class="fu">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</span></code></pre></div>
 <p>Later, we can use the following command to load the RDS file back into R:</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb368-1"><a href="summary-statistics.html#cb368-1" tabindex="-1"></a><span class="fu">rm</span>(athlete_stats)  <span class="co"># remove athlete stats to prove we are loading it from the hard drive</span></span>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb368-1"><a href="summary-statistics.html#cb368-1" tabindex="-1"></a><span class="fu">rm</span>(athlete_stats)  <span class="co"># Remove athlete stats to prove we are loading it from the hard drive</span></span>
 <span id="cb368-2"><a href="summary-statistics.html#cb368-2" tabindex="-1"></a></span>
-<span id="cb368-3"><a href="summary-statistics.html#cb368-3" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># load the RDS file and name it athlete_stats</span></span>
+<span id="cb368-3"><a href="summary-statistics.html#cb368-3" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># Load the RDS file and name it athlete_stats</span></span>
 <span id="cb368-4"><a href="summary-statistics.html#cb368-4" tabindex="-1"></a></span>
-<span id="cb368-5"><a href="summary-statistics.html#cb368-5" tabindex="-1"></a>athlete_stats<span class="sc">$</span>age   <span class="co"># show that we have loaded the data by printing the age stats</span></span></code></pre></div>
+<span id="cb368-5"><a href="summary-statistics.html#cb368-5" tabindex="-1"></a>athlete_stats<span class="sc">$</span>age   <span class="co"># Show that we have loaded the data by printing the age stats</span></span></code></pre></div>
 <pre class="output-style"><code>$min
 [1] 12
 

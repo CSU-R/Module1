@@ -5,10 +5,10 @@ fig:unnamed-chunk-34
 fig:unnamed-chunk-35
 fig:unnamed-chunk-36
 fig:unnamed-chunk-49
-fig:unnamed-chunk-324
+fig:unnamed-chunk-323
+fig:unnamed-chunk-325
 fig:unnamed-chunk-326
 fig:unnamed-chunk-327
-fig:unnamed-chunk-328
 welcome
 how-to-navigate-this-book
 associated-csu-course
@@ -140,7 +140,7 @@ map
 installing-and-using-packages
 downloading-the-data
 explore-the-data-structure
-explore-the-data.
+explore-the-data
 analyze-the-data
 performing-effective-data-analysis
 basic-control-flow

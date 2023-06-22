@@ -377,7 +377,7 @@ using the command <code>library</code>.</p>
 <span id="cb453-3"><a href="vignettes.html#cb453-3" tabindex="-1"></a></span>
 <span id="cb453-4"><a href="vignettes.html#cb453-4" tabindex="-1"></a><span class="co">#install.packages(&#39;dataRetrieval&#39;)</span></span>
 <span id="cb453-5"><a href="vignettes.html#cb453-5" tabindex="-1"></a></span>
-<span id="cb453-6"><a href="vignettes.html#cb453-6" tabindex="-1"></a><span class="co">#load the package</span></span>
+<span id="cb453-6"><a href="vignettes.html#cb453-6" tabindex="-1"></a><span class="co"># Load the package</span></span>
 <span id="cb453-7"><a href="vignettes.html#cb453-7" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span></code></pre></div>
 </div>
 <div id="downloading-the-data" class="section level4 hasAnchor" number="5.7.1.3">
@@ -438,25 +438,25 @@ rename and remove some of our columns in a new, simpler data.frame.</p>
 <span id="cb456-4"><a href="vignettes.html#cb456-4" tabindex="-1"></a><span class="co">#Rename the remaining columns</span></span>
 <span id="cb456-5"><a href="vignettes.html#cb456-5" tabindex="-1"></a><span class="fu">names</span>(pq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
 </div>
-<div id="explore-the-data." class="section level4 hasAnchor" number="5.7.1.5">
-<h4><span class="header-section-number">5.7.1.5</span> Explore the data.<a href="vignettes.html#explore-the-data." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="explore-the-data" class="section level4 hasAnchor" number="5.7.1.5">
+<h4><span class="header-section-number">5.7.1.5</span> Explore the data<a href="vignettes.html#explore-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now that we have cleaned up our data.frame a little, let’s explore the data.
 First we can use a summary command to just quickly look at the variables we have.</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   1.31  
  1st Qu.:2013-12-05   1st Qu.:  23.80  
- Median :2017-02-08   Median :  65.55  
- Mean   :2017-02-08   Mean   : 230.69  
- 3rd Qu.:2020-04-14   3rd Qu.: 150.00  
- Max.   :2023-06-20   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2023-06-21 and a range in river
+ Median :2017-02-09   Median :  65.70  
+ Mean   :2017-02-09   Mean   : 230.99  
+ 3rd Qu.:2020-04-15   3rd Qu.: 150.00  
+ Max.   :2023-06-21   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2023-06-22 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
 <div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="vignettes.html#cb459-1" tabindex="-1"></a><span class="fu">plot</span>(pq<span class="sc">$</span>q_cfs <span class="sc">~</span> pq<span class="sc">$</span>Date, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
 <span id="cb459-2"><a href="vignettes.html#cb459-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>,<span class="at">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-475-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-474-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>
 The above plot is called a “hydrograph” or a plot of how river flow
@@ -483,7 +483,7 @@ Now to use tapply we use the following code</p>
 <div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1" tabindex="-1"></a>annual <span class="ot">&lt;-</span> <span class="fu">tapply</span>(pq_wy<span class="sc">$</span>q_cfs,pq_wy<span class="sc">$</span>waterYear, mean)</span></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
 <div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual),(annual))</span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-479-1.png" width="672" style="display: block; margin: auto;" />
+<img src="Module1_files/figure-html/unnamed-chunk-478-1.png" width="672" style="display: block; margin: auto;" />
 <div class="reflect">
 <p>
 Has annual mean river declined over the past ten years? What about

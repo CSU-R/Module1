@@ -408,7 +408,7 @@ that is more clear and has far more examples <a href="https://ggplot2.tidyverse.
 <span id="cb574-5"><a href="working-with-popular-packages.html#cb574-5" tabindex="-1"></a><span class="co"># Make a scatter plot with x and y </span></span>
 <span id="cb574-6"><a href="working-with-popular-packages.html#cb574-6" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
 <span id="cb574-7"><a href="working-with-popular-packages.html#cb574-7" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-581-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-580-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In the above command <code>ggplot2</code> uses the data frame <code>dat</code> and the aesthetics (<code>aes</code>)
 argument to map which columns go where. In this case we want the driver variable
 to be on the x-axis and the response variable to be on the y-axis. Finally
@@ -426,7 +426,7 @@ the hang of it.
 <div class="sourceCode" id="cb575"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb575-1"><a href="working-with-popular-packages.html#cb575-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
 <span id="cb575-2"><a href="working-with-popular-packages.html#cb575-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb575-3"><a href="working-with-popular-packages.html#cb575-3" tabindex="-1"></a>  <span class="fu">geom_line</span>()  <span class="co"># add lines to connect the points</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-583-1.png" width="384" style="display: block; margin: auto;" />
+<img src="Module1_files/figure-html/unnamed-chunk-582-1.png" width="384" style="display: block; margin: auto;" />
 <div class="bonus">
 <p>
 The <code>geom</code> prefix on the <code>geom_point</code> and
@@ -441,13 +441,13 @@ options!
 <div class="sourceCode" id="cb576"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb576-1"><a href="working-with-popular-packages.html#cb576-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
 <span id="cb576-2"><a href="working-with-popular-packages.html#cb576-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span>                   <span class="co"># make the points blue</span></span>
 <span id="cb576-3"><a href="working-with-popular-packages.html#cb576-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>)   <span class="co"># make the lines dashed and blue</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-585-1.png" width="384" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-584-1.png" width="384" style="display: block; margin: auto;" />
 We can add a title and axis labels using the <code>labs</code> function:</p>
 <div class="sourceCode" id="cb577"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb577-1"><a href="working-with-popular-packages.html#cb577-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
 <span id="cb577-2"><a href="working-with-popular-packages.html#cb577-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb577-3"><a href="working-with-popular-packages.html#cb577-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb577-4"><a href="working-with-popular-packages.html#cb577-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="at">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="at">y=</span><span class="st">&quot;Response&quot;</span>)   <span class="co"># add labels to the plot</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-586-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-585-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finally, we can use one of the included <code>ggplot2</code> themes to change how the plot looks, using the <code>theme_set</code> function:</p>
 <div class="sourceCode" id="cb578"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-popular-packages.html#cb578-1" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())   <span class="co"># change the theme</span></span>
 <span id="cb578-2"><a href="working-with-popular-packages.html#cb578-2" tabindex="-1"></a></span>
@@ -455,7 +455,7 @@ We can add a title and axis labels using the <code>labs</code> function:</p>
 <span id="cb578-4"><a href="working-with-popular-packages.html#cb578-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb578-5"><a href="working-with-popular-packages.html#cb578-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb578-6"><a href="working-with-popular-packages.html#cb578-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="at">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="at">y=</span><span class="st">&quot;Response&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-587-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-586-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Here’s another example using the <code>mtcars</code> data frame, where we color the points based on their fuel economy (<em>mpg</em>) and annotate a few cars.</p>
 <div class="sourceCode" id="cb579"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb579-1"><a href="working-with-popular-packages.html#cb579-1" tabindex="-1"></a>mtcars<span class="sc">$</span>car <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars)  <span class="co"># turn row names into a column so we can label with them</span></span>
 <span id="cb579-2"><a href="working-with-popular-packages.html#cb579-2" tabindex="-1"></a></span>
@@ -464,7 +464,7 @@ We can add a title and axis labels using the <code>labs</code> function:</p>
 <span id="cb579-5"><a href="working-with-popular-packages.html#cb579-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">hjust=</span><span class="dv">0</span>, <span class="at">nudge_x=</span><span class="dv">5</span>, <span class="at">alpha=</span><span class="fl">0.8</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span>   <span class="co"># annotate each car</span></span>
 <span id="cb579-6"><a href="working-with-popular-packages.html#cb579-6" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option=</span><span class="st">&quot;D&quot;</span>) <span class="sc">+</span>                                 <span class="co"># change color scale to use</span></span>
 <span id="cb579-7"><a href="working-with-popular-packages.html#cb579-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Motor Trend Car Comparison&quot;</span>, <span class="at">x=</span><span class="st">&quot;Horsepower&quot;</span>, <span class="at">y=</span><span class="st">&quot;Displacement&quot;</span>, <span class="at">color=</span><span class="st">&quot;MPG&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-588-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-587-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>This is only scratching the surface of what <code>ggplot2</code> can do, but hopefully this introduction is enough to hint at the possibilities.
 You can find many more examples at <a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a>.</p>
 <div class="progress">

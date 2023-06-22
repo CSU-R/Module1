@@ -352,7 +352,7 @@ Here’s how we’ll <em>read</em> them into R:</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb338-1"><a href="reading-writing-data.html#cb338-1" tabindex="-1"></a><span class="co"># Read the csv file into a data frame called athletes</span></span>
 <span id="cb338-2"><a href="reading-writing-data.html#cb338-2" tabindex="-1"></a>athletes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data_raw/olympic_athletes.csv&quot;</span>)</span>
 <span id="cb338-3"><a href="reading-writing-data.html#cb338-3" tabindex="-1"></a></span>
-<span id="cb338-4"><a href="reading-writing-data.html#cb338-4" tabindex="-1"></a><span class="co"># print a summary of the data frame</span></span>
+<span id="cb338-4"><a href="reading-writing-data.html#cb338-4" tabindex="-1"></a><span class="co"># Print a summary of the data frame</span></span>
 <span id="cb338-5"><a href="reading-writing-data.html#cb338-5" tabindex="-1"></a><span class="fu">summary</span>(athletes)</span></code></pre></div>
 <pre class="output-style"><code>       X              ID             Name               Sex           
  Min.   :   1   Min.   :     4   Length:5000        Length:5000       
@@ -398,12 +398,12 @@ In the sections that follow, we’ll discuss how to address both of these issues
 The location is usually specified with a <em>file path</em>, which is a character string that specifies the folder structure that holds your file.
 By default, R starts “looking” from the current working directory, and the file path used was <code>data_raw/olympic_athletes.csv</code>.
 This means that R will look inside the current working directory for a folder called <code>data_raw</code>, and if it exists, R will look inside <code>data_raw</code> for a file called <code>olympic_athletes.csv</code>.
-In this class, you should be working within an rstudio project, which automatically sets the working directory.
+In this class, you should be working within an RStudio project, which automatically sets the working directory.
 If you created the folders as instructed earlier, then you should already have a <code>data_raw</code> folder in your project directory.</p>
 
 <div class="progress">
-Download the olympic athletes data set from <a href="data_raw/olympic_athletes.csv">this link</a> and save it in your data_raw folder.
-In your progress check document, simply write: “Olympic Data Downloaded”
+Download the olympic athletes data set from <a href="data_raw/olympic_athletes.csv">this link</a> and save it in your <code>data_raw</code> folder.
+In your progress check document, simply write: “Olympic Data Downloaded”.
 </div>
 </div>
 <div id="reading-csv-files" class="section level3 hasAnchor" number="5.2.3">
@@ -509,14 +509,14 @@ If our Olympic athletes data did not contain headers in the first row, we would 
 <p>R also has the capability to <em>write</em> a data frame to a CSV file on your computer, that could then be read by Excel, Sheets, etc.
 Let’s suppose we wanted to save a version of the athletes data with only the <code>Sex</code> and <code>Age</code> columns.
 We could use the <code>write.csv</code> function:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb341-1"><a href="reading-writing-data.html#cb341-1" tabindex="-1"></a><span class="co"># make a new data frame with only the Sex and Age columns</span></span>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb341-1"><a href="reading-writing-data.html#cb341-1" tabindex="-1"></a><span class="co"># Make a new data frame with only the Sex and Age columns</span></span>
 <span id="cb341-2"><a href="reading-writing-data.html#cb341-2" tabindex="-1"></a>athletes2 <span class="ot">&lt;-</span> athletes[,<span class="fu">c</span>(<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Age&quot;</span>)]</span>
 <span id="cb341-3"><a href="reading-writing-data.html#cb341-3" tabindex="-1"></a></span>
-<span id="cb341-4"><a href="reading-writing-data.html#cb341-4" tabindex="-1"></a><span class="co"># save the new data frame as a CSV in the clean data folder</span></span>
+<span id="cb341-4"><a href="reading-writing-data.html#cb341-4" tabindex="-1"></a><span class="co"># Save the new data frame as a CSV in the clean data folder</span></span>
 <span id="cb341-5"><a href="reading-writing-data.html#cb341-5" tabindex="-1"></a><span class="fu">write.csv</span>(athletes2, <span class="st">&quot;data_clean/olympic_athletes_age_sex.csv&quot;</span>)</span></code></pre></div>
 <p>Notice we created a new data frame by selecting only the desired columns.
 We will talk more about different ways to select data when we discuss <em>indexing</em>.
-Notice also that the write.csv function requires that we give it the name of the data frame being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
+Notice also that the <code>write.csv</code> function requires that we give it the name of the data frame being saved (<code>athletes2</code>), then the file path for the csv file that the data will be written to (<code>"data_clean/olympic_athletes_age_sex.csv"</code>).</p>
 <div class="caution">
 <p>
 <code>write.csv</code> is an example of a function which takes
@@ -528,8 +528,8 @@ but more will be said about this later.
 <div class="progress">
 <p>
 Create a version of the athletes data frame which contains the
-athletes’ names and their sports. Save the new data frame as a csv file
-in your data_clean folder with the file name
+athletes’ names and their sports. Save the new data frame as a CSV file
+in your <code>data_clean</code> folder with the file name
 “olympic_athletes_name_sport.csv”. Include the code in your progress
 check assignment.
 </p>

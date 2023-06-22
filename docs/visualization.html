@@ -357,19 +357,19 @@ Below, we’ll explore common types of plots for various types of data.</p>
 The height of each bar reflects how many observations fall within that range.
 In the Olympic athletes data, <code>Height</code> is a quantitative variable, so let’s create a histogram using the <code>hist</code> function:</p>
 <div class="sourceCode" id="cb423"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb423-1"><a href="visualization.html#cb423-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-428-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-427-1.png" width="672" style="display: block; margin: auto;" />
 This histogram shows that most heights are between roughly 160 and 190 centimeters, and the distribution looks <em>unimodal</em>.
 Notice that R has decided how many bins (bars) to use, but this can be changed with the <code>breaks</code> option:</p>
 <div class="sourceCode" id="cb424"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb424-1"><a href="visualization.html#cb424-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="dv">70</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-428-1.png" width="672" style="display: block; margin: auto;" />
 R will “try” to create the number of bins equal to <code>breaks</code>, but sometimes won’t make exactly that number.
 Instead of just giving a single number breaks, you could <em>also</em> give a vector of numbers, which specify the start and stop points of the bins:</p>
 <div class="sourceCode" id="cb425"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb425-1"><a href="visualization.html#cb425-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>, <span class="dv">200</span>, <span class="dv">210</span>, <span class="dv">220</span>, <span class="dv">230</span>))</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
 By default, R adds a title and axis labels to the plot, but for presentation purposes, it’s probably a good idea to change them.
 This can be done with the <code>main</code>, <code>xlab</code>, and <code>ylab</code> options:</p>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb426-1"><a href="visualization.html#cb426-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks=</span><span class="dv">60</span>, <span class="at">main=</span><span class="st">&quot;Olympic Athlete Heights&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-431-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.</p>
 <div class="progress">
@@ -386,10 +386,10 @@ To see more options for the <code>hist</code> function, run <code>?hist</code>.
 </div>
 <p>Another way to summarize a quantitative variable is with a boxplot, which shows a box whose boundaries are the first and third quartile. Inside the box, a line denotes the median, and the “whiskers” outside the box show which points are outliers (those outside the whiskers).</p>
 <div class="sourceCode" id="cb427"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb427-1"><a href="visualization.html#cb427-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-434-1.png" width="288" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-433-1.png" width="288" style="display: block; margin: auto;" />
 In this case, there are no default title or labels, but we can still add them:</p>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb428-1"><a href="visualization.html#cb428-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height, <span class="at">main=</span><span class="st">&quot;Olympic Athlete Height&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Height (in)&quot;</span>)</span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-435-1.png" width="288" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-434-1.png" width="288" style="display: block; margin: auto;" /></p>
 
 <div class="caution">
 <p>Hint: In RMarkdown, boxplots may look too wide by default. You can control the width of a figure by using the <code>fig.height</code> and <code>fig.width</code> commands in the chunk header like this:</p>
@@ -399,13 +399,13 @@ These are the values used for the boxplot above.
 <p>The boxplot function also allows you to split up a quantitative variable using another variable, using the tilde (<code>~</code>).
 Here are some examples:</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb429-1"><a href="visualization.html#cb429-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sex)  <span class="co"># Make a boxplot of height, split by sex</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-437-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># command to make the labels fit</span></span>
+<p><img src="Module1_files/figure-html/unnamed-chunk-436-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
 <span id="cb430-2"><a href="visualization.html#cb430-2" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sport, <span class="at">las=</span><span class="dv">2</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>)  <span class="co"># Make a boxplot of height, split by Sport</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-439-1.png" width="1440" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-438-1.png" width="1440" style="display: block; margin: auto;" />
 Here we’ve added a few more bits to fit all the sport labels in: the <code>las</code> option rotates the labels, and the <code>par</code> function is used to increase the bottom margin below the graph.</p>
 <div class="sourceCode" id="cb431"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb431-1"><a href="visualization.html#cb431-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Age)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-440-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-439-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="caution">
 <p>
 Different software will use different rules to determine how far out
@@ -431,11 +431,11 @@ boxplots?
 <p>The most straightforward way to visualize two quantitative variables is with a scatter plot.
 In R, this is created with the <code>plot</code> function.
 Let’s look at the relationship between height and weight in the Olympic athletes data, but only for a few sports.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb432-1"><a href="visualization.html#cb432-1" tabindex="-1"></a><span class="co"># select only some sports</span></span>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb432-1"><a href="visualization.html#cb432-1" tabindex="-1"></a><span class="co"># Select only some sports</span></span>
 <span id="cb432-2"><a href="visualization.html#cb432-2" tabindex="-1"></a>gy_bb_wr <span class="ot">&lt;-</span> athletes[athletes<span class="sc">$</span>Sport <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Gymnastics&quot;</span>, <span class="st">&quot;Basketball&quot;</span>, <span class="st">&quot;Wrestling&quot;</span>),]</span>
 <span id="cb432-3"><a href="visualization.html#cb432-3" tabindex="-1"></a></span>
-<span id="cb432-4"><a href="visualization.html#cb432-4" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight)  <span class="co"># plot height vs weight</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-443-1.png" width="672" style="display: block; margin: auto;" />
+<span id="cb432-4"><a href="visualization.html#cb432-4" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight)  <span class="co"># Plot height vs weight</span></span></code></pre></div>
+<img src="Module1_files/figure-html/unnamed-chunk-442-1.png" width="672" style="display: block; margin: auto;" />
 <div class="bonus">
 <p>
 Above we saw another nice way to index: the <code>%in%</code>
@@ -445,26 +445,26 @@ are found in the search list.
 </div>
 <p>There are a lot of points, so it may be useful to decrease the size of the circles using the <code>cex</code> option, which has a default value of 1:</p>
 <div class="sourceCode" id="cb433"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb433-1"><a href="visualization.html#cb433-1" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">cex=</span><span class="fl">0.4</span>)  <span class="co"># Make circles smaller</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-445-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-444-1.png" width="672" style="display: block; margin: auto;" />
 Another option would be to change the type of marker, which can be selected using the <code>pch</code> option.
 We’ll choose a smaller, solid circle, which is marker number 20:</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb434-1"><a href="visualization.html#cb434-1" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>)  <span class="co"># try filled circles</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-446-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb434-1"><a href="visualization.html#cb434-1" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>)  <span class="co"># Try filled circles</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-445-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>We can also set the color using the <code>col</code> argument.
 There are multiple ways to specify a color, but we’ll use the <code>rgb</code> function, which allows us to specify how much red, green, and blue the color has.</p>
 <div class="sourceCode" id="cb435"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb435-1"><a href="visualization.html#cb435-1" tabindex="-1"></a>color <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb435-2"><a href="visualization.html#cb435-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># change color</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-447-1.png" width="672" style="display: block; margin: auto;" /></p>
+<span id="cb435-2"><a href="visualization.html#cb435-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># Change color</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-446-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Lastly, we can also make the points less visible, so it’s easier to see when they are overlapping one another.
 This is done when defining the color, by giving a fourth value called the <em>alpha</em>, which represents how visible a point is.
 An alpha value of 0 is invisible, and a value of 1 is fully visible.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb436-1"><a href="visualization.html#cb436-1" tabindex="-1"></a>color <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)  <span class="co"># set the alpha level low, so points are transparent</span></span>
-<span id="cb436-2"><a href="visualization.html#cb436-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># make points partially transparent</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-448-1.png" width="672" style="display: block; margin: auto;" />
+<div class="sourceCode" id="cb436"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb436-1"><a href="visualization.html#cb436-1" tabindex="-1"></a>color <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)  <span class="co"># Set the alpha level low, so points are transparent</span></span>
+<span id="cb436-2"><a href="visualization.html#cb436-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>color)  <span class="co"># Make points partially transparent</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-447-1.png" width="672" style="display: block; margin: auto;" />
 We can also color by sport, by converting the Sport column to a factor, then giving that as the color argument:</p>
 <div class="sourceCode" id="cb437"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb437-1"><a href="visualization.html#cb437-1" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(gy_bb_wr<span class="sc">$</span>Sport)</span>
-<span id="cb437-2"><a href="visualization.html#cb437-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>colors)  <span class="co"># color by sport</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-449-1.png" width="672" style="display: block; margin: auto;" />
+<span id="cb437-2"><a href="visualization.html#cb437-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>colors)  <span class="co"># Color by sport</span></span></code></pre></div>
+<img src="Module1_files/figure-html/unnamed-chunk-448-1.png" width="672" style="display: block; margin: auto;" />
 <div class="caution">
 <p>
 We convert Sport to a factor because the <code>col</code> option in
@@ -478,21 +478,21 @@ is colored greenish.
 </p>
 </div>
 <p>The default colors in R are sometimes not very appealing, so we can define our own color palette:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)))   <span class="co"># create color palette</span></span>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)))  <span class="co"># Create color palette</span></span>
 <span id="cb438-2"><a href="visualization.html#cb438-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span>colors)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-451-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-450-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In some cases, it might be appropriate to use lines instead of points.
 This can be done by setting the <code>type</code> option to “l”:</p>
 <div class="sourceCode" id="cb439"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb439-1"><a href="visualization.html#cb439-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi</span>
 <span id="cb439-2"><a href="visualization.html#cb439-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
 <span id="cb439-3"><a href="visualization.html#cb439-3" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-452-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-451-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>You can use points and lines at the same time using “b”:</p>
 <div class="sourceCode" id="cb440"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb440-1"><a href="visualization.html#cb440-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type=</span><span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-453-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-452-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Another option for plotting two quantitative variables, especially when there are many overlapping points, is the smooth scatter:</p>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb441-1"><a href="visualization.html#cb441-1" tabindex="-1"></a><span class="fu">smoothScatter</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-454-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-453-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="progress">
 <p>
 Create a scatter plot of athlete height (y axis) vs. year (x axis)
@@ -508,7 +508,7 @@ allow Female Weightlifters?
 Before creating a barplot, we need to create a summary table of the variable of interest:</p>
 <div class="sourceCode" id="cb442"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb442-1"><a href="visualization.html#cb442-1" tabindex="-1"></a>sport_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(gy_bb_wr<span class="sc">$</span>Sport)</span>
 <span id="cb442-2"><a href="visualization.html#cb442-2" tabindex="-1"></a><span class="fu">barplot</span>(sport_tab, <span class="at">col=</span><span class="fu">rgb</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-456-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-455-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="progress">
 <p>
 Create a barplot for the Season variable, with an appropriate title
@@ -520,7 +520,7 @@ and axis labels. Which Season has more rows in the data frame??
 <h3><span class="header-section-number">5.6.4</span> Two Categorical Variables<a href="visualization.html#two-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With two categorical variables, you can create a mosaicplot, where the size of each region is relative to the number of observations in that group.</p>
 <div class="sourceCode" id="cb443"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb443-1"><a href="visualization.html#cb443-1" tabindex="-1"></a><span class="fu">mosaicplot</span>(gy_bb_wr<span class="sc">$</span>Sport <span class="sc">~</span> gy_bb_wr<span class="sc">$</span>Sex, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="at">main=</span><span class="st">&quot;Athlete Sex by Sport&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Sport&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-458-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-457-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="multiple-plots" class="section level3 hasAnchor" number="5.6.5">
 <h3><span class="header-section-number">5.6.5</span> Multiple plots<a href="visualization.html#multiple-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -530,14 +530,14 @@ One way to do this is to create a plot and then add another plot <em>on top</em>
 Normally, a plotting function like <code>plot</code> or <code>hist</code> will create a new plot <em>figure</em>, erasing what may have been plotted before.
 But with the <code>points</code> and <code>lines</code> functions, R just adds to the existing figure.
 Here’s an example of each:</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb444-1"><a href="visualization.html#cb444-1" tabindex="-1"></a><span class="co"># create some data to plot</span></span>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb444-1"><a href="visualization.html#cb444-1" tabindex="-1"></a><span class="co"># Create some data to plot</span></span>
 <span id="cb444-2"><a href="visualization.html#cb444-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
 <span id="cb444-3"><a href="visualization.html#cb444-3" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x</span>
 <span id="cb444-4"><a href="visualization.html#cb444-4" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">3</span><span class="sc">/</span>x)<span class="sc">*</span>x</span></code></pre></div>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb445-1"><a href="visualization.html#cb445-1" tabindex="-1"></a><span class="fu">plot</span>(x, y2,)  <span class="co"># plot x against y2</span></span>
-<span id="cb445-2"><a href="visualization.html#cb445-2" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)  <span class="co"># add points of x against y1 (on same figure)</span></span>
-<span id="cb445-3"><a href="visualization.html#cb445-3" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="sc">-</span>y1, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)  <span class="co"># add lines of x against -y1 (on same figure)</span></span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-461-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb445-1"><a href="visualization.html#cb445-1" tabindex="-1"></a><span class="fu">plot</span>(x, y2,)  <span class="co"># Plot x against y2</span></span>
+<span id="cb445-2"><a href="visualization.html#cb445-2" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)  <span class="co"># Add points of x against y1 (on same figure)</span></span>
+<span id="cb445-3"><a href="visualization.html#cb445-3" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="sc">-</span>y1, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)  <span class="co">#Aadd lines of x against -y1 (on same figure)</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-460-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-types-of-plots" class="section level3 hasAnchor" number="5.6.6">
 <h3><span class="header-section-number">5.6.6</span> Other types of plots<a href="visualization.html#other-types-of-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -548,7 +548,7 @@ Here’s an example of each:</p>
 The <code>pairs</code> function takes in a matrix or data frame and creates a matrix of all possible scatter plots.
 Here’s an example using the <code>iris</code> data set which is included in R:</p>
 <div class="sourceCode" id="cb446"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb446-1"><a href="visualization.html#cb446-1" tabindex="-1"></a><span class="fu">pairs</span>(iris, <span class="at">pch=</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-462-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="Module1_files/figure-html/unnamed-chunk-461-1.png" width="672" style="display: block; margin: auto;" />
 To know the x axis for one of these plots, look up/down to the diagonal, which will tell you the variable on the x axis.
 To know the y axis for one of these plots, look left/right to the diagonal, which will tell you the variable on the y axis.</p>
 </div>
@@ -563,15 +563,15 @@ The first is <code>contour</code>, which shows level curves of the surface in a 
 <span id="cb447-5"><a href="visualization.html#cb447-5" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">cos</span>(y), n, n)</span>
 <span id="cb447-6"><a href="visualization.html#cb447-6" tabindex="-1"></a></span>
 <span id="cb447-7"><a href="visualization.html#cb447-7" tabindex="-1"></a><span class="fu">contour</span>(z, <span class="at">nlevels=</span><span class="dv">20</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-463-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>The second option is <code>parsp</code>, which gives a 3d perspective of the surface:</p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-462-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The second option is <code>persp</code>, which gives a 3d perspective of the surface:</p>
 <div class="sourceCode" id="cb448"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb448-1"><a href="visualization.html#cb448-1" tabindex="-1"></a><span class="fu">persp</span>(z, <span class="at">theta=</span><span class="dv">45</span>, <span class="at">phi=</span><span class="dv">30</span>, <span class="at">shade=</span><span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-464-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-463-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="saving-images" class="section level3 hasAnchor" number="5.6.7">
 <h3><span class="header-section-number">5.6.7</span> Saving Images<a href="visualization.html#saving-images" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Creating visualizations in R wouldn’t be very useful if there were no way to save them onto your hard drive (or ssd).
+<p>Creating visualizations in R wouldn’t be very useful if there were no way to save them onto your hard drive (or SSD).
 Thankfully, R provides various ways of doing this, depending on where the plot “lives”.
 We’ll talk through each of these below.</p>
 <div id="rcode" class="section level4 hasAnchor" number="5.6.7.1">
@@ -581,8 +581,8 @@ All you have to do is type a few simple commands.
 The idea is, that normally R “sends” a plot to the plotting window (in the lower right of RStudio), or to the output of a code chunk (if you’re using RMarkdown), but to save the file, you just have to change where R is sending the plot.
 For example, if you add put the <code>png</code> function before a plotting command, then instead of sending the plot to wherever it normally does, R will send the plot into the png file you specify.
 Here’s an example:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="visualization.html#cb449-1" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;output/test_plot.png&quot;</span>)  <span class="co"># start &quot;sending&quot; plots to the png file called &quot;test_plot.png&quot;</span></span>
-<span id="cb449-2"><a href="visualization.html#cb449-2" tabindex="-1"></a><span class="fu">plot</span>(y1, y2)          <span class="co"># this plot will go to &quot;test_plot.png&quot;</span></span>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb449-1"><a href="visualization.html#cb449-1" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;output/test_plot.png&quot;</span>)  <span class="co"># Start &quot;sending&quot; plots to the png file called &quot;test_plot.png&quot;</span></span>
+<span id="cb449-2"><a href="visualization.html#cb449-2" tabindex="-1"></a><span class="fu">plot</span>(y1, y2)          <span class="co"># This plot will go to &quot;test_plot.png&quot;</span></span>
 <span id="cb449-3"><a href="visualization.html#cb449-3" tabindex="-1"></a><span class="fu">dev.off</span>()             <span class="co"># Stop sending plots to &quot;test_plot.png&quot;</span></span></code></pre></div>
 <pre class="output-style"><code>quartz_off_screen 
                 2 </code></pre>
@@ -629,7 +629,7 @@ Before ending this section, we’ll leave you with an example from the <code>ggp
 <span id="cb451-6"><a href="visualization.html#cb451-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb451-7"><a href="visualization.html#cb451-7" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Sex<span class="sc">~</span>Sport)</span></code></pre></div>
 <pre><code>Warning: Removed 199 rows containing missing values (`geom_point()`).</code></pre>
-<p><img src="Module1_files/figure-html/unnamed-chunk-468-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="Module1_files/figure-html/unnamed-chunk-467-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a

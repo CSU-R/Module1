@@ -15,20 +15,20 @@ As we mentioned in the last chapter, R includes some pre-packaged data sets, whi
 One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert `Seatbelts` to a data frame, because it starts out as a "Time-Series", which we haven't discussed.
 ```{r}
-Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))   # convert Time Series to data frame
+Seatbelts <- data.frame(as.matrix(Seatbelts), date=time(Seatbelts))  # Convert Time Series to data frame
 ```
 We've also added a month and year column 
 
 look at the dimensions of the data set with the `dim` command:
 ```{r}
-dim(Seatbelts)   # get the number of dimensions in the Seatbelts data frame
+dim(Seatbelts)  # Get the number of dimensions in the Seatbelts data frame
 ```
 This shows that there are 192 rows (months), and 9 columns (variables measured each month).
 We could also determine the number of rows and columns separately using the `nrow` and `ncol` functions.
 To view the first few rows of the Seatbelts data frame, use the `head` command:
 
 ```{r}
-head(Seatbelts)  # view first few rows of the Seatbelts dataset
+head(Seatbelts)  # View first few rows of the Seatbelts dataset
 ```
 
 This is a good way to learn which variables are being measured (columns) and see some example observations (rows) for each variable.
@@ -57,7 +57,7 @@ We can calculate how many exactly like so:
 ```{r}
 sum(Seatbelts$DriversKilled > 150)
 ```
-To investigate the effect of the seat belt law, let's create a scatter plot Drivers killed against time:
+To investigate the effect of the seat belt law, let's create a scatter plot of drivers killed against time:
 ```{r, fig.keep='all', fig.cap="UK Seatbelt deaths vs time"}
 plot(Seatbelts$date, Seatbelts$DriversKilled)
 ```
@@ -79,7 +79,7 @@ This plot shows that there is a clear seasonal effect in the number of deaths wi
 We can also see that within each month, the traffic deaths after enacting the Seatbelt law are among the lowest.
 
 ```{block, type="progress"}
-Another data set included in R is `mtcars`. Following the example above, find the dimension of `mtcars` and have R print out a summary of each column, then create a scatter plot of fuel economy (`mpg`) to engine displacement.
+Another data set included in R is `mtcars`. Following the example above, find the dimension of `mtcars` and have R print out a summary of each column, then create a scatter plot of fuel economy (`mpg`) versus engine displacement.
 What do you observe about the relationship between these two variables?
 ```
 
@@ -102,7 +102,6 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 Of course, if we want work on data which is NOT included in R, we have to _read_ that data into R in order to work with it.
 That is, the data are normally somewhere on your computer's hard drive (or SSD), and you must run a command in R which _reads_ that data into your R environment. 
 
-
 ### Olympic Athletes Example
 
 Let's look at another example, this time with a data set of Olympic athletes. 
@@ -113,7 +112,7 @@ Here's how we'll _read_ them into R:
 # Read the csv file into a data frame called athletes
 athletes <- read.csv("data_raw/olympic_athletes.csv")
 
-# print a summary of the data frame
+# Print a summary of the data frame
 summary(athletes)
 ```
 
@@ -128,12 +127,12 @@ R is capable of reading data from your computer, no matter where it is, as long 
 The location is usually specified with a _file path_, which is a character string that specifies the folder structure that holds your file.
 By default, R starts "looking" from the current working directory, and the file path used was `data_raw/olympic_athletes.csv`.
 This means that R will look inside the current working directory for a folder called `data_raw`, and if it exists, R will look inside `data_raw` for a file called `olympic_athletes.csv`.
-In this class, you should be working within an rstudio project, which automatically sets the working directory.
+In this class, you should be working within an RStudio project, which automatically sets the working directory.
 If you created the folders as instructed earlier, then you should already have a `data_raw` folder in your project directory.
 
 ```{block2, type="progress"}
-Download the olympic athletes data set from [this link](data_raw/olympic_athletes.csv) and save it in your data_raw folder.
-In your progress check document, simply write: "Olympic Data Downloaded"
+Download the olympic athletes data set from [this link](data_raw/olympic_athletes.csv) and save it in your `data_raw` folder.
+In your progress check document, simply write: "Olympic Data Downloaded".
 ```
 
 ### Reading CSV files
@@ -175,16 +174,16 @@ Let's suppose we wanted to save a version of the athletes data with only the `Se
 We could use the `write.csv` function:
 
 ```{r}
-# make a new data frame with only the Sex and Age columns
+# Make a new data frame with only the Sex and Age columns
 athletes2 <- athletes[,c("Sex", "Age")]
 
-# save the new data frame as a CSV in the clean data folder
+# Save the new data frame as a CSV in the clean data folder
 write.csv(athletes2, "data_clean/olympic_athletes_age_sex.csv")
 ```
 
 Notice we created a new data frame by selecting only the desired columns.
 We will talk more about different ways to select data when we discuss _indexing_.
-Notice also that the write.csv function requires that we give it the name of the data frame being saved (`athletes2`), then the file path for the csv file that the data will be written to (`"data_clean/olympic_athletes_age_sex.csv"`).
+Notice also that the `write.csv` function requires that we give it the name of the data frame being saved (`athletes2`), then the file path for the csv file that the data will be written to (`"data_clean/olympic_athletes_age_sex.csv"`).
 
 ```{block, type="caution"}
 `write.csv` is an example of a function which takes _multiple arguments_, separating them with a comma (`,`). Usually, these arguments must be specified in order, but more will be said about this later.
@@ -192,7 +191,7 @@ Notice also that the write.csv function requires that we give it the name of the
 
 ```{block, type="progress"}
 Create a version of the athletes data frame which contains the athletes' names and their sports.
-Save the new data frame as a csv file in your data_clean folder with the file name "olympic_athletes_name_sport.csv".
+Save the new data frame as a CSV file in your `data_clean` folder with the file name "olympic_athletes_name_sport.csv".
 Include the code in your progress check assignment.
 ```
 
@@ -224,7 +223,7 @@ What other R data types might be used to store quantitative data?
 However, `Age` contains `NA` values, as we know from running the following function:
 
 ```{r}
-sum(is.na(athletes$Age))   # count how many NA's are in the Age column
+sum(is.na(athletes$Age))  # Count how many NA's are in the Age column
 ```
 
 ```{block2, type="reflect"}
@@ -233,8 +232,8 @@ Pause and think through what's happening in the above code. The `is.na` function
 
 As a cleaning step, we must first remove the `NA` values:
 ```{r}
-age <- athletes$Age         # assign the Ages column to a variable
-age <- age[!is.na(age)]   # extract only the elements which are not NA (more on this when we discuss advanced indexing)
+age <- athletes$Age       # Assign the Ages column to a variable
+age <- age[!is.na(age)]   # Extract only the elements which are not NA (more on this when we discuss advanced indexing)
 ```
 
 ```{block, type="bonus"}
@@ -243,12 +242,12 @@ This type of "data cleaning" is a very common first step when performing data an
 
 Here are some functions R provides to summarize quantitative variables.
 ```{r}
-age_min <- min(age)     # find the minimum age
-age_med <- median(age)  # find the median age
-age_max <- max(age)     # find the maximum age
-age_mean <- mean(age)   # find the average age
-age_sd <- sd(age)       # find the standard deviation of age
-age_var <- var(age)     # find the variance of age
+age_min <- min(age)     # Find the minimum age
+age_med <- median(age)  # Find the median age
+age_max <- max(age)     # Find the maximum age
+age_mean <- mean(age)   # Find the average age
+age_sd <- sd(age)       # Find the standard deviation of age
+age_var <- var(age)     # Find the variance of age
 ```
 
 Let's put all these results in a named list.
@@ -263,7 +262,7 @@ age_stats <- list(  # R knows that this command continues until a closed parenth
   mean = age_mean,  
   sd = age_sd,      
   var = age_var
-)  # this could all go on one line, but it looks more organized this way.
+)  # This could all go on one line, but it looks more organized this way.
 age_stats
 ```
 
@@ -279,8 +278,9 @@ hist(age, breaks=50)
 abline(v=age_mean, col="blue", lty=2, lwd=3)
 abline(v=age_med, col="red", lty=2, lwd=3)
 ```
+
 ```{r, echo=F}
-# not shown but knitted
+# Not shown but knitted
 {
 hist(age, breaks=50)
 abline(v=age_mean, col="blue", lty=2, lwd=3)
@@ -297,7 +297,7 @@ cov(athletes$Age, athletes$Height, use="complete.obs")
 ```
 
 ```{block, type="caution"}
-The argument r`use="complete.obs"` is one way to deal with `NA` values in the `cov` function. This makes R remove any observations which are NA in either the first or second variable. There are other ways as well, which you can check using the help function: `?cov`.
+The argument `use="complete.obs"` is one way to deal with `NA` values in the `cov` function. This makes R remove any observations which are NA in either the first or second variable. There are other ways as well, which you can check using the help function: `?cov`.
 ```
 
 You can also compute the correlation between two variables like so:
@@ -311,7 +311,7 @@ Here's an example with the `mtcars` data frame:
 ```{r}
 cor(mtcars)
 ```
-However, this only works if every column the data frame (or matrix) are numeric.
+However, this only works if all columns of the data frame (or matrix) are numeric.
 Here's what happens if we try the same thing on the athletes data:
 
 ```{r, error=T}
@@ -355,11 +355,11 @@ table(sport)
 
 Let's save this table to a list as before:
 ```{r}
-# assign summary statistics to variables
+# Assign summary statistics to variables
 sport_n_unique <- length(unique(sport))
 sport_counts <- table(sport)
 
-# combine them into a list
+# Combine them into a list
 sport_stats <- list(
   number_unique = sport_n_unique,
   counts = sport_counts
@@ -369,14 +369,15 @@ sport_stats <- list(
 Again, a visualization may be useful here:
 
 ```{r, eval=F}
-par(mar=c(5,15,4,2) + 0.1)  # command to make the labels fit
-barplot(table(sport), horiz=T, las=2)   # bar plot
+par(mar=c(5,15,4,2) + 0.1)  # Command to make the labels fit
+barplot(table(sport), horiz=T, las=2)  # Bar plot
 ```
+
 ```{r, fig.height=20, echo=F, fig.asp=2}
-# evaluated, but not shown (because RMarkdown needs brackets)
+# Evaluated, but not shown (because RMarkdown needs brackets)
 {
-par(mar=c(5,15,4,2) + 0.1)  # command to make the labels fit
-barplot(table(sport), horiz=T, las=2)   # bar plot
+par(mar=c(5,15,4,2) + 0.1)  # Command to make the labels fit
+barplot(table(sport), horiz=T, las=2)  # Bar plot
 }
 ```
 
@@ -391,6 +392,7 @@ It's always important to remember what the rows of your data set represent.
 In the Olympic athletes example, one athlete may occupy multiple rows, if they competed in multiple olympic games.
 This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
 ```
+
 ```{block2, type="reflect"}
 Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the `Height`, `Weight`, and `Sex` variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the data frame?
 ```
@@ -424,12 +426,13 @@ saveRDS(athlete_stats, "data_clean/athlete_stats.rds")
 
 Later, we can use the following command to load the RDS file back into R:
 ```{r}
-rm(athlete_stats)  # remove athlete stats to prove we are loading it from the hard drive
+rm(athlete_stats)  # Remove athlete stats to prove we are loading it from the hard drive
 
-athlete_stats <- readRDS("data_clean/athlete_stats.rds")  # load the RDS file and name it athlete_stats
+athlete_stats <- readRDS("data_clean/athlete_stats.rds")  # Load the RDS file and name it athlete_stats
 
-athlete_stats$age   # show that we have loaded the data by printing the age stats
+athlete_stats$age   # Show that we have loaded the data by printing the age stats
 ```
+
 ```{block2, type="caution"}
 Notice the file ends with _.rds_, indicating that this is a special RDS type which can only be read by R.
 This is different from other data formats like CSV, which are plain text and can be read by other programs like Excel or Sheets.
@@ -511,12 +514,13 @@ That document should include all progress reports from Section 5.5 through (and 
 Let's define a vector and access an element in the way you already know:
 
 ```{r}
-# create an example vector
+# Create an example vector
 V <- c("A", "B", "C", "D", "E", "F", "G", "H", "I")
 
-# access the 5th element
+# Access the 5th element
 V[5]
 ```
+
 ```{block, type="caution"}
 Unlike many other languages, R indices start with 1, not 0! so the first element is accessed as `A[1]`, etc.
 ```
@@ -525,16 +529,16 @@ Here are some other ways you can index as well.
 You can access multiple indices at the same time using a numric vector of indices:
 
 ```{r}
-V[c(1, 2, 5)]  # access elements 1, 2, and 5
+V[c(1, 2, 5)]  # Access elements 1, 2, and 5
 ```
 If you need to access several indices in a row, you can use a colon (`:`):
 
 ```{r}
-V[2:7]  # access elements 2 through 7
+V[2:7]  # Access elements 2 through 7
 ```
 You can even combine these two methods:
 ```{r}
-V[c(1:3, 6)]  # access elements 1, 2, 3, and 6
+V[c(1:3, 6)]  # Access elements 1, 2, 3, and 6
 ```
 Note that the following are all equivalent ways to access the first three elements of `V`:
 
@@ -548,7 +552,7 @@ But the first way would probably be the most clear for someone else to understan
 All of these methods can work with _assignment_ as well:
 
 ```{r}
-V[c(1, 7:9)] <- "X"  # change elements 1, 7, 8, and 9 to "X"
+V[c(1, 7:9)] <- "X"  # Change elements 1, 7, 8, and 9 to "X"
 V
 ```
 
@@ -563,28 +567,28 @@ To access an element of a matrix, we have to specify the row and the column.
 Let's create a matrix from the `V` vector and access one of its elements:
 
 ```{r}
-M <- matrix(V, 3, 3)  # create matrix M with data from vector V
+M <- matrix(V, 3, 3)  # Create matrix M with data from vector V
 M
 ```
 ```{r}
-M[1,2]  # access the element in row 1, column 2
+M[1,2]  # Access the element in row 1, column 2
 ```
 
 Recall that we can access an entire row or column by leaving the _other_ index blank:
 ```{r}
-M[1,]  # access the entire first row
+M[1,]  # Access the entire first row
 ```
 ```{r}
-M[,2]  # access the entire second column
+M[,2]  # Access the entire second column
 ```
 But any of the indexing we just used for vectors can also be used on matrices
 
 ```{r}
-M[1:2, c(2, 3)]  # access the elements in rows 1 and 2, columns 2 and 3.
+M[1:2, c(2, 3)]  # Access the elements in rows 1 and 2, columns 2 and 3.
 ```
 Finally, there is one more way of indexing Matrices (for now), that provides only _one_ index:
 ```{r}
-M[5]  # access the "5th" element of the matrix
+M[5]  # Access the "5th" element of the matrix
 ```
 If you give one index, then R will count down the first row, then the second, then the third, etc., until it reaches the index you specified.
 Notice how this agrees with the 5th element of the vector `V`, which was used to make our matrix!
@@ -602,21 +606,22 @@ So far we've discussed three different ways of accessing elements in a list:
 ```{r}
 L <- list(A = "apple", b = "banana", c="cherry")
 
-L[[1]]  # access using index number
+L[[1]]  # Access using index number
 ```
 ```{r}
-L[["b"]]  # access using component name
+L[["b"]]  # Access using component name
 ```
 
 ```{r}
-L$c  # access using component name and dollar sign notation
+L$c  # Access using component name and dollar sign notation
 ```
 And these are basically the only option.
 Unfortunately, you _cannot_ use a vector of indices in order to access multiple list components at once:
 
 ```{r, error=TRUE}
-L[[1:3]]  # this does not work
+L[[1:3]]  # This does not work
 ```
+
 ```{block2, type="bonus"}
 What `L[[1:3]]` _actually_ does (as the error message might suggest), is access elements within a _nested_ list, but that is beyond the scope of this class.
 ```
@@ -634,17 +639,17 @@ But remember that matrix indexing rules also apply!
 Here are some examples with the Olympic athletes data. 
 
 ```{r}
-athletes3 <- athletes[1:20,1:5]  # get the first 20 rows and first 5 columns, and assign it to athletes3
+athletes3 <- athletes[1:20,1:5]  # Get the first 20 rows and first 5 columns, and assign it to athletes3
 ```
 
 ```{r}
-athletes3$Name  # get the Name column
+athletes3$Name  # Get the Name column
 ```
 
 Remember that each column of a data frame is just a vector, so we can use list indexing to access the `Name` column, then _immediately_ use vector indexing to get only the indices that we want:
 
 ```{r}
-athletes3$Name[1:3]  # get the first three elements of the Name column
+athletes3$Name[1:3]  # Get the first three elements of the Name column
 ```
 
 ```{block, type="caution"}
@@ -681,10 +686,10 @@ One _very_ useful method that R provides is to access elements of a vector using
 As the following example will show, R will give only the elements which are true in the logical vector:
 
 ```{r}
-v <- c("alpha", "bravo", "charlie", "delta")  # the vector we want to access
-i <- c(FALSE, TRUE, FALSE, TRUE)  # the logical vector we'll use to index.
+v <- c("alpha", "bravo", "charlie", "delta")  # The vector we want to access
+i <- c(FALSE, TRUE, FALSE, TRUE)  # The logical vector we'll use to index
 
-# index v using i:
+# Index v using i:
 v[i]
 ```
 
@@ -697,9 +702,9 @@ This means you can create a logical vector in order to extract only the elements
 For example, let's create a logical vector based on whether an Olympic athlete's sport was "Tug-Of-War".
 
 ```{r}
-plays_tug_of_war <- athletes$Sport == "Tug-Of-War"  # create logical vector
+plays_tug_of_war <- athletes$Sport == "Tug-Of-War"  # Create logical vector
 
-sum(plays_tug_of_war)  # count how many TRUE's
+sum(plays_tug_of_war)  # Count how many TRUE's
 ```
 Now let's use that logical vector to get the names of the athletes:
 ```{r}
@@ -730,18 +735,18 @@ Also note the placement of the comma (`,`), which indicates that we're indexing 
 You can specify multiple conditions using "and" (`&`) and "or" (`|`) like this:
 
 ```{r}
-# create logical vector which is true for female gymnasts (female AND gymnast)
+# Create logical vector which is true for female gymnasts (female AND gymnast)
 index <- (athletes$Sex == "F") & (athletes$Sport == "Gymnastics")
 
-# select only female gymnasts
+# Select only female gymnasts
 fem_gym <- athletes[index,]
 ```
 
 ```{r}
-# create logical vector which is true if sport is basketball OR gymnastics
+# Create logical vector which is true if sport is basketball OR gymnastics
 index <- (athletes$Sport == "Basketball") | (athletes$Sport == "Gymnastics")
 
-# select athletes whos sport is basketball OR gymnastics. 
+# Select athletes whos sport is basketball OR gymnastics. 
 bb_gy <- athletes[index,]
 ```
 
@@ -773,13 +778,13 @@ Sometimes it's easier to specify which columns or rows should be _excluded_ from
 To select every column except the first one, you can use a negative index:
 
 ```{r}
-athletes[,-1]  # leave out the ID column
+athletes[,-1]  # Leave out the ID column
 ```
 
 This also works with numeric vectors:
 
 ```{r}
-athletes[-c(1:10),]  # access all but the first 10 rows.
+athletes[-c(1:10),]  # Access all but the first 10 rows.
 ```
 
 
@@ -790,17 +795,17 @@ This might make indexing more confusing at first, but a little practice will hel
 Consider the following example:
 
 ```{r}
-# create a vector and a matrix
+# Create a vector and a matrix
 V <- 1:16
 M <- matrix(V, 4, 4)
 
-# create a list which contains them:
+# Create a list which contains them:
 L <- list(V, M)
 
-# create a character vector
+# Create a character vector
 C <- c("I", "think", "therefore", "I", "am")
 
-# create another list which will contain L and C:
+# Create another list which will contain L and C:
 L2 <- list(L, C)
 ```
 
@@ -808,10 +813,10 @@ With lists like this, it's easy to see code like `L2[[1]][[2]][2,3]` and get con
 It's best to break down the statement from left to right
 
 ```{r, eval=FALSE}
-L2                 # the second list, L2
-L2[[1]]            # the first component of L2, which is the first list, L
-L2[[1]][[2]]       # the second element of L, which is the matrix M
-L2[[1]][[2]][2,3]  # the second row and third column of M.
+L2                 # The second list, L2
+L2[[1]]            # The first component of L2, which is the first list, L
+L2[[1]][[2]]       # The second element of L, which is the matrix M
+L2[[1]][[2]][2,3]  # The second row and third column of M.
 ```
 
 ```{block, type="caution"}
@@ -885,6 +890,7 @@ In this case, there are no default title or labels, but we can still add them:
 ```{r, fig.width=3, fig.height=5}
 boxplot(athletes$Height, main="Olympic Athlete Height", ylab="Height (in)")
 ```
+
 ```{block2, type="caution"}
 Hint: In RMarkdown, boxplots may look too wide by default. You can control the width of a figure by using the `fig.height` and `fig.width` commands in the chunk header like this:
   
@@ -901,12 +907,13 @@ boxplot(athletes$Height ~ athletes$Sex)  # Make a boxplot of height, split by se
 ```
 
 ```{r, eval=F}
-par(mar=c(11,4,4,2) + 0.1)  # command to make the labels fit
+par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
 boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by Sport
 ```
+
 ```{r, echo=F, fig.width=15, fig.height=8}
 {
-  par(mar=c(11,4,4,2) + 0.1)  # command to make the labels fit
+  par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
   boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by Sport
 }
 ```
@@ -936,10 +943,10 @@ In R, this is created with the `plot` function.
 Let's look at the relationship between height and weight in the Olympic athletes data, but only for a few sports.
 
 ```{r}
-# select only some sports
+# Select only some sports
 gy_bb_wr <- athletes[athletes$Sport %in% c("Gymnastics", "Basketball", "Wrestling"),]
 
-plot(gy_bb_wr$Height, gy_bb_wr$Weight)  # plot height vs weight
+plot(gy_bb_wr$Height, gy_bb_wr$Weight)  # Plot height vs weight
 ```
 ```{block, type="bonus"}
 Above we saw another nice way to index: the `%in%` command. 
@@ -955,7 +962,7 @@ Another option would be to change the type of marker, which can be selected usin
 We'll choose a smaller, solid circle, which is marker number 20:
 
 ```{r}
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20)  # try filled circles
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20)  # Try filled circles
 ```
 
 We can also set the color using the `col` argument.
@@ -963,7 +970,7 @@ There are multiple ways to specify a color, but we'll use the `rgb` function, wh
 
 ```{r}
 color <- rgb(0.5, 0, 1)
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # change color
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # Change color
 ```
 
 Lastly, we can also make the points less visible, so it's easier to see when they are overlapping one another.
@@ -971,14 +978,14 @@ This is done when defining the color, by giving a fourth value called the _alpha
 An alpha value of 0 is invisible, and a value of 1 is fully visible.
 
 ```{r}
-color <- rgb(0.5, 0, 1, 0.1)  # set the alpha level low, so points are transparent
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # make points partially transparent
+color <- rgb(0.5, 0, 1, 0.1)  # Set the alpha level low, so points are transparent
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # Make points partially transparent
 ```
 We can also color by sport, by converting the Sport column to a factor, then giving that as the color argument:
 
 ```{r}
 colors <- as.factor(gy_bb_wr$Sport)
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=colors)  # color by sport
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=colors)  # Color by sport
 ```
 ```{block, type="caution"}
 We convert Sport to a factor because the `col` option in plot is expecting either a single color (as in the first example) or a vector of numbers indicating which color should be used for each point (remember, factors are represented as numbers).
@@ -989,7 +996,7 @@ so factor level 1 (Basketball) is colored black, level 2 (Gymnastics) is colored
 The default colors in R are sometimes not very appealing, so we can define our own color palette:
 
 ```{r}
-palette(c(rgb(1,0,0,0.1), rgb(0,1,0,0.1), rgb(0,0,1,0.1)))   # create color palette
+palette(c(rgb(1,0,0,0.1), rgb(0,1,0,0.1), rgb(0,0,1,0.1)))  # Create color palette
 plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=colors)
 ```
 
@@ -1054,16 +1061,16 @@ But with the `points` and `lines` functions, R just adds to the existing figure.
 Here's an example of each:
 
 ```{r}
-# create some data to plot
+# Create some data to plot
 x <- (1:100)/100
 y1 <- x
 y2 <- sin(3/x)*x
 ```
 
 ```{r, eval=F}
-plot(x, y2,)  # plot x against y2
-points(x, y1, col="blue")  # add points of x against y1 (on same figure)
-lines(x, -y1, col="red")  # add lines of x against -y1 (on same figure)
+plot(x, y2,)  # Plot x against y2
+points(x, y1, col="blue")  # Add points of x against y1 (on same figure)
+lines(x, -y1, col="red")  #Aadd lines of x against -y1 (on same figure)
 ```
 ```{r, echo=F}
 {
@@ -1104,7 +1111,7 @@ z <- matrix(sin(x) + cos(y), n, n)
 contour(z, nlevels=20)
 ```
 
-The second option is `parsp`, which gives a 3d perspective of the surface:
+The second option is `persp`, which gives a 3d perspective of the surface:
 
 ```{r, fig.height=8}
 persp(z, theta=45, phi=30, shade=0.5)
@@ -1112,7 +1119,7 @@ persp(z, theta=45, phi=30, shade=0.5)
 
 ### Saving Images
 
-Creating visualizations in R wouldn't be very useful if there were no way to save them onto your hard drive (or ssd).
+Creating visualizations in R wouldn't be very useful if there were no way to save them onto your hard drive (or SSD).
 Thankfully, R provides various ways of doing this, depending on where the plot "lives". 
 We'll talk through each of these below.
 
@@ -1125,8 +1132,8 @@ For example, if you add put the `png` function before a plotting command, then i
 Here's an example:
 
 ```{r}
-png("output/test_plot.png")  # start "sending" plots to the png file called "test_plot.png"
-plot(y1, y2)          # this plot will go to "test_plot.png"
+png("output/test_plot.png")  # Start "sending" plots to the png file called "test_plot.png"
+plot(y1, y2)          # This plot will go to "test_plot.png"
 dev.off()             # Stop sending plots to "test_plot.png"
 ```
 After you're done sending plots to a file, use the command `dev.off()` to reset where R is sending the plots
@@ -1222,7 +1229,7 @@ using the command `library`.
 
 #install.packages('dataRetrieval')
 
-#load the package
+# Load the package
 library(dataRetrieval)
 
 ```
@@ -1294,7 +1301,7 @@ names(pq) <- c('Date','q_cfs')
 
 ```
 
-#### Explore the data.
+#### Explore the data
 
 Now that we have cleaned up our data.frame a little, let's explore the data.
 First we can use a summary command to just quickly look at the variables we have.
