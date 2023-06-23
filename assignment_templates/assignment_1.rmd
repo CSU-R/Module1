@@ -72,7 +72,7 @@ Create another code chunk below and write code to print out the message: Hello f
 
 Here is an example of a hyperlink in RMarkdown:
 
-[The R Graph Gallery](https://www.r-graph-gallery.com/)
+[](https://www.r-graph-gallery.com/)
 
 The part in square brackets, [], is the text that will be displayed after knitting.
 The part in parentheses, (), is the URL to a website.

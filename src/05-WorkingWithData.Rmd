@@ -430,7 +430,7 @@ rm(athlete_stats)  # Remove athlete stats to prove we are loading it from the ha
 
 athlete_stats <- readRDS("data_clean/athlete_stats.rds")  # Load the RDS file and name it athlete_stats
 
-athlete_stats$age   # Show that we have loaded the data by printing the age stats
+athlete_stats$age  # Show that we have loaded the data by printing the age stats
 ```
 
 ```{block2, type="caution"}
@@ -500,13 +500,13 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 Part of doing interesting things with data is being able to select just the data that you need for a particular circumstance. 
 You've already seen how to get a particular element from a vector or matrix, or a specific component from a list, using _indices_.
 A datum's _index_ is its position in the vector or list.
-For example, to get the second element of a vector `A`, we use index 2 in square brackets: `A[2]`.
+For example, to get the second element of a vector `A`, we use the index 2 in square brackets: `A[2]`.
 The process of selecting elements using their indices is called _indexing_, and R provides multiple ways of indexing vectors.
 Below we'll cover some basic indexing and more advanced indexing for the different data structures in R.
 
 ```{block, type="assessment"}
 Download the [progress check 4 template](assignment_templates/progress_check_4.rmd) and follow the instructions.
-That document should include all progress reports from Section 5.5 through (and including) Section 6.1
+That document should include all progress reports from Section 5.5 through (and including) Section 6.1.
 ```
 
 ### Vectors
@@ -526,7 +526,7 @@ Unlike many other languages, R indices start with 1, not 0! so the first element
 ```
 
 Here are some other ways you can index as well.
-You can access multiple indices at the same time using a numric vector of indices:
+You can access multiple indices at the same time using a numeric vector of indices:
 
 ```{r}
 V[c(1, 2, 5)]  # Access elements 1, 2, and 5
@@ -570,6 +570,7 @@ Let's create a matrix from the `V` vector and access one of its elements:
 M <- matrix(V, 3, 3)  # Create matrix M with data from vector V
 M
 ```
+
 ```{r}
 M[1,2]  # Access the element in row 1, column 2
 ```
@@ -604,7 +605,7 @@ M
 So far we've discussed three different ways of accessing elements in a list: 
 
 ```{r}
-L <- list(A = "apple", b = "banana", c="cherry")
+L <- list(A = "apple", b = "banana", c = "cherry")
 
 L[[1]]  # Access using index number
 ```
@@ -615,7 +616,7 @@ L[["b"]]  # Access using component name
 ```{r}
 L$c  # Access using component name and dollar sign notation
 ```
-And these are basically the only option.
+And these are basically the only options.
 Unfortunately, you _cannot_ use a vector of indices in order to access multiple list components at once:
 
 ```{r, error=TRUE}
@@ -628,13 +629,13 @@ What `L[[1:3]]` _actually_ does (as the error message might suggest), is access 
 
 ```{block, type="progress"}
 Create a vector containing the numbers 1 through 1000 in order (hint: try using 1:1000 on the right of the assignment operator).
-Then, change elements 4, 196, and 501 through 556 to "brussels sprouts".
+Then, change elements 4, 196, and 501 through 556 to "brussel sprouts".
 What happened to the other elements in the vector?
 ```
 
 ### Data Frames
 
-Remember that data frames are just lists of vectors, so the same indexing rules of lists and vectors apply.
+Remember that data frames are just lists of vectors, so the same indexing rules for lists and vectors apply.
 But remember that matrix indexing rules also apply!
 Here are some examples with the Olympic athletes data. 
 
@@ -653,7 +654,7 @@ athletes3$Name[1:3]  # Get the first three elements of the Name column
 ```
 
 ```{block, type="caution"}
-Notice how With lists, you _cannot_ access multiple components (which is what dataframe columns are) at the same time, but with matrices you _can_ access multiple columns at once. 
+Notice how with lists, you _cannot_ access multiple components (which is what data frame columns are) at the same time, but with matrices you _can_ access multiple columns at once. 
 Since data frames can use matrix formatting, you _can_ select multiple columns at once, as the first example above showed.
 ```
 
@@ -704,7 +705,7 @@ For example, let's create a logical vector based on whether an Olympic athlete's
 ```{r}
 plays_tug_of_war <- athletes$Sport == "Tug-Of-War"  # Create logical vector
 
-sum(plays_tug_of_war)  # Count how many TRUE's
+sum(plays_tug_of_war)  # Count how many TRUEs
 ```
 Now let's use that logical vector to get the names of the athletes:
 ```{r}
@@ -746,7 +747,7 @@ fem_gym <- athletes[index,]
 # Create logical vector which is true if sport is basketball OR gymnastics
 index <- (athletes$Sport == "Basketball") | (athletes$Sport == "Gymnastics")
 
-# Select athletes whos sport is basketball OR gymnastics. 
+# Select athletes whose sport is basketball OR gymnastics. 
 bb_gy <- athletes[index,]
 ```
 
@@ -853,19 +854,20 @@ This histogram shows that most heights are between roughly 160 and 190 centimete
 Notice that R has decided how many bins (bars) to use, but this can be changed with the `breaks` option:
 
 ```{r, fig.height=4}
-hist(athletes$Height, breaks=70)
+hist(athletes$Height, breaks = 70)
 ```
 R will "try" to create the number of bins equal to `breaks`, but sometimes won't make exactly that number.
 Instead of just giving a single number breaks, you could _also_ give a vector of numbers, which specify the start and stop points of the bins:
 
 ```{r, fig.height=4}
-hist(athletes$Height, breaks=c(120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230))
+hist(athletes$Height, breaks = c(120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230))
 ```
 By default, R adds a title and axis labels to the plot, but for presentation purposes, it's probably a good idea to change them.
 This can be done with the `main`, `xlab`, and `ylab` options:
 
 ```{r, fig.height=4}
-hist(athletes$Height, breaks=60, main="Olympic Athlete Heights", xlab="Height (in)", ylab="")
+hist(athletes$Height, breaks = 60, main = "Olympic Athlete Heights",
+     xlab = "Height (in)", ylab = "")
 ```
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.
@@ -880,7 +882,7 @@ Give it an appropriate title and axis labels.
 To see more options for the `hist` function, run `?hist`.
 ```
 
-Another way to summarize a quantitative variable is with a boxplot, which shows a box whose boundaries are the first and third quartile. Inside the box, a line denotes the median, and the "whiskers" outside the box show which points are outliers (those outside the whiskers).
+Another way to summarize a quantitative variable is with a boxplot, which shows a box whose boundaries are the first and third quartiles. Inside the box, a line denotes the median, and the "whiskers" outside the box show which points are outliers (those outside the whiskers).
 
 ```{r, fig.width=3, fig.height=5}
 boxplot(athletes$Height)
@@ -888,7 +890,7 @@ boxplot(athletes$Height)
 In this case, there are no default title or labels, but we can still add them:
 
 ```{r, fig.width=3, fig.height=5}
-boxplot(athletes$Height, main="Olympic Athlete Height", ylab="Height (in)")
+boxplot(athletes$Height, main = "Olympic Athlete Height", ylab = "Height (in)")
 ```
 
 ```{block2, type="caution"}
@@ -899,7 +901,7 @@ Hint: In RMarkdown, boxplots may look too wide by default. You can control the w
 These are the values used for the boxplot above.
 ```
 
-The boxplot function also allows you to split up a quantitative variable using another variable, using the tilde (`~`).
+The `boxplot` function also allows you to split up a quantitative variable using another variable, using the tilde (`~`).
 Here are some examples:
 
 ```{r, fig.width=4, fig.height=5}
@@ -908,13 +910,13 @@ boxplot(athletes$Height ~ athletes$Sex)  # Make a boxplot of height, split by se
 
 ```{r, eval=F}
 par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
-boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by Sport
+boxplot(athletes$Height ~ athletes$Sport, las = 2, xlab = "")  # Make a boxplot of height, split by sport
 ```
 
 ```{r, echo=F, fig.width=15, fig.height=8}
 {
   par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
-  boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by Sport
+  boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by sport
 }
 ```
 Here we've added a few more bits to fit all the sport labels in: the `las` option rotates the labels, and the `par` function is used to increase the bottom margin below the graph. 
@@ -948,6 +950,7 @@ gy_bb_wr <- athletes[athletes$Sport %in% c("Gymnastics", "Basketball", "Wrestlin
 
 plot(gy_bb_wr$Height, gy_bb_wr$Weight)  # Plot height vs weight
 ```
+
 ```{block, type="bonus"}
 Above we saw another nice way to index: the `%in%` command. 
 This returns a logical vector which is true for elements that are found in the search list.
@@ -956,13 +959,13 @@ This returns a logical vector which is true for elements that are found in the s
 There are a lot of points, so it may be useful to decrease the size of the circles using the `cex` option, which has a default value of 1:
 
 ```{r}
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, cex=0.4)  # Make circles smaller
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, cex = 0.4)  # Make circles smaller
 ```
 Another option would be to change the type of marker, which can be selected using the `pch` option. 
 We'll choose a smaller, solid circle, which is marker number 20:
 
 ```{r}
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20)  # Try filled circles
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20)  # Try filled circles
 ```
 
 We can also set the color using the `col` argument.
@@ -970,7 +973,7 @@ There are multiple ways to specify a color, but we'll use the `rgb` function, wh
 
 ```{r}
 color <- rgb(0.5, 0, 1)
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # Change color
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20, col = color)  # Change color
 ```
 
 Lastly, we can also make the points less visible, so it's easier to see when they are overlapping one another.
@@ -979,14 +982,15 @@ An alpha value of 0 is invisible, and a value of 1 is fully visible.
 
 ```{r}
 color <- rgb(0.5, 0, 1, 0.1)  # Set the alpha level low, so points are transparent
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=color)  # Make points partially transparent
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20, col = color)  # Make points partially transparent
 ```
 We can also color by sport, by converting the Sport column to a factor, then giving that as the color argument:
 
 ```{r}
 colors <- as.factor(gy_bb_wr$Sport)
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=colors)  # Color by sport
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20, col = colors)  # Color by sport
 ```
+
 ```{block, type="caution"}
 We convert Sport to a factor because the `col` option in plot is expecting either a single color (as in the first example) or a vector of numbers indicating which color should be used for each point (remember, factors are represented as numbers).
 The numbers tell R which color in its palette it should use (for the default palette, 1=black, 2=reddish, 3=greenish, etc.),
@@ -997,7 +1001,7 @@ The default colors in R are sometimes not very appealing, so we can define our o
 
 ```{r}
 palette(c(rgb(1,0,0,0.1), rgb(0,1,0,0.1), rgb(0,0,1,0.1)))  # Create color palette
-plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch=20, col=colors)
+plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20, col = colors)
 ```
 
 In some cases, it might be appropriate to use lines instead of points.
@@ -1006,13 +1010,13 @@ This can be done by setting the `type` option to "l":
 ```{r, fig.height=3}
 x <- (1:10)/10 * 2*pi
 y <- sin(x)
-plot(x, y, type="l")
+plot(x, y, type = "l")
 ```
 
 You can use points and lines at the same time using "b":
 
 ```{r, fig.height=3}
-plot(x, y, type="b")
+plot(x, y, type = "b")
 ```
 
 Another option for plotting two quantitative variables, especially when there are many overlapping points, is the smooth scatter:
@@ -1027,19 +1031,19 @@ Create an appropriate title and axis titles.
 What was the first year to allow Female Weightlifters?
 ```
 
-### One Categorical Variables
+### One Categorical Variable
 
-One useful way to visualize categorical variables is bar plots.
+One useful way to visualize categorical variables is barplots.
 Before creating a barplot, we need to create a summary table of the variable of interest:
 
 ```{r}
 sport_tab <- table(gy_bb_wr$Sport)
-barplot(sport_tab, col=rgb(0.2, 0.2, 1))
+barplot(sport_tab, col = rgb(0.2, 0.2, 1))
 ```
 
 ```{block, type="progress"}
 Create a barplot for the Season variable, with an appropriate title and axis labels.
-Which Season has more rows in the data frame??
+Which Season has more rows in the data frame?
 ```
 
 
@@ -1048,7 +1052,8 @@ Which Season has more rows in the data frame??
 With two categorical variables, you can create a mosaicplot, where the size of each region is relative to the number of observations in that group.
 
 ```{r}
-mosaicplot(gy_bb_wr$Sport ~ gy_bb_wr$Sex, col=c("blue", "orange"), main="Athlete Sex by Sport", xlab="Sport", ylab="Sex")
+mosaicplot(gy_bb_wr$Sport ~ gy_bb_wr$Sex, col = c("blue", "orange"),
+           main = "Athlete Sex by Sport", xlab = "Sport", ylab = "Sex")
 ```
 
 ### Multiple plots
@@ -1070,7 +1075,7 @@ y2 <- sin(3/x)*x
 ```{r, eval=F}
 plot(x, y2,)  # Plot x against y2
 points(x, y1, col="blue")  # Add points of x against y1 (on same figure)
-lines(x, -y1, col="red")  #Aadd lines of x against -y1 (on same figure)
+lines(x, -y1, col="red")  # Add lines of x against -y1 (on same figure)
 ```
 ```{r, echo=F}
 {
@@ -1091,7 +1096,7 @@ Given several quantitative variables, there are many different possible scatterp
 The `pairs` function takes in a matrix or data frame and creates a matrix of all possible scatter plots.
 Here's an example using the `iris` data set which is included in R:
 ```{r}
-pairs(iris, pch=20)
+pairs(iris, pch = 20)
 ```
 To know the x axis for one of these plots, look up/down to the diagonal, which will tell you the variable on the x axis.
 To know the y axis for one of these plots, look left/right to the diagonal, which will tell you the variable on the y axis.
@@ -1105,16 +1110,16 @@ The first is `contour`, which shows level curves of the surface in a 2d plane:
 # Make a surface using the rep function
 n <- 100
 x <- rep(1:n, n)/n*2*pi
-y <- rep(1:n, each=n)/n*2*pi
+y <- rep(1:n, each = n)/n*2*pi
 z <- matrix(sin(x) + cos(y), n, n)
 
-contour(z, nlevels=20)
+contour(z, nlevels = 20)
 ```
 
 The second option is `persp`, which gives a 3d perspective of the surface:
 
 ```{r, fig.height=8}
-persp(z, theta=45, phi=30, shade=0.5)
+persp(z, theta = 45, phi = 30, shade = 0.5)
 ```
 
 ### Saving Images
@@ -1136,7 +1141,7 @@ png("output/test_plot.png")  # Start "sending" plots to the png file called "tes
 plot(y1, y2)          # This plot will go to "test_plot.png"
 dev.off()             # Stop sending plots to "test_plot.png"
 ```
-After you're done sending plots to a file, use the command `dev.off()` to reset where R is sending the plots
+After you're done sending plots to a file, use the command `dev.off()` to reset where R is sending the plots.
 
 ```{block2, type="bonus"}
 R graphics works with objects called "graphics devices". 
@@ -1175,9 +1180,9 @@ Before ending this section, we'll leave you with an example from the `ggplot2` p
 library(ggplot2)
 
 ggplot(gy_bb_wr, aes(Height, Weight, color=Sex)) +
-  geom_point(alpha=0.2) + 
+  geom_point(alpha = 0.2) + 
   theme_bw() + 
-  labs(title="Athlete Height vs. Weight") + 
+  labs(title = "Athlete Height vs. Weight") + 
   facet_grid(Sex~Sport)
 
 ```
@@ -1224,8 +1229,8 @@ to install them using the command `install.packages` and then load them
 using the command `library`. 
 
 ```{r, }
-## Install the package if it's not already installed by uncommenting the line 
-#below
+# Install the package if it's not already installed by uncommenting the line 
+# below
 
 #install.packages('dataRetrieval')
 
@@ -1272,7 +1277,7 @@ poudre <- readNWISdv(siteNumbers = '06752260',
 
 
 Now that we have our dataframe called `poudre`, we can explore the properties
-of this data frame using commands we have already learn. First let's 
+of this data frame using commands we have already learned. First let's 
 see what the structure of the data is using the `head` command, which 
 will print the first 6 rows of data. 
 
@@ -1281,7 +1286,7 @@ head(poudre)
 ```
 
 It looks like we have a dataframe that is 5 columns wide with columns `agency_cd` which is just the USGS, `site_no` which is just the site id we already told it. Since
-we only asked for data for one site, we don't really need this column. A `Date`
+we only asked for data from one site, we don't really need this column. A `Date`
 column which tells us... the date! There are two more columns that are kind of weird which
 are labeled `X_00060_00003` which is the column that actually has values of 
 river flow in Cubic Feet Per Second (cfs), or the amount of water that is flowing
@@ -1290,7 +1295,7 @@ Finally `X_00060_00003_cd` tells us something about the quality of the data. For
 we will ignore this final column, but if you were doing an analysis of this data
 for a project, you would want to investigate what codes are acceptable for 
 high quality analyses. To make working with this data a little easier let's
-rename and remove some of our columns in a new, simpler data.frame. 
+rename and remove some of our columns in a new, simpler dataframe. 
 
 ```{r}
 #Remove the first two columns
@@ -1304,7 +1309,7 @@ names(pq) <- c('Date','q_cfs')
 #### Explore the data
 
 Now that we have cleaned up our data.frame a little, let's explore the data.
-First we can use a summary command to just quickly look at the variables we have.
+First we can use the `summary` function to just quickly look at the variables we have.
 
 ```{r}
 summary(pq)
@@ -1317,26 +1322,25 @@ is to simply plot the data as we do below.
 
 ```{r}
 plot(pq$q_cfs ~ pq$Date, type = 'l', ylab = 'River Flow (cfs)', 
-     xlab = 'Date',col = 'blue3')
+     xlab = 'Date', col = 'blue3')
 
 ```
 
 ```{block, type = 'reflect'}
 The above plot is called a "hydrograph" or a plot of how river flow has changed
 over time. In the Cache La Poudre, what might explain the peaks and valleys of 
-the data? What controls river flow in Colorado rivers. 
-
+the data? What controls river flow in Colorado rivers?  
 ```
 
 #### Analyze the data
 
 Now that we plotted the data we can see some interesting patterns that we
-might want to explore. For example how has the average flow changed in the last
-ten years. To analyze this we need to use the concept of a `Water Year`. Simply
+might want to explore. For example, how has the average flow changed in the last
+ten years. To analyze this, we need to use the concept of a `Water Year`. Simply
 put, a water year is a way to analyze yearly variation in flow, which doesn't 
 map well to a calendar year. Water years in the USA are typically from October 1
 to September 30th. Luckily for us, the `dataRetrieval` package has a function
-that calculates water year for us. It's simply called `addWaterYear`
+that calculates water year for us. It's simply called `addWaterYear`.
 
 ```{r}
 pq_wy <- addWaterYear(pq)
@@ -1344,15 +1348,15 @@ pq_wy <- addWaterYear(pq)
 ```
 
 
-To look at variation per year we can use the function called `tapply` which can take the mean, max or any summary
+To look at variation per year we can use the function `tapply` which can take the mean, max or any summary
 function of groups of data (more on this in the next chapter, but you can type `?tapply` for more info).
 In this case we want to look at the mean river flow for each water year.
-Now to use tapply we use the following code
+Now to use `tapply` we use the following code
 
 
 ```{r}
 
-annual <- tapply(pq_wy$q_cfs,pq_wy$waterYear, mean)
+annual <- tapply(pq_wy$q_cfs, pq_wy$waterYear, mean)
 
 ```
 
@@ -1361,14 +1365,14 @@ Now let's plot the data, where the values (y) are the annual average flow and th
 ```{r}
 plot(names(annual),(annual))
 ```
+
 ```{block, type = 'reflect'}
 
-Has annual mean river declined over the past ten years?
+Has annual mean river flow declined over the past ten years?
 What about the last 6? 
 
 
 ```
-
 
 
 ```{block, type='feedback'}

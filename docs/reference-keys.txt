@@ -123,7 +123,7 @@ nested-indexing-13
 visualization
 one-quantitative-variable
 two-quantitative-variables
-one-categorical-variables
+one-categorical-variable
 two-categorical-variables
 multiple-plots
 other-types-of-plots
