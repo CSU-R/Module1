@@ -346,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the <code>data()</code> command.
 One of the data sets is <code>Seatbelts</code>, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert <code>Seatbelts</code> to a data frame, because it starts out as a “Time-Series”, which we haven’t discussed.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date=</span><span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date =</span> <span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
 <p>We’ve also added a month and year column</p>
 <p>look at the dimensions of the data set with the <code>dim</code> command:</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1" tabindex="-1"></a><span class="fu">dim</span>(Seatbelts)  <span class="co"># Get the number of dimensions in the Seatbelts data frame</span></span></code></pre></div>
@@ -389,7 +389,7 @@ Because these data are included with R, more information about each variable can
 <p>Since each column is numeric, R shows a five number summary (minimum, first quartile, median, third quartile, maximum) and mean for each column.
 We learn, for example, that the average number of drivers killed per month is 1670, and that the greatest price of petrol was £0.13 per litre!
 Let’s view a histogram of <code>DriversKilled</code>:</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="quick-example.html#cb332-1" tabindex="-1"></a><span class="fu">hist</span>(Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">breaks=</span><span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="quick-example.html#cb332-1" tabindex="-1"></a><span class="fu">hist</span>(Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-323"></span>
 <img src="Module1_files/figure-html/unnamed-chunk-323-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
 <p class="caption">
@@ -409,7 +409,7 @@ Figure 5.2: UK Seatbelt deaths vs time
 </p>
 </div>
 <p>By adding a <code>col</code> argument to the <code>plot</code> function, we can color the points based on whether the law was in effect:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb336-1"><a href="quick-example.html#cb336-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">col=</span>(Seatbelts<span class="sc">$</span>law<span class="sc">+</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb336-1"><a href="quick-example.html#cb336-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">col =</span> (Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
 <img src="Module1_files/figure-html/unnamed-chunk-326-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
 <p class="caption">
@@ -419,7 +419,7 @@ Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt 
 <p>There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it’s difficult to tell.</p>
 <p>Let’s change the x-axis to reflect month of the year instead of date:</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb337-1"><a href="quick-example.html#cb337-1" tabindex="-1"></a><span class="fu">plot</span>((Seatbelts<span class="sc">$</span>date <span class="sc">%%</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">12</span> <span class="sc">+</span> <span class="dv">1</span>, Seatbelts<span class="sc">$</span>DriversKilled, </span>
-<span id="cb337-2"><a href="quick-example.html#cb337-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="at">col=</span>Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<span id="cb337-2"><a href="quick-example.html#cb337-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="at">col =</span> Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
 <img src="Module1_files/figure-html/unnamed-chunk-327-1.png" alt="UK Driver Deaths vs. Month" width="672" />
 <p class="caption">
