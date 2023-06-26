@@ -384,7 +384,7 @@ barplot(table(sport), horiz=T, las=2)  # Bar plot
 So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).
 
 ```{block2, type="progress"}
-Using the Olympic athletes data, create a list called `season_stats` with the a table of counts for the `Season` variable.
+Using the Olympic athletes data, create a list called `season_stats` with a table of counts for the `Season` variable.
 ```
 
 ```{block2, type="caution"}
