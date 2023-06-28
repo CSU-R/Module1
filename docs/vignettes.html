@@ -432,25 +432,25 @@ we will ignore this final column, but if you were doing an analysis of this data
 for a project, you would want to investigate what codes are acceptable for
 high quality analyses. To make working with this data a little easier let’s
 rename and remove some of our columns in a new, simpler dataframe.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1" tabindex="-1"></a><span class="co">#Remove the first two columns</span></span>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1" tabindex="-1"></a><span class="co"># Remove the first two columns</span></span>
 <span id="cb456-2"><a href="vignettes.html#cb456-2" tabindex="-1"></a>pq <span class="ot">&lt;-</span> poudre[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
 <span id="cb456-3"><a href="vignettes.html#cb456-3" tabindex="-1"></a></span>
-<span id="cb456-4"><a href="vignettes.html#cb456-4" tabindex="-1"></a><span class="co">#Rename the remaining columns</span></span>
+<span id="cb456-4"><a href="vignettes.html#cb456-4" tabindex="-1"></a><span class="co"># Rename the remaining columns</span></span>
 <span id="cb456-5"><a href="vignettes.html#cb456-5" tabindex="-1"></a><span class="fu">names</span>(pq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
 </div>
 <div id="explore-the-data" class="section level4 hasAnchor" number="5.7.1.5">
 <h4><span class="header-section-number">5.7.1.5</span> Explore the data<a href="vignettes.html#explore-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now that we have cleaned up our data.frame a little, let’s explore the data.
+<p>Now that we have cleaned up our data frame a little, let’s explore the data.
 First we can use the <code>summary</code> function to just quickly look at the variables we have.</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   1.31  
- 1st Qu.:2013-12-06   1st Qu.:  23.80  
- Median :2017-02-11   Median :  65.70  
- Mean   :2017-02-11   Mean   : 232.20  
- 3rd Qu.:2020-04-18   3rd Qu.: 151.00  
- Max.   :2023-06-25   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2023-06-26 and a range in river
+ 1st Qu.:2013-12-07   1st Qu.:  23.80  
+ Median :2017-02-12   Median :  65.80  
+ Mean   :2017-02-12   Mean   : 232.47  
+ 3rd Qu.:2020-04-20   3rd Qu.: 151.00  
+ Max.   :2023-06-27   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2023-06-28 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
@@ -468,7 +468,7 @@ rivers?
 </div>
 <div id="analyze-the-data" class="section level4 hasAnchor" number="5.7.1.6">
 <h4><span class="header-section-number">5.7.1.6</span> Analyze the data<a href="vignettes.html#analyze-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now that we plotted the data we can see some interesting patterns that we
+<p>Now that we’ve plotted the data we can see some interesting patterns that we
 might want to explore. For example, how has the average flow changed in the last
 ten years. To analyze this, we need to use the concept of a <code>Water Year</code>. Simply
 put, a water year is a way to analyze yearly variation in flow, which doesn’t
@@ -478,11 +478,11 @@ that calculates water year for us. It’s simply called <code>addWaterYear</code
 <div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb460-1"><a href="vignettes.html#cb460-1" tabindex="-1"></a>pq_wy <span class="ot">&lt;-</span> <span class="fu">addWaterYear</span>(pq)</span></code></pre></div>
 <p>To look at variation per year we can use the function <code>tapply</code> which can take the mean, max or any summary
 function of groups of data (more on this in the next chapter, but you can type <code>?tapply</code> for more info).
-In this case we want to look at the mean river flow for each water year.
+In this case, we want to look at the mean river flow for each water year.
 Now to use <code>tapply</code> we use the following code</p>
 <div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1" tabindex="-1"></a>annual <span class="ot">&lt;-</span> <span class="fu">tapply</span>(pq_wy<span class="sc">$</span>q_cfs, pq_wy<span class="sc">$</span>waterYear, mean)</span></code></pre></div>
 <p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual),(annual))</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual), annual, <span class="at">xlab =</span> <span class="st">&quot;Water Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Annual Average Flow (cfs)&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-478-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="reflect">
 <p>

@@ -1298,17 +1298,17 @@ high quality analyses. To make working with this data a little easier let's
 rename and remove some of our columns in a new, simpler dataframe. 
 
 ```{r}
-#Remove the first two columns
+# Remove the first two columns
 pq <- poudre[,-c(1,2,5)]
 
-#Rename the remaining columns
+# Rename the remaining columns
 names(pq) <- c('Date','q_cfs')
 
 ```
 
 #### Explore the data
 
-Now that we have cleaned up our data.frame a little, let's explore the data.
+Now that we have cleaned up our data frame a little, let's explore the data.
 First we can use the `summary` function to just quickly look at the variables we have.
 
 ```{r}
@@ -1334,7 +1334,7 @@ the data? What controls river flow in Colorado rivers?
 
 #### Analyze the data
 
-Now that we plotted the data we can see some interesting patterns that we
+Now that we've plotted the data we can see some interesting patterns that we
 might want to explore. For example, how has the average flow changed in the last
 ten years. To analyze this, we need to use the concept of a `Water Year`. Simply
 put, a water year is a way to analyze yearly variation in flow, which doesn't 
@@ -1350,7 +1350,7 @@ pq_wy <- addWaterYear(pq)
 
 To look at variation per year we can use the function `tapply` which can take the mean, max or any summary
 function of groups of data (more on this in the next chapter, but you can type `?tapply` for more info).
-In this case we want to look at the mean river flow for each water year.
+In this case, we want to look at the mean river flow for each water year.
 Now to use `tapply` we use the following code
 
 
@@ -1363,14 +1363,13 @@ annual <- tapply(pq_wy$q_cfs, pq_wy$waterYear, mean)
 Now let's plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the `tapply` function. 
 
 ```{r}
-plot(names(annual),(annual))
+plot(names(annual), annual, xlab = "Water Year", ylab = "Annual Average Flow (cfs)")
 ```
 
 ```{block, type = 'reflect'}
 
 Has annual mean river flow declined over the past ten years?
 What about the last 6? 
-
 
 ```
 
