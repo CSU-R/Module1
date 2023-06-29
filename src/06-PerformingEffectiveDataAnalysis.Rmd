@@ -31,7 +31,8 @@ First, let's load the data and do some minor cleaning:
 
 ```{r}
 # Load the data
-# The "Footnote" column has hyphens, which only display correctly if we specify "UTF-8" encoding
+# The "Footnote" column has hyphens,
+# which only display correctly if we specify "UTF-8" encoding
 covid <- read.csv("data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv", fileEncoding = "UTF-8")
 # Remove rows with state totals, this will mess up our summary statistics later
 covid <- covid[!grepl("Total", covid$State),]
@@ -57,7 +58,8 @@ covid_co_f <- covid[(covid$State == "Colorado") & (covid$Sex == "Female"),]
 png("output/covid_deaths_by_agegroup_colorado_female.png")
 par(mar = c(9, 4, 2, 2))
 
-# The COVID.19.Deaths vector doesn't have row names, so we specify the bar labels with names.arg 
+# The COVID.19.Deaths vector doesn't have row names,
+# so we specify the bar labels with names.arg 
 barplot(covid_co_f$COVID.19.Deaths, names.arg = covid_co_f$Age.group, 
         las = 2, 
         main = "Deaths By Age Group")
@@ -199,7 +201,7 @@ for(i in c("Colorado", "Wyoming", "New Mexico")){
   # Produce the plot
   png(file_name)
   par(mar = c(9, 4, 2, 2))
-  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_state_f$Age.group, 
           las = 2, 
           main = paste("Deaths By Age Group, ", i, sep=""))
   dev.off()
@@ -220,7 +222,7 @@ for(i in unique(covid$State)){  # <<------ Here's the one change we made!
   file_name <- paste("output/covid_deaths_by_agegroup_", i, "_female.png", sep="")
   png(file_name)
   par(mar = c(9, 4, 2, 2))
-  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+  barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_state_f$Age.group, 
           las = 2, 
           main = paste("Deaths By Age Group, ", i, sep=""))
   dev.off()
@@ -270,7 +272,7 @@ for(i in unique(covid$State)){
     file_name <- paste("output/covid_deaths_by_agegroup_", i, "_", j, ".png", sep="")
     png(file_name)
     par(mar = c(9, 4, 2, 2))
-    barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_nm_f$Age.group, 
+    barplot(covid_state_f$COVID.19.Deaths, names.arg = covid_state_f$Age.group, 
             las = 2, 
             main = paste("Deaths By Age Group,", i, j))  # Change add Sex to title
     dev.off()

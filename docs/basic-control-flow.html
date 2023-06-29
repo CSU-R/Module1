@@ -349,12 +349,13 @@ In this section, we’ll introduce a few ways of controlling the flow of an R pr
 We’ve downloaded the data and saved it in the <code>data_raw</code> folder, and you should do the same (the data are also available <a href="data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv">here</a>).
 First, let’s load the data and do some minor cleaning:</p>
 <div class="sourceCode" id="cb463"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb463-1"><a href="basic-control-flow.html#cb463-1" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb463-2"><a href="basic-control-flow.html#cb463-2" tabindex="-1"></a><span class="co"># The &quot;Footnote&quot; column has hyphens, which only display correctly if we specify &quot;UTF-8&quot; encoding</span></span>
-<span id="cb463-3"><a href="basic-control-flow.html#cb463-3" tabindex="-1"></a>covid <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb463-4"><a href="basic-control-flow.html#cb463-4" tabindex="-1"></a><span class="co"># Remove rows with state totals, this will mess up our summary statistics later</span></span>
-<span id="cb463-5"><a href="basic-control-flow.html#cb463-5" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="sc">$</span>State),]</span>
-<span id="cb463-6"><a href="basic-control-flow.html#cb463-6" tabindex="-1"></a><span class="co"># Remove all ages category</span></span>
-<span id="cb463-7"><a href="basic-control-flow.html#cb463-7" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>Age.group <span class="sc">!=</span> <span class="st">&quot;All ages&quot;</span>,]</span></code></pre></div>
+<span id="cb463-2"><a href="basic-control-flow.html#cb463-2" tabindex="-1"></a><span class="co"># The &quot;Footnote&quot; column has hyphens,</span></span>
+<span id="cb463-3"><a href="basic-control-flow.html#cb463-3" tabindex="-1"></a><span class="co"># which only display correctly if we specify &quot;UTF-8&quot; encoding</span></span>
+<span id="cb463-4"><a href="basic-control-flow.html#cb463-4" tabindex="-1"></a>covid <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_State.csv&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb463-5"><a href="basic-control-flow.html#cb463-5" tabindex="-1"></a><span class="co"># Remove rows with state totals, this will mess up our summary statistics later</span></span>
+<span id="cb463-6"><a href="basic-control-flow.html#cb463-6" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="sc">$</span>State),]</span>
+<span id="cb463-7"><a href="basic-control-flow.html#cb463-7" tabindex="-1"></a><span class="co"># Remove all ages category</span></span>
+<span id="cb463-8"><a href="basic-control-flow.html#cb463-8" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>Age.group <span class="sc">!=</span> <span class="st">&quot;All ages&quot;</span>,]</span></code></pre></div>
 <div class="progress">
 <p>
 Download the covid data into your ‘data_raw’ folder, and load/clean
@@ -372,11 +373,12 @@ This data contains deaths data for different states, age groups, and sexes. Let�
 <span id="cb464-5"><a href="basic-control-flow.html#cb464-5" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_colorado_female.png&quot;</span>)</span>
 <span id="cb464-6"><a href="basic-control-flow.html#cb464-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb464-7"><a href="basic-control-flow.html#cb464-7" tabindex="-1"></a></span>
-<span id="cb464-8"><a href="basic-control-flow.html#cb464-8" tabindex="-1"></a><span class="co"># The COVID.19.Deaths vector doesn&#39;t have row names, so we specify the bar labels with names.arg </span></span>
-<span id="cb464-9"><a href="basic-control-flow.html#cb464-9" tabindex="-1"></a><span class="fu">barplot</span>(covid_co_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_co_f<span class="sc">$</span>Age.group, </span>
-<span id="cb464-10"><a href="basic-control-flow.html#cb464-10" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">2</span>, </span>
-<span id="cb464-11"><a href="basic-control-flow.html#cb464-11" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
-<span id="cb464-12"><a href="basic-control-flow.html#cb464-12" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<span id="cb464-8"><a href="basic-control-flow.html#cb464-8" tabindex="-1"></a><span class="co"># The COVID.19.Deaths vector doesn&#39;t have row names,</span></span>
+<span id="cb464-9"><a href="basic-control-flow.html#cb464-9" tabindex="-1"></a><span class="co"># so we specify the bar labels with names.arg </span></span>
+<span id="cb464-10"><a href="basic-control-flow.html#cb464-10" tabindex="-1"></a><span class="fu">barplot</span>(covid_co_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_co_f<span class="sc">$</span>Age.group, </span>
+<span id="cb464-11"><a href="basic-control-flow.html#cb464-11" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">2</span>, </span>
+<span id="cb464-12"><a href="basic-control-flow.html#cb464-12" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Deaths By Age Group&quot;</span>)</span>
+<span id="cb464-13"><a href="basic-control-flow.html#cb464-13" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p>Here’s the plot we just created:</p>
 <div class="sourceCode" id="cb465"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb465-1"><a href="basic-control-flow.html#cb465-1" tabindex="-1"></a>covid_co_f <span class="ot">&lt;-</span> covid[(covid<span class="sc">$</span>State <span class="sc">==</span> <span class="st">&quot;Colorado&quot;</span>) <span class="sc">&amp;</span> (covid<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>),]</span>
 <span id="cb465-2"><a href="basic-control-flow.html#cb465-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
@@ -491,7 +493,7 @@ Now that we are selecting only the state of interest, let’s produce a bar plot
 <span id="cb474-8"><a href="basic-control-flow.html#cb474-8" tabindex="-1"></a>  <span class="co"># Produce the plot</span></span>
 <span id="cb474-9"><a href="basic-control-flow.html#cb474-9" tabindex="-1"></a>  <span class="fu">png</span>(file_name)</span>
 <span id="cb474-10"><a href="basic-control-flow.html#cb474-10" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb474-11"><a href="basic-control-flow.html#cb474-11" tabindex="-1"></a>  <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_nm_f<span class="sc">$</span>Age.group, </span>
+<span id="cb474-11"><a href="basic-control-flow.html#cb474-11" tabindex="-1"></a>  <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_state_f<span class="sc">$</span>Age.group, </span>
 <span id="cb474-12"><a href="basic-control-flow.html#cb474-12" tabindex="-1"></a>          <span class="at">las =</span> <span class="dv">2</span>, </span>
 <span id="cb474-13"><a href="basic-control-flow.html#cb474-13" tabindex="-1"></a>          <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Deaths By Age Group, &quot;</span>, i, <span class="at">sep=</span><span class="st">&quot;&quot;</span>))</span>
 <span id="cb474-14"><a href="basic-control-flow.html#cb474-14" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
@@ -511,7 +513,7 @@ you’re comfortable with it.
 <span id="cb475-3"><a href="basic-control-flow.html#cb475-3" tabindex="-1"></a>  file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_&quot;</span>, i, <span class="st">&quot;_female.png&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
 <span id="cb475-4"><a href="basic-control-flow.html#cb475-4" tabindex="-1"></a>  <span class="fu">png</span>(file_name)</span>
 <span id="cb475-5"><a href="basic-control-flow.html#cb475-5" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb475-6"><a href="basic-control-flow.html#cb475-6" tabindex="-1"></a>  <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_nm_f<span class="sc">$</span>Age.group, </span>
+<span id="cb475-6"><a href="basic-control-flow.html#cb475-6" tabindex="-1"></a>  <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_state_f<span class="sc">$</span>Age.group, </span>
 <span id="cb475-7"><a href="basic-control-flow.html#cb475-7" tabindex="-1"></a>          <span class="at">las =</span> <span class="dv">2</span>, </span>
 <span id="cb475-8"><a href="basic-control-flow.html#cb475-8" tabindex="-1"></a>          <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Deaths By Age Group, &quot;</span>, i, <span class="at">sep=</span><span class="st">&quot;&quot;</span>))</span>
 <span id="cb475-9"><a href="basic-control-flow.html#cb475-9" tabindex="-1"></a>  <span class="fu">dev.off</span>()</span>
@@ -565,7 +567,7 @@ So far, we’ve been generating plots for the females only, but we can include a
 <span id="cb478-5"><a href="basic-control-flow.html#cb478-5" tabindex="-1"></a>    file_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;output/covid_deaths_by_agegroup_&quot;</span>, i, <span class="st">&quot;_&quot;</span>, j, <span class="st">&quot;.png&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
 <span id="cb478-6"><a href="basic-control-flow.html#cb478-6" tabindex="-1"></a>    <span class="fu">png</span>(file_name)</span>
 <span id="cb478-7"><a href="basic-control-flow.html#cb478-7" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb478-8"><a href="basic-control-flow.html#cb478-8" tabindex="-1"></a>    <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_nm_f<span class="sc">$</span>Age.group, </span>
+<span id="cb478-8"><a href="basic-control-flow.html#cb478-8" tabindex="-1"></a>    <span class="fu">barplot</span>(covid_state_f<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, <span class="at">names.arg =</span> covid_state_f<span class="sc">$</span>Age.group, </span>
 <span id="cb478-9"><a href="basic-control-flow.html#cb478-9" tabindex="-1"></a>            <span class="at">las =</span> <span class="dv">2</span>, </span>
 <span id="cb478-10"><a href="basic-control-flow.html#cb478-10" tabindex="-1"></a>            <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Deaths By Age Group,&quot;</span>, i, j))  <span class="co"># Change add Sex to title</span></span>
 <span id="cb478-11"><a href="basic-control-flow.html#cb478-11" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
