@@ -347,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Up to this point in this book/course, we have really focused on using <code>base</code> R.
 By <code>base</code>, we simply mean the functions, data sets, and arguments that come
 pre-packaged with R. While this book has (hopefully) shown you just how much
-these basic functions can do, R can do so much more by relying on <code>packages.</code></p>
+these basic functions can do, R can do so much more by relying on <code>packages</code>.</p>
 <p><code>Packages</code> are an integral part of R programming, and you have been using them
 throughout this book and class. A <code>package</code> is a contained set of arguments,
 operations, data, and/or other tools that don’t come with R. In general
@@ -356,7 +356,7 @@ beautiful maps in R to doing financial time-series analyses to downloading
 and analyzing hydrology data (see Vignettes). In fact, you have been using
 <code>packages</code> this whole time. For example, In order to <code>knit</code> a document using RMarkdown, you have to have the <code>RMarkdown</code> package installed.</p>
 <p>On many (most?) projects, the most efficient way to complete whatever task you
-are doing is to spend at least some time checking out if there is a <code>package</code>
+are doing is to spend at least some time checking out whether there is a <code>package</code>
 that makes it easier for you to do things like:</p>
 <ol style="list-style-type: decimal">
 <li>Download data from the internet</li>
@@ -374,12 +374,11 @@ that makes it easier for you to do things like:</p>
 <li>Install the package using <code>install.packages()</code>. You only have to do this once.</li>
 <li>Load the package using <code>library()</code>. You have to do this every time you want to use the capabilities of that package, but only once per Script or once per RMarkdown document.</li>
 </ol>
-<p>Here is an example with an extremely common plotting package <code>ggplot2</code> you will
-work on in the next module (and have probably already seen on the internet)</p>
+<p>Here is an example with an extremely common plotting package <code>ggplot2</code> that has been mentioned in the course (and that you have probably already seen on the internet)</p>
 <div class="sourceCode" id="cb572"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb572-1"><a href="working-with-popular-packages.html#cb572-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
-<p>Now that we’ve installed the package we can load it into R, using <code>library()</code></p>
+<p>Now that we’ve installed the package, we can load it into R using <code>library()</code>.</p>
 <div class="sourceCode" id="cb573"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb573-1"><a href="working-with-popular-packages.html#cb573-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
-<p>Now that we have installed the package we will need to learn how to use it.
+<p>Now that we have installed the package, we will need to learn how to use it.
 Where can we go to for help?</p>
 </div>
 <div id="finding-and-using-package-help." class="section level3 hasAnchor" number="6.4.3">
@@ -387,7 +386,7 @@ Where can we go to for help?</p>
 <p>All R packages installed with <code>install.packages</code> will come from the
 <em>Comprehensive R Archive Network</em> (“CRAN”). In order for you to work with them
 they have to have gone through a minimum overview, which ensures that they
-will at least have a minimum help page. So for any package you want to
+will at least have a minimum help page. So, for any package you want to
 read more about you can simply search for: <code>CRAN &lt;package name&gt;</code>. For <code>ggplot2</code>
 this will lead you to <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">this website</a>. This site
 outlines many of the resources for using <code>ggplot2</code>, but they can be hard to find.
@@ -400,7 +399,7 @@ that is more clear and has far more examples <a href="https://ggplot2.tidyverse.
 </div>
 <div id="making-beautiful-plots-with-ggplot2" class="section level3 hasAnchor" number="6.4.4">
 <h3><span class="header-section-number">6.4.4</span> Making Beautiful Plots with <em>ggplot2</em><a href="working-with-popular-packages.html#making-beautiful-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Our package is now loaded, we have a manual for reference so let’s use it!</p>
+<p>Our package is now loaded, and we have a manual for reference so let’s use it!</p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb574-1"><a href="working-with-popular-packages.html#cb574-1" tabindex="-1"></a><span class="co"># Making up data for plotting</span></span>
 <span id="cb574-2"><a href="working-with-popular-packages.html#cb574-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">response =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">300</span>),</span>
 <span id="cb574-3"><a href="working-with-popular-packages.html#cb574-3" tabindex="-1"></a>                   <span class="at">driver =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span>
@@ -418,15 +417,15 @@ we want to use points to display this relationship between x and y (<code>geom_p
 Note: <code>ggplot2</code> connects a series of arguments using
 <code>+</code> operator. This is unique to <code>ggplot</code>, but it’s
 a helpful way to make complex plots by combining simpler pieces. This
-can be difficult to get used to, but can be very powerful when you get
+can be difficult to get used to, but can be very powerful once you get
 the hang of it.
 </p>
 </div>
 <p>Let’s add some lines to connect the points using the <code>geom_line()</code> command.</p>
 <div class="sourceCode" id="cb575"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb575-1"><a href="working-with-popular-packages.html#cb575-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
 <span id="cb575-2"><a href="working-with-popular-packages.html#cb575-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb575-3"><a href="working-with-popular-packages.html#cb575-3" tabindex="-1"></a>  <span class="fu">geom_line</span>()  <span class="co"># add lines to connect the points</span></span></code></pre></div>
-<img src="Module1_files/figure-html/unnamed-chunk-582-1.png" width="384" style="display: block; margin: auto;" />
+<span id="cb575-3"><a href="working-with-popular-packages.html#cb575-3" tabindex="-1"></a>  <span class="fu">geom_line</span>()  <span class="co"># Add lines to connect the points</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-582-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div class="bonus">
 <p>
 The <code>geom</code> prefix on the <code>geom_point</code> and
@@ -439,31 +438,35 @@ options!
 </div>
 <p>We can also change the way the lines and points look with arguments in the <code>geom_point</code> and <code>geom_line</code> functions:</p>
 <div class="sourceCode" id="cb576"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb576-1"><a href="working-with-popular-packages.html#cb576-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
-<span id="cb576-2"><a href="working-with-popular-packages.html#cb576-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span>                   <span class="co"># make the points blue</span></span>
-<span id="cb576-3"><a href="working-with-popular-packages.html#cb576-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>)   <span class="co"># make the lines dashed and blue</span></span></code></pre></div>
+<span id="cb576-2"><a href="working-with-popular-packages.html#cb576-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span>                     <span class="co"># Make the points blue</span></span>
+<span id="cb576-3"><a href="working-with-popular-packages.html#cb576-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)   <span class="co"># Make the lines dashed and blue</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-584-1.png" width="384" style="display: block; margin: auto;" />
 We can add a title and axis labels using the <code>labs</code> function:</p>
 <div class="sourceCode" id="cb577"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb577-1"><a href="working-with-popular-packages.html#cb577-1" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
-<span id="cb577-2"><a href="working-with-popular-packages.html#cb577-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb577-3"><a href="working-with-popular-packages.html#cb577-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb577-4"><a href="working-with-popular-packages.html#cb577-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="at">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="at">y=</span><span class="st">&quot;Response&quot;</span>)   <span class="co"># add labels to the plot</span></span></code></pre></div>
+<span id="cb577-2"><a href="working-with-popular-packages.html#cb577-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb577-3"><a href="working-with-popular-packages.html#cb577-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb577-4"><a href="working-with-popular-packages.html#cb577-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Driver vs. Response&quot;</span>,</span>
+<span id="cb577-5"><a href="working-with-popular-packages.html#cb577-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Driver&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Response&quot;</span>)   <span class="co"># Add labels to the plot</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-585-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Finally, we can use one of the included <code>ggplot2</code> themes to change how the plot looks, using the <code>theme_set</code> function:</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-popular-packages.html#cb578-1" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())   <span class="co"># change the theme</span></span>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-popular-packages.html#cb578-1" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())   <span class="co"># Change the theme</span></span>
 <span id="cb578-2"><a href="working-with-popular-packages.html#cb578-2" tabindex="-1"></a></span>
 <span id="cb578-3"><a href="working-with-popular-packages.html#cb578-3" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
-<span id="cb578-4"><a href="working-with-popular-packages.html#cb578-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb578-5"><a href="working-with-popular-packages.html#cb578-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb578-6"><a href="working-with-popular-packages.html#cb578-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Driver vs. Response&quot;</span>, <span class="at">x=</span><span class="st">&quot;Driver&quot;</span>, <span class="at">y=</span><span class="st">&quot;Response&quot;</span>)</span></code></pre></div>
+<span id="cb578-4"><a href="working-with-popular-packages.html#cb578-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb578-5"><a href="working-with-popular-packages.html#cb578-5" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb578-6"><a href="working-with-popular-packages.html#cb578-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Driver vs. Response&quot;</span>,</span>
+<span id="cb578-7"><a href="working-with-popular-packages.html#cb578-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Driver&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Response&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-586-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Here’s another example using the <code>mtcars</code> data frame, where we color the points based on their fuel economy (<em>mpg</em>) and annotate a few cars.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb579-1"><a href="working-with-popular-packages.html#cb579-1" tabindex="-1"></a>mtcars<span class="sc">$</span>car <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars)  <span class="co"># turn row names into a column so we can label with them</span></span>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb579-1"><a href="working-with-popular-packages.html#cb579-1" tabindex="-1"></a>mtcars<span class="sc">$</span>car <span class="ot">&lt;-</span> <span class="fu">row.names</span>(mtcars)  <span class="co"># Turn row names into a column so we can label with them</span></span>
 <span id="cb579-2"><a href="working-with-popular-packages.html#cb579-2" tabindex="-1"></a></span>
-<span id="cb579-3"><a href="working-with-popular-packages.html#cb579-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>hp, <span class="at">y=</span>disp, <span class="at">color=</span>mpg, <span class="at">label=</span>car)) <span class="sc">+</span> </span>
+<span id="cb579-3"><a href="working-with-popular-packages.html#cb579-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> disp, <span class="at">color =</span> mpg, <span class="at">label =</span> car)) <span class="sc">+</span> </span>
 <span id="cb579-4"><a href="working-with-popular-packages.html#cb579-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb579-5"><a href="working-with-popular-packages.html#cb579-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">hjust=</span><span class="dv">0</span>, <span class="at">nudge_x=</span><span class="dv">5</span>, <span class="at">alpha=</span><span class="fl">0.8</span>, <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span>   <span class="co"># annotate each car</span></span>
-<span id="cb579-6"><a href="working-with-popular-packages.html#cb579-6" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option=</span><span class="st">&quot;D&quot;</span>) <span class="sc">+</span>                                 <span class="co"># change color scale to use</span></span>
-<span id="cb579-7"><a href="working-with-popular-packages.html#cb579-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Motor Trend Car Comparison&quot;</span>, <span class="at">x=</span><span class="st">&quot;Horsepower&quot;</span>, <span class="at">y=</span><span class="st">&quot;Displacement&quot;</span>, <span class="at">color=</span><span class="st">&quot;MPG&quot;</span>)</span></code></pre></div>
+<span id="cb579-5"><a href="working-with-popular-packages.html#cb579-5" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb579-6"><a href="working-with-popular-packages.html#cb579-6" tabindex="-1"></a>            <span class="at">nudge_x =</span> <span class="dv">5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span>   <span class="co"># Annotate each car</span></span>
+<span id="cb579-7"><a href="working-with-popular-packages.html#cb579-7" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">&quot;D&quot;</span>) <span class="sc">+</span>             <span class="co"># Change color scale to use</span></span>
+<span id="cb579-8"><a href="working-with-popular-packages.html#cb579-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Motor Trend Car Comparison&quot;</span>,</span>
+<span id="cb579-9"><a href="working-with-popular-packages.html#cb579-9" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Horsepower&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Displacement&quot;</span>, <span class="at">color =</span> <span class="st">&quot;MPG&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-587-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>This is only scratching the surface of what <code>ggplot2</code> can do, but hopefully this introduction is enough to hint at the possibilities.
 You can find many more examples at <a href="https://www.r-graph-gallery.com/">The R Graph Gallery</a>.</p>
@@ -483,12 +486,12 @@ The same can be said about the next package we’ll discuss, <code>dplyr</code> 
 We’ve spent a considerable amount of time on <em>indexing</em>, and you may have found the process somewhat confusing.
 Well, <code>dplyr</code> is another way of indexing data frames that many people find to be more intuitive.
 As always, you have to install <code>dplyr</code> if you haven’t already.</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb580-1"><a href="working-with-popular-packages.html#cb580-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)  <span class="co"># install using quotes!</span></span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb580-1"><a href="working-with-popular-packages.html#cb580-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)  <span class="co"># Install using quotes!</span></span></code></pre></div>
 <p>Then whenever you’d like to use the package, you have to load it:</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb581-1"><a href="working-with-popular-packages.html#cb581-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># load without using quotes!</span></span></code></pre></div>
-<p>Let’s look at some exmples of <code>base</code> R indexing and compare that to how <code>dplyr</code> accomplishes the same task.</p>
-<p>In <code>base</code> R, to select columns matching a certain condition, you create a logical vector and use it to index rows of the data frame</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb582-1"><a href="working-with-popular-packages.html#cb582-1" tabindex="-1"></a>index <span class="ot">&lt;-</span> (mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">&amp;</span> (mtcars<span class="sc">$</span>wt <span class="sc">&lt;</span> <span class="dv">2</span>)  <span class="co"># select only columns with 4 cylinders and a weight under 2 tons</span></span>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb581-1"><a href="working-with-popular-packages.html#cb581-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># Load without using quotes!</span></span></code></pre></div>
+<p>Let’s look at some examples of <code>base</code> R indexing and compare that to how <code>dplyr</code> accomplishes the same task.</p>
+<p>In <code>base</code> R, to select columns matching a certain condition, you create a logical vector and use it to index rows of the data frame.</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb582-1"><a href="working-with-popular-packages.html#cb582-1" tabindex="-1"></a>index <span class="ot">&lt;-</span> (mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">&amp;</span> (mtcars<span class="sc">$</span>wt <span class="sc">&lt;</span> <span class="dv">2</span>)  <span class="co"># Select only columns with 4 cylinders and a weight under 2 tons</span></span>
 <span id="cb582-2"><a href="working-with-popular-packages.html#cb582-2" tabindex="-1"></a>mtcars[index,]</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -496,7 +499,7 @@ As always, you have to install <code>dplyr</code> if you haven’t already.</p>
   </script>
 </div>
 <p>In <code>dplyr</code>, the same thing can be accomplished with the <code>filter</code> function:</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb583-1"><a href="working-with-popular-packages.html#cb583-1" tabindex="-1"></a><span class="fu">filter</span>(mtcars, cyl<span class="sc">==</span><span class="dv">4</span>, wt<span class="sc">&lt;</span><span class="dv">2</span>)  <span class="co"># select only columns with 4 cylinders and a weight under 2 tons</span></span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb583-1"><a href="working-with-popular-packages.html#cb583-1" tabindex="-1"></a><span class="fu">filter</span>(mtcars, cyl <span class="sc">==</span> <span class="dv">4</span>, wt <span class="sc">&lt;</span> <span class="dv">2</span>)  <span class="co"># Select only columns with 4 cylinders and a weight under 2 tons</span></span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["car"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic","_rn_":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla","_rn_":"Toyota Corolla"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9","_rn_":"Fiat X1-9"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa","_rn_":"Lotus Europa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -505,17 +508,17 @@ As always, you have to install <code>dplyr</code> if you haven’t already.</p>
 <p>This might already seem like an improvement, because it requires less code, but most people use the filter function <em>differently</em> than this.
 <code>dplyr</code> uses a <em>pipe</em> (which looks like this <code>%&gt;%</code>) to structure arguments differently.
 Here’s how the same function looks with the pipe:</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb584-1"><a href="working-with-popular-packages.html#cb584-1" tabindex="-1"></a><span class="co"># do the same filtering, but use the pipe, %&gt;%</span></span>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb584-1"><a href="working-with-popular-packages.html#cb584-1" tabindex="-1"></a><span class="co"># Do the same filtering, but use the pipe, %&gt;%</span></span>
 <span id="cb584-2"><a href="working-with-popular-packages.html#cb584-2" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>, wt <span class="sc">&lt;</span> <span class="dv">2</span>)  </span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["car"],"name":[12],"type":["chr"],"align":["left"]}],"data":[{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","12":"Honda Civic","_rn_":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","12":"Toyota Corolla","_rn_":"Toyota Corolla"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","12":"Fiat X1-9","_rn_":"Fiat X1-9"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","12":"Lotus Europa","_rn_":"Lotus Europa"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
-<p>Basically, the pipe operator says “Take the think on the left and use it as the first argument for the function on the right”.
+<p>Basically, the pipe operator says “Take the thing on the left and use it as the first argument for the function on the right”.
 This may seem backwards at first, but it allows the chaining of multiple functions together in an order that reflects the order of computation that R will use (more on this after the next example).
 Recall that here’s how we select a column in base R:</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb585-1"><a href="working-with-popular-packages.html#cb585-1" tabindex="-1"></a>mtcars[,<span class="st">&quot;qsec&quot;</span>] <span class="co"># select the qsec column</span></span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb585-1"><a href="working-with-popular-packages.html#cb585-1" tabindex="-1"></a>mtcars[,<span class="st">&quot;qsec&quot;</span>] <span class="co"># Select the qsec column</span></span></code></pre></div>
 <pre class="output-style"><code> [1] 16.46 17.02 18.61 19.44 17.02 20.22 15.84 20.00 22.90 18.30 18.90 17.40
 [13] 17.60 18.00 17.98 17.82 17.42 19.47 18.52 19.90 20.01 16.87 17.30 15.41
 [25] 17.05 18.90 16.70 16.90 14.50 15.50 14.60 18.60</code></pre>
@@ -527,8 +530,8 @@ Recall that here’s how we select a column in base R:</p>
   </script>
 </div>
 <p>Notice that <code>dplyr</code> has maintained the data frame structure, while indexing has not.
-We <em>can</em> get the same thing from indexing if we use the <code>drop=F</code> argument:</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb588-1"><a href="working-with-popular-packages.html#cb588-1" tabindex="-1"></a>mtcars[,<span class="st">&quot;qsec&quot;</span>, drop<span class="ot">=</span>F]</span></code></pre></div>
+We <em>can</em> get the same thing from indexing if we use the <code>drop = F</code> argument:</p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb588-1"><a href="working-with-popular-packages.html#cb588-1" tabindex="-1"></a>mtcars[,<span class="st">&quot;qsec&quot;</span>, drop <span class="ot">=</span> F]</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["qsec"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"16.46","_rn_":"Mazda RX4"},{"1":"17.02","_rn_":"Mazda RX4 Wag"},{"1":"18.61","_rn_":"Datsun 710"},{"1":"19.44","_rn_":"Hornet 4 Drive"},{"1":"17.02","_rn_":"Hornet Sportabout"},{"1":"20.22","_rn_":"Valiant"},{"1":"15.84","_rn_":"Duster 360"},{"1":"20.00","_rn_":"Merc 240D"},{"1":"22.90","_rn_":"Merc 230"},{"1":"18.30","_rn_":"Merc 280"},{"1":"18.90","_rn_":"Merc 280C"},{"1":"17.40","_rn_":"Merc 450SE"},{"1":"17.60","_rn_":"Merc 450SL"},{"1":"18.00","_rn_":"Merc 450SLC"},{"1":"17.98","_rn_":"Cadillac Fleetwood"},{"1":"17.82","_rn_":"Lincoln Continental"},{"1":"17.42","_rn_":"Chrysler Imperial"},{"1":"19.47","_rn_":"Fiat 128"},{"1":"18.52","_rn_":"Honda Civic"},{"1":"19.90","_rn_":"Toyota Corolla"},{"1":"20.01","_rn_":"Toyota Corona"},{"1":"16.87","_rn_":"Dodge Challenger"},{"1":"17.30","_rn_":"AMC Javelin"},{"1":"15.41","_rn_":"Camaro Z28"},{"1":"17.05","_rn_":"Pontiac Firebird"},{"1":"18.90","_rn_":"Fiat X1-9"},{"1":"16.70","_rn_":"Porsche 914-2"},{"1":"16.90","_rn_":"Lotus Europa"},{"1":"14.50","_rn_":"Ford Pantera L"},{"1":"15.50","_rn_":"Ferrari Dino"},{"1":"14.60","_rn_":"Maserati Bora"},{"1":"18.60","_rn_":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -559,7 +562,7 @@ of art</a>.
 </div>
 <p><code>dplyr</code> can also summarize columns in different groups similarly to the <code>tapply</code> function.
 Here’s an example of <code>tapply</code>:</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb590-1"><a href="working-with-popular-packages.html#cb590-1" tabindex="-1"></a><span class="co"># find the mean mpg for different numbers of cylinders:</span></span>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb590-1"><a href="working-with-popular-packages.html#cb590-1" tabindex="-1"></a><span class="co"># Find the mean mpg for different numbers of cylinders:</span></span>
 <span id="cb590-2"><a href="working-with-popular-packages.html#cb590-2" tabindex="-1"></a><span class="fu">tapply</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>cyl, mean)</span></code></pre></div>
 <pre class="output-style"><code>       4        6        8 
 26.66364 19.74286 15.10000 </code></pre>
@@ -574,11 +577,11 @@ Here’s an example of <code>tapply</code>:</p>
 </div>
 <p>With only a few functions, we can now start to chain together quite complex operations in a human readable way:</p>
 <div class="sourceCode" id="cb593"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb593-1"><a href="working-with-popular-packages.html#cb593-1" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb593-2"><a href="working-with-popular-packages.html#cb593-2" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span>       <span class="co"># filter out cars below 2 tons</span></span>
-<span id="cb593-3"><a href="working-with-popular-packages.html#cb593-3" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl, gear) <span class="sc">%&gt;%</span>  <span class="co"># group by number of cylinders and number of gears</span></span>
-<span id="cb593-4"><a href="working-with-popular-packages.html#cb593-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(),              <span class="co"># compute number of cars in each group</span></span>
-<span id="cb593-5"><a href="working-with-popular-packages.html#cb593-5" tabindex="-1"></a>            <span class="at">ave_mpg =</span> <span class="fu">mean</span>(mpg),  <span class="co"># compute average mpg</span></span>
-<span id="cb593-6"><a href="working-with-popular-packages.html#cb593-6" tabindex="-1"></a>            <span class="at">sd_mpg =</span> <span class="fu">sd</span>(mpg))     <span class="co"># compute standard deviation of mpg</span></span></code></pre></div>
+<span id="cb593-2"><a href="working-with-popular-packages.html#cb593-2" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span>       <span class="co"># Filter out cars below 2 tons</span></span>
+<span id="cb593-3"><a href="working-with-popular-packages.html#cb593-3" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl, gear) <span class="sc">%&gt;%</span>  <span class="co"># Group by number of cylinders and number of gears</span></span>
+<span id="cb593-4"><a href="working-with-popular-packages.html#cb593-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(),              <span class="co"># Compute number of cars in each group</span></span>
+<span id="cb593-5"><a href="working-with-popular-packages.html#cb593-5" tabindex="-1"></a>            <span class="at">ave_mpg =</span> <span class="fu">mean</span>(mpg),  <span class="co"># Compute average mpg</span></span>
+<span id="cb593-6"><a href="working-with-popular-packages.html#cb593-6" tabindex="-1"></a>            <span class="at">sd_mpg =</span> <span class="fu">sd</span>(mpg))     <span class="co"># Compute standard deviation of mpg</span></span></code></pre></div>
 <pre><code>`summarise()` has grouped output by &#39;cyl&#39;. You can override using the
 `.groups` argument.</code></pre>
 <div data-pagedtable="false">
@@ -591,11 +594,11 @@ Here’s an example of <code>tapply</code>:</p>
 <div id="working-with-character-strings-with-stringr" class="section level3 hasAnchor" number="6.4.6">
 <h3><span class="header-section-number">6.4.6</span> Working With Character Strings with <em>stringr</em><a href="working-with-popular-packages.html#working-with-character-strings-with-stringr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>stringr</em> is another tidyverse package that provides functions for easily working with character strings.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb595-1"><a href="working-with-popular-packages.html#cb595-1" tabindex="-1"></a><span class="co"># install.packages(&quot;stringr&quot;)  # install if you haven&#39;t before </span></span>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb595-1"><a href="working-with-popular-packages.html#cb595-1" tabindex="-1"></a><span class="co"># install.packages(&quot;stringr&quot;)  # Install if you haven&#39;t before </span></span>
 <span id="cb595-2"><a href="working-with-popular-packages.html#cb595-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div>
 <p>To show some of the capabilities of the <code>stringr</code> package, we’ll read in “Pride and Prejudice” which is available on Project Gutenberg <a href="http://www.gutenberg.org/ebooks/1342">here</a>.</p>
 <div class="sourceCode" id="cb596"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb596-1"><a href="working-with-popular-packages.html#cb596-1" tabindex="-1"></a>lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="fu">file</span>(<span class="st">&quot;data_raw/pride_and_prejudice.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>))</span>
-<span id="cb596-2"><a href="working-with-popular-packages.html#cb596-2" tabindex="-1"></a><span class="fu">length</span>(lines)  <span class="co"># the book is now a long character vector</span></span></code></pre></div>
+<span id="cb596-2"><a href="working-with-popular-packages.html#cb596-2" tabindex="-1"></a><span class="fu">length</span>(lines)  <span class="co"># The book is now a long character vector</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 14594</code></pre>
 <p>The first thing we’ll do is convert the text into “UTF-8” formatting using <code>stringr</code>’s <code>str_conv</code> function:</p>
 <div class="sourceCode" id="cb598"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb598-1"><a href="working-with-popular-packages.html#cb598-1" tabindex="-1"></a>lines <span class="ot">&lt;-</span> <span class="fu">str_conv</span>(lines, <span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
@@ -606,8 +609,8 @@ Let’s collapse all the elements into a single character string:</p>
 <pre class="output-style"><code>[1] 775739</code></pre>
 <p>Now we can split the book in a more sensible way.
 Let’s split the string at the end of each sentence using the <code>strsplit</code> function (this is a base R function, actually).</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb601-1"><a href="working-with-popular-packages.html#cb601-1" tabindex="-1"></a>sent <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(book, <span class="st">&quot;(?&lt;=[[:punct:]])</span><span class="sc">\\</span><span class="st">s(?=[A-Z])&quot;</span>, <span class="at">perl=</span>T)  <span class="co"># split by end of sentences</span></span>
-<span id="cb601-2"><a href="working-with-popular-packages.html#cb601-2" tabindex="-1"></a>sent <span class="ot">&lt;-</span> <span class="fu">unlist</span>(sent)  <span class="co"># convert list to character vector</span></span>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb601-1"><a href="working-with-popular-packages.html#cb601-1" tabindex="-1"></a>sent <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(book, <span class="st">&quot;(?&lt;=[[:punct:]])</span><span class="sc">\\</span><span class="st">s(?=[A-Z])&quot;</span>, <span class="at">perl =</span> T)  <span class="co"># Split by end of sentences</span></span>
+<span id="cb601-2"><a href="working-with-popular-packages.html#cb601-2" tabindex="-1"></a>sent <span class="ot">&lt;-</span> <span class="fu">unlist</span>(sent)  <span class="co"># Convert list to character vector</span></span>
 <span id="cb601-3"><a href="working-with-popular-packages.html#cb601-3" tabindex="-1"></a><span class="fu">length</span>(sent)</span></code></pre></div>
 <pre class="output-style"><code>[1] 5175</code></pre>
 <div class="bonus">
@@ -627,7 +630,7 @@ Let’s look at an arbitrary sentence:</p>
 <pre class="output-style"><code>[1] &quot;I should think she had       as good a chance of happiness as if she were to be studying his       character for a twelvemonth.&quot;</code></pre>
 <p>We notice that there are some extra spaces in the sentence, which probably result from the formatting of the original text file.
 Ignoring that for now, we can find all sentences containing the word “Jane”:</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb605-1"><a href="working-with-popular-packages.html#cb605-1" tabindex="-1"></a>has_jane <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(sent, <span class="st">&quot;Jane&quot;</span>) <span class="co"># returns logical vector </span></span>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb605-1"><a href="working-with-popular-packages.html#cb605-1" tabindex="-1"></a>has_jane <span class="ot">&lt;-</span> <span class="fu">str_detect</span>(sent, <span class="st">&quot;Jane&quot;</span>) <span class="co"># Returns logical vector </span></span>
 <span id="cb605-2"><a href="working-with-popular-packages.html#cb605-2" tabindex="-1"></a><span class="fu">sum</span>(has_jane)</span></code></pre></div>
 <pre class="output-style"><code>[1] 265</code></pre>
 <p>We see there are 265 sentences with the string “Jane” in them. Let’s look at some of them:</p>

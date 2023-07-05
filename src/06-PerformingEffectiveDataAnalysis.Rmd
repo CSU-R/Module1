@@ -879,13 +879,13 @@ Suppose we wanted to run this function to every element of a vector.
 One option would be to write a for-loop:
 
 ```{r}
-# the function we want to apply our function to
+# The function we want to apply our function to
 x <- 1:10
 
-# create an empty vector to hold the result
+# Create an empty vector to hold the result
 y <- numeric(10)
 
-# loop through x and apply the function
+# Loop through x and apply the function
 for(i in 1:10){
   y[i] <- square_plus_one(x[i]) 
 }
@@ -897,7 +897,7 @@ Here's another way to do the same thing using the `sapply` function:
 
 
 ```{r}
-# apply the function square_plus_one to every element in x
+# Apply the function square_plus_one to every element in x
 z <- sapply(x, square_plus_one)
 
 # z agrees with y!
@@ -912,7 +912,7 @@ The "s" in `sapply` stands for "simplify", meaning the result will be simplified
 In some cases, you may want the result to be returned as a list, instead of a vector. In this case, the `lapply` function can be used:
 
 ```{r}
-# apply the function square_plus_one to every 
+# Apply the function square_plus_one to every element in x
 w <- lapply(x, square_plus_one)
 
 # w is a list
@@ -923,11 +923,11 @@ mode(w)
 
 ```{r}
 make_vector <- function(n){
-  # make a vector of length n numbered from 1 to n
+  # Make a vector of length n numbered from 1 to n
   1:n
 }
 
-# apply make_vector to each element of x:
+# Apply make_vector to each element of x:
 x <- c(2, 2, 3, 1, 6)
 lapply(x, make_vector)
 ```
@@ -965,7 +965,7 @@ The `lapply` or `sapply` only work on each _element_ of a matrix, not each row.
 For this, we need the `apply` function:
 
 ```{r}
-m <- matrix(c(1, 1, 1, 1, 2, 3, 2, 4, 6), 3, 3, byrow=T)
+m <- matrix(c(1, 1, 1, 1, 2, 3, 2, 4, 6), 3, 3, byrow = T)
 
 apply(m, 1, var)
 ```
@@ -983,7 +983,7 @@ Then we could use the `tapply` function, with `COVID.19.Deaths` as the vector to
 Here's the result:
 
 ```{r}
-state_deaths <- tapply(covid$COVID.19.Deaths, covid$State, sum, na.rm=T)
+state_deaths <- tapply(covid$COVID.19.Deaths, covid$State, sum, na.rm = T)
 sort(state_deaths)
 ```
 Here we also had to specify the `na.rm=T` parameter so that `NA` values are removed when computing the sum.
@@ -991,7 +991,7 @@ Remember that these totals may not match the `All Ages` number from each state, 
 Here's another example where we sum the deaths across all states for _each Age group_ 
 
 ```{r}
-# remove US total numbers first
+# Remove US total numbers first
 covid <- covid[covid$State != "United States",]
 
 agegroup_deaths <- tapply(covid$COVID.19.Deaths, covid$Age.group, sum, na.rm=T)
@@ -1013,7 +1013,7 @@ Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1F
 Up to this point in this book/course, we have really focused on using `base` R.
 By `base`, we simply mean the functions, data sets, and arguments that come 
 pre-packaged with R. While this book has (hopefully) shown you just how much 
-these basic functions can do, R can do so much more by relying on `packages.`
+these basic functions can do, R can do so much more by relying on `packages`.
 
 `Packages` are an integral part of R programming, and you have been using them
 throughout this book and class. A `package` is a contained set of arguments,
@@ -1024,7 +1024,7 @@ and analyzing hydrology data (see Vignettes). In fact, you have been using
 `packages` this whole time. For example, In order to `knit` a document using RMarkdown, you have to have the `RMarkdown` package installed. 
 
 On many (most?) projects, the most efficient way to complete whatever task you 
-are doing is to spend at least some time checking out if there is a `package`
+are doing is to spend at least some time checking out whether there is a `package`
 that makes it easier for you to do things like:
 
 1. Download data from the internet
@@ -1041,20 +1041,19 @@ There are always at least two steps to using any package.
 1. Install the package using `install.packages()`. You only have to do this once.
 1. Load the package using `library()`. You have to do this every time you want to use the capabilities of that package, but only once per Script or once per RMarkdown document.
 
-Here is an example with an extremely common plotting package `ggplot2` you will 
-work on in the next module (and have probably already seen on the internet)
+Here is an example with an extremely common plotting package `ggplot2` that has been mentioned in the course (and that you have probably already seen on the internet)
 
 ```{r, eval = F}
 install.packages('ggplot2')
 ```
 
-Now that we've installed the package we can load it into R, using `library()`
+Now that we've installed the package, we can load it into R using `library()`.
 
 ```{r}
 library('ggplot2')
 ```
 
-Now that we have installed the package we will need to learn how to use it.
+Now that we have installed the package, we will need to learn how to use it.
 Where can we go to for help? 
 
 ### Finding and using package help. 
@@ -1062,7 +1061,7 @@ Where can we go to for help?
 All R packages installed with `install.packages` will come from the 
 _Comprehensive R Archive Network_ ("CRAN"). In order for you to work with them
 they have to have gone through a minimum overview, which ensures that they 
-will at least have a minimum help page. So for any package you want to
+will at least have a minimum help page. So, for any package you want to
 read more about you can simply search for: `CRAN <package name>`. For `ggplot2`
 this will lead you to [this website](https://cran.r-project.org/web/packages/ggplot2/index.html). This site
 outlines many of the resources for using `ggplot2`, but they can be hard to find. 
@@ -1077,7 +1076,7 @@ that is more clear and has far more examples [here](https://ggplot2.tidyverse.or
 
 ### Making Beautiful Plots with _ggplot2_
 
-Our package is now loaded, we have a manual for reference so let's use it!
+Our package is now loaded, and we have a manual for reference so let's use it!
 
 ```{r, fig.height=4, fig.width=4}
 # Making up data for plotting
@@ -1097,7 +1096,7 @@ we want to use points to display this relationship between x and y (`geom_point`
 ```{block, type="caution"}
 Note: `ggplot2` connects a series of arguments using `+` operator. This is unique 
 to `ggplot`, but it's a helpful way to make complex plots by combining simpler pieces.
-This can be difficult to get used to, but can be very powerful when you get the hang of it.
+This can be difficult to get used to, but can be very powerful once you get the hang of it.
 ```
 
 Let's add some lines to connect the points using the `geom_line()` command.
@@ -1105,8 +1104,9 @@ Let's add some lines to connect the points using the `geom_line()` command.
 ```{r, fig.height=4, fig.width=4}
 ggplot(dat, aes(x = driver, y = response)) + 
   geom_point() + 
-  geom_line()  # add lines to connect the points
+  geom_line()  # Add lines to connect the points
 ```
+
 ```{block, type="bonus"}
 The `geom` prefix on the `geom_point` and `geom_line` functions stands for _geometry_.
 `ggplot2` comes with many different types of geometries (see [here](https://ggplot2.tidyverse.org/reference/) ), and some folks have created their _own_ packages to add _even more_ options!
@@ -1116,39 +1116,43 @@ We can also change the way the lines and points look with arguments in the `geom
 
 ```{r, fig.height=4, fig.width=4}
 ggplot(dat, aes(x = driver, y = response)) + 
-  geom_point(color="blue") +                   # make the points blue
-  geom_line(linetype="dashed", color="blue")   # make the lines dashed and blue
+  geom_point(color = "blue") +                     # Make the points blue
+  geom_line(linetype = "dashed", color = "blue")   # Make the lines dashed and blue
 ```
 We can add a title and axis labels using the `labs` function:
 
 ```{r, fig.height=4, fig.width=4}
 ggplot(dat, aes(x = driver, y = response)) + 
-  geom_point(color="blue") + 
-  geom_line(linetype="dashed", color="blue") + 
-  labs(title="Driver vs. Response", x="Driver", y="Response")   # add labels to the plot
+  geom_point(color = "blue") + 
+  geom_line(linetype = "dashed", color = "blue") + 
+  labs(title = "Driver vs. Response",
+       x = "Driver", y = "Response")   # Add labels to the plot
 ```
 
 Finally, we can use one of the included `ggplot2` themes to change how the plot looks, using the `theme_set` function:
 
 ```{r, fig.height=4, fig.width=4}
-theme_set(theme_minimal())   # change the theme
+theme_set(theme_minimal())   # Change the theme
 
 ggplot(dat, aes(x = driver, y = response)) + 
-  geom_point(color="blue") + 
-  geom_line(linetype="dashed", color="blue") + 
-  labs(title="Driver vs. Response", x="Driver", y="Response")
+  geom_point(color = "blue") + 
+  geom_line(linetype = "dashed", color = "blue") + 
+  labs(title = "Driver vs. Response",
+       x = "Driver", y = "Response")
 ```
 
 Here's another example using the `mtcars` data frame, where we color the points based on their fuel economy (_mpg_) and annotate a few cars.
 
 ```{r, fig.height=5, fig.width=8}
-mtcars$car <- row.names(mtcars)  # turn row names into a column so we can label with them
+mtcars$car <- row.names(mtcars)  # Turn row names into a column so we can label with them
 
-ggplot(mtcars, aes(x=hp, y=disp, color=mpg, label=car)) + 
+ggplot(mtcars, aes(x = hp, y = disp, color = mpg, label = car)) + 
   geom_point() + 
-  geom_text(color="black", hjust=0, nudge_x=5, alpha=0.8, size=2) +   # annotate each car
-  scale_color_viridis_c(option="D") +                                 # change color scale to use
-  labs(title="Motor Trend Car Comparison", x="Horsepower", y="Displacement", color="MPG")
+  geom_text(color = "black", hjust = 0,
+            nudge_x = 5, alpha = 0.8, size = 2) +   # Annotate each car
+  scale_color_viridis_c(option = "D") +             # Change color scale to use
+  labs(title = "Motor Trend Car Comparison",
+       x = "Horsepower", y = "Displacement", color = "MPG")
 ```
 
 This is only scratching the surface of what `ggplot2` can do, but hopefully this introduction is enough to hint at the possibilities. 
@@ -1169,40 +1173,40 @@ Well, `dplyr` is another way of indexing data frames that many people find to be
 As always, you have to install `dplyr` if you haven't already.
 
 ```{r, eval=F}
-install.packages("dplyr")  # install using quotes!
+install.packages("dplyr")  # Install using quotes!
 ```
 
 Then whenever you'd like to use the package, you have to load it:
 ```{r, message=F}
-library(dplyr)  # load without using quotes!
+library(dplyr)  # Load without using quotes!
 ```
 
-Let's look at some exmples of `base` R indexing and compare that to how `dplyr` accomplishes the same task.
+Let's look at some examples of `base` R indexing and compare that to how `dplyr` accomplishes the same task.
 
-In `base` R, to select columns matching a certain condition, you create a logical vector and use it to index rows of the data frame
+In `base` R, to select columns matching a certain condition, you create a logical vector and use it to index rows of the data frame.
 ```{r}
-index <- (mtcars$cyl == 4) & (mtcars$wt < 2)  # select only columns with 4 cylinders and a weight under 2 tons
+index <- (mtcars$cyl == 4) & (mtcars$wt < 2)  # Select only columns with 4 cylinders and a weight under 2 tons
 mtcars[index,]
 ```
 In `dplyr`, the same thing can be accomplished with the `filter` function:
 ```{r}
-filter(mtcars, cyl==4, wt<2)  # select only columns with 4 cylinders and a weight under 2 tons
+filter(mtcars, cyl == 4, wt < 2)  # Select only columns with 4 cylinders and a weight under 2 tons
 ```
 This might already seem like an improvement, because it requires less code, but most people use the filter function _differently_ than this.
 `dplyr` uses a _pipe_ (which looks like this `%>%`) to structure arguments differently. 
 Here's how the same function looks with the pipe:
 
 ```{r}
-# do the same filtering, but use the pipe, %>%
+# Do the same filtering, but use the pipe, %>%
 mtcars %>% filter(cyl == 4, wt < 2)  
 ```
 
-Basically, the pipe operator says "Take the think on the left and use it as the first argument for the function on the right".
+Basically, the pipe operator says "Take the thing on the left and use it as the first argument for the function on the right".
 This may seem backwards at first, but it allows the chaining of multiple functions together in an order that reflects the order of computation that R will use (more on this after the next example).
 Recall that here's how we select a column in base R:
 
 ```{r}
-mtcars[,"qsec"] # select the qsec column
+mtcars[,"qsec"] # Select the qsec column
 ```
 
 And here's how to do the same thing in `dplyr`:
@@ -1212,10 +1216,10 @@ mtcars %>% select(qsec)
 ```
 
 Notice that `dplyr` has maintained the data frame structure, while indexing has not.
-We _can_ get the same thing from indexing if we use the `drop=F` argument:
+We _can_ get the same thing from indexing if we use the `drop = F` argument:
 
 ```{r}
-mtcars[,"qsec", drop=F]
+mtcars[,"qsec", drop = F]
 ```
 
 The pipe works with the `select` function because the first argument of `select` is the data frame to select from, so the pipe says "Use `mtcars` as the first argument of the `select` function".
@@ -1237,7 +1241,7 @@ One of the tidyverse packages called [magrittr](https://github.com/tidyverse/mag
 `dplyr` can also summarize columns in different groups similarly to the `tapply` function.
 Here's an example of `tapply`:
 ```{r}
-# find the mean mpg for different numbers of cylinders:
+# Find the mean mpg for different numbers of cylinders:
 tapply(mtcars$mpg, mtcars$cyl, mean)
 ```
 
@@ -1254,11 +1258,11 @@ With only a few functions, we can now start to chain together quite complex oper
 ```{r}
 
 mtcars %>%
-  filter(wt > 2) %>%       # filter out cars below 2 tons
-  group_by(cyl, gear) %>%  # group by number of cylinders and number of gears
-  summarize(n = n(),              # compute number of cars in each group
-            ave_mpg = mean(mpg),  # compute average mpg
-            sd_mpg = sd(mpg))     # compute standard deviation of mpg
+  filter(wt > 2) %>%       # Filter out cars below 2 tons
+  group_by(cyl, gear) %>%  # Group by number of cylinders and number of gears
+  summarize(n = n(),              # Compute number of cars in each group
+            ave_mpg = mean(mpg),  # Compute average mpg
+            sd_mpg = sd(mpg))     # Compute standard deviation of mpg
 ```
 
 Again, this is only a _teaser_ of the capabilities of `dplyr`, but the hope is that if/when you encounter `dplyr` in the future, you will at least have an introduction to some of the basic concepts.
@@ -1268,7 +1272,7 @@ Again, this is only a _teaser_ of the capabilities of `dplyr`, but the hope is t
 _stringr_ is another tidyverse package that provides functions for easily working with character strings.
 
 ```{r}
-# install.packages("stringr")  # install if you haven't before 
+# install.packages("stringr")  # Install if you haven't before 
 library(stringr)
 ```
 
@@ -1276,7 +1280,7 @@ To show some of the capabilities of the `stringr` package, we'll read in "Pride 
 
 ```{r}
 lines <- readLines(file("data_raw/pride_and_prejudice.txt", "rt"))
-length(lines)  # the book is now a long character vector
+length(lines)  # The book is now a long character vector
 ```
 
 The first thing we'll do is convert the text into "UTF-8" formatting using `stringr`'s `str_conv` function:
@@ -1296,8 +1300,8 @@ Now we can split the book in a more sensible way.
 Let's split the string at the end of each sentence using the `strsplit` function (this is a base R function, actually).
 
 ```{r}
-sent <- strsplit(book, "(?<=[[:punct:]])\\s(?=[A-Z])", perl=T)  # split by end of sentences
-sent <- unlist(sent)  # convert list to character vector
+sent <- strsplit(book, "(?<=[[:punct:]])\\s(?=[A-Z])", perl = T)  # Split by end of sentences
+sent <- unlist(sent)  # Convert list to character vector
 length(sent)
 ```
 
@@ -1317,7 +1321,7 @@ We notice that there are some extra spaces in the sentence, which probably resul
 Ignoring that for now, we can find all sentences containing the word "Jane":
 
 ```{r}
-has_jane <- str_detect(sent, "Jane") # returns logical vector 
+has_jane <- str_detect(sent, "Jane") # Returns logical vector 
 sum(has_jane)
 ```
 
