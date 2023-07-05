@@ -867,7 +867,7 @@ This can be done with the `main`, `xlab`, and `ylab` options:
 
 ```{r, fig.height=4}
 hist(athletes$Height, breaks = 60, main = "Olympic Athlete Heights",
-     xlab = "Height (in)", ylab = "")
+     xlab = "Height (cm)", ylab = "")
 ```
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.
@@ -890,7 +890,7 @@ boxplot(athletes$Height)
 In this case, there are no default title or labels, but we can still add them:
 
 ```{r, fig.width=3, fig.height=5}
-boxplot(athletes$Height, main = "Olympic Athlete Height", ylab = "Height (in)")
+boxplot(athletes$Height, main = "Olympic Athlete Height", ylab = "Height (cm)")
 ```
 
 ```{block2, type="caution"}

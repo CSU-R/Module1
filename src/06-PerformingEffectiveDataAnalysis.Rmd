@@ -513,7 +513,7 @@ print(s)
 
 The combine function's output is a vector, which we can assign to an object called `w`:
 ```{r}
-# the return value of c() is assigned to w
+# The return value of c() is assigned to w
 w <- c("a", "b", "c") 
 print(w)
 ```
@@ -530,7 +530,7 @@ Remember what the `rm` function does?
 ```
 
 Aside from the _arguments_ and the _return value_ of a function, we can talk about what the function actually _does_.
-The `sum` function obviously computes the sum of a vector, but the `sqrt` takes the square root of a number:
+The `sum` function obviously computes the sum of a vector, but the `sqrt` function takes the square root of a number:
 
 ```{r}
 sqrt(58)
@@ -573,7 +573,7 @@ add_one <- function(x){
   y <- x + 1
   return(y)
 }
-# test out the function
+# Test out the function
 add_one(100)
 ```
 Here we define a function called `add_one`, using the assignment operator `<-`, just like when we define new vectors, data frames, integers, etc.
@@ -592,11 +592,11 @@ Here it shows us exactly the code that we used to create the function.
 Let's use the function a few more times:
 
 ```{r}
-number <- add_one(10)  # assign the return value of add_one to `number`
+number <- add_one(10)  # Assign the return value of add_one to `number`
 number
 ```
 ```{r}
-# nest our function
+# Nest our function
 add_one(add_one(add_one(1)))
 ```
 ```{block, type="caution"}
@@ -630,10 +630,10 @@ So if we write a statement at the end of a function, but assign the result to a 
 
 ```{r}
 add_three <- function(x){
-  y <- x + 3  # the results are assigned to y, but y is not returned
+  y <- x + 3  # The results are assigned to y, but y is not returned
 }
 
-add_three(4)  # this returns nothing
+add_three(4)  # This returns nothing
 ```
 
 ```{block2, type="bonus"}
@@ -644,12 +644,12 @@ This is technically _not true_. The above function _does_ return the value of y,
 Now let's look at a more complicated example that has two arguments:
 
 ```{r}
-# function to raise x to the y-th power 
+# Function to raise x to the y-th power 
 pow <- function(x, y){   # Here we specify the function has two arguments.
   p <- x^y
   return(p)
 }
-# test the arguments with x=2 and y=3
+# Test the arguments with x=2 and y=3
 pow(2, 3)
 ```
 There's an important lesson to learn from this example.
@@ -693,11 +693,11 @@ Here's a barplot for Colorado in the 45-54 age group:
 # Extract just the state and age group of interest
 covid2 <- covid[(covid$State == "Colorado") & (covid$Age.group == "45-54 years"),]
 
-# create a bar plot
-barplot(covid2$COVID.19.Deaths,  # specify column to plot
-        names.arg=covid2$Sex,    # specify bar names
-        main="Sex Comparison: Colorado 45-54 years",  # title
-        ylab="COVID-19 Deaths")  # y label
+# Create a bar plot
+barplot(covid2$COVID.19.Deaths,    # Specify column to plot
+        names.arg = covid2$Sex,    # Specify bar names
+        main = "Sex Comparison: Colorado 45-54 years",  # Title
+        ylab = "COVID-19 Deaths")  # y label
 
 ```
 
@@ -705,29 +705,29 @@ Suppose we wanted to view this information for more states and age groups.
 Rather than repeat the above code each time, let's put it in a function:
 
 ```{r, include=FALSE}
-# create a function called plot_fm with two arguments: state and ages
+# Create a function called plot_fm with two arguments: state and ages
 plot_fm <- function(state, ages){
   covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]
-  # set the maximum y limit manually, in case there are NA values
-  ymax = max(covid2$COVID.19.Deaths, na.rm=T)
+  # Set the maximum y limit manually, in case there are NA values
+  ymax = max(covid2$COVID.19.Deaths, na.rm = T)
   if(ymax == -Inf) ymax <- 1
-  # create the plot
+  # Create the plot
   barplot(covid2$COVID.19.Deaths, 
-          names.arg=covid2$Sex, 
-          main=paste("Sex Comparison:", state, ages), 
-          ylab="COVID-19 Deaths",
-          ylim=c(0, ymax))
+          names.arg = covid2$Sex, 
+          main = paste("Sex Comparison:", state, ages), 
+          ylab = "COVID-19 Deaths",
+          ylim = c(0, ymax))
   return(NULL)
 }
 ```
 ```{r}
-# create a function called plot_fm with two arguments: state and ages
+# Create a function called plot_fm with two arguments: state and ages
 plot_fm <- function(state, ages){
   covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]
   barplot(covid2$COVID.19.Deaths, 
-          names.arg=covid2$Sex, 
-          main=paste("Sex Comparison:", state, ages), 
-          ylab="COVID-19 Deaths")
+          names.arg = covid2$Sex, 
+          main = paste("Sex Comparison:", state, ages), 
+          ylab = "COVID-19 Deaths")
   return(NULL)
 }
 ```
@@ -757,23 +757,23 @@ To get around this error, we could write extra code to manually set the y limits
 
   `covid2 <- covid[(covid$State == state) & (covid$Age.group == ages),]`
 
-  `# set the maximum y limit manually, in case there are NA values`
+  `# Set the maximum y limit manually, in case there are NA values`
   
-  `ymax = max(covid2$COVID.19.Deaths, na.rm=T)`
+  `ymax = max(covid2$COVID.19.Deaths, na.rm = T)`
   
   `if(ymax == -Inf) ymax <- 1`
   
-  `# create the plot`
+  `# Create the plot`
   
   `barplot(covid2$COVID.19.Deaths, `
   
-  `        names.arg=covid2$Sex, `
+  `        names.arg = covid2$Sex, `
   
-  `        main=paste("Sex Comparison:", state, ages), `
+  `        main = paste("Sex Comparison:", state, ages), `
   
-  `        ylab="COVID-19 Deaths",`
+  `        ylab = "COVID-19 Deaths",`
   
-  `        ylim=c(0, ymax))`
+  `        ylim = c(0, ymax))`
   
   `return(NULL)`
 
@@ -820,7 +820,7 @@ R will search the current scope first, then look outside of the current scope if
 
 ```{r}
 
-# define x and y in the global scope
+# Define x and y in the global scope
 x <- "a"
 y <- "b"
 

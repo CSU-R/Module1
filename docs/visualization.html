@@ -369,7 +369,7 @@ Instead of just giving a single number breaks, you could <em>also</em> give a ve
 By default, R adds a title and axis labels to the plot, but for presentation purposes, it’s probably a good idea to change them.
 This can be done with the <code>main</code>, <code>xlab</code>, and <code>ylab</code> options:</p>
 <div class="sourceCode" id="cb426"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb426-1"><a href="visualization.html#cb426-1" tabindex="-1"></a><span class="fu">hist</span>(athletes<span class="sc">$</span>Height, <span class="at">breaks =</span> <span class="dv">60</span>, <span class="at">main =</span> <span class="st">&quot;Olympic Athlete Heights&quot;</span>,</span>
-<span id="cb426-2"><a href="visualization.html#cb426-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<span id="cb426-2"><a href="visualization.html#cb426-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Height (cm)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" />
 These arguments work with many plot types in R.
 In this example, we removed the y label by setting it to be an empty string.</p>
@@ -389,7 +389,7 @@ To see more options for the <code>hist</code> function, run <code>?hist</code>.
 <div class="sourceCode" id="cb427"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb427-1"><a href="visualization.html#cb427-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-433-1.png" width="288" style="display: block; margin: auto;" />
 In this case, there are no default title or labels, but we can still add them:</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb428-1"><a href="visualization.html#cb428-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height, <span class="at">main =</span> <span class="st">&quot;Olympic Athlete Height&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Height (in)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb428-1"><a href="visualization.html#cb428-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height, <span class="at">main =</span> <span class="st">&quot;Olympic Athlete Height&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Height (cm)&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-434-1.png" width="288" style="display: block; margin: auto;" /></p>
 
 <div class="caution">
