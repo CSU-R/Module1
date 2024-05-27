@@ -97,7 +97,7 @@ First, some important details:
 
 - __Assignments/What-to-turn-in__: This course will be graded on three types of assignments: Progress Checks, Homeworks, and Quizzes. There will be four of each. Most weeks, you will have one of these three types of assignments due. Due dates will be specified on Canvas and assignments will be due at 11:59pm on the indicated day (please see schedule below).
 
-- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For the first Progress Check, you'll submit your responses directly to canvas. For Progress Checks 2-4, you'll fill in an R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
+- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For the first Progress Check, you'll submit your responses directly to Canvas. For Progress Checks 2-4, you'll fill in an R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
 
 - __Homework__: There are four homeworks during the semester. You'll complete each homework using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
 
@@ -216,10 +216,12 @@ Here's a more complicated example, which you should copy/paste into the website 
 ```{r, eval=F}
 library(ggplot2)
 theme_set(theme_bw())
-ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) + 
+ggplot(mtcars, aes(y = mpg, fill = as.factor(cyl))) + 
   geom_boxplot() + 
-  labs(title="Engine Fuel Efficiency vs. Number of Cylinders", y="MPG", fill="Cylinders") + 
-  theme(legend.position="bottom", 
+  labs(title = "Engine Fuel Efficiency vs. Number of Cylinders",
+       y = "MPG", 
+       fill = "Cylinders") + 
+  theme(legend.position = "bottom", 
         axis.ticks.x = element_blank(),
         axis.text.x = element_blank())
 ```

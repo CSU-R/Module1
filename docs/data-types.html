@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Data Types | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Data Types | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -372,7 +372,7 @@ to refer to a single piece of data, you would say “this datum”.
 Here are some examples:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb31-1"><a href="data-types.html#cb31-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">11</span></span>
 <span id="cb31-2"><a href="data-types.html#cb31-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">13.37</span></span>
-<span id="cb31-3"><a href="data-types.html#cb31-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">137</span></span></code></pre></div>
+<span id="cb31-3"><a href="data-types.html#cb31-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">137</span></span></code></pre></div>
 <p>Note that integers, decimals, and fractions are all examples of numeric data in R.
 We can prove that these are all the same data type using the <code>class</code> function:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb32-1"><a href="data-types.html#cb32-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
@@ -446,7 +446,7 @@ This video discusses numerics.
 <p>In general, numeric data in R are treated as if they can be any decimal number (technically, they are a <em>double precision</em> number, if you know what that means; if not, it’s not important right now).
 However, there is a way to specify that a specific numeric object is an integer, by placing an “L” at the end of it, like so:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb47-1"><a href="data-types.html#cb47-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span>   <span class="co"># x will be a numeric object</span></span>
-<span id="cb47-2"><a href="data-types.html#cb47-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> 20L  <span class="co"># y will be an integer object</span></span></code></pre></div>
+<span id="cb47-2"><a href="data-types.html#cb47-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span><span class="dt">L</span>  <span class="co"># y will be an integer object</span></span></code></pre></div>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.6 Visualization | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.6 Visualization | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -401,7 +401,7 @@ These are the values used for the boxplot above.
 Here are some examples:</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb429-1"><a href="visualization.html#cb429-1" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sex)  <span class="co"># Make a boxplot of height, split by sex</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-436-1.png" width="384" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb430-1"><a href="visualization.html#cb430-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
 <span id="cb430-2"><a href="visualization.html#cb430-2" tabindex="-1"></a><span class="fu">boxplot</span>(athletes<span class="sc">$</span>Height <span class="sc">~</span> athletes<span class="sc">$</span>Sport, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>)  <span class="co"># Make a boxplot of height, split by sport</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-438-1.png" width="1440" style="display: block; margin: auto;" />
 Here we’ve added a few more bits to fit all the sport labels in: the <code>las</code> option rotates the labels, and the <code>par</code> function is used to increase the bottom margin below the graph.</p>
@@ -479,12 +479,12 @@ is colored greenish.
 </p>
 </div>
 <p>The default colors in R are sometimes not very appealing, so we can define our own color palette:</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>)))  <span class="co"># Create color palette</span></span>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb438-1"><a href="visualization.html#cb438-1" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="fu">rgb</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.1</span>), <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)))  <span class="co"># Create color palette</span></span>
 <span id="cb438-2"><a href="visualization.html#cb438-2" tabindex="-1"></a><span class="fu">plot</span>(gy_bb_wr<span class="sc">$</span>Height, gy_bb_wr<span class="sc">$</span>Weight, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> colors)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-450-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In some cases, it might be appropriate to use lines instead of points.
 This can be done by setting the <code>type</code> option to “l”:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb439-1"><a href="visualization.html#cb439-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">*</span>pi</span>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb439-1"><a href="visualization.html#cb439-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">/</span> <span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> pi</span>
 <span id="cb439-2"><a href="visualization.html#cb439-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x)</span>
 <span id="cb439-3"><a href="visualization.html#cb439-3" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-451-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -533,12 +533,12 @@ Normally, a plotting function like <code>plot</code> or <code>hist</code> will c
 But with the <code>points</code> and <code>lines</code> functions, R just adds to the existing figure.
 Here’s an example of each:</p>
 <div class="sourceCode" id="cb444"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb444-1"><a href="visualization.html#cb444-1" tabindex="-1"></a><span class="co"># Create some data to plot</span></span>
-<span id="cb444-2"><a href="visualization.html#cb444-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb444-2"><a href="visualization.html#cb444-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">/</span> <span class="dv">100</span></span>
 <span id="cb444-3"><a href="visualization.html#cb444-3" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x</span>
-<span id="cb444-4"><a href="visualization.html#cb444-4" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">3</span><span class="sc">/</span>x)<span class="sc">*</span>x</span></code></pre></div>
+<span id="cb444-4"><a href="visualization.html#cb444-4" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">3</span> <span class="sc">/</span> x) <span class="sc">*</span> x</span></code></pre></div>
 <div class="sourceCode" id="cb445"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb445-1"><a href="visualization.html#cb445-1" tabindex="-1"></a><span class="fu">plot</span>(x, y2,)  <span class="co"># Plot x against y2</span></span>
-<span id="cb445-2"><a href="visualization.html#cb445-2" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)  <span class="co"># Add points of x against y1 (on same figure)</span></span>
-<span id="cb445-3"><a href="visualization.html#cb445-3" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="sc">-</span>y1, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)  <span class="co"># Add lines of x against -y1 (on same figure)</span></span></code></pre></div>
+<span id="cb445-2"><a href="visualization.html#cb445-2" tabindex="-1"></a><span class="fu">points</span>(x, y1, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)  <span class="co"># Add points of x against y1 (on same figure)</span></span>
+<span id="cb445-3"><a href="visualization.html#cb445-3" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="sc">-</span>y1, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)  <span class="co"># Add lines of x against -y1 (on same figure)</span></span></code></pre></div>
 <p><img src="Module1_files/figure-html/unnamed-chunk-460-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-types-of-plots" class="section level3 hasAnchor" number="5.6.6">
@@ -560,8 +560,8 @@ To know the y axis for one of these plots, look left/right to the diagonal, whic
 The first is <code>contour</code>, which shows level curves of the surface in a 2d plane:</p>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb447-1"><a href="visualization.html#cb447-1" tabindex="-1"></a><span class="co"># Make a surface using the rep function</span></span>
 <span id="cb447-2"><a href="visualization.html#cb447-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb447-3"><a href="visualization.html#cb447-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, n)<span class="sc">/</span>n<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi</span>
-<span id="cb447-4"><a href="visualization.html#cb447-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">each =</span> n)<span class="sc">/</span>n<span class="sc">*</span><span class="dv">2</span><span class="sc">*</span>pi</span>
+<span id="cb447-3"><a href="visualization.html#cb447-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, n) <span class="sc">/</span> n <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> pi</span>
+<span id="cb447-4"><a href="visualization.html#cb447-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">each =</span> n) <span class="sc">/</span> n <span class="sc">*</span> <span class="dv">2</span> <span class="sc">*</span> pi</span>
 <span id="cb447-5"><a href="visualization.html#cb447-5" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">cos</span>(y), n, n)</span>
 <span id="cb447-6"><a href="visualization.html#cb447-6" tabindex="-1"></a></span>
 <span id="cb447-7"><a href="visualization.html#cb447-7" tabindex="-1"></a><span class="fu">contour</span>(z, <span class="at">nlevels =</span> <span class="dv">20</span>)</span></code></pre></div>
@@ -630,7 +630,8 @@ Before ending this section, we’ll leave you with an example from the <code>ggp
 <span id="cb451-5"><a href="visualization.html#cb451-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
 <span id="cb451-6"><a href="visualization.html#cb451-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Athlete Height vs. Weight&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb451-7"><a href="visualization.html#cb451-7" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Sex<span class="sc">~</span>Sport)</span></code></pre></div>
-<pre><code>Warning: Removed 199 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 199 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 <p><img src="Module1_files/figure-html/unnamed-chunk-467-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div class="feedback">
 <p>

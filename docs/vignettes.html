@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.7 Vignettes | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.7 Vignettes | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -445,12 +445,12 @@ First we can use the <code>summary</code> function to just quickly look at the v
 <div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   1.31  
- 1st Qu.:2013-12-08   1st Qu.:  23.90  
- Median :2017-02-15   Median :  65.85  
- Mean   :2017-02-15   Mean   : 232.66  
- 3rd Qu.:2020-04-25   3rd Qu.: 151.00  
- Max.   :2023-07-04   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2023-07-05 and a range in river
+ 1st Qu.:2014-02-28   1st Qu.:  22.80  
+ Median :2017-07-29   Median :  62.00  
+ Mean   :2017-07-29   Mean   : 221.91  
+ 3rd Qu.:2020-12-26   3rd Qu.: 146.00  
+ Max.   :2024-05-26   Max.   :7150.00  </code></pre>
+<p>It looks like we have data from 2010 to 2024-05-27 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>

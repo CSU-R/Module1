@@ -155,7 +155,9 @@ The difference is that `read.csv`, `read.delim`, and the others make different a
 We will discuss functions and arguments more in the next chapter, but for now, see the following table for when to use each function:
 
 ```{r, echo=F}
-df <- data.frame(Function=c("read.table", "read.csv", "read.csv2", "read.delim", "read.delim2"), Delimiter=c("Must specify with sep=...", ",", ";", "\\t (tab)", "\\t (tab)"), Decimals=c(".", ".", ",", ".", ","))
+df <- data.frame(Function = c("read.table", "read.csv", "read.csv2", "read.delim", "read.delim2"),
+                 Delimiter = c("Must specify with sep=...", ",", ";", "\\t (tab)", "\\t (tab)"),
+                 Decimals = c(".", ".", ",", ".", ","))
 knitr::kable(df) %>% kable_styling()
 ```
 
@@ -274,17 +276,17 @@ If you get `NA` values for the statistics, you should include the `na.rm=T` argu
 Visualization will be discussed more later, but we'll show one plot now, to show how multiple summary statistics can be shown at the same time.
 
 ```{r, eval=F}
-hist(age, breaks=50)
-abline(v=age_mean, col="blue", lty=2, lwd=3)
-abline(v=age_med, col="red", lty=2, lwd=3)
+hist(age, breaks = 50)
+abline(v = age_mean, col = "blue", lty = 2, lwd = 3)
+abline(v = age_med, col = "red", lty = 2, lwd = 3)
 ```
 
 ```{r, echo=F}
 # Not shown but knitted
 {
-hist(age, breaks=50)
-abline(v=age_mean, col="blue", lty=2, lwd=3)
-abline(v=age_med, col="red", lty=2, lwd=3)
+hist(age, breaks = 50)
+abline(v = age_mean, col = "blue", lty = 2, lwd = 3)
+abline(v = age_med, col = "red", lty = 2, lwd = 3)
 }
 ```
 It looks like the distribution of `Age` is _right skewed_, consistent with the fact that the mean is greater than the median.
@@ -369,15 +371,15 @@ sport_stats <- list(
 Again, a visualization may be useful here:
 
 ```{r, eval=F}
-par(mar=c(5,15,4,2) + 0.1)  # Command to make the labels fit
-barplot(table(sport), horiz=T, las=2)  # Bar plot
+par(mar = c(5, 15, 4, 2) + 0.1)  # Command to make the labels fit
+barplot(table(sport), horiz = T, las = 2)  # Bar plot
 ```
 
 ```{r, fig.height=20, echo=F, fig.asp=2}
 # Evaluated, but not shown (because RMarkdown needs brackets)
 {
-par(mar=c(5,15,4,2) + 0.1)  # Command to make the labels fit
-barplot(table(sport), horiz=T, las=2)  # Bar plot
+par(mar = c(5, 15, 4, 2) + 0.1)  # Command to make the labels fit
+barplot(table(sport), horiz = T, las = 2)  # Bar plot
 }
 ```
 
@@ -640,7 +642,7 @@ But remember that matrix indexing rules also apply!
 Here are some examples with the Olympic athletes data. 
 
 ```{r}
-athletes3 <- athletes[1:20,1:5]  # Get the first 20 rows and first 5 columns, and assign it to athletes3
+athletes3 <- athletes[1:20, 1:5]  # Get the first 20 rows and first 5 columns, and assign it to athletes3
 ```
 
 ```{r}
@@ -909,14 +911,14 @@ boxplot(athletes$Height ~ athletes$Sex)  # Make a boxplot of height, split by se
 ```
 
 ```{r, eval=F}
-par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
+par(mar = c(11, 4, 4, 2) + 0.1)  # Command to make the labels fit
 boxplot(athletes$Height ~ athletes$Sport, las = 2, xlab = "")  # Make a boxplot of height, split by sport
 ```
 
 ```{r, echo=F, fig.width=15, fig.height=8}
 {
-  par(mar=c(11,4,4,2) + 0.1)  # Command to make the labels fit
-  boxplot(athletes$Height ~ athletes$Sport, las=2, xlab="")  # Make a boxplot of height, split by sport
+  par(mar = c(11, 4, 4, 2) + 0.1)  # Command to make the labels fit
+  boxplot(athletes$Height ~ athletes$Sport, las = 2, xlab = "")  # Make a boxplot of height, split by sport
 }
 ```
 Here we've added a few more bits to fit all the sport labels in: the `las` option rotates the labels, and the `par` function is used to increase the bottom margin below the graph. 
@@ -1000,7 +1002,7 @@ so factor level 1 (Basketball) is colored black, level 2 (Gymnastics) is colored
 The default colors in R are sometimes not very appealing, so we can define our own color palette:
 
 ```{r}
-palette(c(rgb(1,0,0,0.1), rgb(0,1,0,0.1), rgb(0,0,1,0.1)))  # Create color palette
+palette(c(rgb(1, 0, 0, 0.1), rgb(0, 1, 0, 0.1), rgb(0, 0, 1, 0.1)))  # Create color palette
 plot(gy_bb_wr$Height, gy_bb_wr$Weight, pch = 20, col = colors)
 ```
 
@@ -1008,7 +1010,7 @@ In some cases, it might be appropriate to use lines instead of points.
 This can be done by setting the `type` option to "l":
 
 ```{r, fig.height=3}
-x <- (1:10)/10 * 2*pi
+x <- (1:10) / 10 * 2 * pi
 y <- sin(x)
 plot(x, y, type = "l")
 ```
@@ -1067,21 +1069,21 @@ Here's an example of each:
 
 ```{r}
 # Create some data to plot
-x <- (1:100)/100
+x <- (1:100) / 100
 y1 <- x
-y2 <- sin(3/x)*x
+y2 <- sin(3 / x) * x
 ```
 
 ```{r, eval=F}
 plot(x, y2,)  # Plot x against y2
-points(x, y1, col="blue")  # Add points of x against y1 (on same figure)
-lines(x, -y1, col="red")  # Add lines of x against -y1 (on same figure)
+points(x, y1, col = "blue")  # Add points of x against y1 (on same figure)
+lines(x, -y1, col = "red")  # Add lines of x against -y1 (on same figure)
 ```
 ```{r, echo=F}
 {
   plot(x, y2,)
-  points(x, y1, col="blue")
-  lines(x, -y1, col="red")
+  points(x, y1, col = "blue")
+  lines(x, -y1, col = "red")
 }
 ```
 
@@ -1109,8 +1111,8 @@ The first is `contour`, which shows level curves of the surface in a 2d plane:
 ```{r}
 # Make a surface using the rep function
 n <- 100
-x <- rep(1:n, n)/n*2*pi
-y <- rep(1:n, each = n)/n*2*pi
+x <- rep(1:n, n) / n * 2 * pi
+y <- rep(1:n, each = n) / n * 2 * pi
 z <- matrix(sin(x) + cos(y), n, n)
 
 contour(z, nlevels = 20)

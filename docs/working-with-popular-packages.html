@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Working With Popular Packages | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Working With Popular Packages | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -401,8 +401,8 @@ that is more clear and has far more examples <a href="https://ggplot2.tidyverse.
 <h3><span class="header-section-number">6.4.4</span> Making Beautiful Plots with <em>ggplot2</em><a href="working-with-popular-packages.html#making-beautiful-plots-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Our package is now loaded, and we have a manual for reference so let’s use it!</p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb574-1"><a href="working-with-popular-packages.html#cb574-1" tabindex="-1"></a><span class="co"># Making up data for plotting</span></span>
-<span id="cb574-2"><a href="working-with-popular-packages.html#cb574-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">response =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">100</span>,<span class="dv">300</span>),</span>
-<span id="cb574-3"><a href="working-with-popular-packages.html#cb574-3" tabindex="-1"></a>                   <span class="at">driver =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span>
+<span id="cb574-2"><a href="working-with-popular-packages.html#cb574-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">response =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">300</span>),</span>
+<span id="cb574-3"><a href="working-with-popular-packages.html#cb574-3" tabindex="-1"></a>                   <span class="at">driver =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</span>
 <span id="cb574-4"><a href="working-with-popular-packages.html#cb574-4" tabindex="-1"></a></span>
 <span id="cb574-5"><a href="working-with-popular-packages.html#cb574-5" tabindex="-1"></a><span class="co"># Make a scatter plot with x and y </span></span>
 <span id="cb574-6"><a href="working-with-popular-packages.html#cb574-6" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> driver, <span class="at">y =</span> response)) <span class="sc">+</span> </span>
@@ -582,8 +582,8 @@ Here’s an example of <code>tapply</code>:</p>
 <span id="cb593-4"><a href="working-with-popular-packages.html#cb593-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(),              <span class="co"># Compute number of cars in each group</span></span>
 <span id="cb593-5"><a href="working-with-popular-packages.html#cb593-5" tabindex="-1"></a>            <span class="at">ave_mpg =</span> <span class="fu">mean</span>(mpg),  <span class="co"># Compute average mpg</span></span>
 <span id="cb593-6"><a href="working-with-popular-packages.html#cb593-6" tabindex="-1"></a>            <span class="at">sd_mpg =</span> <span class="fu">sd</span>(mpg))     <span class="co"># Compute standard deviation of mpg</span></span></code></pre></div>
-<pre><code>`summarise()` has grouped output by &#39;cyl&#39;. You can override using the
-`.groups` argument.</code></pre>
+<pre><code>`summarise()` has grouped output by &#39;cyl&#39;. You can override using the `.groups`
+argument.</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["cyl"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[3],"type":["int"],"align":["right"]},{"label":["ave_mpg"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["sd_mpg"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"3","3":"1","4":"21.50","5":"NA"},{"1":"4","2":"4","3":"5","4":"24.76","5":"4.4009090"},{"1":"4","2":"5","3":"1","4":"26.00","5":"NA"},{"1":"6","2":"3","3":"2","4":"19.75","5":"2.3334524"},{"1":"6","2":"4","3":"4","4":"19.75","5":"1.5524175"},{"1":"6","2":"5","3":"1","4":"19.70","5":"NA"},{"1":"8","2":"3","3":"12","4":"15.05","5":"2.7743959"},{"1":"8","2":"5","3":"2","4":"15.40","5":"0.5656854"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}

@@ -250,10 +250,12 @@ Finally, _copy_ the following code, paste it into your script, and run it:
 install.packages("ggplot2")
 library(ggplot2)
 theme_set(theme_bw())
-ggplot(mtcars, aes(y=mpg, fill=as.factor(cyl))) + 
+ggplot(mtcars, aes(y = mpg, fill = as.factor(cyl))) + 
   geom_boxplot() + 
-  labs(title="Engine Fuel Efficiency vs. Number of Cylinders", y="MPG", fill="Cylinders") + 
-  theme(legend.position="bottom", 
+  labs(title = "Engine Fuel Efficiency vs. Number of Cylinders",
+       y = "MPG",
+       fill = "Cylinders") + 
+  theme(legend.position = "bottom", 
         axis.ticks.x = element_blank(),
         axis.text.x = element_blank())
 ```
@@ -308,7 +310,7 @@ The next box should be the first code chunk you will include in the document!
 ```
 
 ```{block, type="progress"}
-Run the command `8 / (2*(2+2)) ` and observe the output!
+Run the command `8 / (2 * (2 + 2)) ` and observe the output!
 ```
 
 
@@ -422,8 +424,8 @@ As you program in R, you'll end up creating many different R objects (more on th
 This will reduce the amount of memory that is taken up 
 
 ```{r}
-rm(list=ls())  # Clear everything in your workspace
-gc()           # perform garbage collection
+rm(list = ls())  # Clear everything in your workspace
+gc()             # Perform garbage collection
 ```
 
 You might also want to clear the R console, which you can do by placing your cursor in the R console and typing `<control> l` (careful! that's a lowercase L).

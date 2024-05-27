@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.5 Workspace setup | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -449,11 +449,11 @@ directories.
 <h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
 This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()           <span class="co"># perform garbage collection</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
+<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
 <pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  857907 45.9    1647478   88         NA  1272551 68.0
-Vcells 1582410 12.1    8388608   64     102400  2413816 18.5</code></pre>
+Ncells  879286 47.0    1675987 89.6         NA  1322267 70.7
+Vcells 1630549 12.5    8388608 64.0     102400  2583679 19.8</code></pre>
 <p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
 <div class="bonus">
 <p>

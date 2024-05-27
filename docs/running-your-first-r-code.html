@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Running your first R Code | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Running your first R Code | R Module 1" />
   <meta property="og:type" content="book" />
@@ -60,7 +60,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +70,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -368,12 +368,14 @@ This is an example of an R <em>function</em>, which we will discuss more later.<
 Here’s a more complicated example, which you should copy/paste into the website and run:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb5-1"><a href="running-your-first-r-code.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb5-2"><a href="running-your-first-r-code.html#cb5-2" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
-<span id="cb5-3"><a href="running-your-first-r-code.html#cb5-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y=</span>mpg, <span class="at">fill=</span><span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="running-your-first-r-code.html#cb5-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
 <span id="cb5-4"><a href="running-your-first-r-code.html#cb5-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb5-5"><a href="running-your-first-r-code.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>, <span class="at">y=</span><span class="st">&quot;MPG&quot;</span>, <span class="at">fill=</span><span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb5-6"><a href="running-your-first-r-code.html#cb5-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;bottom&quot;</span>, </span>
-<span id="cb5-7"><a href="running-your-first-r-code.html#cb5-7" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb5-8"><a href="running-your-first-r-code.html#cb5-8" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<span id="cb5-5"><a href="running-your-first-r-code.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb5-6"><a href="running-your-first-r-code.html#cb5-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>, </span>
+<span id="cb5-7"><a href="running-your-first-r-code.html#cb5-7" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="running-your-first-r-code.html#cb5-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb5-9"><a href="running-your-first-r-code.html#cb5-9" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="running-your-first-r-code.html#cb5-10" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p>R can be used to make many types of visualizations, which you will do more of later.</p>
 <div class="bonus">
 <p>
@@ -386,7 +388,8 @@ the code above:
 <li>
 <span style="color:black"><code>-10:10</code><span> This creates a
 sequence of numbers starting from -10 and ending at 10. That is,
-<span style="color:black"><span class="math inline"><span class="math inline">\(-10, -9, -8, \ldots, 8, 9, 10\)</span></span><span>.
+<span style="color:black"><span class="math inline"><span class="math inline">\(-10, -9, -8,
+\ldots, 8, 9, 10\)</span></span><span>.
 </li>
 <li>
 <span style="color:black"><code>library</code><span> This is a

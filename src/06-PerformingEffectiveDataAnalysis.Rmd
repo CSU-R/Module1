@@ -145,7 +145,7 @@ Here's another example of a for-loop:
 for(j in 1:10){
   print(j^2)
 }
-print(j+1)
+print(j + 1)
 ```
 
 There are a few things to learn from this second example:
@@ -659,12 +659,12 @@ Then when we called the function, we put 2 first and 3 second.
 Perhaps this is obvious, but strange things are possible, because R also allows you to specify the arguments _by name_ like so:
 
 ```{r}
-pow(x=2, y=3)
+pow(x = 2, y = 3)
 ```
 So far this gives the same result, but watch what happens if we do this instead:
 
 ```{r}
-pow(y=2, x=3)
+pow(y = 2, x = 3)
 ```
 This time, R computed 3 squared instead of 2 cubed, even though we specified `y` first and `x` second.
 When you specify parameters by name, _R will ignore the order that they are given in_.
@@ -1080,8 +1080,8 @@ Our package is now loaded, and we have a manual for reference so let's use it!
 
 ```{r, fig.height=4, fig.width=4}
 # Making up data for plotting
-dat <- data.frame( response = c(1,5,10,30,100,300),
-                   driver = c(1,2,3,4,5,6))
+dat <- data.frame( response = c(1, 5, 10, 30, 100, 300),
+                   driver = c(1, 2, 3, 4, 5, 6))
 
 # Make a scatter plot with x and y 
 ggplot(dat, aes(x = driver, y = response)) + 

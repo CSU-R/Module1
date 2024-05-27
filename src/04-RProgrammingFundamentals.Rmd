@@ -46,7 +46,7 @@ Here are multiple commands, each on a separate line:
 
 ```{r}
 print("The air is fine!")
-print(1+1)
+print(1 + 1)
 print(4 > 5)
 ```
 
@@ -74,7 +74,7 @@ Including multiple semicolons (e.g. `print("hello");;`) does not work!
 
 ```{block, type="bonus"}
 You've just seen your first example of _assignment_.
-That is, we created a thing called `x` , and _assigned_ to it the value of `1+1` using the _assignment operator_, `<-`.
+That is, we created a thing called `x` , and _assigned_ to it the value of `1 + 1` using the _assignment operator_, `<-`.
 Formally `x` is called an object, but we'll talk more about objects and assignment later.
 ```
 
@@ -279,7 +279,7 @@ Here are some examples:
 ```{r}
 a <- -11
 b <- 13.37
-c <- 1/137
+c <- 1 / 137
 ```
 
 Note that integers, decimals, and fractions are all examples of numeric data in R.
@@ -1523,7 +1523,7 @@ Certain types of lists show up _all the time_ in R, lists of vectors:
 vec_1 <- c("Alice", "Bob", "Charlie")
 vec_2 <- c(99.4, 87.6, 22.1)
 vec_3 <- c("F", "M", "M")
-special_list <- list(name=vec_1, grade=vec_2, sex=vec_3)
+special_list <- list(name = vec_1, grade = vec_2, sex = vec_3)
 special_list
 ```
 Here, each list stores a different piece of information about several people.
@@ -1555,9 +1555,9 @@ Create a matrix, a character vector, and a logical object, then place them all i
 At their core, data frames are just lists of vectors, but they also have some extra features as well.
 Here, we'll re-define the rocks list from the previous section, but this time we'll create it as a data frame:
 ```{r}
-rocks <- data.frame(type=c("igneous", "metamorphic", "sedimentary"),
-                    weight=c(21.2, 56.7, 3.8),
-                    age=c(120, 10000, 5000000))
+rocks <- data.frame(type = c("igneous", "metamorphic", "sedimentary"),
+                    weight = c(21.2, 56.7, 3.8),
+                    age = c(120, 10000, 5000000))
 rocks  # We'll add the specimen names later
 ```
 
@@ -1597,9 +1597,9 @@ dim(rocks)
 
 If we start with a list of vectors, we can convert it to a data frame with `as.data.frame`:
 ```{r}
-people <- list(name=c("Alice", "Bob", "Charlie"), 
-               grade=c(99.4, 87.6, 22.1), 
-               sex=c("F", "M", "M"))
+people <- list(name = c("Alice", "Bob", "Charlie"), 
+               grade = c(99.4, 87.6, 22.1), 
+               sex = c("F", "M", "M"))
 as.data.frame(people)
 ```
 
