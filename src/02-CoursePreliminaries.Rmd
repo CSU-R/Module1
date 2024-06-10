@@ -85,7 +85,8 @@ First, some important details:
 
 - __Instructor__: [Lane Drew](mailto:lane.drew@colostate.edu)
 
-- __Office Hours__: Held in the Statistics Success Center (Weber 223A), schedule available on Canvas.
+<!-- - __Office Hours__: Held in the Statistics Success Center (Weber 223A), schedule available on Canvas. -->
+- __Office Hours__: Schedule and location TBA.
 
 - __Webpages__: [Canvas](https://canvas.colostate.edu), [this textbook](https://csu-r.github.io/Module1/)
 
@@ -105,7 +106,7 @@ First, some important details:
 
 - __Exams__: There will be no exams in this course
 
-- __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read the material before the lecture. The reminder of the time will be _student-led_. We will cover questions students may have or work on homework together.
+- __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read the material before the lecture. The remainder of the time will be _student-led_. We will cover questions students may have or work on homework together.
 
 - __Grading__: The grading for the course is apportioned like so:
 
@@ -250,7 +251,7 @@ In that case, try to come up with some possible answers that _might_ be true.
 
 ```{block, type="reflect"}
 1. Why are you taking this course?
-1. If this course is required for your major, how do you think it is supposed to benefit you in your studes?
+1. If this course is required for your major, how do you think it is supposed to benefit you in your studies?
 1. What types of data sets related to your field of study may require data analysis?
 1. What skills do you hope to develop in this course, and how might they be applied in your major and career?
 ```
