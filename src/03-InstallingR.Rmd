@@ -342,6 +342,7 @@ At the top of the R window, click `Tools`, then `Global Options`, and do the fol
     - Change the "Save workspace to .RData on exit" option to _never_
 1. On the left side, select the "R Markdown" tab and make the following change:
     - Change the "Evaluate chunks in directory" option to _Project_.
+    - You may need to install the `rmarkdown` package to populate this option. Run the line `install.packages("rmarkdown")` and restart RStudio (you can ignore the prompt to install RTools on Windows).
 1. (Optional) On the left side, select the "Appearance" tab and make the changes:
     - (Optional) Change the "Zoom:" setting to increase or decrease the interface text size to fit your screen best.
     - (Optional) Change the "Editor theme:" setting to find a color scheme that looks good to you.

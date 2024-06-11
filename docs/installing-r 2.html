@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.7 Vignettes | R Module 1</title>
+  <title>Chapter 3 Installing R | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.7 Vignettes | R Module 1" />
+  <meta property="og:title" content="Chapter 3 Installing R | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.7 Vignettes | R Module 1" />
+  <meta name="twitter:title" content="Chapter 3 Installing R | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualization.html"/>
-<link rel="next" href="performing-effective-data-analysis.html"/>
+<link rel="prev" href="the-r-community.html"/>
+<link rel="next" href="computer-basics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,174 +340,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="vignettes" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Vignettes<a href="vignettes.html#vignettes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this section, you’ll gain more experience working with data by following along with some more data analysis examples.</p>
-<div id="flood-analysis-example" class="section level3 hasAnchor" number="5.7.1">
-<h3><span class="header-section-number">5.7.1</span> Flood analysis example<a href="vignettes.html#flood-analysis-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In this example we will learn how to analyze flood data to better understand
-the history of flooding in the last ten years in the Cache La Poudre river
-which runs through Fort Collins. This vignette will help you learn three key ideas:</p>
-<ol style="list-style-type: decimal">
-<li><p>Data can be read into R directly from online data services using <code>packages</code>
-which you will learn about later in this book.</p></li>
-<li><p>We can use this ‘live’ data to understand both past and present river conditions
-in the river.</p></li>
-<li><p>We can use R to look at changes over time in river flow and water height.</p></li>
-</ol>
-<div id="map" class="section level4 hasAnchor" number="5.7.1.1">
-<h4><span class="header-section-number">5.7.1.1</span> Map<a href="vignettes.html#map" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>The river monitoring location for the Cache La Poudre River is right at Lincoln
-Bridge near Odell Brewing.</p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4284.611594695134!2d-105.07007728632453!3d40.592864378048056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1595604291467!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen aria-hidden="false" tabindex="0">
-</iframe>
+<div id="installing-r" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Installing R<a href="installing-r.html#installing-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>“Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” - Martin Fowler</p>
+</blockquote>
+<p>In the previous chapter, you ran R code on a website.
+The purpose of this chapter is to install R on your own computer, so that you can run R without needing access to the internet.</p>
 </div>
-<div id="installing-and-using-packages" class="section level4 hasAnchor" number="5.7.1.2">
-<h4><span class="header-section-number">5.7.1.2</span> Installing and using packages<a href="vignettes.html#installing-and-using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In order to download river flow and height data we will first need to load a
-package called <code>dataRetrieval</code> this is a package run by the United States
-Geological Survey (USGS) and it provides access to data from over 8000
-river monitoring
-stations in the United States and millions of water quantity and quality
-records. You can learn more about the data from the USGS <a href="https://waterdata.usgs.gov/nwis">here</a>. To use packages we first have
-to install them using the command <code>install.packages</code> and then load them
-using the command <code>library</code>.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb453-1"><a href="vignettes.html#cb453-1" tabindex="-1"></a><span class="co"># Install the package if it&#39;s not already installed by uncommenting the line </span></span>
-<span id="cb453-2"><a href="vignettes.html#cb453-2" tabindex="-1"></a><span class="co"># below</span></span>
-<span id="cb453-3"><a href="vignettes.html#cb453-3" tabindex="-1"></a></span>
-<span id="cb453-4"><a href="vignettes.html#cb453-4" tabindex="-1"></a><span class="co">#install.packages(&#39;dataRetrieval&#39;)</span></span>
-<span id="cb453-5"><a href="vignettes.html#cb453-5" tabindex="-1"></a></span>
-<span id="cb453-6"><a href="vignettes.html#cb453-6" tabindex="-1"></a><span class="co"># Load the package</span></span>
-<span id="cb453-7"><a href="vignettes.html#cb453-7" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span></code></pre></div>
-</div>
-<div id="downloading-the-data" class="section level4 hasAnchor" number="5.7.1.3">
-<h4><span class="header-section-number">5.7.1.3</span> Downloading the data<a href="vignettes.html#downloading-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Once we have loaded the package we can use
-the special functions that it brings to the table. In this case, <code>dataRetrival</code>
-provides a function called <code>readNWISdv</code> which can download daily data
-(or daily values, hence readNWIS<em>dv</em>) for specific
-monitoring locations. But how do we use this function?
-Try <code>?readNWISdv</code> to get more details.
-So the <code>readNWISdv</code> command requires a few key arguments. First
-<code>siteNumbers</code>, these are simply the site identifiers that the USGS uses
-to track different monitoring stations and in our case that number for the
-Cache La Poudre is <code>06752260</code>, which you can find <a href="https://waterdata.usgs.gov/co/nwis/uv?site_no=06752260">here</a>.
-The second argument is the <code>parameterCd</code> which
-is a cryptic code that indicates what kind of data you want to download. In
-this case we want to download river flow data. River
-flow tells us how much water is moving past a given point and is correlated
-with the height of the river water. This code is <code>00060</code> for discharge which means
-river flow.
-Lastly we need to tell the <code>readNWISdv</code> command the time period for which we want
-data which is <code>startDate</code> which we will set to 2010,
-and <code>endDate</code> which we will set to the current day using the command
-<code>Sys.Date()</code>. These arguments should be in the
-YYYY-MM-DD format. With all this knowledge of how the command works, we can
-finally download some data, directly into R!</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb454-1"><a href="vignettes.html#cb454-1" tabindex="-1"></a>poudre <span class="ot">&lt;-</span> <span class="fu">readNWISdv</span>(<span class="at">siteNumbers =</span> <span class="st">&#39;06752260&#39;</span>,</span>
-<span id="cb454-2"><a href="vignettes.html#cb454-2" tabindex="-1"></a>                     <span class="at">parameterCd =</span> <span class="fu">c</span>(<span class="st">&#39;00060&#39;</span>),</span>
-<span id="cb454-3"><a href="vignettes.html#cb454-3" tabindex="-1"></a>                     <span class="at">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</span>
-<span id="cb454-4"><a href="vignettes.html#cb454-4" tabindex="-1"></a>                     <span class="at">endDate =</span> <span class="fu">Sys.Date</span>())</span></code></pre></div>
-</div>
-<div id="explore-the-data-structure" class="section level4 hasAnchor" number="5.7.1.4">
-<h4><span class="header-section-number">5.7.1.4</span> Explore the data structure<a href="vignettes.html#explore-the-data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now that we have our dataframe called <code>poudre</code>, we can explore the properties
-of this data frame using commands we have already learned. First let’s
-see what the structure of the data is using the <code>head</code> command, which
-will print the first 6 rows of data.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb455-1"><a href="vignettes.html#cb455-1" tabindex="-1"></a><span class="fu">head</span>(poudre)</span></code></pre></div>
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["agency_cd"],"name":[1],"type":["chr"],"align":["left"]},{"label":["site_no"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Date"],"name":[3],"type":["date"],"align":["right"]},{"label":["X_00060_00003"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["X_00060_00003_cd"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"USGS","2":"06752260","3":"2010-10-01","4":"20.4","5":"A","_rn_":"1"},{"1":"USGS","2":"06752260","3":"2010-10-02","4":"16.8","5":"A","_rn_":"2"},{"1":"USGS","2":"06752260","3":"2010-10-03","4":"22.6","5":"A","_rn_":"3"},{"1":"USGS","2":"06752260","3":"2010-10-04","4":"99.2","5":"A","_rn_":"4"},{"1":"USGS","2":"06752260","3":"2010-10-05","4":"120.0","5":"A","_rn_":"5"},{"1":"USGS","2":"06752260","3":"2010-10-06","4":"113.0","5":"A","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-<p>It looks like we have a dataframe that is 5 columns wide with columns <code>agency_cd</code> which is just the USGS, <code>site_no</code> which is just the site id we already told it. Since
-we only asked for data from one site, we don’t really need this column. A <code>Date</code>
-column which tells us… the date! There are two more columns that are kind of weird which
-are labeled <code>X_00060_00003</code> which is the column that actually has values of
-river flow in Cubic Feet Per Second (cfs), or the amount of water that is flowing
-by a location per second in Cubic Feet volume units (1 cubic foot ~ 7.5 gallons).
-Finally <code>X_00060_00003_cd</code> tells us something about the quality of the data. For now
-we will ignore this final column, but if you were doing an analysis of this data
-for a project, you would want to investigate what codes are acceptable for
-high quality analyses. To make working with this data a little easier let’s
-rename and remove some of our columns in a new, simpler dataframe.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb456-1"><a href="vignettes.html#cb456-1" tabindex="-1"></a><span class="co"># Remove the first two columns</span></span>
-<span id="cb456-2"><a href="vignettes.html#cb456-2" tabindex="-1"></a>pq <span class="ot">&lt;-</span> poudre[,<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>)]</span>
-<span id="cb456-3"><a href="vignettes.html#cb456-3" tabindex="-1"></a></span>
-<span id="cb456-4"><a href="vignettes.html#cb456-4" tabindex="-1"></a><span class="co"># Rename the remaining columns</span></span>
-<span id="cb456-5"><a href="vignettes.html#cb456-5" tabindex="-1"></a><span class="fu">names</span>(pq) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;q_cfs&#39;</span>)</span></code></pre></div>
-</div>
-<div id="explore-the-data" class="section level4 hasAnchor" number="5.7.1.5">
-<h4><span class="header-section-number">5.7.1.5</span> Explore the data<a href="vignettes.html#explore-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now that we have cleaned up our data frame a little, let’s explore the data.
-First we can use the <code>summary</code> function to just quickly look at the variables we have.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb457-1"><a href="vignettes.html#cb457-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
-<pre class="output-style"><code>      Date                q_cfs        
- Min.   :2010-10-01   Min.   :   1.31  
- 1st Qu.:2014-03-04   1st Qu.:  22.90  
- Median :2017-08-05   Median :  62.35  
- Mean   :2017-08-05   Mean   : 222.52  
- 3rd Qu.:2021-01-06   3rd Qu.: 147.00  
- Max.   :2024-06-10   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2024-06-11 and a range in river
-flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
-hopefully these flow numbers look right, but another way to check to make sure
-is to simply plot the data as we do below.</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb459-1"><a href="vignettes.html#cb459-1" tabindex="-1"></a><span class="fu">plot</span>(pq<span class="sc">$</span>q_cfs <span class="sc">~</span> pq<span class="sc">$</span>Date, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;River Flow (cfs)&#39;</span>, </span>
-<span id="cb459-2"><a href="vignettes.html#cb459-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>, <span class="at">col =</span> <span class="st">&#39;blue3&#39;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-474-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="reflect">
-<p>
-The above plot is called a “hydrograph” or a plot of how river flow
-has changed over time. In the Cache La Poudre, what might explain the
-peaks and valleys of the data? What controls river flow in Colorado
-rivers?
-</p>
-</div>
-</div>
-<div id="analyze-the-data" class="section level4 hasAnchor" number="5.7.1.6">
-<h4><span class="header-section-number">5.7.1.6</span> Analyze the data<a href="vignettes.html#analyze-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Now that we’ve plotted the data we can see some interesting patterns that we
-might want to explore. For example, how has the average flow changed in the last
-ten years. To analyze this, we need to use the concept of a <code>Water Year</code>. Simply
-put, a water year is a way to analyze yearly variation in flow, which doesn’t
-map well to a calendar year. Water years in the USA are typically from October 1
-to September 30th. Luckily for us, the <code>dataRetrieval</code> package has a function
-that calculates water year for us. It’s simply called <code>addWaterYear</code>.</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb460-1"><a href="vignettes.html#cb460-1" tabindex="-1"></a>pq_wy <span class="ot">&lt;-</span> <span class="fu">addWaterYear</span>(pq)</span></code></pre></div>
-<p>To look at variation per year we can use the function <code>tapply</code> which can take the mean, max or any summary
-function of groups of data (more on this in the next chapter, but you can type <code>?tapply</code> for more info).
-In this case, we want to look at the mean river flow for each water year.
-Now to use <code>tapply</code> we use the following code</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb461-1"><a href="vignettes.html#cb461-1" tabindex="-1"></a>annual <span class="ot">&lt;-</span> <span class="fu">tapply</span>(pq_wy<span class="sc">$</span>q_cfs, pq_wy<span class="sc">$</span>waterYear, mean)</span></code></pre></div>
-<p>Now let’s plot the data, where the values (y) are the annual average flow and the years (x) are the names of the annual vector from the <code>tapply</code> function.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb462-1"><a href="vignettes.html#cb462-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">names</span>(annual), annual, <span class="at">xlab =</span> <span class="st">&quot;Water Year&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Annual Average Flow (cfs)&quot;</span>)</span></code></pre></div>
-<p><img src="Module1_files/figure-html/unnamed-chunk-478-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="reflect">
-<p>
-Has annual mean river flow declined over the past ten years? What
-about the last 6?
-</p>
-</div>
-<div class="feedback">
-<p>
-Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Vignettes">here</a>
-</p>
-</div>
-
-</div>
-</div>
-</div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="performing-effective-data-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-r-community.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="computer-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

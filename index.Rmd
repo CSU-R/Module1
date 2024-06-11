@@ -39,7 +39,7 @@ start_date <- ymd("2023/06/12")
 # course_dates <- start_date + sort(as.vector(outer(c(0, 2, 4), c(0, 7, 14, 21), "+")))
 course_dates <- start_date + weeks(0:4) 
 
-r_version <- "4.3.0"
+r_version <- "4.4.0"
 ```
 
 Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!
