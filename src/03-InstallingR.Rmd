@@ -302,12 +302,19 @@ There's only one header, but there can be many blocks of human readable text and
 See [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for more things you can do with R Markdown.
 ```
 
+<!-- ```{block, type="assessment"} -->
+<!-- As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already) -->
+<!-- Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `scripts` folder, and follow the instructions. -->
+<!-- That document should include all progress checks from Section 3.4 through (and including) Section 4.3 -->
+<!-- The next box should be the first code chunk you will include in the document! -->
+<!-- ``` -->
 ```{block, type="assessment"}
 As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already)
-Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `scripts` folder, and follow the instructions.
+Download the [progress check 2 template](https://raw.githubusercontent.com/CSU-R/Module1/master/assignment_templates/progress_check_2.rmd) into your `scripts` folder, and follow the instructions.
 That document should include all progress checks from Section 3.4 through (and including) Section 4.3
 The next box should be the first code chunk you will include in the document!
 ```
+
 
 ```{block, type="progress"}
 Run the command `8 / (2 * (2 + 2)) ` and observe the output!

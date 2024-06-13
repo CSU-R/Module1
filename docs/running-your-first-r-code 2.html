@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Running Code in RStudio | R Module 1</title>
+  <title>2.3 Running your first R Code | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Running Code in RStudio | R Module 1" />
+  <meta property="og:title" content="2.3 Running your first R Code | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Running Code in RStudio | R Module 1" />
+  <meta name="twitter:title" content="2.3 Running your first R Code | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="successfull-installation.html"/>
-<link rel="next" href="workspace-setup.html"/>
+<link rel="prev" href="course-topics-syllabus.html"/>
+<link rel="next" href="getoutoftheclass.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,174 +340,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="running-code-in-rstudio" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Running Code in RStudio<a href="running-code-in-rstudio.html#running-code-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now that you’re somewhat familiar with RStudio, let’s run the same code as we ran on the website, but this time let’s run it in R.</p>
-<div id="the-r-console" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> The R Console:<a href="running-code-in-rstudio.html#the-r-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In the <em>R console</em>, type <code>1+1</code> and press <code>enter</code>.
-The output in the console should look like the following:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
-<img src="src/images/1_plus_1_console.png" alt="code in the console"  />
+<div id="running-your-first-r-code" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Running your first R Code<a href="running-your-first-r-code.html#running-your-first-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enough of the boring stuff, let’s run some R code!
+Normally you will run R on your computer, but since you may not have R installed yet, let’s run some R code using a website first.
+As you run code, you’ll see some of the things R can do.
+In a browser, navigate to <a href="https://rdrr.io/snippets/" target="_blank">rdrr.io/snippets</a>, where you’ll see a box that looks like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="src/images/rdrr.png" alt="rdrr code entry box"  />
 <p class="caption">
-Figure 3.1: code in the console
+Figure 2.2: rdrr code entry box
 </p>
 </div>
-<p>Notice that the output <code>2</code> is displayed, and the cursor is on a blank line, waiting for more input. This is how coding in the console works.</p>
-</div>
-<div id="r-scripts" class="section level3 hasAnchor" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> R scripts<a href="running-code-in-rstudio.html#r-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Now let’s run the same code, but in an R script.
-If you haven’t already, create a new R script by clicking on the <code>New File</code> icon, then selecting <code>R Script</code> like so:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
-<img src="src/images/rstudio_newfile.png" alt="Click this button to create a new file"  />
-<p class="caption">
-Figure 3.2: Click this button to create a new file
-</p>
-</div>
-<p>In the script window which opens, type <code>1+1</code> and press <code>enter</code>.
-Notice how now, the code did <em>not</em> run?
-In a script, you are free to write R code on several lines before you run it.
-You can even save the script and load it later in order to run the code it contains.
-There are multiple ways to run R code in a script.
-To run a single line of code, do one of the following:</p>
-<ul>
-<li>Place the cursor on the desired line, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold <code>&lt;command&gt;</code> key and press <code>return</code> instead</li>
-<li>Place the cursor on the desired line and click the <code>Run</code> button that looks like this:</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
-<img src="src/images/rstudio_run.png" alt="code in the console"  />
-<p class="caption">
-Figure 3.3: code in the console
-</p>
-</div>
-<p>To run multiple lines of code, do one of the following:</p>
-<ul>
-<li>Highlight all the code you’d like to run, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold the <code>&lt;command&gt;</code> key and press <code>return</code> instead.</li>
-<li>Highlight all the code you’d like to run, and click the <code>Run</code> button.</li>
-</ul>
-<p>Run the <code>1+1</code> code using one of the methods above, and observe the output.
-Notice how the output is <em>still</em> in the console window, even though you ran the code in a script!</p>
-<div class="caution">
-<p>
-Even though running R code from the console and an R script are done
-differently, they should produce the same results. Both are running
-R!
-</p>
-</div>
-<p>Now that you’ve run some code in the console and from an R script, let’s try some of the other code we ran previously.</p>
-</div>
-<div id="same-examples-on-your-computer" class="section level3 hasAnchor" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> Same Examples, On Your Computer!<a href="running-code-in-rstudio.html#same-examples-on-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In the <em>console</em>, type the command <code>factorial(10)</code>.
-Did you get the same result as you got on the website?
-Now type the following two lines in an R script and run them:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb6-1"><a href="running-code-in-rstudio.html#cb6-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb6-2"><a href="running-code-in-rstudio.html#cb6-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
-<p>This code produces a plot, which should show up in the lower right corner in the “Plots” window.
-Finally, <em>copy</em> the following code, paste it into your script, and run it:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb7-1"><a href="running-code-in-rstudio.html#cb7-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb7-2"><a href="running-code-in-rstudio.html#cb7-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb7-3"><a href="running-code-in-rstudio.html#cb7-3" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
-<span id="cb7-4"><a href="running-code-in-rstudio.html#cb7-4" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
-<span id="cb7-5"><a href="running-code-in-rstudio.html#cb7-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb7-6"><a href="running-code-in-rstudio.html#cb7-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
-<span id="cb7-7"><a href="running-code-in-rstudio.html#cb7-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>,</span>
-<span id="cb7-8"><a href="running-code-in-rstudio.html#cb7-8" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb7-9"><a href="running-code-in-rstudio.html#cb7-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
-<span id="cb7-10"><a href="running-code-in-rstudio.html#cb7-10" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb7-11"><a href="running-code-in-rstudio.html#cb7-11" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p>You’re now running R code on your computer!</p>
+<p>The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from before <code>library(ggplot2)</code> to after <code>factor(cyl))</code>.
+In its place, type <code>1+1</code>, then click the big green “Run” button.
+You should see the <code>[1] 2</code> displayed below.
+So if you give R a math expression, it will evaluate it and give the result.
+Note: the “correct answer” to <span class="math inline">\(1+1\)</span> is <code>2</code>, but the output also displays <code>[1]</code>, which we won’t explain until later, so you can ignore that for now.</p>
+<p>Next, delete the code you just wrote and type (or copy/paste) the following, and run it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb3-1"><a href="running-your-first-r-code.html#cb3-1" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
+<p>The result should be a very large number, which is equivalent to <span class="math inline">\(10!\)</span>, that is, <span class="math inline">\(10\times9\times8\times7\times6\times5\times4\times3\times2\times1\)</span>.
+This is an example of an R <em>function</em>, which we will discuss more later.</p>
+<p>Aside from math, R can produce plots. Try copy/pasting the following code into the website:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb4-1"><a href="running-your-first-r-code.html#cb4-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb4-2"><a href="running-your-first-r-code.html#cb4-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>You should see points in a scatter plot which follow a parabola.
+Here’s a more complicated example, which you should copy/paste into the website and run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb5-1"><a href="running-your-first-r-code.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="running-your-first-r-code.html#cb5-2" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb5-3"><a href="running-your-first-r-code.html#cb5-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="running-your-first-r-code.html#cb5-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="running-your-first-r-code.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb5-6"><a href="running-your-first-r-code.html#cb5-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>, </span>
+<span id="cb5-7"><a href="running-your-first-r-code.html#cb5-7" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="running-your-first-r-code.html#cb5-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb5-9"><a href="running-your-first-r-code.html#cb5-9" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="running-your-first-r-code.html#cb5-10" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p>R can be used to make many types of visualizations, which you will do more of later.</p>
 <div class="bonus">
 <p>
-The above code block includes a command to install an R package! <a
-href="https://ggplot2.tidyverse.org/">ggplot2</a> is a very popular
-plotting package that can create sophisticated and (arguably)
-aesthetically pleasing graphs.
+This may be the first time you’ve seen R, so it’s okay if you don’t
+understand how to read this code. We’ll talk more later about what each
+statement is doing, but for now, here is a brief description of some of
+the code above:
 </p>
-</div>
-<div class="reflect">
-<p>
-Imagine you are practicing programming in R and your classmate tells
-you they heard about an interesting new R command which they’d like you
-to try out. Would you run the command in an R script, or the R console?
-How might your answer change if you wanted to keep a record of all the
-interesting R commands you found?
-</p>
-</div>
-</div>
-<div id="r-markdown" class="section level3 hasAnchor" number="3.4.4">
-<h3><span class="header-section-number">3.4.4</span> R Markdown<a href="running-code-in-rstudio.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You’ve seen how to run R code in the R console, and from an R script, but there’s one more way to run R that we need to talk about: R Markdown.</p>
-<p>R scripts are convenient because they can store multiple R commands in one file.
-R Markdown takes this idea further and stores code alongside human readable text.
-There is much that could be said about R Markdown, but for now, we’ll just stick with the basics.</p>
-<p>To start, watch this video:</p>
-<div class="video">
-<p>
-This video gives a basic introduction to R Markdown.
-</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MhvipLohEfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<center>
-<strong><a href="https://youtu.be/MhvipLohEfU" class="uri">https://youtu.be/MhvipLohEfU</a></strong>
-</center>
-</div>
-<p>As the video stated, there are three types of sections to an R Markdown document:</p>
 <ul>
-<li>Header</li>
-<li>Human readable text</li>
-<li>Code chunks</li>
+<li>
+<span style="color:black"><code>-10:10</code><span> This creates a
+sequence of numbers starting from -10 and ending at 10. That is,
+<span style="color:black"><span class="math inline"><span class="math inline">\(-10, -9, -8,
+\ldots, 8, 9, 10\)</span></span><span>.
+</li>
+<li>
+<span style="color:black"><code>library</code><span> This is a
+function which loads an R <em>package</em>. R packages provide extra
+abilities to R.
+</li>
 </ul>
-<p>There’s only one header, but there can be many blocks of human readable text and many code chunks.</p>
-<div class="bonus">
-<p>
-See <a
-href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">here</a>
-for more things you can do with R Markdown.
-</p>
-</div>
-<!-- ```{block, type="assessment"} -->
-<!-- As part of this class, you'll be filling in an R Markdown document as you complete the progress checks in the book (except for the first progress check box, which you completed already) -->
-<!-- Download the [progress check 2 template](assignment_templates/progress_check_2.rmd) into your `scripts` folder, and follow the instructions. -->
-<!-- That document should include all progress checks from Section 3.4 through (and including) Section 4.3 -->
-<!-- The next box should be the first code chunk you will include in the document! -->
-<!-- ``` -->
-<div class="assessment">
-<p>
-As part of this class, you’ll be filling in an R Markdown document as
-you complete the progress checks in the book (except for the first
-progress check box, which you completed already) Download the <a
-href="https://raw.githubusercontent.com/CSU-R/Module1/master/assignment_templates/progress_check_2.rmd">progress
-check 2 template</a> into your <code>scripts</code> folder, and follow
-the instructions. That document should include all progress checks from
-Section 3.4 through (and including) Section 4.3 The next box should be
-the first code chunk you will include in the document!
-</p>
-</div>
-<div class="progress">
-<p>
-Run the command <code>8 / (2 * (2 + 2))</code> and observe the
-output!
-</p>
-</div>
-<div class="video">
-<p>
-This video should help get you started with the Progress Check
-Assignments!
-</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QLXB4kPngqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<center>
-<strong><a href="https://youtu.be/QLXB4kPngqM" class="uri">https://youtu.be/QLXB4kPngqM</a></strong>
-</center>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Your%20First%20R%20Code">here</a>
 </p>
-</div>
 </div>
 </div>
             </section>
@@ -515,8 +410,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="successfull-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="workspace-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="course-topics-syllabus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getoutoftheclass.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
