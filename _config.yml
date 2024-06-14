@@ -1,4 +1,4 @@
 # _config.yml
 exclude:
-  - "assignments_templates/"
+  - "assignments_templates/*"
 
