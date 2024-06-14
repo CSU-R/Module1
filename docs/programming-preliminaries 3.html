@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>4.1 Programming Preliminaries | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="4.1 Programming Preliminaries | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="4.1 Programming Preliminaries | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="r-programming-fundamentals.html"/>
+<link rel="next" href="data-types.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,59 +340,268 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>14 Jun, 2024, 04:00 PM</em></p>
+<div id="programming-preliminaries" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Programming Preliminaries<a href="programming-preliminaries.html#programming-preliminaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+<div class="reflect">
+<ol style="list-style-type: decimal">
+<li>Look at a sentence in a language you don’t know, look carefully at the symbols, spacing and characters.</li>
+<li>Recall learning a foreign language, how you had to learn the syntax and grammar rules.</li>
+<li>Now think about English (or another language you know well) and think about the syntax and grammar rules that you take for granted.</li>
+</ol>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<p>All human languages rely on a set of rules called grammar, which describe how the language should be used to communicate.
+When two humans communicate with a language, they both must agree on the rules of that language.</p>
+<p>R also has rules that must be followed in order for a human ( <em>you</em> ) to communicate with a computer, i.e. in order to tell the computer what to do.
+In human language, grammar is often fluid and evolving, and two people may have to adapt their use of the language in order to communicate.
+With R, the rules are fixed, and the computer “knows” them perfectly.
+It is up to you to learn the rules in order to make the computer do exactly what you want it to do.</p>
+<p>Since any computer programming language will do exactly what you tell it to do,
+it’s important to cover some of the basic rules of the R programming language
+before you can learn what it can do.</p>
+<p>So let’s get started:</p>
+<div id="r-commands" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> R Commands<a href="programming-preliminaries.html#r-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Like most programming languages, R consists of a set of <em>commands</em> which form the sequence of instructions which the computer completes. You can think of <em>commands</em>
+as the verbs of R, they are the actions the computer will take.
+Here is an example of a command, followed by the result.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb10-1"><a href="programming-preliminaries.html#cb10-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;hello, world!&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;hello, world!&quot;</code></pre>
+<p>This command is telling R to <code>print</code> out a message.
+R code usually contains more than one command, and typically each command is put on a separate line.
+Here are multiple commands, each on a separate line:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb12-1"><a href="programming-preliminaries.html#cb12-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;The air is fine!&quot;</span>)</span>
+<span id="cb12-2"><a href="programming-preliminaries.html#cb12-2" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb12-3"><a href="programming-preliminaries.html#cb12-3" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;The air is fine!&quot;
+[1] 2
+[1] FALSE</code></pre>
+<p>The first command prints another message, the second command does some math then prints the result, and the third command evaluates whether the statement is true or false and prints the result.
+Generally, it’s a good idea to put separate commands on separate lines, but you <em>can</em> put multiple commands on the same line, <strong>as long as you separate them by a semicolon</strong>.
+See this code for example:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb14-1"><a href="programming-preliminaries.html#cb14-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="dv">1</span>; <span class="fu">print</span>(x); <span class="fu">print</span>(x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 2
+[1] 4</code></pre>
+<p>In this example, three commands are given on one line.
+The first command creates a new <em>variable</em> called <code>x</code>, the second command prints the value of <code>x</code>, and the third command prints the value of <code>x</code> <em>squared</em>.
+We see that the semicolon, <code>;</code>, serves as the command <em>termination</em>, because it tells R where one command ends and another begins.
+When a line contains a single command, no semicolon is necessary at the end, but including a semicolon doesn’t have any effect either.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb16-1"><a href="programming-preliminaries.html#cb16-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;This line doesn&#39;t have a semicolon&quot;</span>)</span>
+<span id="cb16-2"><a href="programming-preliminaries.html#cb16-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;This line does have a semicolon&quot;</span>);</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;This line doesn&#39;t have a semicolon&quot;
+[1] &quot;This line does have a semicolon&quot;</code></pre>
+<div class="caution">
+<p>
+Including multiple semicolons (e.g. <code>print(“hello”);;</code>)
+does not work!
+</p>
+</div>
+<div class="bonus">
+<p>
+You’ve just seen your first example of <em>assignment</em>. That is,
+we created a thing called <code>x</code> , and <em>assigned</em> to it
+the value of <code>1 + 1</code> using the <em>assignment operator</em>,
+<code>&lt;-</code>. Formally <code>x</code> is called an object, but
+we’ll talk more about objects and assignment later.
+</p>
+</div>
+
+<div class="bonus">
+So far, we’ve seen that you can place one command on one line, multiple commands on multiple lines, multiple commands on one line, so you may ask: can you can place one command on multiple lines?
+The answer is <em>sometimes</em>, depending on the command, but we will not discuss this now.
+</div>
+<div class="caution">
+<p>
+At this point, we’ve introduced several new types of R commands
+(assigning a variable, squaring a number, etc.), and we will talk more
+specifically about these later. The important part of this section is
+how R code is arranged into different <em>commands</em>.
+</p>
+</div>
+<p>Lastly, commands can be “grouped together” using left and right curly braces: <code>{</code> and <code>}</code>.
+Here’s an example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb18-1"><a href="programming-preliminaries.html#cb18-1" tabindex="-1"></a>{</span>
+<span id="cb18-2"><a href="programming-preliminaries.html#cb18-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
+<span id="cb18-3"><a href="programming-preliminaries.html#cb18-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">7</span>)</span>
+<span id="cb18-4"><a href="programming-preliminaries.html#cb18-4" tabindex="-1"></a>  w <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb18-5"><a href="programming-preliminaries.html#cb18-5" tabindex="-1"></a>  <span class="fu">print</span>(w)</span>
+<span id="cb18-6"><a href="programming-preliminaries.html#cb18-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;here&#39;s some code that&#39;s all grouped together&quot;
+[1] 1
+[1] &quot;hello&quot;</code></pre>
+<p>The above grouped code is indented so that it looks nice, but it doesn’t have to be:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb20-1"><a href="programming-preliminaries.html#cb20-1" tabindex="-1"></a>{</span>
+<span id="cb20-2"><a href="programming-preliminaries.html#cb20-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;here&#39;s some code that&#39;s all grouped together&quot;</span>)</span>
+<span id="cb20-3"><a href="programming-preliminaries.html#cb20-3" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">2</span><span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">7</span>)</span>
+<span id="cb20-4"><a href="programming-preliminaries.html#cb20-4" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb20-5"><a href="programming-preliminaries.html#cb20-5" tabindex="-1"></a><span class="fu">print</span>(w)</span>
+<span id="cb20-6"><a href="programming-preliminaries.html#cb20-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;here&#39;s some code that&#39;s all grouped together&quot;
+[1] 1
+[1] &quot;hello&quot;</code></pre>
+<div class="bonus">
+<p>
+Indenting is an example of coding <em>style</em>, which are
+formatting decisions which don’t affect the results of the code, but are
+meant to enhance readability. We’ll talk more about coding style later.
+In some programming languages, Python for example, white space matters.
+That is, code indents and other spaces change the way the code runs. In
+R, white space <em>does not</em> matter, so things like indents are used
+purely for readability.
+</p>
+</div>
+<p>What does it mean to “group” code?
+At this point there is no practical difference, each command gets executed whether or not it is grouped inside curly braces.
+However, code grouping will become very important later on, when we discuss <em>control flow</em> later.</p>
+<div class="bonus">
+<p>
+There are several helpful shortcuts that you can use in R. If you
+forget to put quotes around something, you can highlight and press the
+quote key and it will add quotes to both sides. This works with
+parentheses too.
+</p>
+<p>
+You can also use tab completion with functions and defined variables.
+Tab completion allows you to use longer, more descriptive variable names
+without the additional typing time. This can save you a lot of time and
+reduce mistakes!
+</p>
+</div>
+<div class="progress">
+<p>
+In RStudio, open a new R script and type in all the R commands from
+this section, to verify that you get the same result. It’s good
+practice!
 </p>
 </div>
 </div>
+<div id="comments" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Comments<a href="programming-preliminaries.html#comments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When writing R code, you may wish to include notes which explain the code to your future self or to other humans.
+This can be done with <em>comments</em>, which are ignored by R when it is running the code.
+The “#” symbol initiates a comment.<br />
+Here’s an example of some comments:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb22-1"><a href="programming-preliminaries.html#cb22-1" tabindex="-1"></a><span class="co"># Let&#39;s define y and z</span></span>
+<span id="cb22-2"><a href="programming-preliminaries.html#cb22-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb22-3"><a href="programming-preliminaries.html#cb22-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> y <span class="sc">+</span> <span class="dv">5</span>  <span class="co"># Adding 5 to y and assigning the result to z</span></span>
+<span id="cb22-4"><a href="programming-preliminaries.html#cb22-4" tabindex="-1"></a><span class="do">## This is still a comment, even though we&#39;re using two #&#39;s</span></span></code></pre></div>
+<p>Notice that it’s possible for a line to contain only a comment, or for part of a line to be a comment.
+R decides which part of a line is a comment by looking for the first “#”, and everything after that will be treated as a comment and ignored.</p>
+<div class="caution">
+<p>
+R ignores comments, but you should <em>not</em>! If you’re reading
+code that someone else has written, it’s likely that also paying
+attention to their comments will greatly help you to understand what
+their code is doing. It’s also courteous to make good comments in your
+own code, if only because you may have to return to your <em>own</em>
+code in the future and re-learn what it is doing! In this book, we will
+use comments to help explain the R code that you will see.
+</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
+</div>
+<div id="blank-lines" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Blank Lines<a href="programming-preliminaries.html#blank-lines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Blank lines in R are ignored, but they can be used to organize code and enhance readability:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb23-1"><a href="programming-preliminaries.html#cb23-1" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;The sky is blue&quot;</span>)</span>
+<span id="cb23-2"><a href="programming-preliminaries.html#cb23-2" tabindex="-1"></a><span class="co"># The blank line below here is ignored</span></span>
+<span id="cb23-3"><a href="programming-preliminaries.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="programming-preliminaries.html#cb23-4" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;The grass is green&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;The sky is blue&quot;
+[1] &quot;The grass is green&quot;</code></pre>
+</div>
+<div id="case" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> CaSe SeNsItIvItY<a href="programming-preliminaries.html#case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In R, variables, functions, and other objects (all of which we’ll talk about later), have names.
+These names are case sensitive, so you must be careful when referencing an object by name.
+Here we create two variables and give them different values, notice how they are different from each other:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb25-1"><a href="programming-preliminaries.html#cb25-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb25-2"><a href="programming-preliminaries.html#cb25-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb25-3"><a href="programming-preliminaries.html#cb25-3" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="programming-preliminaries.html#cb25-4" tabindex="-1"></a><span class="fu">print</span>(a)</span>
+<span id="cb25-5"><a href="programming-preliminaries.html#cb25-5" tabindex="-1"></a><span class="fu">print</span>(A)</span></code></pre></div>
+<pre class="output-style"><code>[1] 5
+[1] 4</code></pre>
+<p>This may seem obvious, but case sensitivity applies to functions (which we’ll talk about later) too.
+We’ve been using the <code>print</code> function a lot in the above examples, which begins with a lower case p. 
+There is no <code>Print</code> function:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb27-1"><a href="programming-preliminaries.html#cb27-1" tabindex="-1"></a><span class="fu">Print</span>(<span class="st">&quot;testing&quot;</span>)</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in Print("testing"): could not find function "Print"
+</code></pre>
+</div>
+<div id="section" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> ?<a href="programming-preliminaries.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>One <em>very</em> nice thing in R is the documentation that accompanies it.
+Every function included in R (like <code>print</code>) has documentation that explains how that function works.
+To access the documentation, use a <code>?</code> followed by the name of the function, like so:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb28-1"><a href="programming-preliminaries.html#cb28-1" tabindex="-1"></a>?print</span></code></pre></div>
+<div class="progress">
+<p>
+The output of the above code chunk is not shown, because the result
+of this code is best viewed in RStudio. Go to R Studio and type in
+<code>?print</code> and observe what happens!
+</p>
+</div>
+</div>
+<div id="section-1" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> ??<a href="programming-preliminaries.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you don’t remember the exact name of a function, or would like to search for general matches to a topic, then you can use <code>??</code>.
+For example, trying <code>?Print</code> produces an error, because there is not <code>Print</code> function (remember, R is case sensitive), so there’s no documentation to go with it.
+However, the following should still work:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb29-1"><a href="programming-preliminaries.html#cb29-1" tabindex="-1"></a>??Print</span></code></pre></div>
+<div class="bonus">
+<p>
+Programmers have a sense of humor, too! Try running
+<code>????print</code> to see a small joke. Remember, comedic taste
+varies!
+</p>
+</div>
+<div class="bonus">
+<p>
+This is a lot to remember. As you get more familiar with R, you’ll
+begin to memorize basic functions - and Google is always there for the
+rest.
+</p>
+</div>
+<div class="bonus">
+<p>
+Want to know more about R syntax? Try typing <code>?Syntax</code> in
+the R console (then press <code>Enter</code>).
+</p>
+</div>
+<div class="caution">
+<p>
+As we’ve seen, symbols and characters have specific meaning in R. You
+must be careful not to ignore things like semicolons, curly braces,
+parentheses, when reading R code. This takes practice!
+</p>
+</div>
+<p>Okay, now that we’ve covered some of the basics, it’s time to start learning how to do useful things in R!
+The next few sections will describe the different types of data that R can handle.</p>
+<div class="video">
+<p>
+This video discusses programming preliminaries.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EShV_T2P7sw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/EShV_T2P7sw" class="uri">https://youtu.be/EShV_T2P7sw</a></strong>
+</center>
+</div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Programming%20Preliminaries">here</a>
+</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-programming-fundamentals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-types.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>3.2 Install R &amp; R Studio | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="3.2 Install R &amp; R Studio | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="3.2 Install R &amp; R Studio | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="computer-basics.html"/>
+<link rel="next" href="successfull-installation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,59 +340,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>14 Jun, 2024, 04:00 PM</em></p>
+<div id="install-r-r-studio" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Install R &amp; R Studio<a href="install-r-r-studio.html#install-r-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here’s where you install R on your personal computer, but you’ll actually be installing <em>two</em> separate programs.
+The <em>first</em> is the R programming language.
+The <em>second</em> is a separate program called RStudio, which will be the primary way in which you interact with R in this class, we will say more about this later.</p>
+<div id="installing-r-1" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Installing R<a href="install-r-r-studio.html#installing-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Installation will look slightly different depending on the operating system, but the major steps are the same.</p>
+<ul>
+<li>First, navigate to the <a href="https://cran.r-project.org/mirrors.html">CRAN Mirrors Site</a>, which lists several locations from which R can be downloaded.</li>
+<li>Find a location near you (or not, this isn’t critical) and click on the link to be brought to the mirror site.</li>
+</ul>
+<p>From this point, this will change depending on your operating system.</p>
+<div id="windows" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> Windows<a href="install-r-r-studio.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Click “Download R for Windows”, then click “base”.</li>
+<li>Finally, Click “Download R X.Y.Z for Windows”, where X, Y, and Z will be numbers. These numbers indicate which version of R you’ll be installing. As of the publishing of this book, R is on version 4.4.0.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your <code>Downloads</code> folder or the <code>Desktop</code>) and select “save”.</li>
+<li>When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.</li>
+<li>Follow the on screen prompts. For the most part you can click “next” and “install” as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>Click “Finish” to complete the installation!</li>
+</ul>
+<div class="video">
+<p>
+This video shows the installation process for Windows.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7ZYn6q_pboE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://www.youtube.com/embed/7ZYn6q_pboE" class="uri">https://www.youtube.com/embed/7ZYn6q_pboE</a></strong>
+</center>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+</div>
+<div id="macos" class="section level4 hasAnchor" number="3.2.1.2">
+<h4><span class="header-section-number">3.2.1.2</span> macOS<a href="install-r-r-studio.html#macos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Click “Download R for macOS”</li>
+<li>Click “R-X.Y.Z.pkg”, where X, Y, and Z will be numbers. These numbers indicate which version of R you’ll be installing. As of the publishing of this book, R is on version 4.4.0.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select “save”.</li>
+<li>When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process.</li>
+<li>Follow the on screen prompts. For the most part you can click “continue”, “agree”, “install”, as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>Click “Close” to complete the installation!</li>
+</ul>
+</div>
+<div id="linux" class="section level4 hasAnchor" number="3.2.1.3">
+<h4><span class="header-section-number">3.2.1.3</span> Linux<a href="install-r-r-studio.html#linux" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We will not provide details on installing R for Linux, because the process varies depending on your distribution, and because if you’re using Linux, chances are you’re more computer proficient than the average user.
+Suffice it to say, The first step is:</p>
+<ul>
+<li>Click “Download R for Linux”</li>
+</ul>
+<p>And you can probably figure things out from there.</p>
+</div>
+<div id="conclusion" class="section level4 hasAnchor" number="3.2.1.4">
+<h4><span class="header-section-number">3.2.1.4</span> Conclusion<a href="install-r-r-studio.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You should now have R installed!
+Technically speaking, nothing further is required to work with R.
+You can open the RGui, and start coding immediately.
+However, for this course we will be using RStudio, which is a very popular program with an incredibly rich set of features, which will enhance your R programming experience.</p>
+</div>
+</div>
+<div id="installing-rstudio" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Installing RStudio<a href="install-r-r-studio.html#installing-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Navigate to the <a href="https://rstudio.com/products/rstudio/download/#download">RStudio Download Page</a>, and find the download file that matches your operating system.</li>
+<li>Click the link to download the installer, which starts with “RStudio-” or “rstudio-”.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your <code>Downloads</code> folder or the <code>Desktop</code>) and select “save”.</li>
+<li>When the download completes, find the downloaded file and double click to run it. This will start the installation process.</li>
+</ul>
+<p>From this point, this will change depending on your operating system.</p>
+<div id="windows-1" class="section level4 hasAnchor" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Windows<a href="install-r-r-studio.html#windows-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Follow the on screen prompts. For the most part you can click “next” and “install” as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio</li>
+</ul>
+<div class="video">
+<p>
+This video shows the installation process for Windows.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XnqENdiEb3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/XnqENdiEb3I" class="uri">https://youtu.be/XnqENdiEb3I</a></strong>
+</center>
+</div>
+</div>
+<div id="macos-1" class="section level4 hasAnchor" number="3.2.2.2">
+<h4><span class="header-section-number">3.2.2.2</span> macOS<a href="install-r-r-studio.html#macos-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>In the window which opens, drag the RStudio icon into the “Applications” folder. You may need to enter your password (click the “Authenticate” button) in order to do so.</li>
+<li>You should now be able to navigate to the Applications folder in Finder, and click on the RStudio icon to open RStudio.</li>
+</ul>
+</div>
+<div id="conclusion-1" class="section level4 hasAnchor" number="3.2.2.3">
+<h4><span class="header-section-number">3.2.2.3</span> Conclusion<a href="install-r-r-studio.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="bonus">
+<p>
+Rstudio also offers a <a href="https://rstudio.cloud/">cloud
+service</a> that allows you to work with R in your browser. We’ll use
+the desktop version but you can check out the <a
+href="https://rstudio.cloud/learn/primers">interactive primers</a> on
+the cloud site.
+</p>
+</div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20%26%20RStudio">here</a>
 </p>
 </div>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="computer-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="successfull-installation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
