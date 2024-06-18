@@ -627,9 +627,9 @@ Imagine a grocery list, shopping list, or to-do list. That list consists of a se
 ```
 
 Often, you will need to work with many related data, for example:
-- A sequence of measurements through time
-- A grid of values
-- A set of phone numbers
+* A sequence of measurements through time
+* A grid of values
+* A set of phone numbers
 
 In these circumstances, it would make sense to organize the data into a _data structure_. 
 R provides multiple data structures, each of which are appropriate in various situations.
@@ -823,8 +823,8 @@ a == 2
 R has some functions which _summarize_ the values in a vector.
 One such function is the `sum` function, which adds the values of each element in the vector:
 ```{r}
-print(a)  # Print the elements of a as a reminder
-sum(a)    # Add all the elements of a together.
+print(a)  # print the elements of a as a reminder
+sum(a)    # add all the elements of a together.
 ```
 
 ```{block, type="bonus"}
@@ -848,14 +848,14 @@ a ^ b
 You can even compare two vectors, and the result will be a logical vector:
 
 ```{r}
-z <- a > b  # Compare a and b, element by element, assign the result to z
-z           # Print the value of z
+z <- a > b  # compare a and b, element by element, assign the result to z
+z           # print the value of z
 ```
 The first logical value is the result of `a[1] < b[1]`, the second logical value is the result of `a[2] < b[2]`, etc. 
 what operations can we perform on character vectors?
 Here are some examples:
 ```{r}
-z == TRUE  # Which elements are TRUE?
+z == TRUE  # which elements are TRUE?
 ```
 This just produces `z` again (Do you see why?).
 Here's how to get the logical "opposite" of `z`:
@@ -876,7 +876,7 @@ sum(z)
 ```
 Here's another example of using the sum function on a logical vector:
 ```{r}
-sum(a == b)  # How many elements do a and b have in common?
+sum(a == b)  # how many elements do a and b have in common?
 ```
 So there is one element that both `a` and `b` share.
 
@@ -901,7 +901,7 @@ a == b
 To search for specific character strings in a character vector, you can use the `grep` function:
 
 ```{r}
-grep("have", a)  # Search the vector a for the phrase "have"
+grep("have", a)  # search the vector a for the phrase "have"
 ```
 This result shows that the phrase "have" occurs in elements 2 and 4 of `a`!
 What if we search for a phrase that doesn't occur?
@@ -931,11 +931,11 @@ c <- c(TRUE, TRUE, FALSE)
 ```
 
 ```{r, error=TRUE}
-a + b  # Can you add a numeric vector to a character vector? 
+a + b  # can you add a numeric vector to a character vector? 
 ```
 
 ```{r, error=TRUE}
-a + c  # Can you add a numeric vector to a logical vector?
+a + c  # can you add a numeric vector to a logical vector?
 ```
 
 ```{block, type="reflect"}
@@ -954,7 +954,7 @@ If you run into errors, you can include `error=TRUE` in your code chunk options 
   
 ` ```{r, error=TRUE}`
 
-This will allow RStudio to still knit the document, even thought the code block generated errors.
+This will allow RStudio to still knit the document, even though the code block generated errors.
 ```
 
 #### Special Numeric Vectors
@@ -962,14 +962,14 @@ This will allow RStudio to still knit the document, even thought the code block 
 There are a few special ways of creating a numeric vector which can be very useful, so we'll mention them here.
 The first way creates a sequence of all integers between a starting and ending point:
 ```{r}
-d <- 1:5  # Create sequence starting at 1 and ending at 5
+d <- 1:5  # create sequence starting at 1 and ending at 5
 d
 ```
 
 Here's a longer example:
 
 ```{r}
-d <- 1:100  # Create sequence starting at 1 and ending at 100
+d <- 1:100  # create sequence starting at 1 and ending at 100
 d
 ```
 
