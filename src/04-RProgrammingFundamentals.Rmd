@@ -627,6 +627,7 @@ Imagine a grocery list, shopping list, or to-do list. That list consists of a se
 ```
 
 Often, you will need to work with many related data, for example:
+
 * A sequence of measurements through time
 * A grid of values
 * A set of phone numbers
@@ -1123,10 +1124,11 @@ Therefore, the following does not work:
 "1" + "2"  # R can't add two character strings
 ```
 To remedy issues like this, R provides functions in order to convert from one data type into another:
-- as.character: converts to character
-- as.numeric: converts to numeric
-- as.logical: converts to logical
-- as.factor: converts to factor
+
+* as.character: converts to character
+* as.numeric: converts to numeric
+* as.logical: converts to logical
+* as.factor: converts to factor
 
 Using these functions, R will "do its best" to convert whatever you start with into the desired data type, but it's not always possible to make the conversion.
 Below are a few examples which do and don't work well.
@@ -1201,10 +1203,10 @@ as.numeric("99")
 
 Along with the conversion functions `as....`, there are companion functions which simply check whether a vector is of a certain type:
 
-- is.character: checks if character
-- is.numeric: checks if numeric
-- is.logical: checks if logical
-- is.factor: checks if factor
+* is.character: checks if character
+* is.numeric: checks if numeric
+* is.logical: checks if logical
+* is.factor: checks if factor
 
 Here are some examples:
 ```{r}

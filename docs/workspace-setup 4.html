@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>3.5 Workspace setup | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="running-code-in-rstudio.html"/>
+<link rel="next" href="r-programming-fundamentals.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,59 +340,172 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>18 Jun, 2024, 10:27 AM</em></p>
+<div id="workspace-setup" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Workspace setup<a href="workspace-setup.html#workspace-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
+This section will give you some instructions and tips for how to organize material for this R course.</p>
+<div id="recommended-settings" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Recommended Settings<a href="workspace-setup.html#recommended-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>First of all, let’s set some settings in RStudio.
+At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
+<ol style="list-style-type: decimal">
+<li>On the left side of the window that pops up, make sure it’s on the “General” tab</li>
+<li>Find the “Workspace” section on the right, make the following changes:
+<ul>
+<li><em>uncheck</em> “Restore .RData into workspace on startup”</li>
+<li>Change the “Save workspace to .RData on exit” option to <em>never</em></li>
+</ul></li>
+<li>On the left side, select the “R Markdown” tab and make the following change:
+<ul>
+<li>Change the “Evaluate chunks in directory” option to <em>Project</em>.</li>
+<li>You may need to install the <code>rmarkdown</code> package to populate this option. Run the line <code>install.packages("rmarkdown")</code> and restart RStudio (you can ignore the prompt to install RTools on Windows).</li>
+</ul></li>
+<li>(Optional) On the left side, select the “Appearance” tab and make the changes:
+<ul>
+<li>(Optional) Change the “Zoom:” setting to increase or decrease the interface text size to fit your screen best.</li>
+<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
+</ul></li>
+<li>Click “Apply”, then “OK” at the bottom of the window.</li>
+</ol>
+<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
+This is a good option for R beginners to avoid confusion and mistakes.
+Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the <em>working directory</em> (more on working directories below).
+Changing the zoom can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
+On macOS, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<div id="setting-working-directory" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Setting working directory<a href="workspace-setup.html#setting-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
+In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
+This will become more relevant when you start loading data and saving results later in the course.
+For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
+<div class="bonus">
+<p>
+See <a
+href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a>
+for more information about working directories.
 </p>
 </div>
 </div>
+<div id="create-rstudio-project-and-directories-for-class" class="section level3 hasAnchor" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class<a href="workspace-setup.html#create-rstudio-project-and-directories-for-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects.
+For this class, you should set up a new project, so all of your project related files are in one place.</p>
+<div id="create-rstudio-project" class="section level4 hasAnchor" number="3.5.3.1">
+<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project<a href="workspace-setup.html#create-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To create an RStudio project, follow these steps:</p>
+<ul>
+<li>Click on the “Project” button at the top right of the RStudio window and select “New Project”.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
+<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
+<p class="caption">
+Figure 3.4: Click this button to create a new project
+</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<ul>
+<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
+<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
+<li>Then click the “Browse” button to select where to place the project.</li>
+<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
+<li>Click on “Create Project”.</li>
+</ul>
+<p>You should now be <em>in</em> your newly created project.
+If you look at the Files window in the lower right pane of RStudio, you should see the files in your new project directory, which should only be one file, called “RModule1.rproj”.
+This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
+When you’re working on this course, you should be working in this project.
+The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
+This will automatically set the working directory to the project directory.</p>
+</div>
+<div id="create-directory-structure" class="section level4 hasAnchor" number="3.5.3.2">
+<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure<a href="workspace-setup.html#create-directory-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>To stay organized, you should also create the following folders inside your project directory</p>
+<ul>
+<li>scripts</li>
+<li>data_raw</li>
+<li>data_clean</li>
+<li>output</li>
+</ul>
+<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
+</div>
+<div id="video" class="section level4 hasAnchor" number="3.5.3.3">
+<h4><span class="header-section-number">3.5.3.3</span> Video<a href="workspace-setup.html#video" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="video">
+<p>
+Check out this video to watch me set up a project and the new
+directories.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0saBBd6lQDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/0saBBd6lQDI" class="uri">https://youtu.be/0saBBd6lQDI</a></strong>
+</center>
+</div>
+</div>
+<div id="set" class="section level4 hasAnchor" number="3.5.3.4">
+<h4><span class="header-section-number">3.5.3.4</span> Set<a href="workspace-setup.html#set" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="some-useful-commands-you-should-know" class="section level3 hasAnchor" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
+This will reduce the amount of memory that is taken up</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
+<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
+<pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
+Ncells  879303 47.0    1676041 89.6         NA  1322255 70.7
+Vcells 1630668 12.5    8388608 64.0     102400  2591268 19.8</code></pre>
+<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
+<div class="bonus">
+<p>
+Here’s a <a
+href="https://support.rstudio.com/hc/en-us/articles/200711853">more
+complete list</a> of RStudio shortcuts.
+</p>
+</div>
+<div class="reflect">
+<p>
+Before moving on to the next section, take a note of all you’ve done
+so far.
+</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>
+Did your R installation go smoothly? If not, could you
+troubleshoot the errors or find help online?
+</p>
+</li>
+<li>
+<p>
+Does using R remind you of other programs you have experience
+with?
+</p>
+</li>
+<li>
+<p>
+What could be some reasons that using R code written by someone
+else might not work on your computer?
+</p>
+</li>
 </ol>
 </div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+</p>
+</div>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-programming-fundamentals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

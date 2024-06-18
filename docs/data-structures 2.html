@@ -351,12 +351,10 @@ list, rather than in some other fashion? Can you think of why it might
 be useful to store data in a list?
 </p>
 </div>
-<p>Often, you will need to work with many related data, for example:</p>
-<ul>
-<li>A sequence of measurements through time</li>
-<li>A grid of values</li>
-<li>A set of phone numbers</li>
-</ul>
+<p>Often, you will need to work with many related data, for example:
+* A sequence of measurements through time
+* A grid of values
+* A set of phone numbers</p>
 <p>In these circumstances, it would make sense to organize the data into a <em>data structure</em>.
 R provides multiple data structures, each of which are appropriate in various situations.
 By far the most popular data structure in R is the <em>data frame</em>, but in order to talk about data frames, we must talk about some simpler data structures first.</p>
@@ -798,13 +796,11 @@ Therefore, the following does not work:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb192-1"><a href="data-structures.html#cb192-1" tabindex="-1"></a><span class="st">&quot;1&quot;</span> <span class="sc">+</span> <span class="st">&quot;2&quot;</span>  <span class="co"># R can&#39;t add two character strings</span></span></code></pre></div>
 <pre class="sourceCode r error-style"><code>Error in "1" + "2": non-numeric argument to binary operator
 </code></pre>
-<p>To remedy issues like this, R provides functions in order to convert from one data type into another:</p>
-<ul>
-<li>as.character: converts to character</li>
-<li>as.numeric: converts to numeric</li>
-<li>as.logical: converts to logical</li>
-<li>as.factor: converts to factor</li>
-</ul>
+<p>To remedy issues like this, R provides functions in order to convert from one data type into another:
+- as.character: converts to character
+- as.numeric: converts to numeric
+- as.logical: converts to logical
+- as.factor: converts to factor</p>
 <p>Using these functions, R will “do its best” to convert whatever you start with into the desired data type, but it’s not always possible to make the conversion.
 Below are a few examples which do and don’t work well.</p>
 <p>Converting from a numeric to a character vector is always possible:</p>

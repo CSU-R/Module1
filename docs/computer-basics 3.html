@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>3.1 Computer Basics | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="3.1 Computer Basics | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="3.1 Computer Basics | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="installing-r.html"/>
+<link rel="next" href="install-r-r-studio.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,59 +340,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>18 Jun, 2024, 10:27 AM</em></p>
+<div id="computer-basics" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Computer Basics<a href="computer-basics.html#computer-basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you’re new to computers, this section will be important for you to get set up.
+We’ll briefly introduce some computer concepts and discuss how they’re relevant to R.
+If you understand the basics of operating systems, directory structures on your computer, and downloading/installing files, then you can probably skim this section, but be sure to pay attention to the R-specific information.</p>
+<div id="operating-systems" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Operating Systems<a href="computer-basics.html#operating-systems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+An operating system is a set of programs that allow you to interact with the computer, and the most popular operating systems are Windows, macOS, and Linux.
+R works on Windows, macOS, and several Linux-based operating systems, so if you have one of these operating systems, you’ll be able install and use R.
+At least, this is mostly true:
+<div class="caution">
+<p>
+Some versions of Windows that run on ARM processors cannot install R,
+and installing R on a Chromebook will likely be more complicated (see <a
+href="https://francish.netlify.app/post/installing-r-and-rstudio-on-a-pixel-slate/"
+target="_blank">here</a>). If you’re in this situation, contact the
+instructor immediately.
+</p>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<p>R isn’t designed to work on tablets or phones which run mobile/tablet operating systems (like iOS, iPadOS, Android, ChromeOS), so these are not an option for R.</p>
+</div>
+<div id="files-directory-structures" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Files &amp; Directory Structures<a href="computer-basics.html#files-directory-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A file is a collection of data stored on your computer’s hard drive.
+Examples of files include:</p>
+<ul>
+<li>A music file</li>
+<li>A video</li>
+<li>A slide presentation</li>
+<li>A text document</li>
+</ul>
+<p>Different types of files are often treated differently by your computer.
+For example, a music file is played with a music player program, a video can be viewed with a video player, and a slide presentation might be viewed with Powerpoint.
+Most operating systems know the type of a file by looking at the <em>extension</em>, which is at the very end of the file’s name.
+Examples include “.mp3”, “.doc”, “.txt”, and “.ppt”.
+When using R, we can write scripts which contain R code, and <em>R Markdown</em> documents, which include human readable text and code.
+R scripts usually have either a “.R” or “.r” extension, and we’ll also be using <em>R Markdown</em>, which use either a “.Rmd” or “.rmd” extension.</p>
+<p>A <em>directory</em>, or <em>folder</em>, is a collection of files, and computers use directories to logically organize sets of files.
+When working with R, you may have to organize several different types of files, including R code, data files, and images.
+It will be important to stay organized when using R, and we will address this more later in the chapter.</p>
+<p>With the increasing prevalence of the internet in everyday life, it’s becoming less common for files to exist on your computer.
+When writing R code, you’ll be working with files on your computer, not accessing them over the internet.</p>
+</div>
+<div id="downloads-and-installations" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Downloads and Installations<a href="computer-basics.html#downloads-and-installations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To install R, you’ll have to download a file from the internet which performs the installation.
+After you install R, you shouldn’t have to download anything to run R.
+The specific steps to install R will be different depending on your operating system, and this will be addressed in the next section.</p>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Computer%20Basics">here</a>
 </p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installing-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="install-r-r-studio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

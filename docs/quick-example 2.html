@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>5.1 Quick Example | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="5.1 Quick Example | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="5.1 Quick Example | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="working-with-data.html"/>
+<link rel="next" href="reading-writing-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -340,59 +340,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>18 Jun, 2024, 10:27 AM</em></p>
+<div id="quick-example" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Quick Example<a href="quick-example.html#quick-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before diving into detail, let’s do a quick example so you can begin to see what is possible with data in R.
+As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the <code>data()</code> command.
+One of the data sets is <code>Seatbelts</code>, which documents road casualties in Great Britain between 1969 and 1984.
+Firstly, we need to convert <code>Seatbelts</code> to a data frame, because it starts out as a “Time-Series”, which we haven’t discussed.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date =</span> <span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
+<p>We’ve also added a month and year column</p>
+<p>look at the dimensions of the data set with the <code>dim</code> command:</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1" tabindex="-1"></a><span class="fu">dim</span>(Seatbelts)  <span class="co"># Get the number of dimensions in the Seatbelts data frame</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 192   9</code></pre>
+<p>This shows that there are 192 rows (months), and 9 columns (variables measured each month).
+We could also determine the number of rows and columns separately using the <code>nrow</code> and <code>ncol</code> functions.
+To view the first few rows of the Seatbelts data frame, use the <code>head</code> command:</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb328-1"><a href="quick-example.html#cb328-1" tabindex="-1"></a><span class="fu">head</span>(Seatbelts)  <span class="co"># View first few rows of the Seatbelts dataset</span></span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["DriversKilled"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["drivers"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["front"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rear"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["kms"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["PetrolPrice"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["VanKilled"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["law"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["date"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"107","2":"1687","3":"867","4":"269","5":"9059","6":"0.1029718","7":"12","8":"0","9":"1969.000","_rn_":"1"},{"1":"97","2":"1508","3":"825","4":"265","5":"7685","6":"0.1023630","7":"6","8":"0","9":"1969.083","_rn_":"2"},{"1":"102","2":"1507","3":"806","4":"319","5":"9963","6":"0.1020625","7":"12","8":"0","9":"1969.167","_rn_":"3"},{"1":"87","2":"1385","3":"814","4":"407","5":"10955","6":"0.1008733","7":"8","8":"0","9":"1969.250","_rn_":"4"},{"1":"119","2":"1632","3":"991","4":"454","5":"11823","6":"0.1010197","7":"10","8":"0","9":"1969.333","_rn_":"5"},{"1":"106","2":"1511","3":"945","4":"427","5":"12391","6":"0.1005812","7":"13","8":"0","9":"1969.417","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
+<p>This is a good way to learn which variables are being measured (columns) and see some example observations (rows) for each variable.
+Because these data are included with R, more information about each variable can be found with:</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb329-1"><a href="quick-example.html#cb329-1" tabindex="-1"></a>?Seatbelts</span></code></pre></div>
+<p>Next, let’s view a summary of each column with the summary function:</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb330-1"><a href="quick-example.html#cb330-1" tabindex="-1"></a><span class="fu">summary</span>(Seatbelts)</span></code></pre></div>
+<pre class="output-style"><code> DriversKilled      drivers         front             rear      
+ Min.   : 60.0   Min.   :1057   Min.   : 426.0   Min.   :224.0  
+ 1st Qu.:104.8   1st Qu.:1462   1st Qu.: 715.5   1st Qu.:344.8  
+ Median :118.5   Median :1631   Median : 828.5   Median :401.5  
+ Mean   :122.8   Mean   :1670   Mean   : 837.2   Mean   :401.2  
+ 3rd Qu.:138.0   3rd Qu.:1851   3rd Qu.: 950.8   3rd Qu.:456.2  
+ Max.   :198.0   Max.   :2654   Max.   :1299.0   Max.   :646.0  
+      kms         PetrolPrice        VanKilled           law        
+ Min.   : 7685   Min.   :0.08118   Min.   : 2.000   Min.   :0.0000  
+ 1st Qu.:12685   1st Qu.:0.09258   1st Qu.: 6.000   1st Qu.:0.0000  
+ Median :14987   Median :0.10448   Median : 8.000   Median :0.0000  
+ Mean   :14994   Mean   :0.10362   Mean   : 9.057   Mean   :0.1198  
+ 3rd Qu.:17202   3rd Qu.:0.11406   3rd Qu.:12.000   3rd Qu.:0.0000  
+ Max.   :21626   Max.   :0.13303   Max.   :17.000   Max.   :1.0000  
+      date     
+ Min.   :1969  
+ 1st Qu.:1973  
+ Median :1977  
+ Mean   :1977  
+ 3rd Qu.:1981  
+ Max.   :1985  </code></pre>
+<p>Since each column is numeric, R shows a five number summary (minimum, first quartile, median, third quartile, maximum) and mean for each column.
+We learn, for example, that the average number of drivers killed per month is 1670, and that the greatest price of petrol was £0.13 per litre!
+Let’s view a histogram of <code>DriversKilled</code>:</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb332-1"><a href="quick-example.html#cb332-1" tabindex="-1"></a><span class="fu">hist</span>(Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-323"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-323-1.png" alt="Histogram of Drivers Killed in Seatbelt data" width="672" />
 <p class="caption">
-Figure 1.1: Left and right navigation arrows
+Figure 5.1: Histogram of Drivers Killed in Seatbelt data
 </p>
 </div>
+<p>We see that in some months, more than 150 drivers were killed!
+We can calculate how many exactly like so:</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb333-1"><a href="quick-example.html#cb333-1" tabindex="-1"></a><span class="fu">sum</span>(Seatbelts<span class="sc">$</span>DriversKilled <span class="sc">&gt;</span> <span class="dv">150</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 33</code></pre>
+<p>To investigate the effect of the seat belt law, let’s create a scatter plot of drivers killed against time:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb335-1"><a href="quick-example.html#cb335-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-325"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-325-1.png" alt="UK Seatbelt deaths vs time" width="672" />
+<p class="caption">
+Figure 5.2: UK Seatbelt deaths vs time
+</p>
 </div>
+<p>By adding a <code>col</code> argument to the <code>plot</code> function, we can color the points based on whether the law was in effect:</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb336-1"><a href="quick-example.html#cb336-1" tabindex="-1"></a><span class="fu">plot</span>(Seatbelts<span class="sc">$</span>date, Seatbelts<span class="sc">$</span>DriversKilled, <span class="at">col =</span> (Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-326-1.png" alt="UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law" width="672" />
+<p class="caption">
+Figure 5.3: UK Seatbelt deaths vs time, red = no seatbelt law, green = seatbelt law
+</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
+<p>There do appear to be fewer deaths, but there is so much fluctuation in deaths each year that it’s difficult to tell.</p>
+<p>Let’s change the x-axis to reflect month of the year instead of date:</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb337-1"><a href="quick-example.html#cb337-1" tabindex="-1"></a><span class="fu">plot</span>((Seatbelts<span class="sc">$</span>date <span class="sc">%%</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">12</span> <span class="sc">+</span> <span class="dv">1</span>, Seatbelts<span class="sc">$</span>DriversKilled, </span>
+<span id="cb337-2"><a href="quick-example.html#cb337-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>, <span class="at">col =</span> Seatbelts<span class="sc">$</span>law <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
+<img src="Module1_files/figure-html/unnamed-chunk-327-1.png" alt="UK Driver Deaths vs. Month" width="672" />
+<p class="caption">
+Figure 5.4: UK Driver Deaths vs. Month
+</p>
+</div>
+<p>This plot shows that there is a clear seasonal effect in the number of deaths with higher deaths occurring in the Fall/Winter compared to Spring/Summer.
+We can also see that within each month, the traffic deaths after enacting the Seatbelt law are among the lowest.</p>
+<div class="progress">
+<p>
+Another data set included in R is <code>mtcars</code>. Following the
+example above, find the dimension of <code>mtcars</code> and have R
+print out a summary of each column, then create a scatter plot of fuel
+economy (<code>mpg</code>) versus engine displacement. What do you
+observe about the relationship between these two variables?
+</p>
+</div>
+<p>This concludes the quick example.
+In the rest of this chapter, we’ll talk in more detail about the different steps of working with data, and how to complete them using R!</p>
+<div class="reflect">
+<p>
+People often use data in order to answer questions, but often times,
+learning about data can generate even <em>more</em> questions than it
+answers. Take a moment to think of a question that you have about the
+<code>Seatbelts</code> dataset. Do you think the question can be
+answered using the data alone? If not, what other sources of data might
+be available which can help answer the question?
+</p>
+</div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Quick%20Example">here</a>
+</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="working-with-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reading-writing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
