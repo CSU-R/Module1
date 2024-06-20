@@ -15,11 +15,12 @@ As we mentioned in the last chapter, R includes some pre-packaged data sets, whi
 One of the data sets is `Seatbelts`, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert `Seatbelts` to a data frame, because it starts out as a "Time-Series", which we haven't discussed.
 ```{r}
-Seatbelts <- data.frame(as.matrix(Seatbelts), date = time(Seatbelts))  # Convert Time Series to data frame
+Seatbelts <- data.frame(as.matrix(Seatbelts),
+                        date = time(Seatbelts))  # Convert Time Series to data frame
 ```
-We've also added a month and year column 
+We've also added a date column.
 
-look at the dimensions of the data set with the `dim` command:
+Look at the dimensions of the data set with the `dim` command:
 ```{r}
 dim(Seatbelts)  # Get the number of dimensions in the Seatbelts data frame
 ```

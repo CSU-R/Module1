@@ -346,9 +346,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 As we mentioned in the last chapter, R includes some pre-packaged data sets, which you can access with the <code>data()</code> command.
 One of the data sets is <code>Seatbelts</code>, which documents road casualties in Great Britain between 1969 and 1984.
 Firstly, we need to convert <code>Seatbelts</code> to a data frame, because it starts out as a “Time-Series”, which we haven’t discussed.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts), <span class="at">date =</span> <span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
-<p>We’ve also added a month and year column</p>
-<p>look at the dimensions of the data set with the <code>dim</code> command:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb325-1"><a href="quick-example.html#cb325-1" tabindex="-1"></a>Seatbelts <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">as.matrix</span>(Seatbelts),</span>
+<span id="cb325-2"><a href="quick-example.html#cb325-2" tabindex="-1"></a>                        <span class="at">date =</span> <span class="fu">time</span>(Seatbelts))  <span class="co"># Convert Time Series to data frame</span></span></code></pre></div>
+<p>We’ve also added a date column.</p>
+<p>Look at the dimensions of the data set with the <code>dim</code> command:</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb326-1"><a href="quick-example.html#cb326-1" tabindex="-1"></a><span class="fu">dim</span>(Seatbelts)  <span class="co"># Get the number of dimensions in the Seatbelts data frame</span></span></code></pre></div>
 <pre class="output-style"><code>[1] 192   9</code></pre>
 <p>This shows that there are 192 rows (months), and 9 columns (variables measured each month).
