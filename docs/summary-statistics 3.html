@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.3 Summary Statistics | R Module 1</title>
+  <meta name="description" content="This is the book for the R Intro Course at CSU." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.3 Summary Statistics | R Module 1" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.3 Summary Statistics | R Module 1" />
+  
+  <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
+  
+
+<meta name="author" content="Alex Fout" />
+<meta name="author" content="Lane Drew" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reading-writing-data.html"/>
+<link rel="next" href="data-formatting.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="src/style.css" type="text/css" />
+<link rel="stylesheet" href="src/environments.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Module 1</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome!</a>
+<ul>
+<li class="chapter" data-level="1.0.1" data-path="index.html"><a href="index.html#how-to-navigate-this-book"><i class="fa fa-check"></i><b>1.0.1</b> How To Navigate This Book</a></li>
+<li class="chapter" data-level="1.1" data-path="associated-csu-course.html"><a href="associated-csu-course.html"><i class="fa fa-check"></i><b>1.1</b> Associated CSU Course</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="prelim.html"><a href="prelim.html"><i class="fa fa-check"></i><b>2</b> Course Preliminaries</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="this-textbook.html"><a href="this-textbook.html"><i class="fa fa-check"></i><b>2.1</b> This Textbook</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="this-textbook.html"><a href="this-textbook.html#special-boxes"><i class="fa fa-check"></i><b>2.1.1</b> Special Boxes</a></li>
+<li class="chapter" data-level="2.1.2" data-path="this-textbook.html"><a href="this-textbook.html#how-this-book-displays-code"><i class="fa fa-check"></i><b>2.1.2</b> How This Book Displays Code</a></li>
+<li class="chapter" data-level="2.1.3" data-path="this-textbook.html"><a href="this-textbook.html#next-steps"><i class="fa fa-check"></i><b>2.1.3</b> Next Steps</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html"><i class="fa fa-check"></i><b>2.2</b> Course Topics &amp; Syllabus</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#syllabus"><i class="fa fa-check"></i><b>2.2.1</b> Syllabus</a></li>
+<li class="chapter" data-level="2.2.2" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#assignment-templates"><i class="fa fa-check"></i><b>2.2.2</b> Assignment Templates</a></li>
+<li class="chapter" data-level="2.2.3" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#course-policies"><i class="fa fa-check"></i><b>2.2.3</b> Course Policies</a></li>
+<li class="chapter" data-level="2.2.4" data-path="course-topics-syllabus.html"><a href="course-topics-syllabus.html#grading-scale"><i class="fa fa-check"></i><b>2.2.4</b> Grading Scale</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="running-your-first-r-code.html"><a href="running-your-first-r-code.html"><i class="fa fa-check"></i><b>2.3</b> Running your first R Code</a></li>
+<li class="chapter" data-level="2.4" data-path="getoutoftheclass.html"><a href="getoutoftheclass.html"><i class="fa fa-check"></i><b>2.4</b> What do you hope to get out of this course?</a></li>
+<li class="chapter" data-level="2.5" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i><b>2.5</b> What is R?</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="what-is-r.html"><a href="what-is-r.html#r-is-a-programming-language"><i class="fa fa-check"></i><b>2.5.1</b> R is a Programming Language</a></li>
+<li class="chapter" data-level="2.5.2" data-path="what-is-r.html"><a href="what-is-r.html#r-is-software"><i class="fa fa-check"></i><b>2.5.2</b> R is software</a></li>
+<li class="chapter" data-level="2.5.3" data-path="what-is-r.html"><a href="what-is-r.html#r-is-free"><i class="fa fa-check"></i><b>2.5.3</b> R is Free</a></li>
+<li class="chapter" data-level="2.5.4" data-path="what-is-r.html"><a href="what-is-r.html#r-is-open-source"><i class="fa fa-check"></i><b>2.5.4</b> R is Open Source</a></li>
+<li class="chapter" data-level="2.5.5" data-path="what-is-r.html"><a href="what-is-r.html#r-is-an-ecosystem"><i class="fa fa-check"></i><b>2.5.5</b> R is an ecosystem</a></li>
+<li class="chapter" data-level="2.5.6" data-path="what-is-r.html"><a href="what-is-r.html#r-packages"><i class="fa fa-check"></i><b>2.5.6</b> R Packages</a></li>
+<li class="chapter" data-level="2.5.7" data-path="what-is-r.html"><a href="what-is-r.html#r-interfaces"><i class="fa fa-check"></i><b>2.5.7</b> R Interfaces</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="the-r-community.html"><a href="the-r-community.html"><i class="fa fa-check"></i><b>2.6</b> The R Community</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-if-youre-a-student-taking-this-class-for-credit"><i class="fa fa-check"></i><b>2.6.1</b> Places to Get Help (If you’re a student taking this class for credit)</a></li>
+<li class="chapter" data-level="2.6.2" data-path="the-r-community.html"><a href="the-r-community.html#places-to-get-help-anyone"><i class="fa fa-check"></i><b>2.6.2</b> Places to Get Help (anyone)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i><b>3</b> Installing R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="computer-basics.html"><a href="computer-basics.html"><i class="fa fa-check"></i><b>3.1</b> Computer Basics</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="computer-basics.html"><a href="computer-basics.html#operating-systems"><i class="fa fa-check"></i><b>3.1.1</b> Operating Systems</a></li>
+<li class="chapter" data-level="3.1.2" data-path="computer-basics.html"><a href="computer-basics.html#files-directory-structures"><i class="fa fa-check"></i><b>3.1.2</b> Files &amp; Directory Structures</a></li>
+<li class="chapter" data-level="3.1.3" data-path="computer-basics.html"><a href="computer-basics.html#downloads-and-installations"><i class="fa fa-check"></i><b>3.1.3</b> Downloads and Installations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html"><i class="fa fa-check"></i><b>3.2</b> Install R &amp; R Studio</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-r-1"><i class="fa fa-check"></i><b>3.2.1</b> Installing R</a></li>
+<li class="chapter" data-level="3.2.2" data-path="install-r-r-studio.html"><a href="install-r-r-studio.html#installing-rstudio"><i class="fa fa-check"></i><b>3.2.2</b> Installing RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="successfull-installation.html"><a href="successfull-installation.html"><i class="fa fa-check"></i><b>3.3</b> Successfull Installation</a></li>
+<li class="chapter" data-level="3.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html"><i class="fa fa-check"></i><b>3.4</b> Running Code in RStudio</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#the-r-console"><i class="fa fa-check"></i><b>3.4.1</b> The R Console:</a></li>
+<li class="chapter" data-level="3.4.2" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-scripts"><i class="fa fa-check"></i><b>3.4.2</b> R scripts</a></li>
+<li class="chapter" data-level="3.4.3" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#same-examples-on-your-computer"><i class="fa fa-check"></i><b>3.4.3</b> Same Examples, On Your Computer!</a></li>
+<li class="chapter" data-level="3.4.4" data-path="running-code-in-rstudio.html"><a href="running-code-in-rstudio.html#r-markdown"><i class="fa fa-check"></i><b>3.4.4</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="workspace-setup.html"><a href="workspace-setup.html"><i class="fa fa-check"></i><b>3.5</b> Workspace setup</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="workspace-setup.html"><a href="workspace-setup.html#recommended-settings"><i class="fa fa-check"></i><b>3.5.1</b> Recommended Settings</a></li>
+<li class="chapter" data-level="3.5.2" data-path="workspace-setup.html"><a href="workspace-setup.html#setting-working-directory"><i class="fa fa-check"></i><b>3.5.2</b> Setting working directory</a></li>
+<li class="chapter" data-level="3.5.3" data-path="workspace-setup.html"><a href="workspace-setup.html#create-rstudio-project-and-directories-for-class"><i class="fa fa-check"></i><b>3.5.3</b> Create RStudio Project and directories for class</a></li>
+<li class="chapter" data-level="3.5.4" data-path="workspace-setup.html"><a href="workspace-setup.html#some-useful-commands-you-should-know"><i class="fa fa-check"></i><b>3.5.4</b> Some useful commands you should know</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-programming-fundamentals.html"><a href="r-programming-fundamentals.html"><i class="fa fa-check"></i><b>4</b> R Programming Fundamentals</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html"><i class="fa fa-check"></i><b>4.1</b> Programming Preliminaries</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#r-commands"><i class="fa fa-check"></i><b>4.1.1</b> R Commands</a></li>
+<li class="chapter" data-level="4.1.2" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#comments"><i class="fa fa-check"></i><b>4.1.2</b> Comments</a></li>
+<li class="chapter" data-level="4.1.3" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#blank-lines"><i class="fa fa-check"></i><b>4.1.3</b> Blank Lines</a></li>
+<li class="chapter" data-level="4.1.4" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#case"><i class="fa fa-check"></i><b>4.1.4</b> CaSe SeNsItIvItY</a></li>
+<li class="chapter" data-level="4.1.5" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section"><i class="fa fa-check"></i><b>4.1.5</b> ?</a></li>
+<li class="chapter" data-level="4.1.6" data-path="programming-preliminaries.html"><a href="programming-preliminaries.html#section-1"><i class="fa fa-check"></i><b>4.1.6</b> ??</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4.2</b> Data Types</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#numeric"><i class="fa fa-check"></i><b>4.2.1</b> Numeric</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#integer"><i class="fa fa-check"></i><b>4.2.2</b> Integer</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#character"><i class="fa fa-check"></i><b>4.2.3</b> Character</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#logical"><i class="fa fa-check"></i><b>4.2.4</b> Logical</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4.3</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.3.1</b> Vectors</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3.2</b> Matrices</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.3.3</b> Lists</a></li>
+<li class="chapter" data-level="4.3.4" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.3.4</b> Data Frames</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-objects.html"><a href="r-objects.html"><i class="fa fa-check"></i><b>4.4</b> R Objects</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-objects.html"><a href="r-objects.html#everything-is-an-object-in-r"><i class="fa fa-check"></i><b>4.4.1</b> <em>Everything</em> is an object in R</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-objects.html"><a href="r-objects.html#assigning-objects"><i class="fa fa-check"></i><b>4.4.2</b> Assigning Objects</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-objects.html"><a href="r-objects.html#attributes"><i class="fa fa-check"></i><b>4.4.3</b> Attributes</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-objects.html"><a href="r-objects.html#null-objects"><i class="fa fa-check"></i><b>4.4.4</b> Null Objects</a></li>
+<li class="chapter" data-level="4.4.5" data-path="r-objects.html"><a href="r-objects.html#removing-objects"><i class="fa fa-check"></i><b>4.4.5</b> Removing Objects</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-with-data.html"><a href="working-with-data.html"><i class="fa fa-check"></i><b>5</b> Working with Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="quick-example.html"><a href="quick-example.html"><i class="fa fa-check"></i><b>5.1</b> Quick Example</a></li>
+<li class="chapter" data-level="5.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html"><i class="fa fa-check"></i><b>5.2</b> Reading / Writing Data</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reading-writing-data.html"><a href="reading-writing-data.html#olympic-athletes-example"><i class="fa fa-check"></i><b>5.2.1</b> Olympic Athletes Example</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reading-writing-data.html"><a href="reading-writing-data.html#locating-your-data-set"><i class="fa fa-check"></i><b>5.2.2</b> Locating your data set</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reading-writing-data.html"><a href="reading-writing-data.html#reading-csv-files"><i class="fa fa-check"></i><b>5.2.3</b> Reading CSV files</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reading-writing-data.html"><a href="reading-writing-data.html#writing-csv-files"><i class="fa fa-check"></i><b>5.2.4</b> Writing CSV files</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="summary-statistics.html"><a href="summary-statistics.html"><i class="fa fa-check"></i><b>5.3</b> Summary Statistics</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="summary-statistics.html"><a href="summary-statistics.html#quantitative-variables"><i class="fa fa-check"></i><b>5.3.1</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="5.3.2" data-path="summary-statistics.html"><a href="summary-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>5.3.2</b> Categorical Variables</a></li>
+<li class="chapter" data-level="5.3.3" data-path="summary-statistics.html"><a href="summary-statistics.html#saving-an-rdata-file"><i class="fa fa-check"></i><b>5.3.3</b> Saving an RData file</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-formatting.html"><a href="data-formatting.html"><i class="fa fa-check"></i><b>5.4</b> Data Formatting</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-formatting.html"><a href="data-formatting.html#raw-data-vs.-clean-data."><i class="fa fa-check"></i><b>5.4.1</b> “Raw” data vs. “Clean” data.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="indexing.html"><a href="indexing.html"><i class="fa fa-check"></i><b>5.5</b> Indexing</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="indexing.html"><a href="indexing.html#vectors-1"><i class="fa fa-check"></i><b>5.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="5.5.2" data-path="indexing.html"><a href="indexing.html#matrices-1"><i class="fa fa-check"></i><b>5.5.2</b> Matrices</a></li>
+<li class="chapter" data-level="5.5.3" data-path="indexing.html"><a href="indexing.html#lists-1"><i class="fa fa-check"></i><b>5.5.3</b> Lists</a></li>
+<li class="chapter" data-level="5.5.4" data-path="indexing.html"><a href="indexing.html#data-frames-1"><i class="fa fa-check"></i><b>5.5.4</b> Data Frames</a></li>
+<li class="chapter" data-level="5.5.5" data-path="indexing.html"><a href="indexing.html#advanced-indexing"><i class="fa fa-check"></i><b>5.5.5</b> Advanced Indexing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="visualization.html"><a href="visualization.html"><i class="fa fa-check"></i><b>5.6</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="visualization.html"><a href="visualization.html#one-quantitative-variable"><i class="fa fa-check"></i><b>5.6.1</b> One Quantitative Variable</a></li>
+<li class="chapter" data-level="5.6.2" data-path="visualization.html"><a href="visualization.html#two-quantitative-variables"><i class="fa fa-check"></i><b>5.6.2</b> Two Quantitative Variables</a></li>
+<li class="chapter" data-level="5.6.3" data-path="visualization.html"><a href="visualization.html#one-categorical-variable"><i class="fa fa-check"></i><b>5.6.3</b> One Categorical Variable</a></li>
+<li class="chapter" data-level="5.6.4" data-path="visualization.html"><a href="visualization.html#two-categorical-variables"><i class="fa fa-check"></i><b>5.6.4</b> Two Categorical Variables</a></li>
+<li class="chapter" data-level="5.6.5" data-path="visualization.html"><a href="visualization.html#multiple-plots"><i class="fa fa-check"></i><b>5.6.5</b> Multiple plots</a></li>
+<li class="chapter" data-level="5.6.6" data-path="visualization.html"><a href="visualization.html#other-types-of-plots"><i class="fa fa-check"></i><b>5.6.6</b> Other types of plots</a></li>
+<li class="chapter" data-level="5.6.7" data-path="visualization.html"><a href="visualization.html#saving-images"><i class="fa fa-check"></i><b>5.6.7</b> Saving Images</a></li>
+<li class="chapter" data-level="5.6.8" data-path="visualization.html"><a href="visualization.html#plotting-wrap-up"><i class="fa fa-check"></i><b>5.6.8</b> Plotting Wrap Up</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vignettes.html"><a href="vignettes.html"><i class="fa fa-check"></i><b>5.7</b> Vignettes</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vignettes.html"><a href="vignettes.html#flood-analysis-example"><i class="fa fa-check"></i><b>5.7.1</b> Flood analysis example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="performing-effective-data-analysis.html"><a href="performing-effective-data-analysis.html"><i class="fa fa-check"></i><b>6</b> Performing Effective Data Analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html"><i class="fa fa-check"></i><b>6.1</b> Basic Control Flow</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="basic-control-flow.html"><a href="basic-control-flow.html#loops"><i class="fa fa-check"></i><b>6.1.1</b> Loops</a></li>
+<li class="chapter" data-level="6.1.2" data-path="basic-control-flow.html"><a href="basic-control-flow.html#if-statements"><i class="fa fa-check"></i><b>6.1.2</b> If Statements</a></li>
+<li class="chapter" data-level="6.1.3" data-path="basic-control-flow.html"><a href="basic-control-flow.html#formatting-conventions"><i class="fa fa-check"></i><b>6.1.3</b> Formatting Conventions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="writing-functions.html"><a href="writing-functions.html"><i class="fa fa-check"></i><b>6.2</b> Writing Functions</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="writing-functions.html"><a href="writing-functions.html#the-components-of-a-function"><i class="fa fa-check"></i><b>6.2.1</b> The Components Of A Function</a></li>
+<li class="chapter" data-level="6.2.2" data-path="writing-functions.html"><a href="writing-functions.html#writing-a-function"><i class="fa fa-check"></i><b>6.2.2</b> Writing A Function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="writing-functions.html"><a href="writing-functions.html#using-functions-for-data-analysis"><i class="fa fa-check"></i><b>6.2.3</b> Using Functions for Data Analysis</a></li>
+<li class="chapter" data-level="6.2.4" data-path="writing-functions.html"><a href="writing-functions.html#function-scope"><i class="fa fa-check"></i><b>6.2.4</b> Function Scope</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html"><i class="fa fa-check"></i><b>6.3</b> Advanced Control Flow</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-multiple-dimensions"><i class="fa fa-check"></i><b>6.3.1</b> Applying Over Multiple Dimensions</a></li>
+<li class="chapter" data-level="6.3.2" data-path="advanced-control-flow.html"><a href="advanced-control-flow.html#applying-over-data-frame-groups"><i class="fa fa-check"></i><b>6.3.2</b> Applying Over Data Frame Groups</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html"><i class="fa fa-check"></i><b>6.4</b> Working With Popular Packages</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#what-is-a-package"><i class="fa fa-check"></i><b>6.4.1</b> What is a package?</a></li>
+<li class="chapter" data-level="6.4.2" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#how-do-i-use-packages"><i class="fa fa-check"></i><b>6.4.2</b> How do I use packages?</a></li>
+<li class="chapter" data-level="6.4.3" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#finding-and-using-package-help."><i class="fa fa-check"></i><b>6.4.3</b> Finding and using package help.</a></li>
+<li class="chapter" data-level="6.4.4" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#making-beautiful-plots-with-ggplot2"><i class="fa fa-check"></i><b>6.4.4</b> Making Beautiful Plots with <em>ggplot2</em></a></li>
+<li class="chapter" data-level="6.4.5" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#organizing-your-data-with-dplyr"><i class="fa fa-check"></i><b>6.4.5</b> Organizing Your Data With <em>dplyr</em></a></li>
+<li class="chapter" data-level="6.4.6" data-path="working-with-popular-packages.html"><a href="working-with-popular-packages.html#working-with-character-strings-with-stringr"><i class="fa fa-check"></i><b>6.4.6</b> Working With Character Strings with <em>stringr</em></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Module 1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="summary-statistics" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Summary Statistics<a href="summary-statistics.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Reading and writing data is useful, but the power of R is <em>doing interesting things</em> with the data!
+Let’s perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis.
+As we’ve seen, the <code>summary</code> function automatically performs some summary statistics on each column of a data frame.
+Let’s see how to produce these and other results manually.</p>
+<div id="quantitative-variables" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Quantitative Variables<a href="summary-statistics.html#quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To showcase the functions R provides to summarize quantitative variables, we’ll look at the <code>Age</code> column of our data frame, which is stored as an integer vector in R.</p>
+<div class="reflect">
+<p>
+What other R data types might be used to store quantitative data?
+</p>
+</div>
+<p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Age))  <span class="co"># Count how many NA&#39;s are in the Age column</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 183</code></pre>
+
+<div class="reflect">
+Pause and think through what’s happening in the above code. The <code>is.na</code> function returns a logical array which is true whenever the <code>Age</code> column is <code>NA</code>. So why does the <code>sum</code> function produce the number of <code>NA</code>’s?
+</div>
+<p>As a cleaning step, we must first remove the <code>NA</code> values:</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Age       <span class="co"># Assign the Ages column to a variable</span></span>
+<span id="cb344-2"><a href="summary-statistics.html#cb344-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> age[<span class="sc">!</span><span class="fu">is.na</span>(age)]   <span class="co"># Extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
+<div class="bonus">
+<p>
+This type of “data cleaning” is a very common first step when
+performing data analysis. You will get more opportunities to clean data
+later in the course.
+</p>
+</div>
+<p>Here are some functions R provides to summarize quantitative variables.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb345-1"><a href="summary-statistics.html#cb345-1" tabindex="-1"></a>age_min <span class="ot">&lt;-</span> <span class="fu">min</span>(age)     <span class="co"># Find the minimum age</span></span>
+<span id="cb345-2"><a href="summary-statistics.html#cb345-2" tabindex="-1"></a>age_med <span class="ot">&lt;-</span> <span class="fu">median</span>(age)  <span class="co"># Find the median age</span></span>
+<span id="cb345-3"><a href="summary-statistics.html#cb345-3" tabindex="-1"></a>age_max <span class="ot">&lt;-</span> <span class="fu">max</span>(age)     <span class="co"># Find the maximum age</span></span>
+<span id="cb345-4"><a href="summary-statistics.html#cb345-4" tabindex="-1"></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(age)   <span class="co"># Find the average age</span></span>
+<span id="cb345-5"><a href="summary-statistics.html#cb345-5" tabindex="-1"></a>age_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(age)       <span class="co"># Find the standard deviation of age</span></span>
+<span id="cb345-6"><a href="summary-statistics.html#cb345-6" tabindex="-1"></a>age_var <span class="ot">&lt;-</span> <span class="fu">var</span>(age)     <span class="co"># Find the variance of age</span></span></code></pre></div>
+<p>Let’s put all these results in a named list.
+In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb346-1"><a href="summary-statistics.html#cb346-1" tabindex="-1"></a><span class="co"># Create a list containing all the stats</span></span>
+<span id="cb346-2"><a href="summary-statistics.html#cb346-2" tabindex="-1"></a>age_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(  <span class="co"># R knows that this command continues until a closed parenthesis</span></span>
+<span id="cb346-3"><a href="summary-statistics.html#cb346-3" tabindex="-1"></a>  <span class="at">min =</span> age_min,   </span>
+<span id="cb346-4"><a href="summary-statistics.html#cb346-4" tabindex="-1"></a>  <span class="at">median =</span> age_med, </span>
+<span id="cb346-5"><a href="summary-statistics.html#cb346-5" tabindex="-1"></a>  <span class="at">max =</span> age_max,    </span>
+<span id="cb346-6"><a href="summary-statistics.html#cb346-6" tabindex="-1"></a>  <span class="at">mean =</span> age_mean,  </span>
+<span id="cb346-7"><a href="summary-statistics.html#cb346-7" tabindex="-1"></a>  <span class="at">sd =</span> age_sd,      </span>
+<span id="cb346-8"><a href="summary-statistics.html#cb346-8" tabindex="-1"></a>  <span class="at">var =</span> age_var</span>
+<span id="cb346-9"><a href="summary-statistics.html#cb346-9" tabindex="-1"></a>)  <span class="co"># This could all go on one line, but it looks more organized this way.</span></span>
+<span id="cb346-10"><a href="summary-statistics.html#cb346-10" tabindex="-1"></a>age_stats</span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 12
+
+$median
+[1] 25
+
+$max
+[1] 74
+
+$mean
+[1] 25.65373
+
+$sd
+[1] 6.495693
+
+$var
+[1] 42.19402</code></pre>
+
+<div class="progress">
+Using the Olympic Athletes data, create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
+If you get <code>NA</code> values for the statistics, you should include the <code>na.rm=T</code> argument like so: <code>mean(weight, na.rm=T)</code>, to remove the <code>NA</code> values before computing the statistics.
+</div>
+<p>Visualization will be discussed more later, but we’ll show one plot now, to show how multiple summary statistics can be shown at the same time.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb348-1"><a href="summary-statistics.html#cb348-1" tabindex="-1"></a><span class="fu">hist</span>(age, <span class="at">breaks =</span> <span class="dv">50</span>)</span>
+<span id="cb348-2"><a href="summary-statistics.html#cb348-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> age_mean, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb348-3"><a href="summary-statistics.html#cb348-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> age_med, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" />
+It looks like the distribution of <code>Age</code> is <em>right skewed</em>, consistent with the fact that the mean is greater than the median.</p>
+<p>Of course, having more than one quantitative variable allows us to compare them against each other.
+Here’s how to compute the covariance between two quantitative variables:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb349-1"><a href="summary-statistics.html#cb349-1" tabindex="-1"></a><span class="fu">cov</span>(athletes<span class="sc">$</span>Age, athletes<span class="sc">$</span>Height, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 6.483675</code></pre>
+<div class="caution">
+<p>
+The argument <code>use=“complete.obs”</code> is one way to deal with
+<code>NA</code> values in the <code>cov</code> function. This makes R
+remove any observations which are NA in either the first or second
+variable. There are other ways as well, which you can check using the
+help function: <code>?cov</code>.
+</p>
+</div>
+<p>You can also compute the correlation between two variables like so:</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb351-1"><a href="summary-statistics.html#cb351-1" tabindex="-1"></a><span class="fu">cor</span>(athletes<span class="sc">$</span>Age, athletes<span class="sc">$</span>Height, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 0.1104457</code></pre>
+<p>Using the <code>cov</code> or <code>cor</code> functions on an entire data frame or matrix will produce a correlation matrix of the columns.
+Here’s an example with the <code>mtcars</code> data frame:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
+<pre class="output-style"><code>            mpg        cyl       disp         hp        drat         wt
+mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
+cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
+disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
+hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
+drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
+wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
+qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
+vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
+am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
+gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
+carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
+            qsec         vs          am       gear        carb
+mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
+cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
+disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
+hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
+drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
+wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
+qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
+vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
+am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
+gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
+carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
+<p>However, this only works if all columns of the data frame (or matrix) are numeric.
+Here’s what happens if we try the same thing on the athletes data:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1" tabindex="-1"></a><span class="fu">cor</span>(athletes)</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in cor(athletes): 'x' must be numeric
+</code></pre>
+</div>
+<div id="categorical-variables" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Categorical Variables<a href="summary-statistics.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To showcase the functions R provides for categorical variables, we’ll look, at the <code>Sport</code> column, which is stored as a character vector in R.</p>
+<div class="reflect">
+<p>
+What other R data types might be used to store categorical data?
+</p>
+</div>
+<p>Are there any <code>NA</code> values in this column?</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb356-1"><a href="summary-statistics.html#cb356-1" tabindex="-1"></a>sport <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Sport</span>
+<span id="cb356-2"><a href="summary-statistics.html#cb356-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 0</code></pre>
+<p>It turns out the answer is no, so there’s no need to remove anything.
+In a character vector like this, we expect there to be many duplicated values.
+We can see a list of all the unique values with the following:</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb358-1"><a href="summary-statistics.html#cb358-1" tabindex="-1"></a><span class="fu">unique</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                
+ [3] &quot;Swimming&quot;                  &quot;Basketball&quot;               
+ [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;            
+ [7] &quot;Fencing&quot;                   &quot;Weightlifting&quot;            
+ [9] &quot;Equestrianism&quot;             &quot;Archery&quot;                  
+[11] &quot;Cross Country Skiing&quot;      &quot;Gymnastics&quot;               
+[13] &quot;Tennis&quot;                    &quot;Athletics&quot;                
+[15] &quot;Cycling&quot;                   &quot;Bobsleigh&quot;                
+[17] &quot;Shooting&quot;                  &quot;Sailing&quot;                  
+[19] &quot;Alpine Skiing&quot;             &quot;Art Competitions&quot;         
+[21] &quot;Canoeing&quot;                  &quot;Football&quot;                 
+[23] &quot;Rowing&quot;                    &quot;Figure Skating&quot;           
+[25] &quot;Nordic Combined&quot;           &quot;Judo&quot;                     
+[27] &quot;Short Track Speed Skating&quot; &quot;Water Polo&quot;               
+[29] &quot;Snowboarding&quot;              &quot;Taekwondo&quot;                
+[31] &quot;Diving&quot;                    &quot;Handball&quot;                 
+[33] &quot;Softball&quot;                  &quot;Boxing&quot;                   
+[35] &quot;Tug-Of-War&quot;                &quot;Ski Jumping&quot;              
+[37] &quot;Table Tennis&quot;              &quot;Ice Hockey&quot;               
+[39] &quot;Modern Pentathlon&quot;         &quot;Golf&quot;                     
+[41] &quot;Baseball&quot;                  &quot;Volleyball&quot;               
+[43] &quot;Luge&quot;                      &quot;Badminton&quot;                
+[45] &quot;Trampolining&quot;              &quot;Curling&quot;                  
+[47] &quot;Beach Volleyball&quot;          &quot;Polo&quot;                     
+[49] &quot;Rugby Sevens&quot;              &quot;Synchronized Swimming&quot;    
+[51] &quot;Triathlon&quot;                 &quot;Skeleton&quot;                 
+[53] &quot;Freestyle Skiing&quot;          &quot;Military Ski Patrol&quot;      
+[55] &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
+[57] &quot;Rugby&quot;                    </code></pre>
+<p>Using the numbers in brackets to the left as our guide, we can see that there are 57 unique values, but this can also be determined by running:</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb360-1"><a href="summary-statistics.html#cb360-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 57</code></pre>
+<p>It would be nice to see how many times each entry occurs in the data set.
+This is what the <code>table</code> function does:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb362-1"><a href="summary-statistics.html#cb362-1" tabindex="-1"></a><span class="fu">table</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code>sport
+            Alpine Skiing                   Archery          Art Competitions 
+                      148                        41                        64 
+                Athletics                 Badminton                  Baseball 
+                      728                        32                        19 
+               Basketball          Beach Volleyball                  Biathlon 
+                       98                        18                       100 
+                Bobsleigh                    Boxing                  Canoeing 
+                       53                       121                       112 
+     Cross Country Skiing                   Curling                   Cycling 
+                      174                         8                       205 
+                   Diving             Equestrianism                   Fencing 
+                       56                       121                       184 
+           Figure Skating                  Football          Freestyle Skiing 
+                       44                       138                         9 
+                     Golf                Gymnastics                  Handball 
+                        5                       498                        61 
+                   Hockey                Ice Hockey                      Judo 
+                      101                        83                        76 
+                 Lacrosse                      Luge       Military Ski Patrol 
+                        1                        25                         2 
+        Modern Pentathlon           Nordic Combined                      Polo 
+                       37                        25                         4 
+      Rhythmic Gymnastics                    Rowing                     Rugby 
+                        9                       190                         4 
+             Rugby Sevens                   Sailing                  Shooting 
+                        6                       126                       218 
+Short Track Speed Skating                  Skeleton               Ski Jumping 
+                       23                         4                        45 
+             Snowboarding                  Softball             Speed Skating 
+                       19                        10                       104 
+                 Swimming     Synchronized Swimming              Table Tennis 
+                      399                         9                        36 
+                Taekwondo                    Tennis              Trampolining 
+                       10                        45                         4 
+                Triathlon                Tug-Of-War                Volleyball 
+                        6                         5                        50 
+               Water Polo             Weightlifting                 Wrestling 
+                       79                        85                       123 </code></pre>
+<p>Let’s save this table to a list as before:</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1" tabindex="-1"></a><span class="co"># Assign summary statistics to variables</span></span>
+<span id="cb364-2"><a href="summary-statistics.html#cb364-2" tabindex="-1"></a>sport_n_unique <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(sport))</span>
+<span id="cb364-3"><a href="summary-statistics.html#cb364-3" tabindex="-1"></a>sport_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(sport)</span>
+<span id="cb364-4"><a href="summary-statistics.html#cb364-4" tabindex="-1"></a></span>
+<span id="cb364-5"><a href="summary-statistics.html#cb364-5" tabindex="-1"></a><span class="co"># Combine them into a list</span></span>
+<span id="cb364-6"><a href="summary-statistics.html#cb364-6" tabindex="-1"></a>sport_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb364-7"><a href="summary-statistics.html#cb364-7" tabindex="-1"></a>  <span class="at">number_unique =</span> sport_n_unique,</span>
+<span id="cb364-8"><a href="summary-statistics.html#cb364-8" tabindex="-1"></a>  <span class="at">counts =</span> sport_counts</span>
+<span id="cb364-9"><a href="summary-statistics.html#cb364-9" tabindex="-1"></a>)</span></code></pre></div>
+<p>Again, a visualization may be useful here:</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb365-1"><a href="summary-statistics.html#cb365-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
+<span id="cb365-2"><a href="summary-statistics.html#cb365-2" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(sport), <span class="at">horiz =</span> T, <span class="at">las =</span> <span class="dv">2</span>)  <span class="co"># Bar plot</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-364-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
+
+<div class="progress">
+Using the Olympic athletes data, create a list called <code>season_stats</code> with a table of counts for the <code>Season</code> variable.
+</div>
+
+<div class="caution">
+It’s always important to remember what the rows of your data set represent.
+In the Olympic athletes example, one athlete may occupy multiple rows, if they competed in multiple olympic games.
+This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
+</div>
+
+<div class="reflect">
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the <code>Height</code>, <code>Weight</code>, and <code>Sex</code> variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the data frame?
+</div>
+</div>
+<div id="saving-an-rdata-file" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Saving an RData file<a href="summary-statistics.html#saving-an-rdata-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, we may want to save these results for use <em>in R</em> later.
+First, we’ll create a new list to put our two stats list <em>in</em> (remember, we can have lists inside of other lists!).</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb366-1"><a href="summary-statistics.html#cb366-1" tabindex="-1"></a><span class="co"># Create list</span></span>
+<span id="cb366-2"><a href="summary-statistics.html#cb366-2" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb366-3"><a href="summary-statistics.html#cb366-3" tabindex="-1"></a>  <span class="at">age =</span> age_stats,</span>
+<span id="cb366-4"><a href="summary-statistics.html#cb366-4" tabindex="-1"></a>  <span class="at">sport =</span> sport_stats</span>
+<span id="cb366-5"><a href="summary-statistics.html#cb366-5" tabindex="-1"></a>)</span></code></pre></div>
+
+<div class="bonus">
+<p>Remember that the <code>names</code> function retrieves the column names for a data frame? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+The following commands may be useful for remembering what the contents of our stats list:</p>
+<ul>
+<li><code>names(athlete_stats)</code></li>
+<li><code>names(athlete_stats$age)</code></li>
+<li><code>names(athlete_stats$sport)</code></li>
+</ul>
+</div>
+<p>To save these results, we can use the <code>saveRDS</code> function:</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb367-1"><a href="summary-statistics.html#cb367-1" tabindex="-1"></a><span class="fu">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</span></code></pre></div>
+<p>Later, we can use the following command to load the RDS file back into R:</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb368-1"><a href="summary-statistics.html#cb368-1" tabindex="-1"></a><span class="fu">rm</span>(athlete_stats)  <span class="co"># Remove athlete stats to prove we are loading it from the hard drive</span></span>
+<span id="cb368-2"><a href="summary-statistics.html#cb368-2" tabindex="-1"></a></span>
+<span id="cb368-3"><a href="summary-statistics.html#cb368-3" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># Load the RDS file and name it athlete_stats</span></span>
+<span id="cb368-4"><a href="summary-statistics.html#cb368-4" tabindex="-1"></a></span>
+<span id="cb368-5"><a href="summary-statistics.html#cb368-5" tabindex="-1"></a>athlete_stats<span class="sc">$</span>age  <span class="co"># Show that we have loaded the data by printing the age stats</span></span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 12
+
+$median
+[1] 25
+
+$max
+[1] 74
+
+$mean
+[1] 25.65373
+
+$sd
+[1] 6.495693
+
+$var
+[1] 42.19402</code></pre>
+
+<div class="caution">
+Notice the file ends with <em>.rds</em>, indicating that this is a special RDS type which can only be read by R.
+This is different from other data formats like CSV, which are plain text and can be read by other programs like Excel or Sheets.
+RDS should only be used when you want to save work that you want to resume in R later.
+If at all possible, you should prefer using plain text formats rather than RDS.
+</div>
+
+<div class="bonus">
+RDS stands for <em>R Data Serialization</em>. This is R’s version of object serialization, just like the io.Serializable interface in Java or the pickle module in Python.
+As with other languages, R’s serialization can only be used in R.
+</div>
+<p>The RDS format works for any R Object, not just lists, so it can be used for vectors, matrices, factors, and even functions.</p>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Summary%20Statistics">here</a>
+</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reading-writing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-formatting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

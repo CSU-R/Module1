@@ -37,7 +37,7 @@ covid <- read.csv("data_raw/Provisional_COVID-19_Death_Counts_by_Sex__Age__and_S
 # Remove rows with state totals, this will mess up our summary statistics later
 covid <- covid[!grepl("Total", covid$State),]
 # Remove all ages category
-covid <- covid[covid$Age.group != "All ages",]
+covid <- covid[!(covid$Age.group %in% c("All ages", "All Ages")),]
 ```
 
 ```{block, type="progress"}

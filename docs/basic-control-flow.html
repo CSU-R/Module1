@@ -355,7 +355,7 @@ First, let’s load the data and do some minor cleaning:</p>
 <span id="cb463-5"><a href="basic-control-flow.html#cb463-5" tabindex="-1"></a><span class="co"># Remove rows with state totals, this will mess up our summary statistics later</span></span>
 <span id="cb463-6"><a href="basic-control-flow.html#cb463-6" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;Total&quot;</span>, covid<span class="sc">$</span>State),]</span>
 <span id="cb463-7"><a href="basic-control-flow.html#cb463-7" tabindex="-1"></a><span class="co"># Remove all ages category</span></span>
-<span id="cb463-8"><a href="basic-control-flow.html#cb463-8" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>Age.group <span class="sc">!=</span> <span class="st">&quot;All ages&quot;</span>,]</span></code></pre></div>
+<span id="cb463-8"><a href="basic-control-flow.html#cb463-8" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[<span class="sc">!</span>(covid<span class="sc">$</span>Age.group <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;All ages&quot;</span>, <span class="st">&quot;All Ages&quot;</span>)),]</span></code></pre></div>
 <div class="progress">
 <p>
 Download the covid data into your ‘data_raw’ folder, and load/clean
