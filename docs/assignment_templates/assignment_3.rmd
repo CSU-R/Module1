@@ -32,7 +32,7 @@ Read the dataset into R to an object called `top`.
 
 ## Problem 2
 
-Print a summary of each variable in the data frame
+Print a summary of each variable in the data frame.
 
 ## Problem 3
 
