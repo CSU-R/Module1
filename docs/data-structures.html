@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.3 Data Structures | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.3 Data Structures | R Module 1" />
   <meta property="og:type" content="book" />
@@ -59,8 +59,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +71,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -1242,10 +1243,10 @@ FALSE  TRUE FALSE FALSE FALSE </code></pre>
 <pre class="sourceCode r error-style"><code>Error in A + 1: non-numeric argument to binary operator
 </code></pre>
 <div class="sourceCode" id="cb275"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb275-1"><a href="data-structures.html#cb275-1" tabindex="-1"></a>A <span class="sc">==</span> T  <span class="co"># Compare against a logical (won&#39;t work)</span></span></code></pre></div>
-<pre class="sourceCode r error-style"><code>Error in eval(expr, envir, enclos): 'list' object cannot be coerced to type 'logical'
+<pre class="sourceCode r error-style"><code>Error: 'list' object cannot be coerced to type 'logical'
 </code></pre>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb276-1"><a href="data-structures.html#cb276-1" tabindex="-1"></a>A <span class="sc">==</span> <span class="dv">12</span>  <span class="co"># Compare against a numeric (won&#39;t work)</span></span></code></pre></div>
-<pre class="sourceCode r error-style"><code>Error in eval(expr, envir, enclos): 'list' object cannot be coerced to type 'double'
+<pre class="sourceCode r error-style"><code>Error: 'list' object cannot be coerced to type 'double'
 </code></pre>
 <p>So there are trade-offs when deciding whether a list or a vector is most appropriate.</p>
 <div class="video">

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.3 Advanced Control Flow | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.3 Advanced Control Flow | R Module 1" />
   <meta property="og:type" content="book" />
@@ -59,8 +59,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -70,7 +71,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -345,55 +346,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this section, we’ll discuss more ways to control the flow of your code.
 Specifically, we’ll talk about the <code>apply</code> family of functions, starting with <code>sapply</code>.
 To show what <code>sapply</code> does, let’s look at the following function:</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb554-1"><a href="advanced-control-flow.html#cb554-1" tabindex="-1"></a>square_plus_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb554-2"><a href="advanced-control-flow.html#cb554-2" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb554-3"><a href="advanced-control-flow.html#cb554-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb555-1"><a href="advanced-control-flow.html#cb555-1" tabindex="-1"></a>square_plus_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb555-2"><a href="advanced-control-flow.html#cb555-2" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb555-3"><a href="advanced-control-flow.html#cb555-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>This function returns the result of squaring the input argument and adding 1.
 Suppose we wanted to run this function to every element of a vector.
 One option would be to write a for-loop:</p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb555-1"><a href="advanced-control-flow.html#cb555-1" tabindex="-1"></a><span class="co"># The function we want to apply our function to</span></span>
-<span id="cb555-2"><a href="advanced-control-flow.html#cb555-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb555-3"><a href="advanced-control-flow.html#cb555-3" tabindex="-1"></a></span>
-<span id="cb555-4"><a href="advanced-control-flow.html#cb555-4" tabindex="-1"></a><span class="co"># Create an empty vector to hold the result</span></span>
-<span id="cb555-5"><a href="advanced-control-flow.html#cb555-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">10</span>)</span>
-<span id="cb555-6"><a href="advanced-control-flow.html#cb555-6" tabindex="-1"></a></span>
-<span id="cb555-7"><a href="advanced-control-flow.html#cb555-7" tabindex="-1"></a><span class="co"># Loop through x and apply the function</span></span>
-<span id="cb555-8"><a href="advanced-control-flow.html#cb555-8" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb555-9"><a href="advanced-control-flow.html#cb555-9" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">square_plus_one</span>(x[i]) </span>
-<span id="cb555-10"><a href="advanced-control-flow.html#cb555-10" tabindex="-1"></a>}</span>
-<span id="cb555-11"><a href="advanced-control-flow.html#cb555-11" tabindex="-1"></a></span>
-<span id="cb555-12"><a href="advanced-control-flow.html#cb555-12" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb556-1"><a href="advanced-control-flow.html#cb556-1" tabindex="-1"></a><span class="co"># The function we want to apply our function to</span></span>
+<span id="cb556-2"><a href="advanced-control-flow.html#cb556-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb556-3"><a href="advanced-control-flow.html#cb556-3" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="advanced-control-flow.html#cb556-4" tabindex="-1"></a><span class="co"># Create an empty vector to hold the result</span></span>
+<span id="cb556-5"><a href="advanced-control-flow.html#cb556-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">10</span>)</span>
+<span id="cb556-6"><a href="advanced-control-flow.html#cb556-6" tabindex="-1"></a></span>
+<span id="cb556-7"><a href="advanced-control-flow.html#cb556-7" tabindex="-1"></a><span class="co"># Loop through x and apply the function</span></span>
+<span id="cb556-8"><a href="advanced-control-flow.html#cb556-8" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb556-9"><a href="advanced-control-flow.html#cb556-9" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">square_plus_one</span>(x[i]) </span>
+<span id="cb556-10"><a href="advanced-control-flow.html#cb556-10" tabindex="-1"></a>}</span>
+<span id="cb556-11"><a href="advanced-control-flow.html#cb556-11" tabindex="-1"></a></span>
+<span id="cb556-12"><a href="advanced-control-flow.html#cb556-12" tabindex="-1"></a>y</span></code></pre></div>
 <pre class="output-style"><code> [1]   2   5  10  17  26  37  50  65  82 101</code></pre>
 <p>Here’s another way to do the same thing using the <code>sapply</code> function:</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb557-1"><a href="advanced-control-flow.html#cb557-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
-<span id="cb557-2"><a href="advanced-control-flow.html#cb557-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
-<span id="cb557-3"><a href="advanced-control-flow.html#cb557-3" tabindex="-1"></a></span>
-<span id="cb557-4"><a href="advanced-control-flow.html#cb557-4" tabindex="-1"></a><span class="co"># z agrees with y!</span></span>
-<span id="cb557-5"><a href="advanced-control-flow.html#cb557-5" tabindex="-1"></a><span class="fu">print</span>(z <span class="sc">==</span> y)</span>
-<span id="cb557-6"><a href="advanced-control-flow.html#cb557-6" tabindex="-1"></a></span>
-<span id="cb557-7"><a href="advanced-control-flow.html#cb557-7" tabindex="-1"></a><span class="co"># z is a vector</span></span>
-<span id="cb557-8"><a href="advanced-control-flow.html#cb557-8" tabindex="-1"></a><span class="fu">mode</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb558-1"><a href="advanced-control-flow.html#cb558-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
+<span id="cb558-2"><a href="advanced-control-flow.html#cb558-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
+<span id="cb558-3"><a href="advanced-control-flow.html#cb558-3" tabindex="-1"></a></span>
+<span id="cb558-4"><a href="advanced-control-flow.html#cb558-4" tabindex="-1"></a><span class="co"># z agrees with y!</span></span>
+<span id="cb558-5"><a href="advanced-control-flow.html#cb558-5" tabindex="-1"></a><span class="fu">print</span>(z <span class="sc">==</span> y)</span>
+<span id="cb558-6"><a href="advanced-control-flow.html#cb558-6" tabindex="-1"></a></span>
+<span id="cb558-7"><a href="advanced-control-flow.html#cb558-7" tabindex="-1"></a><span class="co"># z is a vector</span></span>
+<span id="cb558-8"><a href="advanced-control-flow.html#cb558-8" tabindex="-1"></a><span class="fu">mode</span>(z)</span></code></pre></div>
 <pre class="output-style"><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 [1] &quot;numeric&quot;</code></pre>
 <p>In words, the <code>sapply</code> function says “loop through every element of this vector, and apply this function to it.”
 All you have to specify is which vector to loop through, and which function to apply.
 The “s” in <code>sapply</code> stands for “simplify”, meaning the result will be simplified to a vector, matrix, or higher dimensional array.
 In some cases, you may want the result to be returned as a list, instead of a vector. In this case, the <code>lapply</code> function can be used:</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb559-1"><a href="advanced-control-flow.html#cb559-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
-<span id="cb559-2"><a href="advanced-control-flow.html#cb559-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
-<span id="cb559-3"><a href="advanced-control-flow.html#cb559-3" tabindex="-1"></a></span>
-<span id="cb559-4"><a href="advanced-control-flow.html#cb559-4" tabindex="-1"></a><span class="co"># w is a list</span></span>
-<span id="cb559-5"><a href="advanced-control-flow.html#cb559-5" tabindex="-1"></a><span class="fu">mode</span>(w)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb560-1"><a href="advanced-control-flow.html#cb560-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
+<span id="cb560-2"><a href="advanced-control-flow.html#cb560-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
+<span id="cb560-3"><a href="advanced-control-flow.html#cb560-3" tabindex="-1"></a></span>
+<span id="cb560-4"><a href="advanced-control-flow.html#cb560-4" tabindex="-1"></a><span class="co"># w is a list</span></span>
+<span id="cb560-5"><a href="advanced-control-flow.html#cb560-5" tabindex="-1"></a><span class="fu">mode</span>(w)</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;list&quot;</code></pre>
 <p><code>lapply</code> and <code>sapply</code> can also be used if the function doesn’t always return the same type or length of data. Here’s an example:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb561-1"><a href="advanced-control-flow.html#cb561-1" tabindex="-1"></a>make_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb561-2"><a href="advanced-control-flow.html#cb561-2" tabindex="-1"></a>  <span class="co"># Make a vector of length n numbered from 1 to n</span></span>
-<span id="cb561-3"><a href="advanced-control-flow.html#cb561-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb561-4"><a href="advanced-control-flow.html#cb561-4" tabindex="-1"></a>}</span>
-<span id="cb561-5"><a href="advanced-control-flow.html#cb561-5" tabindex="-1"></a></span>
-<span id="cb561-6"><a href="advanced-control-flow.html#cb561-6" tabindex="-1"></a><span class="co"># Apply make_vector to each element of x:</span></span>
-<span id="cb561-7"><a href="advanced-control-flow.html#cb561-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>)</span>
-<span id="cb561-8"><a href="advanced-control-flow.html#cb561-8" tabindex="-1"></a><span class="fu">lapply</span>(x, make_vector)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb562-1"><a href="advanced-control-flow.html#cb562-1" tabindex="-1"></a>make_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
+<span id="cb562-2"><a href="advanced-control-flow.html#cb562-2" tabindex="-1"></a>  <span class="co"># Make a vector of length n numbered from 1 to n</span></span>
+<span id="cb562-3"><a href="advanced-control-flow.html#cb562-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb562-4"><a href="advanced-control-flow.html#cb562-4" tabindex="-1"></a>}</span>
+<span id="cb562-5"><a href="advanced-control-flow.html#cb562-5" tabindex="-1"></a></span>
+<span id="cb562-6"><a href="advanced-control-flow.html#cb562-6" tabindex="-1"></a><span class="co"># Apply make_vector to each element of x:</span></span>
+<span id="cb562-7"><a href="advanced-control-flow.html#cb562-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>)</span>
+<span id="cb562-8"><a href="advanced-control-flow.html#cb562-8" tabindex="-1"></a><span class="fu">lapply</span>(x, make_vector)</span></code></pre></div>
 <pre class="output-style"><code>[[1]]
 [1] 1 2
 
@@ -409,19 +410,19 @@ In some cases, you may want the result to be returned as a list, instead of a ve
 [[5]]
 [1] 1 2 3 4 5 6</code></pre>
 <p>The differences between <code>lapply</code> and <code>sapply</code> (and other functions in the apply family) can be subtle and very confusing at times, even after reading the documentation using <code>?lapply</code>, but here is one way they are different:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb563-1"><a href="advanced-control-flow.html#cb563-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb563-2"><a href="advanced-control-flow.html#cb563-2" tabindex="-1"></a></span>
-<span id="cb563-3"><a href="advanced-control-flow.html#cb563-3" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
-<span id="cb563-4"><a href="advanced-control-flow.html#cb563-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(l))</span>
-<span id="cb563-5"><a href="advanced-control-flow.html#cb563-5" tabindex="-1"></a></span>
-<span id="cb563-6"><a href="advanced-control-flow.html#cb563-6" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
-<span id="cb563-7"><a href="advanced-control-flow.html#cb563-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(s))</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb564-1"><a href="advanced-control-flow.html#cb564-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb564-2"><a href="advanced-control-flow.html#cb564-2" tabindex="-1"></a></span>
+<span id="cb564-3"><a href="advanced-control-flow.html#cb564-3" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
+<span id="cb564-4"><a href="advanced-control-flow.html#cb564-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(l))</span>
+<span id="cb564-5"><a href="advanced-control-flow.html#cb564-5" tabindex="-1"></a></span>
+<span id="cb564-6"><a href="advanced-control-flow.html#cb564-6" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
+<span id="cb564-7"><a href="advanced-control-flow.html#cb564-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(s))</span></code></pre></div>
 <pre class="output-style"><code>[1] &quot;list&quot;
 [1] &quot;numeric&quot;</code></pre>
 <p>The input <code>x</code> started as a list, so the default return of <code>lapply</code> is a list.
 However, <code>sapply</code> simplified the result to a vector.
 If you know the type of data that will be returned, you can use the <code>vapply</code> function, which can be faster than <code>sapply</code> in some cases.</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb565-1"><a href="advanced-control-flow.html#cb565-1" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, square_plus_one, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb566-1"><a href="advanced-control-flow.html#cb566-1" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, square_plus_one, <span class="dv">1</span>)</span></code></pre></div>
 <p>Here we’ve supplied an extra argument (<code>1</code>) to tell R that the elements will be numeric types.</p>
 <div class="caution">
 <p>
@@ -438,9 +439,9 @@ give the same results sometimes. A simple yet imperfect rule is that
 <p>Suppose we want to find the variance of each row of a matrix.
 The <code>lapply</code> or <code>sapply</code> only work on each <em>element</em> of a matrix, not each row.
 For this, we need the <code>apply</code> function:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb566-1"><a href="advanced-control-flow.html#cb566-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
-<span id="cb566-2"><a href="advanced-control-flow.html#cb566-2" tabindex="-1"></a></span>
-<span id="cb566-3"><a href="advanced-control-flow.html#cb566-3" tabindex="-1"></a><span class="fu">apply</span>(m, <span class="dv">1</span>, var)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb567-1"><a href="advanced-control-flow.html#cb567-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
+<span id="cb567-2"><a href="advanced-control-flow.html#cb567-2" tabindex="-1"></a></span>
+<span id="cb567-3"><a href="advanced-control-flow.html#cb567-3" tabindex="-1"></a><span class="fu">apply</span>(m, <span class="dv">1</span>, var)</span></code></pre></div>
 <pre class="output-style"><code>[1] 0 1 4</code></pre>
 <p>The arguments to this function are:</p>
 <ul>
@@ -455,8 +456,8 @@ For this, we need the <code>apply</code> function:</p>
 Suppose we wanted to add the COVID deaths across all Age groups for <em>each state</em>.
 Then we could use the <code>tapply</code> function, with <code>COVID.19.Deaths</code> as the vector to iterate over, <code>State</code> as the grouping variable, and <code>sum</code> as the function to use.
 Here’s the result:</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb568-1"><a href="advanced-control-flow.html#cb568-1" tabindex="-1"></a>state_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>State, sum, <span class="at">na.rm =</span> T)</span>
-<span id="cb568-2"><a href="advanced-control-flow.html#cb568-2" tabindex="-1"></a><span class="fu">sort</span>(state_deaths)</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb569-1"><a href="advanced-control-flow.html#cb569-1" tabindex="-1"></a>state_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>State, sum, <span class="at">na.rm =</span> T)</span>
+<span id="cb569-2"><a href="advanced-control-flow.html#cb569-2" tabindex="-1"></a><span class="fu">sort</span>(state_deaths)</span></code></pre></div>
 <pre class="output-style"><code>              Alaska               Hawaii              Montana 
                    0                    0                    0 
              Wyoming          Puerto Rico              Vermont 
@@ -496,11 +497,11 @@ District of Columbia             Kentucky            Tennessee
 <p>Here we also had to specify the <code>na.rm=T</code> parameter so that <code>NA</code> values are removed when computing the sum.
 Remember that these totals may not match the <code>All Ages</code> number from each state, because some counts are suppressed.
 Here’s another example where we sum the deaths across all states for <em>each Age group</em></p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb570-1"><a href="advanced-control-flow.html#cb570-1" tabindex="-1"></a><span class="co"># Remove US total numbers first</span></span>
-<span id="cb570-2"><a href="advanced-control-flow.html#cb570-2" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>State <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>,]</span>
-<span id="cb570-3"><a href="advanced-control-flow.html#cb570-3" tabindex="-1"></a></span>
-<span id="cb570-4"><a href="advanced-control-flow.html#cb570-4" tabindex="-1"></a>agegroup_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>Age.group, sum, <span class="at">na.rm=</span>T)</span>
-<span id="cb570-5"><a href="advanced-control-flow.html#cb570-5" tabindex="-1"></a><span class="fu">sort</span>(agegroup_deaths)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb571-1"><a href="advanced-control-flow.html#cb571-1" tabindex="-1"></a><span class="co"># Remove US total numbers first</span></span>
+<span id="cb571-2"><a href="advanced-control-flow.html#cb571-2" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>State <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>,]</span>
+<span id="cb571-3"><a href="advanced-control-flow.html#cb571-3" tabindex="-1"></a></span>
+<span id="cb571-4"><a href="advanced-control-flow.html#cb571-4" tabindex="-1"></a>agegroup_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>Age.group, sum, <span class="at">na.rm=</span>T)</span>
+<span id="cb571-5"><a href="advanced-control-flow.html#cb571-5" tabindex="-1"></a><span class="fu">sort</span>(agegroup_deaths)</span></code></pre></div>
 <pre class="output-style"><code>        1-4 years        5-14 years      Under 1 year       15-24 years 
                 0                 0                 0                54 
       25-34 years       35-44 years       45-54 years       55-64 years 
