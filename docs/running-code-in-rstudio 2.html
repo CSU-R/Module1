@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.2 Course Topics &amp; Syllabus | R Module 1</title>
+  <title>3.4 Running Code in RStudio | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.2 Course Topics &amp; Syllabus | R Module 1" />
+  <meta property="og:title" content="3.4 Running Code in RStudio | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.2 Course Topics &amp; Syllabus | R Module 1" />
+  <meta name="twitter:title" content="3.4 Running Code in RStudio | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="this-textbook.html"/>
-<link rel="next" href="running-your-first-r-code.html"/>
+<link rel="prev" href="successfull-installation.html"/>
+<link rel="next" href="workspace-setup.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,184 +341,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="course-topics-syllabus" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Course Topics &amp; Syllabus<a href="course-topics-syllabus.html#course-topics-syllabus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Broadly speaking, the topics of this course are described by the Chapter Titles. Here’s what each entails:</p>
-<ul>
-<li>Course Preliminaries: Introduction to R and the world of R</li>
-<li>Installing R: Like it sounds, setting up your computer so you can work with R.</li>
-<li>R Programming Fundamentals: The basics of programming in R, the building blocks that you need in order to do anything more interesting.</li>
-<li>Working with Data: How to do meaningful things with data sets. Probably the most useful Chapter of the book.</li>
-<li>Creating R Programs: More programming concepts to increase your R Power!</li>
-</ul>
-<div id="syllabus" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Syllabus<a href="course-topics-syllabus.html#syllabus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First, some important details:</p>
-<ul>
-<li><strong>Instructor</strong>: <a href="mailto:lane.drew@colostate.edu">Lane Drew</a></li>
-</ul>
-<!-- - __Office Hours__: Held in the Statistics Success Center (Weber 223A), schedule available on Canvas. -->
-<ul>
-<li><p><strong>Office Hours</strong>: Schedule and location TBA.</p></li>
-<li><p><strong>Webpages</strong>: <a href="https://canvas.colostate.edu">Canvas</a>, <a href="https://csu-r.github.io/Module1/">this textbook</a></p></li>
-<li><p><strong>Course Credits</strong>: 1. This means ~1 hours of lecture and 4 hours of work outside of lecture per week.</p></li>
-<li><p><strong>Textbook</strong>: You’re reading it right now. The textbook will be your primary learning resource. You’ll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way. On days when a quiz is due, you should complete the reading <em>before</em> you take the quiz.</p></li>
-<li><p><strong>Prerequisites</strong>: None</p></li>
-<li><p><strong>Assignments/What-to-turn-in</strong>: This course will be graded on three types of assignments: Progress Checks, Homeworks, and Quizzes. There will be four of each. Most weeks, you will have one of these three types of assignments due. Due dates will be specified on Canvas and assignments will be due at 11:59pm on the indicated day (please see schedule below).</p></li>
-<li><p><strong>Progress Checks</strong>: As you work your way through the textbook, you’ll encounter purple “Progress Check” boxes. For the first Progress Check, you’ll submit your responses directly to Canvas. For Progress Checks 2-4, you’ll fill in an R Markdown document and submit it to canvas. You’ll be provided a template to fill in as you complete the progress checks. To turn in the document, you’ll <strong>knit</strong> the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.</p></li>
-<li><p><strong>Homework</strong>: There are four homeworks during the semester. You’ll complete each homework using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.</p></li>
-<li><p><strong>Quizzes</strong>: There will be four 15 minute Canvas quizzes during the semester. Quizzes must be completed by 11:59pm (Mountain) on the day they are due. <strong>There are NO late quizzes accepted after the due date has passed. If you cannot complete the quiz on the day it is due, you are expected to do it early</strong>.</p></li>
-<li><p><strong>Exams</strong>: There will be no exams in this course.</p></li>
-<li><p><strong>Lectures</strong>: Lectures will be held on Fridays. There will be <em>mini-lectures</em>, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read the material before the lecture. The remainder of the time will be <em>student-led</em>. We will cover questions students may have or work on homework together.</p></li>
-<li><p><strong>Grading</strong>: The grading for the course is apportioned like so:</p>
-<ul>
-<li>Progress Checks: 30%</li>
-<li>Homework: 40%</li>
-<li>Quizzes: 30%</li>
-</ul></li>
-</ul>
-<!-- ### Schedule -->
-<!-- ```{r, schedule, echo=F} -->
-<!-- # Summer Schedule -->
-<!-- # sched <- data.frame( -->
-<!-- #   Week = 1 + isoweek(course_dates) - isoweek(start_date), -->
-<!-- #   Weekday = wday(course_dates, label=T, abbr=F), -->
-<!-- #   Date = format(course_dates, "%B %d"), -->
-<!-- #   Reading = c("1, 2", "3", "4.1, 4.2", "4.3", "4.4, 4.5", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "6.2, 6.3", "6.4"), -->
-<!-- #   Due= c("Progress Check 1", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "Quiz 4", "Assignment 4") -->
-<!-- # ) -->
-<!-- # Spring Schedule -->
-<!-- sched <- data.frame( -->
-<!--   Week = 1 + isoweek(course_dates) - isoweek(start_date), -->
-<!--   Weekday = wday(course_dates, label=T, abbr=F), -->
-<!--   Date = format(course_dates, "%B %d"), -->
-<!--   Reading = c("1", "2", "3.1, 3.2, 3.3", "3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2","", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "6.2", "6.3", "6.4"), -->
-<!--   Due= c("", "Progress Check 1", "", "Quiz 1", "Homework 1", "Progress Check 2", "Quiz 2", "Homework 2", "", "Progress Check 3", "Quiz 3", "Homework 3", "Progress Check 4", "", "Quiz 4", "Homework 4") -->
-<!-- ) -->
-<!-- knitr::kable(sched) %>% kable_styling() -->
-<!-- ``` -->
+<div id="running-code-in-rstudio" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Running Code in RStudio<a href="running-code-in-rstudio.html#running-code-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that you’re somewhat familiar with RStudio, let’s run the same code as we ran on the website, but this time let’s run it in R.</p>
+<div id="the-r-console" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> The R Console:<a href="running-code-in-rstudio.html#the-r-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the <em>R console</em>, type <code>1+1</code> and press <code>enter</code>.
+The output in the console should look like the following:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<img src="src/images/1_plus_1_console.png" alt="code in the console"  />
+<p class="caption">
+Figure 3.1: code in the console
+</p>
 </div>
-<div id="assignment-templates" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Assignment Templates<a href="course-topics-syllabus.html#assignment-templates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In order to complete the progress checks and course assignments, you’ll need to start from these templates:</p>
-<p>Progress Checks</p>
-<ul>
-<li>(Progress Check 1 will not require a template)</li>
-<li><a href="assignment_templates/progress_check_2.rmd">Progress Check 2</a></li>
-<li><a href="assignment_templates/progress_check_3.rmd">Progress Check 3</a></li>
-<li><a href="assignment_templates/progress_check_4.rmd">Progress Check 4</a></li>
-</ul>
-<p>Assignments</p>
-<ul>
-<li><a href="assignment_templates/assignment_1.rmd">Homework 1</a></li>
-<li><a href="assignment_templates/assignment_2.rmd">Homework 2</a></li>
-<li><a href="assignment_templates/assignment_3.rmd">Homework 3</a></li>
-<li><a href="assignment_templates/assignment_4.rmd">Homework 4</a></li>
-</ul>
+<p>Notice that the output <code>2</code> is displayed, and the cursor is on a blank line, waiting for more input. This is how coding in the console works.</p>
 </div>
-<div id="course-policies" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Course Policies<a href="course-topics-syllabus.html#course-policies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><strong>Late Work</strong>: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50% credit.</li>
-<li><strong>Group Work</strong>: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You may not work with other students on quizzes. You <em>are</em> welcome to seek help on Canvas discussion boards and during office hours.</li>
-<li><strong>Students with Disabilities</strong>: The university is committed to providing support for students with disabilities. If you have an accommodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.</li>
-<li><strong>Growth Mindset</strong>: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: “The view you adopt for yourself profoundly affects the way you lead your life… Believing that your qualities are carved in stone - <em>the fixed mindset</em> - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character — well, then you’d better prove that you have a healthy dose of them. It simply wouldn’t do to look or feel deficient in these most basic characteristics… There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you’re secretly worried it’s a pair of tens. In this mindset, the hand you’re dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience.” Programming may be a very new, intimidating thing for you. That’s okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!</li>
-<li><strong>Learn by doing</strong>: <a href="https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA&amp;sq=t">A wise statistics instructor</a> once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won’t get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good <em>start</em>, but you’ll have to actually <em>program</em> in order to get any better! This textbook was designed to be <em>interactive</em>, and I encourage you to “code along with the book” as you read.</li>
-</ul>
+<div id="r-scripts" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> R scripts<a href="running-code-in-rstudio.html#r-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now let’s run the same code, but in an R script.
+If you haven’t already, create a new R script by clicking on the <code>New File</code> icon, then selecting <code>R Script</code> like so:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="src/images/rstudio_newfile.png" alt="Click this button to create a new file"  />
+<p class="caption">
+Figure 3.2: Click this button to create a new file
+</p>
 </div>
-<div id="grading-scale" class="section level3 hasAnchor" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Grading Scale<a href="course-topics-syllabus.html#grading-scale" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Grades will be assigned according to the following scale:</p>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Class.Score
-</th>
-<th style="text-align:left;">
-Letter.Grade
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-92%-100%
-</td>
-<td style="text-align:left;">
-A
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-90%-92%
-</td>
-<td style="text-align:left;">
-A-
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-88%-90%
-</td>
-<td style="text-align:left;">
-B+
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-82%-88%
-</td>
-<td style="text-align:left;">
-B
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-80%-82%
-</td>
-<td style="text-align:left;">
-B-
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-78%-80%
-</td>
-<td style="text-align:left;">
-C+
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-70%-78%
-</td>
-<td style="text-align:left;">
-C
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-60%-70%
-</td>
-<td style="text-align:left;">
-D
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-0%-60%
-</td>
-<td style="text-align:left;">
-F
-</td>
-</tr>
-</tbody>
-</table>
+<p>In the script window which opens, type <code>1+1</code> and press <code>enter</code>.
+Notice how now, the code did <em>not</em> run?
+In a script, you are free to write R code on several lines before you run it.
+You can even save the script and load it later in order to run the code it contains.
+There are multiple ways to run R code in a script.
+To run a single line of code, do one of the following:</p>
+<ul>
+<li>Place the cursor on the desired line, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold <code>&lt;command&gt;</code> key and press <code>return</code> instead</li>
+<li>Place the cursor on the desired line and click the <code>Run</code> button that looks like this:</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="src/images/rstudio_run.png" alt="code in the console"  />
+<p class="caption">
+Figure 3.3: code in the console
+</p>
+</div>
+<p>To run multiple lines of code, do one of the following:</p>
+<ul>
+<li>Highlight all the code you’d like to run, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold the <code>&lt;command&gt;</code> key and press <code>return</code> instead.</li>
+<li>Highlight all the code you’d like to run, and click the <code>Run</code> button.</li>
+</ul>
+<p>Run the <code>1+1</code> code using one of the methods above, and observe the output.
+Notice how the output is <em>still</em> in the console window, even though you ran the code in a script!</p>
+<div class="caution">
+<p>
+Even though running R code from the console and an R script are done
+differently, they should produce the same results. Both are running
+R!
+</p>
+</div>
+<p>Now that you’ve run some code in the console and from an R script, let’s try some of the other code we ran previously.</p>
+</div>
+<div id="same-examples-on-your-computer" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Same Examples, On Your Computer!<a href="running-code-in-rstudio.html#same-examples-on-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the <em>console</em>, type the command <code>factorial(10)</code>.
+Did you get the same result as you got on the website?
+Now type the following two lines in an R script and run them:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb6-1"><a href="running-code-in-rstudio.html#cb6-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb6-2"><a href="running-code-in-rstudio.html#cb6-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>This code produces a plot, which should show up in the lower right corner in the “Plots” window.
+Finally, <em>copy</em> the following code, paste it into your script, and run it:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb7-1"><a href="running-code-in-rstudio.html#cb7-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb7-2"><a href="running-code-in-rstudio.html#cb7-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-3"><a href="running-code-in-rstudio.html#cb7-3" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb7-4"><a href="running-code-in-rstudio.html#cb7-4" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="running-code-in-rstudio.html#cb7-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="running-code-in-rstudio.html#cb7-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb7-7"><a href="running-code-in-rstudio.html#cb7-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>,</span>
+<span id="cb7-8"><a href="running-code-in-rstudio.html#cb7-8" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="running-code-in-rstudio.html#cb7-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb7-10"><a href="running-code-in-rstudio.html#cb7-10" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-11"><a href="running-code-in-rstudio.html#cb7-11" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p>You’re now running R code on your computer!</p>
+<div class="bonus">
+<p>
+The above code block includes a command to install an R package! <a
+href="https://ggplot2.tidyverse.org/">ggplot2</a> is a very popular
+plotting package that can create sophisticated and (arguably)
+aesthetically pleasing graphs.
+</p>
+</div>
+<div class="reflect">
+<p>
+Imagine you are practicing programming in R and your classmate tells
+you they heard about an interesting new R command which they’d like you
+to try out. Would you run the command in an R script, or the R console?
+How might your answer change if you wanted to keep a record of all the
+interesting R commands you found?
+</p>
+</div>
+</div>
+<div id="r-markdown" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> R Markdown<a href="running-code-in-rstudio.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ve seen how to run R code in the R console, and from an R script, but there’s one more way to run R that we need to talk about: R Markdown.</p>
+<p>R scripts are convenient because they can store multiple R commands in one file.
+R Markdown takes this idea further and stores code alongside human readable text.
+There is much that could be said about R Markdown, but for now, we’ll just stick with the basics.</p>
+<p>To start, watch this video:</p>
+<div class="video">
+<p>
+This video gives a basic introduction to R Markdown.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MhvipLohEfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/MhvipLohEfU" class="uri">https://youtu.be/MhvipLohEfU</a></strong>
+</center>
+</div>
+<p>As the video stated, there are three types of sections to an R Markdown document:</p>
+<ul>
+<li>Header</li>
+<li>Human readable text</li>
+<li>Code chunks</li>
+</ul>
+<p>There’s only one header, but there can be many blocks of human readable text and many code chunks.</p>
+<div class="bonus">
+<p>
+See <a
+href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">here</a>
+for more things you can do with R Markdown.
+</p>
+</div>
+<div class="assessment">
+<p>
+As part of this class, you’ll be filling in an R Markdown document as
+you complete the progress checks in the book (except for the first
+progress check box, which you completed already) Download the <a
+href="assignment_templates/progress_check_2.rmd">progress check 2
+template</a> into your <code>scripts</code> folder, and follow the
+instructions. That document should include all progress checks from
+Section 3.4 through (and including) Section 4.3. The next box should be
+the first code chunk you will include in the document!
+</p>
+</div>
+<div class="progress">
+<p>
+Run the command <code>8 / (2 * (2 + 2))</code> and observe the
+output!
+</p>
+</div>
+<div class="video">
+<p>
+This video should help get you started with the Progress Check
+Assignments!
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QLXB4kPngqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/QLXB4kPngqM" class="uri">https://youtu.be/QLXB4kPngqM</a></strong>
+</center>
+</div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Topics%20%26%20Syllabus">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio">here</a>
 </p>
 </div>
 </div>
@@ -528,8 +510,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="this-textbook.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="running-your-first-r-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="successfull-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workspace-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -104,7 +104,7 @@ First, some important details:
 
 - __Quizzes__: There will be four 15 minute Canvas quizzes during the semester. Quizzes must be completed by 11:59pm (Mountain) on the day they are due. __There are NO late quizzes accepted after the due date has passed. If you cannot complete the quiz on the day it is due, you are expected to do it early__.
 
-- __Exams__: There will be no exams in this course
+- __Exams__: There will be no exams in this course.
 
 - __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read the material before the lecture. The remainder of the time will be _student-led_. We will cover questions students may have or work on homework together.
 
