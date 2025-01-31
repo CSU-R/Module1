@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.5 Workspace setup | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
   <meta property="og:type" content="book" />
@@ -443,9 +443,6 @@ directories.
 </center>
 </div>
 </div>
-<div id="set" class="section level4 hasAnchor" number="3.5.3.4">
-<h4><span class="header-section-number">3.5.3.4</span> Set<a href="workspace-setup.html#set" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-</div>
 </div>
 <div id="some-useful-commands-you-should-know" class="section level3 hasAnchor" number="3.5.4">
 <h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -454,8 +451,8 @@ This will reduce the amount of memory that is taken up</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
 <span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
 <pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  880763 47.1    1676950 89.6         NA  1328778 71.0
-Vcells 1632425 12.5    8388608 64.0     102400  2652790 20.3</code></pre>
+Ncells  880629 47.1    1676544 89.6         NA  1328824 71.0
+Vcells 1632160 12.5    8388608 64.0     102400  2642246 20.2</code></pre>
 <p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
 <div class="bonus">
 <p>

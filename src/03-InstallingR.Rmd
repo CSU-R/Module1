@@ -151,6 +151,8 @@ This video shows the installation process for Windows.
 
 #### Conclusion
 
+You should now have R and RStudio installed! We will look at running code and setting up your workspace in the following sections.
+
 ```{block, type="bonus"}
 Rstudio also offers a [cloud service](https://rstudio.cloud/) that allows you to work with R in your browser. We'll use the desktop version but you can check out the [interactive primers](https://rstudio.cloud/learn/primers) on the cloud site.
 ```
@@ -414,9 +416,6 @@ Check out this video to watch me set up a project and the new directories.
 
 <center> __https://youtu.be/0saBBd6lQDI__ </center>
 ```
-
-
-#### Set 
 
 
 ### Some useful commands you should know

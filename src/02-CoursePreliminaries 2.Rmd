@@ -1,0 +1,399 @@
+# Course Preliminaries {#prelim}
+
+> "Learning to code is useful no matter what your career ambitions are." —Arianna Huffington, Founder, The Huffington Post
+
+In this chapter, we'll discuss the preliminary details of the course.
+Then you'll run some R code and learn more about R and the R community.
+
+## This Textbook
+
+This course is presented as a [bookdown](https://bookdown.org/) document, and is divided into chapters and sections.
+Each week, you'll be expected to read through the chapter and complete any associated exercises, quizzes, or assignments.
+
+### Special Boxes
+
+Throughout the book, you'll encounter special boxes, each with a special meaning.
+Here is an example of each type of box:
+
+
+```{block, type='reflect'}
+This box will prompt you to pause and reflect on your experience and/or learning. No feedback will be given, but this may be graded on completion.
+```
+
+```{block, type='assessment'}
+This box will signify a quiz or assignment which you will turn in for grading, on which the instructor will provide feedback.
+```
+
+```{block, type='progress'}
+This box is for checking your understanding, to make sure you are ready for what follows.
+```
+
+```{block, type='video'}
+This box is for displaying/linking to videos in order to help illustrate or communicate concepts.
+```
+
+```{block, type='caution'}
+This box will warn you of possible problems or pitfalls you may encounter! 
+```
+
+```{block, type='bonus'}
+This box is to provide material going beyond the main course content, or material which will be revisited later in more depth.
+```
+
+```{block, type='feedback'}
+This box will prompt for your feedback on the organization of the course, so we can improve the material for everyone!
+
+Any of the boxes may include hyperlinks like this: [I am a link](https://www.r-graph-gallery.com/) or code like this `This is code`.
+```
+
+### How This Book Displays Code
+
+In addition, you may see R code either as part of a sentence like this: `1+1`, or as a separate block like so:
+```{r, example_codeblock}
+1+1
+```
+
+Sometimes (as in this example) we will also show the __output__ (in yellow), that is, the result of running the R code. In this case the code `1+1` produced the output `2`.
+If you hover over a code block with your mouse, you will see the option to copy the code to your clipboard, like this:
+```{r, fig.cap="copying code from this book", echo=F}
+knitr::include_graphics("src/images/copy_code.png")
+```
+This will be useful when you are asked to run code on your computer.
+
+### Next Steps
+
+When you're ready, go to the next section to learn about the course syllabus and grading policies.
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Preliminaries)
+```
+
+## Course Topics \& Syllabus
+
+Broadly speaking, the topics of this course are described by the Chapter Titles. Here's what each entails:
+
+- Course Preliminaries: Introduction to R and the world of R
+- Installing R: Like it sounds, setting up your computer so you can work with R.
+- R Programming Fundamentals: The basics of programming in R, the building blocks that you need in order to do anything more interesting.
+- Working with Data: How to do meaningful things with data sets. Probably the most useful Chapter of the book.
+- Creating R Programs: More programming concepts to increase your R Power!
+
+### Syllabus
+
+First, some important details:
+
+- __Instructor__: [Lane Drew](mailto:lane.drew@colostate.edu)
+
+<!-- - __Office Hours__: Held in the Statistics Success Center (Weber 223A), schedule available on Canvas. -->
+- __Office Hours__: Schedule and location TBA.
+
+- __Webpages__: [Canvas](https://canvas.colostate.edu), [this textbook](https://csu-r.github.io/Module1/)
+
+- __Course Credits__: 1. This means ~1 hours of lecture and 4 hours of work outside of lecture per week.
+
+- __Textbook__: You're reading it right now. The textbook will be your primary learning resource. You'll be expected to read through the required sections, watch any relevant videos, and complete any reflections, progress checks, and assessments along the way. On days when a quiz is due, you should complete the reading _before_ you take the quiz.
+
+- __Prerequisites__: None
+
+- __Assignments/What-to-turn-in__: This course will be graded on three types of assignments: Progress Checks, Homeworks, and Quizzes. There will be four of each. Most weeks, you will have one of these three types of assignments due. Due dates will be specified on Canvas and assignments will be due at 11:59pm on the indicated day (please see schedule below).
+
+- __Progress Checks__: As you work your way through the textbook, you'll encounter purple "Progress Check" boxes. For the first Progress Check, you'll submit your responses directly to Canvas. For Progress Checks 2-4, you'll fill in an R Markdown document and submit it to canvas. You'll be provided a template to fill in as you complete the progress checks. To turn in the document, you'll **knit** the document to HTML or PDF and upload to Canvas. (More details coming later in the book!). Progress checks will be graded on completion, organization, and correctness. Progress Checks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
+
+- __Homework__: There are four homeworks during the semester. You'll complete each homework using R. Homeworks must be turned in by 11:59pm (Mountain) on the day they are due. Half credit will be given for a two-day window after the due date, after which no credit will be possible.
+
+- __Quizzes__: There will be four 15 minute Canvas quizzes during the semester. Quizzes must be completed by 11:59pm (Mountain) on the day they are due. __There are NO late quizzes accepted after the due date has passed. If you cannot complete the quiz on the day it is due, you are expected to do it early__.
+
+- __Exams__: There will be no exams in this course.
+
+- __Lectures__: Lectures will be held on Fridays. There will be _mini-lectures_, approximately 10-30 minutes. The mini-lectures will be based on previously read material, no new material will be presented. Students are expected to have read the material before the lecture. The remainder of the time will be _student-led_. We will cover questions students may have or work on homework together.
+
+- __Grading__: The grading for the course is apportioned like so:
+
+  - Progress Checks: 30%
+  - Homework: 40%
+  - Quizzes: 30%
+
+<!-- ### Schedule -->
+
+<!-- ```{r, schedule, echo=F} -->
+<!-- # Summer Schedule -->
+<!-- # sched <- data.frame( -->
+<!-- #   Week = 1 + isoweek(course_dates) - isoweek(start_date), -->
+<!-- #   Weekday = wday(course_dates, label=T, abbr=F), -->
+<!-- #   Date = format(course_dates, "%B %d"), -->
+<!-- #   Reading = c("1, 2", "3", "4.1, 4.2", "4.3", "4.4, 4.5", "5.1, 5.2", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "6.2, 6.3", "6.4"), -->
+<!-- #   Due= c("Progress Check 1", "Quiz 1", "Assignment 1", "Progress Check 2", "Quiz 2", "Assignment 2", "Progress Check 3", "Quiz 3", "Assignment 3", "Progress Check 4", "Quiz 4", "Assignment 4") -->
+<!-- # ) -->
+
+<!-- # Spring Schedule -->
+<!-- sched <- data.frame( -->
+<!--   Week = 1 + isoweek(course_dates) - isoweek(start_date), -->
+<!--   Weekday = wday(course_dates, label=T, abbr=F), -->
+<!--   Date = format(course_dates, "%B %d"), -->
+<!--   Reading = c("1", "2", "3.1, 3.2, 3.3", "3.4, 3.5", "4.1, 4.2", "4.3", "4.4", "5.1, 5.2","", "5.3, 5.4", "5.5, 5.6", "5.7", "6.1", "6.2", "6.3", "6.4"), -->
+<!--   Due= c("", "Progress Check 1", "", "Quiz 1", "Homework 1", "Progress Check 2", "Quiz 2", "Homework 2", "", "Progress Check 3", "Quiz 3", "Homework 3", "Progress Check 4", "", "Quiz 4", "Homework 4") -->
+<!-- ) -->
+
+<!-- knitr::kable(sched) %>% kable_styling() -->
+<!-- ``` -->
+
+### Assignment Templates
+
+In order to complete the progress checks and course assignments, you'll need to start from these templates:
+
+Progress Checks
+
+- (Progress Check 1 will not require a template)
+- [Progress Check 2](assignment_templates/progress_check_2.rmd)
+- [Progress Check 3](assignment_templates/progress_check_3.rmd)
+- [Progress Check 4](assignment_templates/progress_check_4.rmd)
+
+Assignments
+
+- [Homework 1](assignment_templates/assignment_1.rmd)
+- [Homework 2](assignment_templates/assignment_2.rmd)
+- [Homework 3](assignment_templates/assignment_3.rmd)
+- [Homework 4](assignment_templates/assignment_4.rmd)
+
+
+### Course Policies 
+
+- __Late Work__: Homework and Progress Checks must be turned in on time to receive full credit. You may turn in Homework and Progress Checks up to 2 days late for up to 50% credit.
+- __Group Work__: Students are welcome to discuss the course with each other, but all work you turn in must be your own. This means no sharing solutions to homework, progress checks, or quizzes. You may not work with other students on quizzes. You _are_ welcome to seek help on Canvas discussion boards and during office hours.
+- __Students with Disabilities__: The university is committed to providing support for students with disabilities. If you have an accommodation plan, please provide that to me as soon as possible so we can discuss appropriate arrangements.
+- __Growth Mindset__: This phrase was coined by Carol Dweck to reflect how your learning outcomes can be affected by the way you view the learning process. To quote Dweck: "The view you adopt for yourself profoundly affects the way you lead your life... Believing that your qualities are carved in stone - _the fixed mindset_ - creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character — well, then you’d better prove that you have a healthy dose of them. It simply wouldn’t do to look or feel deficient in these most basic characteristics... There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with, always trying to convince yourself and others that you have a royal flush when you’re secretly worried it’s a pair of tens. In this mindset, the hand you’re dealt is just the starting point for development. This growth mindset is based on the belief that your basic qualities are things you can cultivate through your efforts. Although people may differ in every which way — in their initial talents and aptitudes, interests, or temperaments — everyone can change and grow through application and experience." Programming may be a very new, intimidating thing for you. That's okay! View this course as a way to grow and gain new skills which you can use to do incredible and important things!
+- __Learn by doing__: [A wise statistics instructor](https://statistics.colostate.edu/person/?id=B0D2F899C79C05AAE4EDBA6EE2FECACA&sq=t) once compared watching someone else solve statistics problems to watching someone else practice shooting basketball free throws. You may learn a little by watching, but at some point you won't get any better until you try it yourself! The same can be said for programming. Reading a textbook and watching videos are a good _start_, but you'll have to actually _program_ in order to get any better! This textbook was designed to be _interactive_, and I encourage you to "code along with the book" as you read.
+
+### Grading Scale
+
+Grades will be assigned according to the following scale:
+
+```{r, grading_scale, echo=F}
+grading_scale <- data.frame(
+  `Class Score` = c("92%-100%", "90%-92%", "88%-90%", "82%-88%", "80%-82%", "78%-80%", "70%-78%", "60%-70%", "0%-60%"),
+  `Letter Grade` = c("A", "A-", "B+", "B", "B-", "C+", "C", "D", "F")
+)
+knitr::kable(grading_scale) %>% kable_styling()
+```
+
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Topics%20%26%20Syllabus)
+```
+
+## Running your first R Code
+
+Enough of the boring stuff, let's run some R code!
+Normally you will run R on your computer, but since you may not have R installed yet, let's run some R code using a website first.
+As you run code, you'll see some of the things R can do.
+In a browser, navigate to [rdrr.io/snippets](https://rdrr.io/snippets/){target="_blank"}, where you'll see a box that looks like this:
+
+```{r, fig.cap="rdrr code entry box", echo=F}
+knitr::include_graphics("src/images/rdrr.png")
+```
+
+The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from before `library(ggplot2)` to after `factor(cyl))`.
+In its place, type `1+1`, then click the big green "Run" button.
+You should see the `[1] 2` displayed below.
+So if you give R a math expression, it will evaluate it and give the result.
+Note: the "correct answer" to $1+1$ is `2`, but the output also displays `[1]`, which we won't explain until later, so you can ignore that for now.
+
+Next, delete the code you just wrote and type (or copy/paste) the following, and run it:
+```{r, eval=F}
+factorial(10)
+```
+The result should be a very large number, which is equivalent to $10!$, that is, $10\times9\times8\times7\times6\times5\times4\times3\times2\times1$.
+This is an example of an R _function_, which we will discuss more later.
+
+Aside from math, R can produce plots. Try copy/pasting the following code into the website:
+```{r, eval=F}
+x <- -10:10
+plot(x, x^2)
+```
+You should see points in a scatter plot which follow a parabola.
+Here's a more complicated example, which you should copy/paste into the website and run:
+```{r, eval=F}
+library(ggplot2)
+theme_set(theme_bw())
+ggplot(mtcars, aes(y = mpg, fill = as.factor(cyl))) + 
+  geom_boxplot() + 
+  labs(title = "Engine Fuel Efficiency vs. Number of Cylinders",
+       y = "MPG", 
+       fill = "Cylinders") + 
+  theme(legend.position = "bottom", 
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank())
+```
+R can be used to make many types of visualizations, which you will do more of later.
+
+
+```{block, type="bonus"}
+This may be the first time you've seen R, so it's okay if you don't understand how to read this code. We'll talk more later about what each statement is doing, but for now, here is a brief description of some of the code above:
+
+- <span style="color:black">`-10:10`<span> This creates a sequence of numbers starting from -10 and ending at 10. That is, <span style="color:black">$-10, -9, -8, \ldots, 8, 9, 10$<span>.
+- <span style="color:black">`library`<span> This is a function which loads an R _package_. R packages provide extra abilities to R.
+
+```
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Your%20First%20R%20Code)
+```
+
+## What do you hope to get out of this course?  {#getoutoftheclass}
+
+To close out this chapter, it would be healthy for you to reflect on what you'd like to get from this course. 
+Take some time to think through each question below, and write down your answers.
+It is fine if your honest answer is _I don't know_. 
+In that case, try to come up with some possible answers that _might_ be true.
+
+```{block, type="reflect"}
+1. Why are you taking this course?
+1. If this course is required for your major, how do you think it is supposed to benefit you in your studies?
+1. What types of data sets related to your field of study may require data analysis?
+1. What skills do you hope to develop in this course, and how might they be applied in your major and career?
+```
+
+```{block, type="assessment"}
+Submit your answers to the above reflection to Canvas. This will be your Progress Check 1.
+```
+
+Store your answers in a safe place, and refer to them periodically as you progress through the course.
+You may find that you aren't achieving your goals and that some adjustment to how you are approaching the course may be necessary.
+Or you may find that your goals have changed, which is fine!
+Just update your goals so that you have something to refer back to.
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20Do%20You%20Hope%20To%20Get%20Out%20Of%20The%20Class)
+```
+
+## What is R? 
+
+What is R? This question can be answered several different ways.
+Here are a few of them:
+
+<!-- ```{block, type='feedback'} -->
+<!-- Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20is%20R) -->
+<!-- ```  -->
+
+### R is a Programming Language
+
+A programming language is a way of providing instructions to a computer.
+Some popular languages (in no particular order) are C, C++, Java, Python, PHP, Visual Basic, and Swift.
+Much like other types of languages, programming languages combine text and punctuation (syntax) to create statements which provide meaningful instructions (semantics) to be performed by a computer.
+These instructions are called "code".
+R code can be used to do many things, but primarily R was designed to easily work with data and produce graphics. 
+The R language can be used to get a computer to do the following:
+
+- Read and process a set of data in a file or database
+- Use data to compute statistics and perform statistical tests
+- Produce nice looking visualizations of data
+- Save data for others to use.
+But this list is just the tip of the iceberg.
+As you will see, R can be used to do so much more!
+After the instructions are written, the R code is _run_, that is, the code is provided to the computer, and the computer performs the instructions to produce the desired results.
+
+```{block, type="bonus"}
+Many other programming languages use different syntax for the same purpose.
+
+<span style="color:black">`#`<span> comments out a line in R and python
+
+<span style="color:black">`%`<span> comments out a line in matlab
+
+<span style="color:black">`//`<span> comments out a line in C++ and javascript
+
+Similar to learning a foreign language, learning your first programming language will make it easier to understand other similar ones.
+```
+### R is software
+
+R can also be thought of as the software program which runs R code.
+In other words, if R code is the computer language, then the R software is what interprets the language and makes the computer follow the instructions laid out in the code.
+This is sometimes called "base R".
+
+### R is Free
+
+The R software is free, so anyone can download R, write R code, and run the R code in order to produce results on their computer.
+
+### R is Open Source
+
+The R software, which runs R code, is also made up of a bunch of code called _source code_.
+In addition to being free, R is also _open source_, meaning that anyone can look at the source code and understand the "deep-down nuts-and-bolts" of how R works.
+In addition, anyone is able to _contribute_ to R, in order to improve it and add new features to it. 
+
+```{block, type="reflect"}
+What are the advantages of open-source software? What are some potential downsides?
+
+Why do you think the creators of R decided to make it open source?
+```
+
+
+### R is an ecosystem
+
+Another way of thinking about R is to include not only the R language and the R software, but also the community of R users and programmers, and the various "add on" software they have created for R.
+These add on software are called "packages".
+
+### R Packages
+
+An R package is software written to extend the capabilities of base R.
+R packages are often written in R code, so anyone who knows how to write R code can also create R packages.
+The importance of packages cannot be understated.
+One of the reasons for the incredible popularity of R is the fact that members from the community can write new packages which enable R to do more.
+Sometimes packages are written to help folks in particular disciplines (e.g. psychology, geosciences, microbiology, education) do their jobs better.
+Other times, packages are written to extend the capability of R so that people from many disciplines can use them.
+R can be used to make web sites, interactive applications, dynamic reproducible reports, and even textbooks (like this one!).
+
+The inclusion of R packages, combined with the free and open source nature of R software, has led to the development of an active, diverse, and supportive community of R users who can easily share their code, data, and results with one another.
+
+
+```{block, type="bonus"}
+[skimr](https://github.com/ropensci/skimr) is one example of a package. It provides a frictionless approach to summary statistics which conforms to the principle of least surprise, displaying summary statistics the user can skim quickly to understand their data.
+```
+
+### R Interfaces
+
+The R software can be run in many different places, including personal computers, remote servers, and websites (as you have seen!).
+R works on Windows, macOS, and Linux, and 
+R can be run using a terminal or command line (if you know what those are), or using a graphical user interface (with buttons you can click and such).
+By far one of the most popular ways of using R is with RStudio, which is _also_ free and open source software.
+For this course, you'll be using RStudio.
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=What%20Is%20R)
+```
+
+## The R Community
+
+We already mentioned that there is an active community of R users around the world, ranging from novice to expert level.
+Here is a partial list of venues where R users interact (aside from the official websites, none of these links should be considered an official endorsement):
+
+1. [R Project](r-project.org): The official website for R.
+1. [R Project Mailing Lists](https://www.r-project.org/mail.html): Various email lists to stay informed on R related activities. The R-announce list is a good starting point, which will keep you updated on the latest releases of the R software.
+1. [Twitter #rstats](https://twitter.com/hashtag/rstats?lang=en): Many R Users are active on Twitter and you can find them.
+1. [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday) is a weekly online project that focuses on understanding how to summarize, arrange, and make meaningful charts with open source data. You can see the projects others have done by following #tidytuesday on twitter.
+1. [R-Ladies](https://rladies.org/) is a global group dedicated to promoting gender equality in the R community. They have an elaborate list of resources for learning and host educational and networking events.
+1. [R-Podcast](https://r-podcast.org/): A periodic podcast with practical advice for using R, and the latest R news.
+1. [R-Bloggers](r-bloggers.com): A blog website where authors can post examples of code, data analysis, and visualization.
+
+
+### Places to Get Help (If you're a student taking this class for credit)
+
+Students taking the course for credit should seek help from these places, in order:
+
+- Canvas Discussion boards
+- Office Hours
+
+I will not answer homework/quiz/textbook related questions via email.
+
+### Places to Get Help (anyone)
+
+If you find yourself stuck, there are many options available to you, here are a few:
+
+1. [Stack Overflow](https://stackoverflow.com) is a message board where users can post questions about issues they're having. If you search for your error, there's likely already an answered question about it. If not, you can submit one with a [reproducible example](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) that the active community can help you with.
+1. [R Manuals](https://cran.r-project.org/manuals.html): With so many R resources available on the internet, sometimes information gets "boiled down" or simplified for ease of communication. If you need the "official answer" to a question, these manuals are the place to go. Check out "An Introduction to R" for a good reference.
+
+
+```{block, type='feedback'}
+Any feedback for this section? Click [here](https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=The%20R%20Community)
+``` 
