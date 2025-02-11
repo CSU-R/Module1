@@ -12,6 +12,6 @@ rmd_files:
   - "src/05-WorkingWithData.Rmd"
   - "src/06-PerformingEffectiveDataAnalysis.Rmd"
 output_dir: "docs"
-ignore: ["assignment_templates/*"]
+ignore: ["assignment_templates/"]
 # rmd_subdir: ["src"]  # misses index.Rmd if we use this
 # clean: ["src/book.bib"] # removes book.bib file when cleaned
