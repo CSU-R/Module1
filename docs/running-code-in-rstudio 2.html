@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Workspace setup | R Module 1</title>
+  <title>3.4 Running Code in RStudio | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
+  <meta property="og:title" content="3.4 Running Code in RStudio | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
+  <meta name="twitter:title" content="3.4 Running Code in RStudio | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-code-in-rstudio.html"/>
-<link rel="next" href="r-programming-fundamentals.html"/>
+<link rel="prev" href="successfull-installation.html"/>
+<link rel="next" href="workspace-setup.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,169 +341,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Workspace setup<a href="workspace-setup.html#workspace-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course.</p>
-<div id="recommended-settings" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Recommended Settings<a href="workspace-setup.html#recommended-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First of all, let’s set some settings in RStudio.
-At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
-<ol style="list-style-type: decimal">
-<li>On the left side of the window that pops up, make sure it’s on the “General” tab</li>
-<li>Find the “Workspace” section on the right, make the following changes:
-<ul>
-<li><em>uncheck</em> “Restore .RData into workspace on startup”</li>
-<li>Change the “Save workspace to .RData on exit” option to <em>never</em></li>
-</ul></li>
-<li>On the left side, select the “R Markdown” tab and make the following change:
-<ul>
-<li>Change the “Evaluate chunks in directory” option to <em>Project</em>.</li>
-<li>You may need to install the <code>rmarkdown</code> package to populate this option. Run the line <code>install.packages("rmarkdown")</code> and restart RStudio (you can ignore the prompt to install RTools on Windows).</li>
-</ul></li>
-<li>(Optional) On the left side, select the “Appearance” tab and make the changes:
-<ul>
-<li>(Optional) Change the “Zoom:” setting to increase or decrease the interface text size to fit your screen best.</li>
-<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
-</ul></li>
-<li>Click “Apply”, then “OK” at the bottom of the window.</li>
-</ol>
-<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
-This is a good option for R beginners to avoid confusion and mistakes.
-Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the <em>working directory</em> (more on working directories below).
-Changing the zoom can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
-On macOS, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
-</div>
-<div id="setting-working-directory" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Setting working directory<a href="workspace-setup.html#setting-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
-In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
-This will become more relevant when you start loading data and saving results later in the course.
-For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
-<div class="bonus">
-<p>
-See <a
-href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a>
-for more information about working directories.
-</p>
-</div>
-</div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class<a href="workspace-setup.html#create-rstudio-project-and-directories-for-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects.
-For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4 hasAnchor" number="3.5.3.1">
-<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project<a href="workspace-setup.html#create-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To create an RStudio project, follow these steps:</p>
-<ul>
-<li>Click on the “Project” button at the top right of the RStudio window and select “New Project”.</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
+<div id="running-code-in-rstudio" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Running Code in RStudio<a href="running-code-in-rstudio.html#running-code-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that you’re somewhat familiar with RStudio, let’s run the same code as we ran on the website, but this time let’s run it in R.</p>
+<div id="the-r-console" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> The R Console:<a href="running-code-in-rstudio.html#the-r-console" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the <em>R console</em>, type <code>1+1</code> and press <code>enter</code>.
+The output in the console should look like the following:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<img src="src/images/1_plus_1_console.png" alt="code in the console"  />
 <p class="caption">
-Figure 3.4: Click this button to create a new project
+Figure 3.1: code in the console
 </p>
 </div>
-<ul>
-<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
-<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
-<li>Then click the “Browse” button to select where to place the project.</li>
-<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
-<li>Click on “Create Project”.</li>
-</ul>
-<p>You should now be <em>in</em> your newly created project.
-If you look at the Files window in the lower right pane of RStudio, you should see the files in your new project directory, which should only be one file, called “RModule1.rproj”.
-This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
-When you’re working on this course, you should be working in this project.
-The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
-This will automatically set the working directory to the project directory.</p>
+<p>Notice that the output <code>2</code> is displayed, and the cursor is on a blank line, waiting for more input. This is how coding in the console works.</p>
 </div>
-<div id="create-directory-structure" class="section level4 hasAnchor" number="3.5.3.2">
-<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure<a href="workspace-setup.html#create-directory-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To stay organized, you should also create the following folders inside your project directory</p>
-<ul>
-<li>scripts</li>
-<li>data_raw</li>
-<li>data_clean</li>
-<li>output</li>
-</ul>
-<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
+<div id="r-scripts" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> R scripts<a href="running-code-in-rstudio.html#r-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now let’s run the same code, but in an R script.
+If you haven’t already, create a new R script by clicking on the <code>New File</code> icon, then selecting <code>R Script</code> like so:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="src/images/rstudio_newfile.png" alt="Click this button to create a new file"  />
+<p class="caption">
+Figure 3.2: Click this button to create a new file
+</p>
 </div>
-<div id="video" class="section level4 hasAnchor" number="3.5.3.3">
-<h4><span class="header-section-number">3.5.3.3</span> Video<a href="workspace-setup.html#video" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="video">
+<p>In the script window which opens, type <code>1+1</code> and press <code>enter</code>.
+Notice how now, the code did <em>not</em> run?
+In a script, you are free to write R code on several lines before you run it.
+You can even save the script and load it later in order to run the code it contains.
+There are multiple ways to run R code in a script.
+To run a single line of code, do one of the following:</p>
+<ul>
+<li>Place the cursor on the desired line, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold <code>&lt;command&gt;</code> key and press <code>return</code> instead</li>
+<li>Place the cursor on the desired line and click the <code>Run</code> button that looks like this:</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="src/images/rstudio_run.png" alt="code in the console"  />
+<p class="caption">
+Figure 3.3: code in the console
+</p>
+</div>
+<p>To run multiple lines of code, do one of the following:</p>
+<ul>
+<li>Highlight all the code you’d like to run, hold the <code>&lt;control&gt;</code> key, and press <code>enter</code>. On macOS, hold the <code>&lt;command&gt;</code> key and press <code>return</code> instead.</li>
+<li>Highlight all the code you’d like to run, and click the <code>Run</code> button.</li>
+</ul>
+<p>Run the <code>1+1</code> code using one of the methods above, and observe the output.
+Notice how the output is <em>still</em> in the console window, even though you ran the code in a script!</p>
+<div class="caution">
 <p>
-Check out this video to watch me set up a project and the new
-directories.
+Even though running R code from the console and an R script are done
+differently, they should produce the same results. Both are running
+R!
 </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0saBBd6lQDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<center>
-<strong><a href="https://youtu.be/0saBBd6lQDI" class="uri">https://youtu.be/0saBBd6lQDI</a></strong>
-</center>
 </div>
+<p>Now that you’ve run some code in the console and from an R script, let’s try some of the other code we ran previously.</p>
 </div>
-</div>
-<div id="some-useful-commands-you-should-know" class="section level3 hasAnchor" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
-This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  880633 47.1    1676540 89.6         NA  1328855 71.0
-Vcells 1632294 12.5    8388608 64.0     102400  2642440 20.2</code></pre>
-<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
+<div id="same-examples-on-your-computer" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Same Examples, On Your Computer!<a href="running-code-in-rstudio.html#same-examples-on-your-computer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the <em>console</em>, type the command <code>factorial(10)</code>.
+Did you get the same result as you got on the website?
+Now type the following two lines in an R script and run them:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb6-1"><a href="running-code-in-rstudio.html#cb6-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb6-2"><a href="running-code-in-rstudio.html#cb6-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>This code produces a plot, which should show up in the lower right corner in the “Plots” window.
+Finally, <em>copy</em> the following code, paste it into your script, and run it:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb7-1"><a href="running-code-in-rstudio.html#cb7-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb7-2"><a href="running-code-in-rstudio.html#cb7-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-3"><a href="running-code-in-rstudio.html#cb7-3" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb7-4"><a href="running-code-in-rstudio.html#cb7-4" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="running-code-in-rstudio.html#cb7-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="running-code-in-rstudio.html#cb7-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb7-7"><a href="running-code-in-rstudio.html#cb7-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>,</span>
+<span id="cb7-8"><a href="running-code-in-rstudio.html#cb7-8" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="running-code-in-rstudio.html#cb7-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb7-10"><a href="running-code-in-rstudio.html#cb7-10" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb7-11"><a href="running-code-in-rstudio.html#cb7-11" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p>You’re now running R code on your computer!</p>
 <div class="bonus">
 <p>
-Here’s a <a
-href="https://support.rstudio.com/hc/en-us/articles/200711853">more
-complete list</a> of RStudio shortcuts.
+The above code block includes a command to install an R package! <a
+href="https://ggplot2.tidyverse.org/">ggplot2</a> is a very popular
+plotting package that can create sophisticated and (arguably)
+aesthetically pleasing graphs.
 </p>
 </div>
 <div class="reflect">
 <p>
-Before moving on to the next section, take a note of all you’ve done
-so far.
+Imagine you are practicing programming in R and your classmate tells
+you they heard about an interesting new R command which they’d like you
+to try out. Would you run the command in an R script, or the R console?
+How might your answer change if you wanted to keep a record of all the
+interesting R commands you found?
 </p>
-<ol style="list-style-type: decimal">
-<li>
+</div>
+</div>
+<div id="r-markdown" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> R Markdown<a href="running-code-in-rstudio.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You’ve seen how to run R code in the R console, and from an R script, but there’s one more way to run R that we need to talk about: R Markdown.</p>
+<p>R scripts are convenient because they can store multiple R commands in one file.
+R Markdown takes this idea further and stores code alongside human readable text.
+There is much that could be said about R Markdown, but for now, we’ll just stick with the basics.</p>
+<p>To start, watch this video:</p>
+<div class="video">
 <p>
-Did your R installation go smoothly? If not, could you
-troubleshoot the errors or find help online?
+This video gives a basic introduction to R Markdown.
 </p>
-</li>
-<li>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MhvipLohEfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/MhvipLohEfU" class="uri">https://youtu.be/MhvipLohEfU</a></strong>
+</center>
+</div>
+<p>As the video stated, there are three types of sections to an R Markdown document:</p>
+<ul>
+<li>Header</li>
+<li>Human readable text</li>
+<li>Code chunks</li>
+</ul>
+<p>There’s only one header, but there can be many blocks of human readable text and many code chunks.</p>
+<div class="bonus">
 <p>
-Does using R remind you of other programs you have experience
-with?
+See <a
+href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">here</a>
+for more things you can do with R Markdown.
 </p>
-</li>
-<li>
+</div>
+<div class="assessment">
 <p>
-What could be some reasons that using R code written by someone
-else might not work on your computer?
+As part of this class, you’ll be filling in an R Markdown document as
+you complete the progress checks in the book (except for the first
+progress check box, which you completed already) Download the <a
+href="assignment_templates/progress_check_2.rmd">progress check 2
+template</a> into your <code>scripts</code> folder, and follow the
+instructions. That document should include all progress checks from
+Section 3.4 through (and including) Section 4.3. The next box should be
+the first code chunk you will include in the document!
 </p>
-</li>
-</ol>
+</div>
+<div class="progress">
+<p>
+Run the command <code>8 / (2 * (2 + 2))</code> and observe the
+output!
+</p>
+</div>
+<div class="video">
+<p>
+This video should help get you started with the Progress Check
+Assignments!
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QLXB4kPngqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/QLXB4kPngqM" class="uri">https://youtu.be/QLXB4kPngqM</a></strong>
+</center>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Code%20in%20RStudio">here</a>
 </p>
 </div>
-
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-programming-fundamentals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="successfull-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workspace-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

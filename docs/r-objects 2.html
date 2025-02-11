@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Workspace setup | R Module 1</title>
+  <title>4.4 R Objects | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
+  <meta property="og:title" content="4.4 R Objects | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
+  <meta name="twitter:title" content="4.4 R Objects | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-code-in-rstudio.html"/>
-<link rel="next" href="r-programming-fundamentals.html"/>
+<link rel="prev" href="data-structures.html"/>
+<link rel="next" href="working-with-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,156 +341,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Workspace setup<a href="workspace-setup.html#workspace-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course.</p>
-<div id="recommended-settings" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Recommended Settings<a href="workspace-setup.html#recommended-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First of all, let’s set some settings in RStudio.
-At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
-<ol style="list-style-type: decimal">
-<li>On the left side of the window that pops up, make sure it’s on the “General” tab</li>
-<li>Find the “Workspace” section on the right, make the following changes:
-<ul>
-<li><em>uncheck</em> “Restore .RData into workspace on startup”</li>
-<li>Change the “Save workspace to .RData on exit” option to <em>never</em></li>
-</ul></li>
-<li>On the left side, select the “R Markdown” tab and make the following change:
-<ul>
-<li>Change the “Evaluate chunks in directory” option to <em>Project</em>.</li>
-<li>You may need to install the <code>rmarkdown</code> package to populate this option. Run the line <code>install.packages("rmarkdown")</code> and restart RStudio (you can ignore the prompt to install RTools on Windows).</li>
-</ul></li>
-<li>(Optional) On the left side, select the “Appearance” tab and make the changes:
-<ul>
-<li>(Optional) Change the “Zoom:” setting to increase or decrease the interface text size to fit your screen best.</li>
-<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
-</ul></li>
-<li>Click “Apply”, then “OK” at the bottom of the window.</li>
-</ol>
-<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
-This is a good option for R beginners to avoid confusion and mistakes.
-Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the <em>working directory</em> (more on working directories below).
-Changing the zoom can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
-On macOS, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
-</div>
-<div id="setting-working-directory" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Setting working directory<a href="workspace-setup.html#setting-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
-In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
-This will become more relevant when you start loading data and saving results later in the course.
-For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
-<div class="bonus">
-<p>
-See <a
-href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a>
-for more information about working directories.
-</p>
-</div>
-</div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class<a href="workspace-setup.html#create-rstudio-project-and-directories-for-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects.
-For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4 hasAnchor" number="3.5.3.1">
-<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project<a href="workspace-setup.html#create-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To create an RStudio project, follow these steps:</p>
-<ul>
-<li>Click on the “Project” button at the top right of the RStudio window and select “New Project”.</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
-<p class="caption">
-Figure 3.4: Click this button to create a new project
-</p>
-</div>
-<ul>
-<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
-<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
-<li>Then click the “Browse” button to select where to place the project.</li>
-<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
-<li>Click on “Create Project”.</li>
-</ul>
-<p>You should now be <em>in</em> your newly created project.
-If you look at the Files window in the lower right pane of RStudio, you should see the files in your new project directory, which should only be one file, called “RModule1.rproj”.
-This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
-When you’re working on this course, you should be working in this project.
-The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
-This will automatically set the working directory to the project directory.</p>
-</div>
-<div id="create-directory-structure" class="section level4 hasAnchor" number="3.5.3.2">
-<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure<a href="workspace-setup.html#create-directory-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To stay organized, you should also create the following folders inside your project directory</p>
-<ul>
-<li>scripts</li>
-<li>data_raw</li>
-<li>data_clean</li>
-<li>output</li>
-</ul>
-<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
-</div>
-<div id="video" class="section level4 hasAnchor" number="3.5.3.3">
-<h4><span class="header-section-number">3.5.3.3</span> Video<a href="workspace-setup.html#video" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="video">
-<p>
-Check out this video to watch me set up a project and the new
-directories.
-</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0saBBd6lQDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<center>
-<strong><a href="https://youtu.be/0saBBd6lQDI" class="uri">https://youtu.be/0saBBd6lQDI</a></strong>
-</center>
-</div>
-</div>
-</div>
-<div id="some-useful-commands-you-should-know" class="section level3 hasAnchor" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
-This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  880633 47.1    1676540 89.6         NA  1328855 71.0
-Vcells 1632294 12.5    8388608 64.0     102400  2642440 20.2</code></pre>
-<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
-<div class="bonus">
-<p>
-Here’s a <a
-href="https://support.rstudio.com/hc/en-us/articles/200711853">more
-complete list</a> of RStudio shortcuts.
-</p>
-</div>
+<div id="r-objects" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> R Objects<a href="r-objects.html#r-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="reflect">
 <p>
-Before moving on to the next section, take a note of all you’ve done
-so far.
+Wherever you are right now, look around your environment. Pick an
+object and study its attributes. It probably has a shape, a color, a
+weight, and many other ways of describing it. Now pick another object,
+and note how it is different than the first in terms of its attributes.
+What does the word “object” really mean? It’s often easier to give
+examples than to give a precise definition, but generally objects are
+“things you can do things with”. That is, you can usually look at them,
+touch them, smell them, and move them around (when appropriate/possible,
+of course!). Another useful definition is that objects are
+<em>nouns</em>. Different objects have different purposes and
+attributes. Many of these ideas will be true for R objects as well.
+</p>
+</div>
+<p>We’ve already introduced the concepts of objects in R in passing, but here we briefly focus on what they are and how to work with them.</p>
+<div class="assessment">
+<p>
+Download the <a
+href="assignment_templates/progress_check_3.rmd">progress check 3
+template</a> into your <code>scripts</code> folder, and follow the
+instructions. That document should include all progress reports from
+Section 4.4 through (and including) Section 5.4
+</p>
+</div>
+<div id="everything-is-an-object-in-r" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> <em>Everything</em> is an object in R<a href="r-objects.html#everything-is-an-object-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What exactly is an object in R?
+As in real life, it can be difficult to give a definition, but easier to give examples.
+Here are some examples of objects in R:</p>
+<ol style="list-style-type: decimal">
+<li>A numeric variable</li>
+<li>A vector</li>
+<li>A matrix</li>
+<li>A list</li>
+<li>A data frame</li>
+<li>A <em>function</em></li>
+</ol>
+<p>This list is not exhaustive, but most objects we deal with will look like one of these.</p>
+<div class="bonus">
+<p>
+In many programming languages, functions are handled differently from
+other types of objects (i.e. they are not “first class” objects). In R,
+they are treated the same as any other type of object. You can assign
+them to variables, pass them to other functions, and can be returned
+from a function. This is similar to the behavior of Java and Python, but
+different from C.
+</p>
+</div>
+</div>
+<div id="assigning-objects" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Assigning Objects<a href="r-objects.html#assigning-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Any object can be assigned to a variable, as we’ve been doing already.
+Here’s an example:</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb301-1"><a href="r-objects.html#cb301-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;pink pineapple&quot;</span></span></code></pre></div>
+<p>The <code>&lt;-</code> is called an <em>assignment operator</em>.
+This is the most common way of assigning objects in R, but there are others.
+Sometimes you may see:</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb302-1"><a href="r-objects.html#cb302-1" tabindex="-1"></a>a <span class="ot">=</span> <span class="st">&quot;pink pineapple&quot;</span></span></code></pre></div>
+<p>which in <em>most cases</em>, has the exact same effect as using the <code>&lt;-</code>, but in a few instances, it has a different effect.
+Our recommendation is to always use <code>&lt;-</code> when making object assignments.</p>
+<div class="bonus">
+<p>
+There are other assignment operators as well, <code>&lt;&lt;-</code>,
+<code>-&gt;&gt;</code>, and <code>-&gt;</code>, but we will not discuss
+these. You can find out more with the command
+<code>?assignOps</code>.
+</p>
+</div>
+<p>One neat thing you can do is assign multiple variables at the same time:</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb303-1"><a href="r-objects.html#cb303-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> b <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb304-1"><a href="r-objects.html#cb304-1" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb306-1"><a href="r-objects.html#cb306-1" tabindex="-1"></a>b</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
+<div class="caution">
+<p>
+Even though <code>a</code> and <code>b</code> were assigned at the
+same time, they are still different! So if you change <code>a</code>
+with <code>a &lt;- “goodbye”</code>, then the value of <code>b</code>
+will still be <code>“Hello”</code>.
+</p>
+</div>
+</div>
+<div id="attributes" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Attributes<a href="r-objects.html#attributes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Every object in R has <em>attributes</em>, extra information that’s “attached” to the object.
+<em>Every object</em> has a length attribute:</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb308-1"><a href="r-objects.html#cb308-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb308-2"><a href="r-objects.html#cb308-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;au revoir&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb309-1"><a href="r-objects.html#cb309-1" tabindex="-1"></a><span class="fu">length</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] 4</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb311-1"><a href="r-objects.html#cb311-1" tabindex="-1"></a><span class="fu">length</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] 2</code></pre>
+<div class="progress">
+<p>
+<em>Every object</em> has a length. Try creating an example of the
+following and examining the length:
 </p>
 <ol style="list-style-type: decimal">
 <li>
-<p>
-Did your R installation go smoothly? If not, could you
-troubleshoot the errors or find help online?
-</p>
+A logical vector with 5 elements
 </li>
 <li>
-<p>
-Does using R remind you of other programs you have experience
-with?
-</p>
+A 2 x 2 matrix
 </li>
 <li>
-<p>
-What could be some reasons that using R code written by someone
-else might not work on your computer?
-</p>
+The <code>mtcars</code> dataframe
 </li>
 </ol>
+</div>
+<p>Every R object has a <em>mode</em> as well, which tells you what <em>type</em> of object you have.
+Here are some examples:</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb313-1"><a href="r-objects.html#cb313-1" tabindex="-1"></a><span class="fu">mode</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb315-1"><a href="r-objects.html#cb315-1" tabindex="-1"></a><span class="fu">mode</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;character&quot;</code></pre>
+<p>Aside from these two attributes, you can list all attributes of an object like this:</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb317-1"><a href="r-objects.html#cb317-1" tabindex="-1"></a><span class="fu">attributes</span>(mtcars)</span></code></pre></div>
+<pre class="output-style"><code>$names
+ [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
+[11] &quot;carb&quot;
+
+$row.names
+ [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
+ [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
+ [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
+[10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
+[13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
+[16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
+[19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
+[22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
+[25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
+[28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
+[31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;         
+
+$class
+[1] &quot;data.frame&quot;</code></pre>
+<p>To access a specific attribute of an object, you can do this:</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb319-1"><a href="r-objects.html#cb319-1" tabindex="-1"></a><span class="fu">attr</span>(mtcars, <span class="st">&quot;class&quot;</span>)  <span class="co"># Get the class attribute for the mtcars data frame</span></span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;data.frame&quot;</code></pre>
+</div>
+<div id="null-objects" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Null Objects<a href="r-objects.html#null-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There is a special object called the <code>NULL</code> object, which really just represents “nothing”.
+It’s used mainly if you want to <em>remove</em> an element from a list:</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb321-1"><a href="r-objects.html#cb321-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb321-2"><a href="r-objects.html#cb321-2" tabindex="-1"></a>a[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># Replace component 2 with &quot;nothing&quot;</span></span>
+<span id="cb321-3"><a href="r-objects.html#cb321-3" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="output-style"><code>[[1]]
+[1] 1
+
+[[2]]
+[1] 3</code></pre>
+<p>Or if a function is supposed to return but doesn’t have an object to return (more on this later when we discuss functions).</p>
+</div>
+<div id="removing-objects" class="section level3 hasAnchor" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Removing Objects<a href="r-objects.html#removing-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you want to <em>get rid</em> of an object!
+In R, you can use the <code>rm</code> function like so:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb323-1"><a href="r-objects.html#cb323-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;an object&quot;</span></span>
+<span id="cb323-2"><a href="r-objects.html#cb323-2" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
+<span id="cb323-3"><a href="r-objects.html#cb323-3" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error: object 'a' not found
+</code></pre>
+<p>As you can see, the error message indicates that <code>a</code> has been removed.
+Sometimes, you’d like to remove all the objects in your environment.
+To do this, you can use the command:</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb324-1"><a href="r-objects.html#cb324-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code></pre></div>
+<div class="video">
+<p>
+This video discusses objects.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VrgoEoMo9ZM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/VrgoEoMo9ZM" class="uri">https://youtu.be/VrgoEoMo9ZM</a></strong>
+</center>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects">here</a>
 </p>
 </div>
 
@@ -502,8 +537,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-programming-fundamentals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

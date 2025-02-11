@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Workspace setup | R Module 1</title>
+  <title>4.2 Data Types | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Workspace setup | R Module 1" />
+  <meta property="og:title" content="4.2 Data Types | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Workspace setup | R Module 1" />
+  <meta name="twitter:title" content="4.2 Data Types | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-code-in-rstudio.html"/>
-<link rel="next" href="r-programming-fundamentals.html"/>
+<link rel="prev" href="programming-preliminaries.html"/>
+<link rel="next" href="data-structures.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,169 +341,355 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="workspace-setup" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Workspace setup<a href="workspace-setup.html#workspace-setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Whenever you are programming in R, and especially for this class, it’s important to stay organized.
-This section will give you some instructions and tips for how to organize material for this R course.</p>
-<div id="recommended-settings" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Recommended Settings<a href="workspace-setup.html#recommended-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>First of all, let’s set some settings in RStudio.
-At the top of the R window, click <code>Tools</code>, then <code>Global Options</code>, and do the following:</p>
-<ol style="list-style-type: decimal">
-<li>On the left side of the window that pops up, make sure it’s on the “General” tab</li>
-<li>Find the “Workspace” section on the right, make the following changes:
-<ul>
-<li><em>uncheck</em> “Restore .RData into workspace on startup”</li>
-<li>Change the “Save workspace to .RData on exit” option to <em>never</em></li>
-</ul></li>
-<li>On the left side, select the “R Markdown” tab and make the following change:
-<ul>
-<li>Change the “Evaluate chunks in directory” option to <em>Project</em>.</li>
-<li>You may need to install the <code>rmarkdown</code> package to populate this option. Run the line <code>install.packages("rmarkdown")</code> and restart RStudio (you can ignore the prompt to install RTools on Windows).</li>
-</ul></li>
-<li>(Optional) On the left side, select the “Appearance” tab and make the changes:
-<ul>
-<li>(Optional) Change the “Zoom:” setting to increase or decrease the interface text size to fit your screen best.</li>
-<li>(Optional) Change the “Editor theme:” setting to find a color scheme that looks good to you.</li>
-</ul></li>
-<li>Click “Apply”, then “OK” at the bottom of the window.</li>
-</ol>
-<p>Step 2 ensures that each time you open RStudio, there’s no “memory” of anything you may have been doing in R previously.
-This is a good option for R beginners to avoid confusion and mistakes.
-Step 3 ensures that when you knit R Markdown documents, code chunks will use the project directory as the <em>working directory</em> (more on working directories below).
-Changing the zoom can also be done using the shortcuts <code>&lt;control&gt; &lt;shift&gt; +</code> (to increase size) and <code>&lt;control&gt; -</code> (to decrease size).
-On macOS, the commands are <code>&lt;command&gt; &lt;shift&gt; +</code> and <code>&lt;command&gt; -</code>.</p>
+<div id="data-types" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Data Types<a href="data-types.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="reflect">
+<p>
+Think of all the things you might be expected to remember. These
+different items can probably be categorized into different types of
+information, like phone numbers, passwords, birthdays, historical
+events, and math theorems for example. R was designed to handle
+different types of data as well, though the types are different from the
+examples just given.
+</p>
 </div>
-<div id="setting-working-directory" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Setting working directory<a href="workspace-setup.html#setting-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Every time R runs, it has a <em>working directory</em>, which is the folder where R “looks” when loading and saving files.
-In RStudio, the <code>Files</code> window contains the “More” menu, which has options to <em>set as working directory</em> or <em>go to working directory</em>.
-This will become more relevant when you start loading data and saving results later in the course.
-For this course, you’ll be using an RStudio project, which automatically sets the working directory.</p>
+<p>R can store and manipulate different pieces of information, called data, and these data can be of several different types.
+Here are some examples of different types of data:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb30-1"><a href="data-types.html#cb30-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">12.34</span>      <span class="co"># a is a number</span></span>
+<span id="cb30-2"><a href="data-types.html#cb30-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span>    <span class="co"># b is a string of characters</span></span>
+<span id="cb30-3"><a href="data-types.html#cb30-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="cn">TRUE</span>       <span class="co"># c is a special type of data that is either true or false</span></span></code></pre></div>
+<p>R has special names for these examples, and there are other types of data as well.
+Below, we’ll talk about each data type, one at a time.</p>
 <div class="bonus">
 <p>
-See <a
-href="https://support.rstudio.com/hc/en-us/articles/200711843-Working-Directories-and-Workspaces">here</a>
-for more information about working directories.
+The term “data” is actually plural! A single piece of data is called
+a “datum”. So to refer to a set of data, you would say “these data”, and
+to refer to a single piece of data, you would say “this datum”.
 </p>
 </div>
-</div>
-<div id="create-rstudio-project-and-directories-for-class" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Create RStudio Project and directories for class<a href="workspace-setup.html#create-rstudio-project-and-directories-for-class" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RStudio also has a feature called <em>projects</em>, which is a way of compartmentalizing your R code. This makes it easy to switch between different projects.
-For this class, you should set up a new project, so all of your project related files are in one place.</p>
-<div id="create-rstudio-project" class="section level4 hasAnchor" number="3.5.3.1">
-<h4><span class="header-section-number">3.5.3.1</span> Create RStudio Project<a href="workspace-setup.html#create-rstudio-project" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To create an RStudio project, follow these steps:</p>
-<ul>
-<li>Click on the “Project” button at the top right of the RStudio window and select “New Project”.</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
-<img src="src/images/rstudio_newproject.png" alt="Click this button to create a new project"  />
-<p class="caption">
-Figure 3.4: Click this button to create a new project
+<div id="numeric" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Numeric<a href="data-types.html#numeric" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Many data exist as numbers, and R has a specific data type for storing those numbers, called the <em>numeric</em> data type.
+Here are some examples:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb31-1"><a href="data-types.html#cb31-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">11</span></span>
+<span id="cb31-2"><a href="data-types.html#cb31-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">13.37</span></span>
+<span id="cb31-3"><a href="data-types.html#cb31-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">137</span></span></code></pre></div>
+<p>Note that integers, decimals, and fractions are all examples of numeric data in R.
+We can prove that these are all the same data type using the <code>class</code> function:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb32-1"><a href="data-types.html#cb32-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb34-1"><a href="data-types.html#cb34-1" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb36-1"><a href="data-types.html#cb36-1" tabindex="-1"></a><span class="fu">class</span>(c)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="caution">
+<p>
+So far, we’ve defined the <code>a</code> object a few different
+times, which is allowed! Every time we define <code>a</code>, R
+<em>forgets</em> the old value. Therefore we should reuse object names
+with caution, because it can become difficult to remember what the
+<em>latest</em> value is! When we discuss <em>loops</em> later, however,
+we will use code to automatically change the value of an object several
+times in order to do useful things!
 </p>
 </div>
-<ul>
-<li>In the window that pops up, click on “New Directory” then “New Project”.</li>
-<li>In the box after “Directory name”, type “RModule1”, which will be the name of the project.</li>
-<li>Then click the “Browse” button to select where to place the project.</li>
-<li>You are free to choose any location on your computer that makes sense to you. It might be most convenient to place it on your desktop for now.</li>
-<li>Click on “Create Project”.</li>
-</ul>
-<p>You should now be <em>in</em> your newly created project.
-If you look at the Files window in the lower right pane of RStudio, you should see the files in your new project directory, which should only be one file, called “RModule1.rproj”.
-This file is the <em>project file</em>, which tells RStudio that this directory contains an R Project.
-When you’re working on this course, you should be working in this project.
-The easiest way to open up the project is to use your operating system’s file explorer and click on the project file.
-This will automatically set the working directory to the project directory.</p>
+<p>When you have numeric objects, you may want to perform math operations on them.
+R has a number of built in functions to deal with numeric data, here are some examples:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb38-1"><a href="data-types.html#cb38-1" tabindex="-1"></a><span class="fu">print</span>(a <span class="sc">+</span> b)  <span class="co"># Add two numeric values</span></span>
+<span id="cb38-2"><a href="data-types.html#cb38-2" tabindex="-1"></a><span class="fu">print</span>(b <span class="sc">-</span> c)  <span class="co"># Subtract two numeric values </span></span>
+<span id="cb38-3"><a href="data-types.html#cb38-3" tabindex="-1"></a><span class="fu">print</span>(a <span class="sc">*</span> b)  <span class="co"># Multiply two numeric values</span></span>
+<span id="cb38-4"><a href="data-types.html#cb38-4" tabindex="-1"></a><span class="fu">print</span>(a<span class="sc">^</span><span class="dv">3</span>)    <span class="co"># Take the cube of a numeric value</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 2.37
+[1] 13.3627
+[1] -147.07
+[1] -1331</code></pre>
+<p>When performing math on numeric objects, R will obey <a href="https://en.wikipedia.org/wiki/Order_of_operations">order of operations</a>, so the following two examples will give different results:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb40-1"><a href="data-types.html#cb40-1" tabindex="-1"></a>a <span class="sc">+</span> b <span class="sc">*</span> c    <span class="co"># R will perform the multiplication before the addition</span></span></code></pre></div>
+<pre class="output-style"><code>[1] -10.90241</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb42-1"><a href="data-types.html#cb42-1" tabindex="-1"></a>(a <span class="sc">+</span> b) <span class="sc">*</span> c  <span class="co"># R will perform the addition first, then the multiplication </span></span></code></pre></div>
+<pre class="output-style"><code>[1] 0.01729927</code></pre>
+<p>Notice that we’ve added extra spaces in the code to help you understand what’s going on.
+This is another example of code <em>style</em>, which we’ll talk more about later.</p>
+<div class="caution">
+<p>
+Wait a second, we didn’t use the the <code>print</code> function just
+now, but R still displayed the results of the calculations! What is
+going on? This behavior is peculiar to something called R Markdown,
+which is what we used to create this book (yes, this book was creating
+using R! Pretty cool, huh?). If the <em>last</em> command given in a
+code block produces a result, and you don’t assign that result to
+anything (using <code>&lt;-</code>), then R will print out that result.
+This means we don’t always have to use the print function when we want
+to display R output.
+</p>
 </div>
-<div id="create-directory-structure" class="section level4 hasAnchor" number="3.5.3.2">
-<h4><span class="header-section-number">3.5.3.2</span> Create Directory Structure<a href="workspace-setup.html#create-directory-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>To stay organized, you should also create the following folders inside your project directory</p>
-<ul>
-<li>scripts</li>
-<li>data_raw</li>
-<li>data_clean</li>
-<li>output</li>
-</ul>
-<p>You can create these either using your operating system, or the “New Folder” command in the file window within RStudio.</p>
-</div>
-<div id="video" class="section level4 hasAnchor" number="3.5.3.3">
-<h4><span class="header-section-number">3.5.3.3</span> Video<a href="workspace-setup.html#video" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Notice all the decimal points?
+R can be very precise when performing computations.
+However, viewing all of the digits stored by R can be distracting and hard to read.
+You can show just some of the digits by using the <code>round</code> function:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb44-1"><a href="data-types.html#cb44-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">0.123456</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb45-1"><a href="data-types.html#cb45-1" tabindex="-1"></a><span class="fu">round</span>(a, <span class="dv">3</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 0.123</code></pre>
+<p>It also turns out that R stores <em>more</em> digits than what it shows when it prints, though we won’t go into detail on that now.</p>
 <div class="video">
 <p>
-Check out this video to watch me set up a project and the new
-directories.
+This video discusses numerics.
 </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0saBBd6lQDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/juscNzIrmJQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 <center>
-<strong><a href="https://youtu.be/0saBBd6lQDI" class="uri">https://youtu.be/0saBBd6lQDI</a></strong>
+<strong><a href="https://youtu.be/juscNzIrmJQ" class="uri">https://youtu.be/juscNzIrmJQ</a></strong>
 </center>
 </div>
 </div>
+<div id="integer" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Integer<a href="data-types.html#integer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, numeric data in R are treated as if they can be any decimal number (technically, they are a <em>double precision</em> number, if you know what that means; if not, it’s not important right now).
+However, there is a way to specify that a specific numeric object is an integer, by placing an “L” at the end of it, like so:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb47-1"><a href="data-types.html#cb47-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span>   <span class="co"># x will be a numeric object</span></span>
+<span id="cb47-2"><a href="data-types.html#cb47-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span><span class="dt">L</span>  <span class="co"># y will be an integer object</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb48-1"><a href="data-types.html#cb48-1" tabindex="-1"></a><span class="fu">class</span>(x)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb50-1"><a href="data-types.html#cb50-1" tabindex="-1"></a><span class="fu">class</span>(y)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;integer&quot;</code></pre>
+<p>Integers take half of the space in a computer’s memory or hard drive, so if you are working with or storing a lot of numbers which are integers, it might make sense to declare them as integer type in R.
+This will make more sense when we discuss vectors later.</p>
+<div class="video">
+<p>
+This video discusses integers.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rNkEAPsipCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/rNkEAPsipCk" class="uri">https://youtu.be/rNkEAPsipCk</a></strong>
+</center>
 </div>
-<div id="some-useful-commands-you-should-know" class="section level3 hasAnchor" number="3.5.4">
-<h3><span class="header-section-number">3.5.4</span> Some useful commands you should know<a href="workspace-setup.html#some-useful-commands-you-should-know" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As you program in R, you’ll end up creating many different R objects (more on this later), and sometimes you might want to clear all objects in your R environment.
-This will reduce the amount of memory that is taken up</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb8-1"><a href="workspace-setup.html#cb8-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())  <span class="co"># Clear everything in your workspace</span></span>
-<span id="cb8-2"><a href="workspace-setup.html#cb8-2" tabindex="-1"></a><span class="fu">gc</span>()             <span class="co"># Perform garbage collection</span></span></code></pre></div>
-<pre class="output-style"><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  880633 47.1    1676540 89.6         NA  1328855 71.0
-Vcells 1632294 12.5    8388608 64.0     102400  2642440 20.2</code></pre>
-<p>You might also want to clear the R console, which you can do by placing your cursor in the R console and typing <code>&lt;control&gt; l</code> (careful! that’s a lowercase L).</p>
+</div>
+<div id="character" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Character<a href="data-types.html#character" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Not all data are numbers!
+R also has the capability to store strings of characters, and this is the aptly named <em>character</em> type (or sometimes called a <em>character string</em> or just <em>string</em>).
+Here are some examples:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb52-1"><a href="data-types.html#cb52-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span>         <span class="co"># This string is defined with   *double*   quotes </span></span>
+<span id="cb52-2"><a href="data-types.html#cb52-2" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="st">&#39;how are you?&#39;</span>  <span class="co"># This string is defined with   *single*   quotes!</span></span>
+<span id="cb52-3"><a href="data-types.html#cb52-3" tabindex="-1"></a><span class="fu">print</span>(d)</span>
+<span id="cb52-4"><a href="data-types.html#cb52-4" tabindex="-1"></a><span class="fu">print</span>(e)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Hello&quot;
+[1] &quot;how are you?&quot;</code></pre>
+<p>Notice how we can define character strings using single quotes or double quotes, as long as we are consistent.
+So this is not valid:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb54-1"><a href="data-types.html#cb54-1" tabindex="-1"></a><span class="co"># Note the mismatched single/double quotes:</span></span>
+<span id="cb54-2"><a href="data-types.html#cb54-2" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">&quot;this does not work&#39; </span></span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in parse(text = input): <text>:2:6: unexpected INCOMPLETE_STRING
+1: # Note the mismatched single/double quotes:
+2: f <- "this does not work' 
+        ^
+</code></pre>
+<p>So, make sure you are consistent.
+However, you may see another problem with this: some strings contain quotes <em>in them</em>, like this:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb55-1"><a href="data-types.html#cb55-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="st">&#39;This won&#39;</span>t work<span class="st">&#39;</span></span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in parse(text = input): <text>:1:16: unexpected symbol
+1: g <- 'This won't
+                   ^
+</code></pre>
+<p>Since single quotes are being used to define the string, they can’t be used in the string itself, because R will “think” the string is ending at the second <code>'</code>.
+One option is to change the defining quotes to be double quotes, then the single quote will be safely included in the string:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb56-1"><a href="data-types.html#cb56-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="st">&quot;I&#39;m happy that this works!&quot;</span></span>
+<span id="cb56-2"><a href="data-types.html#cb56-2" tabindex="-1"></a><span class="fu">print</span>(g)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;I&#39;m happy that this works!&quot;</code></pre>
+<p>Another option is to use a backslash when using quotes inside the string, so that R “knows” the quote is part of the string and not ending the definition of the string:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb58-1"><a href="data-types.html#cb58-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="st">&#39;I</span><span class="sc">\&#39;</span><span class="st">ve found another way that works!&#39;</span></span>
+<span id="cb58-2"><a href="data-types.html#cb58-2" tabindex="-1"></a><span class="fu">print</span>(g)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;I&#39;ve found another way that works!&quot;</code></pre>
+<p>Notice that when we define <code>g</code> we place a <code>\'</code> anywhere in the string where we want a <code>'</code> to be, but when printed out, we see that R has interpreted it as just a <code>'</code>.
+Notice also that we didn’t have to change the defining quotes to be double quotes in this case.
+The backslash is called the <em>escape character</em>, and it signifies that what follows it should be interpreted <em>literally</em> by R, and any special meaning should be ignored.</p>
 <div class="bonus">
 <p>
-Here’s a <a
-href="https://support.rstudio.com/hc/en-us/articles/200711853">more
-complete list</a> of RStudio shortcuts.
+Since backslash also has special meaning itself, if you want a
+backslash in your string, you need to use another backslash, which
+functions as an escape character, like so:
+<code>g &lt;- “here is a backslash: \\”</code>. You will see both
+backslashes when using the <code>print</code> function (which is meant
+for any data type), but if you use the special <code>cat</code> function
+(which is meant for character types specifically), all escape characters
+will be “processed”, and you will see just a single backslash.
+</p>
+<p>
+Try the same thing with the newline character, <code>\n</code>!
+</p>
+<p>
+To see a list of special characters, try typing <code>?Quotes</code>
+into the R console
 </p>
 </div>
+<p>Here is an important string to know about:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb60-1"><a href="data-types.html#cb60-1" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="st">&quot;&quot;</span>  <span class="co"># This string is empty!</span></span></code></pre></div>
+<p><code>h</code> is a character string with no characters, called an <em>empty string</em>.</p>
+<p>You can perform math on numeric data, so what can you do with strings?
+The answer is, quite alot, using some functions that R provides.
+Here are some of them:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb61-1"><a href="data-types.html#cb61-1" tabindex="-1"></a><span class="fu">nchar</span>(g)  <span class="co"># This prints out the number of characters in a string</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 34</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb63-1"><a href="data-types.html#cb63-1" tabindex="-1"></a><span class="fu">substr</span>(g, <span class="dv">6</span>, <span class="dv">10</span>)  <span class="co"># This extracts just part of a string, using the start and stop positions you provide</span></span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;found&quot;</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb65-1"><a href="data-types.html#cb65-1" tabindex="-1"></a><span class="fu">strsplit</span>(g, <span class="st">&quot; &quot;</span>)  <span class="co"># This splits the string up using a specified &quot;delimiter&quot; string, a single space in this case </span></span></code></pre></div>
+<pre class="output-style"><code>[[1]]
+[1] &quot;I&#39;ve&quot;    &quot;found&quot;   &quot;another&quot; &quot;way&quot;     &quot;that&quot;    &quot;works!&quot; </code></pre>
+<div class="bonus">
+<p>
+When you split a string, this produces a <em>list</em> containing a
+<em>vector</em> of character strings. This is an example of how data can
+be organized in a structured way. We’ll talk more about so called
+<em>data structures</em> in the next section.
+</p>
+</div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb67-1"><a href="data-types.html#cb67-1" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)  <span class="co"># This combines multiple strings together into one string!</span></span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;hello world&quot;</code></pre>
 <div class="reflect">
 <p>
-Before moving on to the next section, take a note of all you’ve done
-so far.
+Remember that you can learn more about a function using
+<code>?</code>. Type <code>?paste</code> into R and read the
+documentation carefully. Can you determine what the “sep” argument does?
+What do you think would happen if we ran the code
+<code>print(“hello”, “world”, sep=“-”)</code>?
 </p>
+</div>
+<p>There are other ways of manipulating strings, but we’ll return to this later.</p>
+<div class="video">
+<p>
+This video discusses characters.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1JgmnulM_4g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/1JgmnulM_4g" class="uri">https://youtu.be/1JgmnulM_4g</a></strong>
+</center>
+</div>
+</div>
+<div id="logical" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Logical<a href="data-types.html#logical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Numeric objects can be any number, character objects can be any string of characters, but logical objects can only be two different values: True or False.<br />
+Logical data types are also known as <a href="https://en.wikipedia.org/wiki/Boolean_data_type">“boolean” data types</a>.
+Here we define some Logical objects:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb69-1"><a href="data-types.html#cb69-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb69-2"><a href="data-types.html#cb69-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb69-3"><a href="data-types.html#cb69-3" tabindex="-1"></a>c <span class="ot">&lt;-</span> T</span>
+<span id="cb69-4"><a href="data-types.html#cb69-4" tabindex="-1"></a>d <span class="ot">&lt;-</span> F</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb70-1"><a href="data-types.html#cb70-1" tabindex="-1"></a><span class="fu">print</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb72-1"><a href="data-types.html#cb72-1" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb74-1"><a href="data-types.html#cb74-1" tabindex="-1"></a><span class="fu">print</span>(c)</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb76-1"><a href="data-types.html#cb76-1" tabindex="-1"></a><span class="fu">print</span>(d)</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<p>So you can see that we can define a logical object using the full name or just the first letter.
+Here’s how to get the “opposite” of a logical object</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb78-1"><a href="data-types.html#cb78-1" tabindex="-1"></a><span class="sc">!</span>a</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<p>Logical data are the simplest type, but there are actually some clever things you can do with them.
+You can test whether simple mathematical expressions are true or false.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb80-1"><a href="data-types.html#cb80-1" tabindex="-1"></a><span class="co"># Create x and y</span></span>
+<span id="cb80-2"><a href="data-types.html#cb80-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb80-3"><a href="data-types.html#cb80-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb80-4"><a href="data-types.html#cb80-4" tabindex="-1"></a><span class="co"># Check: is x less than y? (should give TRUE)</span></span>
+<span id="cb80-5"><a href="data-types.html#cb80-5" tabindex="-1"></a>x <span class="sc">&lt;</span> y</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<p>The third command is a way to check if the value of <code>x</code> is less than the value of <code>y</code>.
+The result of this comparison is a logical, in this case, <code>TRUE</code>.
+Here are other ways of making comparisons:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb82-1"><a href="data-types.html#cb82-1" tabindex="-1"></a>x <span class="sc">&lt;=</span> y  <span class="co"># Check if x is less or equal to y</span></span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb84-1"><a href="data-types.html#cb84-1" tabindex="-1"></a>x <span class="sc">==</span> y  <span class="co"># Check if x is equal to y (note how you need two equals signs)</span></span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb86-1"><a href="data-types.html#cb86-1" tabindex="-1"></a>x <span class="sc">&gt;=</span> y  <span class="co"># Check if x is greater or equal to y </span></span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb88-1"><a href="data-types.html#cb88-1" tabindex="-1"></a>x <span class="sc">&gt;=</span> y  <span class="co"># Check if x is greater than y </span></span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<p>Comparisons can be made using strings as well:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb90-1"><a href="data-types.html#cb90-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb90-2"><a href="data-types.html#cb90-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb90-3"><a href="data-types.html#cb90-3" tabindex="-1"></a>x <span class="sc">==</span> y</span></code></pre></div>
+<pre class="output-style"><code>[1] FALSE</code></pre>
+<div class="caution">
+<p>
+Remember that R is case sensitive, and two strings must be
+<em>exactly</em> the same to be considered equal.
+</p>
+</div>
+<p>Of course any object (like <code>x</code>) will be equal to itself:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb92-1"><a href="data-types.html#cb92-1" tabindex="-1"></a>x <span class="sc">==</span> x</span></code></pre></div>
+<pre class="output-style"><code>[1] TRUE</code></pre>
+<p>Surprisingly, logicals can be treated as numerics, where <code>TRUE</code> is treated as <code>1</code> and <code>FALSE</code> is treated as <code>0</code>.
+Here are some examples:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb94-1"><a href="data-types.html#cb94-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="cn">TRUE</span>  <span class="co"># TRUE is treated as 1</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb96-1"><a href="data-types.html#cb96-1" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">*</span> <span class="dv">7</span>  <span class="co"># FALSE is treated as 0</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 0</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb98-1"><a href="data-types.html#cb98-1" tabindex="-1"></a>(<span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span>) <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>)  <span class="co"># What&#39;s going on here? </span></span></code></pre></div>
+<pre class="output-style"><code>[1] 1</code></pre>
+<p>The last example deserves some thought. Start with each expression in parentheses, and decide whether it will evaluate to true or false.
+Then remember how logicals are treated as numbers, and determine what happens when you add them together.</p>
+
+<div class="bonus">
+<p>Numeric, integer, character, and logical data types are probably the most important data types to know in R, but there are others that were not covered here.
+These include:</p>
+<ul>
+<li>complex</li>
+<li>factor</li>
+<li>raw</li>
+</ul>
+<p>At least one of these (factor) will be covered later, but you can find more information about the other types <a href="https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/">here</a></p>
+</div>
+
+<div class="progress">
+<p>In the R console, type the following R commands and observe the result</p>
+<p><code>x &lt;- "5"</code></p>
+<p><code>y &lt;- 5</code></p>
+<p><code>z &lt;- (x == y)</code></p>
 <ol style="list-style-type: decimal">
-<li>
-<p>
-Did your R installation go smoothly? If not, could you
-troubleshoot the errors or find help online?
-</p>
-</li>
-<li>
-<p>
-Does using R remind you of other programs you have experience
-with?
-</p>
-</li>
-<li>
-<p>
-What could be some reasons that using R code written by someone
-else might not work on your computer?
-</p>
-</li>
+<li>What data type is x? (check with R using the <code>class</code> function)</li>
+<li>What data type is y?</li>
+<li>What data type is z?</li>
+<li>What is the value of z, and why does this make sense?</li>
 </ol>
+</div>
+<p>Now that we’ve discussed different types of data, we’ll now see how they can be structured together in meaningful ways.</p>
+<div class="caution">
+<p>
+What about dates? R actually has three built-in <a
+href="https://www.r-bloggers.com/using-dates-and-times-in-r/">date
+classes</a>. This can be confusing at first, but packages like <a
+href="https://lubridate.tidyverse.org/">lubridate</a> make it easy to
+work with dates in R.
+</p>
+</div>
+<div class="video">
+<p>
+This video discusses logicals.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GH9AZcexokU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/GH9AZcexokU" class="uri">https://youtu.be/GH9AZcexokU</a></strong>
+</center>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Workspace%20Setup">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Types">here</a>
 </p>
 </div>
-
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="running-code-in-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-programming-fundamentals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="programming-preliminaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
