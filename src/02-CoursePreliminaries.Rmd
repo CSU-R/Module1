@@ -151,14 +151,10 @@ Progress Checks
 
 Assignments
 
-<!-- - [Homework 1](assignment_templates/assignment_1.rmd) -->
-<!-- - [Homework 2](assignment_templates/assignment_2.rmd) -->
-<!-- - [Homework 3](assignment_templates/assignment_3.rmd) -->
-<!-- - [Homework 4](assignment_templates/assignment_4.rmd) -->
-- [Homework 1](https://raw.githubusercontent.com/CSU-R/Module1/refs/heads/master/assignment_templates/assignment_1.rmd)
-- [Homework 2](https://raw.githubusercontent.com/CSU-R/Module1/refs/heads/master/assignment_templates/assignment_2.rmd)
-- [Homework 3](https://raw.githubusercontent.com/CSU-R/Module1/refs/heads/master/assignment_templates/assignment_3.rmd)
-- [Homework 4](https://raw.githubusercontent.com/CSU-R/Module1/refs/heads/master/assignment_templates/assignment_4.rmd)
+- [Homework 1](assignment_templates/assignment_1.rmd)
+- [Homework 2](assignment_templates/assignment_2.rmd)
+- [Homework 3](assignment_templates/assignment_3.rmd)
+- [Homework 4](assignment_templates/assignment_4.rmd)
 
 ### Course Policies 
 
