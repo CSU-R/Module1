@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Data Formatting | R Module 1</title>
+  <title>1.1 Associated CSU Course | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Data Formatting | R Module 1" />
+  <meta property="og:title" content="1.1 Associated CSU Course | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Data Formatting | R Module 1" />
+  <meta name="twitter:title" content="1.1 Associated CSU Course | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html"/>
-<link rel="next" href="indexing.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="prelim.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,65 +341,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-formatting" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Data Formatting<a href="data-formatting.html#data-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we continue working with data, here are a few comments about data formatting.
-Many data sets can be thought of as one or more <em>observations</em> of one or more <em>variables</em>.
-R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
-Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
-Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
-In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.</p>
-<div class="bonus">
-<p>
-One concept related to data organization is called “Tidy Data”, which
-you can read more about <a
-href="https://vita.had.co.nz/papers/tidy-data.pdf">here</a>. This focus
-on tidyness has led to the development of a set of R packages
-collectively called the “tidyverse”, which has become very popular for R
-analysis. The tidyverse will not be covered in this class, but a later
-module will provide extensive experience with it.
-</p>
-</div>
-<div id="raw-data-vs.-clean-data." class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> “Raw” data vs. “Clean” data.<a href="data-formatting.html#raw-data-vs.-clean-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is there a “data_raw” folder and a “data_clean” folder, and not just a “data” folder?
-The idea is that the data_raw folder contains all of the <em>original</em> data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the “data_clean” folder (or possibly even a “results” folder).
-This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
-This is why the data in the folder should be thought of as <em>read only</em>.
-Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The “clean” moniker comes from the fact that often times data sets need some “cleaning” such as removing duplicates, removing <code>NA</code> values, discarding irrelevant data, etc.
-There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets.</p>
+<div id="associated-csu-course" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Associated CSU Course<a href="associated-csu-course.html#associated-csu-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This bookdown book is intended to accompany the associated course at Colorado State University, but the curriculum is free for anyone to access and use.
+If you’re reading the PDF or EPUB version of this book, you can find the “live” version at <a href="https://csu-r.github.io/Module1/">https://csu-r.github.io/Module1/</a>, and all of the source files for this book can be found at <a href="https://github.com/CSU-R/Module1">https://github.com/CSU-R/Module1</a>.</p>
+<p>If you’re not taking the CSU course, you will periodically encounter instructions and references which are not relevant to you. For example, we will make reference to the Canvas website, which only CSU students enrolled in the course have access to.</p>
 
-<div class="reflect">
-Perhaps you’ve never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
-Think about organizing each row to be a guinea pig and each column to be a day.
-Can you think of an R function to compute the average temperature on day 1?
-How about the average temperature for guinea pig 3?
-How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
-Can you think of another way to organize the data?
 </div>
-<div class="assessment">
-<p>
-This is the last section you should include in Progress Check 3. Knit
-your output document and submit on Canvas.
-</p>
-</div>
-<div class="feedback">
-<p>
-Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting">here</a>
-</p>
-</div>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="summary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indexing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="prelim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,45 +369,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["Module1.pdf", "Module1.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "subsection"
-  },
-  "toolbar": {
-    "position": "fixed"
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
 });
 });
 </script>

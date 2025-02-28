@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Data Formatting | R Module 1</title>
+  <title>2.3 Running your first R Code | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Data Formatting | R Module 1" />
+  <meta property="og:title" content="2.3 Running your first R Code | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Data Formatting | R Module 1" />
+  <meta name="twitter:title" content="2.3 Running your first R Code | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html"/>
-<link rel="next" href="indexing.html"/>
+<link rel="prev" href="course-topics-syllabus.html"/>
+<link rel="next" href="getoutoftheclass.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,56 +341,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-formatting" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Data Formatting<a href="data-formatting.html#data-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we continue working with data, here are a few comments about data formatting.
-Many data sets can be thought of as one or more <em>observations</em> of one or more <em>variables</em>.
-R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
-Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
-Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
-In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.</p>
+<div id="running-your-first-r-code" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Running your first R Code<a href="running-your-first-r-code.html#running-your-first-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enough of the boring stuff, let’s run some R code!
+Normally you will run R on your computer, but since you may not have R installed yet, let’s run some R code using a website first.
+As you run code, you’ll see some of the things R can do.
+In a browser, navigate to <a href="https://rdrr.io/snippets/" target="_blank">rdrr.io/snippets</a>, where you’ll see a box that looks like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="src/images/rdrr.png" alt="rdrr code entry box"  />
+<p class="caption">
+Figure 2.2: rdrr code entry box
+</p>
+</div>
+<p>The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from before <code>library(ggplot2)</code> to after <code>factor(cyl))</code>.
+In its place, type <code>1+1</code>, then click the big green “Run” button.
+You should see the <code>[1] 2</code> displayed below.
+So if you give R a math expression, it will evaluate it and give the result.
+Note: the “correct answer” to <span class="math inline">\(1+1\)</span> is <code>2</code>, but the output also displays <code>[1]</code>, which we won’t explain until later, so you can ignore that for now.</p>
+<p>Next, delete the code you just wrote and type (or copy/paste) the following, and run it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb3-1"><a href="running-your-first-r-code.html#cb3-1" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
+<p>The result should be a very large number, which is equivalent to <span class="math inline">\(10!\)</span>, that is, <span class="math inline">\(10\times9\times8\times7\times6\times5\times4\times3\times2\times1\)</span>.
+This is an example of an R <em>function</em>, which we will discuss more later.</p>
+<p>Aside from math, R can produce plots. Try copy/pasting the following code into the website:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb4-1"><a href="running-your-first-r-code.html#cb4-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb4-2"><a href="running-your-first-r-code.html#cb4-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>You should see points in a scatter plot which follow a parabola.
+Here’s a more complicated example, which you should copy/paste into the website and run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb5-1"><a href="running-your-first-r-code.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="running-your-first-r-code.html#cb5-2" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb5-3"><a href="running-your-first-r-code.html#cb5-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="running-your-first-r-code.html#cb5-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="running-your-first-r-code.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb5-6"><a href="running-your-first-r-code.html#cb5-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>, </span>
+<span id="cb5-7"><a href="running-your-first-r-code.html#cb5-7" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="running-your-first-r-code.html#cb5-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb5-9"><a href="running-your-first-r-code.html#cb5-9" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="running-your-first-r-code.html#cb5-10" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p>R can be used to make many types of visualizations, which you will do more of later.</p>
 <div class="bonus">
 <p>
-One concept related to data organization is called “Tidy Data”, which
-you can read more about <a
-href="https://vita.had.co.nz/papers/tidy-data.pdf">here</a>. This focus
-on tidyness has led to the development of a set of R packages
-collectively called the “tidyverse”, which has become very popular for R
-analysis. The tidyverse will not be covered in this class, but a later
-module will provide extensive experience with it.
+This may be the first time you’ve seen R, so it’s okay if you don’t
+understand how to read this code. We’ll talk more later about what each
+statement is doing, but for now, here is a brief description of some of
+the code above:
 </p>
-</div>
-<div id="raw-data-vs.-clean-data." class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> “Raw” data vs. “Clean” data.<a href="data-formatting.html#raw-data-vs.-clean-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is there a “data_raw” folder and a “data_clean” folder, and not just a “data” folder?
-The idea is that the data_raw folder contains all of the <em>original</em> data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the “data_clean” folder (or possibly even a “results” folder).
-This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
-This is why the data in the folder should be thought of as <em>read only</em>.
-Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The “clean” moniker comes from the fact that often times data sets need some “cleaning” such as removing duplicates, removing <code>NA</code> values, discarding irrelevant data, etc.
-There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets.</p>
-
-<div class="reflect">
-Perhaps you’ve never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
-Think about organizing each row to be a guinea pig and each column to be a day.
-Can you think of an R function to compute the average temperature on day 1?
-How about the average temperature for guinea pig 3?
-How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
-Can you think of another way to organize the data?
-</div>
-<div class="assessment">
-<p>
-This is the last section you should include in Progress Check 3. Knit
-your output document and submit on Canvas.
-</p>
+<ul>
+<li>
+<span style="color:black"><code>-10:10</code><span> This creates a
+sequence of numbers starting from -10 and ending at 10. That is,
+<span style="color:black"><span class="math inline"><span class="math inline">\(-10, -9, -8,
+\ldots, 8, 9, 10\)</span></span><span>.
+</li>
+<li>
+<span style="color:black"><code>library</code><span> This is a
+function which loads an R <em>package</em>. R packages provide extra
+abilities to R.
+</li>
+</ul>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Your%20First%20R%20Code">here</a>
 </p>
-</div>
 </div>
 </div>
             </section>
@@ -398,8 +411,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="summary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indexing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="course-topics-syllabus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getoutoftheclass.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,45 +426,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["Module1.pdf", "Module1.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "subsection"
-  },
-  "toolbar": {
-    "position": "fixed"
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
 });
 });
 </script>

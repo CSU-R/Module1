@@ -1014,7 +1014,7 @@ cha_vec <- c("cheese", "crackers", "cheese", "crackers", "cheese", "crackers", "
 ```
 
 There are seven elements in this vector (`length(cha_vec)` is `7`), but there are only _two unique_ elements, "cheese" and "crackers".
-Imagine having two write down this vector on a piece of paper, and the space it would take.
+Imagine having to write down this vector on a piece of paper, and the space it would take.
 Now imagine writing down instead: 
 
 1, 2, 1, 2, 1, 2, 1

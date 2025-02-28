@@ -409,7 +409,7 @@ finally download some data, directly into R!</p>
 <span id="cb454-2"><a href="vignettes.html#cb454-2" tabindex="-1"></a>                     <span class="at">parameterCd =</span> <span class="fu">c</span>(<span class="st">&#39;00060&#39;</span>),</span>
 <span id="cb454-3"><a href="vignettes.html#cb454-3" tabindex="-1"></a>                     <span class="at">startDate =</span> <span class="st">&#39;2010-10-01&#39;</span>,</span>
 <span id="cb454-4"><a href="vignettes.html#cb454-4" tabindex="-1"></a>                     <span class="at">endDate =</span> <span class="fu">Sys.Date</span>())</span></code></pre></div>
-<pre><code>GET: https://waterservices.usgs.gov/nwis/dv/?site=06752260&amp;format=waterml,1.1&amp;ParameterCd=00060&amp;StatCd=00003&amp;startDT=2010-10-01&amp;endDT=2025-02-10</code></pre>
+<pre><code>GET: https://waterservices.usgs.gov/nwis/dv/?site=06752260&amp;format=waterml,1.1&amp;ParameterCd=00060&amp;StatCd=00003&amp;startDT=2010-10-01&amp;endDT=2025-02-28</code></pre>
 </div>
 <div id="explore-the-data-structure" class="section level4 hasAnchor" number="5.7.1.4">
 <h4><span class="header-section-number">5.7.1.4</span> Explore the data structure<a href="vignettes.html#explore-the-data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -447,12 +447,13 @@ First we can use the <code>summary</code> function to just quickly look at the v
 <div class="sourceCode" id="cb458"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb458-1"><a href="vignettes.html#cb458-1" tabindex="-1"></a><span class="fu">summary</span>(pq)</span></code></pre></div>
 <pre class="output-style"><code>      Date                q_cfs        
  Min.   :2010-10-01   Min.   :   1.31  
- 1st Qu.:2014-05-04   1st Qu.:  22.90  
- Median :2017-12-05   Median :  59.40  
- Mean   :2017-12-05   Mean   : 214.92  
- 3rd Qu.:2021-07-08   3rd Qu.: 140.00  
- Max.   :2025-02-09   Max.   :7150.00  </code></pre>
-<p>It looks like we have data from 2010 to 2025-02-10 and a range in river
+ 1st Qu.:2014-05-08   1st Qu.:  22.85  
+ Median :2017-12-14   Median :  59.80  
+ Mean   :2017-12-14   Mean   : 215.15  
+ 3rd Qu.:2021-07-22   3rd Qu.: 140.00  
+ Max.   :2025-02-27   Max.   :7150.00  
+                      NA&#39;s   :25       </code></pre>
+<p>It looks like we have data from 2010 to 2025-02-28 and a range in river
 flow (q_cfs) from 2.6 cfs all the way up to 7150 cfs. If you’re a hydrologist,
 hopefully these flow numbers look right, but another way to check to make sure
 is to simply plot the data as we do below.</p>
@@ -523,45 +524,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["Module1.pdf", "Module1.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-},
-"toolbar": {
-"position": "fixed"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Module1.pdf", "Module1.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  },
+  "toolbar": {
+    "position": "fixed"
+  }
 });
 });
 </script>

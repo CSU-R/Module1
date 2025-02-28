@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Data Formatting | R Module 1</title>
+  <title>2.1 This Textbook | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Data Formatting | R Module 1" />
+  <meta property="og:title" content="2.1 This Textbook | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Data Formatting | R Module 1" />
+  <meta name="twitter:title" content="2.1 This Textbook | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html"/>
-<link rel="next" href="indexing.html"/>
+<link rel="prev" href="prelim.html"/>
+<link rel="next" href="course-topics-syllabus.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,54 +341,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-formatting" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Data Formatting<a href="data-formatting.html#data-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we continue working with data, here are a few comments about data formatting.
-Many data sets can be thought of as one or more <em>observations</em> of one or more <em>variables</em>.
-R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
-Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
-Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
-In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.</p>
-<div class="bonus">
-<p>
-One concept related to data organization is called “Tidy Data”, which
-you can read more about <a
-href="https://vita.had.co.nz/papers/tidy-data.pdf">here</a>. This focus
-on tidyness has led to the development of a set of R packages
-collectively called the “tidyverse”, which has become very popular for R
-analysis. The tidyverse will not be covered in this class, but a later
-module will provide extensive experience with it.
-</p>
-</div>
-<div id="raw-data-vs.-clean-data." class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> “Raw” data vs. “Clean” data.<a href="data-formatting.html#raw-data-vs.-clean-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is there a “data_raw” folder and a “data_clean” folder, and not just a “data” folder?
-The idea is that the data_raw folder contains all of the <em>original</em> data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the “data_clean” folder (or possibly even a “results” folder).
-This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
-This is why the data in the folder should be thought of as <em>read only</em>.
-Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The “clean” moniker comes from the fact that often times data sets need some “cleaning” such as removing duplicates, removing <code>NA</code> values, discarding irrelevant data, etc.
-There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets.</p>
-
+<div id="this-textbook" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> This Textbook<a href="this-textbook.html#this-textbook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This course is presented as a <a href="https://bookdown.org/">bookdown</a> document, and is divided into chapters and sections.
+Each week, you’ll be expected to read through the chapter and complete any associated exercises, quizzes, or assignments.</p>
+<div id="special-boxes" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Special Boxes<a href="this-textbook.html#special-boxes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Throughout the book, you’ll encounter special boxes, each with a special meaning.
+Here is an example of each type of box:</p>
 <div class="reflect">
-Perhaps you’ve never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
-Think about organizing each row to be a guinea pig and each column to be a day.
-Can you think of an R function to compute the average temperature on day 1?
-How about the average temperature for guinea pig 3?
-How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
-Can you think of another way to organize the data?
+<p>
+This box will prompt you to pause and reflect on your experience
+and/or learning. No feedback will be given, but this may be graded on
+completion.
+</p>
 </div>
 <div class="assessment">
 <p>
-This is the last section you should include in Progress Check 3. Knit
-your output document and submit on Canvas.
+This box will signify a quiz or assignment which you will turn in for
+grading, on which the instructor will provide feedback.
+</p>
+</div>
+<div class="progress">
+<p>
+This box is for checking your understanding, to make sure you are
+ready for what follows.
+</p>
+</div>
+<div class="video">
+<p>
+This box is for displaying/linking to videos in order to help
+illustrate or communicate concepts.
+</p>
+</div>
+<div class="caution">
+<p>
+This box will warn you of possible problems or pitfalls you may
+encounter!
+</p>
+</div>
+<div class="bonus">
+<p>
+This box is to provide material going beyond the main course content,
+or material which will be revisited later in more depth.
 </p>
 </div>
 <div class="feedback">
 <p>
+This box will prompt for your feedback on the organization of the
+course, so we can improve the material for everyone!
+</p>
+<p>
+Any of the boxes may include hyperlinks like this: <a
+href="https://www.r-graph-gallery.com/">I am a link</a> or code like
+this <code>This is code</code>.
+</p>
+</div>
+</div>
+<div id="how-this-book-displays-code" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> How This Book Displays Code<a href="this-textbook.html#how-this-book-displays-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In addition, you may see R code either as part of a sentence like this: <code>1+1</code>, or as a separate block like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb1-1"><a href="this-textbook.html#cb1-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 2</code></pre>
+Sometimes (as in this example) we will also show the <strong>output</strong> (in yellow), that is, the result of running the R code. In this case the code <code>1+1</code> produced the output <code>2</code>.
+If you hover over a code block with your mouse, you will see the option to copy the code to your clipboard, like this:
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="src/images/copy_code.png" alt="copying code from this book"  />
+<p class="caption">
+Figure 2.1: copying code from this book
+</p>
+</div>
+<p>This will be useful when you are asked to run code on your computer.</p>
+</div>
+<div id="next-steps" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Next Steps<a href="this-textbook.html#next-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you’re ready, go to the next section to learn about the course syllabus and grading policies.</p>
+<div class="feedback">
+<p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Course%20Preliminaries">here</a>
 </p>
 </div>
 </div>
@@ -398,8 +429,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="summary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indexing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prelim.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="course-topics-syllabus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,45 +444,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["Module1.pdf", "Module1.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "subsection"
-  },
-  "toolbar": {
-    "position": "fixed"
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
 });
 });
 </script>

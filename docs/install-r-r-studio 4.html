@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Data Formatting | R Module 1</title>
+  <title>3.2 Install R &amp; R Studio | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Data Formatting | R Module 1" />
+  <meta property="og:title" content="3.2 Install R &amp; R Studio | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Data Formatting | R Module 1" />
+  <meta name="twitter:title" content="3.2 Install R &amp; R Studio | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html"/>
-<link rel="next" href="indexing.html"/>
+<link rel="prev" href="computer-basics.html"/>
+<link rel="next" href="successfull-installation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,55 +341,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-formatting" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Data Formatting<a href="data-formatting.html#data-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we continue working with data, here are a few comments about data formatting.
-Many data sets can be thought of as one or more <em>observations</em> of one or more <em>variables</em>.
-R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
-Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
-Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
-In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.</p>
+<div id="install-r-r-studio" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Install R &amp; R Studio<a href="install-r-r-studio.html#install-r-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here’s where you install R on your personal computer, but you’ll actually be installing <em>two</em> separate programs.
+The <em>first</em> is the R programming language.
+The <em>second</em> is a separate program called RStudio, which will be the primary way in which you interact with R in this class, we will say more about this later.</p>
+<div id="installing-r-1" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Installing R<a href="install-r-r-studio.html#installing-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Installation will look slightly different depending on the operating system, but the major steps are the same.</p>
+<ul>
+<li>First, navigate to the <a href="https://cran.r-project.org/mirrors.html">CRAN Mirrors Site</a>, which lists several locations from which R can be downloaded.</li>
+<li>Find a location near you (or not, this isn’t critical) and click on the link to be brought to the mirror site.</li>
+</ul>
+<p>From this point, this will change depending on your operating system.</p>
+<div id="windows" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> Windows<a href="install-r-r-studio.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Click “Download R for Windows”, then click “base”.</li>
+<li>Finally, Click “Download R X.Y.Z for Windows”, where X, Y, and Z will be numbers. These numbers indicate which version of R you’ll be installing. As of the publishing of this book, R is on version 4.4.0.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your <code>Downloads</code> folder or the <code>Desktop</code>) and select “save”.</li>
+<li>When the download completes, find the downloaded file in the File Explorer and double click to run it. This will start the installation process.</li>
+<li>Follow the on screen prompts. For the most part you can click “next” and “install” as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>Click “Finish” to complete the installation!</li>
+</ul>
+<div class="video">
+<p>
+This video shows the installation process for Windows.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7ZYn6q_pboE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://www.youtube.com/embed/7ZYn6q_pboE" class="uri">https://www.youtube.com/embed/7ZYn6q_pboE</a></strong>
+</center>
+</div>
+</div>
+<div id="macos" class="section level4 hasAnchor" number="3.2.1.2">
+<h4><span class="header-section-number">3.2.1.2</span> macOS<a href="install-r-r-studio.html#macos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Click “Download R for macOS”</li>
+<li>Click “R-X.Y.Z.pkg”, where X, Y, and Z will be numbers. These numbers indicate which version of R you’ll be installing. As of the publishing of this book, R is on version 4.4.0.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location and select “save”.</li>
+<li>When the download completes, find the downloaded file in the Finder and double click to run it. This will start the installation process.</li>
+<li>Follow the on screen prompts. For the most part you can click “continue”, “agree”, “install”, as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>Click “Close” to complete the installation!</li>
+</ul>
+</div>
+<div id="linux" class="section level4 hasAnchor" number="3.2.1.3">
+<h4><span class="header-section-number">3.2.1.3</span> Linux<a href="install-r-r-studio.html#linux" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We will not provide details on installing R for Linux, because the process varies depending on your distribution, and because if you’re using Linux, chances are you’re more computer proficient than the average user.
+Suffice it to say, The first step is:</p>
+<ul>
+<li>Click “Download R for Linux”</li>
+</ul>
+<p>And you can probably figure things out from there.</p>
+</div>
+<div id="conclusion" class="section level4 hasAnchor" number="3.2.1.4">
+<h4><span class="header-section-number">3.2.1.4</span> Conclusion<a href="install-r-r-studio.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You should now have R installed!
+Technically speaking, nothing further is required to work with R.
+You can open the RGui, and start coding immediately.
+However, for this course we will be using RStudio, which is a very popular program with an incredibly rich set of features, which will enhance your R programming experience.</p>
+</div>
+</div>
+<div id="installing-rstudio" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Installing RStudio<a href="install-r-r-studio.html#installing-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Navigate to the <a href="https://rstudio.com/products/rstudio/download/#download">RStudio Download Page</a>, and find the download file that matches your operating system.</li>
+<li>Click the link to download the installer, which starts with “RStudio-” or “rstudio-”.</li>
+<li>Your computer might prompt for the location on your computer that you would like to save the file. Select a location (reasonable options are your <code>Downloads</code> folder or the <code>Desktop</code>) and select “save”.</li>
+<li>When the download completes, find the downloaded file and double click to run it. This will start the installation process.</li>
+</ul>
+<p>From this point, this will change depending on your operating system.</p>
+<div id="windows-1" class="section level4 hasAnchor" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Windows<a href="install-r-r-studio.html#windows-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Follow the on screen prompts. For the most part you can click “next” and “install” as appropriate, and you don’t have to worry about changing any installation settings.</li>
+<li>You should now be able to open the start menu, open the RStudio folder, and click on the RStudio icon to open RStudio</li>
+</ul>
+<div class="video">
+<p>
+This video shows the installation process for Windows.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XnqENdiEb3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/XnqENdiEb3I" class="uri">https://youtu.be/XnqENdiEb3I</a></strong>
+</center>
+</div>
+</div>
+<div id="macos-1" class="section level4 hasAnchor" number="3.2.2.2">
+<h4><span class="header-section-number">3.2.2.2</span> macOS<a href="install-r-r-studio.html#macos-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>In the window which opens, drag the RStudio icon into the “Applications” folder. You may need to enter your password (click the “Authenticate” button) in order to do so.</li>
+<li>You should now be able to navigate to the Applications folder in Finder, and click on the RStudio icon to open RStudio.</li>
+</ul>
+</div>
+<div id="conclusion-1" class="section level4 hasAnchor" number="3.2.2.3">
+<h4><span class="header-section-number">3.2.2.3</span> Conclusion<a href="install-r-r-studio.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You should now have R and RStudio installed! We will look at running code and setting up your workspace in the following sections.</p>
 <div class="bonus">
 <p>
-One concept related to data organization is called “Tidy Data”, which
-you can read more about <a
-href="https://vita.had.co.nz/papers/tidy-data.pdf">here</a>. This focus
-on tidyness has led to the development of a set of R packages
-collectively called the “tidyverse”, which has become very popular for R
-analysis. The tidyverse will not be covered in this class, but a later
-module will provide extensive experience with it.
-</p>
-</div>
-<div id="raw-data-vs.-clean-data." class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> “Raw” data vs. “Clean” data.<a href="data-formatting.html#raw-data-vs.-clean-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is there a “data_raw” folder and a “data_clean” folder, and not just a “data” folder?
-The idea is that the data_raw folder contains all of the <em>original</em> data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the “data_clean” folder (or possibly even a “results” folder).
-This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
-This is why the data in the folder should be thought of as <em>read only</em>.
-Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The “clean” moniker comes from the fact that often times data sets need some “cleaning” such as removing duplicates, removing <code>NA</code> values, discarding irrelevant data, etc.
-There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets.</p>
-
-<div class="reflect">
-Perhaps you’ve never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
-Think about organizing each row to be a guinea pig and each column to be a day.
-Can you think of an R function to compute the average temperature on day 1?
-How about the average temperature for guinea pig 3?
-How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
-Can you think of another way to organize the data?
-</div>
-<div class="assessment">
-<p>
-This is the last section you should include in Progress Check 3. Knit
-your output document and submit on Canvas.
+Rstudio also offers a <a href="https://rstudio.cloud/">cloud
+service</a> that allows you to work with R in your browser. We’ll use
+the desktop version but you can check out the <a
+href="https://rstudio.cloud/learn/primers">interactive primers</a> on
+the cloud site.
 </p>
 </div>
 <div class="feedback">
 <p>
 Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting">here</a>
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Install%20R%20%26%20RStudio">here</a>
 </p>
+</div>
 </div>
 </div>
 </div>
@@ -398,8 +462,8 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
           </div>
         </div>
       </div>
-<a href="summary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indexing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="computer-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="successfull-installation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,45 +477,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["Module1.pdf", "Module1.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "subsection"
-  },
-  "toolbar": {
-    "position": "fixed"
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
 });
 });
 </script>

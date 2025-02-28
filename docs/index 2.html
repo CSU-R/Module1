@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Data Formatting | R Module 1</title>
+  <title>R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Data Formatting | R Module 1" />
+  <meta property="og:title" content="R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Data Formatting | R Module 1" />
+  <meta name="twitter:title" content="R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="summary-statistics.html"/>
-<link rel="next" href="indexing.html"/>
+
+<link rel="next" href="associated-csu-course.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,65 +341,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-formatting" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Data Formatting<a href="data-formatting.html#data-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before we continue working with data, here are a few comments about data formatting.
-Many data sets can be thought of as one or more <em>observations</em> of one or more <em>variables</em>.
-R functions work best when the data are formatted into rows and columns, so that each row is an observation, and each column is a variable.
-Unfortunately, sometimes data do not follow this convention, or worse, it may not be clear what the observations or variables are.
-Working with data often involves answering multiple questions, and different questions may require thinking of observations and variables differently.
-In R, there are ways of changing the structure of data to suit your particular needs, but these are intermediate topics which will not be discussed here.</p>
-<div class="bonus">
-<p>
-One concept related to data organization is called “Tidy Data”, which
-you can read more about <a
-href="https://vita.had.co.nz/papers/tidy-data.pdf">here</a>. This focus
-on tidyness has led to the development of a set of R packages
-collectively called the “tidyverse”, which has become very popular for R
-analysis. The tidyverse will not be covered in this class, but a later
-module will provide extensive experience with it.
-</p>
+<div id="header">
+<h1 class="title">R Module 1</h1>
+<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
+<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
+<p class="date"><em>10 Feb, 2025, 07:22 PM</em></p>
 </div>
-<div id="raw-data-vs.-clean-data." class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> “Raw” data vs. “Clean” data.<a href="data-formatting.html#raw-data-vs.-clean-data." class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Why is there a “data_raw” folder and a “data_clean” folder, and not just a “data” folder?
-The idea is that the data_raw folder contains all of the <em>original</em> data sets that you start with, before any cleaning or summarization take place, and any cleaned, modified, or created data sets that result from your data analysis should be stored in the “data_clean” folder (or possibly even a “results” folder).
-This distinction ensures that the original data sets are preserved in their unedited state, just in case you need to start over from the beginning to answer a different question, and in order for others to easily replicate your work.
-This is why the data in the folder should be thought of as <em>read only</em>.
-Sometimes people even modify the permissions of the raw data files on their computer to prevent anyone from accidentally deleting or overwriting the raw data.
-The “clean” moniker comes from the fact that often times data sets need some “cleaning” such as removing duplicates, removing <code>NA</code> values, discarding irrelevant data, etc.
-There are many other ways of organizing data, but the principle here is to separate the original data sets from any intermediate data sets.</p>
-
-<div class="reflect">
-Perhaps you’ve never thought about how data should be structured.
-Consider an experiment which measures the temperatures of five guinea pigs for each of four different days.
-Think about organizing each row to be a guinea pig and each column to be a day.
-Can you think of an R function to compute the average temperature on day 1?
-How about the average temperature for guinea pig 3?
-How do your answers change if the data are arranged with days as the rows and guinea pigs as columns?
-Can you think of another way to organize the data?
-</div>
-<div class="assessment">
-<p>
-This is the last section you should include in Progress Check 3. Knit
-your output document and submit on Canvas.
-</p>
-</div>
-<div class="feedback">
-<p>
-Any feedback for this section? Click <a
-href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Data%20Formatting">here</a>
+<div id="welcome" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
+<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
+<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Perform basic computations and logic, just like any other programming language</li>
+<li>Load, clean, analyze, and visualize data</li>
+<li>Run scripts</li>
+<li>Create reproducible reports so you can explain your work in a narrative form</li>
+</ol>
+<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
+<ol style="list-style-type: decimal">
+<li>R as free, open source software</li>
+<li>The free RStudio IDE</li>
+<li>Publicly available packages which extend the capability of R</li>
+<li>Events and community groups which advocate for the use of R and the support of R users</li>
+</ol>
+<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
+<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
+<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
+The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
+The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
+Here’s what they look like:
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
+<p class="caption">
+Figure 1.1: Left and right navigation arrows
 </p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="summary-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indexing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -413,45 +407,45 @@ href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": ["Module1.pdf", "Module1.epub"],
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "subsection"
-  },
-  "toolbar": {
-    "position": "fixed"
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Module1.pdf", "Module1.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
 });
 });
 </script>
