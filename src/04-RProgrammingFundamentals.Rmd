@@ -658,7 +658,7 @@ The `class` function will tell us what type of data is stored in a vector (which
 ```{r}
 class(x)
 ```
-Here's how to create logical or numeric vectors:
+Here's how to create logical or character vectors:
 ```{r}
 y <- c(TRUE, TRUE, FALSE, TRUE)
 z <- c("to", "be", "or", "not", "to", "be") 
