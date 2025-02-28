@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>5.3 Summary Statistics | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="5.3 Summary Statistics | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="5.3 Summary Statistics | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="reading-writing-data.html"/>
+<link rel="next" href="data-formatting.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,59 +341,325 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>28 Feb, 2025, 08:49 AM</em></p>
+<div id="summary-statistics" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Summary Statistics<a href="summary-statistics.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Reading and writing data is useful, but the power of R is <em>doing interesting things</em> with the data!
+Let’s perform a few operations with the Olympic athletes data to demonstrate some important functions for data analysis.
+As we’ve seen, the <code>summary</code> function automatically performs some summary statistics on each column of a data frame.
+Let’s see how to produce these and other results manually.</p>
+<div id="quantitative-variables" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Quantitative Variables<a href="summary-statistics.html#quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To showcase the functions R provides to summarize quantitative variables, we’ll look at the <code>Age</code> column of our data frame, which is stored as an integer vector in R.</p>
+<div class="reflect">
+<p>
+What other R data types might be used to store quantitative data?
+</p>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<p>However, <code>Age</code> contains <code>NA</code> values, as we know from running the following function:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb342-1"><a href="summary-statistics.html#cb342-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athletes<span class="sc">$</span>Age))  <span class="co"># Count how many NA&#39;s are in the Age column</span></span></code></pre></div>
+<pre class="output-style"><code>[1] 183</code></pre>
+
+<div class="reflect">
+Pause and think through what’s happening in the above code. The <code>is.na</code> function returns a logical array which is true whenever the <code>Age</code> column is <code>NA</code>. So why does the <code>sum</code> function produce the number of <code>NA</code>’s?
+</div>
+<p>As a cleaning step, we must first remove the <code>NA</code> values:</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb344-1"><a href="summary-statistics.html#cb344-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Age       <span class="co"># Assign the Ages column to a variable</span></span>
+<span id="cb344-2"><a href="summary-statistics.html#cb344-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> age[<span class="sc">!</span><span class="fu">is.na</span>(age)]   <span class="co"># Extract only the elements which are not NA (more on this when we discuss advanced indexing)</span></span></code></pre></div>
+<div class="bonus">
+<p>
+This type of “data cleaning” is a very common first step when
+performing data analysis. You will get more opportunities to clean data
+later in the course.
+</p>
+</div>
+<p>Here are some functions R provides to summarize quantitative variables.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb345-1"><a href="summary-statistics.html#cb345-1" tabindex="-1"></a>age_min <span class="ot">&lt;-</span> <span class="fu">min</span>(age)     <span class="co"># Find the minimum age</span></span>
+<span id="cb345-2"><a href="summary-statistics.html#cb345-2" tabindex="-1"></a>age_med <span class="ot">&lt;-</span> <span class="fu">median</span>(age)  <span class="co"># Find the median age</span></span>
+<span id="cb345-3"><a href="summary-statistics.html#cb345-3" tabindex="-1"></a>age_max <span class="ot">&lt;-</span> <span class="fu">max</span>(age)     <span class="co"># Find the maximum age</span></span>
+<span id="cb345-4"><a href="summary-statistics.html#cb345-4" tabindex="-1"></a>age_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(age)   <span class="co"># Find the average age</span></span>
+<span id="cb345-5"><a href="summary-statistics.html#cb345-5" tabindex="-1"></a>age_sd <span class="ot">&lt;-</span> <span class="fu">sd</span>(age)       <span class="co"># Find the standard deviation of age</span></span>
+<span id="cb345-6"><a href="summary-statistics.html#cb345-6" tabindex="-1"></a>age_var <span class="ot">&lt;-</span> <span class="fu">var</span>(age)     <span class="co"># Find the variance of age</span></span></code></pre></div>
+<p>Let’s put all these results in a named list.
+In the following code, read the comments carefully to understand how the code is being organized onto multiple lines.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb346-1"><a href="summary-statistics.html#cb346-1" tabindex="-1"></a><span class="co"># Create a list containing all the stats</span></span>
+<span id="cb346-2"><a href="summary-statistics.html#cb346-2" tabindex="-1"></a>age_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(  <span class="co"># R knows that this command continues until a closed parenthesis</span></span>
+<span id="cb346-3"><a href="summary-statistics.html#cb346-3" tabindex="-1"></a>  <span class="at">min =</span> age_min,   </span>
+<span id="cb346-4"><a href="summary-statistics.html#cb346-4" tabindex="-1"></a>  <span class="at">median =</span> age_med, </span>
+<span id="cb346-5"><a href="summary-statistics.html#cb346-5" tabindex="-1"></a>  <span class="at">max =</span> age_max,    </span>
+<span id="cb346-6"><a href="summary-statistics.html#cb346-6" tabindex="-1"></a>  <span class="at">mean =</span> age_mean,  </span>
+<span id="cb346-7"><a href="summary-statistics.html#cb346-7" tabindex="-1"></a>  <span class="at">sd =</span> age_sd,      </span>
+<span id="cb346-8"><a href="summary-statistics.html#cb346-8" tabindex="-1"></a>  <span class="at">var =</span> age_var</span>
+<span id="cb346-9"><a href="summary-statistics.html#cb346-9" tabindex="-1"></a>)  <span class="co"># This could all go on one line, but it looks more organized this way.</span></span>
+<span id="cb346-10"><a href="summary-statistics.html#cb346-10" tabindex="-1"></a>age_stats</span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 12
+
+$median
+[1] 25
+
+$max
+[1] 74
+
+$mean
+[1] 25.65373
+
+$sd
+[1] 6.495693
+
+$var
+[1] 42.19402</code></pre>
+
+<div class="progress">
+Using the Olympic Athletes data, create a list called <code>weight_stats</code> with the mean, median, and standard deviation of the <code>Weight</code> column.
+If you get <code>NA</code> values for the statistics, you should include the <code>na.rm=T</code> argument like so: <code>mean(weight, na.rm=T)</code>, to remove the <code>NA</code> values before computing the statistics.
+</div>
+<p>Visualization will be discussed more later, but we’ll show one plot now, to show how multiple summary statistics can be shown at the same time.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb348-1"><a href="summary-statistics.html#cb348-1" tabindex="-1"></a><span class="fu">hist</span>(age, <span class="at">breaks =</span> <span class="dv">50</span>)</span>
+<span id="cb348-2"><a href="summary-statistics.html#cb348-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> age_mean, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb348-3"><a href="summary-statistics.html#cb348-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> age_med, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" />
+It looks like the distribution of <code>Age</code> is <em>right skewed</em>, consistent with the fact that the mean is greater than the median.</p>
+<p>Of course, having more than one quantitative variable allows us to compare them against each other.
+Here’s how to compute the covariance between two quantitative variables:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb349-1"><a href="summary-statistics.html#cb349-1" tabindex="-1"></a><span class="fu">cov</span>(athletes<span class="sc">$</span>Age, athletes<span class="sc">$</span>Height, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 6.483675</code></pre>
+<div class="caution">
+<p>
+The argument <code>use=“complete.obs”</code> is one way to deal with
+<code>NA</code> values in the <code>cov</code> function. This makes R
+remove any observations which are NA in either the first or second
+variable. There are other ways as well, which you can check using the
+help function: <code>?cov</code>.
+</p>
+</div>
+<p>You can also compute the correlation between two variables like so:</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb351-1"><a href="summary-statistics.html#cb351-1" tabindex="-1"></a><span class="fu">cor</span>(athletes<span class="sc">$</span>Age, athletes<span class="sc">$</span>Height, <span class="at">use=</span><span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<pre class="output-style"><code>[1] 0.1104457</code></pre>
+<p>Using the <code>cov</code> or <code>cor</code> functions on an entire data frame or matrix will produce a correlation matrix of the columns.
+Here’s an example with the <code>mtcars</code> data frame:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb353-1"><a href="summary-statistics.html#cb353-1" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code></pre></div>
+<pre class="output-style"><code>            mpg        cyl       disp         hp        drat         wt
+mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
+cyl  -0.8521620  1.0000000  0.9020329  0.8324475 -0.69993811  0.7824958
+disp -0.8475514  0.9020329  1.0000000  0.7909486 -0.71021393  0.8879799
+hp   -0.7761684  0.8324475  0.7909486  1.0000000 -0.44875912  0.6587479
+drat  0.6811719 -0.6999381 -0.7102139 -0.4487591  1.00000000 -0.7124406
+wt   -0.8676594  0.7824958  0.8879799  0.6587479 -0.71244065  1.0000000
+qsec  0.4186840 -0.5912421 -0.4336979 -0.7082234  0.09120476 -0.1747159
+vs    0.6640389 -0.8108118 -0.7104159 -0.7230967  0.44027846 -0.5549157
+am    0.5998324 -0.5226070 -0.5912270 -0.2432043  0.71271113 -0.6924953
+gear  0.4802848 -0.4926866 -0.5555692 -0.1257043  0.69961013 -0.5832870
+carb -0.5509251  0.5269883  0.3949769  0.7498125 -0.09078980  0.4276059
+            qsec         vs          am       gear        carb
+mpg   0.41868403  0.6640389  0.59983243  0.4802848 -0.55092507
+cyl  -0.59124207 -0.8108118 -0.52260705 -0.4926866  0.52698829
+disp -0.43369788 -0.7104159 -0.59122704 -0.5555692  0.39497686
+hp   -0.70822339 -0.7230967 -0.24320426 -0.1257043  0.74981247
+drat  0.09120476  0.4402785  0.71271113  0.6996101 -0.09078980
+wt   -0.17471588 -0.5549157 -0.69249526 -0.5832870  0.42760594
+qsec  1.00000000  0.7445354 -0.22986086 -0.2126822 -0.65624923
+vs    0.74453544  1.0000000  0.16834512  0.2060233 -0.56960714
+am   -0.22986086  0.1683451  1.00000000  0.7940588  0.05753435
+gear -0.21268223  0.2060233  0.79405876  1.0000000  0.27407284
+carb -0.65624923 -0.5696071  0.05753435  0.2740728  1.00000000</code></pre>
+<p>However, this only works if all columns of the data frame (or matrix) are numeric.
+Here’s what happens if we try the same thing on the athletes data:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb355-1"><a href="summary-statistics.html#cb355-1" tabindex="-1"></a><span class="fu">cor</span>(athletes)</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error in cor(athletes): 'x' must be numeric
+</code></pre>
+</div>
+<div id="categorical-variables" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Categorical Variables<a href="summary-statistics.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To showcase the functions R provides for categorical variables, we’ll look, at the <code>Sport</code> column, which is stored as a character vector in R.</p>
+<div class="reflect">
+<p>
+What other R data types might be used to store categorical data?
+</p>
+</div>
+<p>Are there any <code>NA</code> values in this column?</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb356-1"><a href="summary-statistics.html#cb356-1" tabindex="-1"></a>sport <span class="ot">&lt;-</span> athletes<span class="sc">$</span>Sport</span>
+<span id="cb356-2"><a href="summary-statistics.html#cb356-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 0</code></pre>
+<p>It turns out the answer is no, so there’s no need to remove anything.
+In a character vector like this, we expect there to be many duplicated values.
+We can see a list of all the unique values with the following:</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb358-1"><a href="summary-statistics.html#cb358-1" tabindex="-1"></a><span class="fu">unique</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code> [1] &quot;Hockey&quot;                    &quot;Wrestling&quot;                
+ [3] &quot;Swimming&quot;                  &quot;Basketball&quot;               
+ [5] &quot;Biathlon&quot;                  &quot;Speed Skating&quot;            
+ [7] &quot;Fencing&quot;                   &quot;Weightlifting&quot;            
+ [9] &quot;Equestrianism&quot;             &quot;Archery&quot;                  
+[11] &quot;Cross Country Skiing&quot;      &quot;Gymnastics&quot;               
+[13] &quot;Tennis&quot;                    &quot;Athletics&quot;                
+[15] &quot;Cycling&quot;                   &quot;Bobsleigh&quot;                
+[17] &quot;Shooting&quot;                  &quot;Sailing&quot;                  
+[19] &quot;Alpine Skiing&quot;             &quot;Art Competitions&quot;         
+[21] &quot;Canoeing&quot;                  &quot;Football&quot;                 
+[23] &quot;Rowing&quot;                    &quot;Figure Skating&quot;           
+[25] &quot;Nordic Combined&quot;           &quot;Judo&quot;                     
+[27] &quot;Short Track Speed Skating&quot; &quot;Water Polo&quot;               
+[29] &quot;Snowboarding&quot;              &quot;Taekwondo&quot;                
+[31] &quot;Diving&quot;                    &quot;Handball&quot;                 
+[33] &quot;Softball&quot;                  &quot;Boxing&quot;                   
+[35] &quot;Tug-Of-War&quot;                &quot;Ski Jumping&quot;              
+[37] &quot;Table Tennis&quot;              &quot;Ice Hockey&quot;               
+[39] &quot;Modern Pentathlon&quot;         &quot;Golf&quot;                     
+[41] &quot;Baseball&quot;                  &quot;Volleyball&quot;               
+[43] &quot;Luge&quot;                      &quot;Badminton&quot;                
+[45] &quot;Trampolining&quot;              &quot;Curling&quot;                  
+[47] &quot;Beach Volleyball&quot;          &quot;Polo&quot;                     
+[49] &quot;Rugby Sevens&quot;              &quot;Synchronized Swimming&quot;    
+[51] &quot;Triathlon&quot;                 &quot;Skeleton&quot;                 
+[53] &quot;Freestyle Skiing&quot;          &quot;Military Ski Patrol&quot;      
+[55] &quot;Lacrosse&quot;                  &quot;Rhythmic Gymnastics&quot;      
+[57] &quot;Rugby&quot;                    </code></pre>
+<p>Using the numbers in brackets to the left as our guide, we can see that there are 57 unique values, but this can also be determined by running:</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb360-1"><a href="summary-statistics.html#cb360-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(sport))</span></code></pre></div>
+<pre class="output-style"><code>[1] 57</code></pre>
+<p>It would be nice to see how many times each entry occurs in the data set.
+This is what the <code>table</code> function does:</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb362-1"><a href="summary-statistics.html#cb362-1" tabindex="-1"></a><span class="fu">table</span>(sport)</span></code></pre></div>
+<pre class="output-style"><code>sport
+            Alpine Skiing                   Archery          Art Competitions 
+                      148                        41                        64 
+                Athletics                 Badminton                  Baseball 
+                      728                        32                        19 
+               Basketball          Beach Volleyball                  Biathlon 
+                       98                        18                       100 
+                Bobsleigh                    Boxing                  Canoeing 
+                       53                       121                       112 
+     Cross Country Skiing                   Curling                   Cycling 
+                      174                         8                       205 
+                   Diving             Equestrianism                   Fencing 
+                       56                       121                       184 
+           Figure Skating                  Football          Freestyle Skiing 
+                       44                       138                         9 
+                     Golf                Gymnastics                  Handball 
+                        5                       498                        61 
+                   Hockey                Ice Hockey                      Judo 
+                      101                        83                        76 
+                 Lacrosse                      Luge       Military Ski Patrol 
+                        1                        25                         2 
+        Modern Pentathlon           Nordic Combined                      Polo 
+                       37                        25                         4 
+      Rhythmic Gymnastics                    Rowing                     Rugby 
+                        9                       190                         4 
+             Rugby Sevens                   Sailing                  Shooting 
+                        6                       126                       218 
+Short Track Speed Skating                  Skeleton               Ski Jumping 
+                       23                         4                        45 
+             Snowboarding                  Softball             Speed Skating 
+                       19                        10                       104 
+                 Swimming     Synchronized Swimming              Table Tennis 
+                      399                         9                        36 
+                Taekwondo                    Tennis              Trampolining 
+                       10                        45                         4 
+                Triathlon                Tug-Of-War                Volleyball 
+                        6                         5                        50 
+               Water Polo             Weightlifting                 Wrestling 
+                       79                        85                       123 </code></pre>
+<p>Let’s save this table to a list as before:</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb364-1"><a href="summary-statistics.html#cb364-1" tabindex="-1"></a><span class="co"># Assign summary statistics to variables</span></span>
+<span id="cb364-2"><a href="summary-statistics.html#cb364-2" tabindex="-1"></a>sport_n_unique <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(sport))</span>
+<span id="cb364-3"><a href="summary-statistics.html#cb364-3" tabindex="-1"></a>sport_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(sport)</span>
+<span id="cb364-4"><a href="summary-statistics.html#cb364-4" tabindex="-1"></a></span>
+<span id="cb364-5"><a href="summary-statistics.html#cb364-5" tabindex="-1"></a><span class="co"># Combine them into a list</span></span>
+<span id="cb364-6"><a href="summary-statistics.html#cb364-6" tabindex="-1"></a>sport_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb364-7"><a href="summary-statistics.html#cb364-7" tabindex="-1"></a>  <span class="at">number_unique =</span> sport_n_unique,</span>
+<span id="cb364-8"><a href="summary-statistics.html#cb364-8" tabindex="-1"></a>  <span class="at">counts =</span> sport_counts</span>
+<span id="cb364-9"><a href="summary-statistics.html#cb364-9" tabindex="-1"></a>)</span></code></pre></div>
+<p>Again, a visualization may be useful here:</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb365-1"><a href="summary-statistics.html#cb365-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">4</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>)  <span class="co"># Command to make the labels fit</span></span>
+<span id="cb365-2"><a href="summary-statistics.html#cb365-2" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(sport), <span class="at">horiz =</span> T, <span class="at">las =</span> <span class="dv">2</span>)  <span class="co"># Bar plot</span></span></code></pre></div>
+<p><img src="Module1_files/figure-html/unnamed-chunk-364-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>So we see that in our data set, athletics, swimming, and gymnastics have the most athletes (remember, each row is an athlete).</p>
+
+<div class="progress">
+Using the Olympic athletes data, create a list called <code>season_stats</code> with a table of counts for the <code>Season</code> variable.
+</div>
+
+<div class="caution">
+It’s always important to remember what the rows of your data set represent.
+In the Olympic athletes example, one athlete may occupy multiple rows, if they competed in multiple olympic games.
+This impacts how you should interpret the summary statistics computed above (mean, median, counts, etc.).
+</div>
+
+<div class="reflect">
+Since an athlete may show up for multiple olympic games, what impact could this have on summary statistics for the <code>Height</code>, <code>Weight</code>, and <code>Sex</code> variables? Can you give an example of what might happen? What other variables may be impacted? What R code would you write to determine if an athlete occurred multiple times in the data frame?
+</div>
+</div>
+<div id="saving-an-rdata-file" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Saving an RData file<a href="summary-statistics.html#saving-an-rdata-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Finally, we may want to save these results for use <em>in R</em> later.
+First, we’ll create a new list to put our two stats list <em>in</em> (remember, we can have lists inside of other lists!).</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb366-1"><a href="summary-statistics.html#cb366-1" tabindex="-1"></a><span class="co"># Create list</span></span>
+<span id="cb366-2"><a href="summary-statistics.html#cb366-2" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb366-3"><a href="summary-statistics.html#cb366-3" tabindex="-1"></a>  <span class="at">age =</span> age_stats,</span>
+<span id="cb366-4"><a href="summary-statistics.html#cb366-4" tabindex="-1"></a>  <span class="at">sport =</span> sport_stats</span>
+<span id="cb366-5"><a href="summary-statistics.html#cb366-5" tabindex="-1"></a>)</span></code></pre></div>
+
+<div class="bonus">
+<p>Remember that the <code>names</code> function retrieves the column names for a data frame? It also retrieves the names of a list (after all, a data frame is just a fancy list, right?)!
+The following commands may be useful for remembering what the contents of our stats list:</p>
+<ul>
+<li><code>names(athlete_stats)</code></li>
+<li><code>names(athlete_stats$age)</code></li>
+<li><code>names(athlete_stats$sport)</code></li>
+</ul>
+</div>
+<p>To save these results, we can use the <code>saveRDS</code> function:</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb367-1"><a href="summary-statistics.html#cb367-1" tabindex="-1"></a><span class="fu">saveRDS</span>(athlete_stats, <span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)</span></code></pre></div>
+<p>Later, we can use the following command to load the RDS file back into R:</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb368-1"><a href="summary-statistics.html#cb368-1" tabindex="-1"></a><span class="fu">rm</span>(athlete_stats)  <span class="co"># Remove athlete stats to prove we are loading it from the hard drive</span></span>
+<span id="cb368-2"><a href="summary-statistics.html#cb368-2" tabindex="-1"></a></span>
+<span id="cb368-3"><a href="summary-statistics.html#cb368-3" tabindex="-1"></a>athlete_stats <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;data_clean/athlete_stats.rds&quot;</span>)  <span class="co"># Load the RDS file and name it athlete_stats</span></span>
+<span id="cb368-4"><a href="summary-statistics.html#cb368-4" tabindex="-1"></a></span>
+<span id="cb368-5"><a href="summary-statistics.html#cb368-5" tabindex="-1"></a>athlete_stats<span class="sc">$</span>age  <span class="co"># Show that we have loaded the data by printing the age stats</span></span></code></pre></div>
+<pre class="output-style"><code>$min
+[1] 12
+
+$median
+[1] 25
+
+$max
+[1] 74
+
+$mean
+[1] 25.65373
+
+$sd
+[1] 6.495693
+
+$var
+[1] 42.19402</code></pre>
+
+<div class="caution">
+Notice the file ends with <em>.rds</em>, indicating that this is a special RDS type which can only be read by R.
+This is different from other data formats like CSV, which are plain text and can be read by other programs like Excel or Sheets.
+RDS should only be used when you want to save work that you want to resume in R later.
+If at all possible, you should prefer using plain text formats rather than RDS.
+</div>
+
+<div class="bonus">
+RDS stands for <em>R Data Serialization</em>. This is R’s version of object serialization, just like the io.Serializable interface in Java or the pickle module in Python.
+As with other languages, R’s serialization can only be used in R.
+</div>
+<p>The RDS format works for any R Object, not just lists, so it can be used for vectors, matrices, factors, and even functions.</p>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Summary%20Statistics">here</a>
 </p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="reading-writing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-formatting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

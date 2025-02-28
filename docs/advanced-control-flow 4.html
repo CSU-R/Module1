@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>6.3 Advanced Control Flow | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="6.3 Advanced Control Flow | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="6.3 Advanced Control Flow | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="writing-functions.html"/>
+<link rel="next" href="working-with-popular-packages.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,59 +341,189 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>28 Feb, 2025, 08:49 AM</em></p>
+<div id="advanced-control-flow" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Advanced Control Flow<a href="advanced-control-flow.html#advanced-control-flow" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we’ll discuss more ways to control the flow of your code.
+Specifically, we’ll talk about the <code>apply</code> family of functions, starting with <code>sapply</code>.
+To show what <code>sapply</code> does, let’s look at the following function:</p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb555-1"><a href="advanced-control-flow.html#cb555-1" tabindex="-1"></a>square_plus_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb555-2"><a href="advanced-control-flow.html#cb555-2" tabindex="-1"></a>  <span class="fu">return</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb555-3"><a href="advanced-control-flow.html#cb555-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>This function returns the result of squaring the input argument and adding 1.
+Suppose we wanted to run this function to every element of a vector.
+One option would be to write a for-loop:</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb556-1"><a href="advanced-control-flow.html#cb556-1" tabindex="-1"></a><span class="co"># The function we want to apply our function to</span></span>
+<span id="cb556-2"><a href="advanced-control-flow.html#cb556-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb556-3"><a href="advanced-control-flow.html#cb556-3" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="advanced-control-flow.html#cb556-4" tabindex="-1"></a><span class="co"># Create an empty vector to hold the result</span></span>
+<span id="cb556-5"><a href="advanced-control-flow.html#cb556-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">10</span>)</span>
+<span id="cb556-6"><a href="advanced-control-flow.html#cb556-6" tabindex="-1"></a></span>
+<span id="cb556-7"><a href="advanced-control-flow.html#cb556-7" tabindex="-1"></a><span class="co"># Loop through x and apply the function</span></span>
+<span id="cb556-8"><a href="advanced-control-flow.html#cb556-8" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb556-9"><a href="advanced-control-flow.html#cb556-9" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> <span class="fu">square_plus_one</span>(x[i]) </span>
+<span id="cb556-10"><a href="advanced-control-flow.html#cb556-10" tabindex="-1"></a>}</span>
+<span id="cb556-11"><a href="advanced-control-flow.html#cb556-11" tabindex="-1"></a></span>
+<span id="cb556-12"><a href="advanced-control-flow.html#cb556-12" tabindex="-1"></a>y</span></code></pre></div>
+<pre class="output-style"><code> [1]   2   5  10  17  26  37  50  65  82 101</code></pre>
+<p>Here’s another way to do the same thing using the <code>sapply</code> function:</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb558-1"><a href="advanced-control-flow.html#cb558-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
+<span id="cb558-2"><a href="advanced-control-flow.html#cb558-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
+<span id="cb558-3"><a href="advanced-control-flow.html#cb558-3" tabindex="-1"></a></span>
+<span id="cb558-4"><a href="advanced-control-flow.html#cb558-4" tabindex="-1"></a><span class="co"># z agrees with y!</span></span>
+<span id="cb558-5"><a href="advanced-control-flow.html#cb558-5" tabindex="-1"></a><span class="fu">print</span>(z <span class="sc">==</span> y)</span>
+<span id="cb558-6"><a href="advanced-control-flow.html#cb558-6" tabindex="-1"></a></span>
+<span id="cb558-7"><a href="advanced-control-flow.html#cb558-7" tabindex="-1"></a><span class="co"># z is a vector</span></span>
+<span id="cb558-8"><a href="advanced-control-flow.html#cb558-8" tabindex="-1"></a><span class="fu">mode</span>(z)</span></code></pre></div>
+<pre class="output-style"><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[1] &quot;numeric&quot;</code></pre>
+<p>In words, the <code>sapply</code> function says “loop through every element of this vector, and apply this function to it.”
+All you have to specify is which vector to loop through, and which function to apply.
+The “s” in <code>sapply</code> stands for “simplify”, meaning the result will be simplified to a vector, matrix, or higher dimensional array.
+In some cases, you may want the result to be returned as a list, instead of a vector. In this case, the <code>lapply</code> function can be used:</p>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb560-1"><a href="advanced-control-flow.html#cb560-1" tabindex="-1"></a><span class="co"># Apply the function square_plus_one to every element in x</span></span>
+<span id="cb560-2"><a href="advanced-control-flow.html#cb560-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
+<span id="cb560-3"><a href="advanced-control-flow.html#cb560-3" tabindex="-1"></a></span>
+<span id="cb560-4"><a href="advanced-control-flow.html#cb560-4" tabindex="-1"></a><span class="co"># w is a list</span></span>
+<span id="cb560-5"><a href="advanced-control-flow.html#cb560-5" tabindex="-1"></a><span class="fu">mode</span>(w)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;list&quot;</code></pre>
+<p><code>lapply</code> and <code>sapply</code> can also be used if the function doesn’t always return the same type or length of data. Here’s an example:</p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb562-1"><a href="advanced-control-flow.html#cb562-1" tabindex="-1"></a>make_vector <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
+<span id="cb562-2"><a href="advanced-control-flow.html#cb562-2" tabindex="-1"></a>  <span class="co"># Make a vector of length n numbered from 1 to n</span></span>
+<span id="cb562-3"><a href="advanced-control-flow.html#cb562-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb562-4"><a href="advanced-control-flow.html#cb562-4" tabindex="-1"></a>}</span>
+<span id="cb562-5"><a href="advanced-control-flow.html#cb562-5" tabindex="-1"></a></span>
+<span id="cb562-6"><a href="advanced-control-flow.html#cb562-6" tabindex="-1"></a><span class="co"># Apply make_vector to each element of x:</span></span>
+<span id="cb562-7"><a href="advanced-control-flow.html#cb562-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">6</span>)</span>
+<span id="cb562-8"><a href="advanced-control-flow.html#cb562-8" tabindex="-1"></a><span class="fu">lapply</span>(x, make_vector)</span></code></pre></div>
+<pre class="output-style"><code>[[1]]
+[1] 1 2
+
+[[2]]
+[1] 1 2
+
+[[3]]
+[1] 1 2 3
+
+[[4]]
+[1] 1
+
+[[5]]
+[1] 1 2 3 4 5 6</code></pre>
+<p>The differences between <code>lapply</code> and <code>sapply</code> (and other functions in the apply family) can be subtle and very confusing at times, even after reading the documentation using <code>?lapply</code>, but here is one way they are different:</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb564-1"><a href="advanced-control-flow.html#cb564-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb564-2"><a href="advanced-control-flow.html#cb564-2" tabindex="-1"></a></span>
+<span id="cb564-3"><a href="advanced-control-flow.html#cb564-3" tabindex="-1"></a>l <span class="ot">&lt;-</span> <span class="fu">lapply</span>(x, square_plus_one)</span>
+<span id="cb564-4"><a href="advanced-control-flow.html#cb564-4" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(l))</span>
+<span id="cb564-5"><a href="advanced-control-flow.html#cb564-5" tabindex="-1"></a></span>
+<span id="cb564-6"><a href="advanced-control-flow.html#cb564-6" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sapply</span>(x, square_plus_one)</span>
+<span id="cb564-7"><a href="advanced-control-flow.html#cb564-7" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mode</span>(s))</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;list&quot;
+[1] &quot;numeric&quot;</code></pre>
+<p>The input <code>x</code> started as a list, so the default return of <code>lapply</code> is a list.
+However, <code>sapply</code> simplified the result to a vector.
+If you know the type of data that will be returned, you can use the <code>vapply</code> function, which can be faster than <code>sapply</code> in some cases.</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb566-1"><a href="advanced-control-flow.html#cb566-1" tabindex="-1"></a>ch <span class="ot">&lt;-</span> <span class="fu">vapply</span>(x, square_plus_one, <span class="dv">1</span>)</span></code></pre></div>
+<p>Here we’ve supplied an extra argument (<code>1</code>) to tell R that the elements will be numeric types.</p>
+<div class="caution">
+<p>
+The differences between <code>lapply</code>, <code>sapply</code>, and
+<code>vapply</code> are not easy to understand, especially because they
+give the same results sometimes. A simple yet imperfect rule is that
+<code>sapply</code> will work in most cases, but you can use
+<code>lapply</code> if you don’t want lists to be simplified, and use
+<code>vapply</code> if you know what type the result will be.
+</p>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<div id="applying-over-multiple-dimensions" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Applying Over Multiple Dimensions<a href="advanced-control-flow.html#applying-over-multiple-dimensions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we want to find the variance of each row of a matrix.
+The <code>lapply</code> or <code>sapply</code> only work on each <em>element</em> of a matrix, not each row.
+For this, we need the <code>apply</code> function:</p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb567-1"><a href="advanced-control-flow.html#cb567-1" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>), <span class="dv">3</span>, <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
+<span id="cb567-2"><a href="advanced-control-flow.html#cb567-2" tabindex="-1"></a></span>
+<span id="cb567-3"><a href="advanced-control-flow.html#cb567-3" tabindex="-1"></a><span class="fu">apply</span>(m, <span class="dv">1</span>, var)</span></code></pre></div>
+<pre class="output-style"><code>[1] 0 1 4</code></pre>
+<p>The arguments to this function are:</p>
+<ul>
+<li><code>m</code>: The matrix to be iterated over</li>
+<li><code>1</code>: The axis to iterate over</li>
+<li><code>var</code>: The function to apply over the axis</li>
+</ul>
+</div>
+<div id="applying-over-data-frame-groups" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Applying Over Data Frame Groups<a href="advanced-control-flow.html#applying-over-data-frame-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lastly, we’ll show how you can apply a function to each group specified by a grouping variable.
+Suppose we wanted to add the COVID deaths across all Age groups for <em>each state</em>.
+Then we could use the <code>tapply</code> function, with <code>COVID.19.Deaths</code> as the vector to iterate over, <code>State</code> as the grouping variable, and <code>sum</code> as the function to use.
+Here’s the result:</p>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb569-1"><a href="advanced-control-flow.html#cb569-1" tabindex="-1"></a>state_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>State, sum, <span class="at">na.rm =</span> T)</span>
+<span id="cb569-2"><a href="advanced-control-flow.html#cb569-2" tabindex="-1"></a><span class="fu">sort</span>(state_deaths)</span></code></pre></div>
+<pre class="output-style"><code>              Alaska               Hawaii              Montana 
+                   0                    0                    0 
+             Wyoming          Puerto Rico              Vermont 
+                   0                   13                   26 
+        South Dakota         North Dakota        West Virginia 
+                  68                   91                   93 
+               Idaho                Maine                 Utah 
+                 107                  107                  183 
+              Oregon             Nebraska               Kansas 
+                 232                  270                  302 
+            Arkansas        New Hampshire             Oklahoma 
+                 332                  367                  398 
+          New Mexico             Delaware               Nevada 
+                 502                  503                  567 
+District of Columbia             Kentucky            Tennessee 
+                 633                  644                  656 
+                Iowa            Wisconsin         Rhode Island 
+                 762                  810                  912 
+      South Carolina             Missouri          Mississippi 
+                 957                 1001                 1193 
+      North Carolina           Washington              Alabama 
+                1205                 1223                 1244 
+           Minnesota             Colorado             Virginia 
+                1469                 1623                 2062 
+             Arizona              Georgia                 Ohio 
+                2430                 2534                 2686 
+             Indiana            Louisiana             Maryland 
+                2719                 3082                 3607 
+               Texas          Connecticut              Florida 
+                3693                 4007                 4331 
+            Michigan             Illinois           California 
+                5588                 6637                 7089 
+        Pennsylvania        Massachusetts             New York 
+                7216                 7741                11238 
+          New Jersey        New York City        United States 
+               13806                20450               260495 </code></pre>
+<p>Here we also had to specify the <code>na.rm=T</code> parameter so that <code>NA</code> values are removed when computing the sum.
+Remember that these totals may not match the <code>All Ages</code> number from each state, because some counts are suppressed.
+Here’s another example where we sum the deaths across all states for <em>each Age group</em></p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb571-1"><a href="advanced-control-flow.html#cb571-1" tabindex="-1"></a><span class="co"># Remove US total numbers first</span></span>
+<span id="cb571-2"><a href="advanced-control-flow.html#cb571-2" tabindex="-1"></a>covid <span class="ot">&lt;-</span> covid[covid<span class="sc">$</span>State <span class="sc">!=</span> <span class="st">&quot;United States&quot;</span>,]</span>
+<span id="cb571-3"><a href="advanced-control-flow.html#cb571-3" tabindex="-1"></a></span>
+<span id="cb571-4"><a href="advanced-control-flow.html#cb571-4" tabindex="-1"></a>agegroup_deaths <span class="ot">&lt;-</span> <span class="fu">tapply</span>(covid<span class="sc">$</span>COVID.<span class="fl">19.</span>Deaths, covid<span class="sc">$</span>Age.group, sum, <span class="at">na.rm=</span>T)</span>
+<span id="cb571-5"><a href="advanced-control-flow.html#cb571-5" tabindex="-1"></a><span class="fu">sort</span>(agegroup_deaths)</span></code></pre></div>
+<pre class="output-style"><code>        1-4 years        5-14 years      Under 1 year       15-24 years 
+                0                 0                 0                54 
+      25-34 years       35-44 years       45-54 years       55-64 years 
+              730              2246              6451             15821 
+      65-74 years       75-84 years 85 years and over 
+            27117             34351             42639 </code></pre>
+<p>Remember that these totals may not match the <code>United States</code> values from the dataset because some counts are suppressed.</p>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Advanced%20Control%20Flow">here</a>
 </p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="writing-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-popular-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

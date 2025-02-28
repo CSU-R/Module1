@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>4.4 R Objects | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="4.4 R Objects | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="4.4 R Objects | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="data-structures.html"/>
+<link rel="next" href="working-with-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,59 +341,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>28 Feb, 2025, 08:49 AM</em></p>
+<div id="r-objects" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> R Objects<a href="r-objects.html#r-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="reflect">
+<p>
+Wherever you are right now, look around your environment. Pick an
+object and study its attributes. It probably has a shape, a color, a
+weight, and many other ways of describing it. Now pick another object,
+and note how it is different than the first in terms of its attributes.
+What does the word “object” really mean? It’s often easier to give
+examples than to give a precise definition, but generally objects are
+“things you can do things with”. That is, you can usually look at them,
+touch them, smell them, and move them around (when appropriate/possible,
+of course!). Another useful definition is that objects are
+<em>nouns</em>. Different objects have different purposes and
+attributes. Many of these ideas will be true for R objects as well.
+</p>
 </div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
+<p>We’ve already introduced the concepts of objects in R in passing, but here we briefly focus on what they are and how to work with them.</p>
+<div class="assessment">
+<p>
+Download the <a
+href="assignment_templates/progress_check_3.rmd">progress check 3
+template</a> into your <code>scripts</code> folder, and follow the
+instructions. That document should include all progress reports from
+Section 4.4 through (and including) Section 5.4
+</p>
+</div>
+<div id="everything-is-an-object-in-r" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> <em>Everything</em> is an object in R<a href="r-objects.html#everything-is-an-object-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What exactly is an object in R?
+As in real life, it can be difficult to give a definition, but easier to give examples.
+Here are some examples of objects in R:</p>
 <ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
+<li>A numeric variable</li>
+<li>A vector</li>
+<li>A matrix</li>
+<li>A list</li>
+<li>A data frame</li>
+<li>A <em>function</em></li>
 </ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
-<p class="caption">
-Figure 1.1: Left and right navigation arrows
+<p>This list is not exhaustive, but most objects we deal with will look like one of these.</p>
+<div class="bonus">
+<p>
+In many programming languages, functions are handled differently from
+other types of objects (i.e. they are not “first class” objects). In R,
+they are treated the same as any other type of object. You can assign
+them to variables, pass them to other functions, and can be returned
+from a function. This is similar to the behavior of Java and Python, but
+different from C.
 </p>
 </div>
 </div>
+<div id="assigning-objects" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Assigning Objects<a href="r-objects.html#assigning-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Any object can be assigned to a variable, as we’ve been doing already.
+Here’s an example:</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb301-1"><a href="r-objects.html#cb301-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;pink pineapple&quot;</span></span></code></pre></div>
+<p>The <code>&lt;-</code> is called an <em>assignment operator</em>.
+This is the most common way of assigning objects in R, but there are others.
+Sometimes you may see:</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb302-1"><a href="r-objects.html#cb302-1" tabindex="-1"></a>a <span class="ot">=</span> <span class="st">&quot;pink pineapple&quot;</span></span></code></pre></div>
+<p>which in <em>most cases</em>, has the exact same effect as using the <code>&lt;-</code>, but in a few instances, it has a different effect.
+Our recommendation is to always use <code>&lt;-</code> when making object assignments.</p>
+<div class="bonus">
+<p>
+There are other assignment operators as well, <code>&lt;&lt;-</code>,
+<code>-&gt;&gt;</code>, and <code>-&gt;</code>, but we will not discuss
+these. You can find out more with the command
+<code>?assignOps</code>.
+</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<p>One neat thing you can do is assign multiple variables at the same time:</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb303-1"><a href="r-objects.html#cb303-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> b <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb304-1"><a href="r-objects.html#cb304-1" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb306-1"><a href="r-objects.html#cb306-1" tabindex="-1"></a>b</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;Hello&quot;</code></pre>
+<div class="caution">
+<p>
+Even though <code>a</code> and <code>b</code> were assigned at the
+same time, they are still different! So if you change <code>a</code>
+with <code>a &lt;- “goodbye”</code>, then the value of <code>b</code>
+will still be <code>“Hello”</code>.
+</p>
+</div>
+</div>
+<div id="attributes" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Attributes<a href="r-objects.html#attributes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Every object in R has <em>attributes</em>, extra information that’s “attached” to the object.
+<em>Every object</em> has a length attribute:</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb308-1"><a href="r-objects.html#cb308-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb308-2"><a href="r-objects.html#cb308-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;bonjour&quot;</span>, <span class="st">&quot;au revoir&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb309-1"><a href="r-objects.html#cb309-1" tabindex="-1"></a><span class="fu">length</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] 4</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb311-1"><a href="r-objects.html#cb311-1" tabindex="-1"></a><span class="fu">length</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] 2</code></pre>
+<div class="progress">
+<p>
+<em>Every object</em> has a length. Try creating an example of the
+following and examining the length:
+</p>
+<ol style="list-style-type: decimal">
+<li>
+A logical vector with 5 elements
+</li>
+<li>
+A 2 x 2 matrix
+</li>
+<li>
+The <code>mtcars</code> dataframe
+</li>
 </ol>
 </div>
+<p>Every R object has a <em>mode</em> as well, which tells you what <em>type</em> of object you have.
+Here are some examples:</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb313-1"><a href="r-objects.html#cb313-1" tabindex="-1"></a><span class="fu">mode</span>(a)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb315-1"><a href="r-objects.html#cb315-1" tabindex="-1"></a><span class="fu">mode</span>(b)</span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;character&quot;</code></pre>
+<p>Aside from these two attributes, you can list all attributes of an object like this:</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb317-1"><a href="r-objects.html#cb317-1" tabindex="-1"></a><span class="fu">attributes</span>(mtcars)</span></code></pre></div>
+<pre class="output-style"><code>$names
+ [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
+[11] &quot;carb&quot;
+
+$row.names
+ [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;         
+ [4] &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;            
+ [7] &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
+[10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;         
+[13] &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
+[16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
+[19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
+[22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;         
+[25] &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
+[28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
+[31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;         
+
+$class
+[1] &quot;data.frame&quot;</code></pre>
+<p>To access a specific attribute of an object, you can do this:</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb319-1"><a href="r-objects.html#cb319-1" tabindex="-1"></a><span class="fu">attr</span>(mtcars, <span class="st">&quot;class&quot;</span>)  <span class="co"># Get the class attribute for the mtcars data frame</span></span></code></pre></div>
+<pre class="output-style"><code>[1] &quot;data.frame&quot;</code></pre>
+</div>
+<div id="null-objects" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Null Objects<a href="r-objects.html#null-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There is a special object called the <code>NULL</code> object, which really just represents “nothing”.
+It’s used mainly if you want to <em>remove</em> an element from a list:</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb321-1"><a href="r-objects.html#cb321-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb321-2"><a href="r-objects.html#cb321-2" tabindex="-1"></a>a[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># Replace component 2 with &quot;nothing&quot;</span></span>
+<span id="cb321-3"><a href="r-objects.html#cb321-3" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="output-style"><code>[[1]]
+[1] 1
+
+[[2]]
+[1] 3</code></pre>
+<p>Or if a function is supposed to return but doesn’t have an object to return (more on this later when we discuss functions).</p>
+</div>
+<div id="removing-objects" class="section level3 hasAnchor" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Removing Objects<a href="r-objects.html#removing-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sometimes you want to <em>get rid</em> of an object!
+In R, you can use the <code>rm</code> function like so:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb323-1"><a href="r-objects.html#cb323-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;an object&quot;</span></span>
+<span id="cb323-2"><a href="r-objects.html#cb323-2" tabindex="-1"></a><span class="fu">rm</span>(a)</span>
+<span id="cb323-3"><a href="r-objects.html#cb323-3" tabindex="-1"></a>a</span></code></pre></div>
+<pre class="sourceCode r error-style"><code>Error: object 'a' not found
+</code></pre>
+<p>As you can see, the error message indicates that <code>a</code> has been removed.
+Sometimes, you’d like to remove all the objects in your environment.
+To do this, you can use the command:</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb324-1"><a href="r-objects.html#cb324-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code></pre></div>
+<div class="video">
+<p>
+This video discusses objects.
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VrgoEoMo9ZM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<center>
+<strong><a href="https://youtu.be/VrgoEoMo9ZM" class="uri">https://youtu.be/VrgoEoMo9ZM</a></strong>
+</center>
+</div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=R%20Objects">here</a>
+</p>
+</div>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

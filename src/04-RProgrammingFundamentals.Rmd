@@ -853,7 +853,7 @@ z <- a > b  # compare a and b, element by element, assign the result to z
 z           # print the value of z
 ```
 The first logical value is the result of `a[1] < b[1]`, the second logical value is the result of `a[2] < b[2]`, etc. 
-what operations can we perform on character vectors?
+What operations can we perform on character vectors?
 Here are some examples:
 ```{r}
 z == TRUE  # which elements are TRUE?

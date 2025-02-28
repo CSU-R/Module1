@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Module 1</title>
+  <title>2.3 Running your first R Code | R Module 1</title>
   <meta name="description" content="This is the book for the R Intro Course at CSU." />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Module 1" />
+  <meta property="og:title" content="2.3 Running your first R Code | R Module 1" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the book for the R Intro Course at CSU." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Module 1" />
+  <meta name="twitter:title" content="2.3 Running your first R Code | R Module 1" />
   
   <meta name="twitter:description" content="This is the book for the R Intro Course at CSU." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="associated-csu-course.html"/>
+<link rel="prev" href="course-topics-syllabus.html"/>
+<link rel="next" href="getoutoftheclass.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,59 +341,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Module 1</h1>
-<p class="author"><em>Alex Fout<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
-<p class="author"><em>Lane Drew<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></em></p>
-<p class="date"><em>28 Feb, 2025, 08:49 AM</em></p>
-</div>
-<div id="welcome" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Welcome!<a href="index.html#welcome" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Hi, and welcome to the R Module 1 (AKA STAT 158) course at Colorado State University!</p>
-<p>This course is the first of three 1 credit courses intended to introduce the R programming language to those with little or no programming experience.</p>
-<p>Through these Modules (courses), we’ll explore how R can be used to do the following:</p>
-<ol style="list-style-type: decimal">
-<li>Perform basic computations and logic, just like any other programming language</li>
-<li>Load, clean, analyze, and visualize data</li>
-<li>Run scripts</li>
-<li>Create reproducible reports so you can explain your work in a narrative form</li>
-</ol>
-<p>In addition, you’ll also be exposed to some aspects of the broader R community, including:</p>
-<ol style="list-style-type: decimal">
-<li>R as free, open source software</li>
-<li>The free RStudio IDE</li>
-<li>Publicly available packages which extend the capability of R</li>
-<li>Events and community groups which advocate for the use of R and the support of R users</li>
-</ol>
-<p>More detail will be provided in the Course Topics laid out in the next chapter.</p>
-<div id="how-to-navigate-this-book" class="section level3 hasAnchor" number="1.0.1">
-<h3><span class="header-section-number">1.0.1</span> How To Navigate This Book<a href="index.html#how-to-navigate-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-To move quickly to different portions of the book, click on the appropriate chapter or section in the the table of contents on the left.
-The buttons at the top of the page allow you to show/hide the table of contents, search the book, change font settings, download a pdf or ebook copy of this book, or get hints on various sections of the book.
-The faint left and right arrows at the sides of each page (or bottom of the page if it’s narrow enough) allow you to step to the next/previous section.
-Here’s what they look like:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="src/images/left_arrow.png" alt="Left and right navigation arrows"  /><img src="src/images/right_arrow.png" alt="Left and right navigation arrows"  />
+<div id="running-your-first-r-code" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Running your first R Code<a href="running-your-first-r-code.html#running-your-first-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Enough of the boring stuff, let’s run some R code!
+Normally you will run R on your computer, but since you may not have R installed yet, let’s run some R code using a website first.
+As you run code, you’ll see some of the things R can do.
+In a browser, navigate to <a href="https://rdrr.io/snippets/" target="_blank">rdrr.io/snippets</a>, where you’ll see a box that looks like this:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="src/images/rdrr.png" alt="rdrr code entry box"  />
 <p class="caption">
-Figure 1.1: Left and right navigation arrows
+Figure 2.2: rdrr code entry box
 </p>
 </div>
+<p>The box comes with some code entered already, but we want to use our own code instead, so delete all the text, from before <code>library(ggplot2)</code> to after <code>factor(cyl))</code>.
+In its place, type <code>1+1</code>, then click the big green “Run” button.
+You should see the <code>[1] 2</code> displayed below.
+So if you give R a math expression, it will evaluate it and give the result.
+Note: the “correct answer” to <span class="math inline">\(1+1\)</span> is <code>2</code>, but the output also displays <code>[1]</code>, which we won’t explain until later, so you can ignore that for now.</p>
+<p>Next, delete the code you just wrote and type (or copy/paste) the following, and run it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb3-1"><a href="running-your-first-r-code.html#cb3-1" tabindex="-1"></a><span class="fu">factorial</span>(<span class="dv">10</span>)</span></code></pre></div>
+<p>The result should be a very large number, which is equivalent to <span class="math inline">\(10!\)</span>, that is, <span class="math inline">\(10\times9\times8\times7\times6\times5\times4\times3\times2\times1\)</span>.
+This is an example of an R <em>function</em>, which we will discuss more later.</p>
+<p>Aside from math, R can produce plots. Try copy/pasting the following code into the website:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb4-1"><a href="running-your-first-r-code.html#cb4-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb4-2"><a href="running-your-first-r-code.html#cb4-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<p>You should see points in a scatter plot which follow a parabola.
+Here’s a more complicated example, which you should copy/paste into the website and run:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r chunk-style"><code class="sourceCode r"><span id="cb5-1"><a href="running-your-first-r-code.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="running-your-first-r-code.html#cb5-2" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb5-3"><a href="running-your-first-r-code.html#cb5-3" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">y =</span> mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(cyl))) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="running-your-first-r-code.html#cb5-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="running-your-first-r-code.html#cb5-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Engine Fuel Efficiency vs. Number of Cylinders&quot;</span>,</span>
+<span id="cb5-6"><a href="running-your-first-r-code.html#cb5-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;MPG&quot;</span>, </span>
+<span id="cb5-7"><a href="running-your-first-r-code.html#cb5-7" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Cylinders&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb5-8"><a href="running-your-first-r-code.html#cb5-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb5-9"><a href="running-your-first-r-code.html#cb5-9" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a href="running-your-first-r-code.html#cb5-10" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<p>R can be used to make many types of visualizations, which you will do more of later.</p>
+<div class="bonus">
+<p>
+This may be the first time you’ve seen R, so it’s okay if you don’t
+understand how to read this code. We’ll talk more later about what each
+statement is doing, but for now, here is a brief description of some of
+the code above:
+</p>
+<ul>
+<li>
+<span style="color:black"><code>-10:10</code><span> This creates a
+sequence of numbers starting from -10 and ending at 10. That is,
+<span style="color:black"><span class="math inline"><span class="math inline">\(-10, -9, -8,
+\ldots, 8, 9, 10\)</span></span><span>.
+</li>
+<li>
+<span style="color:black"><code>library</code><span> This is a
+function which loads an R <em>package</em>. R packages provide extra
+abilities to R.
+</li>
+</ul>
 </div>
+<div class="feedback">
+<p>
+Any feedback for this section? Click <a
+href="https://docs.google.com/forms/d/e/1FAIpQLSePQZ3lIaCIPo9J2owXImHZ_9wBEgTo21A0s-A1ty28u4yfvw/viewform?entry.1684471501=Running%20Your%20First%20R%20Code">here</a>
+</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Department of Statistics, Colorado State University, <a href="mailto:fout@colostate.edu" class="email">fout@colostate.edu</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Department of Statistics, Colorado State University, <a href="mailto:lane.drew@colostate.edu" class="email">lane.drew@colostate.edu</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="associated-csu-course.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="course-topics-syllabus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getoutoftheclass.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
